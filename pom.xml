@@ -29,6 +29,8 @@
 		<module>org.nasdanika.codegen.edit</module>
 		<module>org.nasdanika.codegen.editor</module>
 		<module>org.nasdanika.codegen.feature</module>
+		
+		<module>org.nasdanika.codegen.repository</module>
 
 	</modules>
 </project>
