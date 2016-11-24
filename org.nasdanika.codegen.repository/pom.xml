@@ -5,10 +5,10 @@
 	<name>Nasdanika Repository</name>
 	<packaging>eclipse-repository</packaging>
 	<parent>
-		<groupId>org.nasdanika</groupId>
+		<groupId>org.nasdanika.codegen</groupId>
 		<artifactId>org.nasdanika.codegen.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>../org.nasdanika.parent</relativePath>
+		<relativePath>../org.nasdanika.codegen.parent</relativePath>
 	</parent>
 	<build>
 		<plugins>
