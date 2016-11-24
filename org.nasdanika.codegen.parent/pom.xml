@@ -31,11 +31,6 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>jetty</id>
-			<url>http://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.3.9.v20160517</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
 			<id>third-party</id>
 			<url>http://www.nasdanika.org/third-party/org.nasdanika.third-party.repository/target/repository</url>
 			<!-- <url>http://www.nasdanika.org/third_party_repository</url> -->
@@ -44,11 +39,6 @@
 		<repository>
 			<id>maven-osgi</id>
 			<url>http://www.nasdanika.org/maven-osgi</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>slf4j</id>
-			<url>http://www.nasdanika.org/slf4j</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
