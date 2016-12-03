@@ -356,7 +356,7 @@
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContentReference">
+  <eClassifiers xsi:type="ecore:EClass" name="ContentReference" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Reference (URL) to a content residing elsewhere, e.g. a template in a version control&#xD;&#xA;system available for download over HTTP."/>
     </eAnnotations>
@@ -559,6 +559,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptedStreamFilter">
     <eGenericSuperTypes eClassifier="#//ScriptedFilter">
+      <eTypeArguments eClassifier="#//InputStream"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextContentReference">
+    <eGenericSuperTypes eClassifier="#//ContentReference">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StreamContentReference">
+    <eGenericSuperTypes eClassifier="#//ContentReference">
       <eTypeArguments eClassifier="#//InputStream"/>
     </eGenericSuperTypes>
   </eClassifiers>

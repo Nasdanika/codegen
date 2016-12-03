@@ -3,6 +3,7 @@
 package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.HashMap;
@@ -170,12 +171,6 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated NOT
 	 */
 	public Context createContext(Context parent) throws Exception {
-		// Base URL
-		URL baseURL = null; // TODO - resolve model URL
-		if (getBaseURL() != null && getBaseURL().trim().length() > 0) {
-			baseURL = new URL(baseURL, getBaseURL());
-		}
-		
 		// Includes
 		// TODO - implement
 		if (!getIncludes().isEmpty()) {
@@ -190,7 +185,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		// ClassLoader
 		URL[] classPathURLs = getClassPath().isEmpty() ? null : new URL[getClassPath().size()];
 		for (int i = 0; i < getClassPath().size(); ++i) {
-			classPathURLs[i] = new URL(baseURL, getClassPath().get(i));
+			classPathURLs[i] = new URL(resolveBaseURL(), getClassPath().get(i));
 		}
 		ClassLoader classLoader = classPathURLs == null ? parent.getClassLoader() : new URLClassLoader(classPathURLs, parent.getClassLoader());
 				
@@ -379,4 +374,26 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		return super.eInvoke(operationID, arguments);
 	}
 
+	/**
+	 * Resolves base URL
+	 * @return
+	 * @throws Exception
+	 */
+	protected URL resolveBaseURL() throws Exception {		
+		URL baseURL = null;
+		if (eContainer() instanceof ConfigurationImpl) {
+			baseURL = ((ConfigurationImpl) eContainer()).resolveBaseURL();
+		} else {
+			try {
+				baseURL = new URL(eResource().getURI().toString());
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (getBaseURL() != null && getBaseURL().trim().length() > 0) {
+			baseURL = new URL(baseURL, getBaseURL());
+		}
+		return baseURL;
+	}
+	
 } //ConfigurationImpl

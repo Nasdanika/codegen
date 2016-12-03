@@ -3,14 +3,19 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +30,7 @@ import org.nasdanika.codegen.Work;
  *
  * @generated
  */
-public class ContentReferenceImpl<T> extends GeneratorImpl<T> implements ContentReference<T> {
+public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implements ContentReference<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,17 +67,29 @@ public class ContentReferenceImpl<T> extends GeneratorImpl<T> implements Content
 	public void setRef(String newRef) {
 		eSet(CodegenPackage.Literals.CONTENT_REFERENCE__REF, newRef);
 	}
-
+		
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
 	@Override
-	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getRef() == null || getRef().trim().length() == 0) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Content reference is not set",
+						 new Object [] { this }));
+				
+				result = false;
+			}
+		}
+		return result;
+	}	
+	
 } //ContentReferenceImpl

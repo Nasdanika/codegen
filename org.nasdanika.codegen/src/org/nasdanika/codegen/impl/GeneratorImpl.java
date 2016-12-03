@@ -122,14 +122,14 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 * @return work or null.
 	 * @throws Exception
 	 */
-	protected abstract Work<List<T>> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception;	
+	protected abstract Work<T> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception;	
 
 	@Override
 	final public Work<List<T>> createWork(Context context, IProgressMonitor monitor) throws Exception {
-		List<Work<List<T>>> allWork = new ArrayList<>();
+		List<Work<T>> allWork = new ArrayList<>();
 		int[] totalWork = {0};
 		for (Context iCtx: iterate(context)) {
-			Work<List<T>> iWork = doCreateWork(iCtx, monitor);
+			Work<T> iWork = doCreateWork(iCtx, monitor);
 			if (iWork != null) {
 				allWork.add(iWork);
 				totalWork[0] += iWork.size();
@@ -147,11 +147,11 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			public List<T> execute(IProgressMonitor monitor) throws Exception {
 				List<T> ret = new ArrayList<>();
 				SubMonitor sm = SubMonitor.convert(monitor, size());
-				for (Work<List<T>> iWork: allWork) {
+				for (Work<T> iWork: allWork) {
 					if (iWork != null) {
-						List<T> iResult = iWork.execute(sm.split(iWork.size()));
+						T iResult = iWork.execute(sm.split(iWork.size()));
 						if (iResult != null) {
-							ret.addAll(iResult);
+							ret.add(iResult);
 						}
 					}
 				}

@@ -126,11 +126,12 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		eSet(JavaPackage.Literals.COMPILATION_UNIT__FORMAT, newFormat);
 	}
 	
-	protected ICompilationUnit generateCompilationUnit(Context context, IPackageFragment packageFragment, String content, IProgressMonitor monitor) throws Exception {	
+	protected ICompilationUnit generateCompilationUnit(Context context, String content, IProgressMonitor monitor) throws Exception {		
 		String interpolatedName = CodegenUtil.interpolate(getName(), context);
 		if (!interpolatedName.endsWith(JAVA_EXTENSION)) {
 			interpolatedName += JAVA_EXTENSION;
 		}
+		IPackageFragment packageFragment = context.get(IPackageFragment.class);		
 		ICompilationUnit compilationUnit = packageFragment.getCompilationUnit(interpolatedName);
 		if (compilationUnit.exists()) {						
 			ICompilationUnit workingCopy = compilationUnit.getWorkingCopy(monitor);
@@ -168,7 +169,9 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 				workingCopy.commitWorkingCopy(false, monitor);
 			} finally {
 				workingCopy.discardWorkingCopy();
-			}					
+			}	
+			
+			return compilationUnit;
 		}
 		
 		return packageFragment.createCompilationUnit(interpolatedName, formatCompilationUnit(packageFragment.getJavaProject(), content), false, monitor);
@@ -193,8 +196,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		}
 		return content;
 	}
-	
-		
+			
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,7 +221,6 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		return result;
 	}	
 	
-
 } //CompilationUnitImpl
 
 

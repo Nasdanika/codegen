@@ -146,6 +146,8 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ScriptedTextFilter"/>
     <genClasses ecoreClass="codegen.ecore#//ScriptedStreamFilter"/>
+    <genClasses ecoreClass="codegen.ecore#//TextContentReference"/>
+    <genClasses ecoreClass="codegen.ecore#//StreamContentReference"/>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>
