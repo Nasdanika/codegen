@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SubContext implements Context {
+public class MutableContext implements Context {
 		
 	private Map<Class<?>, Object> services = new HashMap<>();
 	private Map<String, Object> properties = new HashMap<>();
 	private Context[] parents;
 	private ClassLoader classLoader;
 	
-	public SubContext(Context... parents) {
+	public MutableContext(Context... parents) {
 		this.parents = parents;
 	}
 
-	public SubContext set(String name, Object value) {
+	public MutableContext set(String name, Object value) {
 		if (value == null) {
 			properties.remove(name);
 		} else {
@@ -24,7 +24,7 @@ public class SubContext implements Context {
 		return this;		
 	}
 	
-	public <T> SubContext set(Class<T> type, T service) {
+	public <T> MutableContext set(Class<T> type, T service) {
 		if (service == null) {
 			services.remove(type);
 		} else {
@@ -87,16 +87,16 @@ public class SubContext implements Context {
 		return null;
 	}
 	
-	public SubContext setClassLoader(ClassLoader classLoader) {
+	public MutableContext setClassLoader(ClassLoader classLoader) {
 		this.classLoader = classLoader;
 		return this;
 	}
 			
 	/**
-	 * @return New instance of {@link SubContext} with context as parent.
+	 * @return New instance of {@link MutableContext} with context as parent.
 	 */
-	public SubContext createSubContext() {
-		return new SubContext(this);
+	public MutableContext createSubContext() {
+		return new MutableContext(this);
 	}
 	
 	// TODO - Autocloseable - cascade-close sub-contexts (track them) and properties/services.

@@ -4,9 +4,11 @@ package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.BinaryFile;
@@ -51,6 +53,12 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	public int getWorkFactorySize() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO Auto-generated method stub
+		return super.validate(diagnostics, context);
 	}
 
 } //BinaryFileImpl

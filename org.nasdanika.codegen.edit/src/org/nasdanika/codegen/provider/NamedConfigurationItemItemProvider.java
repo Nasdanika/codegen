@@ -15,22 +15,22 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Service;
+import org.nasdanika.codegen.NamedConfigurationItem;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.Service} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.NamedConfigurationItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceItemProvider extends ValueConfigurationItemItemProvider {
+public class NamedConfigurationItemItemProvider extends ConfigurationItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceItemProvider(AdapterFactory adapterFactory) {
+	public NamedConfigurationItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,25 +45,25 @@ public class ServiceItemProvider extends ValueConfigurationItemItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceTypePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Service Type feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addServiceTypePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Service_serviceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Service_serviceType_feature", "_UI_Service_type"),
-				 CodegenPackage.Literals.SERVICE__SERVICE_TYPE,
+				 getString("_UI_NamedConfigurationItem_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedConfigurationItem_name_feature", "_UI_NamedConfigurationItem_type"),
+				 CodegenPackage.Literals.NAMED_CONFIGURATION_ITEM__NAME,
 				 true,
 				 false,
 				 false,
@@ -73,16 +73,16 @@ public class ServiceItemProvider extends ValueConfigurationItemItemProvider {
 	}
 
 	/**
-	 * This returns Service.gif.
+	 * This returns NamedConfigurationItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Service"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NamedConfigurationItem"));
 	}
-	
+
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -91,10 +91,10 @@ public class ServiceItemProvider extends ValueConfigurationItemItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Service)object).getBaseURL();
+		String label = ((NamedConfigurationItem)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Service_type") :
-			getString("_UI_Service_type") + " " + label;
+			getString("_UI_NamedConfigurationItem_type") :
+			getString("_UI_NamedConfigurationItem_type") + " " + label;
 	}
 	
 
@@ -109,8 +109,8 @@ public class ServiceItemProvider extends ValueConfigurationItemItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Service.class)) {
-			case CodegenPackage.SERVICE__SERVICE_TYPE:
+		switch (notification.getFeatureID(NamedConfigurationItem.class)) {
+			case CodegenPackage.NAMED_CONFIGURATION_ITEM__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

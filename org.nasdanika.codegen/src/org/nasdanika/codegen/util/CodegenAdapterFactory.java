@@ -184,6 +184,14 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createJavaStreamGeneratorAdapter();
 			}
 			@Override
+			public Adapter caseValueConfigurationItem(ValueConfigurationItem object) {
+				return createValueConfigurationItemAdapter();
+			}
+			@Override
+			public Adapter caseNamedConfigurationItem(NamedConfigurationItem object) {
+				return createNamedConfigurationItemAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -606,6 +614,34 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaStreamGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ValueConfigurationItem <em>Value Configuration Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ValueConfigurationItem
+	 * @generated
+	 */
+	public Adapter createValueConfigurationItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.NamedConfigurationItem <em>Named Configuration Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.NamedConfigurationItem
+	 * @generated
+	 */
+	public Adapter createNamedConfigurationItemAdapter() {
 		return null;
 	}
 

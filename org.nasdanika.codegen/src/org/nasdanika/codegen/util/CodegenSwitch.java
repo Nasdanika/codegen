@@ -83,6 +83,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 			case CodegenPackage.SERVICE: {
 				Service service = (Service)theEObject;
 				T1 result = caseService(service);
+				if (result == null) result = caseValueConfigurationItem(service);
 				if (result == null) result = caseConfigurationItem(service);
 				if (result == null) result = caseConfiguration(service);
 				if (result == null) result = caseProvider(service);
@@ -92,6 +93,8 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 			case CodegenPackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T1 result = caseProperty(property);
+				if (result == null) result = caseValueConfigurationItem(property);
+				if (result == null) result = caseNamedConfigurationItem(property);
 				if (result == null) result = caseConfigurationItem(property);
 				if (result == null) result = caseConfiguration(property);
 				if (result == null) result = caseProvider(property);
@@ -336,6 +339,24 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseGenerator(javaStreamGenerator);
 				if (result == null) result = caseConfiguration(javaStreamGenerator);
 				if (result == null) result = caseWorkFactory(javaStreamGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.VALUE_CONFIGURATION_ITEM: {
+				ValueConfigurationItem valueConfigurationItem = (ValueConfigurationItem)theEObject;
+				T1 result = caseValueConfigurationItem(valueConfigurationItem);
+				if (result == null) result = caseConfigurationItem(valueConfigurationItem);
+				if (result == null) result = caseConfiguration(valueConfigurationItem);
+				if (result == null) result = caseProvider(valueConfigurationItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.NAMED_CONFIGURATION_ITEM: {
+				NamedConfigurationItem namedConfigurationItem = (NamedConfigurationItem)theEObject;
+				T1 result = caseNamedConfigurationItem(namedConfigurationItem);
+				if (result == null) result = caseConfigurationItem(namedConfigurationItem);
+				if (result == null) result = caseConfiguration(namedConfigurationItem);
+				if (result == null) result = caseProvider(namedConfigurationItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -775,6 +796,36 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseJavaStreamGenerator(JavaStreamGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Configuration Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Configuration Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseValueConfigurationItem(ValueConfigurationItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Configuration Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Configuration Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNamedConfigurationItem(NamedConfigurationItem object) {
 		return null;
 	}
 

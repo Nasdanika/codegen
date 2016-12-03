@@ -281,6 +281,11 @@ public class ConfigurationItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.CONFIGURATION__CONFIGURATION,
 				 CodegenFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONFIGURATION__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createNamedConfigurationItem()));
 	}
 
 	/**

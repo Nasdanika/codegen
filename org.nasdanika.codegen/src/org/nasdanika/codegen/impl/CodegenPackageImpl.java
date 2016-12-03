@@ -47,6 +47,7 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.Property;
@@ -58,6 +59,7 @@ import org.nasdanika.codegen.ResourceReference;
 import org.nasdanika.codegen.Service;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.ValueConfigurationItem;
 import org.nasdanika.codegen.Workspace;
 
 import org.nasdanika.codegen.java.JavaPackage;
@@ -278,6 +280,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass javaStreamGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueConfigurationItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedConfigurationItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -534,35 +550,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigurationItem_ValueType() {
-		return (EAttribute)configurationItemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConfigurationItem_Value() {
-		return (EAttribute)configurationItemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConfigurationItem_Default() {
-		return (EAttribute)configurationItemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getConfigurationItem_Description() {
-		return (EAttribute)configurationItemEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)configurationItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -590,15 +579,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EClass getProperty() {
 		return propertyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProperty_Name() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1011,6 +991,60 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getValueConfigurationItem() {
+		return valueConfigurationItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueConfigurationItem_ValueType() {
+		return (EAttribute)valueConfigurationItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueConfigurationItem_Value() {
+		return (EAttribute)valueConfigurationItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValueConfigurationItem_Default() {
+		return (EAttribute)valueConfigurationItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedConfigurationItem() {
+		return namedConfigurationItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedConfigurationItem_Name() {
+		return (EAttribute)namedConfigurationItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1161,16 +1195,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEOperation(configurationEClass, CONFIGURATION___CREATE_CONTEXT__CONTEXT);
 
 		configurationItemEClass = createEClass(CONFIGURATION_ITEM);
-		createEAttribute(configurationItemEClass, CONFIGURATION_ITEM__VALUE_TYPE);
-		createEAttribute(configurationItemEClass, CONFIGURATION_ITEM__VALUE);
-		createEAttribute(configurationItemEClass, CONFIGURATION_ITEM__DEFAULT);
 		createEAttribute(configurationItemEClass, CONFIGURATION_ITEM__DESCRIPTION);
 
 		serviceEClass = createEClass(SERVICE);
 		createEAttribute(serviceEClass, SERVICE__SERVICE_TYPE);
 
 		propertyEClass = createEClass(PROPERTY);
-		createEAttribute(propertyEClass, PROPERTY__NAME);
 
 		workFactoryEClass = createEClass(WORK_FACTORY);
 
@@ -1241,6 +1271,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		javaTextGeneratorEClass = createEClass(JAVA_TEXT_GENERATOR);
 
 		javaStreamGeneratorEClass = createEClass(JAVA_STREAM_GENERATOR);
+
+		valueConfigurationItemEClass = createEClass(VALUE_CONFIGURATION_ITEM);
+		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE_TYPE);
+		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE);
+		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__DEFAULT);
+
+		namedConfigurationItemEClass = createEClass(NAMED_CONFIGURATION_ITEM);
+		createEAttribute(namedConfigurationItemEClass, NAMED_CONFIGURATION_ITEM__NAME);
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
@@ -1315,8 +1353,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		configurationItemEClass.getEGenericSuperTypes().add(g1);
-		serviceEClass.getESuperTypes().add(this.getConfigurationItem());
-		propertyEClass.getESuperTypes().add(this.getConfigurationItem());
+		serviceEClass.getESuperTypes().add(this.getValueConfigurationItem());
+		propertyEClass.getESuperTypes().add(this.getValueConfigurationItem());
+		propertyEClass.getESuperTypes().add(this.getNamedConfigurationItem());
 		g1 = createEGenericType(this.getConfiguration());
 		generatorEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getWorkFactory());
@@ -1413,6 +1452,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		javaStreamGeneratorEClass.getEGenericSuperTypes().add(g1);
+		valueConfigurationItemEClass.getESuperTypes().add(this.getConfigurationItem());
+		namedConfigurationItemEClass.getESuperTypes().add(this.getConfigurationItem());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1428,16 +1469,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEException(op, this.getException());
 
 		initEClass(configurationItemEClass, ConfigurationItem.class, "ConfigurationItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfigurationItem_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, ConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConfigurationItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, ConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConfigurationItem_Default(), ecorePackage.getEBoolean(), "default", null, 0, 1, ConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigurationItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, ConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getService_ServiceType(), ecorePackage.getEString(), "serviceType", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -1535,6 +1572,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(javaStreamGeneratorEClass, JavaStreamGenerator.class, "JavaStreamGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(valueConfigurationItemEClass, ValueConfigurationItem.class, "ValueConfigurationItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValueConfigurationItem_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueConfigurationItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueConfigurationItem_Default(), ecorePackage.getEBoolean(), "default", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namedConfigurationItemEClass, NamedConfigurationItem.class, "NamedConfigurationItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedConfigurationItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.KEEP);
@@ -1583,7 +1628,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (configurationEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Container of configuration items - properties and services.\r\n"
+			 "documentation", "Container of configuration items - properties and services.\r\nGenerators extend configuration. Configuration can also be defined in a standalone model to be provided as input to generators.\r\n"
 		   });	
 		addAnnotation
 		  (getConfiguration__CreateContext__Context(), 
@@ -1637,25 +1682,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (configurationItemEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Configuration item contributes to the context of Configurable\r\nand can itself be configurable.\r\n\r\nConfiguration item can be configured with value or other configuration items. \r\nValue and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Blank value, no configuration items - default constructor, if exists.\r\n* Non-blank value, no configuration items - a constructor which takes String, if exists.\r\n* Blank value, configuration items - a constructor which takes Context, if exists.\r\n* Otherwise - a constructor which takes String and Context in any order.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```"
-		   });	
-		addAnnotation
-		  (getConfigurationItem_ValueType(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Configuration item value type. Defaults to ``java.lang.String``."
-		   });	
-		addAnnotation
-		  (getConfigurationItem_Value(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Configuration item value."
-		   });	
-		addAnnotation
-		  (getConfigurationItem_Default(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Regular configuration shadow/override configuration items defined in parent context(s),\r\ndefault configuration items, on the contrary, get shadowed by parent\'s configuration items\r\nwith the same keys."
+			 "documentation", "Configuration item contributes to the context of Configurable and can itself be configurable.\r\n"
 		   });	
 		addAnnotation
 		  (getConfigurationItem_Description(), 
@@ -1679,13 +1706,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (propertyEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Property is a configuration item keyed by a String."
-		   });	
-		addAnnotation
-		  (getProperty_Name(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Property name."
+			 "documentation", "Property is a valued configuration item keyed by a String."
 		   });	
 		addAnnotation
 		  (workFactoryEClass, 
@@ -2010,6 +2031,42 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "``InputStream`` binding of JavaGenerator."
+		   });	
+		addAnnotation
+		  (valueConfigurationItemEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Value configuration items can be configured with value in addition to configuration elements.\r\n\r\nValue and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Blank value, no configuration items - default constructor, if exists.\r\n* Non-blank value, no configuration items - a constructor which takes String, if exists.\r\n* Blank value, configuration items - a constructor which takes Context, if exists.\r\n* Otherwise - a constructor which takes String and Context in any order.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```"
+		   });	
+		addAnnotation
+		  (getValueConfigurationItem_ValueType(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Configuration item value type. Defaults to ``java.lang.String``."
+		   });	
+		addAnnotation
+		  (getValueConfigurationItem_Value(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Configuration item value."
+		   });	
+		addAnnotation
+		  (getValueConfigurationItem_Default(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Regular configuration shadow/override configuration items defined in parent context(s),\r\ndefault configuration items, on the contrary, get shadowed by parent\'s configuration items\r\nwith the same keys."
+		   });	
+		addAnnotation
+		  (namedConfigurationItemEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Named configuration is keyed by a String.\r\n\r\nNamed configuration item is facaded by Context at runtime. Properties of the named configuration item can be accessed using / separator, e.g. ``feature/includedFeatures``."
+		   });	
+		addAnnotation
+		  (getNamedConfigurationItem_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Property name."
 		   });
 	}
 

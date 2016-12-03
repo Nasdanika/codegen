@@ -486,6 +486,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.NamedConfigurationItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedConfigurationItemItemProvider namedConfigurationItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.NamedConfigurationItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedConfigurationItemAdapter() {
+		if (namedConfigurationItemItemProvider == null) {
+			namedConfigurationItemItemProvider = new NamedConfigurationItemItemProvider(this);
+		}
+
+		return namedConfigurationItemItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +625,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (javaStreamFilterItemProvider != null) javaStreamFilterItemProvider.dispose();
 		if (javaTextGeneratorItemProvider != null) javaTextGeneratorItemProvider.dispose();
 		if (javaStreamGeneratorItemProvider != null) javaStreamGeneratorItemProvider.dispose();
+		if (namedConfigurationItemItemProvider != null) namedConfigurationItemItemProvider.dispose();
 	}
 
 }

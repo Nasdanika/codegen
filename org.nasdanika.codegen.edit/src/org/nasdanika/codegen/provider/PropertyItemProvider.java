@@ -23,7 +23,7 @@ import org.nasdanika.codegen.Property;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyItemProvider extends ConfigurationItemItemProvider {
+public class PropertyItemProvider extends ValueConfigurationItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,9 +61,9 @@ public class PropertyItemProvider extends ConfigurationItemItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Property_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_name_feature", "_UI_Property_type"),
-				 CodegenPackage.Literals.PROPERTY__NAME,
+				 getString("_UI_NamedConfigurationItem_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedConfigurationItem_name_feature", "_UI_NamedConfigurationItem_type"),
+				 CodegenPackage.Literals.NAMED_CONFIGURATION_ITEM__NAME,
 				 true,
 				 false,
 				 false,

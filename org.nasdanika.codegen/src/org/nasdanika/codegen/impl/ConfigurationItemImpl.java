@@ -21,9 +21,6 @@ import org.nasdanika.codegen.Provider;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.ConfigurationItemImpl#getValueType <em>Value Type</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ConfigurationItemImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ConfigurationItemImpl#isDefault <em>Default</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ConfigurationItemImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -47,60 +44,6 @@ public abstract class ConfigurationItemImpl extends ConfigurationImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.CONFIGURATION_ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getValueType() {
-		return (String)eGet(CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE_TYPE, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValueType(String newValueType) {
-		eSet(CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE_TYPE, newValueType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getValue() {
-		return (String)eGet(CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(String newValue) {
-		eSet(CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isDefault() {
-		return (Boolean)eGet(CodegenPackage.Literals.CONFIGURATION_ITEM__DEFAULT, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefault(boolean newDefault) {
-		eSet(CodegenPackage.Literals.CONFIGURATION_ITEM__DEFAULT, newDefault);
 	}
 
 	/**

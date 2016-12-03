@@ -3,6 +3,12 @@
 package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -11,6 +17,9 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Configuration;
 import org.nasdanika.codegen.ConfigurationItem;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.NamedConfigurationItem;
+import org.nasdanika.codegen.Property;
+import org.nasdanika.codegen.Service;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +40,9 @@ import org.nasdanika.codegen.Context;
  * @generated
  */
 public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
+	private static final String PROPERTY_PATH_SEPARATOR = "/";
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,13 +143,157 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Context createContext(Context parent) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Base URL
+		URL baseURL = null; // TODO - resolve model URL
+		if (getBaseURL() != null && getBaseURL().trim().length() > 0) {
+			baseURL = new URL(baseURL, getBaseURL());
+		}
+		
+		// Includes
+		// TODO - implement
+		if (!getIncludes().isEmpty()) {
+			throw new UnsupportedOperationException("'includes' is not yet supported, feel free to implement and contribute ;-)");
+		}
+
+		// Include
+		for (Configuration inc: getInclude()) {
+			parent = inc.createContext(parent);
+		}
+		
+		// ClassLoader
+		URL[] classPathURLs = getClassPath().isEmpty() ? null : new URL[getClassPath().size()];
+		for (int i = 0; i < getClassPath().size(); ++i) {
+			classPathURLs[i] = new URL(baseURL, getClassPath().get(i));
+		}
+		ClassLoader classLoader = classPathURLs == null ? parent.getClassLoader() : new URLClassLoader(classPathURLs, parent.getClassLoader());
+				
+		// Configuration items
+		Map<String, Object> properties = new HashMap<>();
+		Map<String, Object> defaultProperties = new HashMap<>();
+		Map<String, Context> subContexts = new LinkedHashMap<>();
+		Map<Class<?>, Object> services = new HashMap<>();
+		Map<Class<?>, Object> defaultServices = new HashMap<>();
+				
+		final Context finalParent = parent;
+		
+		Context ret = new Context() {
+
+			@Override
+			public Object get(String name) {
+				if (name == null) {
+					return null;
+				}
+				
+				// Sub-contexts - only properties or subcontexts themselves.
+				for (Entry<String, Context> sce: subContexts.entrySet()) {
+					if (name.equals(sce.getKey())) {
+						return sce.getValue();
+					}
+					
+					if (name.startsWith(sce.getKey()+PROPERTY_PATH_SEPARATOR)) {
+						return sce.getValue().get(name.substring(sce.getKey().length()+PROPERTY_PATH_SEPARATOR.length())); 
+					}
+				}				
+				
+				// Properties
+				Object ret =  properties.get(name);
+				if (ret != null) {
+					return ret;
+				}
+				
+				// Parent
+				if (finalParent != null) {
+					ret = finalParent.get(name);
+					if (ret != null) {
+						return ret;
+					}
+				}
+				
+				// Default properties
+				return defaultProperties.get(name);
+			}
+
+			@SuppressWarnings("unchecked")
+			@Override
+			public <T> T get(Class<T> type) {
+				// Services
+				T ret = (T) services.get(type);
+				if (ret != null) {
+					return ret;
+				}
+				
+				for (Entry<Class<?>, Object> e: services.entrySet()) {
+					if (type.isAssignableFrom(e.getKey())) {
+						return (T) e.getValue();
+					}
+				}
+				
+				// Parent
+				if (finalParent != null) {
+					ret = finalParent.get(type);
+					if (ret != null) {
+						return ret;
+					}
+				}
+				
+				// Default services
+				ret = (T) defaultServices.get(type);
+				if (ret != null) {
+					return ret;
+				}
+				
+				for (Entry<Class<?>, Object> e: defaultServices.entrySet()) {
+					if (type.isAssignableFrom(e.getKey())) {
+						return (T) e.getValue();
+					}
+				}
+				
+				return ret;
+			}
+
+			@Override
+			public ClassLoader getClassLoader() {
+				return classLoader;
+			}
+			
+		};
+		
+		for (ConfigurationItem ci: getConfiguration()) {
+			Object obj = ci.get(ret);
+			if (ci instanceof Service) {
+				Service service = (Service) ci;
+				Class<?> serviceType = classLoader.loadClass(service.getServiceType());
+				(service.isDefault() ? defaultServices : services).put(serviceType, obj);				
+			} else if (ci instanceof Property) {
+				Property property = (Property) ci;				
+				(property.isDefault() ? defaultProperties : properties).put(property.getName(), obj);								
+			} else {
+				subContexts.put(((NamedConfigurationItem) ci).getName(), ci.createContext(new Context() {
+					
+					@Override
+					public ClassLoader getClassLoader() {
+						return ret.getClassLoader();
+					}
+					
+					@Override
+					public <T> T get(Class<T> type) {
+						return null;
+					}
+					
+					@Override
+					public Object get(String name) {
+						return null;
+					}
+				}));
+			}
+		}				
+		
+		return ret;
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

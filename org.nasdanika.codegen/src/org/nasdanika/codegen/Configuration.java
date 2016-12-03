@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * Container of configuration items - properties and services.
+ * Generators extend configuration. Configuration can also be defined in a standalone model to be provided as input to generators.
  * 
  * <!-- end-model-doc -->
  *
@@ -164,7 +165,7 @@ public interface Configuration extends CDOObject {
 	 * @generated NOT
 	 */
 	default Context createContext(Context parent) throws Exception {
-		SubContext ret = parent.createSubContext();
+		MutableContext ret = parent.createSubContext();
 		for (ConfigurationItem ci: getConfiguration()) {
 			if (ci instanceof Property) {
 				ret.set(((Property) ci).getName(), ci.get(ret));

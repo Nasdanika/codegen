@@ -85,6 +85,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.JAVA_STREAM_FILTER: return (EObject)createJavaStreamFilter();
 			case CodegenPackage.JAVA_TEXT_GENERATOR: return (EObject)createJavaTextGenerator();
 			case CodegenPackage.JAVA_STREAM_GENERATOR: return (EObject)createJavaStreamGenerator();
+			case CodegenPackage.NAMED_CONFIGURATION_ITEM: return (EObject)createNamedConfigurationItem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -346,6 +347,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public JavaStreamGenerator createJavaStreamGenerator() {
 		JavaStreamGeneratorImpl javaStreamGenerator = new JavaStreamGeneratorImpl();
 		return javaStreamGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedConfigurationItem createNamedConfigurationItem() {
+		NamedConfigurationItemImpl namedConfigurationItem = new NamedConfigurationItemImpl();
+		return namedConfigurationItem;
 	}
 
 	/**

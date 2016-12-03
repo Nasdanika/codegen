@@ -175,6 +175,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateJavaTextGenerator((JavaTextGenerator)value, diagnostics, context);
 			case CodegenPackage.JAVA_STREAM_GENERATOR:
 				return validateJavaStreamGenerator((JavaStreamGenerator)value, diagnostics, context);
+			case CodegenPackage.VALUE_CONFIGURATION_ITEM:
+				return validateValueConfigurationItem((ValueConfigurationItem)value, diagnostics, context);
+			case CodegenPackage.NAMED_CONFIGURATION_ITEM:
+				return validateNamedConfigurationItem((NamedConfigurationItem)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
@@ -705,6 +709,24 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaStreamGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(javaStreamGenerator, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateValueConfigurationItem(ValueConfigurationItem valueConfigurationItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint((EObject)valueConfigurationItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNamedConfigurationItem(NamedConfigurationItem namedConfigurationItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint((EObject)namedConfigurationItem, diagnostics, context);
 	}
 
 	/**

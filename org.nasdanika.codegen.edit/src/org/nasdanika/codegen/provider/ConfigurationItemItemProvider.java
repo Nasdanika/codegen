@@ -43,78 +43,9 @@ public class ConfigurationItemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValueTypePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
-			addDefaultPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValueTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigurationItem_valueType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationItem_valueType_feature", "_UI_ConfigurationItem_type"),
-				 CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigurationItem_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationItem_value_feature", "_UI_ConfigurationItem_type"),
-				 CodegenPackage.Literals.CONFIGURATION_ITEM__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Default feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDefaultPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigurationItem_default_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationItem_default_feature", "_UI_ConfigurationItem_type"),
-				 CodegenPackage.Literals.CONFIGURATION_ITEM__DEFAULT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -177,9 +108,6 @@ public class ConfigurationItemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ConfigurationItem.class)) {
-			case CodegenPackage.CONFIGURATION_ITEM__VALUE_TYPE:
-			case CodegenPackage.CONFIGURATION_ITEM__VALUE:
-			case CodegenPackage.CONFIGURATION_ITEM__DEFAULT:
 			case CodegenPackage.CONFIGURATION_ITEM__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -45,17 +45,12 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ConfigurationItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/valueType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/description"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Service/serviceType"/>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//Property">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Property/name"/>
-    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//Property"/>
     <genClasses ecoreClass="codegen.ecore#//WorkFactory">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//WorkFactory/T"/>
     </genClasses>
@@ -131,6 +126,14 @@
     <genClasses ecoreClass="codegen.ecore#//JavaStreamFilter"/>
     <genClasses ecoreClass="codegen.ecore#//JavaTextGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
+    <genClasses ecoreClass="codegen.ecore#//ValueConfigurationItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/valueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/default"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//NamedConfigurationItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedConfigurationItem/name"/>
+    </genClasses>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

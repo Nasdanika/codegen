@@ -28,8 +28,8 @@ public interface Context { // TODO - Autocloseable
 	 * Creates a new sub-context for this context.
 	 * @return
 	 */
-	default SubContext createSubContext() {
-		return this instanceof SubContext ? ((SubContext) this).createSubContext() : new SubContext(this);
+	default MutableContext createSubContext() {
+		return this instanceof MutableContext ? ((MutableContext) this).createSubContext() : new MutableContext(this);
 	}	
 	
 	/**
