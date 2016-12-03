@@ -2,15 +2,20 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
-
+import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.TextCompilationUnit;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -68,7 +73,7 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 	
 	@Override
 	public int getWorkFactorySize() {
-		return super.getWorkFactorySize() + getGenerator().getWorkFactorySize();
+		return getGenerator().getWorkFactorySize() + 1;
 	}
 		
 	/**
@@ -93,6 +98,39 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 			}
 		}
 		return result;
+	}
+
+	@Override
+	protected Work<ICompilationUnit> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
+		Generator<String> generator = getGenerator();
+		int gws = generator.getWorkFactorySize();
+		SubMonitor smon = SubMonitor.convert(monitor, gws + 1);
+		Work<List<String>> gWork = generator.createWork(iterationContext, smon.split(gws));
+		
+		smon.worked(1);
+		
+		return new Work<ICompilationUnit>() {
+
+			@Override
+			public int size() {
+				return gWork.size() + 1;
+			}
+
+			@Override
+			public ICompilationUnit execute(IProgressMonitor monitor) throws Exception {
+				int totalWork = 1 + gWork.size();
+				SubMonitor smon = SubMonitor.convert(monitor, totalWork);
+				StringBuilder contentBuilder = new StringBuilder();
+				for (String e: gWork.execute(smon.split(gWork.size()))) {
+					if (contentBuilder.length() > 0) {
+						contentBuilder.append(System.lineSeparator());
+					}
+					contentBuilder.append(e);
+				}
+				return generateCompilationUnit(iterationContext, contentBuilder.toString(), smon.split(1));
+			}
+			
+		};
 	}	
 	
 
