@@ -28,6 +28,15 @@ public interface ScriptedGenerator<T> extends JavaGenerator<T> {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Script is a Java method body taking ``Context context, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:
+	 * 
+	 * ```java
+	 * T generate(Context context, IProgressMonitor monitor) throws Exception {
+	 *     // --- Script here ---
+	 * }
+	 * ```
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Script</em>' attribute.
 	 * @see #setScript(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getScriptedGenerator_Script()

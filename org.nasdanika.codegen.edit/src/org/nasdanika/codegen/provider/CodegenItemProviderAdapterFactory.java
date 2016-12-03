@@ -325,29 +325,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ContentReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContentReferenceItemProvider contentReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ContentReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContentReferenceAdapter() {
-		if (contentReferenceItemProvider == null) {
-			contentReferenceItemProvider = new ContentReferenceItemProvider(this);
-		}
-
-		return contentReferenceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Interpolator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -601,6 +578,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.TextContentReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextContentReferenceItemProvider textContentReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.TextContentReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextContentReferenceAdapter() {
+		if (textContentReferenceItemProvider == null) {
+			textContentReferenceItemProvider = new TextContentReferenceItemProvider(this);
+		}
+
+		return textContentReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.StreamContentReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StreamContentReferenceItemProvider streamContentReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.StreamContentReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStreamContentReferenceAdapter() {
+		if (streamContentReferenceItemProvider == null) {
+			streamContentReferenceItemProvider = new StreamContentReferenceItemProvider(this);
+		}
+
+		return streamContentReferenceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,7 +733,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (textFileItemProvider != null) textFileItemProvider.dispose();
 		if (resourceReferenceItemProvider != null) resourceReferenceItemProvider.dispose();
 		if (staticTextItemProvider != null) staticTextItemProvider.dispose();
-		if (contentReferenceItemProvider != null) contentReferenceItemProvider.dispose();
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();
 		if (jetEmitterItemProvider != null) jetEmitterItemProvider.dispose();
 		if (javaTextFilterItemProvider != null) javaTextFilterItemProvider.dispose();
@@ -722,6 +744,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (scriptedStreamGeneratorItemProvider != null) scriptedStreamGeneratorItemProvider.dispose();
 		if (scriptedTextFilterItemProvider != null) scriptedTextFilterItemProvider.dispose();
 		if (scriptedStreamFilterItemProvider != null) scriptedStreamFilterItemProvider.dispose();
+		if (textContentReferenceItemProvider != null) textContentReferenceItemProvider.dispose();
+		if (streamContentReferenceItemProvider != null) streamContentReferenceItemProvider.dispose();
 	}
 
 }

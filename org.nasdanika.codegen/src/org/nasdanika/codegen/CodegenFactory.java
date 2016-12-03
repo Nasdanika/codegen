@@ -121,15 +121,6 @@ public interface CodegenFactory extends EFactory {
 	StaticText createStaticText();
 
 	/**
-	 * Returns a new object of class '<em>Content Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Content Reference</em>'.
-	 * @generated
-	 */
-	<T> ContentReference<T> createContentReference();
-
-	/**
 	 * Returns a new object of class '<em>Interpolator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +218,24 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	ScriptedStreamFilter createScriptedStreamFilter();
+
+	/**
+	 * Returns a new object of class '<em>Text Content Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Content Reference</em>'.
+	 * @generated
+	 */
+	TextContentReference createTextContentReference();
+
+	/**
+	 * Returns a new object of class '<em>Stream Content Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stream Content Reference</em>'.
+	 * @generated
+	 */
+	StreamContentReference createStreamContentReference();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -208,11 +208,6 @@ public class TextCompilationUnitItemProvider extends CompilationUnitItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add
@@ -259,6 +254,16 @@ public class TextCompilationUnitItemProvider extends CompilationUnitItemProvider
 			(createChildParameter
 				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
 				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createStreamContentReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

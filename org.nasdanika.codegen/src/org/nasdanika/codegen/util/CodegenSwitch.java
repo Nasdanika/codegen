@@ -424,6 +424,26 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.TEXT_CONTENT_REFERENCE: {
+				TextContentReference textContentReference = (TextContentReference)theEObject;
+				T1 result = caseTextContentReference(textContentReference);
+				if (result == null) result = caseContentReference(textContentReference);
+				if (result == null) result = caseGenerator(textContentReference);
+				if (result == null) result = caseConfiguration(textContentReference);
+				if (result == null) result = caseWorkFactory(textContentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.STREAM_CONTENT_REFERENCE: {
+				StreamContentReference streamContentReference = (StreamContentReference)theEObject;
+				T1 result = caseStreamContentReference(streamContentReference);
+				if (result == null) result = caseContentReference(streamContentReference);
+				if (result == null) result = caseGenerator(streamContentReference);
+				if (result == null) result = caseConfiguration(streamContentReference);
+				if (result == null) result = caseWorkFactory(streamContentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -980,6 +1000,36 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseScriptedStreamFilter(ScriptedStreamFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Content Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Content Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextContentReference(TextContentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stream Content Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stream Content Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStreamContentReference(StreamContentReference object) {
 		return null;
 	}
 

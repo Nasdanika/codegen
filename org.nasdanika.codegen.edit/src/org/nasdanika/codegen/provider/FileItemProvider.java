@@ -185,11 +185,6 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATOR,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATOR,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add
@@ -236,6 +231,16 @@ public class FileItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATOR,
 				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATOR,
+				 CodegenFactory.eINSTANCE.createStreamContentReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

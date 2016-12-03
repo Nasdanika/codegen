@@ -28,6 +28,15 @@ public interface ScriptedFilter<T> extends Filter<T> {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:
+	 * 
+	 * ```java
+	 * T generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {
+	 *     // --- Script here ---
+	 * }
+	 * ```
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Script</em>' attribute.
 	 * @see #setScript(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getScriptedFilter_Script()

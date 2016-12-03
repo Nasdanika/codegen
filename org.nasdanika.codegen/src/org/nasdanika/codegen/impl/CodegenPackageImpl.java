@@ -64,6 +64,8 @@ import org.nasdanika.codegen.ScriptedTextFilter;
 import org.nasdanika.codegen.ScriptedTextGenerator;
 import org.nasdanika.codegen.Service;
 import org.nasdanika.codegen.StaticText;
+import org.nasdanika.codegen.StreamContentReference;
+import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.ValueConfigurationItem;
 import org.nasdanika.codegen.Workspace;
@@ -342,6 +344,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass scriptedStreamFilterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textContentReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass streamContentReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1174,6 +1190,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTextContentReference() {
+		return textContentReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStreamContentReference() {
+		return streamContentReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1424,6 +1458,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		scriptedStreamFilterEClass = createEClass(SCRIPTED_STREAM_FILTER);
 
+		textContentReferenceEClass = createEClass(TEXT_CONTENT_REFERENCE);
+
+		streamContentReferenceEClass = createEClass(STREAM_CONTENT_REFERENCE);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 
@@ -1624,6 +1662,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		scriptedStreamFilterEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getContentReference());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		textContentReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getContentReference());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		streamContentReferenceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1712,7 +1758,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1764,6 +1810,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(scriptedTextFilterEClass, ScriptedTextFilter.class, "ScriptedTextFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scriptedStreamFilterEClass, ScriptedStreamFilter.class, "ScriptedStreamFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(textContentReferenceEClass, TextContentReference.class, "TextContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(streamContentReferenceEClass, StreamContentReference.class, "StreamContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -2258,6 +2308,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Property name."
+		   });	
+		addAnnotation
+		  (getScriptedGenerator_Script(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Script is a Java method body taking ``Context context, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
+		   });	
+		addAnnotation
+		  (getScriptedFilter_Script(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
 		   });
 	}
 

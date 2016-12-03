@@ -2,10 +2,7 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -13,8 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
-import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
@@ -91,5 +86,10 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 		}
 		return result;
 	}	
+	
+	@Override
+	public int getWorkFactorySize() {
+		return 1;
+	}
 	
 } //ContentReferenceImpl

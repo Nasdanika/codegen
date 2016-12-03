@@ -78,7 +78,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.TEXT_FILE: return (EObject)createTextFile();
 			case CodegenPackage.RESOURCE_REFERENCE: return (EObject)createResourceReference();
 			case CodegenPackage.STATIC_TEXT: return (EObject)createStaticText();
-			case CodegenPackage.CONTENT_REFERENCE: return (EObject)createContentReference();
 			case CodegenPackage.INTERPOLATOR: return (EObject)createInterpolator();
 			case CodegenPackage.JET_EMITTER: return (EObject)createJETEmitter();
 			case CodegenPackage.JAVA_TEXT_FILTER: return (EObject)createJavaTextFilter();
@@ -90,6 +89,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.SCRIPTED_STREAM_GENERATOR: return (EObject)createScriptedStreamGenerator();
 			case CodegenPackage.SCRIPTED_TEXT_FILTER: return (EObject)createScriptedTextFilter();
 			case CodegenPackage.SCRIPTED_STREAM_FILTER: return (EObject)createScriptedStreamFilter();
+			case CodegenPackage.TEXT_CONTENT_REFERENCE: return (EObject)createTextContentReference();
+			case CodegenPackage.STREAM_CONTENT_REFERENCE: return (EObject)createStreamContentReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -288,16 +289,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T> ContentReference<T> createContentReference() {
-		ContentReferenceImpl<T> contentReference = new ContentReferenceImpl<T>();
-		return contentReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Interpolator createInterpolator() {
 		InterpolatorImpl interpolator = new InterpolatorImpl();
 		return interpolator;
@@ -401,6 +392,26 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ScriptedStreamFilter createScriptedStreamFilter() {
 		ScriptedStreamFilterImpl scriptedStreamFilter = new ScriptedStreamFilterImpl();
 		return scriptedStreamFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextContentReference createTextContentReference() {
+		TextContentReferenceImpl textContentReference = new TextContentReferenceImpl();
+		return textContentReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StreamContentReference createStreamContentReference() {
+		StreamContentReferenceImpl streamContentReference = new StreamContentReferenceImpl();
+		return streamContentReference;
 	}
 
 	/**

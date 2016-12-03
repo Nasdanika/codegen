@@ -191,6 +191,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateScriptedTextFilter((ScriptedTextFilter)value, diagnostics, context);
 			case CodegenPackage.SCRIPTED_STREAM_FILTER:
 				return validateScriptedStreamFilter((ScriptedStreamFilter)value, diagnostics, context);
+			case CodegenPackage.TEXT_CONTENT_REFERENCE:
+				return validateTextContentReference((TextContentReference)value, diagnostics, context);
+			case CodegenPackage.STREAM_CONTENT_REFERENCE:
+				return validateStreamContentReference((StreamContentReference)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
@@ -912,6 +916,44 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedStreamFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedStreamFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedStreamFilter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTextContentReference(TextContentReference textContentReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)textContentReference, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)textContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(textContentReference, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStreamContentReference(StreamContentReference streamContentReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)streamContentReference, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)streamContentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(streamContentReference, diagnostics, context);
 		return result;
 	}
 

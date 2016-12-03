@@ -216,6 +216,14 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createScriptedStreamFilterAdapter();
 			}
 			@Override
+			public Adapter caseTextContentReference(TextContentReference object) {
+				return createTextContentReferenceAdapter();
+			}
+			@Override
+			public Adapter caseStreamContentReference(StreamContentReference object) {
+				return createStreamContentReferenceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -750,6 +758,34 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createScriptedStreamFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.TextContentReference <em>Text Content Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.TextContentReference
+	 * @generated
+	 */
+	public Adapter createTextContentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.StreamContentReference <em>Stream Content Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.StreamContentReference
+	 * @generated
+	 */
+	public Adapter createStreamContentReferenceAdapter() {
 		return null;
 	}
 

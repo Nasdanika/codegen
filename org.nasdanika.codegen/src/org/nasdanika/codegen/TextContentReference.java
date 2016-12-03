@@ -1,0 +1,17 @@
+/**
+ */
+package org.nasdanika.codegen;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Text Content Reference</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see org.nasdanika.codegen.CodegenPackage#getTextContentReference()
+ * @model superTypes="org.nasdanika.codegen.ContentReference<org.eclipse.emf.ecore.EString>"
+ * @generated
+ */
+public interface TextContentReference extends ContentReference<String> {
+} // TextContentReference

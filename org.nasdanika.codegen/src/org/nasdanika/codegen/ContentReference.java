@@ -21,7 +21,7 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getContentReference()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ContentReference<T> extends Generator<T> {
