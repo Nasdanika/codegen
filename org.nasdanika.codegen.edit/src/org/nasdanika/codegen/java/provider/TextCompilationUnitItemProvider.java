@@ -243,6 +243,26 @@ public class TextCompilationUnitItemProvider extends CompilationUnitItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedTextFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

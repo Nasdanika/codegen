@@ -4000,6 +4000,822 @@ public interface CodegenPackage extends EPackage {
 	int NAMED_CONFIGURATION_ITEM_OPERATION_COUNT = CONFIGURATION_ITEM_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedGeneratorImpl <em>Scripted Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
+	 * @generated
+	 */
+	int SCRIPTED_GENERATOR = 31;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__INCLUDES = JAVA_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__DEFAULT_INCLUDES = JAVA_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__BASE_URL = JAVA_GENERATOR__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__CLASS_PATH = JAVA_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__INCLUDE = JAVA_GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__ITERATOR = JAVA_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__CLASS_NAME = JAVA_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__SCRIPT = JAVA_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR_FEATURE_COUNT = JAVA_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT = JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = JAVA_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR_OPERATION_COUNT = JAVA_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedTextGeneratorImpl <em>Scripted Text Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedTextGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
+	 * @generated
+	 */
+	int SCRIPTED_TEXT_GENERATOR = 32;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__BASE_URL = SCRIPTED_GENERATOR__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__CLASS_PATH = SCRIPTED_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__INCLUDE = SCRIPTED_GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__ITERATOR = SCRIPTED_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__CLASS_NAME = SCRIPTED_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__SCRIPT = SCRIPTED_GENERATOR__SCRIPT;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Text Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR_FEATURE_COUNT = SCRIPTED_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR___CREATE_CONTEXT__CONTEXT = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Text Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR_OPERATION_COUNT = SCRIPTED_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedStreamGeneratorImpl <em>Scripted Stream Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedStreamGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
+	 * @generated
+	 */
+	int SCRIPTED_STREAM_GENERATOR = 33;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__BASE_URL = SCRIPTED_GENERATOR__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__CLASS_PATH = SCRIPTED_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__INCLUDE = SCRIPTED_GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__ITERATOR = SCRIPTED_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__CLASS_NAME = SCRIPTED_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__SCRIPT = SCRIPTED_GENERATOR__SCRIPT;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Stream Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR_FEATURE_COUNT = SCRIPTED_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR___CREATE_CONTEXT__CONTEXT = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Stream Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR_OPERATION_COUNT = SCRIPTED_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedFilterImpl <em>Scripted Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedFilterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
+	 * @generated
+	 */
+	int SCRIPTED_FILTER = 34;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__INCLUDES = FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__BASE_URL = FILTER__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__CLASS_PATH = FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__INCLUDE = FILTER__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__ITERATOR = FILTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__GENERATOR = FILTER__GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__SCRIPT = FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER_FEATURE_COUNT = FILTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT = FILTER___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedTextFilterImpl <em>Scripted Text Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedTextFilterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
+	 * @generated
+	 */
+	int SCRIPTED_TEXT_FILTER = 35;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__BASE_URL = SCRIPTED_FILTER__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__CLASS_PATH = SCRIPTED_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__INCLUDE = SCRIPTED_FILTER__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__ITERATOR = SCRIPTED_FILTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__GENERATOR = SCRIPTED_FILTER__GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__SCRIPT = SCRIPTED_FILTER__SCRIPT;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Text Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER_FEATURE_COUNT = SCRIPTED_FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER___CREATE_CONTEXT__CONTEXT = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Text Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER_OPERATION_COUNT = SCRIPTED_FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedStreamFilterImpl <em>Scripted Stream Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ScriptedStreamFilterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
+	 * @generated
+	 */
+	int SCRIPTED_STREAM_FILTER = 36;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__BASE_URL = SCRIPTED_FILTER__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__CLASS_PATH = SCRIPTED_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__INCLUDE = SCRIPTED_FILTER__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__ITERATOR = SCRIPTED_FILTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__GENERATOR = SCRIPTED_FILTER__GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Script</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__SCRIPT = SCRIPTED_FILTER__SCRIPT;
+
+	/**
+	 * The number of structural features of the '<em>Scripted Stream Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER_FEATURE_COUNT = SCRIPTED_FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER___CREATE_CONTEXT__CONTEXT = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Scripted Stream Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER_OPERATION_COUNT = SCRIPTED_FILTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4007,7 +4823,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 31;
+	int RECONCILE_ACTION = 37;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -4017,7 +4833,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 32;
+	int CONTEXT = 38;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -4027,7 +4843,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 33;
+	int INPUT_STREAM = 39;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -4037,7 +4853,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 34;
+	int VOID = 40;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -4047,7 +4863,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 35;
+	int IFILE = 41;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -4057,7 +4873,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 36;
+	int IFOLDER = 42;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -4067,7 +4883,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 37;
+	int IPROJECT = 43;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -4077,7 +4893,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 38;
+	int IPROJECT_NATURE = 44;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -4087,7 +4903,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 39;
+	int IWORKSPACE_ROOT = 45;
 
 
 	/**
@@ -4098,7 +4914,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 40;
+	int EXCEPTION = 46;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -4108,7 +4924,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 41;
+	int IRESOURCE = 47;
 
 
 	/**
@@ -4119,7 +4935,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 42;
+	int LIST = 48;
 
 
 	/**
@@ -4130,7 +4946,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 43;
+	int MERGER = 49;
 
 
 	/**
@@ -4816,6 +5632,88 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamedConfigurationItem_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedGenerator <em>Scripted Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Generator</em>'.
+	 * @see org.nasdanika.codegen.ScriptedGenerator
+	 * @generated
+	 */
+	EClass getScriptedGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ScriptedGenerator#getScript <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Script</em>'.
+	 * @see org.nasdanika.codegen.ScriptedGenerator#getScript()
+	 * @see #getScriptedGenerator()
+	 * @generated
+	 */
+	EAttribute getScriptedGenerator_Script();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedTextGenerator <em>Scripted Text Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Text Generator</em>'.
+	 * @see org.nasdanika.codegen.ScriptedTextGenerator
+	 * @generated
+	 */
+	EClass getScriptedTextGenerator();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedStreamGenerator <em>Scripted Stream Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Stream Generator</em>'.
+	 * @see org.nasdanika.codegen.ScriptedStreamGenerator
+	 * @generated
+	 */
+	EClass getScriptedStreamGenerator();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedFilter <em>Scripted Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Filter</em>'.
+	 * @see org.nasdanika.codegen.ScriptedFilter
+	 * @generated
+	 */
+	EClass getScriptedFilter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ScriptedFilter#getScript <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Script</em>'.
+	 * @see org.nasdanika.codegen.ScriptedFilter#getScript()
+	 * @see #getScriptedFilter()
+	 * @generated
+	 */
+	EAttribute getScriptedFilter_Script();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedTextFilter <em>Scripted Text Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Text Filter</em>'.
+	 * @see org.nasdanika.codegen.ScriptedTextFilter
+	 * @generated
+	 */
+	EClass getScriptedTextFilter();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedStreamFilter <em>Scripted Stream Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scripted Stream Filter</em>'.
+	 * @see org.nasdanika.codegen.ScriptedStreamFilter
+	 * @generated
+	 */
+	EClass getScriptedStreamFilter();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
@@ -5563,6 +6461,82 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_CONFIGURATION_ITEM__NAME = eINSTANCE.getNamedConfigurationItem_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedGeneratorImpl <em>Scripted Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
+		 * @generated
+		 */
+		EClass SCRIPTED_GENERATOR = eINSTANCE.getScriptedGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPTED_GENERATOR__SCRIPT = eINSTANCE.getScriptedGenerator_Script();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedTextGeneratorImpl <em>Scripted Text Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedTextGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
+		 * @generated
+		 */
+		EClass SCRIPTED_TEXT_GENERATOR = eINSTANCE.getScriptedTextGenerator();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedStreamGeneratorImpl <em>Scripted Stream Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedStreamGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
+		 * @generated
+		 */
+		EClass SCRIPTED_STREAM_GENERATOR = eINSTANCE.getScriptedStreamGenerator();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedFilterImpl <em>Scripted Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedFilterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
+		 * @generated
+		 */
+		EClass SCRIPTED_FILTER = eINSTANCE.getScriptedFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPTED_FILTER__SCRIPT = eINSTANCE.getScriptedFilter_Script();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedTextFilterImpl <em>Scripted Text Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedTextFilterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
+		 * @generated
+		 */
+		EClass SCRIPTED_TEXT_FILTER = eINSTANCE.getScriptedTextFilter();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedStreamFilterImpl <em>Scripted Stream Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ScriptedStreamFilterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
+		 * @generated
+		 */
+		EClass SCRIPTED_STREAM_FILTER = eINSTANCE.getScriptedStreamFilter();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.

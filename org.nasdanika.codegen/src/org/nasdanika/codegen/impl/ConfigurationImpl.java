@@ -324,6 +324,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated NOT 
 	 */
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = true;
 		if (diagnostics != null) {
 			if (!getIncludes().isEmpty()) {
 				diagnostics.add
@@ -331,15 +332,29 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"]Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
 						 new Object [] { this }));
 				
-				return false;
+				result = false;
+				
+				// TODO - once includes are supported validate extensions - .properties, .json, .yml, .nsdgen - and validate URL's.
+			}
+			
+			if (!getDefaultIncludes().isEmpty()) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Default includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
+						 new Object [] { this }));
+				
+				result = false;
 				
 				// TODO - once includes are supported validate extensions - .properties, .json, .yml, .nsdgen - and validate URL's.
 			}
 		}
-		return true;
+		return result;
 	}
 
 	/**

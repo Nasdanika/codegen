@@ -218,6 +218,26 @@ public class FilterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedTextFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
 				 JavaFactory.eINSTANCE.createJavaNature()));
 
 		newChildDescriptors.add

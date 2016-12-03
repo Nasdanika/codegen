@@ -86,6 +86,10 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.JAVA_TEXT_GENERATOR: return (EObject)createJavaTextGenerator();
 			case CodegenPackage.JAVA_STREAM_GENERATOR: return (EObject)createJavaStreamGenerator();
 			case CodegenPackage.NAMED_CONFIGURATION_ITEM: return (EObject)createNamedConfigurationItem();
+			case CodegenPackage.SCRIPTED_TEXT_GENERATOR: return (EObject)createScriptedTextGenerator();
+			case CodegenPackage.SCRIPTED_STREAM_GENERATOR: return (EObject)createScriptedStreamGenerator();
+			case CodegenPackage.SCRIPTED_TEXT_FILTER: return (EObject)createScriptedTextFilter();
+			case CodegenPackage.SCRIPTED_STREAM_FILTER: return (EObject)createScriptedStreamFilter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -357,6 +361,46 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public NamedConfigurationItem createNamedConfigurationItem() {
 		NamedConfigurationItemImpl namedConfigurationItem = new NamedConfigurationItemImpl();
 		return namedConfigurationItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScriptedTextGenerator createScriptedTextGenerator() {
+		ScriptedTextGeneratorImpl scriptedTextGenerator = new ScriptedTextGeneratorImpl();
+		return scriptedTextGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScriptedStreamGenerator createScriptedStreamGenerator() {
+		ScriptedStreamGeneratorImpl scriptedStreamGenerator = new ScriptedStreamGeneratorImpl();
+		return scriptedStreamGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScriptedTextFilter createScriptedTextFilter() {
+		ScriptedTextFilterImpl scriptedTextFilter = new ScriptedTextFilterImpl();
+		return scriptedTextFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScriptedStreamFilter createScriptedStreamFilter() {
+		ScriptedStreamFilterImpl scriptedStreamFilter = new ScriptedStreamFilterImpl();
+		return scriptedStreamFilter;
 	}
 
 	/**

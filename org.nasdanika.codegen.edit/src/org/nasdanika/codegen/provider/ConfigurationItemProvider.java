@@ -196,7 +196,7 @@ public class ConfigurationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_description_feature", "_UI_Configuration_type"),
 				 CodegenPackage.Literals.CONFIGURATION__DESCRIPTION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

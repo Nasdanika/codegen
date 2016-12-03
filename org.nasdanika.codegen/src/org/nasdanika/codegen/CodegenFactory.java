@@ -193,6 +193,42 @@ public interface CodegenFactory extends EFactory {
 	NamedConfigurationItem createNamedConfigurationItem();
 
 	/**
+	 * Returns a new object of class '<em>Scripted Text Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scripted Text Generator</em>'.
+	 * @generated
+	 */
+	ScriptedTextGenerator createScriptedTextGenerator();
+
+	/**
+	 * Returns a new object of class '<em>Scripted Stream Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scripted Stream Generator</em>'.
+	 * @generated
+	 */
+	ScriptedStreamGenerator createScriptedStreamGenerator();
+
+	/**
+	 * Returns a new object of class '<em>Scripted Text Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scripted Text Filter</em>'.
+	 * @generated
+	 */
+	ScriptedTextFilter createScriptedTextFilter();
+
+	/**
+	 * Returns a new object of class '<em>Scripted Stream Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scripted Stream Filter</em>'.
+	 * @generated
+	 */
+	ScriptedStreamFilter createScriptedStreamFilter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

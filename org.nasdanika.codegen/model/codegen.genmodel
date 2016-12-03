@@ -40,7 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/baseURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/classPath"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/include"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/description"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/description"/>
       <genOperations ecoreOperation="codegen.ecore#//Configuration/createContext">
         <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/parent"/>
       </genOperations>
@@ -127,13 +127,25 @@
     <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//ValueConfigurationItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/valueType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/value"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/scripted"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//NamedConfigurationItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedConfigurationItem/name"/>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedGenerator">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//ScriptedGenerator/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ScriptedGenerator/script"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedTextGenerator"/>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedStreamGenerator"/>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedFilter">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//ScriptedFilter/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ScriptedFilter/script"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedTextFilter"/>
+    <genClasses ecoreClass="codegen.ecore#//ScriptedStreamFilter"/>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

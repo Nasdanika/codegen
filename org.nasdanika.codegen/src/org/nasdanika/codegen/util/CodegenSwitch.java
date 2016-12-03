@@ -360,6 +360,70 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.SCRIPTED_GENERATOR: {
+				ScriptedGenerator<?> scriptedGenerator = (ScriptedGenerator<?>)theEObject;
+				T1 result = caseScriptedGenerator(scriptedGenerator);
+				if (result == null) result = caseJavaGenerator(scriptedGenerator);
+				if (result == null) result = caseGenerator(scriptedGenerator);
+				if (result == null) result = caseConfiguration(scriptedGenerator);
+				if (result == null) result = caseWorkFactory(scriptedGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.SCRIPTED_TEXT_GENERATOR: {
+				ScriptedTextGenerator scriptedTextGenerator = (ScriptedTextGenerator)theEObject;
+				T1 result = caseScriptedTextGenerator(scriptedTextGenerator);
+				if (result == null) result = caseScriptedGenerator(scriptedTextGenerator);
+				if (result == null) result = caseJavaGenerator(scriptedTextGenerator);
+				if (result == null) result = caseGenerator(scriptedTextGenerator);
+				if (result == null) result = caseConfiguration(scriptedTextGenerator);
+				if (result == null) result = caseWorkFactory(scriptedTextGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.SCRIPTED_STREAM_GENERATOR: {
+				ScriptedStreamGenerator scriptedStreamGenerator = (ScriptedStreamGenerator)theEObject;
+				T1 result = caseScriptedStreamGenerator(scriptedStreamGenerator);
+				if (result == null) result = caseScriptedGenerator(scriptedStreamGenerator);
+				if (result == null) result = caseJavaGenerator(scriptedStreamGenerator);
+				if (result == null) result = caseGenerator(scriptedStreamGenerator);
+				if (result == null) result = caseConfiguration(scriptedStreamGenerator);
+				if (result == null) result = caseWorkFactory(scriptedStreamGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.SCRIPTED_FILTER: {
+				ScriptedFilter<?> scriptedFilter = (ScriptedFilter<?>)theEObject;
+				T1 result = caseScriptedFilter(scriptedFilter);
+				if (result == null) result = caseFilter(scriptedFilter);
+				if (result == null) result = caseGenerator(scriptedFilter);
+				if (result == null) result = caseConfiguration(scriptedFilter);
+				if (result == null) result = caseWorkFactory(scriptedFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.SCRIPTED_TEXT_FILTER: {
+				ScriptedTextFilter scriptedTextFilter = (ScriptedTextFilter)theEObject;
+				T1 result = caseScriptedTextFilter(scriptedTextFilter);
+				if (result == null) result = caseScriptedFilter(scriptedTextFilter);
+				if (result == null) result = caseFilter(scriptedTextFilter);
+				if (result == null) result = caseGenerator(scriptedTextFilter);
+				if (result == null) result = caseConfiguration(scriptedTextFilter);
+				if (result == null) result = caseWorkFactory(scriptedTextFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.SCRIPTED_STREAM_FILTER: {
+				ScriptedStreamFilter scriptedStreamFilter = (ScriptedStreamFilter)theEObject;
+				T1 result = caseScriptedStreamFilter(scriptedStreamFilter);
+				if (result == null) result = caseScriptedFilter(scriptedStreamFilter);
+				if (result == null) result = caseFilter(scriptedStreamFilter);
+				if (result == null) result = caseGenerator(scriptedStreamFilter);
+				if (result == null) result = caseConfiguration(scriptedStreamFilter);
+				if (result == null) result = caseWorkFactory(scriptedStreamFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -826,6 +890,96 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseNamedConfigurationItem(NamedConfigurationItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseScriptedGenerator(ScriptedGenerator<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Text Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Text Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptedTextGenerator(ScriptedTextGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Stream Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Stream Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptedStreamGenerator(ScriptedStreamGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseScriptedFilter(ScriptedFilter<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Text Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Text Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptedTextFilter(ScriptedTextFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scripted Stream Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scripted Stream Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptedStreamFilter(ScriptedStreamFilter object) {
 		return null;
 	}
 

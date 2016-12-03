@@ -509,6 +509,98 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedTextGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptedTextGeneratorItemProvider scriptedTextGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedTextGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptedTextGeneratorAdapter() {
+		if (scriptedTextGeneratorItemProvider == null) {
+			scriptedTextGeneratorItemProvider = new ScriptedTextGeneratorItemProvider(this);
+		}
+
+		return scriptedTextGeneratorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedStreamGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptedStreamGeneratorItemProvider scriptedStreamGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedStreamGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptedStreamGeneratorAdapter() {
+		if (scriptedStreamGeneratorItemProvider == null) {
+			scriptedStreamGeneratorItemProvider = new ScriptedStreamGeneratorItemProvider(this);
+		}
+
+		return scriptedStreamGeneratorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedTextFilter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptedTextFilterItemProvider scriptedTextFilterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedTextFilter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptedTextFilterAdapter() {
+		if (scriptedTextFilterItemProvider == null) {
+			scriptedTextFilterItemProvider = new ScriptedTextFilterItemProvider(this);
+		}
+
+		return scriptedTextFilterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedStreamFilter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptedStreamFilterItemProvider scriptedStreamFilterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedStreamFilter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptedStreamFilterAdapter() {
+		if (scriptedStreamFilterItemProvider == null) {
+			scriptedStreamFilterItemProvider = new ScriptedStreamFilterItemProvider(this);
+		}
+
+		return scriptedStreamFilterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,6 +718,10 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (javaTextGeneratorItemProvider != null) javaTextGeneratorItemProvider.dispose();
 		if (javaStreamGeneratorItemProvider != null) javaStreamGeneratorItemProvider.dispose();
 		if (namedConfigurationItemItemProvider != null) namedConfigurationItemItemProvider.dispose();
+		if (scriptedTextGeneratorItemProvider != null) scriptedTextGeneratorItemProvider.dispose();
+		if (scriptedStreamGeneratorItemProvider != null) scriptedStreamGeneratorItemProvider.dispose();
+		if (scriptedTextFilterItemProvider != null) scriptedTextFilterItemProvider.dispose();
+		if (scriptedStreamFilterItemProvider != null) scriptedStreamFilterItemProvider.dispose();
 	}
 
 }

@@ -179,6 +179,18 @@ public class CodegenValidator extends EObjectValidator {
 				return validateValueConfigurationItem((ValueConfigurationItem)value, diagnostics, context);
 			case CodegenPackage.NAMED_CONFIGURATION_ITEM:
 				return validateNamedConfigurationItem((NamedConfigurationItem)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_GENERATOR:
+				return validateScriptedGenerator((ScriptedGenerator<?>)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_TEXT_GENERATOR:
+				return validateScriptedTextGenerator((ScriptedTextGenerator)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_STREAM_GENERATOR:
+				return validateScriptedStreamGenerator((ScriptedStreamGenerator)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_FILTER:
+				return validateScriptedFilter((ScriptedFilter<?>)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_TEXT_FILTER:
+				return validateScriptedTextFilter((ScriptedTextFilter)value, diagnostics, context);
+			case CodegenPackage.SCRIPTED_STREAM_FILTER:
+				return validateScriptedStreamFilter((ScriptedStreamFilter)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
@@ -786,6 +798,120 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)namedConfigurationItem, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)namedConfigurationItem, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConfiguration_validate(namedConfigurationItem, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedGenerator(ScriptedGenerator<?> scriptedGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedGenerator, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedTextGenerator(ScriptedTextGenerator scriptedTextGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedTextGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedTextGenerator, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedStreamGenerator(ScriptedStreamGenerator scriptedStreamGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedStreamGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedStreamGenerator, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedFilter(ScriptedFilter<?> scriptedFilter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedFilter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedFilter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedTextFilter(ScriptedTextFilter scriptedTextFilter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedTextFilter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedTextFilter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptedStreamFilter(ScriptedStreamFilter scriptedStreamFilter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)scriptedStreamFilter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)scriptedStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(scriptedStreamFilter, diagnostics, context);
 		return result;
 	}
 

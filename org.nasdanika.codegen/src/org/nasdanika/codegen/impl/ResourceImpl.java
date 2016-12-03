@@ -2,10 +2,17 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,5 +83,29 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 	public void setReconcileAction(ReconcileAction newReconcileAction) {
 		eSet(CodegenPackage.Literals.RESOURCE__RECONCILE_ACTION, newReconcileAction);
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getName() == null || getName().trim().length() == 0) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
+						 new Object [] { this }));
+				
+				result = false;
+			}
+		}
+		return result;
+	}			
 
 } //ResourceImpl

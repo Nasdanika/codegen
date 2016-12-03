@@ -520,6 +520,48 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedGenerator" abstract="true">
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Script is a Java method body taking ``Context context, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:&#xD;&#xA;&#xD;&#xA;```java&#xD;&#xA;T generate(Context context, IProgressMonitor monitor) throws Exception {&#xD;&#xA;    // --- Script here ---&#xD;&#xA;}&#xD;&#xA;```"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//JavaGenerator">
+      <eTypeArguments eTypeParameter="#//ScriptedGenerator/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedTextGenerator">
+    <eGenericSuperTypes eClassifier="#//ScriptedGenerator">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedStreamGenerator">
+    <eGenericSuperTypes eClassifier="#//ScriptedGenerator">
+      <eTypeArguments eClassifier="#//InputStream"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedFilter" abstract="true">
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:&#xD;&#xA;&#xD;&#xA;```java&#xD;&#xA;T generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {&#xD;&#xA;    // --- Script here ---&#xD;&#xA;}&#xD;&#xA;```"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Filter">
+      <eTypeArguments eTypeParameter="#//ScriptedFilter/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedTextFilter">
+    <eGenericSuperTypes eClassifier="#//ScriptedFilter">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedStreamFilter">
+    <eGenericSuperTypes eClassifier="#//ScriptedFilter">
+      <eTypeArguments eClassifier="#//InputStream"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eSubpackages name="java" nsURI="urn:org.nasdanika.codegen.java" nsPrefix="org.nasdanika.codegen.java">
     <eClassifiers xsi:type="ecore:EClass" name="JavaNature" eSuperTypes="#//Nature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

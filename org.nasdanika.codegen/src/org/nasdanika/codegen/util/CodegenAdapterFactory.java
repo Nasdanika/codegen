@@ -192,6 +192,30 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createNamedConfigurationItemAdapter();
 			}
 			@Override
+			public <T> Adapter caseScriptedGenerator(ScriptedGenerator<T> object) {
+				return createScriptedGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseScriptedTextGenerator(ScriptedTextGenerator object) {
+				return createScriptedTextGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseScriptedStreamGenerator(ScriptedStreamGenerator object) {
+				return createScriptedStreamGeneratorAdapter();
+			}
+			@Override
+			public <T> Adapter caseScriptedFilter(ScriptedFilter<T> object) {
+				return createScriptedFilterAdapter();
+			}
+			@Override
+			public Adapter caseScriptedTextFilter(ScriptedTextFilter object) {
+				return createScriptedTextFilterAdapter();
+			}
+			@Override
+			public Adapter caseScriptedStreamFilter(ScriptedStreamFilter object) {
+				return createScriptedStreamFilterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -642,6 +666,90 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedConfigurationItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedGenerator <em>Scripted Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedGenerator
+	 * @generated
+	 */
+	public Adapter createScriptedGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedTextGenerator <em>Scripted Text Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedTextGenerator
+	 * @generated
+	 */
+	public Adapter createScriptedTextGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedStreamGenerator <em>Scripted Stream Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedStreamGenerator
+	 * @generated
+	 */
+	public Adapter createScriptedStreamGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedFilter <em>Scripted Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedFilter
+	 * @generated
+	 */
+	public Adapter createScriptedFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedTextFilter <em>Scripted Text Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedTextFilter
+	 * @generated
+	 */
+	public Adapter createScriptedTextFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ScriptedStreamFilter <em>Scripted Stream Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ScriptedStreamFilter
+	 * @generated
+	 */
+	public Adapter createScriptedStreamFilterAdapter() {
 		return null;
 	}
 

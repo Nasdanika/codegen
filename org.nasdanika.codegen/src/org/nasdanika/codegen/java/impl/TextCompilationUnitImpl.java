@@ -2,12 +2,18 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.Generator;
 
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.TextCompilationUnit;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,5 +65,35 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 	public void setGenerator(Generator<String> newGenerator) {
 		eSet(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR, newGenerator);
 	}
+	
+	@Override
+	public int getWorkFactorySize() {
+		return super.getWorkFactorySize() + getGenerator().getWorkFactorySize();
+	}
+		
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getGenerator() == null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
+						 new Object [] { this }));
+				
+				result = false;
+			}
+		}
+		return result;
+	}	
+	
 
 } //TextCompilationUnitImpl
