@@ -40,6 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/baseURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/classPath"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/include"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/description"/>
       <genOperations ecoreOperation="codegen.ecore#//Configuration/createContext">
         <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/parent"/>
       </genOperations>
@@ -48,9 +49,7 @@
         <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/context"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//ConfigurationItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/description"/>
-    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ConfigurationItem"/>
     <genClasses ecoreClass="codegen.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Service/serviceType"/>
     </genClasses>

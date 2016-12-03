@@ -122,6 +122,15 @@ public interface MavenPackage extends EPackage {
 	int MAVEN_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.nasdanika.codegen.CodegenPackage;
@@ -41,6 +40,7 @@ import org.nasdanika.codegen.util.CodegenValidator;
  *   <li>{@link org.nasdanika.codegen.impl.ConfigurationImpl#getBaseURL <em>Base URL</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ConfigurationImpl#getClassPath <em>Class Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ConfigurationImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ConfigurationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,6 +144,24 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	@SuppressWarnings("unchecked")
 	public EList<Configuration> getInclude() {
 		return (EList<Configuration>)eGet(CodegenPackage.Literals.CONFIGURATION__INCLUDE, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return (String)eGet(CodegenPackage.Literals.CONFIGURATION__DESCRIPTION, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		eSet(CodegenPackage.Literals.CONFIGURATION__DESCRIPTION, newDescription);
 	}
 
 	/**
@@ -313,8 +331,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
-						 "Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen ["+EObjectValidator.getObjectLabel(this, context)+"]",
+						 "["+EObjectValidator.getObjectLabel(this, context)+"]Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
 						 new Object [] { this }));
+				
+				return false;
 				
 				// TODO - once includes are supported validate extensions - .properties, .json, .yml, .nsdgen - and validate URL's.
 			}

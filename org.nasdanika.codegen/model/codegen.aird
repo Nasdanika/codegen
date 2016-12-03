@@ -49,6 +49,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_NCmjgbEhEea2Cayws5gftw" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_NCmjgrEhEea2Cayws5gftw"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_oPRCELmFEeafvNA97K9lWw" type="3010" element="_ciu6kK0xEeaDSrqPUbzqlg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_oPRCEbmFEeafvNA97K9lWw" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_oPRCErmFEeafvNA97K9lWw"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_ooK1MK2bEeas-M1_J1949A" type="3010" element="_onYyEK2bEeas-M1_J1949A">
                 <styles xmi:type="notation:FontStyle" xmi:id="_ooK1Ma2bEeas-M1_J1949A" fontName="Segoe UI" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ooK1Mq2bEeas-M1_J1949A"/>
@@ -424,10 +428,6 @@
           <children xmi:type="notation:Node" xmi:id="_cA750K2ZEeas-M1_J1949A" type="2003" element="_b-55gK2ZEeas-M1_J1949A">
             <children xmi:type="notation:Node" xmi:id="_cBFq0K2ZEeas-M1_J1949A" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_cBGR4K2ZEeas-M1_J1949A" type="7004">
-              <children xmi:type="notation:Node" xmi:id="_bQwkoK2aEeas-M1_J1949A" type="3010" element="_ciu6kK0xEeaDSrqPUbzqlg">
-                <styles xmi:type="notation:FontStyle" xmi:id="_bQwkoa2aEeas-M1_J1949A" fontName="Segoe UI" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_bQwkoq2aEeas-M1_J1949A"/>
-              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_cBGR4a2ZEeas-M1_J1949A"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_cBGR4q2ZEeas-M1_J1949A"/>
             </children>
@@ -1045,6 +1045,14 @@
           <target xmi:type="ecore:EAttribute" href="codegen.ecore#//Configuration/classPath"/>
           <semanticElements xmi:type="ecore:EAttribute" href="codegen.ecore#//Configuration/classPath"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OU21kLEhEea2Cayws5gftw" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ciu6kK0xEeaDSrqPUbzqlg" name="description : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="codegen.ecore#//Configuration/description"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="codegen.ecore#//Configuration/description"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_dxS_cK0xEeaDSrqPUbzqlg" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -1826,14 +1834,6 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ciu6kK0xEeaDSrqPUbzqlg" name="description : EString" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="codegen.ecore#//ConfigurationItem/description"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="codegen.ecore#//ConfigurationItem/description"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_dxS_cK0xEeaDSrqPUbzqlg" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_IhXtUK2aEeas-M1_J1949A" name="Provider" tooltipText="" incomingEdges="_OebhoK2aEeas-M1_J1949A" width="12" height="10">
         <target xmi:type="ecore:EClass" href="codegen.ecore#//Provider"/>

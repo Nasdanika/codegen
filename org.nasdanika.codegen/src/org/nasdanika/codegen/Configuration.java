@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.codegen.Configuration#getBaseURL <em>Base URL</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Configuration#getClassPath <em>Class Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Configuration#getInclude <em>Include</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Configuration#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getConfiguration()
@@ -159,6 +160,31 @@ public interface Configuration extends CDOObject {
 	 * @generated
 	 */
 	EList<Configuration> getInclude();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Optional description.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getConfiguration_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Configuration#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

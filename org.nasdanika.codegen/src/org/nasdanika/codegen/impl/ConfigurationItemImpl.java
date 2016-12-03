@@ -17,12 +17,6 @@ import org.nasdanika.codegen.Provider;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Configuration Item</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.ConfigurationItemImpl#getDescription <em>Description</em>}</li>
- * </ul>
  *
  * @generated
  */
@@ -44,24 +38,6 @@ public abstract class ConfigurationItemImpl extends ConfigurationImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.CONFIGURATION_ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return (String)eGet(CodegenPackage.Literals.CONFIGURATION_ITEM__DESCRIPTION, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		eSet(CodegenPackage.Literals.CONFIGURATION_ITEM__DESCRIPTION, newDescription);
 	}
 
 	/**

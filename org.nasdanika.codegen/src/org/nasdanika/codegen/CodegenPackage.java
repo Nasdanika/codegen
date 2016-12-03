@@ -127,13 +127,22 @@ public interface CodegenPackage extends EPackage {
 	int CONFIGURATION__INCLUDE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__DESCRIPTION = 6;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 6;
+	int CONFIGURATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -243,7 +252,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ITEM__DESCRIPTION = CONFIGURATION_FEATURE_COUNT + 0;
+	int CONFIGURATION_ITEM__DESCRIPTION = CONFIGURATION__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Configuration Item</em>' class.
@@ -252,7 +261,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_FEATURE_COUNT + 1;
+	int CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -827,6 +836,15 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__INCLUDE = CONFIGURATION__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__DESCRIPTION = CONFIGURATION__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -934,6 +952,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__INCLUDE = GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DESCRIPTION = GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1063,6 +1090,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,6 +1206,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int WORKSPACE__INCLUDE = GROUP__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__DESCRIPTION = GROUP__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1299,6 +1344,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__INCLUDE = RESOURCE_GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1424,6 +1478,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__INCLUDE = RESOURCE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__DESCRIPTION = RESOURCE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1562,6 +1625,15 @@ public interface CodegenPackage extends EPackage {
 	int NATURE__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1669,6 +1741,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__INCLUDE = RESOURCE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1816,6 +1897,15 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT__INCLUDE = RESOURCE_GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1959,6 +2049,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE__INCLUDE = FILE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__DESCRIPTION = FILE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -2106,6 +2205,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__INCLUDE = FILE__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__DESCRIPTION = FILE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2251,6 +2359,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_REFERENCE__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2387,6 +2504,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2503,6 +2629,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__INCLUDE = GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__DESCRIPTION = GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -2623,6 +2758,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2739,6 +2883,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -2859,6 +3012,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__INCLUDE = FILTER__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2977,6 +3139,15 @@ public interface CodegenPackage extends EPackage {
 	int JET_EMITTER__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3093,6 +3264,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__INCLUDE = FILTER__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -3240,6 +3420,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__INCLUDE = JAVA_FILTER__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3365,6 +3554,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__INCLUDE = JAVA_FILTER__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -3494,6 +3692,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__INCLUDE = JAVA_GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3610,6 +3817,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__INCLUDE = JAVA_GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -3994,6 +4210,17 @@ public interface CodegenPackage extends EPackage {
 	EReference getConfiguration_Include();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Configuration#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.codegen.Configuration#getDescription()
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	EAttribute getConfiguration_Description();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context) <em>Create Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4022,17 +4249,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConfigurationItem();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ConfigurationItem#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.codegen.ConfigurationItem#getDescription()
-	 * @see #getConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getConfigurationItem_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Service <em>Service</em>}'.
@@ -4825,6 +5041,14 @@ public interface CodegenPackage extends EPackage {
 		EReference CONFIGURATION__INCLUDE = eINSTANCE.getConfiguration_Include();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIGURATION__DESCRIPTION = eINSTANCE.getConfiguration_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Create Context</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4849,14 +5073,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONFIGURATION_ITEM = eINSTANCE.getConfigurationItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION_ITEM__DESCRIPTION = eINSTANCE.getConfigurationItem_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ServiceImpl <em>Service</em>}' class.

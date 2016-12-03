@@ -124,6 +124,15 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +249,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT_ROOT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -369,6 +387,15 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -494,6 +521,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -630,6 +666,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -775,6 +820,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
