@@ -164,6 +164,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceGroupItemProvider resourceGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceGroupAdapter() {
+		if (resourceGroupItemProvider == null) {
+			resourceGroupItemProvider = new ResourceGroupItemProvider(this);
+		}
+
+		return resourceGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Workspace} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,6 +749,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (serviceItemProvider != null) serviceItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
+		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
 		if (workspaceItemProvider != null) workspaceItemProvider.dispose();
 		if (folderItemProvider != null) folderItemProvider.dispose();
 		if (projectItemProvider != null) projectItemProvider.dispose();

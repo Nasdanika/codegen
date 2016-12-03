@@ -131,6 +131,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateGenerator((Generator<?>)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GROUP:
+				return validateResourceGroup((ResourceGroup)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GENERATOR:
 				return validateResourceGenerator((ResourceGenerator<?>)value, diagnostics, context);
 			case CodegenPackage.WORKSPACE:
@@ -356,6 +358,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)group, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)group, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConfiguration_validate(group, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceGroup(ResourceGroup resourceGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)resourceGroup, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(resourceGroup, diagnostics, context);
 		return result;
 	}
 

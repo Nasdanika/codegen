@@ -151,7 +151,16 @@
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
-      <eTypeArguments eTypeParameter="#//Group/T"/>
+      <eTypeArguments eClassifier="#//List">
+        <eTypeArguments eTypeParameter="#//Group/T"/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceGroup">
+    <eGenericSuperTypes eClassifier="#//Group">
+      <eTypeArguments eClassifier="#//Resource">
+        <eTypeArguments/>
+      </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceGenerator" abstract="true">

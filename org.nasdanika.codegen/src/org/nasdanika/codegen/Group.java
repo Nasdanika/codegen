@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen;
 
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,10 +23,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGroup()
- * @model
+ * @model superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.List<T>>"
  * @generated
  */
-public interface Group<T> extends Generator<T> {
+public interface Group<T> extends Generator<List<T>> {
 	/**
 	 * Returns the value of the '<em><b>Selector</b></em>' attribute.
 	 * <!-- begin-user-doc -->

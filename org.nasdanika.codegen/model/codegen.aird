@@ -1346,7 +1346,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Hsq8YK0KEeanjMdeoC8PaQ" sourceNode="_Aw3A0K0KEeanjMdeoC8PaQ" targetNode="_WJ5QYK0JEeanjMdeoC8PaQ" beginLabel="&lt;&lt;bind T>> T">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Hsq8YK0KEeanjMdeoC8PaQ" sourceNode="_Aw3A0K0KEeanjMdeoC8PaQ" targetNode="_WJ5QYK0JEeanjMdeoC8PaQ" beginLabel="&lt;&lt;bind T>> List">
         <target xmi:type="ecore:EClass" href="codegen.ecore#//Group"/>
         <semanticElements xmi:type="ecore:EGenericType" href="codegen.ecore#//Group/@eGenericSuperTypes.0"/>
         <semanticElements xmi:type="ecore:EGenericType" href="codegen.ecore#//Group/@eGenericSuperTypes.0/@eTypeArguments.0"/>

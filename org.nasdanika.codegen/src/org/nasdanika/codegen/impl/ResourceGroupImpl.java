@@ -2,25 +2,26 @@
  */
 package org.nasdanika.codegen.impl;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceGroup;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Workspace Root</b></em>'.
+ * An implementation of the model object '<em><b>Resource Group</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class WorkspaceImpl extends GroupImpl<IProject> implements Workspace {
+public class ResourceGroupImpl extends GroupImpl<Resource<?>> implements ResourceGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WorkspaceImpl() {
+	protected ResourceGroupImpl() {
 		super();
 	}
 
@@ -31,7 +32,7 @@ public class WorkspaceImpl extends GroupImpl<IProject> implements Workspace {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CodegenPackage.Literals.WORKSPACE;
+		return CodegenPackage.Literals.RESOURCE_GROUP;
 	}
 
-} //WorkspaceRootImpl
+} //ResourceGroupImpl

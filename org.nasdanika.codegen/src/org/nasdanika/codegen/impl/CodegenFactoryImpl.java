@@ -71,6 +71,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.SERVICE: return (EObject)createService();
 			case CodegenPackage.PROPERTY: return (EObject)createProperty();
 			case CodegenPackage.GROUP: return (EObject)createGroup();
+			case CodegenPackage.RESOURCE_GROUP: return (EObject)createResourceGroup();
 			case CodegenPackage.WORKSPACE: return (EObject)createWorkspace();
 			case CodegenPackage.FOLDER: return (EObject)createFolder();
 			case CodegenPackage.PROJECT: return (EObject)createProject();
@@ -212,6 +213,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public <T> Group<T> createGroup() {
 		GroupImpl<T> group = new GroupImpl<T>();
 		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceGroup createResourceGroup() {
+		ResourceGroupImpl resourceGroup = new ResourceGroupImpl();
+		return resourceGroup;
 	}
 
 	/**

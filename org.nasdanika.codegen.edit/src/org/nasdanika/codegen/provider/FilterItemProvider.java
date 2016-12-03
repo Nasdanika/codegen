@@ -148,6 +148,11 @@ public class FilterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
 				 CodegenFactory.eINSTANCE.createWorkspace()));
 
 		newChildDescriptors.add

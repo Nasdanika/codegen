@@ -58,6 +58,15 @@ public interface CodegenFactory extends EFactory {
 	<T> Group<T> createGroup();
 
 	/**
+	 * Returns a new object of class '<em>Resource Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Group</em>'.
+	 * @generated
+	 */
+	ResourceGroup createResourceGroup();
+
+	/**
 	 * Returns a new object of class '<em>Workspace</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -179,7 +179,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 	 * @generated
 	 */
-	int PROVIDER = 24;
+	int PROVIDER = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ConfigurationItemImpl <em>Configuration Item</em>}' class.
@@ -298,7 +298,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getValueConfigurationItem()
 	 * @generated
 	 */
-	int VALUE_CONFIGURATION_ITEM = 29;
+	int VALUE_CONFIGURATION_ITEM = 30;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1026,6 +1026,142 @@ public interface CodegenPackage extends EPackage {
 	int GROUP_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGroupImpl <em>Resource Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGroupImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
+	 * @generated
+	 */
+	int RESOURCE_GROUP = 7;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__INCLUDES = GROUP__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__DEFAULT_INCLUDES = GROUP__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__BASE_URL = GROUP__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CLASS_PATH = GROUP__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__INCLUDE = GROUP__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__DESCRIPTION = GROUP__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__ITERATOR = GROUP__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Selector</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__SELECTOR = GROUP__SELECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__ELEMENTS = GROUP__ELEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Resource Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP_FEATURE_COUNT = GROUP_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP___CREATE_CONTEXT__CONTEXT = GROUP___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorImpl <em>Resource Generator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,7 +1169,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGenerator()
 	 * @generated
 	 */
-	int RESOURCE_GENERATOR = 7;
+	int RESOURCE_GENERATOR = 8;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1151,7 +1287,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkspace()
 	 * @generated
 	 */
-	int WORKSPACE = 8;
+	int WORKSPACE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1287,7 +1423,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 13;
+	int RESOURCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1423,7 +1559,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 9;
+	int FOLDER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1568,7 +1704,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNature()
 	 * @generated
 	 */
-	int NATURE = 10;
+	int NATURE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1686,7 +1822,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 11;
+	int FILE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1840,7 +1976,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 12;
+	int PROJECT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1994,7 +2130,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryFile()
 	 * @generated
 	 */
-	int BINARY_FILE = 14;
+	int BINARY_FILE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2148,7 +2284,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextFile()
 	 * @generated
 	 */
-	int TEXT_FILE = 15;
+	int TEXT_FILE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2302,7 +2438,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceReference()
 	 * @generated
 	 */
-	int RESOURCE_REFERENCE = 16;
+	int RESOURCE_REFERENCE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2447,7 +2583,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticText()
 	 * @generated
 	 */
-	int STATIC_TEXT = 17;
+	int STATIC_TEXT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2574,7 +2710,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 18;
+	int CONTENT_REFERENCE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2701,7 +2837,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 19;
+	int FILTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2828,7 +2964,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 20;
+	int JAVA_GENERATOR = 21;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2955,7 +3091,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 21;
+	int INTERPOLATOR = 22;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3082,7 +3218,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJETEmitter()
 	 * @generated
 	 */
-	int JET_EMITTER = 22;
+	int JET_EMITTER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3209,7 +3345,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 23;
+	int JAVA_FILTER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3363,7 +3499,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 25;
+	int JAVA_TEXT_FILTER = 26;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3499,7 +3635,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 26;
+	int JAVA_STREAM_FILTER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3635,7 +3771,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 27;
+	int JAVA_TEXT_GENERATOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3762,7 +3898,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 28;
+	int JAVA_STREAM_GENERATOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3889,7 +4025,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedConfigurationItem()
 	 * @generated
 	 */
-	int NAMED_CONFIGURATION_ITEM = 30;
+	int NAMED_CONFIGURATION_ITEM = 31;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4007,7 +4143,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_GENERATOR = 31;
+	int SCRIPTED_GENERATOR = 32;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4143,7 +4279,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_GENERATOR = 32;
+	int SCRIPTED_TEXT_GENERATOR = 33;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4279,7 +4415,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_GENERATOR = 33;
+	int SCRIPTED_STREAM_GENERATOR = 34;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4415,7 +4551,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
 	 * @generated
 	 */
-	int SCRIPTED_FILTER = 34;
+	int SCRIPTED_FILTER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4551,7 +4687,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_FILTER = 35;
+	int SCRIPTED_TEXT_FILTER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4687,7 +4823,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_FILTER = 36;
+	int SCRIPTED_STREAM_FILTER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4823,7 +4959,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 37;
+	int TEXT_CONTENT_REFERENCE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4950,7 +5086,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 38;
+	int STREAM_CONTENT_REFERENCE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5077,7 +5213,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 39;
+	int RECONCILE_ACTION = 40;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5087,7 +5223,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 40;
+	int CONTEXT = 41;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -5097,7 +5233,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 41;
+	int INPUT_STREAM = 42;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -5107,7 +5243,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 42;
+	int VOID = 43;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -5117,7 +5253,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 43;
+	int IFILE = 44;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -5127,7 +5263,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 44;
+	int IFOLDER = 45;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -5137,7 +5273,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 45;
+	int IPROJECT = 46;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -5147,7 +5283,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 46;
+	int IPROJECT_NATURE = 47;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -5157,7 +5293,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 47;
+	int IWORKSPACE_ROOT = 48;
 
 
 	/**
@@ -5168,7 +5304,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 48;
+	int EXCEPTION = 49;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -5178,7 +5314,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 49;
+	int IRESOURCE = 50;
 
 
 	/**
@@ -5189,7 +5325,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 50;
+	int LIST = 51;
 
 
 	/**
@@ -5200,7 +5336,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 51;
+	int MERGER = 52;
 
 
 	/**
@@ -5414,6 +5550,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGroup_Elements();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGroup <em>Resource Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Group</em>'.
+	 * @see org.nasdanika.codegen.ResourceGroup
+	 * @generated
+	 */
+	EClass getResourceGroup();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGenerator <em>Resource Generator</em>}'.
@@ -6327,6 +6473,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GROUP__ELEMENTS = eINSTANCE.getGroup_Elements();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGroupImpl <em>Resource Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGroupImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
+		 * @generated
+		 */
+		EClass RESOURCE_GROUP = eINSTANCE.getResourceGroup();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorImpl <em>Resource Generator</em>}' class.

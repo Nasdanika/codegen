@@ -55,6 +55,7 @@ import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.ResourceReference;
 import org.nasdanika.codegen.ScriptedFilter;
 import org.nasdanika.codegen.ScriptedGenerator;
@@ -134,6 +135,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass groupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -706,6 +714,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EReference getGroup_Elements() {
 		return (EReference)groupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getResourceGroup() {
+		return resourceGroupEClass;
 	}
 
 	/**
@@ -1375,6 +1392,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(groupEClass, GROUP__SELECTOR);
 		createEReference(groupEClass, GROUP__ELEMENTS);
 
+		resourceGroupEClass = createEClass(RESOURCE_GROUP);
+
 		resourceGeneratorEClass = createEClass(RESOURCE_GENERATOR);
 
 		workspaceEClass = createEClass(WORKSPACE);
@@ -1549,9 +1568,17 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2.getETypeArguments().add(g3);
 		generatorEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
-		g2 = createEGenericType(groupEClass_T);
+		g2 = createEGenericType(this.getList());
 		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(groupEClass_T);
+		g2.getETypeArguments().add(g3);
 		groupEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGroup());
+		g2 = createEGenericType(this.getResource());
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		resourceGroupEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(resourceGeneratorEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -1712,6 +1739,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(groupEClass_T);
 		g1.getETypeArguments().add(g2);
 		initEReference(getGroup_Elements(), g1, null, "elements", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceGeneratorEClass, ResourceGenerator.class, "ResourceGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

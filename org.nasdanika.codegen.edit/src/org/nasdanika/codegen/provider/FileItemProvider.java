@@ -150,6 +150,11 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATOR,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATOR,
 				 CodegenFactory.eINSTANCE.createWorkspace()));
 
 		newChildDescriptors.add

@@ -124,6 +124,16 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.RESOURCE_GROUP: {
+				ResourceGroup resourceGroup = (ResourceGroup)theEObject;
+				T1 result = caseResourceGroup(resourceGroup);
+				if (result == null) result = caseGroup(resourceGroup);
+				if (result == null) result = caseGenerator(resourceGroup);
+				if (result == null) result = caseConfiguration(resourceGroup);
+				if (result == null) result = caseWorkFactory(resourceGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.RESOURCE_GENERATOR: {
 				ResourceGenerator<?> resourceGenerator = (ResourceGenerator<?>)theEObject;
 				T1 result = caseResourceGenerator(resourceGenerator);
@@ -550,6 +560,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseGroup(Group<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseResourceGroup(ResourceGroup object) {
 		return null;
 	}
 
