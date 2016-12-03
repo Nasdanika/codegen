@@ -145,13 +145,22 @@ public interface CodegenPackage extends EPackage {
 	int CONFIGURATION___CREATE_CONTEXT__CONTEXT = 0;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
 	 * The number of operations of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_OPERATION_COUNT = 1;
+	int CONFIGURATION_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.Provider <em>Provider</em>}' class.
@@ -253,6 +262,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Configuration Item</em>' class.
@@ -364,13 +382,22 @@ public interface CodegenPackage extends EPackage {
 	int VALUE_CONFIGURATION_ITEM__DEFAULT = CONFIGURATION_ITEM_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_CONFIGURATION_ITEM__SCRIPTED = CONFIGURATION_ITEM_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Value Configuration Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_ITEM_FEATURE_COUNT + 3;
+	int VALUE_CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_ITEM_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -380,6 +407,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Value Configuration Item</em>' class.
@@ -491,6 +527,15 @@ public interface CodegenPackage extends EPackage {
 	int SERVICE__DEFAULT = VALUE_CONFIGURATION_ITEM__DEFAULT;
 
 	/**
+	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__SCRIPTED = VALUE_CONFIGURATION_ITEM__SCRIPTED;
+
+	/**
 	 * The feature id for the '<em><b>Service Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -516,6 +561,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE___CREATE_CONTEXT__CONTEXT = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -627,6 +681,15 @@ public interface CodegenPackage extends EPackage {
 	int PROPERTY__DEFAULT = VALUE_CONFIGURATION_ITEM__DEFAULT;
 
 	/**
+	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__SCRIPTED = VALUE_CONFIGURATION_ITEM__SCRIPTED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -652,6 +715,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___CREATE_CONTEXT__CONTEXT = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -788,7 +860,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_OPERATION_COUNT + 0;
+	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -797,7 +869,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 1;
+	int GENERATOR_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -3694,6 +3766,15 @@ public interface CodegenPackage extends EPackage {
 	int NAMED_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Named Configuration Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3923,6 +4004,16 @@ public interface CodegenPackage extends EPackage {
 	EOperation getConfiguration__CreateContext__Context();
 
 	/**
+	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see org.nasdanika.codegen.Configuration#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getConfiguration__Validate__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ConfigurationItem <em>Configuration Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4005,16 +4096,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_Iterator();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate</em>' operation.
-	 * @see org.nasdanika.codegen.Generator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getGenerator__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
@@ -4489,6 +4570,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getValueConfigurationItem_Default();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#isScripted <em>Scripted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scripted</em>'.
+	 * @see org.nasdanika.codegen.ValueConfigurationItem#isScripted()
+	 * @see #getValueConfigurationItem()
+	 * @generated
+	 */
+	EAttribute getValueConfigurationItem_Scripted();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.NamedConfigurationItem <em>Named Configuration Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4741,6 +4833,14 @@ public interface CodegenPackage extends EPackage {
 		EOperation CONFIGURATION___CREATE_CONTEXT__CONTEXT = eINSTANCE.getConfiguration__CreateContext__Context();
 
 		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getConfiguration__Validate__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ConfigurationItemImpl <em>Configuration Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4813,14 +4913,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__ITERATOR = eINSTANCE.getGenerator_Iterator();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGenerator__Validate__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -5229,6 +5321,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VALUE_CONFIGURATION_ITEM__DEFAULT = eINSTANCE.getValueConfigurationItem_Default();
+
+		/**
+		 * The meta object literal for the '<em><b>Scripted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_CONFIGURATION_ITEM__SCRIPTED = eINSTANCE.getValueConfigurationItem_Scripted();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.NamedConfigurationItemImpl <em>Named Configuration Item</em>}' class.

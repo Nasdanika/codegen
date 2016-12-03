@@ -48,6 +48,7 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 			addValueTypePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 			addDefaultPropertyDescriptor(object);
+			addScriptedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 	}
 
 	/**
+	 * This adds a property descriptor for the Scripted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueConfigurationItem_scripted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueConfigurationItem_scripted_feature", "_UI_ValueConfigurationItem_type"),
+				 CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__SCRIPTED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ValueConfigurationItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,6 +182,7 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__VALUE_TYPE:
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__VALUE:
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__DEFAULT:
+			case CodegenPackage.VALUE_CONFIGURATION_ITEM__SCRIPTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

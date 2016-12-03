@@ -41,6 +41,7 @@ package org.nasdanika.codegen;
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#getValueType <em>Value Type</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#getValue <em>Value</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#isDefault <em>Default</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#isScripted <em>Scripted</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getValueConfigurationItem()
@@ -124,5 +125,37 @@ public interface ValueConfigurationItem extends ConfigurationItem {
 	 * @generated
 	 */
 	void setDefault(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Scripted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, value is treated as script and evaluated to compute actual value. 
+	 * Script is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:
+	 * 
+	 * ```java
+	 * Object evaluate(Context context, String valueType) throws Exception {
+	 *     // --- Script here ---
+	 * }
+	 * ```
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Scripted</em>' attribute.
+	 * @see #setScripted(boolean)
+	 * @see org.nasdanika.codegen.CodegenPackage#getValueConfigurationItem_Scripted()
+	 * @model
+	 * @generated
+	 */
+	boolean isScripted();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.ValueConfigurationItem#isScripted <em>Scripted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scripted</em>' attribute.
+	 * @see #isScripted()
+	 * @generated
+	 */
+	void setScripted(boolean value);
 
 } // ValueConfigurationItem

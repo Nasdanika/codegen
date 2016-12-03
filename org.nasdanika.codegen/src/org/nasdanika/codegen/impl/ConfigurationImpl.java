@@ -10,8 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Configuration;
@@ -20,6 +25,7 @@ import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Property;
 import org.nasdanika.codegen.Service;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -155,7 +161,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		// Includes
 		// TODO - implement
 		if (!getIncludes().isEmpty()) {
-			throw new UnsupportedOperationException("'includes' is not yet supported, feel free to implement and contribute ;-)");
+			throw new UnsupportedOperationException("'includes' is not yet supported, feel free to implement and contribute - https://github.com/Nasdanika/codegen");
 		}
 
 		// Include
@@ -294,6 +300,27 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		return ret;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null) {
+			if (!getIncludes().isEmpty()) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 "Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen ["+EObjectValidator.getObjectLabel(this, context)+"]",
+						 new Object [] { this }));
+				
+				// TODO - once includes are supported validate extensions - .properties, .json, .yml, .nsdgen - and validate URL's.
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,6 +328,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case CodegenPackage.CONFIGURATION___CREATE_CONTEXT__CONTEXT:
@@ -310,6 +338,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case CodegenPackage.CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP:
+				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -51,12 +51,12 @@ public class CodegenValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "org.nasdanika.codegen";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Generator'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Configuration'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int GENERATOR__VALIDATE = 1;
+	public static final int CONFIGURATION__VALIDATE = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -216,7 +216,27 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConfiguration(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)configuration, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)configuration, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(configuration, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the validate constraint of '<em>Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfiguration_validate(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configuration.validate(diagnostics, context);
 	}
 
 	/**
@@ -225,7 +245,17 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConfigurationItem(ConfigurationItem configurationItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)configurationItem, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)configurationItem, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)configurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(configurationItem, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -234,7 +264,17 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateService(Service service, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)service, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)service, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)service, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(service, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -243,7 +283,17 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProperty(Property property, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)property, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)property, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)property, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(property, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -270,18 +320,8 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)generator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)generator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)generator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(generator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(generator, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the validate constraint of '<em>Generator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGenerator_validate(Generator<?> generator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return generator.validate(diagnostics, context);
 	}
 
 	/**
@@ -299,7 +339,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)group, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)group, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)group, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(group, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(group, diagnostics, context);
 		return result;
 	}
 
@@ -318,7 +358,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)resourceGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resourceGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resourceGenerator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(resourceGenerator, diagnostics, context);
 		return result;
 	}
 
@@ -337,7 +377,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)workspace, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)workspace, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(workspace, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(workspace, diagnostics, context);
 		return result;
 	}
 
@@ -356,7 +396,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)folder, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)folder, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)folder, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(folder, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(folder, diagnostics, context);
 		return result;
 	}
 
@@ -375,7 +415,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)nature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)nature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)nature, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(nature, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(nature, diagnostics, context);
 		return result;
 	}
 
@@ -394,7 +434,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)file, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)file, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)file, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(file, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(file, diagnostics, context);
 		return result;
 	}
 
@@ -413,7 +453,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)project, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)project, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)project, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(project, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(project, diagnostics, context);
 		return result;
 	}
 
@@ -432,7 +472,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)resource, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resource, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resource, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(resource, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(resource, diagnostics, context);
 		return result;
 	}
 
@@ -451,7 +491,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)binaryFile, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)binaryFile, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)binaryFile, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(binaryFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(binaryFile, diagnostics, context);
 		return result;
 	}
 
@@ -470,7 +510,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)textFile, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)textFile, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)textFile, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(textFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(textFile, diagnostics, context);
 		return result;
 	}
 
@@ -489,7 +529,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)resourceReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resourceReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resourceReference, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(resourceReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(resourceReference, diagnostics, context);
 		return result;
 	}
 
@@ -508,7 +548,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)staticText, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)staticText, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)staticText, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(staticText, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(staticText, diagnostics, context);
 		return result;
 	}
 
@@ -527,7 +567,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)contentReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)contentReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)contentReference, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(contentReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(contentReference, diagnostics, context);
 		return result;
 	}
 
@@ -546,7 +586,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)filter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)filter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)filter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(filter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(filter, diagnostics, context);
 		return result;
 	}
 
@@ -565,7 +605,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaGenerator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaGenerator, diagnostics, context);
 		return result;
 	}
 
@@ -584,7 +624,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)interpolator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)interpolator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)interpolator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(interpolator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(interpolator, diagnostics, context);
 		return result;
 	}
 
@@ -603,7 +643,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)jetEmitter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)jetEmitter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)jetEmitter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(jetEmitter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(jetEmitter, diagnostics, context);
 		return result;
 	}
 
@@ -622,7 +662,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaFilter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaFilter, diagnostics, context);
 		return result;
 	}
 
@@ -650,7 +690,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaTextFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaTextFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaTextFilter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaTextFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaTextFilter, diagnostics, context);
 		return result;
 	}
 
@@ -669,7 +709,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaStreamFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaStreamFilter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaStreamFilter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaStreamFilter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaStreamFilter, diagnostics, context);
 		return result;
 	}
 
@@ -688,7 +728,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaTextGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaTextGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaTextGenerator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaTextGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaTextGenerator, diagnostics, context);
 		return result;
 	}
 
@@ -707,7 +747,7 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID((EObject)javaStreamGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)javaStreamGenerator, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)javaStreamGenerator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(javaStreamGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(javaStreamGenerator, diagnostics, context);
 		return result;
 	}
 
@@ -717,7 +757,17 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateValueConfigurationItem(ValueConfigurationItem valueConfigurationItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)valueConfigurationItem, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)valueConfigurationItem, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)valueConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(valueConfigurationItem, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -726,7 +776,17 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateNamedConfigurationItem(NamedConfigurationItem namedConfigurationItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)namedConfigurationItem, diagnostics, context);
+		if (!validate_NoCircularContainment((EObject)namedConfigurationItem, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)namedConfigurationItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(namedConfigurationItem, diagnostics, context);
+		return result;
 	}
 
 	/**

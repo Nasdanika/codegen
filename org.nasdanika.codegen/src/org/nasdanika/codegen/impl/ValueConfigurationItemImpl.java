@@ -18,6 +18,7 @@ import org.nasdanika.codegen.ValueConfigurationItem;
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#getValueType <em>Value Type</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#isDefault <em>Default</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#isScripted <em>Scripted</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +95,24 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 	 */
 	public void setDefault(boolean newDefault) {
 		eSet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__DEFAULT, newDefault);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isScripted() {
+		return (Boolean)eGet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__SCRIPTED, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScripted(boolean newScripted) {
+		eSet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__SCRIPTED, newScripted);
 	}
 
 } //ValueConfigurationItemImpl

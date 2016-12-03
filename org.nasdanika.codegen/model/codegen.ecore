@@ -18,6 +18,25 @@
         </eAnnotations>
       </eParameters>
     </eOperations>
+    <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Validates element for execution/generation. Adds messages to diagnostics and "/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Diagnostics to add validation messages to."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Validation context."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="includes" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -100,25 +119,6 @@
       <details key="documentation" value="Generator is the base class for model element performing code generation."/>
     </eAnnotations>
     <eTypeParameters name="T"/>
-    <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Validates element for execution/generation. Adds messages to diagnostics and "/>
-      </eAnnotations>
-      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Diagnostics to add validation messages to."/>
-        </eAnnotations>
-      </eParameters>
-      <eParameters name="context">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Validation context."/>
-        </eAnnotations>
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Iterator attribute may contain a fragment of Java code which controls&#xD;&#xA;how many times the generator will be invoked and can modify generator's &#xD;&#xA;context for each invocation.&#xD;&#xA;&#xD;&#xA;The iterator's code shall be a Java method body as shown below:&#xD;&#xA;&#xD;&#xA;```java&#xD;&#xA;&lt;T extends Generator> Object iterate(Context context, T generator) throws Exception {&#xD;&#xA;    // --- Iterator code here ---&#xD;&#xA;}&#xD;&#xA;```&#xD;&#xA;&#xD;&#xA;where ``T`` is the type of the iterator declaring generator model element. &#xD;&#xA;&#xD;&#xA;Iterator code may return one of the following:&#xD;&#xA;&#xD;&#xA;* ``null`` or ``false`` or empty collection - no iteration.&#xD;&#xA;* ``java.lang.Iterable`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.&#xD;&#xA;* ``Context`` - single invocation with returned context.&#xD;&#xA;&#xD;&#xA;If the iterator returns any other result, then the generator throws ``IllegalArgumentException``.&#xD;&#xA;&#xD;&#xA;Blank iterator code is equivalent to ``return context;``"/>
@@ -502,6 +502,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Regular configuration shadow/override configuration items defined in parent context(s),&#xD;&#xA;default configuration items, on the contrary, get shadowed by parent's configuration items&#xD;&#xA;with the same keys."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scripted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, value is treated as script and evaluated to compute actual value. &#xD;&#xA;Script is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:&#xD;&#xA;&#xD;&#xA;```java&#xD;&#xA;Object evaluate(Context context, String valueType) throws Exception {&#xD;&#xA;    // --- Script here ---&#xD;&#xA;}&#xD;&#xA;```"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

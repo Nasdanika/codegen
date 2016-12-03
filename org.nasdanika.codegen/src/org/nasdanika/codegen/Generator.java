@@ -3,8 +3,6 @@
 package org.nasdanika.codegen;
 
 import java.util.List;
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 
 
 /**
@@ -79,17 +77,4 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setIterator(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Validates element for execution/generation. Adds messages to diagnostics and 
-	 * @param diagnostics Diagnostics to add validation messages to.
-	 * @param context Validation context.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 } // Generator

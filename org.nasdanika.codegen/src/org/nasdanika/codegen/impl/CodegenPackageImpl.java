@@ -541,6 +541,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getConfiguration__Validate__DiagnosticChain_Map() {
+		return configurationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConfigurationItem() {
 		return configurationItemEClass;
 	}
@@ -606,15 +615,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EAttribute getGenerator_Iterator() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGenerator__Validate__DiagnosticChain_Map() {
-		return generatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1027,6 +1027,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getValueConfigurationItem_Scripted() {
+		return (EAttribute)valueConfigurationItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedConfigurationItem() {
 		return namedConfigurationItemEClass;
 	}
@@ -1193,6 +1202,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(configurationEClass, CONFIGURATION__CLASS_PATH);
 		createEReference(configurationEClass, CONFIGURATION__INCLUDE);
 		createEOperation(configurationEClass, CONFIGURATION___CREATE_CONTEXT__CONTEXT);
+		createEOperation(configurationEClass, CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		configurationItemEClass = createEClass(CONFIGURATION_ITEM);
 		createEAttribute(configurationItemEClass, CONFIGURATION_ITEM__DESCRIPTION);
@@ -1206,7 +1216,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
-		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__SELECTOR);
@@ -1276,6 +1285,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE_TYPE);
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE);
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__DEFAULT);
+		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__SCRIPTED);
 
 		namedConfigurationItemEClass = createEClass(NAMED_CONFIGURATION_ITEM);
 		createEAttribute(namedConfigurationItemEClass, NAMED_CONFIGURATION_ITEM__NAME);
@@ -1468,6 +1478,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEParameter(op, this.getContext(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
+		op = initEOperation(getConfiguration__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(configurationItemEClass, ConfigurationItem.class, "ConfigurationItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigurationItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, ConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1480,15 +1499,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getGenerator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1576,6 +1586,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getValueConfigurationItem_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueConfigurationItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueConfigurationItem_Default(), ecorePackage.getEBoolean(), "default", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueConfigurationItem_Scripted(), ecorePackage.getEBoolean(), "scripted", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedConfigurationItemEClass, NamedConfigurationItem.class, "NamedConfigurationItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedConfigurationItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1641,6 +1652,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Parent context."
+		   });	
+		addAnnotation
+		  (getConfiguration__Validate__DiagnosticChain_Map(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Validates element for execution/generation. Adds messages to diagnostics and "
+		   });	
+		addAnnotation
+		  ((getConfiguration__Validate__DiagnosticChain_Map()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+			 "documentation", "Diagnostics to add validation messages to."
+		   });	
+		addAnnotation
+		  ((getConfiguration__Validate__DiagnosticChain_Map()).getEParameters().get(1), 
+		   source, 
+		   new String[] {
+			 "documentation", "Validation context."
 		   });	
 		addAnnotation
 		  (getConfiguration_Includes(), 
@@ -1725,24 +1754,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Generator is the base class for model element performing code generation."
-		   });	
-		addAnnotation
-		  (getGenerator__Validate__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Validates element for execution/generation. Adds messages to diagnostics and "
-		   });	
-		addAnnotation
-		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(0), 
-		   source, 
-		   new String[] {
-			 "documentation", "Diagnostics to add validation messages to."
-		   });	
-		addAnnotation
-		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(1), 
-		   source, 
-		   new String[] {
-			 "documentation", "Validation context."
 		   });	
 		addAnnotation
 		  (getGenerator_Iterator(), 
@@ -2055,6 +2066,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Regular configuration shadow/override configuration items defined in parent context(s),\r\ndefault configuration items, on the contrary, get shadowed by parent\'s configuration items\r\nwith the same keys."
+		   });	
+		addAnnotation
+		  (getValueConfigurationItem_Scripted(), 
+		   source, 
+		   new String[] {
+			 "documentation", "If true, value is treated as script and evaluated to compute actual value. \r\nScript is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:\r\n\r\n```java\r\nObject evaluate(Context context, String valueType) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
 		   });	
 		addAnnotation
 		  (namedConfigurationItemEClass, 

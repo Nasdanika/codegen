@@ -43,6 +43,10 @@
       <genOperations ecoreOperation="codegen.ecore#//Configuration/createContext">
         <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/parent"/>
       </genOperations>
+      <genOperations ecoreOperation="codegen.ecore#//Configuration/validate">
+        <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/diagnostics"/>
+        <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ConfigurationItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ConfigurationItem/description"/>
@@ -57,10 +61,6 @@
     <genClasses ecoreClass="codegen.ecore#//Generator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/iterator"/>
-      <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
-        <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
-        <genParameters ecoreParameter="codegen.ecore#//Generator/validate/context"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>
@@ -130,6 +130,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/valueType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/scripted"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//NamedConfigurationItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedConfigurationItem/name"/>
