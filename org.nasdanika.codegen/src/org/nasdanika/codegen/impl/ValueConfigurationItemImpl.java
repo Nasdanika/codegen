@@ -186,7 +186,7 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 							 CodegenValidator.DIAGNOSTIC_SOURCE,
 							 CodegenValidator.CONFIGURATION__VALIDATE,
 							 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty values for scripted configuration item",
-							 new Object [] { this }));
+							 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE }));
 					
 					result = false;
 				} else {
@@ -199,7 +199,7 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 							 CodegenValidator.DIAGNOSTIC_SOURCE,
 							 CodegenValidator.CONFIGURATION__VALIDATE,
 							 "["+EObjectValidator.getObjectLabel(this, context)+"] Value script has errors: "+e.getMessage(),
-							 new Object [] { this }));
+							 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE }));
 					
 						result = false;						
 					}

@@ -166,7 +166,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.PROJECT__NAME }));
 				
 				result = false;
 			}

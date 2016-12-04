@@ -79,7 +79,7 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Content reference is not set",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.CONTENT_REFERENCE__REF }));
 				
 				result = false;
 			}

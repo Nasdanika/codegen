@@ -310,7 +310,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.CONFIGURATION__INCLUDES }));
 				
 				result = false;
 				
@@ -324,7 +324,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Default includes are not currently supported - feel free to contribute - https://github.com/Nasdanika/codegen",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.CONFIGURATION__INCLUDES }));
 				
 				result = false;
 				

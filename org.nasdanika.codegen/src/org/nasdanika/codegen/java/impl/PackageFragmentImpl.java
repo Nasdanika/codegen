@@ -110,7 +110,7 @@ public class PackageFragmentImpl extends GeneratorImpl<IPackageFragment> impleme
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this }));
+						 new Object [] { this, JavaPackage.Literals.PACKAGE_FRAGMENT__NAME }));
 				
 				result = false;
 			}

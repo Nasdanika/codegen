@@ -80,7 +80,7 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
 					 CodegenValidator.CONFIGURATION__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Filter class name is not set",
-					 new Object [] { this }));
+					 new Object [] { this, CodegenPackage.Literals.JAVA_FILTER__CLASS_NAME }));
 			
 				result = false;						
 			}			

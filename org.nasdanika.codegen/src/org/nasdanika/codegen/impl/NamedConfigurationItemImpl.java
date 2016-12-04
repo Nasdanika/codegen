@@ -86,7 +86,7 @@ public class NamedConfigurationItemImpl extends ConfigurationItemImpl implements
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.NAMED_CONFIGURATION_ITEM__NAME }));
 				
 				result = false;
 			}

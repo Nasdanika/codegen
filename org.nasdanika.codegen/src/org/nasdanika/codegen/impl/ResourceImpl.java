@@ -100,7 +100,7 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.RESOURCE__NAME }));
 				
 				result = false;
 			}

@@ -15,6 +15,7 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.NatureImpl;
+import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.maven.MavenNature;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -98,7 +99,7 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] No pom generator",
-						 new Object [] { this }));
+						 new Object [] { this, MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR }));
 				
 				result = false;
 			}

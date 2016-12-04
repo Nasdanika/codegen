@@ -29,6 +29,7 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
+import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.impl.GeneratorImpl;
@@ -215,7 +216,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this }));
+						 new Object [] { this, JavaPackage.Literals.COMPILATION_UNIT__NAME }));
 				
 				result = false;
 			}

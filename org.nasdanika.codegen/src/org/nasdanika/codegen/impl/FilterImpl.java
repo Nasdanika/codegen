@@ -81,7 +81,7 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
 					 CodegenValidator.CONFIGURATION__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
-					 new Object [] { this }));
+					 new Object [] { this, CodegenPackage.Literals.FILTER__GENERATOR }));
 			
 				result = false;						
 			}

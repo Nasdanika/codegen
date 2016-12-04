@@ -81,7 +81,7 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
 					 CodegenValidator.CONFIGURATION__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator class name is not set",
-					 new Object [] { this }));
+					 new Object [] { this, CodegenPackage.Literals.JAVA_GENERATOR__CLASS_NAME }));
 			
 				result = false;						
 			}			

@@ -90,7 +90,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty script",
-						 new Object [] { this }));
+						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				
 				result = false;
 			} else {
@@ -102,8 +102,8 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.CONFIGURATION__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
-						 new Object [] { this }));
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Script has errors: "+e.getMessage(),
+						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				
 					result = false;						
 				}				

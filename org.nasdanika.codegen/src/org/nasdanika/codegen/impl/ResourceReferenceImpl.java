@@ -80,7 +80,7 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
 					 CodegenValidator.CONFIGURATION__VALIDATE,
 					 "Reference target is not set",
-					 new Object [] { this }));
+					 new Object [] { this, CodegenPackage.Literals.RESOURCE_REFERENCE__TARGET }));
 		}
 		return super.validate(diagnostics, context) && isValid;
 	}
