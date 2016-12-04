@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.ValueConfigurationItem;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -175,16 +177,32 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {
-			if (isScripted() && (getValueType() == null || getValueType().trim().length() == 0)) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty values for scripted configuration item",
-						 new Object [] { this }));
-				
-				result = false;
+			if (isScripted()) {
+				if (getValue() == null || getValue().trim().length() == 0) {
+					diagnostics.add
+						(new BasicDiagnostic
+							(Diagnostic.ERROR,
+							 CodegenValidator.DIAGNOSTIC_SOURCE,
+							 CodegenValidator.CONFIGURATION__VALIDATE,
+							 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty values for scripted configuration item",
+							 new Object [] { this }));
+					
+					result = false;
+				} else {
+					try {
+						createValueEvaluator(new MutableContext());						
+					} catch (CompileException e) {
+						diagnostics.add
+						(new BasicDiagnostic
+							(Diagnostic.ERROR,
+							 CodegenValidator.DIAGNOSTIC_SOURCE,
+							 CodegenValidator.CONFIGURATION__VALIDATE,
+							 "["+EObjectValidator.getObjectLabel(this, context)+"] Value script has errors: "+e.getMessage(),
+							 new Object [] { this }));
+					
+						result = false;						
+					}
+				}
 			}
 		}
 		return result;
@@ -200,12 +218,7 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 				throw new IllegalStateException("Empty values for scripted configuration item");
 			}
 			
-			ScriptEvaluator se = new ScriptEvaluator(getValue());
-			se.setReturnType(Object.class);
-			se.setParameters(new String[] { "context", "valueType" }, new Class[] { Context.class, String.class });
-			se.setThrownExceptions(new Class[] { Exception.class });
-			se.setParentClassLoader(thisContext.getClassLoader());
-			return se.evaluate(new Object[] { thisContext, getValueType() });						
+			return createValueEvaluator(thisContext).evaluate(new Object[] { thisContext, getValueType() });						
 		}		
 		
 		if (getValueType() == null || getValueType().trim().length() == 0 || String.class.getName().equals(getValueType().trim())) {
@@ -265,6 +278,15 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 
 		throw new IllegalStateException("Cannot create value (no appropriate constructor found) "+valueClass);
 		
+	}
+
+	private ScriptEvaluator createValueEvaluator(Context thisContext) throws CompileException {
+		ScriptEvaluator se = new ScriptEvaluator(getValue());
+		se.setReturnType(Object.class);
+		se.setParameters(new String[] { "context", "valueType" }, new Class[] { Context.class, String.class });
+		se.setThrownExceptions(new Class[] { Exception.class });
+		se.setParentClassLoader(thisContext.getClassLoader());
+		return se;
 	}
 	
 

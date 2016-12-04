@@ -2,15 +2,22 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.IGenerator;
 import org.nasdanika.codegen.JavaGenerator;
+import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,15 +71,49 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	}
 	
 	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getClassName() == null || getClassName().trim().length() == 0) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator class name is not set",
+					 new Object [] { this }));
+			
+				result = false;						
+			}			
+		}
+		return result;
+	}	
+		
 	@Override
-	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
+		return new Work<T>() {
+			
+			@Override
+			public int size() {
+				return 1;
+			}
+			
+			@Override
+			public T execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
+				@SuppressWarnings({ "unchecked", "rawtypes" })
+				IGenerator<T> generator = (IGenerator<T>) (obj instanceof Provider ? ((Provider<IGenerator>) obj).get(context) : obj);
+				return generator.generate(context, subMon);
+			}
+			
+		};
 	}
 
+	@Override
+	public int getWorkFactorySize() {
+		return 1;
+	}
+	
 } //JavaGeneratorImpl

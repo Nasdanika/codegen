@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.CodegenPackage;
@@ -32,6 +34,15 @@ public class JavaTextFilterImpl extends JavaFilterImpl<String> implements JavaTe
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.JAVA_TEXT_FILTER;
+	}
+
+	@Override
+	protected String combine(List<String> generationResult) throws Exception {
+		StringBuilder sb = new StringBuilder();
+		for (String str: generationResult) {
+			sb.append(str);
+		}
+		return sb.toString();
 	}
 
 } //JavaTextFilterImpl

@@ -2,7 +2,11 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +38,22 @@ public class JavaStreamFilterImpl extends JavaFilterImpl<InputStream> implements
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.JAVA_STREAM_FILTER;
+	}
+
+	@Override
+	protected InputStream combine(List<InputStream> generationResult) throws Exception {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		for (InputStream in: generationResult) {
+			try (InputStream bin = new BufferedInputStream(in)) {
+				int b;
+				while ((b = bin.read()) != -1) {
+					baos.write(b);
+				}
+			}
+			in.close();
+		}
+		baos.close();
+		return new ByteArrayInputStream(baos.toByteArray());
 	}
 
 } //JavaStreamFilterImpl

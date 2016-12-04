@@ -2,11 +2,22 @@
  */
 package org.nasdanika.codegen.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.List;
+import java.util.Map;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,5 +69,60 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 	public void setGenerator(Generator<T> newGenerator) {
 		eSet(CodegenPackage.Literals.FILTER__GENERATOR, newGenerator);
 	}
+		
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getGenerator() == null) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
+					 new Object [] { this }));
+			
+				result = false;						
+			}
+			
+		}
+		return result;
+	}
+	
+	@Override
+	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
+		Work<List<T>> gWork = getGenerator().createWork(context, submon.split(getGenerator().getWorkFactorySize()));
+		submon.worked(1);
+		return new Work<T>() {
+			
+			@Override
+			public int size() {
+				return gWork.size() + 1;
+			}
+			
+			@Override
+			public T execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				List<T> wr = gWork.execute(subMon.split(gWork.size()));
+				return filter(context, wr, subMon.split(1));
+			}
+			
+		};
+	}
+
+	@Override
+	public int getWorkFactorySize() {
+		return 1 + getGenerator().getWorkFactorySize();
+	}
+
+	/**
+	 * Combines and filters generation results
+	 * @param generatorResult
+	 * @return
+	 * @throws Exception
+	 */
+	protected abstract T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception;
 
 } //FilterImpl

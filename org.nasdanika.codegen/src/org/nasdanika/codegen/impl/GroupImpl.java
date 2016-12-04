@@ -4,17 +4,25 @@ package org.nasdanika.codegen.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +85,27 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	public EList<Generator<T>> getElements() {
 		return (EList<Generator<T>>)eGet(CodegenPackage.Literals.GROUP__ELEMENTS, true);
 	}
+		
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null && getSelector() != null && getSelector().trim().length() > 0) {
+			try {
+				createSelectorEvaluator(new MutableContext(), Generator.class);						
+			} catch (CompileException e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
+					 new Object [] { this }));
+			
+				result = false;						
+			}			
+		}
+		return result;
+	}	
 
 	@Override
 	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
@@ -87,12 +116,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 			Context elementContext = context;
 			
 			if (getSelector() != null && getSelector().trim().length() > 0) {
-				ScriptEvaluator se = new ScriptEvaluator(getSelector());
-				se.setReturnType(Context.class);
-				se.setParameters(new String[] { "context", "generator", "element" }, new Class[] { Context.class, this.getClass(), e.getClass() });
-				se.setThrownExceptions(new Class[] { Exception.class });
-				se.setParentClassLoader(context.getClassLoader());
-				elementContext = (Context) se.evaluate(new Object[] { context, this, e });
+				elementContext = (Context) createSelectorEvaluator(context, e.getClass()).evaluate(new Object[] { context, this, e });
 				if (elementContext == null) {
 					submon.worked(1);
 					continue;
@@ -127,6 +151,15 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 				return ret;
 			}
 		};
+	}
+
+	private ScriptEvaluator createSelectorEvaluator(Context context, Class<?> elementClass) throws CompileException {
+		ScriptEvaluator se = new ScriptEvaluator(getSelector());
+		se.setReturnType(Context.class);
+		se.setParameters(new String[] { "context", "generator", "element" }, new Class[] { Context.class, this.getClass(), elementClass });
+		se.setThrownExceptions(new Class[] { Exception.class });
+		se.setParentClassLoader(context.getClassLoader());
+		return se;
 	}
 
 	@Override

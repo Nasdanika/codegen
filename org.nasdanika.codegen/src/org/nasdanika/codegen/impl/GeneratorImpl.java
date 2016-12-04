@@ -6,15 +6,24 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+
+import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorFilter;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,12 +95,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			return Collections.singleton(context);
 		}
 		
-		ScriptEvaluator se = new ScriptEvaluator(iterator);
-		se.setReturnType(Object.class);
-		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
-		se.setThrownExceptions(new Class[] { Exception.class });
-		se.setParentClassLoader(context.getClassLoader());
-		Object result = se.evaluate(new Object[] { context, this });
+		Object result = createIteratorEvaluator(context).evaluate(new Object[] { context, this });
 		if (result == null || Boolean.FALSE.equals(result)) {
 			return Collections.emptySet();
 		}
@@ -113,6 +117,37 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 		}
 		
 		throw new IllegalArgumentException("Unexpected iterator return value: "+result);
+	}
+
+	private ScriptEvaluator createIteratorEvaluator(Context context) throws CompileException {
+		ScriptEvaluator se = new ScriptEvaluator(getIterator());
+		se.setReturnType(Object.class);
+		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
+		se.setThrownExceptions(new Class[] { Exception.class });
+		se.setParentClassLoader(context.getClassLoader());
+		return se;
+	}
+	
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null && getIterator() != null && getIterator().trim().length() > 0) {
+			try {
+				createIteratorEvaluator(new MutableContext());						
+			} catch (CompileException e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
+					 new Object [] { this }));
+			
+				result = false;						
+			}
+			
+		}
+		return result;
 	}
 	
 	/**

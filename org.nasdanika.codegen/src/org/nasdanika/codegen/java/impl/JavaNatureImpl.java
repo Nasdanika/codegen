@@ -61,7 +61,7 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 	}
 
 	@Override
-	public Work<List<IProjectNature>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<IProjectNature> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

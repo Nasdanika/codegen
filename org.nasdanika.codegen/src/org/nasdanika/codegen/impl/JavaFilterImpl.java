@@ -3,14 +3,20 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.IFilter;
 import org.nasdanika.codegen.JavaFilter;
-import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.Provider;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,17 +68,34 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 	public void setClassName(String newClassName) {
 		eSet(CodegenPackage.Literals.JAVA_FILTER__CLASS_NAME, newClassName);
 	}
+		
+	@Override
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getClassName() == null || getClassName().trim().length() == 0) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Filter class name is not set",
+					 new Object [] { this }));
+			
+				result = false;						
+			}			
+		}
+		return result;
+	}	
 	
 	@Override
-	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	protected T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
+		Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		IFilter<T> filter = (IFilter<T>) (obj instanceof Provider ? ((Provider<IFilter>) obj).get(context) : obj);
+		return filter.filter(context, combine(generationResult), subMonitor);
 	}
 	
-	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	protected abstract T combine(List<T> generationResult) throws Exception;
 
 } //JavaFilterImpl
