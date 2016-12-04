@@ -29,7 +29,7 @@ public interface Context { // TODO - Autocloseable
 	 * @return
 	 */
 	default MutableContext createSubContext() {
-		return this instanceof MutableContext ? ((MutableContext) this).createSubContext() : new MutableContext(this);
+		return this instanceof MutableContext ? ((MutableContext) this).createSubContext() : new SimpleMutableContext(this);
 	}	
 	
 	/**

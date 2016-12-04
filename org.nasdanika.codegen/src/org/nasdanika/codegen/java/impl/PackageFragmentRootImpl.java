@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -10,14 +9,12 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
-
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
@@ -86,7 +83,7 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 	}
 
 	@Override
-	public Work<List<IPackageFragmentRoot>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<IPackageFragmentRoot> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

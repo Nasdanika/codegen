@@ -68,6 +68,11 @@ public enum ReconcileAction implements Enumerator {
 	 * @ordered
 	 */
 	CANCEL(4, "Cancel", "Cancel");
+	
+	/**
+	 * Context property which holds overwrite predicate.
+	 */	
+	public static final String OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME = "overwrite-predicate"; 
 
 	/**
 	 * The '<em><b>Keep</b></em>' literal value.
@@ -319,5 +324,5 @@ public enum ReconcileAction implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+		
 } //ReconcileAction

@@ -33,6 +33,7 @@
     <genDataTypes ecoreDataType="codegen.ecore#//Merger">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Merger/T"/>
     </genDataTypes>
+    <genDataTypes ecoreDataType="codegen.ecore#//MutableContext"/>
     <genClasses ecoreClass="codegen.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/configuration"/>
@@ -60,6 +61,7 @@
     <genClasses ecoreClass="codegen.ecore#//Generator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/iterator"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configurator"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>

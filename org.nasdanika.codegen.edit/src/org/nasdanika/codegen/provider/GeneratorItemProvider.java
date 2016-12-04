@@ -44,6 +44,7 @@ public class GeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIteratorPropertyDescriptor(object);
+			addConfiguratorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +63,28 @@ public class GeneratorItemProvider
 				 getString("_UI_Generator_iterator_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_iterator_feature", "_UI_Generator_type"),
 				 CodegenPackage.Literals.GENERATOR__ITERATOR,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Configurator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfiguratorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_configurator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configurator_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONFIGURATOR,
 				 true,
 				 true,
 				 false,
@@ -109,6 +132,7 @@ public class GeneratorItemProvider
 
 		switch (notification.getFeatureID(Generator.class)) {
 			case CodegenPackage.GENERATOR__ITERATOR:
+			case CodegenPackage.GENERATOR__CONFIGURATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

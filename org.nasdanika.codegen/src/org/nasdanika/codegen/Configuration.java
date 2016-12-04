@@ -189,22 +189,14 @@ public interface Configuration extends CDOObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.nasdanika.codegen.Context" parentDataType="org.nasdanika.codegen.Context"
-	 * @generated NOT
+	 * <!-- begin-model-doc -->
+	 * Creates ``org.nasdanika.codegen.Context`` which provides access to properties and services.
+	 * @param parent Parent context.
+	 * <!-- end-model-doc -->
+	 * @model dataType="org.nasdanika.codegen.MutableContext" exceptions="org.nasdanika.codegen.Exception" parentDataType="org.nasdanika.codegen.Context"
+	 * @generated
 	 */
-	default Context createContext(Context parent) throws Exception {
-		MutableContext ret = parent.createSubContext();
-		for (ConfigurationItem ci: getConfiguration()) {
-			if (ci instanceof Property) {
-				ret.set(((Property) ci).getName(), ci.get(ret));
-			} else {
-				@SuppressWarnings("unchecked")
-				Class<Object> serviceType = (Class<Object>) parent.getClassLoader().loadClass(((Service) ci).getServiceType());
-				ret.set(serviceType, ci.get(ret));				
-			}
-		}		
-		return ret;
-	}
+	MutableContext createContext(Context parent) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -140,6 +140,15 @@ public interface MavenPackage extends EPackage {
 	int MAVEN_NATURE__ITERATOR = CodegenPackage.NATURE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__CONFIGURATOR = CodegenPackage.NATURE__CONFIGURATOR;
+
+	/**
 	 * The feature id for the '<em><b>Pom Generator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

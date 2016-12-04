@@ -13,8 +13,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.TextCompilationUnit;
@@ -101,7 +101,7 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 	}
 
 	@Override
-	protected Work<ICompilationUnit> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<ICompilationUnit> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
 		Generator<String> generator = getGenerator();
 		int gws = generator.getWorkFactorySize();
 		SubMonitor smon = SubMonitor.convert(monitor, gws + 1);

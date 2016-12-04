@@ -12,9 +12,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.IFilter;
 import org.nasdanika.codegen.JavaFilter;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -89,7 +89,7 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 	}	
 	
 	@Override
-	protected T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
+	protected T filter(MutableContext context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
 		Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		IFilter<T> filter = (IFilter<T>) (obj instanceof Provider ? ((Provider<IFilter>) obj).get(context) : obj);

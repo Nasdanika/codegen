@@ -2,21 +2,28 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.CodegenUtil;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
@@ -142,17 +149,6 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 //		return ret;
 //	}
 
-	@Override
-	public Work<List<IProject>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +172,103 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public int getWorkFactorySize() {
+		int ret = 1;
+		for (Nature nature: getNatures()) {
+			ret += nature.getWorkFactorySize();
+		}
+		for (Resource<IResource> res: getResources()) {
+			ret += res.getWorkFactorySize();
+		}
+		return ret;
+	}
+
+	@Override
+	protected Work<IProject> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
+		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
+		
+		List<Work<List<IProjectNature>>> allNaturesWork = new ArrayList<>(); 	
+		int allNaturesWorkSize = 0;
+		for (Nature nature: getNatures()) {
+			Work<List<IProjectNature>> nw = nature.createWork(iterationContext, subMon.split(nature.getWorkFactorySize()));
+			allNaturesWorkSize += nw.size();
+			allNaturesWork.add(nw);
+		}
+				
+		List<Work<List<IResource>>> allResourcesWork = new ArrayList<>(); 
+		int allResourcesWorkSize = 0;
+		for (Resource<IResource> res: getResources()) {
+			Work<List<IResource>> rw = res.createWork(iterationContext, subMon.split(res.getWorkFactorySize()));
+			allResourcesWorkSize += rw.size();
+			allResourcesWork.add(rw);
+		}		
+
+		subMon.worked(1);
+		
+		int workSize = 4 + allNaturesWorkSize + allResourcesWorkSize;
+		
+		return new Work<IProject>() {
+
+			@Override
+			public int size() {
+				return workSize;
+			}
+
+			@Override
+			public IProject execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				
+				IWorkspace workspace = iterationContext.get(IWorkspace.class);
+				String projectName = CodegenUtil.interpolate(getName(), iterationContext);
+				IProject project = workspace.getRoot().getProject(projectName);
+				
+				if (project.exists()) {
+					switch (getReconcileAction()) {
+					case APPEND:
+					case MERGE:
+						// Append new things to existing.
+						break;
+					case CANCEL:
+						throw new OperationCanceledException("Operation cancelled - project already exists: "+projectName);
+					case KEEP:
+						// Take no action
+						return project;
+					case OVERWRITE:
+						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) iterationContext.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
+						if (overwritePredicate == null || overwritePredicate.test(project)) {
+							project.delete(true, true, subMon.split(1));
+						}
+						break;
+					default:
+						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
+					}
+				}
+				
+				if (!project.exists()) {
+					IProjectDescription description = workspace.newProjectDescription(projectName);
+					project.create(description, subMon.split(1));
+				}
+				
+				project.open(subMon.split(1));
+
+				project = configure(iterationContext, project, subMon.split(1));
+				iterationContext.set(IProject.class, project);
+
+				for (Work<List<IProjectNature>> nw: allNaturesWork) {
+					nw.execute(subMon.split(nw.size()));
+				}
+				
+				for (Work<List<IResource>> rw: allResourcesWork) {
+					rw.execute(subMon.split(rw.size()));
+				}
+				
+				return project;
+			}
+		};
+		
 	}	
 
 } //ProjectImpl

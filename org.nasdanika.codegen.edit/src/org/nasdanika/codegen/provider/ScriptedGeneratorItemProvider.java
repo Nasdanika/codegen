@@ -23,7 +23,7 @@ import org.nasdanika.codegen.ScriptedGenerator;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScriptedGeneratorItemProvider extends JavaGeneratorItemProvider {
+public class ScriptedGeneratorItemProvider extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -91,7 +91,7 @@ public class ScriptedGeneratorItemProvider extends JavaGeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScriptedGenerator<?>)object).getClassName();
+		String label = ((ScriptedGenerator<?>)object).getBaseURL();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ScriptedGenerator_type") :
 			getString("_UI_ScriptedGenerator_type") + " " + label;

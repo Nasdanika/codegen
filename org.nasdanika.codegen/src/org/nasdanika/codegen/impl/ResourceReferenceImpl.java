@@ -4,6 +4,7 @@ package org.nasdanika.codegen.impl;
 
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -11,7 +12,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceReference;
 import org.nasdanika.codegen.Work;
@@ -85,11 +86,33 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 	}
 
 	@Override
-	public Work<List<IResource>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		
-		// TODO Iteration, context creation, ...
+	public Work<IResource> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
 		Resource<IResource> target = getTarget();
-		return target == null ? null : target.createWork(context, monitor);
+		if (target == null) {
+			return null;
+		}
+		Work<List<IResource>> targetWork = target.createWork(context, monitor);
+		return new Work<IResource>() {
+			
+			@Override
+			public int size() {
+				return targetWork.size();
+			}
+			
+			@Override
+			public IResource execute(IProgressMonitor monitor) throws Exception {
+				List<IResource> result = targetWork.execute(monitor);
+				if (result.isEmpty()) {
+					return null;
+				}
+				
+				if (result.size() == 1) {
+					return result.get(0);
+				}
+				
+				throw new IllegalArgumentException("Target is expected to return result of size 1, actual size: "+result.size());
+			}
+		};
 	}
 
 	@Override

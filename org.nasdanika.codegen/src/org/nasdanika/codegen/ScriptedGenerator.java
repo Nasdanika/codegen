@@ -19,7 +19,7 @@ package org.nasdanika.codegen;
  * @model abstract="true"
  * @generated
  */
-public interface ScriptedGenerator<T> extends JavaGenerator<T> {
+public interface ScriptedGenerator<T> extends Generator<T> {
 	/**
 	 * Returns the value of the '<em><b>Script</b></em>' attribute.
 	 * <!-- begin-user-doc -->

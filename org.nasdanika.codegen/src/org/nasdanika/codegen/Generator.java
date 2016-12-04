@@ -19,6 +19,7 @@ import java.util.List;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#getIterator <em>Iterator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getConfigurator <em>Configurator</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -77,4 +78,39 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setIterator(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.
+	 * 
+	 * Configurator script has access to ``MutableContext context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:
+	 * 
+	 * ```java
+	 * T configure(MutableContext context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {
+	 *     --- Configurator script here ---
+	 * 
+	 *     return result;
+	 * }
+	 * ```
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Configurator</em>' attribute.
+	 * @see #setConfigurator(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Configurator()
+	 * @model
+	 * @generated
+	 */
+	String getConfigurator();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getConfigurator <em>Configurator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Configurator</em>' attribute.
+	 * @see #getConfigurator()
+	 * @generated
+	 */
+	void setConfigurator(String value);
 } // Generator

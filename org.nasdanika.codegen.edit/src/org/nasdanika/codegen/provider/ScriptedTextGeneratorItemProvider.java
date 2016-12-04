@@ -64,7 +64,7 @@ public class ScriptedTextGeneratorItemProvider extends ScriptedGeneratorItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScriptedTextGenerator)object).getClassName();
+		String label = ((ScriptedTextGenerator)object).getBaseURL();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ScriptedTextGenerator_type") :
 			getString("_UI_ScriptedTextGenerator_type") + " " + label;

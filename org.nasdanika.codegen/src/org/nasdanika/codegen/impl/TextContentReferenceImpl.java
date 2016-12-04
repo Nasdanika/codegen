@@ -11,7 +11,7 @@ import java.net.URL;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.Work;
 
@@ -43,7 +43,7 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 	}
 
 	@Override
-	protected Work<String> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<String> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
 		return new Work<String>() {
 
 			@Override

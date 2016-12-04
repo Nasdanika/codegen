@@ -4,15 +4,12 @@ package org.nasdanika.codegen.impl;
 
 import java.util.List;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Interpolator;
-import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.MutableContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +39,7 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 	}
 
 	@Override
-	protected String filter(Context context, List<String> generationResult, SubMonitor subMonitor) throws Exception {
+	protected String filter(MutableContext context, List<String> generationResult, SubMonitor subMonitor) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		for (String str: generationResult) {
 			sb.append(str);

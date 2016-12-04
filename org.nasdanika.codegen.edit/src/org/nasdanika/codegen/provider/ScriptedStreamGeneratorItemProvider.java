@@ -64,7 +64,7 @@ public class ScriptedStreamGeneratorItemProvider extends ScriptedGeneratorItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScriptedStreamGenerator)object).getClassName();
+		String label = ((ScriptedStreamGenerator)object).getBaseURL();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ScriptedStreamGenerator_type") :
 			getString("_UI_ScriptedStreamGenerator_type") + " " + label;

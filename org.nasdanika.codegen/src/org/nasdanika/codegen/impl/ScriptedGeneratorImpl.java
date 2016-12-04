@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -13,9 +15,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.IGenerator;
 import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.ScriptedGenerator;
+import org.nasdanika.codegen.SimpleMutableContext;
+import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
@@ -31,7 +36,7 @@ import org.nasdanika.codegen.util.CodegenValidator;
  *
  * @generated
  */
-public abstract class ScriptedGeneratorImpl<T> extends JavaGeneratorImpl<T> implements ScriptedGenerator<T> {
+public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implements ScriptedGenerator<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +95,7 @@ public abstract class ScriptedGeneratorImpl<T> extends JavaGeneratorImpl<T> impl
 				result = false;
 			} else {
 				try {
-					createScriptEvaluator(new MutableContext());						
+					createScriptEvaluator(new SimpleMutableContext());						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -107,13 +112,40 @@ public abstract class ScriptedGeneratorImpl<T> extends JavaGeneratorImpl<T> impl
 		return result;
 	}	
 		
-	private ScriptEvaluator createScriptEvaluator(Context context) throws CompileException {
+	private ScriptEvaluator createScriptEvaluator(MutableContext context) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getScript());
 		se.setReturnType(Context.class);
-		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
+		se.setParameters(new String[] { "context", "generator", "monitor" }, new Class[] { MutableContext.class, this.getClass(), SubMonitor.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
 		return se;
 	}	
+		
+	@Override
+	public Work<T> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
+		return new Work<T>() {
+			
+			@Override
+			public int size() {
+				return 2;
+			}
+			
+			@Override
+			public T execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				@SuppressWarnings("unchecked")
+				T result = (T) createScriptEvaluator(context).evaluate(new Object[] { context, ScriptedGeneratorImpl.this, subMon.split(1) });
+				return configure(context, result, subMon.split(1));
+			}
+			
+		};
+	}
+	
+	@Override
+	public int getWorkFactorySize() {
+		return 1;
+	}
+	
 
 } //ScriptedGeneratorImpl

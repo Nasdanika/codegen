@@ -373,7 +373,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 			case CodegenPackage.SCRIPTED_GENERATOR: {
 				ScriptedGenerator<?> scriptedGenerator = (ScriptedGenerator<?>)theEObject;
 				T1 result = caseScriptedGenerator(scriptedGenerator);
-				if (result == null) result = caseJavaGenerator(scriptedGenerator);
 				if (result == null) result = caseGenerator(scriptedGenerator);
 				if (result == null) result = caseConfiguration(scriptedGenerator);
 				if (result == null) result = caseWorkFactory(scriptedGenerator);
@@ -384,7 +383,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				ScriptedTextGenerator scriptedTextGenerator = (ScriptedTextGenerator)theEObject;
 				T1 result = caseScriptedTextGenerator(scriptedTextGenerator);
 				if (result == null) result = caseScriptedGenerator(scriptedTextGenerator);
-				if (result == null) result = caseJavaGenerator(scriptedTextGenerator);
 				if (result == null) result = caseGenerator(scriptedTextGenerator);
 				if (result == null) result = caseConfiguration(scriptedTextGenerator);
 				if (result == null) result = caseWorkFactory(scriptedTextGenerator);
@@ -395,7 +393,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				ScriptedStreamGenerator scriptedStreamGenerator = (ScriptedStreamGenerator)theEObject;
 				T1 result = caseScriptedStreamGenerator(scriptedStreamGenerator);
 				if (result == null) result = caseScriptedGenerator(scriptedStreamGenerator);
-				if (result == null) result = caseJavaGenerator(scriptedStreamGenerator);
 				if (result == null) result = caseGenerator(scriptedStreamGenerator);
 				if (result == null) result = caseConfiguration(scriptedStreamGenerator);
 				if (result == null) result = caseWorkFactory(scriptedStreamGenerator);

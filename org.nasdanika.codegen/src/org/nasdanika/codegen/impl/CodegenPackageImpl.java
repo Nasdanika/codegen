@@ -47,6 +47,7 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
@@ -459,6 +460,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	private EDataType mergerEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType mutableContextEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -687,6 +695,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EAttribute getGenerator_Iterator() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGenerator_Configurator() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1342,6 +1359,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getMutableContext() {
+		return mutableContextEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodegenFactory getCodegenFactory() {
 		return (CodegenFactory)getEFactoryInstance();
 	}
@@ -1387,6 +1413,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
+		createEAttribute(generatorEClass, GENERATOR__CONFIGURATOR);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__SELECTOR);
@@ -1497,6 +1524,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		iResourceEDataType = createEDataType(IRESOURCE);
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
+		mutableContextEDataType = createEDataType(MUTABLE_CONTEXT);
 	}
 
 	/**
@@ -1665,7 +1693,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		javaStreamGeneratorEClass.getEGenericSuperTypes().add(g1);
 		valueConfigurationItemEClass.getESuperTypes().add(this.getConfigurationItem());
 		namedConfigurationItemEClass.getESuperTypes().add(this.getConfigurationItem());
-		g1 = createEGenericType(this.getJavaGenerator());
+		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(scriptedGeneratorEClass_T);
 		g1.getETypeArguments().add(g2);
 		scriptedGeneratorEClass.getEGenericSuperTypes().add(g1);
@@ -1708,7 +1736,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getConfiguration_Include(), this.getConfiguration(), null, "include", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfiguration_Description(), ecorePackage.getEString(), "description", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getConfiguration__CreateContext__Context(), this.getContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getConfiguration__CreateContext__Context(), this.getMutableContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getContext(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1732,6 +1760,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_Configurator(), ecorePackage.getEString(), "configurator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1865,6 +1894,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(iResourceEDataType, IResource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(mutableContextEDataType, MutableContext.class, "MutableContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2013,6 +2043,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Iterator attribute may contain a fragment of Java code which controls\r\nhow many times the generator will be invoked and can modify generator\'s \r\ncontext for each invocation.\r\n\r\nThe iterator\'s code shall be a Java method body as shown below:\r\n\r\n```java\r\n<T extends Generator> Object iterate(Context context, T generator) throws Exception {\r\n    // --- Iterator code here ---\r\n}\r\n```\r\n\r\nwhere ``T`` is the type of the iterator declaring generator model element. \r\n\r\nIterator code may return one of the following:\r\n\r\n* ``null`` or ``false`` or empty collection - no iteration.\r\n* ``java.lang.Iterable`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.\r\n* ``Context`` - single invocation with returned context.\r\n\r\nIf the iterator returns any other result, then the generator throws ``IllegalArgumentException``.\r\n\r\nBlank iterator code is equivalent to ``return context;``"
+		   });	
+		addAnnotation
+		  (getGenerator_Configurator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``MutableContext context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(MutableContext context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
 		   });	
 		addAnnotation
 		  (groupEClass, 
@@ -2300,7 +2336,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (valueConfigurationItemEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Value configuration items can be configured with value in addition to configuration elements.\r\n\r\nValue and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Blank value, no configuration items - default constructor, if exists.\r\n* Non-blank value, no configuration items - a constructor which takes String, if exists.\r\n* Blank value, configuration items - a constructor which takes Context, if exists.\r\n* Otherwise - a constructor which takes String and Context in any order.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```"
+			 "documentation", "Value configuration items can be configured with value in addition to configuration elements.\r\n\r\nIf ``scripted`` is true, the value is evaluated as a script.\r\n\r\nScript is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:\r\n\r\n```java\r\nObject evaluate(Context context, String valueType) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```\r\n\r\nOtherwise, value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Blank value, no configuration items - default constructor, if exists.\r\n* Non-blank value, no configuration items - a constructor which takes String, if exists.\r\n* Blank value, configuration items - a constructor which takes Context, if exists.\r\n* Otherwise - a constructor which takes String and Context in any order.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```"
 		   });	
 		addAnnotation
 		  (getValueConfigurationItem_ValueType(), 
@@ -2312,7 +2348,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getValueConfigurationItem_Value(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Configuration item value."
+			 "documentation", "Configuration item value.\r\n"
 		   });	
 		addAnnotation
 		  (getValueConfigurationItem_Default(), 
@@ -2324,7 +2360,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getValueConfigurationItem_Scripted(), 
 		   source, 
 		   new String[] {
-			 "documentation", "If true, value is treated as script and evaluated to compute actual value. \r\nScript is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:\r\n\r\n```java\r\nObject evaluate(Context context, String valueType) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
+			 "documentation", "If true, value is treated as script and evaluated to compute actual value. \r\n"
 		   });	
 		addAnnotation
 		  (namedConfigurationItemEClass, 

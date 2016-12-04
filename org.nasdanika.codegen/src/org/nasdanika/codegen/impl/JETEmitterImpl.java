@@ -2,16 +2,21 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.Collections;
-import java.util.List;
+import java.net.URL;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.JETEmitter;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,29 +68,49 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 	public void setTemplateURI(String newTemplateURI) {
 		eSet(CodegenPackage.Literals.JET_EMITTER__TEMPLATE_URI, newTemplateURI);
 	}
-
+		
 	@Override
-	public Work<List<String>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO - this context creation, iteration, ...
-		return new Work<List<String>>() {
+	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = super.validate(diagnostics, context);
+		if (diagnostics != null) {
+			if (getTemplateURI() == null || getTemplateURI().trim().length() == 0) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Template URI is not set",
+					 new Object [] { this }));
 			
-			@Override
-			public int size() {
-				return 1;
-			}
-			
-			@Override
-			public List<String> execute(IProgressMonitor monitor) throws Exception {
-				// TODO - relative URI
-				org.eclipse.emf.codegen.jet.JETEmitter jetEmitter = new org.eclipse.emf.codegen.jet.JETEmitter(getTemplateURI(), context.getClassLoader());
-				return Collections.singletonList(jetEmitter.generate(monitor, new Object[] { context }));
-			}
-		};
-	}
+				result = false;						
+			}			
+		}
+		return result;
+	}		
 
 	@Override
 	public int getWorkFactorySize() {
 		return 1;
+	}
+
+	@Override
+	protected Work<String> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
+		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
+		return new Work<String>() {
+
+			@Override
+			public int size() {
+				return 1;
+			}
+
+			@Override
+			public String execute(IProgressMonitor monitor) throws Exception {
+				URL tu = new URL(resolveBaseURL(), getTemplateURI());
+				org.eclipse.emf.codegen.jet.JETEmitter jetEmitter = new org.eclipse.emf.codegen.jet.JETEmitter(tu.toString(), iterationContext.getClassLoader());
+				return jetEmitter.generate(SubMonitor.convert(monitor,  size()), new Object[] { iterationContext });
+			}
+			
+		};
 	}
 
 } //JETEmitterImpl

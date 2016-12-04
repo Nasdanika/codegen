@@ -3,17 +3,15 @@
 package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 
 /**
@@ -44,7 +42,7 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	public Work<List<IFile>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<IFile> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

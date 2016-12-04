@@ -142,6 +142,15 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE__ITERATOR = CodegenPackage.NATURE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__CONFIGURATOR = CodegenPackage.NATURE__CONFIGURATOR;
+
+	/**
 	 * The feature id for the '<em><b>Packagefragmentroots</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +276,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT_ROOT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -405,6 +423,15 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,6 +566,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -684,6 +720,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_COMPILATION_UNIT__ITERATOR = COMPILATION_UNIT__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__CONFIGURATOR = COMPILATION_UNIT__CONFIGURATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -838,6 +883,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT__ITERATOR = COMPILATION_UNIT__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__CONFIGURATOR = COMPILATION_UNIT__CONFIGURATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

@@ -131,6 +131,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createListFromString(eDataType, initialValue);
 			case CodegenPackage.MERGER:
 				return createMergerFromString(eDataType, initialValue);
+			case CodegenPackage.MUTABLE_CONTEXT:
+				return createMutableContextFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -170,6 +172,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertListToString(eDataType, instanceValue);
 			case CodegenPackage.MERGER:
 				return convertMergerToString(eDataType, instanceValue);
+			case CodegenPackage.MUTABLE_CONTEXT:
+				return convertMutableContextToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -659,6 +663,24 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 */
 	public String convertMergerToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MutableContext createMutableContextFromString(EDataType eDataType, String initialValue) {
+		return (MutableContext)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMutableContextToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

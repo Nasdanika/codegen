@@ -12,9 +12,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.IGenerator;
 import org.nasdanika.codegen.JavaGenerator;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -90,13 +90,13 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	}	
 		
 	@Override
-	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
+	public Work<T> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
 		return new Work<T>() {
 			
 			@Override
 			public int size() {
-				return 1;
+				return 2;
 			}
 			
 			@Override
@@ -105,7 +105,8 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 				Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
 				@SuppressWarnings({ "unchecked", "rawtypes" })
 				IGenerator<T> generator = (IGenerator<T>) (obj instanceof Provider ? ((Provider<IGenerator>) obj).get(context) : obj);
-				return generator.generate(context, subMon);
+				T result = generator.generate(context, subMon.split(1));
+				return configure(context, result, subMon.split(1));
 			}
 			
 		};

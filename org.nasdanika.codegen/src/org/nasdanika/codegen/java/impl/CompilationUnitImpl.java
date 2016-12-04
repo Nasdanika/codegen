@@ -5,6 +5,7 @@ package org.nasdanika.codegen.java.impl;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
@@ -29,7 +30,7 @@ import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaPackage;
@@ -126,7 +127,8 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		eSet(JavaPackage.Literals.COMPILATION_UNIT__FORMAT, newFormat);
 	}
 	
-	protected ICompilationUnit generateCompilationUnit(Context context, String content, IProgressMonitor monitor) throws Exception {		
+	protected ICompilationUnit generateCompilationUnit(MutableContext context, String content, IProgressMonitor monitor) throws Exception {		
+		SubMonitor subMon = SubMonitor.convert(monitor, 3);
 		String interpolatedName = CodegenUtil.interpolate(getName(), context);
 		if (!interpolatedName.endsWith(JAVA_EXTENSION)) {
 			interpolatedName += JAVA_EXTENSION;
@@ -134,7 +136,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		IPackageFragment packageFragment = context.get(IPackageFragment.class);		
 		ICompilationUnit compilationUnit = packageFragment.getCompilationUnit(interpolatedName);
 		if (compilationUnit.exists()) {						
-			ICompilationUnit workingCopy = compilationUnit.getWorkingCopy(monitor);
+			ICompilationUnit workingCopy = compilationUnit.getWorkingCopy(subMon.split(1));
 			try {
 				if (isMerge()) {
 				    JControlModel controlModel = new JControlModel();
@@ -166,15 +168,15 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 					content = jMerger.getTargetCompilationUnitContents();
 				}
 				workingCopy.getBuffer().setContents(formatCompilationUnit(packageFragment.getJavaProject(), content));
-				workingCopy.commitWorkingCopy(false, monitor);
+				workingCopy.commitWorkingCopy(false, subMon.split(1));
 			} finally {
 				workingCopy.discardWorkingCopy();
-			}	
-			
-			return compilationUnit;
+			}				
+		} else {
+			compilationUnit = packageFragment.createCompilationUnit(interpolatedName, formatCompilationUnit(packageFragment.getJavaProject(), content), false, subMon.split(2)); 
 		}
 		
-		return packageFragment.createCompilationUnit(interpolatedName, formatCompilationUnit(packageFragment.getJavaProject(), content), false, monitor);
+		return configure(context, compilationUnit, subMon.split(1));		
 	}
 	
 	private String formatCompilationUnit(IJavaProject javaProject, String content) throws BadLocationException {

@@ -11,7 +11,17 @@ package org.nasdanika.codegen;
  * <!-- begin-model-doc -->
  * Value configuration items can be configured with value in addition to configuration elements.
  * 
- * Value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on 
+ * If ``scripted`` is true, the value is evaluated as a script.
+ * 
+ * Script is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:
+ * 
+ * ```java
+ * Object evaluate(Context context, String valueType) throws Exception {
+ *     // --- Script here ---
+ * }
+ * ```
+ * 
+ * Otherwise, value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on 
  * whether the value is blank and configuration items are present:
  * 
  * * Blank value, no configuration items - default constructor, if exists.
@@ -80,6 +90,7 @@ public interface ValueConfigurationItem extends ConfigurationItem {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Configuration item value.
+	 * 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
@@ -132,13 +143,7 @@ public interface ValueConfigurationItem extends ConfigurationItem {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * If true, value is treated as script and evaluated to compute actual value. 
-	 * Script is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:
 	 * 
-	 * ```java
-	 * Object evaluate(Context context, String valueType) throws Exception {
-	 *     // --- Script here ---
-	 * }
-	 * ```
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Scripted</em>' attribute.
 	 * @see #setScripted(boolean)
