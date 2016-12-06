@@ -2,14 +2,11 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.Collections;
-import java.util.List;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.Work;
 
@@ -65,7 +62,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	}
 
 	@Override
-	public Work<String> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<String> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		return new Work<String>() {
 			
 			@Override

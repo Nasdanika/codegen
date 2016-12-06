@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Interpolator;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 	}
 
 	@Override
-	protected String filter(MutableContext context, List<String> generationResult, SubMonitor subMonitor) throws Exception {
+	protected String filter(Context context, List<String> generationResult, SubMonitor subMonitor) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		for (String str: generationResult) {
 			sb.append(str);

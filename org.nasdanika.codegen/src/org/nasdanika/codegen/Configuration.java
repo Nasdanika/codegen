@@ -193,10 +193,10 @@ public interface Configuration extends CDOObject {
 	 * Creates ``org.nasdanika.codegen.Context`` which provides access to properties and services.
 	 * @param parent Parent context.
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.nasdanika.codegen.MutableContext" exceptions="org.nasdanika.codegen.Exception" parentDataType="org.nasdanika.codegen.Context"
+	 * @model dataType="org.nasdanika.codegen.Context" exceptions="org.nasdanika.codegen.Exception" parentDataType="org.nasdanika.codegen.Context"
 	 * @generated
 	 */
-	MutableContext createContext(Context parent) throws Exception;
+	Context createContext(Context parent) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JETEmitter;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -94,7 +94,7 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 	}
 
 	@Override
-	protected Work<String> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<String> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
 		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
 		return new Work<String>() {
 

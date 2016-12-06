@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.NatureImpl;
 import org.nasdanika.codegen.java.JavaNature;
@@ -67,7 +67,7 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 	}
 
 	@Override
-	public Work<IProjectNature> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IProjectNature> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		List<Work<List<IPackageFragmentRoot>>> pfrWork = new ArrayList<>();
 		int pfrWorkSize = 0;
 		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());

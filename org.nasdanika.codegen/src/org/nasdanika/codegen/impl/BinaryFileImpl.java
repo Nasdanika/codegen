@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 
 /**
@@ -42,7 +42,7 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	public Work<IFile> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IFile> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

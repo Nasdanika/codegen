@@ -11,11 +11,10 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.NatureImpl;
-import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.maven.MavenNature;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -72,7 +71,7 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 	}
 
 	@Override
-	public Work<IProjectNature> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IProjectNature> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

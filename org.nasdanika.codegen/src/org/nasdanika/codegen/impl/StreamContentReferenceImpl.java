@@ -8,7 +8,7 @@ import java.net.URL;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.Work;
 
@@ -40,7 +40,7 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 	}
 
 	@Override
-	protected Work<InputStream> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<InputStream> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
 		return new Work<InputStream>() {
 			
 			@Override

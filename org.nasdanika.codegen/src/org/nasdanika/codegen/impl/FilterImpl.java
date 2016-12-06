@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -91,7 +91,7 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 	}
 	
 	@Override
-	public Work<T> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
 		Work<List<T>> gWork = getGenerator().createWork(context, submon.split(getGenerator().getWorkFactorySize()));
 		submon.worked(1);
@@ -124,6 +124,6 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 	 * @return
 	 * @throws Exception
 	 */
-	protected abstract T filter(MutableContext context, List<T> generationResult, SubMonitor subMonitor) throws Exception;
+	protected abstract T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception;
 
 } //FilterImpl

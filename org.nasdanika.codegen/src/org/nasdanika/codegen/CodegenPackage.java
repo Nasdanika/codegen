@@ -5601,17 +5601,6 @@ public interface CodegenPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '<em>Mutable Context</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.MutableContext
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMutableContext()
-	 * @generated
-	 */
-	int MUTABLE_CONTEXT = 53;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6561,17 +6550,6 @@ public interface CodegenPackage extends EPackage {
 	EDataType getMerger();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.codegen.MutableContext <em>Mutable Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Mutable Context</em>'.
-	 * @see org.nasdanika.codegen.MutableContext
-	 * @model instanceClass="org.nasdanika.codegen.MutableContext"
-	 * @generated
-	 */
-	EDataType getMutableContext();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7419,16 +7397,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType MERGER = eINSTANCE.getMerger();
-
-		/**
-		 * The meta object literal for the '<em>Mutable Context</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.MutableContext
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMutableContext()
-		 * @generated
-		 */
-		EDataType MUTABLE_CONTEXT = eINSTANCE.getMutableContext();
 
 	}
 

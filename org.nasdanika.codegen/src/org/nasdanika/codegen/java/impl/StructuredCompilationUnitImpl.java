@@ -4,14 +4,12 @@ package org.nasdanika.codegen.java.impl;
 
 import java.util.Map;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.StructuredCompilationUnit;
@@ -43,18 +41,9 @@ public class StructuredCompilationUnitImpl extends CompilationUnitImpl implement
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.STRUCTURED_COMPILATION_UNIT;
 	}
-
+	
 	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-//		return 0;
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	protected Work<ICompilationUnit> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-//		return null;
+	protected Work<ICompilationUnit> createWorkItem() throws Exception {
 		throw new UnsupportedOperationException();
 	}
 	

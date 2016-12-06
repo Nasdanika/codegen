@@ -4,13 +4,13 @@ package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -21,7 +21,6 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorFilter;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -97,12 +96,12 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	}
 
 	/**
-	 * Creates iterable by creating a context from parent context and then evaluating iterator.
+	 * Creates a collection of contexts by creating a context from parent context and then evaluating iterator.
 	 * @param context
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected Iterable<MutableContext> iterate(MutableContext thisContext) throws Exception {
+	protected Collection<Context> iterate(Context thisContext) throws Exception {
 		GeneratorFilter gf = thisContext.get(GeneratorFilter.class);
 		if (gf != null && !gf.test(this)) {
 			Collections.emptySet();
@@ -118,18 +117,18 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			return Collections.emptySet();
 		}
 		
-		if (result instanceof MutableContext) {
-			return Collections.singleton((MutableContext) result);
+		if (result instanceof Context) {
+			return Collections.singleton((Context) result);
 		}
 		
-		if (result instanceof Iterable) {
-			return (Iterable<MutableContext>) result;
+		if (result instanceof Collection) {
+			return (Collection<Context>) result;
 		}
-				
+						
 		if (result.getClass().isArray() && Context.class.isAssignableFrom(result.getClass().getComponentType())) {
-			List<MutableContext> ret = new ArrayList<>();
+			List<Context> ret = new ArrayList<>();
 			for (int i=0; i<Array.getLength(result); ++i) {
-				ret.add((MutableContext) Array.get(result, i));
+				ret.add((Context) Array.get(result, i));
 			}
 			return ret;
 		}
@@ -140,7 +139,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	private ScriptEvaluator createIteratorEvaluator(Context context) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getIterator());
 		se.setReturnType(Object.class);
-		se.setParameters(new String[] { "context", "generator" }, new Class[] { MutableContext.class, this.getClass() });
+		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
 		return se;
@@ -149,7 +148,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	private ScriptEvaluator createConfiguratorEvaluator(Context context, Class<?> resultType) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getConfigurator()+System.lineSeparator()+"return result;");
 		se.setReturnType(resultType);
-		se.setParameters(new String[] { "context", "result", "monitor" }, new Class[] { MutableContext.class, resultType, SubMonitor.class });
+		se.setParameters(new String[] { "context", "result", "monitor" }, new Class[] { Context.class, resultType, SubMonitor.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
 		return se;
@@ -162,7 +161,8 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 * @param monitor
 	 * @throws Exception
 	 */
-	protected T configure(MutableContext context, T result, SubMonitor monitor) throws Exception {
+	@SuppressWarnings("unchecked")
+	protected T configure(Context context, T result, SubMonitor monitor) throws Exception {
 		if (result != null && getConfigurator() != null && getConfigurator().trim().length() > 0) {
 			return (T) createConfiguratorEvaluator(context, result.getClass()).evaluate(new Object[] { context, result, monitor });
 		}
@@ -210,45 +210,40 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	}
 	
 	/**
-	 * This method is invoked by <code>createWork()</code> for each context produced by the iterator.
-	 * @param context
-	 * @param monitor
-	 * @return work or null.
+	 * Creates a work item for this generator. 
+	 * The work item may be invoked zero or more times depending on the result returned by iterator.
+	 * The work item execute() method receives context created by the generator using parent context passed to the work which wraps this work.
 	 * @throws Exception
 	 */
-	protected abstract Work<T> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception;	
+	protected abstract Work<T> createWorkItem() throws Exception;	
 
 	@Override
-	final public Work<List<T>> createWork(Context parent, IProgressMonitor monitor) throws Exception {
-		List<Work<T>> allWork = new ArrayList<>();
-		int[] totalWork = {0};
-		MutableContext thisContext = createContext(parent);
-		for (MutableContext iCtx: iterate(thisContext)) {
-			Work<T> iWork = doCreateWork(iCtx, monitor);
-			if (iWork != null) {
-				allWork.add(iWork);
-				totalWork[0] += iWork.size();
-			}
-		}			
+	final public Work<List<T>> createWork() throws Exception {
+		Work<T> workItem = createWorkItem();
 		
 		return new Work<List<T>>() {
 			
 			@Override
 			public int size() {
-				return totalWork[0];
+				return workItem.size();
 			}
 			
 			@Override
-			public List<T> execute(IProgressMonitor monitor) throws Exception {
+			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
+				Collection<Context> iContexts = iterate(createContext(context));
+				if (iContexts.isEmpty()) {
+					monitor.worked(size());
+					return Collections.emptyList();
+				}
+				
+				if (iContexts.size() == 1) {
+					return Collections.singletonList(workItem.execute(iContexts.iterator().next(), monitor));
+				}
+
 				List<T> ret = new ArrayList<>();
-				SubMonitor sm = SubMonitor.convert(monitor, size());
-				for (Work<T> iWork: allWork) {
-					if (iWork != null) {
-						T iResult = iWork.execute(sm.split(iWork.size()));
-						if (iResult != null) {
-							ret.add(iResult);
-						}
-					}
+				monitor = SubMonitor.convert(monitor, iContexts.size()*size());
+				for (Context iCtx: iContexts) {
+					ret.add(workItem.execute(iCtx, monitor));
 				}
 				return ret;
 			}

@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
@@ -187,7 +187,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 	}
 
 	@Override
-	protected Work<IProject> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<IProject> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
 		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
 		
 		List<Work<List<IProjectNature>>> allNaturesWork = new ArrayList<>(); 	

@@ -22,11 +22,9 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Configuration;
 import org.nasdanika.codegen.ConfigurationItem;
 import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Property;
 import org.nasdanika.codegen.Service;
-import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
@@ -172,7 +170,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public MutableContext createContext(Context parent) throws Exception {
+	public Context createContext(Context parent) throws Exception {
 		// Includes
 		// TODO - implement
 		if (!getIncludes().isEmpty()) {
@@ -189,13 +187,18 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		for (int i = 0; i < getClassPath().size(); ++i) {
 			classPathURLs[i] = new URL(resolveBaseURL(), getClassPath().get(i));
 		}
+		ClassLoader classLoader = classPathURLs == null ? parent.getClassLoader() : new URLClassLoader(classPathURLs, parent.getClassLoader());
 				
 		// Configuration items
+		Map<String, Object> properties = new HashMap<>();
 		Map<String, Object> defaultProperties = new HashMap<>();
 		Map<String, Context> subContexts = new LinkedHashMap<>();
+		Map<Class<?>, Object> services = new HashMap<>();
 		Map<Class<?>, Object> defaultServices = new HashMap<>();
 				
-		MutableContext ret = new SimpleMutableContext(parent) {
+		final Context finalParent = parent;
+		
+		Context ret = new Context() {
 
 			@Override
 			public Object get(String name) {
@@ -214,12 +217,20 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 					}
 				}				
 				
-				// Properties				
-				Object ret =  super.get(name);
+				// Properties
+				Object ret =  properties.get(name);
 				if (ret != null) {
 					return ret;
 				}
-								
+				
+				// Parent
+				if (finalParent != null) {
+					ret = finalParent.get(name);
+					if (ret != null) {
+						return ret;
+					}
+				}
+				
 				// Default properties
 				return defaultProperties.get(name);
 			}
@@ -228,9 +239,23 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 			@Override
 			public <T> T get(Class<T> type) {
 				// Services
-				T ret = (T) super.get(type);
+				T ret = (T) services.get(type);
 				if (ret != null) {
 					return ret;
+				}
+				
+				for (Entry<Class<?>, Object> e: services.entrySet()) {
+					if (type.isAssignableFrom(e.getKey())) {
+						return (T) e.getValue();
+					}
+				}
+				
+				// Parent
+				if (finalParent != null) {
+					ret = finalParent.get(type);
+					if (ret != null) {
+						return ret;
+					}
 				}
 				
 				// Default services
@@ -247,30 +272,23 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 				
 				return ret;
 			}
+
+			@Override
+			public ClassLoader getClassLoader() {
+				return classLoader;
+			}
 			
 		};
-		
-		ClassLoader classLoader = classPathURLs == null ? parent.getClassLoader() : new URLClassLoader(classPathURLs, parent.getClassLoader());
-		ret.setClassLoader(classLoader);
 		
 		for (ConfigurationItem ci: getConfiguration()) {
 			Object obj = ci.get(ret);
 			if (ci instanceof Service) {
 				Service service = (Service) ci;
-				@SuppressWarnings("unchecked")
-				Class<Object> serviceType = (Class<Object>) classLoader.loadClass(service.getServiceType());
-				if (service.isDefault()) {
-					defaultServices.put(serviceType, obj);				
-				} else {
-					ret.set(serviceType, obj);
-				}
+				Class<?> serviceType = classLoader.loadClass(service.getServiceType());
+				(service.isDefault() ? defaultServices : services).put(serviceType, obj);				
 			} else if (ci instanceof Property) {
 				Property property = (Property) ci;				
-				if (property.isDefault()) {
-					defaultProperties.put(property.getName(), obj);								
-				} else {
-					ret.set(property.getName(), obj);
-				}
+				(property.isDefault() ? defaultProperties : properties).put(property.getName(), obj);								
 			} else {
 				subContexts.put(((NamedConfigurationItem) ci).getName(), ci.createContext(new Context() {
 					

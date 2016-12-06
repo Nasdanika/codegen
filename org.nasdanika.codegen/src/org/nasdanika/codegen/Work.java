@@ -1,6 +1,6 @@
 package org.nasdanika.codegen;
 
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 
 /**
  * @author Pavel Vlasov
@@ -16,9 +16,10 @@ public interface Work<T> {
 	/**
 	 * 
 	 * @param context
+	 * @param monitor Parent monitor to use. The work is responsible for invoking monitor.split(size()).
 	 * @return
 	 * @throws Exception
 	 */
-	T execute(IProgressMonitor monitor) throws Exception;
+	T execute(Context context, SubMonitor monitor) throws Exception;
 
 }

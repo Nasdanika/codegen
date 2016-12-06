@@ -21,7 +21,7 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
@@ -92,7 +92,7 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 	}
 
 	@Override
-	public Work<IPackageFragmentRoot> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IPackageFragmentRoot> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
 		
 		List<Work<List<IPackageFragment>>> allPackageFragmentsWork = new ArrayList<>(); 	

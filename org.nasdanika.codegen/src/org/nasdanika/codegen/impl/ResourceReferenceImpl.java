@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceReference;
 import org.nasdanika.codegen.Work;
@@ -86,7 +86,7 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 	}
 
 	@Override
-	public Work<IResource> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IResource> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		Resource<IResource> target = getTarget();
 		if (target == null) {
 			return null;

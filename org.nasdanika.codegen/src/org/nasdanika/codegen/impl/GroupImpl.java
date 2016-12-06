@@ -20,8 +20,8 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
-import org.nasdanika.codegen.MutableContext;
-import org.nasdanika.codegen.SimpleMutableContext;
+import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.SimpleContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -92,7 +92,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null && getSelector() != null && getSelector().trim().length() > 0) {
 			try {
-				createSelectorEvaluator(new SimpleMutableContext(), Generator.class);						
+				createSelectorEvaluator(new SimpleContext(), Generator.class);						
 			} catch (CompileException e) {
 				diagnostics.add
 				(new BasicDiagnostic
@@ -109,7 +109,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	}	
 
 	@Override
-	public Work<List<T>> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
 		List<Work<List<T>>> allWork = new ArrayList<>();
 		int[] allSize = { 2 };

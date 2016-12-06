@@ -33,7 +33,6 @@
     <genDataTypes ecoreDataType="codegen.ecore#//Merger">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Merger/T"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="codegen.ecore#//MutableContext"/>
     <genClasses ecoreClass="codegen.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/configuration"/>

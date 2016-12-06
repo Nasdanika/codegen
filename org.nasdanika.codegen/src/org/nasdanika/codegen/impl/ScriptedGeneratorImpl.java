@@ -15,11 +15,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.IGenerator;
-import org.nasdanika.codegen.MutableContext;
-import org.nasdanika.codegen.Provider;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.ScriptedGenerator;
-import org.nasdanika.codegen.SimpleMutableContext;
+import org.nasdanika.codegen.SimpleContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -95,7 +93,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 				result = false;
 			} else {
 				try {
-					createScriptEvaluator(new SimpleMutableContext());						
+					createScriptEvaluator(new SimpleContext());						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -112,17 +110,17 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 		return result;
 	}	
 		
-	private ScriptEvaluator createScriptEvaluator(MutableContext context) throws CompileException {
+	private ScriptEvaluator createScriptEvaluator(Context context) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getScript());
 		se.setReturnType(Context.class);
-		se.setParameters(new String[] { "context", "generator", "monitor" }, new Class[] { MutableContext.class, this.getClass(), SubMonitor.class });
+		se.setParameters(new String[] { "context", "generator", "monitor" }, new Class[] { Context.class, this.getClass(), SubMonitor.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
 		return se;
 	}	
 		
 	@Override
-	public Work<T> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
 		return new Work<T>() {
 			

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.TextCompilationUnit;
@@ -70,11 +70,6 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 	public void setGenerator(Generator<String> newGenerator) {
 		eSet(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR, newGenerator);
 	}
-	
-	@Override
-	public int getWorkFactorySize() {
-		return getGenerator().getWorkFactorySize() + 1;
-	}
 		
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,35 +94,28 @@ public class TextCompilationUnitImpl extends CompilationUnitImpl implements Text
 		}
 		return result;
 	}
-
+	
 	@Override
-	protected Work<ICompilationUnit> doCreateWork(MutableContext iterationContext, IProgressMonitor monitor) throws Exception {
-		Generator<String> generator = getGenerator();
-		int gws = generator.getWorkFactorySize();
-		SubMonitor smon = SubMonitor.convert(monitor, gws + 1);
-		Work<List<String>> gWork = generator.createWork(iterationContext, smon.split(gws));
-		
-		smon.worked(1);
+	protected Work<ICompilationUnit> createWorkItem() throws Exception {
+		Work<List<String>> gWork = getGenerator().createWork();
 		
 		return new Work<ICompilationUnit>() {
 
 			@Override
 			public int size() {
-				return gWork.size() + 1;
+				return gWork.size() + 3; // 3 is generateCompilationUnit work size
 			}
-
+			
 			@Override
-			public ICompilationUnit execute(IProgressMonitor monitor) throws Exception {
-				int totalWork = 1 + gWork.size();
-				SubMonitor smon = SubMonitor.convert(monitor, totalWork);
+			public ICompilationUnit execute(Context context, SubMonitor monitor) throws Exception {
 				StringBuilder contentBuilder = new StringBuilder();
-				for (String e: gWork.execute(smon.split(gWork.size()))) {
+				for (String e: gWork.execute(context, monitor)) {
 					if (contentBuilder.length() > 0) {
 						contentBuilder.append(System.lineSeparator());
 					}
 					contentBuilder.append(e);
 				}
-				return generateCompilationUnit(iterationContext, contentBuilder.toString(), smon.split(1));
+				return generateCompilationUnit(context, contentBuilder.toString(), monitor);
 			}
 			
 		};

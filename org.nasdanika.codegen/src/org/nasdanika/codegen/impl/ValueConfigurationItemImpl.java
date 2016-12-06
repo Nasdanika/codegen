@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.ValueConfigurationItem;
@@ -284,7 +283,7 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 	private ScriptEvaluator createValueEvaluator(Context thisContext) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getValue());
 		se.setReturnType(Object.class);
-		se.setParameters(new String[] { "context", "valueType" }, new Class[] { MutableContext.class, String.class });
+		se.setParameters(new String[] { "context", "valueType" }, new Class[] { Context.class, String.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(thisContext.getClassLoader());
 		return se;

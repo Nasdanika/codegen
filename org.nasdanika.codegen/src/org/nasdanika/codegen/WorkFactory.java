@@ -16,11 +16,6 @@ public interface WorkFactory<T> {
 	 * @return
 	 * @throws Exception
 	 */
-	Work<T> createWork(Context context, IProgressMonitor monitor) throws Exception;
+	Work<T> createWork() throws Exception;
 	
-	/**
-	 * @return Number of work factories to be invoked to create work.
-	 */
-	int getWorkFactorySize();
-
 }

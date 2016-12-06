@@ -47,7 +47,6 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
@@ -458,13 +457,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EDataType mergerEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType mutableContextEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1359,15 +1351,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMutableContext() {
-		return mutableContextEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CodegenFactory getCodegenFactory() {
 		return (CodegenFactory)getEFactoryInstance();
 	}
@@ -1524,7 +1507,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		iResourceEDataType = createEDataType(IRESOURCE);
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
-		mutableContextEDataType = createEDataType(MUTABLE_CONTEXT);
 	}
 
 	/**
@@ -1736,7 +1718,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getConfiguration_Include(), this.getConfiguration(), null, "include", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfiguration_Description(), ecorePackage.getEString(), "description", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getConfiguration__CreateContext__Context(), this.getMutableContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getConfiguration__CreateContext__Context(), this.getContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getContext(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1894,7 +1876,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(iResourceEDataType, IResource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(mutableContextEDataType, MutableContext.class, "MutableContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2048,7 +2029,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getGenerator_Configurator(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``MutableContext context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(MutableContext context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
+			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``Context context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(Context context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
 		   });	
 		addAnnotation
 		  (groupEClass, 

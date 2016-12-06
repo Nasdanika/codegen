@@ -6,7 +6,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.Work;
 
@@ -38,7 +38,7 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	}
 
 	@Override
-	public Work<IFile> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IFile> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

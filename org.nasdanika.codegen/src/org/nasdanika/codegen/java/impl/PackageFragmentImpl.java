@@ -5,8 +5,6 @@ package org.nasdanika.codegen.java.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -15,14 +13,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.MutableContext;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
@@ -93,7 +88,7 @@ public class PackageFragmentImpl extends GeneratorImpl<IPackageFragment> impleme
 	}
 
 	@Override
-	public Work<IPackageFragment> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
+	public Work<IPackageFragment> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
 		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
 		
 		List<Work<List<ICompilationUnit>>> allCompilationUnitsWork = new ArrayList<>(); 	
