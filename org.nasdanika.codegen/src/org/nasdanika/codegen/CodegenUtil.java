@@ -1,7 +1,17 @@
 package org.nasdanika.codegen;
 
+import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 
 public class CodegenUtil {
 	
@@ -48,6 +58,39 @@ public class CodegenUtil {
 		return generator.eContainer() instanceof Generator ? hierarchyContext(((Generator<?>) generator.eContainer()), parent) : generator.createContext(parent);		
 	}
 
+	public static IResource createResource(IProject project, String path, InputStream content, IProgressMonitor progressMonitor) throws CoreException {
+		while (path.endsWith("/")) {
+			path = path.substring(0, path.length()-1);
+		}
+		int idx = path.lastIndexOf('/');
+		IContainer container = idx==-1 ? project : (IContainer) createResource(project, path.substring(0, idx), null, progressMonitor);
+		if (content==null) {
+			IFolder ret = container.getFolder(new Path(path.substring(idx+1)));
+			if (!ret.exists()) {
+				ret.create(false, true, progressMonitor);
+			}
+			return ret;
+		}
+		IFile ret = container.getFile(new Path(path.substring(idx+1)));
+		ret.create(content, true, progressMonitor);
+		return ret;
+	}
+	
+	public static void createFile(IFile location, InputStream content, IProgressMonitor progressMonitor) throws CoreException {
+		IContainer parent = location.getParent();
+		if (!parent.exists() && parent instanceof IFolder) {
+			createContainer((IFolder) parent, progressMonitor);
+		}
+		location.create(content, false, progressMonitor);		
+	}
+	
+	public static void createContainer(IFolder container, IProgressMonitor progressMonitor) throws CoreException {
+		IContainer parent = container.getParent();
+		if (!parent.exists() && parent instanceof IFolder) {
+			createContainer((IFolder) parent, progressMonitor);
+		}
+		container.create(false, true, progressMonitor);
+	}
 	
 
 }

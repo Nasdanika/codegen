@@ -2,16 +2,25 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
+import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
@@ -84,14 +93,63 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 
 	@Override
 	public Work<IPackageFragmentRoot> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
+		
+		List<Work<List<IPackageFragment>>> allPackageFragmentsWork = new ArrayList<>(); 	
+		int allPackageFragmentsWorkSize = 0;
+		for (PackageFragment pf: getPackagefragments()) {
+			Work<List<IPackageFragment>> pfw = pf.createWork(context, subMon.split(pf.getWorkFactorySize()));
+			allPackageFragmentsWorkSize += pfw.size();
+			allPackageFragmentsWork.add(pfw);
+		}
+				
+		subMon.worked(1);
+		
+		int workSize = 2 + allPackageFragmentsWorkSize;
+		
+		return new Work<IPackageFragmentRoot>() {
+			
+			@Override
+			public int size() {
+				return workSize;
+			}
+			
+			@Override
+			public IPackageFragmentRoot execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				String name = CodegenUtil.interpolate(getName(), context);
+				IJavaProject javaProject = context.get(IJavaProject.class);
+				
+				IFolder sourceFolder = javaProject.getProject().getFolder(name);
+				if (sourceFolder.exists()) {
+					subMon.worked(2);
+				} else {
+					sourceFolder.create(false, true, subMon.split(1));
+					IClasspathEntry[] ercp = javaProject.getRawClasspath();
+					IClasspathEntry[] nrcp = new IClasspathEntry[ercp.length+1];
+					System.arraycopy(ercp, 0, nrcp, 0, ercp.length);
+					nrcp[nrcp.length-1] = JavaCore.newSourceEntry(sourceFolder.getFullPath());
+					javaProject.setRawClasspath(nrcp, subMon.split(1));
+				}				
+				
+				IPackageFragmentRoot result = javaProject.getPackageFragmentRoot(sourceFolder);
+				context.set(IPackageFragmentRoot.class, result);
+				
+				for (Work<List<IPackageFragment>> pfw: allPackageFragmentsWork) {
+					pfw.execute(subMon.split(pfw.size()));
+				}
+				return result;
+			}
+		};
 	}
 
 	@Override
 	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
+		int ret = 1;
+		for (PackageFragment pf: getPackagefragments()) {
+			ret += pf.getWorkFactorySize();
+		}
+		return ret;
 	}
 	
 	/**

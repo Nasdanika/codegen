@@ -2,16 +2,26 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
+import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
@@ -84,14 +94,49 @@ public class PackageFragmentImpl extends GeneratorImpl<IPackageFragment> impleme
 
 	@Override
 	public Work<IPackageFragment> doCreateWork(MutableContext context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
+		
+		List<Work<List<ICompilationUnit>>> allCompilationUnitsWork = new ArrayList<>(); 	
+		int allCompilationUnitsWorkSize = 0;
+		for (CompilationUnit cu: getCompilationunits()) {
+			Work<List<ICompilationUnit>> cuw = cu.createWork(context, subMon.split(cu.getWorkFactorySize()));
+			allCompilationUnitsWorkSize += cuw.size();
+			allCompilationUnitsWork.add(cuw);
+		}
+				
+		subMon.worked(1);
+		
+		int workSize = 1 + allCompilationUnitsWorkSize;
+		
+		return new Work<IPackageFragment>() {
+			
+			@Override
+			public int size() {
+				return workSize;
+			}
+			
+			@Override
+			public IPackageFragment execute(IProgressMonitor monitor) throws Exception {
+				SubMonitor subMon = SubMonitor.convert(monitor, size());
+				String pkgName = CodegenUtil.interpolate(getName(), context);
+				IPackageFragment pkg = context.get(IPackageFragmentRoot.class).createPackageFragment(pkgName, false, subMon.split(1));
+				context.set(IPackageFragment.class, pkg);
+				
+				for (Work<List<ICompilationUnit>> cuw: allCompilationUnitsWork) {
+					cuw.execute(subMon.split(cuw.size()));
+				}
+				return pkg;
+			}
+		};
 	}
 
 	@Override
 	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
+		int ret = 1;
+		for (CompilationUnit cu: getCompilationunits()) {
+			ret += cu.getWorkFactorySize();
+		}
+		return ret;
 	}
 	
 	/**
