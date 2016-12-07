@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
@@ -175,25 +176,12 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 	}
 
 	@Override
-	public int getWorkFactorySize() {
-		int ret = 1;
-		for (Nature nature: getNatures()) {
-			ret += nature.getWorkFactorySize();
-		}
-		for (Resource<IResource> res: getResources()) {
-			ret += res.getWorkFactorySize();
-		}
-		return ret;
-	}
-
-	@Override
-	protected Work<IProject> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
-		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
+	protected Work<IProject> createWorkItem() throws Exception {
 		
 		List<Work<List<IProjectNature>>> allNaturesWork = new ArrayList<>(); 	
 		int allNaturesWorkSize = 0;
 		for (Nature nature: getNatures()) {
-			Work<List<IProjectNature>> nw = nature.createWork(iterationContext, subMon.split(nature.getWorkFactorySize()));
+			Work<List<IProjectNature>> nw = nature.createWork();
 			allNaturesWorkSize += nw.size();
 			allNaturesWork.add(nw);
 		}
@@ -201,13 +189,11 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 		List<Work<List<IResource>>> allResourcesWork = new ArrayList<>(); 
 		int allResourcesWorkSize = 0;
 		for (Resource<IResource> res: getResources()) {
-			Work<List<IResource>> rw = res.createWork(iterationContext, subMon.split(res.getWorkFactorySize()));
+			Work<List<IResource>> rw = res.createWork();
 			allResourcesWorkSize += rw.size();
 			allResourcesWork.add(rw);
 		}		
 
-		subMon.worked(1);
-		
 		int workSize = 4 + allNaturesWorkSize + allResourcesWorkSize;
 		
 		return new Work<IProject>() {
@@ -218,11 +204,10 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 			}
 
 			@Override
-			public IProject execute(IProgressMonitor monitor) throws Exception {
-				SubMonitor subMon = SubMonitor.convert(monitor, size());
+			public IProject execute(Context context, SubMonitor monitor) throws Exception {
 				
-				IWorkspace workspace = iterationContext.get(IWorkspace.class);
-				String projectName = CodegenUtil.interpolate(getName(), iterationContext);
+				IWorkspace workspace = context.get(IWorkspace.class);
+				String projectName = CodegenUtil.interpolate(getName(), context);
 				IProject project = workspace.getRoot().getProject(projectName);
 				
 				if (project.exists()) {
@@ -237,9 +222,9 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 						// Take no action
 						return project;
 					case OVERWRITE:
-						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) iterationContext.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
+						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) context.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
 						if (overwritePredicate == null || overwritePredicate.test(project)) {
-							project.delete(true, true, subMon.split(1));
+							project.delete(true, true, monitor.split(1));
 						}
 						break;
 					default:
@@ -249,20 +234,20 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 				
 				if (!project.exists()) {
 					IProjectDescription description = workspace.newProjectDescription(projectName);
-					project.create(description, subMon.split(1));
+					project.create(description, monitor.split(1));
 				}
 				
-				project.open(subMon.split(1));
+				project.open(monitor.split(1));
 
-				project = configure(iterationContext, project, subMon.split(1));
-				iterationContext.set(IProject.class, project);
+				project = configure(context, project, monitor.split(1));
+				MutableContext sc = context.createSubContext().set(IProject.class, project).set(IContainer.class, project);
 
 				for (Work<List<IProjectNature>> nw: allNaturesWork) {
-					nw.execute(subMon.split(nw.size()));
+					nw.execute(sc, monitor);
 				}
 				
 				for (Work<List<IResource>> rw: allResourcesWork) {
-					rw.execute(subMon.split(rw.size()));
+					rw.execute(sc, monitor);
 				}
 				
 				return project;

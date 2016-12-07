@@ -4,8 +4,6 @@ package org.nasdanika.codegen.java.impl;
 
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;

@@ -89,10 +89,15 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 	}	
 	
 	@Override
+	protected int getFilterWorkSize() {
+		return 1;
+	}
+	
+	@Override
 	protected T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
 		Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
 		@SuppressWarnings({ "unchecked", "rawtypes" })
-		IFilter<T> filter = (IFilter<T>) (obj instanceof Provider ? ((Provider<IFilter>) obj).get(context) : obj);
+		IFilter<T> filter = (IFilter<T>) (obj instanceof Provider ? ((Provider<IFilter>) obj).get(context, subMonitor.split(getFilterWorkSize())) : obj);
 		return filter.filter(context, combine(generationResult), subMonitor);
 	}
 	

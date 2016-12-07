@@ -7,11 +7,10 @@ import java.util.regex.Pattern;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubMonitor;
 
 public class CodegenUtil {
 	
@@ -54,42 +53,61 @@ public class CodegenUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	static Context hierarchyContext(Generator<?> generator, Context parent) throws Exception {
-		return generator.eContainer() instanceof Generator ? hierarchyContext(((Generator<?>) generator.eContainer()), parent) : generator.createContext(parent);		
+	static Context hierarchyContext(Generator<?> generator, Context parent, SubMonitor monitor) throws Exception {
+		SubMonitor sm = SubMonitor.convert(monitor, 2);
+		return generator.eContainer() instanceof Generator ? hierarchyContext(((Generator<?>) generator.eContainer()), parent, sm.split(1)) : generator.createContext(parent, sm.split(1));		
 	}
 
-	public static IResource createResource(IProject project, String path, InputStream content, IProgressMonitor progressMonitor) throws CoreException {
-		while (path.endsWith("/")) {
-			path = path.substring(0, path.length()-1);
-		}
+	public static IFolder createFolder(IContainer container, String path, IProgressMonitor monitor) throws CoreException {
+		SubMonitor sm = SubMonitor.convert(monitor, 2);
 		int idx = path.lastIndexOf('/');
-		IContainer container = idx==-1 ? project : (IContainer) createResource(project, path.substring(0, idx), null, progressMonitor);
-		if (content==null) {
-			IFolder ret = container.getFolder(new Path(path.substring(idx+1)));
-			if (!ret.exists()) {
-				ret.create(false, true, progressMonitor);
-			}
-			return ret;
+		if (idx != -1) {
+			container = createFolder(container, path.substring(0, idx), sm.split(1));
 		}
-		IFile ret = container.getFile(new Path(path.substring(idx+1)));
-		ret.create(content, true, progressMonitor);
+		
+		IFolder ret = container.getFolder(new Path(path.substring(idx+1)));
+		if (!ret.exists()) {
+			ret.create(false, true, sm.split(1));
+		}
 		return ret;
 	}
 	
-	public static void createFile(IFile location, InputStream content, IProgressMonitor progressMonitor) throws CoreException {
+	public static IFile createFile(IContainer container, String path, InputStream content, IProgressMonitor monitor) throws CoreException {
+		SubMonitor sm = SubMonitor.convert(monitor, 2);
+		int idx = path.lastIndexOf('/');
+		if (idx != -1) {
+			container = createFolder(container, path.substring(0, idx), sm.split(1));
+		}
+		IFile ret = container.getFile(new Path(path.substring(idx+1)));
+		ret.create(content, true, sm.split(1));
+		return ret;
+	}		
+
+	public static IFile getFile(IContainer container, String path, IProgressMonitor monitor) throws CoreException {
+		SubMonitor sm = SubMonitor.convert(monitor, 1);
+		int idx = path.lastIndexOf('/');
+		if (idx != -1) {
+			container = createFolder(container, path.substring(0, idx), sm.split(1));
+		}
+		return container.getFile(new Path(path.substring(idx+1)));
+	}			
+	
+	public static void createFile(IFile location, InputStream content, IProgressMonitor monitor) throws CoreException {
+		SubMonitor sm = SubMonitor.convert(monitor, 2);
 		IContainer parent = location.getParent();
 		if (!parent.exists() && parent instanceof IFolder) {
-			createContainer((IFolder) parent, progressMonitor);
+			createContainer((IFolder) parent, sm.split(1));
 		}
-		location.create(content, false, progressMonitor);		
+		location.create(content, false, sm.split(1));		
 	}
 	
-	public static void createContainer(IFolder container, IProgressMonitor progressMonitor) throws CoreException {
+	public static void createContainer(IFolder container, IProgressMonitor monitor) throws CoreException {
+		SubMonitor sm = SubMonitor.convert(monitor, 2);
 		IContainer parent = container.getParent();
 		if (!parent.exists() && parent instanceof IFolder) {
-			createContainer((IFolder) parent, progressMonitor);
+			createContainer((IFolder) parent, sm.split(1));
 		}
-		container.create(false, true, progressMonitor);
+		container.create(false, true, sm.split(1));
 	}
 	
 

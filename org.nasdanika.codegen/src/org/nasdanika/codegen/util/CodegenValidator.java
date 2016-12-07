@@ -14,6 +14,7 @@ import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -223,6 +224,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateList((List<?>)value, diagnostics, context);
 			case CodegenPackage.MERGER:
 				return validateMerger((Merger<?>)value, diagnostics, context);
+			case CodegenPackage.SUB_MONITOR:
+				return validateSubMonitor((SubMonitor)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -1092,6 +1095,15 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateMerger(Merger<?> merger, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSubMonitor(SubMonitor subMonitor, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

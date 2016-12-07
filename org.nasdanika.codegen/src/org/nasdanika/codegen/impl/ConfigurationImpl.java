@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -170,7 +171,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Context createContext(Context parent) throws Exception {
+	public Context createContext(Context parent, SubMonitor monitor) throws Exception {
+		monitor.subTask("Loading configuration");
 		// Includes
 		// TODO - implement
 		if (!getIncludes().isEmpty()) {
@@ -179,7 +181,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 
 		// Include
 		for (Configuration inc: getInclude()) {
-			parent = inc.createContext(parent);
+			parent = inc.createContext(parent, monitor);
 		}
 		
 		// ClassLoader
@@ -281,7 +283,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		};
 		
 		for (ConfigurationItem ci: getConfiguration()) {
-			Object obj = ci.get(ret);
+			Object obj = ci.get(ret, monitor);
 			if (ci instanceof Service) {
 				Service service = (Service) ci;
 				Class<?> serviceType = classLoader.loadClass(service.getServiceType());
@@ -306,7 +308,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 					public Object get(String name) {
 						return null;
 					}
-				}));
+				}, monitor));
 			}
 		}				
 		
@@ -355,21 +357,41 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public int getConfigWorkSize() {
+		int ret = 0;
+		for (ConfigurationItem ci: getConfiguration()) {
+			ret += ci.getConfigWorkSize();
+		}
+		for (Configuration inc: getInclude()) {
+			ret += inc.getConfigWorkSize();
+		}
+		ret += getIncludes().size();
+		ret += getDefaultIncludes().size();
+		return ret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case CodegenPackage.CONFIGURATION___CREATE_CONTEXT__CONTEXT:
+			case CodegenPackage.CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR:
 				try {
-					return createContext((Context)arguments.get(0));
+					return createContext((Context)arguments.get(0), (SubMonitor)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case CodegenPackage.CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case CodegenPackage.CONFIGURATION___GET_CONFIG_WORK_SIZE:
+				return getConfigWorkSize();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

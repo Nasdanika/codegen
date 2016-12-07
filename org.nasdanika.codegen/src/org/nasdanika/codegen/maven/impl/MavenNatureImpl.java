@@ -5,13 +5,11 @@ package org.nasdanika.codegen.maven.impl;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.NatureImpl;
@@ -71,15 +69,11 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 	}
 
 	@Override
-	public Work<IProjectNature> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<IProjectNature> createWorkItem() throws Exception {
 		// TODO Auto-generated method stub
+		// Add nature
+		// Generate POM
 		return null;
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 	/**

@@ -151,7 +151,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION___CREATE_CONTEXT__CONTEXT = 0;
+	int CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR = 0;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -163,13 +163,22 @@ public interface CodegenPackage extends EPackage {
 	int CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = 1;
 
 	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION___GET_CONFIG_WORK_SIZE = 2;
+
+	/**
 	 * The number of operations of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_OPERATION_COUNT = 2;
+	int CONFIGURATION_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.Provider <em>Provider</em>}' class.
@@ -270,7 +279,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION___CREATE_CONTEXT__CONTEXT;
+	int CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -280,6 +289,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Configuration Item</em>' class.
@@ -415,7 +433,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+	int VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -425,6 +443,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Value Configuration Item</em>' class.
@@ -569,7 +596,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE___CREATE_CONTEXT__CONTEXT = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+	int SERVICE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -579,6 +606,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE___GET_CONFIG_WORK_SIZE = VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -723,7 +759,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CREATE_CONTEXT__CONTEXT = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+	int PROPERTY___CREATE_CONTEXT__CONTEXT_SUBMONITOR = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -733,6 +769,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_CONFIG_WORK_SIZE = VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -878,7 +923,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___CREATE_CONTEXT__CONTEXT = CONFIGURATION___CREATE_CONTEXT__CONTEXT;
+	int GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -888,6 +933,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___GET_CONFIG_WORK_SIZE = CONFIGURATION___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -1023,7 +1077,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int GROUP___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1033,6 +1087,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -1168,7 +1231,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GROUP___CREATE_CONTEXT__CONTEXT = GROUP___CREATE_CONTEXT__CONTEXT;
+	int RESOURCE_GROUP___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GROUP___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1178,6 +1241,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP___GET_CONFIG_WORK_SIZE = GROUP___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Resource Group</em>' class.
@@ -1295,7 +1367,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1305,6 +1377,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Resource Generator</em>' class.
@@ -1440,7 +1521,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE___CREATE_CONTEXT__CONTEXT = GROUP___CREATE_CONTEXT__CONTEXT;
+	int WORKSPACE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GROUP___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1450,6 +1531,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int WORKSPACE___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE___GET_CONFIG_WORK_SIZE = GROUP___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Workspace</em>' class.
@@ -1585,7 +1675,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE___CREATE_CONTEXT__CONTEXT = RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1595,6 +1685,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE___GET_CONFIG_WORK_SIZE = RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Resource</em>' class.
@@ -1739,7 +1838,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FOLDER___CREATE_CONTEXT__CONTEXT = RESOURCE___CREATE_CONTEXT__CONTEXT;
+	int FOLDER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1749,6 +1848,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Folder</em>' class.
@@ -1866,7 +1974,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATURE___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1876,6 +1984,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Nature</em>' class.
@@ -2029,7 +2146,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE___CREATE_CONTEXT__CONTEXT = RESOURCE___CREATE_CONTEXT__CONTEXT;
+	int FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2039,6 +2156,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>File</em>' class.
@@ -2192,7 +2318,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT___CREATE_CONTEXT__CONTEXT = RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int PROJECT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2202,6 +2328,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROJECT___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT___GET_CONFIG_WORK_SIZE = RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -2355,7 +2490,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_FILE___CREATE_CONTEXT__CONTEXT = FILE___CREATE_CONTEXT__CONTEXT;
+	int BINARY_FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2365,6 +2500,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = FILE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE___GET_CONFIG_WORK_SIZE = FILE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Binary File</em>' class.
@@ -2518,7 +2662,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FILE___CREATE_CONTEXT__CONTEXT = FILE___CREATE_CONTEXT__CONTEXT;
+	int TEXT_FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2528,6 +2672,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = FILE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE___GET_CONFIG_WORK_SIZE = FILE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Text File</em>' class.
@@ -2672,7 +2825,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REFERENCE___CREATE_CONTEXT__CONTEXT = RESOURCE___CREATE_CONTEXT__CONTEXT;
+	int RESOURCE_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2682,6 +2835,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Resource Reference</em>' class.
@@ -2808,7 +2970,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_TEXT___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int STATIC_TEXT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2818,6 +2980,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Static Text</em>' class.
@@ -2944,7 +3115,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2954,6 +3125,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Content Reference</em>' class.
@@ -3080,7 +3260,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3090,6 +3270,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Filter</em>' class.
@@ -3216,7 +3405,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3226,6 +3415,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Generator</em>' class.
@@ -3352,7 +3550,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPOLATOR___CREATE_CONTEXT__CONTEXT = FILTER___CREATE_CONTEXT__CONTEXT;
+	int INTERPOLATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3362,6 +3560,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Interpolator</em>' class.
@@ -3488,7 +3695,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JET_EMITTER___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int JET_EMITTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3498,6 +3705,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JET_EMITTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>JET Emitter</em>' class.
@@ -3633,7 +3849,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___CREATE_CONTEXT__CONTEXT = FILTER___CREATE_CONTEXT__CONTEXT;
+	int JAVA_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3643,6 +3859,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
@@ -3796,7 +4021,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_TEXT_FILTER___CREATE_CONTEXT__CONTEXT = JAVA_FILTER___CREATE_CONTEXT__CONTEXT;
+	int JAVA_TEXT_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = JAVA_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3806,6 +4031,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = JAVA_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER___GET_CONFIG_WORK_SIZE = JAVA_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Text Filter</em>' class.
@@ -3941,7 +4175,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_STREAM_FILTER___CREATE_CONTEXT__CONTEXT = JAVA_FILTER___CREATE_CONTEXT__CONTEXT;
+	int JAVA_STREAM_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = JAVA_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3951,6 +4185,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = JAVA_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER___GET_CONFIG_WORK_SIZE = JAVA_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Stream Filter</em>' class.
@@ -4077,7 +4320,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_TEXT_GENERATOR___CREATE_CONTEXT__CONTEXT = JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int JAVA_TEXT_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4087,6 +4330,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = JAVA_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR___GET_CONFIG_WORK_SIZE = JAVA_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Text Generator</em>' class.
@@ -4213,7 +4465,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_STREAM_GENERATOR___CREATE_CONTEXT__CONTEXT = JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int JAVA_STREAM_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = JAVA_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4223,6 +4475,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = JAVA_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR___GET_CONFIG_WORK_SIZE = JAVA_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Java Stream Generator</em>' class.
@@ -4331,7 +4592,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT;
+	int NAMED_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4341,6 +4602,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Named Configuration Item</em>' class.
@@ -4467,7 +4737,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT = GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4477,6 +4747,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Generator</em>' class.
@@ -4603,7 +4882,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_TEXT_GENERATOR___CREATE_CONTEXT__CONTEXT = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_TEXT_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4613,6 +4892,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR___GET_CONFIG_WORK_SIZE = SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Text Generator</em>' class.
@@ -4739,7 +5027,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_STREAM_GENERATOR___CREATE_CONTEXT__CONTEXT = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_STREAM_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = SCRIPTED_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4749,6 +5037,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR___GET_CONFIG_WORK_SIZE = SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Stream Generator</em>' class.
@@ -4884,7 +5181,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT = FILTER___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4894,6 +5191,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Filter</em>' class.
@@ -5029,7 +5335,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_TEXT_FILTER___CREATE_CONTEXT__CONTEXT = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_TEXT_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5039,6 +5345,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER___GET_CONFIG_WORK_SIZE = SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Text Filter</em>' class.
@@ -5174,7 +5489,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPTED_STREAM_FILTER___CREATE_CONTEXT__CONTEXT = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT;
+	int SCRIPTED_STREAM_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR = SCRIPTED_FILTER___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5184,6 +5499,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = SCRIPTED_FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER___GET_CONFIG_WORK_SIZE = SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Stream Filter</em>' class.
@@ -5310,7 +5634,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT = CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT;
+	int TEXT_CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5320,6 +5644,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Text Content Reference</em>' class.
@@ -5446,7 +5779,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STREAM_CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT = CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT;
+	int STREAM_CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONTENT_REFERENCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5456,6 +5789,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Stream Content Reference</em>' class.
@@ -5601,6 +5943,17 @@ public interface CodegenPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Sub Monitor</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.core.runtime.SubMonitor
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
+	 * @generated
+	 */
+	int SUB_MONITOR = 53;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5688,14 +6041,14 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getConfiguration_Description();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context) <em>Create Context</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context, org.eclipse.core.runtime.SubMonitor) <em>Create Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Context</em>' operation.
-	 * @see org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context)
+	 * @see org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context, org.eclipse.core.runtime.SubMonitor)
 	 * @generated
 	 */
-	EOperation getConfiguration__CreateContext__Context();
+	EOperation getConfiguration__CreateContext__Context_SubMonitor();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
@@ -5706,6 +6059,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getConfiguration__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#getConfigWorkSize() <em>Get Config Work Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Config Work Size</em>' operation.
+	 * @see org.nasdanika.codegen.Configuration#getConfigWorkSize()
+	 * @generated
+	 */
+	EOperation getConfiguration__GetConfigWorkSize();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ConfigurationItem <em>Configuration Item</em>}'.
@@ -6550,6 +6913,17 @@ public interface CodegenPackage extends EPackage {
 	EDataType getMerger();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.SubMonitor <em>Sub Monitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Sub Monitor</em>'.
+	 * @see org.eclipse.core.runtime.SubMonitor
+	 * @model instanceClass="org.eclipse.core.runtime.SubMonitor"
+	 * @generated
+	 */
+	EDataType getSubMonitor();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6644,7 +7018,7 @@ public interface CodegenPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CONFIGURATION___CREATE_CONTEXT__CONTEXT = eINSTANCE.getConfiguration__CreateContext__Context();
+		EOperation CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR = eINSTANCE.getConfiguration__CreateContext__Context_SubMonitor();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
@@ -6653,6 +7027,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getConfiguration__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Config Work Size</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFIGURATION___GET_CONFIG_WORK_SIZE = eINSTANCE.getConfiguration__GetConfigWorkSize();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ConfigurationItemImpl <em>Configuration Item</em>}' class.
@@ -7397,6 +7779,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType MERGER = eINSTANCE.getMerger();
+
+		/**
+		 * The meta object literal for the '<em>Sub Monitor</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.core.runtime.SubMonitor
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
+		 * @generated
+		 */
+		EDataType SUB_MONITOR = eINSTANCE.getSubMonitor();
 
 	}
 

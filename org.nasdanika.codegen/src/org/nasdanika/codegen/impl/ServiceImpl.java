@@ -2,9 +2,11 @@
  */
 package org.nasdanika.codegen.impl;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Service;
 
 /**
@@ -56,6 +58,12 @@ public class ServiceImpl extends ValueConfigurationItemImpl implements Service {
 	 */
 	public void setServiceType(String newServiceType) {
 		eSet(CodegenPackage.Literals.SERVICE__SERVICE_TYPE, newServiceType);
+	}
+	
+	@Override
+	public Object get(Context context, SubMonitor monitor) throws Exception {
+		monitor.subTask("Loading service "+(getServiceType() == null || getServiceType().trim().length() == 0 ? getValueType() : getServiceType()));		
+		return super.get(context, monitor);
 	}
 
 } //ServiceImpl

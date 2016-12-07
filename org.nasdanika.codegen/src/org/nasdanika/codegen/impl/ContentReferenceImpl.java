@@ -87,9 +87,4 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 		return result;
 	}	
 	
-	@Override
-	public int getWorkFactorySize() {
-		return 1;
-	}
-	
 } //ContentReferenceImpl

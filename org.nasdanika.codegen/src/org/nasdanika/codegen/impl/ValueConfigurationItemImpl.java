@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -207,11 +208,16 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 		}
 		return result;
 	}	
+	
+	@Override
+	public int getConfigWorkSize() {
+		return super.getConfigWorkSize() + 2;
+	}
 		
 	@SuppressWarnings("unchecked")
 	@Override
-	public Object get(Context context) throws Exception {
-		Context thisContext = createContext(context);
+	public Object get(Context context, SubMonitor monitor) throws Exception {
+		Context thisContext = createContext(context, monitor);
 		
 		if (isScripted()) {
 			if (getValueType() == null || getValueType().trim().length() == 0 || String.class.getName().equals(getValueType().trim())) {
@@ -237,14 +243,14 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 				// Try default constructor
 				Object ret = instantiate(valueClass, new Class<?>[] {}, new Object[] {});
 				if (ret != null) {
-					return ((Provider<Object>) ret).get(thisContext);
+					return ((Provider<Object>) ret).get(thisContext, monitor.split(1));
 				}				
 			}
 			Object ret = instantiate(valueClass, new Class<?>[] { String.class }, new Object[] { interpolatedValue });
 			if (ret == null) {
 				throw new IllegalStateException("Cannot create provider (no appropriate constructor found) "+valueClass);
 			}				
-			return ((Provider<Object>) ret).get(thisContext);
+			return ((Provider<Object>) ret).get(thisContext, monitor.split(1));
 		}
 		
 		if (isBlankValue) {

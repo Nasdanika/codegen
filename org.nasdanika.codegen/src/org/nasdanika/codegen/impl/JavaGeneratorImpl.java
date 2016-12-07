@@ -4,7 +4,6 @@ package org.nasdanika.codegen.impl;
 
 import java.util.Map;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -12,9 +11,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.IGenerator;
-import org.nasdanika.codegen.JavaGenerator;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.JavaGenerator;
 import org.nasdanika.codegen.Provider;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -90,31 +88,25 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	}	
 		
 	@Override
-	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
+	public Work<T> createWorkItem() throws Exception {
 		return new Work<T>() {
 			
 			@Override
 			public int size() {
-				return 2;
+				return 3;
 			}
 			
 			@Override
-			public T execute(IProgressMonitor monitor) throws Exception {
-				SubMonitor subMon = SubMonitor.convert(monitor, size());
+			public T execute(Context context, SubMonitor monitor) throws Exception {
 				Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
 				@SuppressWarnings({ "unchecked", "rawtypes" })
-				IGenerator<T> generator = (IGenerator<T>) (obj instanceof Provider ? ((Provider<IGenerator>) obj).get(context) : obj);
-				T result = generator.generate(context, subMon.split(1));
-				return configure(context, result, subMon.split(1));
+				Work<T> generator = (Work<T>) (obj instanceof Provider ? ((Provider<Work<T>>) obj).get(context, monitor.split(1)) : obj);
+				T result = generator.execute(context, monitor.split(1));
+				return configure(context, result, monitor.split(1));
 			}
 			
 		};
 	}
 
-	@Override
-	public int getWorkFactorySize() {
-		return 1;
-	}
 	
 } //JavaGeneratorImpl

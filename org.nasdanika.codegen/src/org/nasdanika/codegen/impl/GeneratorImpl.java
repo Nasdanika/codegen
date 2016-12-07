@@ -217,6 +217,10 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 */
 	protected abstract Work<T> createWorkItem() throws Exception;	
 
+	/**
+	 * Creates work which creates context and then iterates over contexts created 
+	 * the iterator and invokes work created by <code>createWorkItem()</code> for each context. 
+	 */
 	@Override
 	final public Work<List<T>> createWork() throws Exception {
 		Work<T> workItem = createWorkItem();
@@ -225,14 +229,14 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			
 			@Override
 			public int size() {
-				return workItem.size();
+				return getConfigWorkSize() + workItem.size();
 			}
 			
 			@Override
 			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
-				Collection<Context> iContexts = iterate(createContext(context));
+				Collection<Context> iContexts = iterate(createContext(context, monitor));
 				if (iContexts.isEmpty()) {
-					monitor.worked(size());
+					monitor.worked(workItem.size());
 					return Collections.emptyList();
 				}
 				

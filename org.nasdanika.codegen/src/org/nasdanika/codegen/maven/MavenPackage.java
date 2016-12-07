@@ -173,7 +173,7 @@ public interface MavenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_NATURE___CREATE_CONTEXT__CONTEXT = CodegenPackage.NATURE___CREATE_CONTEXT__CONTEXT;
+	int MAVEN_NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -183,6 +183,15 @@ public interface MavenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAVEN_NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE___GET_CONFIG_WORK_SIZE = CodegenPackage.NATURE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Nature</em>' class.

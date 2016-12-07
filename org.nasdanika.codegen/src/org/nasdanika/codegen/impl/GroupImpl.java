@@ -3,12 +3,13 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -20,8 +21,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
-import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.SimpleContext;
+import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 
@@ -92,7 +92,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null && getSelector() != null && getSelector().trim().length() > 0) {
 			try {
-				createSelectorEvaluator(new SimpleContext(), Generator.class);						
+				createSelectorEvaluator(new SimpleMutableContext(), Generator.class);						
 			} catch (CompileException e) {
 				diagnostics.add
 				(new BasicDiagnostic
@@ -109,26 +109,13 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	}	
 
 	@Override
-	public Work<List<T>> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
-		List<Work<List<T>>> allWork = new ArrayList<>();
-		int[] allSize = { 2 };
+	public Work<List<T>> createWorkItem() throws Exception {
+		Map<Generator<?>, Work<List<T>>> workMap = new HashMap<>();
+		int[] allSize = { 1 };
 		for (Generator<T> e: getElements()) {
-			Context elementContext = context;
-			
-			if (getSelector() != null && getSelector().trim().length() > 0) {
-				elementContext = (Context) createSelectorEvaluator(context, e.getClass()).evaluate(new Object[] { context, this, e });
-				if (elementContext == null) {
-					submon.worked(1);
-					continue;
-				}
-			}
-			
-			Work<List<T>> ew = e.createWork(context, submon.split(1));
-			if (ew != null) {
-				allWork.add(ew);
-				allSize[0]+=ew.size();
-			}
+			Work<List<T>> ew = e.createWork();
+			workMap.put(e, ew);
+			allSize[0] += ew.size();
 		}
 		
 		return new Work<List<T>>() {
@@ -139,33 +126,46 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 			}
 
 			@Override
-			public List<T> execute(IProgressMonitor monitor) throws Exception {
-				SubMonitor submon = SubMonitor.convert(monitor, size());
+			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
 				List<T> ret = new ArrayList<>();
-				for (Work<List<T>> w: allWork) {
-					List<T> r = w.execute(submon.split(w.size()));
+				
+				for (Entry<Generator<?>, Work<List<T>>> we: workMap.entrySet()) {
+					Context elementContext = context;
+					
+					if (getSelector() != null && getSelector().trim().length() > 0) {
+						elementContext = (Context) createSelectorEvaluator(context, we.getKey().getClass()).evaluate(new Object[] { context, this, we.getKey() });
+						if (elementContext == null) {
+							monitor.worked(we.getValue().size());
+							continue;
+						}
+					}
+										
+					List<T> r = we.getValue().execute(configureElementContext(elementContext), monitor);
 					if (r != null) {
 						ret.addAll(r);
 					}
 				}				
-				submon.worked(1);
-				return configure(context, ret, submon.split(1));
+				return configure(context, ret, monitor.split(1));
 			}
 		};
+	}
+	
+	/**
+	 * Subclasses can override to customize elements context.
+	 * @param elementContext
+	 * @return
+	 */
+	protected Context configureElementContext(Context elementContext) {
+		return elementContext;
 	}
 
 	private ScriptEvaluator createSelectorEvaluator(Context context, Class<?> elementClass) throws CompileException {
 		ScriptEvaluator se = new ScriptEvaluator(getSelector());
 		se.setReturnType(Context.class);
-		se.setParameters(new String[] { "context", "generator", "element" }, new Class[] { Context.class, this.getClass(), elementClass });
+		se.setParameters(new String[] { "context", "group", "element" }, new Class[] { Context.class, this.getClass(), elementClass });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
 		return se;
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		return getElements().size() + 1;
 	}
 
 } //GroupImpl

@@ -8,7 +8,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.net.URL;
 
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
@@ -41,9 +41,9 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.TEXT_CONTENT_REFERENCE;
 	}
-
+	
 	@Override
-	protected Work<String> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<String> createWorkItem() throws Exception {
 		return new Work<String>() {
 
 			@Override
@@ -52,7 +52,7 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 			}
 
 			@Override
-			public String execute(IProgressMonitor monitor) throws Exception {
+			public String execute(Context context, SubMonitor monitor) throws Exception {
 				URL url = new URL(resolveBaseURL(), getRef());
 				monitor.setTaskName("Loading text from: "+url);
 				StringWriter sw = new StringWriter();

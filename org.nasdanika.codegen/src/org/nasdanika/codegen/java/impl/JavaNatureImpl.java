@@ -9,7 +9,6 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -67,12 +66,11 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 	}
 
 	@Override
-	public Work<IProjectNature> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<IProjectNature> createWorkItem() throws Exception {
 		List<Work<List<IPackageFragmentRoot>>> pfrWork = new ArrayList<>();
 		int pfrWorkSize = 0;
-		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
 		for (PackageFragmentRoot pfr: getPackagefragmentroots()) {
-			Work<List<IPackageFragmentRoot>> w = pfr.createWork(context, subMon.split(pfr.getWorkFactorySize()));
+			Work<List<IPackageFragmentRoot>> w = pfr.createWork();
 			pfrWork.add(w);
 			pfrWorkSize += w.size();
 		}
@@ -87,7 +85,7 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 			}
 
 			@Override
-			public IProjectNature execute(IProgressMonitor monitor) throws Exception {
+			public IProjectNature execute(Context context, SubMonitor monitor) throws Exception {
 				IProject project = context.get(IProject.class);
 				IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
 				if (javaProject == null) {
@@ -105,28 +103,21 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 //					schema.setBuilderName("org.eclipse.pde.SchemaBuilder");
 
 					description.setBuildSpec(new ICommand[] { java /*, manifest, schema */});							
-					project.setDescription(description, subMon.split(1));
+					project.setDescription(description, monitor.split(1));
 				}
 
-				javaProject = (IJavaProject) configure(context, (IProjectNature) javaProject, subMon.split(1));
+				javaProject = (IJavaProject) configure(context, (IProjectNature) javaProject, monitor.split(1));
 
+				Context pfrContext = context.createSubContext().set(IJavaProject.class, javaProject);
+				
 				for (Work<List<IPackageFragmentRoot>> pfrw: pfrWork) {
-					pfrw.execute(subMon.split(pfrw.size()));
+					pfrw.execute(pfrContext, monitor);
 				}
 				
 				return (IProjectNature) javaProject;
 			}
 			
 		};
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		int ret = 1;
-		for (PackageFragmentRoot pfr: getPackagefragmentroots()) {
-			ret += pfr.getWorkFactorySize();
-		}
-		return ret;
 	}
 
 } //JavaNatureImpl

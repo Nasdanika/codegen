@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -22,6 +21,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
@@ -92,19 +92,16 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 	}
 
 	@Override
-	public Work<IPackageFragmentRoot> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		SubMonitor subMon = SubMonitor.convert(monitor, getWorkFactorySize());
+	public Work<IPackageFragmentRoot> createWorkItem() throws Exception {
 		
 		List<Work<List<IPackageFragment>>> allPackageFragmentsWork = new ArrayList<>(); 	
 		int allPackageFragmentsWorkSize = 0;
 		for (PackageFragment pf: getPackagefragments()) {
-			Work<List<IPackageFragment>> pfw = pf.createWork(context, subMon.split(pf.getWorkFactorySize()));
+			Work<List<IPackageFragment>> pfw = pf.createWork();
 			allPackageFragmentsWorkSize += pfw.size();
 			allPackageFragmentsWork.add(pfw);
 		}
 				
-		subMon.worked(1);
-		
 		int workSize = 2 + allPackageFragmentsWorkSize;
 		
 		return new Work<IPackageFragmentRoot>() {
@@ -115,41 +112,31 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 			}
 			
 			@Override
-			public IPackageFragmentRoot execute(IProgressMonitor monitor) throws Exception {
-				SubMonitor subMon = SubMonitor.convert(monitor, size());
+			public IPackageFragmentRoot execute(Context context, SubMonitor monitor) throws Exception {
 				String name = CodegenUtil.interpolate(getName(), context);
 				IJavaProject javaProject = context.get(IJavaProject.class);
 				
 				IFolder sourceFolder = javaProject.getProject().getFolder(name);
 				if (sourceFolder.exists()) {
-					subMon.worked(2);
+					monitor.worked(2);
 				} else {
-					sourceFolder.create(false, true, subMon.split(1));
+					sourceFolder.create(false, true, monitor.split(1));
 					IClasspathEntry[] ercp = javaProject.getRawClasspath();
 					IClasspathEntry[] nrcp = new IClasspathEntry[ercp.length+1];
 					System.arraycopy(ercp, 0, nrcp, 0, ercp.length);
 					nrcp[nrcp.length-1] = JavaCore.newSourceEntry(sourceFolder.getFullPath());
-					javaProject.setRawClasspath(nrcp, subMon.split(1));
+					javaProject.setRawClasspath(nrcp, monitor.split(1));
 				}				
 				
 				IPackageFragmentRoot result = javaProject.getPackageFragmentRoot(sourceFolder);
-				context.set(IPackageFragmentRoot.class, result);
+				MutableContext pfContext = context.createSubContext().set(IPackageFragmentRoot.class, result);
 				
 				for (Work<List<IPackageFragment>> pfw: allPackageFragmentsWork) {
-					pfw.execute(subMon.split(pfw.size()));
+					pfw.execute(pfContext, monitor);
 				}
 				return result;
 			}
 		};
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		int ret = 1;
-		for (PackageFragment pf: getPackagefragments()) {
-			ret += pf.getWorkFactorySize();
-		}
-		return ret;
 	}
 	
 	/**

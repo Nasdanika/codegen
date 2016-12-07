@@ -5,7 +5,7 @@ package org.nasdanika.codegen.impl;
 import java.io.InputStream;
 import java.net.URL;
 
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
@@ -40,7 +40,7 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 	}
 
 	@Override
-	protected Work<InputStream> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
+	protected Work<InputStream> createWorkItem() throws Exception {
 		return new Work<InputStream>() {
 			
 			@Override
@@ -49,7 +49,7 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 			}
 			
 			@Override
-			public InputStream execute(IProgressMonitor monitor) throws Exception {
+			public InputStream execute(Context context, SubMonitor monitor) throws Exception {
 				URL url = new URL(resolveBaseURL(), getRef());
 				monitor.setTaskName("Opening URL stream: "+url);
 				try {

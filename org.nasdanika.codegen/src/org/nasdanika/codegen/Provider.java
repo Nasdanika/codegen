@@ -1,5 +1,7 @@
 package org.nasdanika.codegen;
 
+import org.eclipse.core.runtime.SubMonitor;
+
 /**
  * Provides configuration values.
  * @author Pavel Vlasov
@@ -14,6 +16,6 @@ public interface Provider<T> {
 	 * @return
 	 * @throws Exception
 	 */
-	T get(Context context) throws Exception;
+	T get(Context context, SubMonitor monitor) throws Exception;
 
 }

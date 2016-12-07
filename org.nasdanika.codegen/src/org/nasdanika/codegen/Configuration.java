@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import java.util.Map;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.cdo.CDOObject;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -193,10 +194,10 @@ public interface Configuration extends CDOObject {
 	 * Creates ``org.nasdanika.codegen.Context`` which provides access to properties and services.
 	 * @param parent Parent context.
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.nasdanika.codegen.Context" exceptions="org.nasdanika.codegen.Exception" parentDataType="org.nasdanika.codegen.Context"
+	 * @model dataType="org.nasdanika.codegen.Context" exceptions="org.nasdanika.codegen.Exception" parentDataType="org.nasdanika.codegen.Context" monitorDataType="org.nasdanika.codegen.SubMonitor"
 	 * @generated
 	 */
-	Context createContext(Context parent) throws Exception;
+	Context createContext(Context parent, SubMonitor monitor) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,5 +211,13 @@ public interface Configuration extends CDOObject {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	int getConfigWorkSize();
 
 } // Configuration

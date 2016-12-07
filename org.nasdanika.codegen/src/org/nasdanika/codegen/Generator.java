@@ -54,7 +54,7 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * Iterator code may return one of the following:
 	 * 
 	 * * ``null`` or ``false`` or empty collection - no iteration.
-	 * * ``java.lang.Iterable`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.
+	 * * ``java.util.Collection`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.
 	 * * ``Context`` - single invocation with returned context.
 	 * 
 	 * If the iterator returns any other result, then the generator throws ``IllegalArgumentException``.

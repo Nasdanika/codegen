@@ -33,6 +33,7 @@
     <genDataTypes ecoreDataType="codegen.ecore#//Merger">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Merger/T"/>
     </genDataTypes>
+    <genDataTypes ecoreDataType="codegen.ecore#//SubMonitor"/>
     <genClasses ecoreClass="codegen.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/configuration"/>
@@ -43,11 +44,13 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/description"/>
       <genOperations ecoreOperation="codegen.ecore#//Configuration/createContext">
         <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/parent"/>
+        <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/monitor"/>
       </genOperations>
       <genOperations ecoreOperation="codegen.ecore#//Configuration/validate">
         <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/diagnostics"/>
         <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/context"/>
       </genOperations>
+      <genOperations ecoreOperation="codegen.ecore#//Configuration/getConfigWorkSize"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ConfigurationItem"/>
     <genClasses ecoreClass="codegen.ecore#//Service">

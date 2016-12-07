@@ -89,13 +89,7 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 	}		
 
 	@Override
-	public int getWorkFactorySize() {
-		return 1;
-	}
-
-	@Override
-	protected Work<String> doCreateWork(Context iterationContext, IProgressMonitor monitor) throws Exception {
-		SubMonitor.convert(monitor, getWorkFactorySize()).worked(getWorkFactorySize());;
+	protected Work<String> createWorkItem() throws Exception {
 		return new Work<String>() {
 
 			@Override
@@ -104,10 +98,10 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 			}
 
 			@Override
-			public String execute(IProgressMonitor monitor) throws Exception {
+			public String execute(Context context, SubMonitor monitor) throws Exception {
 				URL tu = new URL(resolveBaseURL(), getTemplateURI());
-				org.eclipse.emf.codegen.jet.JETEmitter jetEmitter = new org.eclipse.emf.codegen.jet.JETEmitter(tu.toString(), iterationContext.getClassLoader());
-				return jetEmitter.generate(SubMonitor.convert(monitor,  size()), new Object[] { iterationContext });
+				org.eclipse.emf.codegen.jet.JETEmitter jetEmitter = new org.eclipse.emf.codegen.jet.JETEmitter(tu.toString(), context.getClassLoader());
+				return jetEmitter.generate(SubMonitor.convert(monitor,  size()), new Object[] { context });
 			}
 			
 		};

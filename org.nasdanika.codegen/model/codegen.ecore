@@ -17,6 +17,7 @@
           <details key="documentation" value="Parent context."/>
         </eAnnotations>
       </eParameters>
+      <eParameters name="monitor" eType="#//SubMonitor"/>
     </eOperations>
     <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -37,6 +38,7 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="getConfigWorkSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="includes" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -586,6 +588,7 @@
       <eTypeArguments eClassifier="#//InputStream"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SubMonitor" instanceClassName="org.eclipse.core.runtime.SubMonitor"/>
   <eSubpackages name="java" nsURI="urn:org.nasdanika.codegen.java" nsPrefix="org.nasdanika.codegen.java">
     <eClassifiers xsi:type="ecore:EClass" name="JavaNature" eSuperTypes="#//Nature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

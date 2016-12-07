@@ -91,33 +91,28 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 	}
 	
 	@Override
-	public Work<T> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		SubMonitor submon = SubMonitor.convert(monitor, getWorkFactorySize());
-		Work<List<T>> gWork = getGenerator().createWork(context, submon.split(getGenerator().getWorkFactorySize()));
-		submon.worked(1);
+	public Work<T> createWorkItem() throws Exception {
+		Work<List<T>> gWork = getGenerator().createWork();
 		return new Work<T>() {
 			
 			@Override
 			public int size() {
-				return gWork.size() + 2;
+				return gWork.size() + getFilterWorkSize() + 1;
 			}
 			
 			@Override
-			public T execute(IProgressMonitor monitor) throws Exception {
+			public T execute(Context context, SubMonitor monitor) throws Exception {
 				SubMonitor subMon = SubMonitor.convert(monitor, size());
-				List<T> wr = gWork.execute(subMon.split(gWork.size()));
-				T filtered = filter(context, wr, subMon.split(1));
+				List<T> wr = gWork.execute(context, monitor);
+				T filtered = filter(context, wr, subMon.split(getFilterWorkSize()));
 				return configure(context, filtered, subMon.split(1));
 			}
 			
 		};
 	}
-
-	@Override
-	public int getWorkFactorySize() {
-		return 1 + getGenerator().getWorkFactorySize();
-	}
-
+	
+	protected abstract int getFilterWorkSize();
+		
 	/**
 	 * Combines and filters generation results
 	 * @param generatorResult

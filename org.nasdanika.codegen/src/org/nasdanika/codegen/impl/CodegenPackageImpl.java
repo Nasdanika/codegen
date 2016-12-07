@@ -12,6 +12,7 @@ import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -459,6 +460,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	private EDataType mergerEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType subMonitorEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -613,7 +621,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getConfiguration__CreateContext__Context() {
+	public EOperation getConfiguration__CreateContext__Context_SubMonitor() {
 		return configurationEClass.getEOperations().get(0);
 	}
 
@@ -624,6 +632,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EOperation getConfiguration__Validate__DiagnosticChain_Map() {
 		return configurationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getConfiguration__GetConfigWorkSize() {
+		return configurationEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1351,6 +1368,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getSubMonitor() {
+		return subMonitorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodegenFactory getCodegenFactory() {
 		return (CodegenFactory)getEFactoryInstance();
 	}
@@ -1382,8 +1408,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(configurationEClass, CONFIGURATION__CLASS_PATH);
 		createEReference(configurationEClass, CONFIGURATION__INCLUDE);
 		createEAttribute(configurationEClass, CONFIGURATION__DESCRIPTION);
-		createEOperation(configurationEClass, CONFIGURATION___CREATE_CONTEXT__CONTEXT);
+		createEOperation(configurationEClass, CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR);
 		createEOperation(configurationEClass, CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(configurationEClass, CONFIGURATION___GET_CONFIG_WORK_SIZE);
 
 		configurationItemEClass = createEClass(CONFIGURATION_ITEM);
 
@@ -1507,6 +1534,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		iResourceEDataType = createEDataType(IRESOURCE);
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
+		subMonitorEDataType = createEDataType(SUB_MONITOR);
 	}
 
 	/**
@@ -1718,8 +1746,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getConfiguration_Include(), this.getConfiguration(), null, "include", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfiguration_Description(), ecorePackage.getEString(), "description", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getConfiguration__CreateContext__Context(), this.getContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getConfiguration__CreateContext__Context_SubMonitor(), this.getContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getContext(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSubMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		op = initEOperation(getConfiguration__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1730,6 +1759,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfiguration__GetConfigWorkSize(), ecorePackage.getEInt(), "getConfigWorkSize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(configurationItemEClass, ConfigurationItem.class, "ConfigurationItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1876,6 +1907,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(iResourceEDataType, IResource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(subMonitorEDataType, SubMonitor.class, "SubMonitor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1906,13 +1938,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Container of configuration items - properties and services.\r\nGenerators extend configuration. Configuration can also be defined in a standalone model to be provided as input to generators.\r\n"
 		   });	
 		addAnnotation
-		  (getConfiguration__CreateContext__Context(), 
+		  (getConfiguration__CreateContext__Context_SubMonitor(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Creates ``org.nasdanika.codegen.Context`` which provides access to properties and services."
 		   });	
 		addAnnotation
-		  ((getConfiguration__CreateContext__Context()).getEParameters().get(0), 
+		  ((getConfiguration__CreateContext__Context_SubMonitor()).getEParameters().get(0), 
 		   source, 
 		   new String[] {
 			 "documentation", "Parent context."
@@ -2023,13 +2055,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getGenerator_Iterator(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Iterator attribute may contain a fragment of Java code which controls\r\nhow many times the generator will be invoked and can modify generator\'s \r\ncontext for each invocation.\r\n\r\nThe iterator\'s code shall be a Java method body as shown below:\r\n\r\n```java\r\n<T extends Generator> Object iterate(Context context, T generator) throws Exception {\r\n    // --- Iterator code here ---\r\n}\r\n```\r\n\r\nwhere ``T`` is the type of the iterator declaring generator model element. \r\n\r\nIterator code may return one of the following:\r\n\r\n* ``null`` or ``false`` or empty collection - no iteration.\r\n* ``java.lang.Iterable`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.\r\n* ``Context`` - single invocation with returned context.\r\n\r\nIf the iterator returns any other result, then the generator throws ``IllegalArgumentException``.\r\n\r\nBlank iterator code is equivalent to ``return context;``"
+			 "documentation", "Iterator attribute may contain a fragment of Java code which controls\r\nhow many times the generator will be invoked and can modify generator\'s \r\ncontext for each invocation.\r\n\r\nThe iterator\'s code shall be a Java method body as shown below:\r\n\r\n```java\r\n<T extends Generator> Object iterate(Context context, T generator) throws Exception {\r\n    // --- Iterator code here ---\r\n}\r\n```\r\n\r\nwhere ``T`` is the type of the iterator declaring generator model element. \r\n\r\nIterator code may return one of the following:\r\n\r\n* ``null`` or ``false`` or empty collection - no iteration.\r\n* ``java.util.Collection`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.\r\n* ``Context`` - single invocation with returned context.\r\n\r\nIf the iterator returns any other result, then the generator throws ``IllegalArgumentException``.\r\n\r\nBlank iterator code is equivalent to ``return context;``"
 		   });	
 		addAnnotation
 		  (getGenerator_Configurator(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``Context context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(Context context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
+			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``MutableContext context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(MutableContext context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
 		   });	
 		addAnnotation
 		  (groupEClass, 

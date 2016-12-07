@@ -12,6 +12,7 @@ import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -131,6 +132,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createListFromString(eDataType, initialValue);
 			case CodegenPackage.MERGER:
 				return createMergerFromString(eDataType, initialValue);
+			case CodegenPackage.SUB_MONITOR:
+				return createSubMonitorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -170,6 +173,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertListToString(eDataType, instanceValue);
 			case CodegenPackage.MERGER:
 				return convertMergerToString(eDataType, instanceValue);
+			case CodegenPackage.SUB_MONITOR:
+				return convertSubMonitorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -659,6 +664,24 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 */
 	public String convertMergerToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubMonitor createSubMonitorFromString(EDataType eDataType, String initialValue) {
+		return (SubMonitor)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSubMonitorToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
