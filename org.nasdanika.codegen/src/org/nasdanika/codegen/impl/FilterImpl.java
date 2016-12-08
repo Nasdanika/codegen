@@ -4,8 +4,6 @@ package org.nasdanika.codegen.impl;
 
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -103,7 +101,7 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 			@Override
 			public T execute(Context context, SubMonitor monitor) throws Exception {
 				SubMonitor subMon = SubMonitor.convert(monitor, size());
-				List<T> wr = gWork.execute(context, monitor);
+				List<T> wr = gWork.execute(context, subMon);
 				T filtered = filter(context, wr, subMon.split(getFilterWorkSize()));
 				return configure(context, filtered, subMon.split(1));
 			}

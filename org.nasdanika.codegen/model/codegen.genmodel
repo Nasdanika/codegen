@@ -132,7 +132,7 @@
     <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//ValueConfigurationItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/valueType"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/values"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/scripted"/>
     </genClasses>

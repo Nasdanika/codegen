@@ -4,6 +4,7 @@ package org.nasdanika.codegen.impl;
 
 import java.util.Map;
 
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -64,10 +65,10 @@ public class NamedConfigurationItemImpl extends ConfigurationItemImpl implements
 	public void setName(String newName) {
 		eSet(CodegenPackage.Literals.NAMED_CONFIGURATION_ITEM__NAME, newName);
 	}
-
+	
 	@Override
-	public Object get(Context context) throws Exception {
-		return createContext(context);
+	public Object get(Context context, SubMonitor monitor) throws Exception {
+		return createContext(context, monitor);
 	}
 		
 	/**

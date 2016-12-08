@@ -245,7 +245,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				}
 
 				List<T> ret = new ArrayList<>();
-				monitor = SubMonitor.convert(monitor, iContexts.size()*size());
+				monitor.setWorkRemaining(iContexts.size()*size());
 				for (Context iCtx: iContexts) {
 					ret.add(workItem.execute(iCtx, monitor));
 				}

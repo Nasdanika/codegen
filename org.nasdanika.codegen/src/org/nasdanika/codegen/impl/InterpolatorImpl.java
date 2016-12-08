@@ -47,5 +47,10 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 		subMonitor.worked(1);
 		return CodegenUtil.interpolate(sb.toString(), context);
 	}
+	
+	@Override
+	protected int getFilterWorkSize() {
+		return 1;
+	}
 
 } //InterpolatorImpl

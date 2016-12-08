@@ -1116,7 +1116,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getValueConfigurationItem_Value() {
+	public EAttribute getValueConfigurationItem_Values() {
 		return (EAttribute)valueConfigurationItemEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1493,7 +1493,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		valueConfigurationItemEClass = createEClass(VALUE_CONFIGURATION_ITEM);
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE_TYPE);
-		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUE);
+		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__VALUES);
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__DEFAULT);
 		createEAttribute(valueConfigurationItemEClass, VALUE_CONFIGURATION_ITEM__SCRIPTED);
 
@@ -1861,7 +1861,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(valueConfigurationItemEClass, ValueConfigurationItem.class, "ValueConfigurationItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValueConfigurationItem_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getValueConfigurationItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueConfigurationItem_Values(), ecorePackage.getEString(), "values", null, 0, -1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueConfigurationItem_Default(), ecorePackage.getEBoolean(), "default", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueConfigurationItem_Scripted(), ecorePackage.getEBoolean(), "scripted", null, 0, 1, ValueConfigurationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2349,7 +2349,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (valueConfigurationItemEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Value configuration items can be configured with value in addition to configuration elements.\r\n\r\nIf ``scripted`` is true, the value is evaluated as a script.\r\n\r\nScript is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:\r\n\r\n```java\r\nObject evaluate(Context context, String valueType) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```\r\n\r\nOtherwise, value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Blank value, no configuration items - default constructor, if exists.\r\n* Non-blank value, no configuration items - a constructor which takes String, if exists.\r\n* Blank value, configuration items - a constructor which takes Context, if exists.\r\n* Otherwise - a constructor which takes String and Context in any order.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```"
+			 "documentation", "Value configuration items can be configured with value in addition to configuration elements.\r\n\r\nIf ``scripted`` is true, the value is evaluated as a script.\r\n\r\nScript is a Java method body returning Object and taking ``Context contect, String valueType`` paramters:\r\n\r\n```java\r\nObject evaluate(Context context, String valueType) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```\r\n\r\nOtherwise, value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on \r\nwhether the value is blank and configuration items are present:\r\n\r\n* Empty values collection - single value object is instantiated with:\r\n  * No configuration items - default constructor or a constructor which takes Context.\r\n  * Configuration items - a constructor which takes Context.\r\n* Non-empty values collection:\r\n  * No configuration items - a constructor which takes String. If value is blank then the default constructor will be considered first, if exists.\r\n  * Configuration items - a constructor which takes String and Context in any order. If value is blank then a constructor which takes Context will be considered first.\r\n\r\nIf configuration item\'s type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using\r\neither the default constructor, if it exists and value is blank, or a constructor which takes String. The provider\'s ``get(Context)`` method is used\r\nto obtain actual configuration item.\r\n\r\nIf value is not blank, it is interpolated using properties already defined in the context and inherited from the parent context. \r\nInterpolation is the process of expanding tokens enclosed into double-curly brackets to the values of properties with corresponding names.\r\n\r\nIf a property with a given name is not defined, a token does not get expanded.\r\n\r\nExample:\r\n```\r\n{{base-package}}.impl\r\n```\r\n\r\nIf values size is greater than one, then value is an array with elments of ``valueType``. As such multi-value services are keyed by ``valueType[]`` as opposed to ``valueType`` for single-value or no value services."
 		   });	
 		addAnnotation
 		  (getValueConfigurationItem_ValueType(), 
@@ -2358,10 +2358,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Configuration item value type. Defaults to ``java.lang.String``."
 		   });	
 		addAnnotation
-		  (getValueConfigurationItem_Value(), 
+		  (getValueConfigurationItem_Values(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Configuration item value.\r\n"
+			 "documentation", "Configuration item values. \r\n"
 		   });	
 		addAnnotation
 		  (getValueConfigurationItem_Default(), 

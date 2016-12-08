@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +26,12 @@ package org.nasdanika.codegen;
  * Otherwise, value and configuration items are injected into the configuration item via constructor. An appropriate constructor is selected based on 
  * whether the value is blank and configuration items are present:
  * 
- * * Blank value, no configuration items - default constructor, if exists.
- * * Non-blank value, no configuration items - a constructor which takes String, if exists.
- * * Blank value, configuration items - a constructor which takes Context, if exists.
- * * Otherwise - a constructor which takes String and Context in any order.
+ * * Empty values collection - single value object is instantiated with:
+ *   * No configuration items - default constructor or a constructor which takes Context.
+ *   * Configuration items - a constructor which takes Context.
+ * * Non-empty values collection:
+ *   * No configuration items - a constructor which takes String. If value is blank then the default constructor will be considered first, if exists.
+ *   * Configuration items - a constructor which takes String and Context in any order. If value is blank then a constructor which takes Context will be considered first.
  * 
  * If configuration item's type is assignable from ``org.nasdanika.codegen.Provider``, then it gets instantiated using
  * either the default constructor, if it exists and value is blank, or a constructor which takes String. The provider's ``get(Context)`` method is used
@@ -42,6 +46,8 @@ package org.nasdanika.codegen;
  * ```
  * {{base-package}}.impl
  * ```
+ * 
+ * If values size is greater than one, then value is an array with elments of ``valueType``. As such multi-value services are keyed by ``valueType[]`` as opposed to ``valueType`` for single-value or no value services.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -49,7 +55,7 @@ package org.nasdanika.codegen;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#getValueType <em>Value Type</em>}</li>
- *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#getValue <em>Value</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#getValues <em>Values</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#isDefault <em>Default</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ValueConfigurationItem#isScripted <em>Scripted</em>}</li>
  * </ul>
@@ -85,30 +91,20 @@ public interface ValueConfigurationItem extends ConfigurationItem {
 	void setValueType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Configuration item value.
+	 * Configuration item values. 
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getValueConfigurationItem_Value()
+	 * @return the value of the '<em>Values</em>' attribute list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getValueConfigurationItem_Values()
 	 * @model
 	 * @generated
 	 */
-	String getValue();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.ValueConfigurationItem#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(String value);
+	EList<String> getValues();
 
 	/**
 	 * Returns the value of the '<em><b>Default</b></em>' attribute.

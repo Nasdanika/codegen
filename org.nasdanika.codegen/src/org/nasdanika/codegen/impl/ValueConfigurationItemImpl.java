@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +16,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
@@ -33,7 +35,7 @@ import org.nasdanika.codegen.util.CodegenValidator;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#getValueType <em>Value Type</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#getValues <em>Values</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#isDefault <em>Default</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl#isScripted <em>Scripted</em>}</li>
  * </ul>
@@ -83,17 +85,9 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
-		return (String)eGet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(String newValue) {
-		eSet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE, newValue);
+	@SuppressWarnings("unchecked")
+	public EList<String> getValues() {
+		return (EList<String>)eGet(CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUES, true);
 	}
 
 	/**
@@ -179,29 +173,31 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {
 			if (isScripted()) {
-				if (getValue() == null || getValue().trim().length() == 0) {
+				if (getValues().isEmpty()) {
 					diagnostics.add
 						(new BasicDiagnostic
 							(Diagnostic.ERROR,
 							 CodegenValidator.DIAGNOSTIC_SOURCE,
 							 CodegenValidator.CONFIGURATION__VALIDATE,
 							 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty values for scripted configuration item",
-							 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE }));
+							 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUES }));
 					
 					result = false;
 				} else {
-					try {
-						createValueEvaluator(new SimpleMutableContext());						
-					} catch (CompileException e) {
-						diagnostics.add
-						(new BasicDiagnostic
-							(Diagnostic.ERROR,
-							 CodegenValidator.DIAGNOSTIC_SOURCE,
-							 CodegenValidator.CONFIGURATION__VALIDATE,
-							 "["+EObjectValidator.getObjectLabel(this, context)+"] Value script has errors: "+e.getMessage(),
-							 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE }));
-					
-						result = false;						
+					for (String value: getValues()) {
+						try {
+							createValueEvaluator(value, new SimpleMutableContext());						
+						} catch (CompileException e) {
+							diagnostics.add
+							(new BasicDiagnostic
+								(Diagnostic.ERROR,
+								 CodegenValidator.DIAGNOSTIC_SOURCE,
+								 CodegenValidator.CONFIGURATION__VALIDATE,
+								 "["+EObjectValidator.getObjectLabel(this, context)+"] Value script has errors: "+e.getMessage(),
+								 new Object [] { this, CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUES }));
+						
+							result = false;						
+						}
 					}
 				}
 			}
@@ -214,29 +210,48 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 		return super.getConfigWorkSize() + 2;
 	}
 		
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object get(Context context, SubMonitor monitor) throws Exception {
 		Context thisContext = createContext(context, monitor);
+		Class<?> valueClass = thisContext.getClassLoader().loadClass(getValueType().trim());
+	
+		if (getValues().isEmpty()) {
+			return createValue(thisContext, valueClass, null, monitor);
+		}
+		
+		int valuesSize = getValues().size();
+		if (valuesSize == 1) {
+			return createValue(thisContext, valueClass, getValues().get(0), monitor);
+		}
+		
+		monitor.setWorkRemaining(2*valuesSize);
+		Object ret = Array.newInstance(valueClass, valuesSize);
+		for (int i=0; i<valuesSize; ++i) {
+			Array.set(ret, i, createValue(thisContext, valueClass, getValues().get(i), monitor));
+		}
+		return ret;
+	}
+		
+	@SuppressWarnings("unchecked")
+	private Object createValue(Context thisContext, Class<?> valueClass, String value, SubMonitor monitor) throws Exception {	
 		
 		if (isScripted()) {
 			if (getValueType() == null || getValueType().trim().length() == 0 || String.class.getName().equals(getValueType().trim())) {
-				throw new IllegalStateException("Empty values for scripted configuration item");
+				throw new IllegalStateException("Empty value for scripted configuration item");
 			}
 			
-			return createValueEvaluator(thisContext).evaluate(new Object[] { thisContext, getValueType() });						
+			return createValueEvaluator(value, thisContext).evaluate(new Object[] { thisContext, getValueType() });						
 		}		
 		
 		if (getValueType() == null || getValueType().trim().length() == 0 || String.class.getName().equals(getValueType().trim())) {
 			if (!getConfiguration().isEmpty()) {
 				throw new IllegalStateException("String values are not configurable");
 			}
-			return thisContext.interpolate(getValue());
+			return thisContext.interpolate(value);
 		}
 		
-		Class<?> valueClass = thisContext.getClassLoader().loadClass(getValueType().trim());
 		// Blank value
-		String interpolatedValue = thisContext.interpolate(getValue());
+		String interpolatedValue = thisContext.interpolate(value);
 		boolean isBlankValue = interpolatedValue == null || interpolatedValue.trim().length() == 0;
 		if (Provider.class.isAssignableFrom(valueClass)) {
 			if (isBlankValue) {
@@ -286,8 +301,8 @@ public abstract class ValueConfigurationItemImpl extends ConfigurationItemImpl i
 		
 	}
 
-	private ScriptEvaluator createValueEvaluator(Context thisContext) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator(getValue());
+	private ScriptEvaluator createValueEvaluator(String value, Context thisContext) throws CompileException {
+		ScriptEvaluator se = new ScriptEvaluator(value);
 		se.setReturnType(Object.class);
 		se.setParameters(new String[] { "context", "valueType" }, new Class[] { Context.class, String.class });
 		se.setThrownExceptions(new Class[] { Exception.class });

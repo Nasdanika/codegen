@@ -46,7 +46,7 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 			super.getPropertyDescriptors(object);
 
 			addValueTypePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addValuesPropertyDescriptor(object);
 			addDefaultPropertyDescriptor(object);
 			addScriptedPropertyDescriptor(object);
 		}
@@ -76,21 +76,21 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Values feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addValuesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ValueConfigurationItem_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueConfigurationItem_value_feature", "_UI_ValueConfigurationItem_type"),
-				 CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUE,
+				 getString("_UI_ValueConfigurationItem_values_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueConfigurationItem_values_feature", "_UI_ValueConfigurationItem_type"),
+				 CodegenPackage.Literals.VALUE_CONFIGURATION_ITEM__VALUES,
 				 true,
-				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -180,7 +180,7 @@ public class ValueConfigurationItemItemProvider extends ConfigurationItemItemPro
 
 		switch (notification.getFeatureID(ValueConfigurationItem.class)) {
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__VALUE_TYPE:
-			case CodegenPackage.VALUE_CONFIGURATION_ITEM__VALUE:
+			case CodegenPackage.VALUE_CONFIGURATION_ITEM__VALUES:
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__DEFAULT:
 			case CodegenPackage.VALUE_CONFIGURATION_ITEM__SCRIPTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

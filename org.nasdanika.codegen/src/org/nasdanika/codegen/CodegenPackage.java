@@ -391,13 +391,13 @@ public interface CodegenPackage extends EPackage {
 	int VALUE_CONFIGURATION_ITEM__VALUE_TYPE = CONFIGURATION_ITEM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_CONFIGURATION_ITEM__VALUE = CONFIGURATION_ITEM_FEATURE_COUNT + 1;
+	int VALUE_CONFIGURATION_ITEM__VALUES = CONFIGURATION_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' attribute.
@@ -545,13 +545,13 @@ public interface CodegenPackage extends EPackage {
 	int SERVICE__VALUE_TYPE = VALUE_CONFIGURATION_ITEM__VALUE_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE__VALUE = VALUE_CONFIGURATION_ITEM__VALUE;
+	int SERVICE__VALUES = VALUE_CONFIGURATION_ITEM__VALUES;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' attribute.
@@ -708,13 +708,13 @@ public interface CodegenPackage extends EPackage {
 	int PROPERTY__VALUE_TYPE = VALUE_CONFIGURATION_ITEM__VALUE_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__VALUE = VALUE_CONFIGURATION_ITEM__VALUE;
+	int PROPERTY__VALUES = VALUE_CONFIGURATION_ITEM__VALUES;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' attribute.
@@ -6615,15 +6615,15 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getValueConfigurationItem_ValueType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ValueConfigurationItem#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem#getValue()
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see org.nasdanika.codegen.ValueConfigurationItem#getValues()
 	 * @see #getValueConfigurationItem()
 	 * @generated
 	 */
-	EAttribute getValueConfigurationItem_Value();
+	EAttribute getValueConfigurationItem_Values();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#isDefault <em>Default</em>}'.
@@ -7513,12 +7513,12 @@ public interface CodegenPackage extends EPackage {
 		EAttribute VALUE_CONFIGURATION_ITEM__VALUE_TYPE = eINSTANCE.getValueConfigurationItem_ValueType();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VALUE_CONFIGURATION_ITEM__VALUE = eINSTANCE.getValueConfigurationItem_Value();
+		EAttribute VALUE_CONFIGURATION_ITEM__VALUES = eINSTANCE.getValueConfigurationItem_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.

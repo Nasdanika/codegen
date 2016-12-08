@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -287,7 +288,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 			if (ci instanceof Service) {
 				Service service = (Service) ci;
 				Class<?> serviceType = classLoader.loadClass(service.getServiceType());
-				(service.isDefault() ? defaultServices : services).put(serviceType, obj);				
+				(service.isDefault() ? defaultServices : services).put(service.getValues().size() > 1 ? Array.newInstance(serviceType, 0).getClass() : serviceType, obj);				
 			} else if (ci instanceof Property) {
 				Property property = (Property) ci;				
 				(property.isDefault() ? defaultProperties : properties).put(property.getName(), obj);								
