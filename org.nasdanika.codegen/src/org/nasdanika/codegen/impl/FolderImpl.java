@@ -86,7 +86,7 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 			@Override
 			public IFolder execute(Context context, SubMonitor monitor) throws Exception {
 				IContainer container = context.get(IContainer.class);
-				String name = CodegenUtil.interpolate(getName(), context);
+				String name = context.interpolate(getName());
 				
 				IFolder folder = container.getFolder(new Path(name));
 				
@@ -112,7 +112,9 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 					}
 				}
 								
-				folder = CodegenUtil.createFolder(container, name, monitor.split(1));
+				if (!folder.exists()) {
+					folder = CodegenUtil.createFolder(container, name, monitor.split(1));
+				}
 				MutableContext sc = context.createSubContext().set(IContainer.class, folder);
 				for (Work<List<IResource>> rw: rWork) {
 					rw.execute(sc, monitor);

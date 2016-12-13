@@ -7,9 +7,8 @@ import java.util.List;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.Interpolator;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.Interpolator;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +44,7 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 			sb.append(str);
 		}
 		subMonitor.worked(1);
-		return CodegenUtil.interpolate(sb.toString(), context);
+		return context.interpolate(sb.toString());
 	}
 	
 	@Override

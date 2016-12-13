@@ -5,7 +5,6 @@ package org.nasdanika.codegen.impl;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JavaTextFilter;
 
@@ -37,7 +36,10 @@ public class JavaTextFilterImpl extends JavaFilterImpl<String> implements JavaTe
 	}
 
 	@Override
-	protected String combine(List<String> generationResult) throws Exception {
+	protected String join(List<String> generationResult) throws Exception {
+		if (generationResult.size() == 1) {
+			return generationResult.get(0);
+		}
 		StringBuilder sb = new StringBuilder();
 		for (String str: generationResult) {
 			sb.append(str);

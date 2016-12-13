@@ -2,17 +2,17 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.Map;
+import java.io.SequenceInputStream;
+import java.util.Collections;
+import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,21 +42,21 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	public Work<IFile> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	protected InputStream store(InputStream content) throws Exception {
+		return content;
 	}
 
 	@Override
-	public int getWorkFactorySize() {
-		// TODO Auto-generated method stub
-		return 0;
+	protected InputStream load(InputStream content) throws Exception {
+		return content;
 	}
-	
+
 	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO Auto-generated method stub
-		return super.validate(diagnostics, context);
+	protected InputStream join(List<InputStream> content) throws Exception {
+		if (content.size() == 1) {
+			return content.get(0);
+		}
+		return new SequenceInputStream(Collections.enumeration(content));
 	}
 
 } //BinaryFileImpl

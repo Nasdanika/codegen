@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -84,14 +84,14 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 		}
 		return super.validate(diagnostics, context) && isValid;
 	}
-
+	
 	@Override
-	public Work<IResource> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	protected Work<IResource> createWorkItem() throws Exception {
 		Resource<IResource> target = getTarget();
 		if (target == null) {
 			return null;
 		}
-		Work<List<IResource>> targetWork = target.createWork(context, monitor);
+		Work<List<IResource>> targetWork = target.createWork();
 		return new Work<IResource>() {
 			
 			@Override
@@ -100,25 +100,16 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 			}
 			
 			@Override
-			public IResource execute(IProgressMonitor monitor) throws Exception {
-				List<IResource> result = targetWork.execute(monitor);
-				if (result.isEmpty()) {
-					return null;
-				}
+			public IResource execute(Context context, SubMonitor monitor) throws Exception {
+				List<IResource> result = targetWork.execute(context, monitor);
 				
 				if (result.size() == 1) {
 					return result.get(0);
 				}
 				
-				throw new IllegalArgumentException("Target is expected to return result of size 1, actual size: "+result.size());
+				return null;
 			}
 		};
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		Resource<IResource> target = getTarget();
-		return target == null ? 0 : target.getWorkFactorySize();
 	}
 
 } //ResourceReferenceImpl

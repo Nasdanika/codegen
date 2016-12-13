@@ -3,7 +3,6 @@
 package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceGroup;

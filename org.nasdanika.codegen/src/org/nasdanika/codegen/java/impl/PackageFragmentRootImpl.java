@@ -19,7 +19,6 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
@@ -113,7 +112,7 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 			
 			@Override
 			public IPackageFragmentRoot execute(Context context, SubMonitor monitor) throws Exception {
-				String name = CodegenUtil.interpolate(getName(), context);
+				String name = context.interpolate(getName());
 				IJavaProject javaProject = context.get(IJavaProject.class);
 				
 				IFolder sourceFolder = javaProject.getProject().getFolder(name);

@@ -4,6 +4,7 @@ package org.nasdanika.codegen.java.impl;
 
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -11,8 +12,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
-import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.TextCompilationUnit;

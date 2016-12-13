@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen.impl;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
@@ -62,7 +61,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	}
 
 	@Override
-	public Work<String> doCreateWork(Context context, IProgressMonitor monitor) throws Exception {
+	public Work<String> createWorkItem() throws Exception {
 		return new Work<String>() {
 			
 			@Override
@@ -71,16 +70,11 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 			}
 			
 			@Override
-			public String execute(IProgressMonitor monitor) throws Exception {
-				return configure(context, getContent(), SubMonitor.convert(monitor, 1));
+			public String execute(Context context, SubMonitor monitor) throws Exception {
+				return configure(context, getContent(), monitor.split(1));
 			}
 			
 		};
-	}
-
-	@Override
-	public int getWorkFactorySize() {
-		return 1;
 	}
 
 } //StaticTextImpl

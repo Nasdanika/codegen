@@ -3,26 +3,51 @@
 package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
-
 import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
-
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.nasdanika.codegen.*;
+import org.nasdanika.codegen.BinaryFile;
+import org.nasdanika.codegen.CodegenFactory;
+import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Configuration;
+import org.nasdanika.codegen.Context;
+import org.nasdanika.codegen.Folder;
+import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.codegen.JETEmitter;
+import org.nasdanika.codegen.JavaStreamFilter;
+import org.nasdanika.codegen.JavaStreamGenerator;
+import org.nasdanika.codegen.JavaTextFilter;
+import org.nasdanika.codegen.JavaTextGenerator;
+import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.NamedConfigurationItem;
+import org.nasdanika.codegen.Project;
+import org.nasdanika.codegen.Property;
+import org.nasdanika.codegen.ReconcileAction;
+import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.ResourceReference;
+import org.nasdanika.codegen.ScriptedStreamFilter;
+import org.nasdanika.codegen.ScriptedStreamGenerator;
+import org.nasdanika.codegen.ScriptedTextFilter;
+import org.nasdanika.codegen.ScriptedTextGenerator;
+import org.nasdanika.codegen.Service;
+import org.nasdanika.codegen.StaticText;
+import org.nasdanika.codegen.StreamContentReference;
+import org.nasdanika.codegen.TextContentReference;
+import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.Workspace;
 
 /**
  * <!-- begin-user-doc -->

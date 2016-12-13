@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
@@ -110,7 +109,7 @@ public class PackageFragmentImpl extends GeneratorImpl<IPackageFragment> impleme
 			
 			@Override
 			public IPackageFragment execute(Context context, SubMonitor monitor) throws Exception {
-				String pkgName = CodegenUtil.interpolate(getName(), context);
+				String pkgName = context.interpolate(getName());
 				IPackageFragment pkg = context.get(IPackageFragmentRoot.class).createPackageFragment(pkgName, false, monitor.split(1));
 				
 				MutableContext cuContext = context.createSubContext().set(IPackageFragment.class, pkg);

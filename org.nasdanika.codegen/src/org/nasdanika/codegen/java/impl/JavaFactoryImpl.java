@@ -6,17 +6,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-
-import org.nasdanika.codegen.java.*;
+import org.nasdanika.codegen.java.JavaFactory;
+import org.nasdanika.codegen.java.JavaNature;
+import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.PackageFragment;
+import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.StructuredCompilationUnit;
+import org.nasdanika.codegen.java.TextCompilationUnit;
 
 /**
  * <!-- begin-user-doc -->

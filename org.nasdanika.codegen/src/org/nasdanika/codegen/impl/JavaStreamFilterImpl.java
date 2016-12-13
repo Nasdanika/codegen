@@ -6,10 +6,11 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.SequenceInputStream;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JavaStreamFilter;
 
@@ -41,19 +42,11 @@ public class JavaStreamFilterImpl extends JavaFilterImpl<InputStream> implements
 	}
 
 	@Override
-	protected InputStream combine(List<InputStream> generationResult) throws Exception {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		for (InputStream in: generationResult) {
-			try (InputStream bin = new BufferedInputStream(in)) {
-				int b;
-				while ((b = bin.read()) != -1) {
-					baos.write(b);
-				}
-			}
-			in.close();
+	protected InputStream join(List<InputStream> generationResult) throws Exception {
+		if (generationResult.size() == 1) {
+			return generationResult.get(0);
 		}
-		baos.close();
-		return new ByteArrayInputStream(baos.toByteArray());
+		return new SequenceInputStream(Collections.enumeration(generationResult));
 	}
 
 } //JavaStreamFilterImpl

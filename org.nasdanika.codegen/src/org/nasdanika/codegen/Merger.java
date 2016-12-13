@@ -10,6 +10,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
  */
 public interface Merger<T> {
 	
-	T merge(T oldContent, T newContent, IProgressMonitor progressMonitor) throws Exception;
+	T merge(Context context, T oldContent, T newContent, IProgressMonitor progressMonitor) throws Exception;
 
+	int getWorkSize();
+	
 }

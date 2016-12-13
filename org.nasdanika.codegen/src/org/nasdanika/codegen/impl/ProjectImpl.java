@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Nature;
@@ -207,7 +206,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 			public IProject execute(Context context, SubMonitor monitor) throws Exception {
 				
 				IWorkspace workspace = context.get(IWorkspace.class);
-				String projectName = CodegenUtil.interpolate(getName(), context);
+				String projectName = context.interpolate(getName());
 				IProject project = workspace.getRoot().getProject(projectName);
 				
 				if (project.exists()) {

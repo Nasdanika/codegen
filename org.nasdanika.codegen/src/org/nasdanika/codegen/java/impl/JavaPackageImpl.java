@@ -8,29 +8,22 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-
 import org.nasdanika.codegen.CodegenPackage;
-
 import org.nasdanika.codegen.impl.CodegenPackageImpl;
-
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
-
 import org.nasdanika.codegen.java.StructuredCompilationUnit;
 import org.nasdanika.codegen.java.TextCompilationUnit;
 import org.nasdanika.codegen.maven.MavenPackage;
-
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
 
 /**

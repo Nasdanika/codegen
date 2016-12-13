@@ -2,16 +2,17 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
+import static org.nasdanika.codegen.CodegenPackage.RESOURCE;
 
+import java.io.InputStream;
 import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
-
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -22,10 +23,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
-
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -38,7 +37,6 @@ import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.Folder;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Interpolator;
 import org.nasdanika.codegen.JETEmitter;
 import org.nasdanika.codegen.JavaFilter;
@@ -70,14 +68,11 @@ import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.ValueConfigurationItem;
+import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Workspace;
-
 import org.nasdanika.codegen.java.JavaPackage;
-
 import org.nasdanika.codegen.java.impl.JavaPackageImpl;
-
 import org.nasdanika.codegen.maven.MavenPackage;
-
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
 import org.nasdanika.codegen.util.CodegenValidator;
 

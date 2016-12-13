@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.ScriptedFilter;
-import org.nasdanika.codegen.SimpleContext;
+import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.util.CodegenValidator;
 
 /**
@@ -92,7 +92,7 @@ public abstract class ScriptedFilterImpl<T> extends FilterImpl<T> implements Scr
 				result = false;
 			} else {
 				try {
-					createScriptEvaluator(new SimpleContext());						
+					createScriptEvaluator(new SimpleMutableContext());						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -120,7 +120,12 @@ public abstract class ScriptedFilterImpl<T> extends FilterImpl<T> implements Scr
 	
 	@Override
 	protected T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
-		return (T) createScriptEvaluator(context).evaluate(new Object[] { context, generationResult, subMonitor });
+		return (T) createScriptEvaluator(context).evaluate(new Object[] { context, generationResult, subMonitor.split(getFilterWorkSize()) });
+	}
+	
+	@Override
+	protected int getFilterWorkSize() {
+		return 1;
 	}
 
 } //ScriptedFilterImpl

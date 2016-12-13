@@ -28,7 +28,6 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
-import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
@@ -127,7 +126,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 	}
 	
 	protected ICompilationUnit generateCompilationUnit(Context context, String content, SubMonitor monitor) throws Exception {		
-		String interpolatedName = CodegenUtil.interpolate(getName(), context);
+		String interpolatedName = context.interpolate(getName());
 		if (!interpolatedName.endsWith(JAVA_EXTENSION)) {
 			interpolatedName += JAVA_EXTENSION;
 		}
