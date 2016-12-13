@@ -5809,6 +5809,178 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE_OPERATION_COUNT = CONTENT_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ZipArchiveImpl <em>Zip Archive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ZipArchiveImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
+	 * @generated
+	 */
+	int ZIP_ARCHIVE = 40;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__BASE_URL = RESOURCE__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__INCLUDE = RESOURCE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__ITERATOR = RESOURCE__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONFIGURATOR = RESOURCE__CONFIGURATOR;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__GENERATOR = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__MERGER = RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Zip Archive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Zip Archive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5816,7 +5988,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 40;
+	int RECONCILE_ACTION = 41;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5826,7 +5998,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 41;
+	int CONTEXT = 42;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -5836,7 +6008,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 42;
+	int INPUT_STREAM = 43;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -5846,7 +6018,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 43;
+	int VOID = 44;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -5856,7 +6028,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 44;
+	int IFILE = 45;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -5866,7 +6038,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 45;
+	int IFOLDER = 46;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -5876,7 +6048,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 46;
+	int IPROJECT = 47;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -5886,7 +6058,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 47;
+	int IPROJECT_NATURE = 48;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -5896,7 +6068,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 48;
+	int IWORKSPACE_ROOT = 49;
 
 
 	/**
@@ -5907,7 +6079,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 49;
+	int EXCEPTION = 50;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -5917,7 +6089,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 50;
+	int IRESOURCE = 51;
 
 
 	/**
@@ -5928,7 +6100,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 51;
+	int LIST = 52;
 
 
 	/**
@@ -5939,7 +6111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 52;
+	int MERGER = 53;
 
 
 	/**
@@ -5950,7 +6122,18 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 53;
+	int SUB_MONITOR = 54;
+
+
+	/**
+	 * The meta object id for the '<em>IContainer</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.core.resources.IContainer
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
+	 * @generated
+	 */
+	int ICONTAINER = 55;
 
 
 	/**
@@ -6771,6 +6954,38 @@ public interface CodegenPackage extends EPackage {
 	EClass getStreamContentReference();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ZipArchive <em>Zip Archive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Zip Archive</em>'.
+	 * @see org.nasdanika.codegen.ZipArchive
+	 * @generated
+	 */
+	EClass getZipArchive();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.ZipArchive#getGenerator <em>Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Generator</em>'.
+	 * @see org.nasdanika.codegen.ZipArchive#getGenerator()
+	 * @see #getZipArchive()
+	 * @generated
+	 */
+	EReference getZipArchive_Generator();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.ZipArchive#getMerger <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Merger</em>'.
+	 * @see org.nasdanika.codegen.ZipArchive#getMerger()
+	 * @see #getZipArchive()
+	 * @generated
+	 */
+	EReference getZipArchive_Merger();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6922,6 +7137,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getSubMonitor();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.core.resources.IContainer <em>IContainer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IContainer</em>'.
+	 * @see org.eclipse.core.resources.IContainer
+	 * @model instanceClass="org.eclipse.core.resources.IContainer"
+	 * @generated
+	 */
+	EDataType getIContainer();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -7651,6 +7877,32 @@ public interface CodegenPackage extends EPackage {
 		EClass STREAM_CONTENT_REFERENCE = eINSTANCE.getStreamContentReference();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ZipArchiveImpl <em>Zip Archive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ZipArchiveImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
+		 * @generated
+		 */
+		EClass ZIP_ARCHIVE = eINSTANCE.getZipArchive();
+
+		/**
+		 * The meta object literal for the '<em><b>Generator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZIP_ARCHIVE__GENERATOR = eINSTANCE.getZipArchive_Generator();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZIP_ARCHIVE__MERGER = eINSTANCE.getZipArchive_Merger();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7789,6 +8041,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType SUB_MONITOR = eINSTANCE.getSubMonitor();
+
+		/**
+		 * The meta object literal for the '<em>IContainer</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.core.resources.IContainer
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
+		 * @generated
+		 */
+		EDataType ICONTAINER = eINSTANCE.getIContainer();
 
 	}
 

@@ -145,7 +145,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 						ret.addAll(r);
 					}
 				}				
-				return configure(context, ret, monitor.split(1));
+				return ret;
 			}
 		};
 	}

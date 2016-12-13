@@ -34,6 +34,7 @@
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Merger/T"/>
     </genDataTypes>
     <genDataTypes ecoreDataType="codegen.ecore#//SubMonitor"/>
+    <genDataTypes ecoreDataType="codegen.ecore#//IContainer"/>
     <genClasses ecoreClass="codegen.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/configuration"/>
@@ -153,6 +154,10 @@
     <genClasses ecoreClass="codegen.ecore#//ScriptedStreamFilter"/>
     <genClasses ecoreClass="codegen.ecore#//TextContentReference"/>
     <genClasses ecoreClass="codegen.ecore#//StreamContentReference"/>
+    <genClasses ecoreClass="codegen.ecore#//ZipArchive">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/generator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/merger"/>
+    </genClasses>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

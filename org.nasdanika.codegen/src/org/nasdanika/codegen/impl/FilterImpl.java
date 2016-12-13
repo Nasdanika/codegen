@@ -96,7 +96,7 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 			
 			@Override
 			public int size() {
-				return gWork.size() + getFilterWorkSize() + 1;
+				return gWork.size() + getFilterWorkSize();
 			}
 			
 			@Override
@@ -104,7 +104,7 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 				SubMonitor subMon = SubMonitor.convert(monitor, size());
 				List<T> wr = gWork.execute(context, subMon);
 				T filtered = filter(context, wr, subMon.split(getFilterWorkSize()));
-				return configure(context, filtered, subMon.split(1));
+				return filtered;
 			}
 			
 		};

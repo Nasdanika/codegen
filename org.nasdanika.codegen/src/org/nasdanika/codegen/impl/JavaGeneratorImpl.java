@@ -101,8 +101,7 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 				Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
 				@SuppressWarnings({ "unchecked", "rawtypes" })
 				Work<T> generator = (Work<T>) (obj instanceof Provider ? ((Provider<Work<T>>) obj).get(context, monitor.split(1)) : obj);
-				T result = generator.execute(context, monitor.split(1));
-				return configure(context, result, monitor.split(1));
+				return generator.execute(context, monitor.split(1));
 			}
 			
 		};

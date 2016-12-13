@@ -69,7 +69,7 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 	@Override
 	public Work<IFolder> createWorkItem() throws Exception {
 		List<Work<List<IResource>>> rWork = new ArrayList<>();
-		int[] workSize = { 2 };
+		int[] workSize = { 3 };
 		for (Resource<IResource> r: getChildren()) {
 			Work<List<IResource>> rw = r.createWork();
 			workSize[0] += rw.size();
@@ -115,6 +115,8 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 				if (!folder.exists()) {
 					folder = CodegenUtil.createFolder(container, name, monitor.split(1));
 				}
+				folder = configure(context, folder, monitor.split(1));
+				
 				MutableContext sc = context.createSubContext().set(IContainer.class, folder);
 				for (Work<List<IResource>> rw: rWork) {
 					rw.execute(sc, monitor);
@@ -122,6 +124,11 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 				return folder;
 			}
 		};
+	}
+	
+	@Override
+	protected boolean isExplicitConfigure() {
+		return true;
 	}
 
 } //FolderImpl

@@ -173,7 +173,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 			compilationUnit = packageFragment.createCompilationUnit(interpolatedName, formatCompilationUnit(packageFragment.getJavaProject(), content), false, monitor.split(2)); 
 		}
 		
-		return configure(context, compilationUnit, monitor.split(1));		
+		return compilationUnit;		
 	}
 	
 	private String formatCompilationUnit(IJavaProject javaProject, String content) throws BadLocationException {

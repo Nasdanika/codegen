@@ -7,6 +7,7 @@ import static org.nasdanika.codegen.CodegenPackage.RESOURCE;
 import java.io.InputStream;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -70,6 +71,7 @@ import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.ValueConfigurationItem;
 import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.impl.JavaPackageImpl;
 import org.nasdanika.codegen.maven.MavenPackage;
@@ -368,6 +370,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass zipArchiveEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum reconcileActionEEnum = null;
 
 	/**
@@ -460,6 +469,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EDataType subMonitorEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iContainerEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1246,6 +1262,33 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getZipArchive() {
+		return zipArchiveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getZipArchive_Generator() {
+		return (EReference)zipArchiveEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getZipArchive_Merger() {
+		return (EReference)zipArchiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1365,6 +1408,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EDataType getSubMonitor() {
 		return subMonitorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getIContainer() {
+		return iContainerEDataType;
 	}
 
 	/**
@@ -1513,6 +1565,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		streamContentReferenceEClass = createEClass(STREAM_CONTENT_REFERENCE);
 
+		zipArchiveEClass = createEClass(ZIP_ARCHIVE);
+		createEReference(zipArchiveEClass, ZIP_ARCHIVE__GENERATOR);
+		createEReference(zipArchiveEClass, ZIP_ARCHIVE__MERGER);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 
@@ -1530,6 +1586,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
 		subMonitorEDataType = createEDataType(SUB_MONITOR);
+		iContainerEDataType = createEDataType(ICONTAINER);
 	}
 
 	/**
@@ -1730,6 +1787,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		streamContentReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResource());
+		g2 = createEGenericType(this.getIContainer());
+		g1.getETypeArguments().add(g2);
+		zipArchiveEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1881,6 +1942,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(streamContentReferenceEClass, StreamContentReference.class, "StreamContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(zipArchiveEClass, ZipArchive.class, "ZipArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		initEReference(getZipArchive_Generator(), g1, null, "generator", null, 1, 1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZipArchive_Merger(), this.getService(), null, "merger", null, 0, 1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.KEEP);
@@ -1903,6 +1971,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(subMonitorEDataType, SubMonitor.class, "SubMonitor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iContainerEDataType, IContainer.class, "IContainer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2393,6 +2462,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
+		   });	
+		addAnnotation
+		  (zipArchiveEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Zip archive extracts its entries into its container. If zip archive name is not empty, it is used as a prefix for entry names. / separator is added at the end of the archive name if it doesn\'t already end with /\r\nZip archive reconcile action is applied to all entries and merger is applied to all files."
+		   });	
+		addAnnotation
+		  (getZipArchive_Merger(), 
+		   source, 
+		   new String[] {
+			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
 		   });
 	}
 

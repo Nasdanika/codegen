@@ -254,5 +254,10 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 		};
 		
 	}	
+	
+	@Override
+	protected boolean isExplicitConfigure() {
+		return true;
+	}
 
 } //ProjectImpl

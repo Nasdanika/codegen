@@ -5,6 +5,7 @@ package org.nasdanika.codegen.impl;
 import java.io.InputStream;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -118,6 +120,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.SCRIPTED_STREAM_FILTER: return (EObject)createScriptedStreamFilter();
 			case CodegenPackage.TEXT_CONTENT_REFERENCE: return (EObject)createTextContentReference();
 			case CodegenPackage.STREAM_CONTENT_REFERENCE: return (EObject)createStreamContentReference();
+			case CodegenPackage.ZIP_ARCHIVE: return (EObject)createZipArchive();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -159,6 +162,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createMergerFromString(eDataType, initialValue);
 			case CodegenPackage.SUB_MONITOR:
 				return createSubMonitorFromString(eDataType, initialValue);
+			case CodegenPackage.ICONTAINER:
+				return createIContainerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -200,6 +205,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertMergerToString(eDataType, instanceValue);
 			case CodegenPackage.SUB_MONITOR:
 				return convertSubMonitorToString(eDataType, instanceValue);
+			case CodegenPackage.ICONTAINER:
+				return convertIContainerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -460,6 +467,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ZipArchive createZipArchive() {
+		ZipArchiveImpl zipArchive = new ZipArchiveImpl();
+		return zipArchive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ReconcileAction createReconcileActionFromString(EDataType eDataType, String initialValue) {
 		ReconcileAction result = ReconcileAction.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -706,6 +723,24 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	public String convertSubMonitorToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IContainer createIContainerFromString(EDataType eDataType, String initialValue) {
+		return (IContainer)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIContainerToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

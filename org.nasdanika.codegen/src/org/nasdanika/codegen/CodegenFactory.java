@@ -247,6 +247,15 @@ public interface CodegenFactory extends EFactory {
 	StreamContentReference createStreamContentReference();
 
 	/**
+	 * Returns a new object of class '<em>Zip Archive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Zip Archive</em>'.
+	 * @generated
+	 */
+	ZipArchive createZipArchive();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

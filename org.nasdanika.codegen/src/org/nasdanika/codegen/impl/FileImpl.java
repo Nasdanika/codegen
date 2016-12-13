@@ -175,7 +175,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 						}
 						List<C> mcl = new ArrayList<>();
 						mcl.addAll(gWork.execute(sc, monitor));
-						file.setContents(store(merger.merge(sc, load(file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
+						file.setContents(store(merger.merge(sc, file, load(file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
 						return file;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);

@@ -93,7 +93,7 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {
-			if (getName() == null || getName().trim().length() == 0) {
+			if (isNonBlankName() && (getName() == null || getName().trim().length() == 0)) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
@@ -106,6 +106,14 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 			}
 		}
 		return result;
-	}			
+	}	
+	
+	/**
+	 * 
+	 * @return true if name cannot be blank.
+	 */
+	protected boolean isNonBlankName() {
+		return true;
+	}
 
 } //ResourceImpl

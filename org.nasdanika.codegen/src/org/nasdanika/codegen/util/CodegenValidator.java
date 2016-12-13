@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -198,6 +199,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateTextContentReference((TextContentReference)value, diagnostics, context);
 			case CodegenPackage.STREAM_CONTENT_REFERENCE:
 				return validateStreamContentReference((StreamContentReference)value, diagnostics, context);
+			case CodegenPackage.ZIP_ARCHIVE:
+				return validateZipArchive((ZipArchive)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
@@ -226,6 +229,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateMerger((Merger<?>)value, diagnostics, context);
 			case CodegenPackage.SUB_MONITOR:
 				return validateSubMonitor((SubMonitor)value, diagnostics, context);
+			case CodegenPackage.ICONTAINER:
+				return validateIContainer((IContainer)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -986,6 +991,25 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateZipArchive(ZipArchive zipArchive, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)zipArchive, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)zipArchive, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfiguration_validate(zipArchive, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateReconcileAction(ReconcileAction reconcileAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -1104,6 +1128,15 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSubMonitor(SubMonitor subMonitor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIContainer(IContainer iContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

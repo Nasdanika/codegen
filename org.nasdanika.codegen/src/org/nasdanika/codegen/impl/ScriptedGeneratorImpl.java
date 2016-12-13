@@ -129,9 +129,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 			@Override
 			public T execute(Context context, SubMonitor monitor) throws Exception {
 				SubMonitor subMon = SubMonitor.convert(monitor, size());
-				@SuppressWarnings("unchecked")
-				T result = (T) createScriptEvaluator(context).evaluate(new Object[] { context, ScriptedGeneratorImpl.this, subMon.split(1) });
-				return configure(context, result, subMon.split(1));
+				return (T) createScriptEvaluator(context).evaluate(new Object[] { context, ScriptedGeneratorImpl.this, subMon.split(1) });
 			}
 			
 		};

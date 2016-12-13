@@ -154,6 +154,11 @@ public class FolderItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FOLDER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createResourceReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FOLDER__CHILDREN,
+				 CodegenFactory.eINSTANCE.createZipArchive()));
 	}
 
 }

@@ -590,6 +590,27 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="SubMonitor" instanceClassName="org.eclipse.core.runtime.SubMonitor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ZipArchive">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Zip archive extracts its entries into its container. If zip archive name is not empty, it is used as a prefix for entry names. / separator is added at the end of the archive name if it doesn't already end with /&#xD;&#xA;Zip archive reconcile action is applied to all entries and merger is applied to all files."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generator" lowerBound="1"
+        containment="true">
+      <eGenericType eClassifier="#//Generator">
+        <eTypeArguments eClassifier="#//InputStream"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merger" eType="#//Service"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new&#xD;&#xA;content file entries. The merger class shall implement ``org.nasdanika.codegen.Merger&lt;InputStream>``."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Resource">
+      <eTypeArguments eClassifier="#//IContainer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IContainer" instanceClassName="org.eclipse.core.resources.IContainer"/>
   <eSubpackages name="java" nsURI="urn:org.nasdanika.codegen.java" nsPrefix="org.nasdanika.codegen.java">
     <eClassifiers xsi:type="ecore:EClass" name="JavaNature" eSuperTypes="#//Nature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

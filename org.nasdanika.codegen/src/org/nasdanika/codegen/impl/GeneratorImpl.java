@@ -171,6 +171,13 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 		return result;
 	}
 	
+	/**
+	 * @return true if subclass explicitly invokes configure and it shall not be implicitly invoked from <code>createWork()</code> method.
+	 */
+	protected boolean isExplicitConfigure() {
+		return false;
+	}
+	
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
@@ -229,7 +236,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			
 			@Override
 			public int size() {
-				return getConfigWorkSize() + workItem.size();
+				return getConfigWorkSize() + workItem.size() + (isExplicitConfigure() ? 0 : 1);
 			}
 			
 			@Override
@@ -247,7 +254,8 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				List<T> ret = new ArrayList<>();
 				monitor.setWorkRemaining(iContexts.size()*size());
 				for (Context iCtx: iContexts) {
-					ret.add(workItem.execute(iCtx, monitor));
+					T workResult = workItem.execute(iCtx, monitor);
+					ret.add(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split(1)));
 				}
 				return ret;
 			}

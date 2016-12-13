@@ -273,6 +273,11 @@ public class TextCompilationUnitItemProvider extends CompilationUnitItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
+				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.TEXT_COMPILATION_UNIT__GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

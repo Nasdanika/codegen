@@ -647,6 +647,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ZipArchive} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ZipArchiveItemProvider zipArchiveItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ZipArchive}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createZipArchiveAdapter() {
+		if (zipArchiveItemProvider == null) {
+			zipArchiveItemProvider = new ZipArchiveItemProvider(this);
+		}
+
+		return zipArchiveItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,6 +793,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (scriptedStreamFilterItemProvider != null) scriptedStreamFilterItemProvider.dispose();
 		if (textContentReferenceItemProvider != null) textContentReferenceItemProvider.dispose();
 		if (streamContentReferenceItemProvider != null) streamContentReferenceItemProvider.dispose();
+		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 	}
 
 }
