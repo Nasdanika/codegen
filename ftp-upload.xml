@@ -3,31 +3,31 @@
     
   <target name="upload">
 
-	  <ftp passive="yes" action="delete" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/repository">
+	  <ftp passive="yes" action="delete" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen/repository">
  	    <fileset>
               <include name="**"/>
             </fileset>
           </ftp>
 
-	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/repository">
+	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen/repository">
  	    <fileset>
               <include name="**"/>
             </fileset>
           </ftp>
 
-	  <ftp passive="yes" action="delete" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/apidocs">
+	  <ftp passive="yes" action="delete" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen/apidocs">
  	    <fileset>
               <include name="**"/>
             </fileset>
           </ftp>
 
-	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/apidocs">
+	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen/apidocs">
  	    <fileset>
               <include name="**"/>
             </fileset>
           </ftp>
 
-	  <ftp passive="yes" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}">
+	  <ftp passive="yes" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen">
 	    <fileset dir="${circle.artifacts}"/>
 	  </ftp>    
   </target>

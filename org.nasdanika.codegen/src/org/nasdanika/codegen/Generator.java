@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import java.util.List;
+import org.nasdanika.config.Configuration;
 
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Configuration org.nasdanika.codegen.WorkFactory<org.nasdanika.codegen.List<T>>"
+ * @model abstract="true" superTypes="org.nasdanika.config.Configuration org.nasdanika.codegen.WorkFactory<org.nasdanika.codegen.List<T>>"
  * @generated
  */
 public interface Generator<T> extends Configuration, WorkFactory<List<T>> {

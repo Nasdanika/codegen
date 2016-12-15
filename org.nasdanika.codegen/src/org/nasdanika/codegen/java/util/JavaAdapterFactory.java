@@ -8,13 +8,12 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.nasdanika.codegen.Configuration;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Nature;
 
 import org.nasdanika.codegen.java.*;
+import org.nasdanika.config.Configuration;
 
 /**
  * <!-- begin-user-doc -->
@@ -231,13 +230,13 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Configuration <em>Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.config.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Configuration
+	 * @see org.nasdanika.config.Configuration
 	 * @generated
 	 */
 	public Adapter createConfigurationAdapter() {

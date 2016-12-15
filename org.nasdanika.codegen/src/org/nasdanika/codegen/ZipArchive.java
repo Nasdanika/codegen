@@ -5,6 +5,7 @@ package org.nasdanika.codegen;
 import java.io.InputStream;
 
 import org.eclipse.core.resources.IContainer;
+import org.nasdanika.config.Service;
 
 /**
  * <!-- begin-user-doc -->

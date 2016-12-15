@@ -14,5 +14,7 @@ Export-Package: org.nasdanika.codegen.java.provider,
 Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.codegen;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
+ org.nasdanika.config;visibility:=reexport,
+ org.nasdanika.config.edit;visibility:=reexport,
  org.eclipse.emf.cdo.edit;bundle-version="4.4.0"
 Bundle-ActivationPolicy: lazy

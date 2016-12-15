@@ -11,19 +11,23 @@ import java.util.Map;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
+import org.eclipse.core.internal.content.ILazySource;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorFilter;
-import org.nasdanika.codegen.SimpleMutableContext;
+import org.nasdanika.codegen.GeneratorLabelProvider;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.SimpleMutableContext;
+import org.nasdanika.config.impl.ConfigurationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -241,6 +245,9 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			
 			@Override
 			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
+				GeneratorLabelProvider labelProvider = context.get(GeneratorLabelProvider.class);
+				String label = labelProvider == null ? EcoreUtil.getIdentification(GeneratorImpl.this) : labelProvider.getLabel(GeneratorImpl.this);
+				monitor.setTaskName("Generating "+label);
 				Collection<Context> iContexts = iterate(createContext(context, monitor));
 				if (iContexts.isEmpty()) {
 					monitor.worked(workItem.size());

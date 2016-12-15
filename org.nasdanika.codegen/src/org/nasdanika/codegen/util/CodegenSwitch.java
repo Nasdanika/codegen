@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.codegen.*;
+import org.nasdanika.config.Configuration;
+import org.nasdanika.config.Provider;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,41 +68,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case CodegenPackage.CONFIGURATION: {
-				Configuration configuration = (Configuration)theEObject;
-				T1 result = caseConfiguration(configuration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CodegenPackage.CONFIGURATION_ITEM: {
-				ConfigurationItem configurationItem = (ConfigurationItem)theEObject;
-				T1 result = caseConfigurationItem(configurationItem);
-				if (result == null) result = caseConfiguration(configurationItem);
-				if (result == null) result = caseProvider(configurationItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CodegenPackage.SERVICE: {
-				Service service = (Service)theEObject;
-				T1 result = caseService(service);
-				if (result == null) result = caseValueConfigurationItem(service);
-				if (result == null) result = caseConfigurationItem(service);
-				if (result == null) result = caseConfiguration(service);
-				if (result == null) result = caseProvider(service);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CodegenPackage.PROPERTY: {
-				Property property = (Property)theEObject;
-				T1 result = caseProperty(property);
-				if (result == null) result = caseValueConfigurationItem(property);
-				if (result == null) result = caseNamedConfigurationItem(property);
-				if (result == null) result = caseConfigurationItem(property);
-				if (result == null) result = caseConfiguration(property);
-				if (result == null) result = caseProvider(property);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CodegenPackage.WORK_FACTORY: {
 				WorkFactory<?> workFactory = (WorkFactory<?>)theEObject;
 				T1 result = caseWorkFactory(workFactory);
@@ -352,24 +319,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CodegenPackage.VALUE_CONFIGURATION_ITEM: {
-				ValueConfigurationItem valueConfigurationItem = (ValueConfigurationItem)theEObject;
-				T1 result = caseValueConfigurationItem(valueConfigurationItem);
-				if (result == null) result = caseConfigurationItem(valueConfigurationItem);
-				if (result == null) result = caseConfiguration(valueConfigurationItem);
-				if (result == null) result = caseProvider(valueConfigurationItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CodegenPackage.NAMED_CONFIGURATION_ITEM: {
-				NamedConfigurationItem namedConfigurationItem = (NamedConfigurationItem)theEObject;
-				T1 result = caseNamedConfigurationItem(namedConfigurationItem);
-				if (result == null) result = caseConfigurationItem(namedConfigurationItem);
-				if (result == null) result = caseConfiguration(namedConfigurationItem);
-				if (result == null) result = caseProvider(namedConfigurationItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CodegenPackage.SCRIPTED_GENERATOR: {
 				ScriptedGenerator<?> scriptedGenerator = (ScriptedGenerator<?>)theEObject;
 				T1 result = caseScriptedGenerator(scriptedGenerator);
@@ -478,51 +427,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseConfiguration(Configuration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration Item</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseConfigurationItem(ConfigurationItem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseService(Service object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseProperty(Property object) {
 		return null;
 	}
 
@@ -913,36 +817,6 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseJavaStreamGenerator(JavaStreamGenerator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value Configuration Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value Configuration Item</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseValueConfigurationItem(ValueConfigurationItem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Configuration Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Configuration Item</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseNamedConfigurationItem(NamedConfigurationItem object) {
 		return null;
 	}
 

@@ -2,6 +2,7 @@ package org.nasdanika.codegen;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.nasdanika.config.Context;
 
 /**
  * Merges new and old content of a file

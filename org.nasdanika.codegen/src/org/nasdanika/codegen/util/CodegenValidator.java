@@ -3,7 +3,6 @@
 package org.nasdanika.codegen.util;
 
 import java.io.InputStream;
-
 import java.util.List;
 import java.util.Map;
 
@@ -14,17 +13,57 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
-
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import org.nasdanika.codegen.*;
+import org.nasdanika.codegen.BinaryFile;
+import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.Filter;
+import org.nasdanika.codegen.Folder;
+import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.codegen.JETEmitter;
+import org.nasdanika.codegen.JavaFilter;
+import org.nasdanika.codegen.JavaGenerator;
+import org.nasdanika.codegen.JavaStreamFilter;
+import org.nasdanika.codegen.JavaStreamGenerator;
+import org.nasdanika.codegen.JavaTextFilter;
+import org.nasdanika.codegen.JavaTextGenerator;
+import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.Nature;
+import org.nasdanika.codegen.Project;
+import org.nasdanika.codegen.ReconcileAction;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.ResourceReference;
+import org.nasdanika.codegen.ScriptedFilter;
+import org.nasdanika.codegen.ScriptedGenerator;
+import org.nasdanika.codegen.ScriptedStreamFilter;
+import org.nasdanika.codegen.ScriptedStreamGenerator;
+import org.nasdanika.codegen.ScriptedTextFilter;
+import org.nasdanika.codegen.ScriptedTextGenerator;
+import org.nasdanika.codegen.StaticText;
+import org.nasdanika.codegen.StreamContentReference;
+import org.nasdanika.codegen.TextContentReference;
+import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.ZipArchive;
+import org.nasdanika.config.Configuration;
+import org.nasdanika.config.ConfigurationItem;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.NamedConfigurationItem;
+import org.nasdanika.config.Property;
+import org.nasdanika.config.Provider;
+import org.nasdanika.config.Service;
+import org.nasdanika.config.ValueConfigurationItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,14 +158,6 @@ public class CodegenValidator extends EObjectValidator {
 	 */
 	private boolean validateGen(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case CodegenPackage.CONFIGURATION:
-				return validateConfiguration((Configuration)value, diagnostics, context);
-			case CodegenPackage.CONFIGURATION_ITEM:
-				return validateConfigurationItem((ConfigurationItem)value, diagnostics, context);
-			case CodegenPackage.SERVICE:
-				return validateService((Service)value, diagnostics, context);
-			case CodegenPackage.PROPERTY:
-				return validateProperty((Property)value, diagnostics, context);
 			case CodegenPackage.WORK_FACTORY:
 				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
@@ -179,10 +210,6 @@ public class CodegenValidator extends EObjectValidator {
 				return validateJavaTextGenerator((JavaTextGenerator)value, diagnostics, context);
 			case CodegenPackage.JAVA_STREAM_GENERATOR:
 				return validateJavaStreamGenerator((JavaStreamGenerator)value, diagnostics, context);
-			case CodegenPackage.VALUE_CONFIGURATION_ITEM:
-				return validateValueConfigurationItem((ValueConfigurationItem)value, diagnostics, context);
-			case CodegenPackage.NAMED_CONFIGURATION_ITEM:
-				return validateNamedConfigurationItem((NamedConfigurationItem)value, diagnostics, context);
 			case CodegenPackage.SCRIPTED_GENERATOR:
 				return validateScriptedGenerator((ScriptedGenerator<?>)value, diagnostics, context);
 			case CodegenPackage.SCRIPTED_TEXT_GENERATOR:

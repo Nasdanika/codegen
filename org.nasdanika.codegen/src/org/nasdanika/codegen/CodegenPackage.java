@@ -6,9 +6,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.nasdanika.config.ConfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,730 +63,14 @@ public interface CodegenPackage extends EPackage {
 	CodegenPackage eINSTANCE = org.nasdanika.codegen.impl.CodegenPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ConfigurationImpl <em>Configuration</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.config.Provider <em>Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.ConfigurationImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getConfiguration()
-	 * @generated
-	 */
-	int CONFIGURATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__INCLUDES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__CONFIGURATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__DEFAULT_INCLUDES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__BASE_URL = 3;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__CLASS_PATH = 4;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__INCLUDE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__DESCRIPTION = 6;
-
-	/**
-	 * The number of structural features of the '<em>Configuration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_FEATURE_COUNT = 7;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR = 0;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = 1;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION___GET_CONFIG_WORK_SIZE = 2;
-
-	/**
-	 * The number of operations of the '<em>Configuration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_OPERATION_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.Provider <em>Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.Provider
+	 * @see org.nasdanika.config.Provider
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 	 * @generated
 	 */
-	int PROVIDER = 25;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ConfigurationItemImpl <em>Configuration Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.ConfigurationItemImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getConfigurationItem()
-	 * @generated
-	 */
-	int CONFIGURATION_ITEM = 1;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__INCLUDES = CONFIGURATION__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__CONFIGURATION = CONFIGURATION__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__DEFAULT_INCLUDES = CONFIGURATION__DEFAULT_INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__BASE_URL = CONFIGURATION__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__CLASS_PATH = CONFIGURATION__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__INCLUDE = CONFIGURATION__INCLUDE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM__DESCRIPTION = CONFIGURATION__DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION___GET_CONFIG_WORK_SIZE;
-
-	/**
-	 * The number of operations of the '<em>Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_ITEM_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl <em>Value Configuration Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.ValueConfigurationItemImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getValueConfigurationItem()
-	 * @generated
-	 */
-	int VALUE_CONFIGURATION_ITEM = 30;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__INCLUDES = CONFIGURATION_ITEM__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__CONFIGURATION = CONFIGURATION_ITEM__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__DEFAULT_INCLUDES = CONFIGURATION_ITEM__DEFAULT_INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__BASE_URL = CONFIGURATION_ITEM__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__CLASS_PATH = CONFIGURATION_ITEM__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__INCLUDE = CONFIGURATION_ITEM__INCLUDE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__DESCRIPTION = CONFIGURATION_ITEM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__VALUE_TYPE = CONFIGURATION_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__VALUES = CONFIGURATION_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__DEFAULT = CONFIGURATION_ITEM_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM__SCRIPTED = CONFIGURATION_ITEM_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Value Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_ITEM_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
-
-	/**
-	 * The number of operations of the '<em>Value Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_CONFIGURATION_ITEM_OPERATION_COUNT = CONFIGURATION_ITEM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ServiceImpl <em>Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.ServiceImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getService()
-	 * @generated
-	 */
-	int SERVICE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__INCLUDES = VALUE_CONFIGURATION_ITEM__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__CONFIGURATION = VALUE_CONFIGURATION_ITEM__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__DEFAULT_INCLUDES = VALUE_CONFIGURATION_ITEM__DEFAULT_INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__BASE_URL = VALUE_CONFIGURATION_ITEM__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__CLASS_PATH = VALUE_CONFIGURATION_ITEM__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__INCLUDE = VALUE_CONFIGURATION_ITEM__INCLUDE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__DESCRIPTION = VALUE_CONFIGURATION_ITEM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__VALUE_TYPE = VALUE_CONFIGURATION_ITEM__VALUE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__VALUES = VALUE_CONFIGURATION_ITEM__VALUES;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__DEFAULT = VALUE_CONFIGURATION_ITEM__DEFAULT;
-
-	/**
-	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__SCRIPTED = VALUE_CONFIGURATION_ITEM__SCRIPTED;
-
-	/**
-	 * The feature id for the '<em><b>Service Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__SERVICE_TYPE = VALUE_CONFIGURATION_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_FEATURE_COUNT = VALUE_CONFIGURATION_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE___GET_CONFIG_WORK_SIZE = VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
-
-	/**
-	 * The number of operations of the '<em>Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_OPERATION_COUNT = VALUE_CONFIGURATION_ITEM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.PropertyImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__INCLUDES = VALUE_CONFIGURATION_ITEM__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__CONFIGURATION = VALUE_CONFIGURATION_ITEM__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__DEFAULT_INCLUDES = VALUE_CONFIGURATION_ITEM__DEFAULT_INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__BASE_URL = VALUE_CONFIGURATION_ITEM__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__CLASS_PATH = VALUE_CONFIGURATION_ITEM__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__INCLUDE = VALUE_CONFIGURATION_ITEM__INCLUDE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__DESCRIPTION = VALUE_CONFIGURATION_ITEM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__VALUE_TYPE = VALUE_CONFIGURATION_ITEM__VALUE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__VALUES = VALUE_CONFIGURATION_ITEM__VALUES;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__DEFAULT = VALUE_CONFIGURATION_ITEM__DEFAULT;
-
-	/**
-	 * The feature id for the '<em><b>Scripted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__SCRIPTED = VALUE_CONFIGURATION_ITEM__SCRIPTED;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = VALUE_CONFIGURATION_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = VALUE_CONFIGURATION_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CREATE_CONTEXT__CONTEXT_SUBMONITOR = VALUE_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = VALUE_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_CONFIG_WORK_SIZE = VALUE_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
-
-	/**
-	 * The number of operations of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPERATION_COUNT = VALUE_CONFIGURATION_ITEM_OPERATION_COUNT + 0;
+	int PROVIDER = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
@@ -796,7 +80,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkFactory()
 	 * @generated
 	 */
-	int WORK_FACTORY = 4;
+	int WORK_FACTORY = 0;
 
 	/**
 	 * The number of structural features of the '<em>Work Factory</em>' class.
@@ -824,7 +108,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGenerator()
 	 * @generated
 	 */
-	int GENERATOR = 5;
+	int GENERATOR = 1;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -833,7 +117,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__INCLUDES = CONFIGURATION__INCLUDES;
+	int GENERATOR__INCLUDES = ConfigPackage.CONFIGURATION__INCLUDES;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -842,7 +126,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONFIGURATION = CONFIGURATION__CONFIGURATION;
+	int GENERATOR__CONFIGURATION = ConfigPackage.CONFIGURATION__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
@@ -851,7 +135,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__DEFAULT_INCLUDES = CONFIGURATION__DEFAULT_INCLUDES;
+	int GENERATOR__DEFAULT_INCLUDES = ConfigPackage.CONFIGURATION__DEFAULT_INCLUDES;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -860,7 +144,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__BASE_URL = CONFIGURATION__BASE_URL;
+	int GENERATOR__BASE_URL = ConfigPackage.CONFIGURATION__BASE_URL;
 
 	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
@@ -869,7 +153,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CLASS_PATH = CONFIGURATION__CLASS_PATH;
+	int GENERATOR__CLASS_PATH = ConfigPackage.CONFIGURATION__CLASS_PATH;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -878,7 +162,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__INCLUDE = CONFIGURATION__INCLUDE;
+	int GENERATOR__INCLUDE = ConfigPackage.CONFIGURATION__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -887,7 +171,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__DESCRIPTION = CONFIGURATION__DESCRIPTION;
+	int GENERATOR__DESCRIPTION = ConfigPackage.CONFIGURATION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -896,7 +180,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ITERATOR = CONFIGURATION_FEATURE_COUNT + 0;
+	int GENERATOR__ITERATOR = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
@@ -905,7 +189,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONFIGURATOR = CONFIGURATION_FEATURE_COUNT + 1;
+	int GENERATOR__CONFIGURATOR = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -914,7 +198,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = CONFIGURATION_FEATURE_COUNT + 2;
+	int GENERATOR_FEATURE_COUNT = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -923,7 +207,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+	int GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = ConfigPackage.CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -932,7 +216,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ConfigPackage.CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
@@ -941,7 +225,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GET_CONFIG_WORK_SIZE = CONFIGURATION___GET_CONFIG_WORK_SIZE;
+	int GENERATOR___GET_CONFIG_WORK_SIZE = ConfigPackage.CONFIGURATION___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -950,7 +234,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 0;
+	int GENERATOR_OPERATION_COUNT = ConfigPackage.CONFIGURATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -960,7 +244,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 6;
+	int GROUP = 2;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1114,7 +398,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
 	 * @generated
 	 */
-	int RESOURCE_GROUP = 7;
+	int RESOURCE_GROUP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1268,7 +552,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGenerator()
 	 * @generated
 	 */
-	int RESOURCE_GENERATOR = 8;
+	int RESOURCE_GENERATOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1404,7 +688,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkspace()
 	 * @generated
 	 */
-	int WORKSPACE = 9;
+	int WORKSPACE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1558,7 +842,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 14;
+	int RESOURCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1712,7 +996,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 10;
+	int FOLDER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1875,7 +1159,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNature()
 	 * @generated
 	 */
-	int NATURE = 11;
+	int NATURE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2011,7 +1295,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 12;
+	int FILE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2183,7 +1467,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 13;
+	int PROJECT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2355,7 +1639,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryFile()
 	 * @generated
 	 */
-	int BINARY_FILE = 15;
+	int BINARY_FILE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2527,7 +1811,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextFile()
 	 * @generated
 	 */
-	int TEXT_FILE = 16;
+	int TEXT_FILE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2699,7 +1983,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceReference()
 	 * @generated
 	 */
-	int RESOURCE_REFERENCE = 17;
+	int RESOURCE_REFERENCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -2862,7 +2146,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticText()
 	 * @generated
 	 */
-	int STATIC_TEXT = 18;
+	int STATIC_TEXT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3007,7 +2291,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 19;
+	int CONTENT_REFERENCE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3152,7 +2436,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 20;
+	int FILTER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3297,7 +2581,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 21;
+	int JAVA_GENERATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3442,7 +2726,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 22;
+	int INTERPOLATOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3587,7 +2871,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJETEmitter()
 	 * @generated
 	 */
-	int JET_EMITTER = 23;
+	int JET_EMITTER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3732,7 +3016,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 24;
+	int JAVA_FILTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -3904,7 +3188,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 26;
+	int JAVA_TEXT_FILTER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4058,7 +3342,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 27;
+	int JAVA_STREAM_FILTER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4212,7 +3496,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 28;
+	int JAVA_TEXT_GENERATOR = 24;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4357,7 +3641,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 29;
+	int JAVA_STREAM_GENERATOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4495,133 +3779,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR_OPERATION_COUNT = JAVA_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.NamedConfigurationItemImpl <em>Named Configuration Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.NamedConfigurationItemImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedConfigurationItem()
-	 * @generated
-	 */
-	int NAMED_CONFIGURATION_ITEM = 31;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__INCLUDES = CONFIGURATION_ITEM__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__CONFIGURATION = CONFIGURATION_ITEM__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__DEFAULT_INCLUDES = CONFIGURATION_ITEM__DEFAULT_INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__BASE_URL = CONFIGURATION_ITEM__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__CLASS_PATH = CONFIGURATION_ITEM__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__INCLUDE = CONFIGURATION_ITEM__INCLUDE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__DESCRIPTION = CONFIGURATION_ITEM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM__NAME = CONFIGURATION_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Named Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM_FEATURE_COUNT = CONFIGURATION_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CONFIGURATION_ITEM___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP = CONFIGURATION_ITEM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Config Work Size</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE = CONFIGURATION_ITEM___GET_CONFIG_WORK_SIZE;
-
-	/**
-	 * The number of operations of the '<em>Named Configuration Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_CONFIGURATION_ITEM_OPERATION_COUNT = CONFIGURATION_ITEM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ScriptedGeneratorImpl <em>Scripted Generator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4629,7 +3786,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_GENERATOR = 32;
+	int SCRIPTED_GENERATOR = 26;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4774,7 +3931,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_GENERATOR = 33;
+	int SCRIPTED_TEXT_GENERATOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -4919,7 +4076,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_GENERATOR = 34;
+	int SCRIPTED_STREAM_GENERATOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5064,7 +4221,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
 	 * @generated
 	 */
-	int SCRIPTED_FILTER = 35;
+	int SCRIPTED_FILTER = 29;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5218,7 +4375,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_FILTER = 36;
+	int SCRIPTED_TEXT_FILTER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5372,7 +4529,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_FILTER = 37;
+	int SCRIPTED_STREAM_FILTER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5526,7 +4683,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 38;
+	int TEXT_CONTENT_REFERENCE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5671,7 +4828,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 39;
+	int STREAM_CONTENT_REFERENCE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5816,7 +4973,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 40;
+	int ZIP_ARCHIVE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -5988,17 +5145,17 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 41;
+	int RECONCILE_ACTION = 35;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.Context
+	 * @see org.nasdanika.config.Context
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 42;
+	int CONTEXT = 36;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -6008,7 +5165,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 43;
+	int INPUT_STREAM = 37;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -6018,7 +5175,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 44;
+	int VOID = 38;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -6028,7 +5185,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 45;
+	int IFILE = 39;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -6038,7 +5195,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 46;
+	int IFOLDER = 40;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -6048,7 +5205,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 47;
+	int IPROJECT = 41;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -6058,7 +5215,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 48;
+	int IPROJECT_NATURE = 42;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -6068,7 +5225,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 49;
+	int IWORKSPACE_ROOT = 43;
 
 
 	/**
@@ -6079,7 +5236,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 50;
+	int EXCEPTION = 44;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -6089,7 +5246,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 51;
+	int IRESOURCE = 45;
 
 
 	/**
@@ -6100,7 +5257,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 52;
+	int LIST = 46;
 
 
 	/**
@@ -6111,7 +5268,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 53;
+	int MERGER = 47;
 
 
 	/**
@@ -6122,7 +5279,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 54;
+	int SUB_MONITOR = 48;
 
 
 	/**
@@ -6133,166 +5290,8 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 55;
+	int ICONTAINER = 49;
 
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.Configuration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration</em>'.
-	 * @see org.nasdanika.codegen.Configuration
-	 * @generated
-	 */
-	EClass getConfiguration();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.Configuration#getIncludes <em>Includes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Includes</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getIncludes()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EAttribute getConfiguration_Includes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Configuration#getConfiguration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Configuration</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getConfiguration()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EReference getConfiguration_Configuration();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.Configuration#getDefaultIncludes <em>Default Includes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Default Includes</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getDefaultIncludes()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EAttribute getConfiguration_DefaultIncludes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Configuration#getBaseURL <em>Base URL</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base URL</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getBaseURL()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EAttribute getConfiguration_BaseURL();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.Configuration#getClassPath <em>Class Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Class Path</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getClassPath()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EAttribute getConfiguration_ClassPath();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.codegen.Configuration#getInclude <em>Include</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Include</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getInclude()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EReference getConfiguration_Include();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Configuration#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.codegen.Configuration#getDescription()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EAttribute getConfiguration_Description();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context, org.eclipse.core.runtime.SubMonitor) <em>Create Context</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Context</em>' operation.
-	 * @see org.nasdanika.codegen.Configuration#createContext(org.nasdanika.codegen.Context, org.eclipse.core.runtime.SubMonitor)
-	 * @generated
-	 */
-	EOperation getConfiguration__CreateContext__Context_SubMonitor();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate</em>' operation.
-	 * @see org.nasdanika.codegen.Configuration#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getConfiguration__Validate__DiagnosticChain_Map();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Configuration#getConfigWorkSize() <em>Get Config Work Size</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Config Work Size</em>' operation.
-	 * @see org.nasdanika.codegen.Configuration#getConfigWorkSize()
-	 * @generated
-	 */
-	EOperation getConfiguration__GetConfigWorkSize();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.ConfigurationItem <em>Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration Item</em>'.
-	 * @see org.nasdanika.codegen.ConfigurationItem
-	 * @generated
-	 */
-	EClass getConfigurationItem();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.Service <em>Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service</em>'.
-	 * @see org.nasdanika.codegen.Service
-	 * @generated
-	 */
-	EClass getService();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Service#getServiceType <em>Service Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Type</em>'.
-	 * @see org.nasdanika.codegen.Service#getServiceType()
-	 * @see #getService()
-	 * @generated
-	 */
-	EAttribute getService_ServiceType();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.Property <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property</em>'.
-	 * @see org.nasdanika.codegen.Property
-	 * @generated
-	 */
-	EClass getProperty();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}'.
@@ -6726,12 +5725,12 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getJavaFilter_ClassName();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.Provider <em>Provider</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.config.Provider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Provider</em>'.
-	 * @see org.nasdanika.codegen.Provider
-	 * @model instanceClass="org.nasdanika.codegen.Provider" typeParameters="T"
+	 * @see org.nasdanika.config.Provider
+	 * @model instanceClass="org.nasdanika.config.Provider" typeParameters="T"
 	 * @generated
 	 */
 	EClass getProvider();
@@ -6775,81 +5774,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJavaStreamGenerator();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.ValueConfigurationItem <em>Value Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value Configuration Item</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem
-	 * @generated
-	 */
-	EClass getValueConfigurationItem();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#getValueType <em>Value Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value Type</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem#getValueType()
-	 * @see #getValueConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getValueConfigurationItem_ValueType();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ValueConfigurationItem#getValues <em>Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Values</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem#getValues()
-	 * @see #getValueConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getValueConfigurationItem_Values();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#isDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem#isDefault()
-	 * @see #getValueConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getValueConfigurationItem_Default();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueConfigurationItem#isScripted <em>Scripted</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scripted</em>'.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem#isScripted()
-	 * @see #getValueConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getValueConfigurationItem_Scripted();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.NamedConfigurationItem <em>Named Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Configuration Item</em>'.
-	 * @see org.nasdanika.codegen.NamedConfigurationItem
-	 * @generated
-	 */
-	EClass getNamedConfigurationItem();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedConfigurationItem#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.codegen.NamedConfigurationItem#getName()
-	 * @see #getNamedConfigurationItem()
-	 * @generated
-	 */
-	EAttribute getNamedConfigurationItem_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ScriptedGenerator <em>Scripted Generator</em>}'.
@@ -6996,12 +5920,12 @@ public interface CodegenPackage extends EPackage {
 	EEnum getReconcileAction();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.codegen.Context <em>Context</em>}'.
+	 * Returns the meta object for data type '{@link org.nasdanika.config.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Context</em>'.
-	 * @see org.nasdanika.codegen.Context
-	 * @model instanceClass="org.nasdanika.codegen.Context"
+	 * @see org.nasdanika.config.Context
+	 * @model instanceClass="org.nasdanika.config.Context"
 	 * @generated
 	 */
 	EDataType getContext();
@@ -7172,134 +6096,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ConfigurationImpl <em>Configuration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.ConfigurationImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getConfiguration()
-		 * @generated
-		 */
-		EClass CONFIGURATION = eINSTANCE.getConfiguration();
-
-		/**
-		 * The meta object literal for the '<em><b>Includes</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION__INCLUDES = eINSTANCE.getConfiguration_Includes();
-
-		/**
-		 * The meta object literal for the '<em><b>Configuration</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONFIGURATION__CONFIGURATION = eINSTANCE.getConfiguration_Configuration();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Includes</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION__DEFAULT_INCLUDES = eINSTANCE.getConfiguration_DefaultIncludes();
-
-		/**
-		 * The meta object literal for the '<em><b>Base URL</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION__BASE_URL = eINSTANCE.getConfiguration_BaseURL();
-
-		/**
-		 * The meta object literal for the '<em><b>Class Path</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION__CLASS_PATH = eINSTANCE.getConfiguration_ClassPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Include</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONFIGURATION__INCLUDE = eINSTANCE.getConfiguration_Include();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIGURATION__DESCRIPTION = eINSTANCE.getConfiguration_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Context</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONFIGURATION___CREATE_CONTEXT__CONTEXT_SUBMONITOR = eINSTANCE.getConfiguration__CreateContext__Context_SubMonitor();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONFIGURATION___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getConfiguration__Validate__DiagnosticChain_Map();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Config Work Size</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONFIGURATION___GET_CONFIG_WORK_SIZE = eINSTANCE.getConfiguration__GetConfigWorkSize();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ConfigurationItemImpl <em>Configuration Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.ConfigurationItemImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getConfigurationItem()
-		 * @generated
-		 */
-		EClass CONFIGURATION_ITEM = eINSTANCE.getConfigurationItem();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ServiceImpl <em>Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.ServiceImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getService()
-		 * @generated
-		 */
-		EClass SERVICE = eINSTANCE.getService();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE__SERVICE_TYPE = eINSTANCE.getService_ServiceType();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.PropertyImpl <em>Property</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.PropertyImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProperty()
-		 * @generated
-		 */
-		EClass PROPERTY = eINSTANCE.getProperty();
-
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -7671,10 +6467,10 @@ public interface CodegenPackage extends EPackage {
 		EAttribute JAVA_FILTER__CLASS_NAME = eINSTANCE.getJavaFilter_ClassName();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.Provider <em>Provider</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.config.Provider <em>Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.Provider
+		 * @see org.nasdanika.config.Provider
 		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 		 * @generated
 		 */
@@ -7719,66 +6515,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JAVA_STREAM_GENERATOR = eINSTANCE.getJavaStreamGenerator();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ValueConfigurationItemImpl <em>Value Configuration Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.ValueConfigurationItemImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getValueConfigurationItem()
-		 * @generated
-		 */
-		EClass VALUE_CONFIGURATION_ITEM = eINSTANCE.getValueConfigurationItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE_CONFIGURATION_ITEM__VALUE_TYPE = eINSTANCE.getValueConfigurationItem_ValueType();
-
-		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE_CONFIGURATION_ITEM__VALUES = eINSTANCE.getValueConfigurationItem_Values();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE_CONFIGURATION_ITEM__DEFAULT = eINSTANCE.getValueConfigurationItem_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Scripted</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE_CONFIGURATION_ITEM__SCRIPTED = eINSTANCE.getValueConfigurationItem_Scripted();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.NamedConfigurationItemImpl <em>Named Configuration Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.NamedConfigurationItemImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedConfigurationItem()
-		 * @generated
-		 */
-		EClass NAMED_CONFIGURATION_ITEM = eINSTANCE.getNamedConfigurationItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAMED_CONFIGURATION_ITEM__NAME = eINSTANCE.getNamedConfigurationItem_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ScriptedGeneratorImpl <em>Scripted Generator</em>}' class.
@@ -7916,7 +6652,7 @@ public interface CodegenPackage extends EPackage {
 		 * The meta object literal for the '<em>Context</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.Context
+		 * @see org.nasdanika.config.Context
 		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 		 * @generated
 		 */

@@ -19,12 +19,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.codegen.*;
+import org.nasdanika.config.Context;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Configuration;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Folder;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.Interpolator;
@@ -34,9 +32,7 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
-import org.nasdanika.codegen.NamedConfigurationItem;
 import org.nasdanika.codegen.Project;
-import org.nasdanika.codegen.Property;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.ResourceReference;
@@ -44,12 +40,12 @@ import org.nasdanika.codegen.ScriptedStreamFilter;
 import org.nasdanika.codegen.ScriptedStreamGenerator;
 import org.nasdanika.codegen.ScriptedTextFilter;
 import org.nasdanika.codegen.ScriptedTextGenerator;
-import org.nasdanika.codegen.Service;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.ZipArchive;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,9 +91,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CodegenPackage.CONFIGURATION: return (EObject)createConfiguration();
-			case CodegenPackage.SERVICE: return (EObject)createService();
-			case CodegenPackage.PROPERTY: return (EObject)createProperty();
 			case CodegenPackage.GROUP: return (EObject)createGroup();
 			case CodegenPackage.RESOURCE_GROUP: return (EObject)createResourceGroup();
 			case CodegenPackage.WORKSPACE: return (EObject)createWorkspace();
@@ -113,7 +106,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.JAVA_STREAM_FILTER: return (EObject)createJavaStreamFilter();
 			case CodegenPackage.JAVA_TEXT_GENERATOR: return (EObject)createJavaTextGenerator();
 			case CodegenPackage.JAVA_STREAM_GENERATOR: return (EObject)createJavaStreamGenerator();
-			case CodegenPackage.NAMED_CONFIGURATION_ITEM: return (EObject)createNamedConfigurationItem();
 			case CodegenPackage.SCRIPTED_TEXT_GENERATOR: return (EObject)createScriptedTextGenerator();
 			case CodegenPackage.SCRIPTED_STREAM_GENERATOR: return (EObject)createScriptedStreamGenerator();
 			case CodegenPackage.SCRIPTED_TEXT_FILTER: return (EObject)createScriptedTextFilter();
@@ -210,36 +202,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Configuration createConfiguration() {
-		ConfigurationImpl configuration = new ConfigurationImpl();
-		return configuration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Service createService() {
-		ServiceImpl service = new ServiceImpl();
-		return service;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Property createProperty() {
-		PropertyImpl property = new PropertyImpl();
-		return property;
 	}
 
 	/**
@@ -390,16 +352,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public JavaStreamGenerator createJavaStreamGenerator() {
 		JavaStreamGeneratorImpl javaStreamGenerator = new JavaStreamGeneratorImpl();
 		return javaStreamGenerator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamedConfigurationItem createNamedConfigurationItem() {
-		NamedConfigurationItemImpl namedConfigurationItem = new NamedConfigurationItemImpl();
-		return namedConfigurationItem;
 	}
 
 	/**

@@ -4,12 +4,45 @@ package org.nasdanika.codegen.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.nasdanika.codegen.*;
+import org.nasdanika.codegen.BinaryFile;
+import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.Filter;
+import org.nasdanika.codegen.Folder;
+import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.codegen.JETEmitter;
+import org.nasdanika.codegen.JavaFilter;
+import org.nasdanika.codegen.JavaGenerator;
+import org.nasdanika.codegen.JavaStreamFilter;
+import org.nasdanika.codegen.JavaStreamGenerator;
+import org.nasdanika.codegen.JavaTextFilter;
+import org.nasdanika.codegen.JavaTextGenerator;
+import org.nasdanika.codegen.Nature;
+import org.nasdanika.codegen.Project;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.ResourceReference;
+import org.nasdanika.codegen.ScriptedFilter;
+import org.nasdanika.codegen.ScriptedGenerator;
+import org.nasdanika.codegen.ScriptedStreamFilter;
+import org.nasdanika.codegen.ScriptedStreamGenerator;
+import org.nasdanika.codegen.ScriptedTextFilter;
+import org.nasdanika.codegen.ScriptedTextGenerator;
+import org.nasdanika.codegen.StaticText;
+import org.nasdanika.codegen.StreamContentReference;
+import org.nasdanika.codegen.TextContentReference;
+import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.ZipArchive;
+import org.nasdanika.config.Configuration;
+import org.nasdanika.config.Provider;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,22 +100,6 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected CodegenSwitch<Adapter> modelSwitch =
 		new CodegenSwitch<Adapter>() {
-			@Override
-			public Adapter caseConfiguration(Configuration object) {
-				return createConfigurationAdapter();
-			}
-			@Override
-			public Adapter caseConfigurationItem(ConfigurationItem object) {
-				return createConfigurationItemAdapter();
-			}
-			@Override
-			public Adapter caseService(Service object) {
-				return createServiceAdapter();
-			}
-			@Override
-			public Adapter caseProperty(Property object) {
-				return createPropertyAdapter();
-			}
 			@Override
 			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
 				return createWorkFactoryAdapter();
@@ -188,14 +205,6 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createJavaStreamGeneratorAdapter();
 			}
 			@Override
-			public Adapter caseValueConfigurationItem(ValueConfigurationItem object) {
-				return createValueConfigurationItemAdapter();
-			}
-			@Override
-			public Adapter caseNamedConfigurationItem(NamedConfigurationItem object) {
-				return createNamedConfigurationItemAdapter();
-			}
-			@Override
 			public <T> Adapter caseScriptedGenerator(ScriptedGenerator<T> object) {
 				return createScriptedGeneratorAdapter();
 			}
@@ -232,6 +241,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createZipArchiveAdapter();
 			}
 			@Override
+			public Adapter caseConfiguration(Configuration object) {
+				return createConfigurationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -252,58 +265,16 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Configuration <em>Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.config.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Configuration
+	 * @see org.nasdanika.config.Configuration
 	 * @generated
 	 */
 	public Adapter createConfigurationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ConfigurationItem <em>Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.ConfigurationItem
-	 * @generated
-	 */
-	public Adapter createConfigurationItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Service <em>Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Service
-	 * @generated
-	 */
-	public Adapter createServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Property <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Property
-	 * @generated
-	 */
-	public Adapter createPropertyAdapter() {
 		return null;
 	}
 
@@ -602,13 +573,13 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Provider <em>Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.config.Provider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Provider
+	 * @see org.nasdanika.config.Provider
 	 * @generated
 	 */
 	public Adapter createProviderAdapter() {
@@ -668,34 +639,6 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaStreamGeneratorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ValueConfigurationItem <em>Value Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.ValueConfigurationItem
-	 * @generated
-	 */
-	public Adapter createValueConfigurationItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.NamedConfigurationItem <em>Named Configuration Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.NamedConfigurationItem
-	 * @generated
-	 */
-	public Adapter createNamedConfigurationItemAdapter() {
 		return null;
 	}
 

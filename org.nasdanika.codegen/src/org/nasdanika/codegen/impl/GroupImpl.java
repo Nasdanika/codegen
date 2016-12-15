@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
-import org.nasdanika.codegen.SimpleMutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.SimpleMutableContext;
 
 /**
  * <!-- begin-user-doc -->

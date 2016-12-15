@@ -7,8 +7,8 @@ import java.util.List;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->

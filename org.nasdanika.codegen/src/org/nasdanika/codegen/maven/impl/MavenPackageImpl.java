@@ -20,6 +20,7 @@ import org.nasdanika.codegen.java.impl.JavaPackageImpl;
 import org.nasdanika.codegen.maven.MavenFactory;
 import org.nasdanika.codegen.maven.MavenNature;
 import org.nasdanika.codegen.maven.MavenPackage;
+import org.nasdanika.config.ConfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +81,9 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MavenPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		ConfigPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) : CodegenPackage.eINSTANCE);

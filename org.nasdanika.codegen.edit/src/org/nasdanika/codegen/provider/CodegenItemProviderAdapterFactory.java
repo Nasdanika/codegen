@@ -72,75 +72,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Configuration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConfigurationItemProvider configurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Configuration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConfigurationAdapter() {
-		if (configurationItemProvider == null) {
-			configurationItemProvider = new ConfigurationItemProvider(this);
-		}
-
-		return configurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Service} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ServiceItemProvider serviceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Service}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createServiceAdapter() {
-		if (serviceItemProvider == null) {
-			serviceItemProvider = new ServiceItemProvider(this);
-		}
-
-		return serviceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Property} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertyItemProvider propertyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Property}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropertyAdapter() {
-		if (propertyItemProvider == null) {
-			propertyItemProvider = new PropertyItemProvider(this);
-		}
-
-		return propertyItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Group} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,29 +417,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.NamedConfigurationItem} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NamedConfigurationItemItemProvider namedConfigurationItemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.NamedConfigurationItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNamedConfigurationItemAdapter() {
-		if (namedConfigurationItemItemProvider == null) {
-			namedConfigurationItemItemProvider = new NamedConfigurationItemItemProvider(this);
-		}
-
-		return namedConfigurationItemItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedTextGenerator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -768,9 +676,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		if (configurationItemProvider != null) configurationItemProvider.dispose();
-		if (serviceItemProvider != null) serviceItemProvider.dispose();
-		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
 		if (workspaceItemProvider != null) workspaceItemProvider.dispose();
@@ -786,7 +691,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (javaStreamFilterItemProvider != null) javaStreamFilterItemProvider.dispose();
 		if (javaTextGeneratorItemProvider != null) javaTextGeneratorItemProvider.dispose();
 		if (javaStreamGeneratorItemProvider != null) javaStreamGeneratorItemProvider.dispose();
-		if (namedConfigurationItemItemProvider != null) namedConfigurationItemItemProvider.dispose();
 		if (scriptedTextGeneratorItemProvider != null) scriptedTextGeneratorItemProvider.dispose();
 		if (scriptedStreamGeneratorItemProvider != null) scriptedStreamGeneratorItemProvider.dispose();
 		if (scriptedTextFilterItemProvider != null) scriptedTextFilterItemProvider.dispose();

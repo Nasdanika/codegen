@@ -22,33 +22,6 @@ public interface CodegenFactory extends EFactory {
 	CodegenFactory eINSTANCE = org.nasdanika.codegen.impl.CodegenFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration</em>'.
-	 * @generated
-	 */
-	Configuration createConfiguration();
-
-	/**
-	 * Returns a new object of class '<em>Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service</em>'.
-	 * @generated
-	 */
-	Service createService();
-
-	/**
-	 * Returns a new object of class '<em>Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property</em>'.
-	 * @generated
-	 */
-	Property createProperty();
-
-	/**
 	 * Returns a new object of class '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,15 +155,6 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	JavaStreamGenerator createJavaStreamGenerator();
-
-	/**
-	 * Returns a new object of class '<em>Named Configuration Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Named Configuration Item</em>'.
-	 * @generated
-	 */
-	NamedConfigurationItem createNamedConfigurationItem();
 
 	/**
 	 * Returns a new object of class '<em>Scripted Text Generator</em>'.

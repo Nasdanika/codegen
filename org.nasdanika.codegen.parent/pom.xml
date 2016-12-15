@@ -41,6 +41,12 @@
 			<url>http://www.nasdanika.org/maven-osgi</url>
 			<layout>p2</layout>
 		</repository>
+		<repository>
+			<id>config</id>
+			<url>http://www.nasdanika.org/products/config/repository</url>
+			<layout>p2</layout>
+		</repository>
+		
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -95,6 +101,9 @@
 						<link>http://help.eclipse.org/neon/topic/org.eclipse.platform.doc.isv/reference/api</link>
 						<link>http://stleary.github.io/JSON-java</link>			
 						<link>https://osgi.org/javadoc/r4v42/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config/apidocs/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config.edit/apidocs/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config.editor/apidocs/</link>
 					</links>
 				</configuration>				
 			</plugin>

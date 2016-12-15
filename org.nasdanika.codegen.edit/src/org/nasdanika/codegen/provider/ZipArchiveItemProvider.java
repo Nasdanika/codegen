@@ -21,6 +21,8 @@ import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.java.JavaFactory;
 
 import org.nasdanika.codegen.maven.MavenFactory;
+import org.nasdanika.config.ConfigFactory;
+import org.nasdanika.config.ConfigPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.ZipArchive} object.
@@ -285,7 +287,7 @@ public class ZipArchiveItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_ARCHIVE__MERGER,
-				 CodegenFactory.eINSTANCE.createService()));
+				 ConfigFactory.eINSTANCE.createService()));
 	}
 
 	/**
@@ -300,7 +302,7 @@ public class ZipArchiveItemProvider extends ResourceItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.CONFIGURATION__CONFIGURATION ||
+			childFeature == ConfigPackage.Literals.CONFIGURATION__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.ZIP_ARCHIVE__MERGER;
 
 		if (qualify) {

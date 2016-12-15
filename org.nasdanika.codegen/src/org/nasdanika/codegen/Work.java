@@ -1,6 +1,7 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.core.runtime.SubMonitor;
+import org.nasdanika.config.Context;
 
 /**
  * @author Pavel Vlasov

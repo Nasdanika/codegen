@@ -16,6 +16,8 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.maven.MavenFactory;
+import org.nasdanika.config.ConfigFactory;
+import org.nasdanika.config.ConfigPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.File} object.
@@ -140,7 +142,7 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__MERGER,
-				 CodegenFactory.eINSTANCE.createService()));
+				 ConfigFactory.eINSTANCE.createService()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -295,7 +297,7 @@ public class FileItemProvider extends ResourceItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.CONFIGURATION__CONFIGURATION ||
+			childFeature == ConfigPackage.Literals.CONFIGURATION__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.FILE__MERGER;
 
 		if (qualify) {

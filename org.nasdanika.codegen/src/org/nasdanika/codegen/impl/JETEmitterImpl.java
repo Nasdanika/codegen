@@ -12,10 +12,10 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.JETEmitter;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,7 +98,7 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 
 			@Override
 			public String execute(Context context, SubMonitor monitor) throws Exception {
-				URL tu = new URL(resolveBaseURL(), getTemplateURI());
+				URL tu = new URL((URL) context.get(BASE_URL_PROPERTY), getTemplateURI());
 				org.eclipse.emf.codegen.jet.JETEmitter jetEmitter = new org.eclipse.emf.codegen.jet.JETEmitter(tu.toString(), context.getClassLoader());
 				return jetEmitter.generate(SubMonitor.convert(monitor,  size()), new Object[] { context });
 			}

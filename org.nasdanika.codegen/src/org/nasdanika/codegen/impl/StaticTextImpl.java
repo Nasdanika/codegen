@@ -5,9 +5,9 @@ package org.nasdanika.codegen.impl;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->

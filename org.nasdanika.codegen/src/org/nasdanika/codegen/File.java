@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.core.resources.IFile;
+import org.nasdanika.config.Service;
 
 /**
  * <!-- begin-user-doc -->

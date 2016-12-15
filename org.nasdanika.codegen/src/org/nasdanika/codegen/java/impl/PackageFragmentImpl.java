@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.nasdanika.codegen.Context;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.MutableContext;
 
 /**
  * <!-- begin-user-doc -->

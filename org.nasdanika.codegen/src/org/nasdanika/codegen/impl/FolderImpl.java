@@ -16,12 +16,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.Folder;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.MutableContext;
 
 /**
  * <!-- begin-user-doc -->

@@ -4,8 +4,9 @@
     modelName="Codegen" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     reflectiveDelegation="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective"
     complianceLevel="8.0" suppressGenModelAnnotations="false" copyrightFields="false"
-    providerRootExtendsClass="org.nasdanika.codegen.provider.CDOItemProviderAdapterEx"
-    operationReflection="true" importOrganizing="true" decoration="Manual">
+    providerRootExtendsClass="org.nasdanika.config.provider.CDOItemProviderAdapterEx"
+    usedGenPackages="../../org.nasdanika.config/model/config.genmodel#//config" operationReflection="true"
+    importOrganizing="true" decoration="Manual">
   <foreignModel>codegen.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Codegen" basePackage="org.nasdanika" disposableProviderFactory="true"
@@ -35,29 +36,6 @@
     </genDataTypes>
     <genDataTypes ecoreDataType="codegen.ecore#//SubMonitor"/>
     <genDataTypes ecoreDataType="codegen.ecore#//IContainer"/>
-    <genClasses ecoreClass="codegen.ecore#//Configuration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/includes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/configuration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/defaultIncludes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/baseURL"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/classPath"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//Configuration/include"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Configuration/description"/>
-      <genOperations ecoreOperation="codegen.ecore#//Configuration/createContext">
-        <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/parent"/>
-        <genParameters ecoreParameter="codegen.ecore#//Configuration/createContext/monitor"/>
-      </genOperations>
-      <genOperations ecoreOperation="codegen.ecore#//Configuration/validate">
-        <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/diagnostics"/>
-        <genParameters ecoreParameter="codegen.ecore#//Configuration/validate/context"/>
-      </genOperations>
-      <genOperations ecoreOperation="codegen.ecore#//Configuration/getConfigWorkSize"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//ConfigurationItem"/>
-    <genClasses ecoreClass="codegen.ecore#//Service">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Service/serviceType"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//Property"/>
     <genClasses ecoreClass="codegen.ecore#//WorkFactory">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//WorkFactory/T"/>
     </genClasses>
@@ -131,15 +109,6 @@
     <genClasses ecoreClass="codegen.ecore#//JavaStreamFilter"/>
     <genClasses ecoreClass="codegen.ecore#//JavaTextGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
-    <genClasses ecoreClass="codegen.ecore#//ValueConfigurationItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/valueType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/values"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/default"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueConfigurationItem/scripted"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//NamedConfigurationItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedConfigurationItem/name"/>
-    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ScriptedGenerator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//ScriptedGenerator/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ScriptedGenerator/script"/>

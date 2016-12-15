@@ -20,15 +20,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
-import org.nasdanika.codegen.MutableContext;
 import org.nasdanika.codegen.ReconcileAction;
-import org.nasdanika.codegen.Service;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
+import org.nasdanika.config.MutableContext;
+import org.nasdanika.config.Service;
 
 /**
  * <!-- begin-user-doc -->

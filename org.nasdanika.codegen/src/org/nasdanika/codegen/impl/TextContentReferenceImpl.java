@@ -11,9 +11,9 @@ import java.net.URL;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,8 +53,8 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 
 			@Override
 			public String execute(Context context, SubMonitor monitor) throws Exception {
-				URL url = new URL(resolveBaseURL(), getRef());
-				monitor.setTaskName("Loading text from: "+url);
+				URL url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
+				monitor.subTask("Loading text from: "+url);
 				StringWriter sw = new StringWriter();
 				try (Reader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
 					int ch;

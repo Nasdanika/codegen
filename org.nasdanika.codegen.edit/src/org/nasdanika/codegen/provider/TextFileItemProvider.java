@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextFile;
+import org.nasdanika.config.ConfigPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.TextFile} object.
@@ -107,7 +108,7 @@ public class TextFileItemProvider extends FileItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.CONFIGURATION__CONFIGURATION ||
+			childFeature == ConfigPackage.Literals.CONFIGURATION__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.FILE__MERGER;
 
 		if (qualify) {

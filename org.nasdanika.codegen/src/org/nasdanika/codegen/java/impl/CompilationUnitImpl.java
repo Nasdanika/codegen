@@ -28,11 +28,11 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->

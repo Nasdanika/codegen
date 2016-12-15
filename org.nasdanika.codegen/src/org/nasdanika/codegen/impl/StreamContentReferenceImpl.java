@@ -8,9 +8,9 @@ import java.net.URL;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Context;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +50,8 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 			
 			@Override
 			public InputStream execute(Context context, SubMonitor monitor) throws Exception {
-				URL url = new URL(resolveBaseURL(), getRef());
-				monitor.setTaskName("Opening URL stream: "+url);
+				URL url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
+				monitor.subTask("Opening URL stream: "+url);
 				try {
 					return url.openStream();
 				} finally {
