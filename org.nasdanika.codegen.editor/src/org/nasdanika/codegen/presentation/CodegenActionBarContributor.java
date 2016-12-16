@@ -79,6 +79,8 @@ public class CodegenActionBarContributor
 				}
 			}
 		};
+		
+	protected GenerateAction generateAction = new GenerateAction("Generate");
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
@@ -404,6 +406,9 @@ public class CodegenActionBarContributor
 
 		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
+		
+	    String key = (style & ADDITIONS_LAST_STYLE) == 0 ? "additions-end" : "additions";
+        menuManager.insertBefore(key, generateAction);
 
 		super.addGlobalActions(menuManager);
 	}
@@ -418,5 +423,14 @@ public class CodegenActionBarContributor
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}
-
+	
+	@Override
+	public void activate() {
+		super.activate();
+	    ISelectionProvider selectionProvider = activeEditor instanceof ISelectionProvider ? (ISelectionProvider) activeEditor :	activeEditor.getEditorSite().getSelectionProvider();
+   	    if (selectionProvider != null) {
+   	    	selectionProvider.addSelectionChangedListener(generateAction);
+   	    }
+	}
+	
 }

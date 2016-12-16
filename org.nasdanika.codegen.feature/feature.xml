@@ -17,6 +17,10 @@
       Eclipse Public License.
    </license>
 
+   <includes
+         id="org.nasdanika.config.feature"
+         version="0.0.0"/>
+
    <plugin
          id="org.nasdanika.codegen"
          download-size="0"
@@ -33,20 +37,6 @@
 
    <plugin
          id="org.nasdanika.codegen.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.codehaus.janino"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.codehaus.janino.commons-compiler"
          download-size="0"
          install-size="0"
          version="0.0.0"

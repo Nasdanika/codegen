@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><?eclipse version="3.0"?>
 <plugin>
 
-
-  <extension point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            id="org.nasdanika.codegen.editor.Generate"
-            objectClass="org.nasdanika.codegen.WorkspaceRoot">
-         <action
-               id="org.nasdanika.codegen.editor.Generate"
-               label="Generate"
-               menubarPath="additions"
-               class="org.nasdanika.codegen.presentation.GenerateAction"
-               enablesFor="1"/>
-      </objectContribution>
-   </extension>
-
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated codegen -->
       <category
