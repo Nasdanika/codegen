@@ -161,5 +161,10 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 		}
 		return result;
 	}	
+	
+	@Override
+	public boolean isFilterable() {
+		return true;
+	}
 
 } //PackageFragmentRootImpl

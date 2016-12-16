@@ -4,15 +4,18 @@ package org.nasdanika.codegen.java.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Nature;
-
-import org.nasdanika.codegen.java.*;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.JavaNature;
+import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.PackageFragment;
+import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.StructuredCompilationUnit;
+import org.nasdanika.codegen.java.TextCompilationUnit;
 import org.nasdanika.config.Configuration;
 
 /**

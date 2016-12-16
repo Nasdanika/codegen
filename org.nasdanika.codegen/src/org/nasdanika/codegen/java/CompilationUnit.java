@@ -3,7 +3,6 @@
 package org.nasdanika.codegen.java;
 
 import org.eclipse.jdt.core.ICompilationUnit;
-
 import org.nasdanika.codegen.Generator;
 
 /**

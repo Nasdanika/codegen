@@ -4,13 +4,12 @@ package org.nasdanika.codegen.maven.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Nature;
-
-import org.nasdanika.codegen.maven.*;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.maven.MavenNature;
+import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.config.Configuration;
 
 /**

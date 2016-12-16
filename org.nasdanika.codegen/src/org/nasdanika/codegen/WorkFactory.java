@@ -1,7 +1,5 @@
 package org.nasdanika.codegen;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-
 /**
  * Creates work to be executed.
  * @author Pavel Vlasov

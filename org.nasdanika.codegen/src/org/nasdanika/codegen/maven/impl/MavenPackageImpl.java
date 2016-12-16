@@ -5,18 +5,12 @@ package org.nasdanika.codegen.maven.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.nasdanika.codegen.CodegenPackage;
-
 import org.nasdanika.codegen.impl.CodegenPackageImpl;
-
 import org.nasdanika.codegen.java.JavaPackage;
-
 import org.nasdanika.codegen.java.impl.JavaPackageImpl;
-
 import org.nasdanika.codegen.maven.MavenFactory;
 import org.nasdanika.codegen.maven.MavenNature;
 import org.nasdanika.codegen.maven.MavenPackage;

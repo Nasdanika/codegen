@@ -3,7 +3,6 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.core.resources.IProject;
-
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.EList;
 

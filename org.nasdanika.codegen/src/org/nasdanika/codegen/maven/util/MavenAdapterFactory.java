@@ -4,15 +4,13 @@ package org.nasdanika.codegen.maven.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.Nature;
-
-import org.nasdanika.codegen.maven.*;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.maven.MavenNature;
+import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.config.Configuration;
 
 /**

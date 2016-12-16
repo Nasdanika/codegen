@@ -4,7 +4,6 @@ package org.nasdanika.codegen.maven;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.codegen.CodegenPackage;
 
@@ -192,6 +191,15 @@ public interface MavenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAVEN_NATURE___GET_CONFIG_WORK_SIZE = CodegenPackage.NATURE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE___IS_FILTERABLE = CodegenPackage.NATURE___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Nature</em>' class.

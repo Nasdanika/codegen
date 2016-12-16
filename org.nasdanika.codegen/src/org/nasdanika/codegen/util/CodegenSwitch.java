@@ -4,10 +4,42 @@ package org.nasdanika.codegen.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.nasdanika.codegen.*;
+import org.nasdanika.codegen.BinaryFile;
+import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.Filter;
+import org.nasdanika.codegen.Folder;
+import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.codegen.JETEmitter;
+import org.nasdanika.codegen.JavaFilter;
+import org.nasdanika.codegen.JavaGenerator;
+import org.nasdanika.codegen.JavaStreamFilter;
+import org.nasdanika.codegen.JavaStreamGenerator;
+import org.nasdanika.codegen.JavaTextFilter;
+import org.nasdanika.codegen.JavaTextGenerator;
+import org.nasdanika.codegen.Nature;
+import org.nasdanika.codegen.Project;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.ResourceReference;
+import org.nasdanika.codegen.ScriptedFilter;
+import org.nasdanika.codegen.ScriptedGenerator;
+import org.nasdanika.codegen.ScriptedStreamFilter;
+import org.nasdanika.codegen.ScriptedStreamGenerator;
+import org.nasdanika.codegen.ScriptedTextFilter;
+import org.nasdanika.codegen.ScriptedTextGenerator;
+import org.nasdanika.codegen.StaticText;
+import org.nasdanika.codegen.StreamContentReference;
+import org.nasdanika.codegen.TextContentReference;
+import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.Workspace;
+import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Provider;
 

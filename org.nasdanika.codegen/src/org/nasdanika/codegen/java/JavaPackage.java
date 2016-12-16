@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.nasdanika.codegen.CodegenPackage;
 
 /**
@@ -196,6 +195,15 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE___GET_CONFIG_WORK_SIZE = CodegenPackage.NATURE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE___IS_FILTERABLE = CodegenPackage.NATURE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Nature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,6 +358,15 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT___GET_CONFIG_WORK_SIZE = CodegenPackage.GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Package Fragment Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -502,6 +519,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT___GET_CONFIG_WORK_SIZE = CodegenPackage.GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Package Fragment</em>' class.
@@ -665,6 +691,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT___GET_CONFIG_WORK_SIZE = CodegenPackage.GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
@@ -839,6 +874,15 @@ public interface JavaPackage extends EPackage {
 	int TEXT_COMPILATION_UNIT___GET_CONFIG_WORK_SIZE = COMPILATION_UNIT___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT___IS_FILTERABLE = COMPILATION_UNIT___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Text Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1000,6 +1044,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT___GET_CONFIG_WORK_SIZE = COMPILATION_UNIT___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT___IS_FILTERABLE = COMPILATION_UNIT___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Structured Compilation Unit</em>' class.

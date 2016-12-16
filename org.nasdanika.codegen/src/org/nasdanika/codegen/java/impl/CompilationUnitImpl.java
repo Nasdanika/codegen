@@ -218,7 +218,12 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 			}
 		}
 		return result;
-	}	
+	}
+	
+	@Override
+	public boolean isFilterable() {
+		return true;
+	}
 	
 } //CompilationUnitImpl
 

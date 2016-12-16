@@ -3,9 +3,7 @@
 package org.nasdanika.codegen.java;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-
 import org.nasdanika.codegen.Generator;
 
 /**

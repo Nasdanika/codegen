@@ -4,9 +4,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -16,18 +19,22 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -38,7 +45,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.GeneratorFilter;
+import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
@@ -82,20 +92,47 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 		return !selectedGenerators.isEmpty();
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
 		if (!selectedGenerators.isEmpty()) {
+			
+			Set<Generator<Object>> rootGenerators = new HashSet<>();
+			for (Generator<Object> sg: selectedGenerators) {
+				while (sg.eContainer() instanceof Generator) {
+					sg = (Generator<Object>) sg.eContainer();
+				}
+				rootGenerators.add(sg);
+			}
+			
+			GeneratorFilter generatorFilter = new GeneratorFilter() {
+				
+				@Override
+				public boolean test(Generator<?> t) {
+					for (Generator<Object> sg: selectedGenerators) {
+						if (EcoreUtil.isAncestor(sg, t) || EcoreUtil.isAncestor(t, sg)) {
+							return true;
+						}
+					}
+					return false;
+				}
+				
+			};
+			
 			IWorkbench workbench = PlatformUI.getWorkbench();
 			Shell shell = workbench.getModalDialogShellProvider().getShell();
 			try {							
 				URI resourceURI = selectedGenerators.get(0).eResource().getURI();
-				URL[] baseURL = { null };			
+				URL baseURL = null;			
 				try {
-					baseURL[0] = new URL(resourceURI.toString());
+					baseURL = new URL(resourceURI.toString());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
+				Map<String, Object> properties = new HashMap<>();
+				properties.put(Configuration.BASE_URL_PROPERTY, baseURL);
+								
 				ClassLoader[] classLoader = { getClass().getClassLoader() }; 
 				
 				IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourceURI.toPlatformString(true)));
@@ -107,16 +144,36 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 					}					
 				}
 				
-				Context rootContext = new Context() {
+				Predicate<Object> overwritePredicate = (obj) -> {
 					
-					private Map<String, Object> properties = new HashMap<>();
+					int[] result = { 0 };
+				
+					shell.getDisplay().syncExec(() -> {
+						WorkbenchLabelProvider wlp = new WorkbenchLabelProvider();
+						MessageDialog dialog = new MessageDialog(
+								shell, 
+								"Confirm overwrite "+obj.getClass().getName(), 
+								null, 
+								"Overwrite "+wlp.getText(obj), MessageDialog.QUESTION_WITH_CANCEL, 
+								0, 
+								new String[] { IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL, IDialogConstants.CANCEL_LABEL });
+						
+						result[0] = dialog.open();
+ 					});
+					
+					if (result[0] == 2) { // index of the cancel button.
+						throw new OperationCanceledException();
+					}
+					
+					return result[0] == 0;
+				};
+				
+				properties.put(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME, overwritePredicate);
+				
+				Context rootContext = new Context() {
 	
 					@Override
 					public Object get(String name) {
-						if (Configuration.BASE_URL_PROPERTY.equals(name)) {
-							return baseURL[0];
-						}
-						// TODO - base url
 						if (properties.containsKey(name)) {
 							return properties.get(name);
 						}
@@ -134,7 +191,7 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 	
 					@Override
 					public <T> T get(Class<T> type) {
-						return null;
+						return GeneratorFilter.class.equals(type) ? (T) generatorFilter : null;
 					}
 	
 					@Override
@@ -151,7 +208,7 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 						try {
 							List<Work<List<Object>>> allWork = new ArrayList<>();
 							int totalWork = 0;
-							for (Generator<Object> g: selectedGenerators) {
+							for (Generator<Object> g: rootGenerators) {
 								Work<List<Object>> work = g.createWork();
 								totalWork += work.size();
 								allWork.add(work);
@@ -160,7 +217,7 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 							for (Work<List<Object>> work: allWork) {
 								work.execute(rootContext, subMonitor);
 							}
-						} catch (CoreException | InvocationTargetException | InterruptedException e) {
+						} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
 							throw e;
 						} catch (Exception e) {
 							throw new InvocationTargetException(e);

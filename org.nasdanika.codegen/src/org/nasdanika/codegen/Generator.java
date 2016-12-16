@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import java.util.List;
+
 import org.nasdanika.config.Configuration;
 
 
@@ -114,4 +115,24 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setConfigurator(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Resource generators shall return true from this method, e.g.:
+	 * 
+	 * * Project, 
+	 * * File, 
+	 * * Folder, 
+	 * * Package fragment (root)
+	 * * Compilation unit.
+	 * * Zip Archive
+	 * 
+	 * Generators which do not create workspace resources but rather contribute to their creation shall return false.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isFilterable();
 } // Generator

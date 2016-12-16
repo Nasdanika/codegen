@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.config.Context;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -46,6 +45,7 @@ import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.Workspace;
 import org.nasdanika.codegen.ZipArchive;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->

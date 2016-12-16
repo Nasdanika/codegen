@@ -3,6 +3,7 @@
 package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,11 +12,11 @@ import java.util.Map;
 
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ScriptEvaluator;
-import org.eclipse.core.internal.content.ILazySource;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -100,15 +101,40 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isFilterable() {
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CodegenPackage.GENERATOR___IS_FILTERABLE:
+				return isFilterable();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
 	 * Creates a collection of contexts by creating a context from parent context and then evaluating iterator.
 	 * @param context
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	protected Collection<Context> iterate(Context thisContext) throws Exception {
-		GeneratorFilter gf = thisContext.get(GeneratorFilter.class);
-		if (gf != null && !gf.test(this)) {
-			Collections.emptySet();
+		if (isFilterable()) {
+			GeneratorFilter gf = thisContext.get(GeneratorFilter.class);
+			if (gf != null && !gf.test(this)) {
+				return Collections.emptySet();
+			}
 		}
 		
 		String iterator = getIterator();
@@ -268,7 +294,6 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			}
 		};
 	}
-	
-
+		
 
 } //GeneratorImpl

@@ -43,6 +43,7 @@
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/iterator"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configurator"/>
+      <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>

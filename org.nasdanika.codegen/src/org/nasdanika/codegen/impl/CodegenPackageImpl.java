@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
@@ -533,6 +534,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EAttribute getGenerator_Configurator() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGenerator__IsFilterable() {
+		return generatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1198,6 +1208,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATOR);
+		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__SELECTOR);
@@ -1507,6 +1518,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Configurator(), ecorePackage.getEString(), "configurator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getGenerator());
@@ -1679,6 +1692,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Generator is the base class for model element performing code generation."
+		   });	
+		addAnnotation
+		  (getGenerator__IsFilterable(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Resource generators shall return true from this method, e.g.:\r\n\r\n* Project, \r\n* File, \r\n* Folder, \r\n* Package fragment (root)\r\n* Compilation unit.\r\n* Zip Archive\r\n\r\nGenerators which do not create workspace resources but rather contribute to their creation shall return false."
 		   });	
 		addAnnotation
 		  (getGenerator_Iterator(), 

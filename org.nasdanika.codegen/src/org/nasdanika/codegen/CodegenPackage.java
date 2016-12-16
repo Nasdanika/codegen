@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.config.ConfigPackage;
@@ -228,13 +229,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR___GET_CONFIG_WORK_SIZE = ConfigPackage.CONFIGURATION___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___IS_FILTERABLE = ConfigPackage.CONFIGURATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = ConfigPackage.CONFIGURATION_OPERATION_COUNT + 0;
+	int GENERATOR_OPERATION_COUNT = ConfigPackage.CONFIGURATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -380,6 +390,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -536,6 +555,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP___GET_CONFIG_WORK_SIZE = GROUP___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP___IS_FILTERABLE = GROUP___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Resource Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,6 +698,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Resource Generator</em>' class.
@@ -826,6 +863,15 @@ public interface CodegenPackage extends EPackage {
 	int WORKSPACE___GET_CONFIG_WORK_SIZE = GROUP___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE___IS_FILTERABLE = GROUP___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Workspace</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,6 +1024,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE___GET_CONFIG_WORK_SIZE = RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE___IS_FILTERABLE = RESOURCE_GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Resource</em>' class.
@@ -1143,6 +1198,15 @@ public interface CodegenPackage extends EPackage {
 	int FOLDER___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1341,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATURE___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Nature</em>' class.
@@ -1451,6 +1524,15 @@ public interface CodegenPackage extends EPackage {
 	int FILE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,6 +1703,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROJECT___GET_CONFIG_WORK_SIZE = RESOURCE_GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT___IS_FILTERABLE = RESOURCE_GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -1795,6 +1886,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE___GET_CONFIG_WORK_SIZE = FILE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE___IS_FILTERABLE = FILE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Binary File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1967,6 +2067,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE___GET_CONFIG_WORK_SIZE = FILE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE___IS_FILTERABLE = FILE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Text File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2130,6 +2239,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_REFERENCE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Resource Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2273,6 +2391,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Static Text</em>' class.
@@ -2420,6 +2547,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Content Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2563,6 +2699,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Filter</em>' class.
@@ -2710,6 +2855,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Java Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2855,6 +3009,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR___IS_FILTERABLE = FILTER___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Interpolator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2998,6 +3161,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JET_EMITTER___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>JET Emitter</em>' class.
@@ -3152,6 +3324,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___IS_FILTERABLE = FILTER___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
@@ -3326,6 +3507,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER___GET_CONFIG_WORK_SIZE = JAVA_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER___IS_FILTERABLE = JAVA_FILTER___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Java Text Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3480,6 +3670,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER___GET_CONFIG_WORK_SIZE = JAVA_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER___IS_FILTERABLE = JAVA_FILTER___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Java Stream Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3623,6 +3822,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR___GET_CONFIG_WORK_SIZE = JAVA_GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR___IS_FILTERABLE = JAVA_GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Java Text Generator</em>' class.
@@ -3770,6 +3978,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR___GET_CONFIG_WORK_SIZE = JAVA_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR___IS_FILTERABLE = JAVA_GENERATOR___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Java Stream Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3913,6 +4130,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Generator</em>' class.
@@ -4060,6 +4286,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_TEXT_GENERATOR___GET_CONFIG_WORK_SIZE = SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR___IS_FILTERABLE = SCRIPTED_GENERATOR___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Scripted Text Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4203,6 +4438,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_GENERATOR___GET_CONFIG_WORK_SIZE = SCRIPTED_GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR___IS_FILTERABLE = SCRIPTED_GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Stream Generator</em>' class.
@@ -4359,6 +4603,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE = FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER___IS_FILTERABLE = FILTER___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Scripted Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4511,6 +4764,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_FILTER___GET_CONFIG_WORK_SIZE = SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER___IS_FILTERABLE = SCRIPTED_FILTER___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Scripted Text Filter</em>' class.
@@ -4667,6 +4929,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_STREAM_FILTER___GET_CONFIG_WORK_SIZE = SCRIPTED_FILTER___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER___IS_FILTERABLE = SCRIPTED_FILTER___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Scripted Stream Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4812,6 +5083,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE___IS_FILTERABLE = CONTENT_REFERENCE___IS_FILTERABLE;
+
+	/**
 	 * The number of operations of the '<em>Text Content Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4955,6 +5235,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE = CONTENT_REFERENCE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE___IS_FILTERABLE = CONTENT_REFERENCE___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Stream Content Reference</em>' class.
@@ -5127,6 +5416,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
 
 	/**
 	 * The number of operations of the '<em>Zip Archive</em>' class.
@@ -5335,6 +5633,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_Configurator();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#isFilterable() <em>Is Filterable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Filterable</em>' operation.
+	 * @see org.nasdanika.codegen.Generator#isFilterable()
+	 * @generated
+	 */
+	EOperation getGenerator__IsFilterable();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
@@ -6131,6 +6439,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__CONFIGURATOR = eINSTANCE.getGenerator_Configurator();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Filterable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR___IS_FILTERABLE = eINSTANCE.getGenerator__IsFilterable();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.

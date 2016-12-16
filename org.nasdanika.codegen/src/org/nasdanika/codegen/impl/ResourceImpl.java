@@ -115,5 +115,10 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 	protected boolean isNonBlankName() {
 		return true;
 	}
+	
+	@Override
+	public boolean isFilterable() {
+		return true;
+	}
 
 } //ResourceImpl

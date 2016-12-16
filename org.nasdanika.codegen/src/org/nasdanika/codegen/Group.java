@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
