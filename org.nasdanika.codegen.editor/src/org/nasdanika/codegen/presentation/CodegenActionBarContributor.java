@@ -10,6 +10,10 @@ import java.util.List;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
@@ -35,6 +39,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
+import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.java.provider.JavaItemProviderAdapterFactory;
+import org.nasdanika.codegen.maven.provider.MavenItemProviderAdapterFactory;
+import org.nasdanika.codegen.provider.CodegenItemProviderAdapterFactory;
 
 /**
  * This is the action bar contributor for the Codegen model editor.
@@ -80,7 +88,33 @@ public class CodegenActionBarContributor
 			}
 		};
 		
-	protected GenerateAction generateAction = new GenerateAction("Generate");
+	protected GenerateAction generateAction = new GenerateAction("Generate") {
+		
+		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		{
+			adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+			adapterFactory.addAdapterFactory(new CodegenItemProviderAdapterFactory());
+			adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
+			adapterFactory.addAdapterFactory(new MavenItemProviderAdapterFactory());
+			adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		}
+		
+
+		@Override
+		public String getLabel(Generator<?> generator) {
+			
+			if (generator != null && adapterFactory != null && !generator.eIsProxy()) {
+				IItemLabelProvider itemLabelProvider = (IItemLabelProvider) adapterFactory.adapt(generator,	IItemLabelProvider.class);
+				if (itemLabelProvider != null) {
+					return itemLabelProvider.getText(generator);
+				}
+			}
+			
+			return null;
+		}
+		
+	};
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor

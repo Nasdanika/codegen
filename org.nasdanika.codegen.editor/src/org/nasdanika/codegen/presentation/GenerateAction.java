@@ -48,12 +48,13 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorFilter;
+import org.nasdanika.codegen.GeneratorLabelProvider;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
 
-public class GenerateAction extends Action implements ISelectionChangedListener {
+public abstract class GenerateAction extends Action implements ISelectionChangedListener, GeneratorLabelProvider {
 
 	private ISelectionProvider selectionProvider;
 	private ArrayList<Generator<Object>> selectedGenerators;
@@ -191,7 +192,15 @@ public class GenerateAction extends Action implements ISelectionChangedListener 
 	
 					@Override
 					public <T> T get(Class<T> type) {
-						return GeneratorFilter.class.equals(type) ? (T) generatorFilter : null;
+						if (GeneratorFilter.class.equals(type)) {
+							return (T) generatorFilter;
+						}
+						
+						if (GeneratorLabelProvider.class.equals(type)) {
+							return (T) GenerateAction.this;
+						}
+						
+						return null;
 					}
 	
 					@Override

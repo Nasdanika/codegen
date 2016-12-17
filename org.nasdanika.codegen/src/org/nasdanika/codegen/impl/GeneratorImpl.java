@@ -272,7 +272,10 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			@Override
 			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
 				GeneratorLabelProvider labelProvider = context.get(GeneratorLabelProvider.class);
-				String label = labelProvider == null ? EcoreUtil.getIdentification(GeneratorImpl.this) : labelProvider.getLabel(GeneratorImpl.this);
+				String label = labelProvider == null ? null : labelProvider.getLabel(GeneratorImpl.this);
+				if (label == null) {
+					label = EcoreUtil.getID(GeneratorImpl.this);
+				}
 				monitor.setTaskName("Generating "+label);
 				Collection<Context> iContexts = iterate(createContext(context, monitor));
 				if (iContexts.isEmpty()) {
