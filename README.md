@@ -68,6 +68,10 @@ If the project containing the generation model is a Java project, then Java clas
 
 * ``http://www.nasdanika.org/products/codegen/repository``
 * [Archived](http://www.nasdanika.org/products/codegen/org.nasdanika.codegen.repository-0.1.0-SNAPSHOT.zip)
+
+## Examples
+
+* https://github.com/Nasdanika/codegen-examples
  
 ## Roadmap
 
