@@ -210,7 +210,7 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
 						 new Object [] { this, JavaPackage.Literals.COMPILATION_UNIT__NAME }));
 				

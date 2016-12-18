@@ -220,7 +220,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
 						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
 				
@@ -235,7 +235,7 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Configurator script has errors: "+e.getMessage(),
 						 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONFIGURATOR }));
 				

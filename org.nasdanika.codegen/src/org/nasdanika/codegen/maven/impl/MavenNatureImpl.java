@@ -90,7 +90,7 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 					(new BasicDiagnostic
 						(Diagnostic.WARNING,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] No pom generator",
 						 new Object [] { this, MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR }));
 				

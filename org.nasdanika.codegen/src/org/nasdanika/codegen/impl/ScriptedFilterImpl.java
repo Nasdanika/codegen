@@ -85,7 +85,7 @@ public abstract class ScriptedFilterImpl<T> extends FilterImpl<T> implements Scr
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty script",
 						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_FILTER__SCRIPT }));
 				
@@ -98,7 +98,7 @@ public abstract class ScriptedFilterImpl<T> extends FilterImpl<T> implements Scr
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Script has errors: "+e.getMessage(),
 						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_FILTER__SCRIPT }));
 				

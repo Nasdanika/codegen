@@ -152,7 +152,7 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
 						 new Object [] { this, JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__NAME }));
 				

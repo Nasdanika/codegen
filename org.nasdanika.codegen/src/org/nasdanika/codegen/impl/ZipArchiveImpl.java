@@ -144,7 +144,7 @@ public class ZipArchiveImpl extends ResourceImpl<IContainer> implements ZipArchi
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
 						 new Object [] { this, CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR }));
 				
@@ -156,7 +156,7 @@ public class ZipArchiveImpl extends ResourceImpl<IContainer> implements ZipArchi
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Reconcile action is 'Merge' and merger is not set",
 						 new Object [] { this, CodegenPackage.Literals.ZIP_ARCHIVE__MERGER }));
 				

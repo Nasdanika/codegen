@@ -78,7 +78,7 @@ public class ResourceReferenceImpl extends ResourceImpl<IResource> implements Re
 				(new BasicDiagnostic
 					(Diagnostic.ERROR,
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 CodegenValidator.GENERATOR__VALIDATE,
 					 "Reference target is not set",
 					 new Object [] { this, CodegenPackage.Literals.RESOURCE_REFERENCE__TARGET }));
 		}

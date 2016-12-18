@@ -78,6 +78,21 @@ public class CodegenUtil {
 		}
 		container.create(false, true, monitor.split(1));
 	}
-	
+
+	public static <T> Work<T> emptyWork(T result) {
+		return new Work<T>() {
+
+			@Override
+			public int size() {
+				return 0;
+			}
+
+			@Override
+			public T execute(Context context, SubMonitor monitor) throws Exception {
+				return result;
+			}
+			
+		};
+	}
 
 }

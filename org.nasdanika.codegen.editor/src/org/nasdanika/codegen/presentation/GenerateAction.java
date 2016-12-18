@@ -23,9 +23,14 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jdt.core.IJavaProject;
@@ -97,6 +102,8 @@ public abstract class GenerateAction extends Action implements ISelectionChanged
 	@Override
 	public void run() {
 		if (!selectedGenerators.isEmpty()) {
+			IWorkbench workbench = PlatformUI.getWorkbench();
+			Shell shell = workbench.getModalDialogShellProvider().getShell();
 			
 			Set<Generator<Object>> rootGenerators = new HashSet<>();
 			for (Generator<Object> sg: selectedGenerators) {
@@ -120,8 +127,36 @@ public abstract class GenerateAction extends Action implements ISelectionChanged
 				
 			};
 			
-			IWorkbench workbench = PlatformUI.getWorkbench();
-			Shell shell = workbench.getModalDialogShellProvider().getShell();
+			Diagnostician diagnostician = new Diagnostician() {
+				
+				@Override
+				public String getObjectLabel(EObject eObject) {
+					String ret = eObject instanceof Generator ? GenerateAction.this.getLabel((Generator<?>) eObject) : null;
+					return ret == null ? super.getObjectLabel(eObject) : ret;
+				}
+
+				protected boolean doValidate(EValidator eValidator, EClass eClass, EObject eObject,	DiagnosticChain diagnostics, Map<Object, Object> context) {
+					if (eObject instanceof Generator && ((Generator<?>) eObject).isFilterable() && !generatorFilter.test((Generator<?>) eObject)) {
+						return true; // Ignoring generators which will not be invoked.
+					}
+					
+					return super.doValidate(eValidator, eClass, eObject, diagnostics, context);
+				}
+				
+			}; 
+			
+			BasicDiagnostic accumulator = new BasicDiagnostic();
+			for (Generator<Object> rootGenerator: rootGenerators) {
+				accumulator.add(diagnostician.validate(rootGenerator));
+			}
+			
+			IStatus validationStatus = BasicDiagnostic.toIStatus(accumulator);
+			if (validationStatus.getSeverity() == IStatus.ERROR) {
+	            ErrorDialog.openError(shell, "Generation model is invalid", "Generation model contains errors", validationStatus);
+				CodegenEditorPlugin.getPlugin().getLog().log(validationStatus);
+				return;
+			}
+			
 			try {							
 				URI resourceURI = selectedGenerators.get(0).eResource().getURI();
 				URL baseURL = null;			

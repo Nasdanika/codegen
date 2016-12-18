@@ -177,15 +177,6 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,6 +193,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_NATURE___IS_FILTERABLE = CodegenPackage.NATURE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Nature</em>' class.
@@ -340,15 +340,6 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,6 +356,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT_ROOT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Package Fragment Root</em>' class.
@@ -503,15 +503,6 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -528,6 +519,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Package Fragment</em>' class.
@@ -675,15 +675,6 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -700,6 +691,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
@@ -856,15 +856,6 @@ public interface JavaPackage extends EPackage {
 	int TEXT_COMPILATION_UNIT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = COMPILATION_UNIT___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -881,6 +872,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_COMPILATION_UNIT___IS_FILTERABLE = COMPILATION_UNIT___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Text Compilation Unit</em>' class.
@@ -1028,15 +1028,6 @@ public interface JavaPackage extends EPackage {
 	int STRUCTURED_COMPILATION_UNIT___CREATE_CONTEXT__CONTEXT_SUBMONITOR = COMPILATION_UNIT___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,6 +1044,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT___IS_FILTERABLE = COMPILATION_UNIT___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Structured Compilation Unit</em>' class.

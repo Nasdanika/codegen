@@ -84,7 +84,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Empty script",
 						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				
@@ -97,7 +97,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Script has errors: "+e.getMessage(),
 						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				

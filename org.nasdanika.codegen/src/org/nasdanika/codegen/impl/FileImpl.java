@@ -4,6 +4,7 @@ package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -114,7 +115,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
 						 new Object [] { this, CodegenPackage.Literals.FILE__GENERATOR }));
 				
@@ -126,7 +127,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Reconcile action is 'Merge' and merger is not set",
 						 new Object [] { this, CodegenPackage.Literals.FILE__MERGER }));
 				
@@ -138,7 +139,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 
 	@Override
 	public Work<IFile> createWorkItem() throws Exception {
-		Work<List<C>> gWork = getGenerator().createWork();
+		Work<List<C>> gWork = getGenerator() == null ? CodegenUtil.emptyWork(Collections.emptyList()) : getGenerator().createWork();
 		@SuppressWarnings("unchecked")
 		Merger<C> merger = (Merger<C>) getMerger();
 		

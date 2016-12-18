@@ -77,7 +77,7 @@ public class JETEmitterImpl extends GeneratorImpl<String> implements JETEmitter 
 				(new BasicDiagnostic
 					(Diagnostic.ERROR,
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 CodegenValidator.GENERATOR__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Template URI is not set",
 					 new Object [] { this, CodegenPackage.Literals.JET_EMITTER__TEMPLATE_URI }));
 			

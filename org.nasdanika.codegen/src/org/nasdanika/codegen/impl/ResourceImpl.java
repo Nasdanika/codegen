@@ -98,7 +98,7 @@ public abstract class ResourceImpl<T> extends ResourceGeneratorImpl<T> implement
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.CONFIGURATION__VALIDATE,
+						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
 						 new Object [] { this, CodegenPackage.Literals.RESOURCE__NAME }));
 				

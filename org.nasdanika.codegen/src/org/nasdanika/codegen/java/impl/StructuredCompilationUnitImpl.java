@@ -60,7 +60,7 @@ public class StructuredCompilationUnitImpl extends CompilationUnitImpl implement
 				(new BasicDiagnostic
 					(Diagnostic.ERROR,
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 CodegenValidator.GENERATOR__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Not yet supported",
 					 new Object [] { this }));
 			

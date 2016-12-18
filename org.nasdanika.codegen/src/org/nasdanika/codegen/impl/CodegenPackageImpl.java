@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
@@ -67,6 +68,7 @@ import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.impl.JavaPackageImpl;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
+import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.ConfigPackage;
 import org.nasdanika.config.Context;
 import org.nasdanika.config.Provider;
@@ -491,6 +493,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		theJavaPackage.initializePackageContents();
 		theMavenPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theCodegenPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return CodegenValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theCodegenPackage.freeze();
 
@@ -543,6 +554,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EOperation getGenerator__IsFilterable() {
 		return generatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGenerator__Validate__DiagnosticChain_Map() {
+		return generatorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1209,6 +1229,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATOR);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
+		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__SELECTOR);
@@ -1520,6 +1541,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = initEOperation(getGenerator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getGenerator());
@@ -1698,6 +1728,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Resource generators shall return true from this method, e.g.:\r\n\r\n* Project, \r\n* File, \r\n* Folder, \r\n* Package fragment (root)\r\n* Compilation unit.\r\n* Zip Archive\r\n\r\nGenerators which do not create workspace resources but rather contribute to their creation shall return false."
+		   });	
+		addAnnotation
+		  (getGenerator__Validate__DiagnosticChain_Map(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Validates element."
+		   });	
+		addAnnotation
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+			 "documentation", "Diagnostics to add validation messages to."
+		   });	
+		addAnnotation
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(1), 
+		   source, 
+		   new String[] {
+			 "documentation", "Validation context."
 		   });	
 		addAnnotation
 		  (getGenerator_Iterator(), 

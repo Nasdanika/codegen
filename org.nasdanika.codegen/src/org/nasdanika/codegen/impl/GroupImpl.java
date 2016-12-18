@@ -98,7 +98,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 				(new BasicDiagnostic
 					(Diagnostic.ERROR,
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.CONFIGURATION__VALIDATE,
+					 CodegenValidator.GENERATOR__VALIDATE,
 					 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
 					 new Object [] { this, CodegenPackage.Literals.GROUP__SELECTOR }));
 			
