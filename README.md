@@ -81,7 +81,7 @@ If the project containing the generation model is a Java project, then Java clas
   * Fields
 * Extension point for registering generation models and a wizard to generate code using registered models packaged in plug-ins.
 * Eclipse help with HTML documentation for the code generation model.
-* Form editor on the right side of the tree editor with help contents rendered from GenModel documentation annotations.
+* Form editor on the right side of the tree editor with help contents rendered from GenModel documentation annotations - Integrate EMF Forms, customize to display context help for form elements generated from model documentation annotations.
 * Console IApplication for headless generation. 
 
 ## How to contribute
