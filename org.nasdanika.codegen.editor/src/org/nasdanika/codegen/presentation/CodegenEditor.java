@@ -155,7 +155,9 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import org.nasdanika.codegen.provider.CodegenItemProviderAdapterFactory;
-
+import org.nasdanika.config.presentation.ConfigEditor;
+import org.nasdanika.config.presentation.MasterDetailForm;
+import org.nasdanika.config.presentation.MasterDetailViewer;
 import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
 
 import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
@@ -1023,7 +1025,7 @@ public class CodegenEditor
 	 * This is the method used by the framework to install your own controls.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createPages() {
@@ -1038,22 +1040,21 @@ public class CodegenEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), CodegenEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+						new ViewerPane(getSite().getPage(), CodegenEditor.this) {
+							@Override
+							public Viewer createViewer(Composite composite) {
+								MasterDetailForm masterDetailForm = new MasterDetailForm(composite, SWT.NONE);
+								return new MasterDetailViewer(masterDetailForm);
+							}
+							@Override
+							public void requestActivation() {
+								super.requestActivation();
+								setCurrentViewerPane(this);
+							}
+						};
 				viewerPane.createControl(getContainer());
 
-				selectionViewer = (TreeViewer)viewerPane.getViewer();
+				selectionViewer = ((MasterDetailViewer) viewerPane.getViewer()).getTreeViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 
 				selectionViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain.getResourceSet(), selectionViewer)));
