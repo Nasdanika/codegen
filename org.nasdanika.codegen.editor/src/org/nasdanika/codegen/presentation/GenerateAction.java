@@ -56,6 +56,7 @@ import org.nasdanika.codegen.GeneratorFilter;
 import org.nasdanika.codegen.GeneratorLabelProvider;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Work;
+import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
 

@@ -13,12 +13,17 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.codegen.CodeGenPlugin;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
@@ -148,6 +153,26 @@ public class CodegenValidator extends EObjectValidator {
 	 */
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (value instanceof EObject) {
+			org.eclipse.emf.ecore.resource.Resource resource = ((EObject) value).eResource();
+			if (resource != null) {
+				IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
+				if (modelFile.exists()) {
+					IProject project = modelFile.getProject();
+					if (project.exists()) {
+						try {
+							IProjectNature javaNature = project.getNature(JavaCore.NATURE_ID);
+							if (javaNature instanceof IJavaProject) {
+								context.put(ClassLoader.class, new JavaProjectClassLoader(getClass().getClassLoader(), (IJavaProject) javaNature));
+							}
+						} catch (Exception e) {
+							CodeGenPlugin.getPlugin().log(e);
+						}
+					}
+				}
+			}
+		}
+		
 		// TODO - inject project class loader into context if not there yet.
 		return validateGen(classifierID, value, diagnostics, context);
 	}

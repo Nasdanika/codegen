@@ -167,20 +167,22 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	}
 
 	private ScriptEvaluator createIteratorEvaluator(Context context) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator(getIterator());
+		ScriptEvaluator se = new ScriptEvaluator();
 		se.setReturnType(Object.class);
 		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
+		se.cook(getIterator());
 		return se;
 	}
 	
 	private ScriptEvaluator createConfiguratorEvaluator(Context context, Class<?> resultType) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator(getConfigurator()+System.lineSeparator()+"return result;");
+		ScriptEvaluator se = new ScriptEvaluator();
 		se.setReturnType(resultType);
 		se.setParameters(new String[] { "context", "result", "monitor" }, new Class[] { Context.class, resultType, SubMonitor.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
+		se.cook(getConfigurator()+System.lineSeparator()+"return result;");
 		return se;
 	}	
 	
@@ -212,9 +214,15 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {
+			SimpleMutableContext evaluatorContext = new SimpleMutableContext();
+			ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
+			if (classLoader == null) {
+				classLoader = getClass().getClassLoader();
+			}
+			evaluatorContext.setClassLoader(classLoader);
 			if (getIterator() != null && getIterator().trim().length() > 0) {
 				try {
-					createIteratorEvaluator(new SimpleMutableContext());						
+					createIteratorEvaluator(evaluatorContext);						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -225,11 +233,21 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
 				
 					result = false;						
+				} catch (Exception e) {
+					diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.WARNING,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.GENERATOR__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate iterator script: "+e.getMessage(),
+						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
+				
+					result = false;						
 				}
 			}			
 			if (getConfigurator() != null && getConfigurator().trim().length() > 0) {
 				try {
-					createConfiguratorEvaluator(new SimpleMutableContext(), Object.class);						
+					createConfiguratorEvaluator(evaluatorContext, Object.class);						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -238,6 +256,16 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Configurator script has errors: "+e.getMessage(),
 						 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONFIGURATOR }));
+				
+					result = false;						
+				} catch (Exception e) {
+					diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.WARNING,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.GENERATOR__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate configuration script: "+e.getMessage(),
+						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
 				
 					result = false;						
 				}

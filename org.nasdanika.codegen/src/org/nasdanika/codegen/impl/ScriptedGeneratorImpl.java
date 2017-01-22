@@ -91,7 +91,13 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 				result = false;
 			} else {
 				try {
-					createScriptEvaluator(new SimpleMutableContext());						
+					SimpleMutableContext evaluatorContext = new SimpleMutableContext();
+					ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
+					if (classLoader == null) {
+						classLoader = getClass().getClassLoader();
+					}
+					evaluatorContext.setClassLoader(classLoader);				
+					createScriptEvaluator(evaluatorContext);						
 				} catch (CompileException e) {
 					diagnostics.add
 					(new BasicDiagnostic
@@ -102,6 +108,16 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				
 					result = false;						
+				} catch (Exception e) {
+					diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.WARNING,
+						 CodegenValidator.DIAGNOSTIC_SOURCE,
+						 CodegenValidator.GENERATOR__VALIDATE,
+						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate script: "+e.getMessage(),
+						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
+				
+					result = false;						
 				}				
 			}
 		}
@@ -109,11 +125,12 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 	}	
 		
 	private ScriptEvaluator createScriptEvaluator(Context context) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator(getScript());
+		ScriptEvaluator se = new ScriptEvaluator();
 		se.setReturnType(Context.class);
 		se.setParameters(new String[] { "context", "generator", "monitor" }, new Class[] { Context.class, this.getClass(), SubMonitor.class });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
+		se.cook(getScript());
 		return se;
 	}	
 		

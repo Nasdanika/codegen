@@ -1,4 +1,4 @@
-package org.nasdanika.codegen.presentation;
+package org.nasdanika.codegen.util;
 
 
 import java.io.ByteArrayInputStream;

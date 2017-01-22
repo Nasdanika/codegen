@@ -92,15 +92,31 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null && getSelector() != null && getSelector().trim().length() > 0) {
 			try {
-				createSelectorEvaluator(new SimpleMutableContext(), Generator.class);						
+				SimpleMutableContext evaluatorContext = new SimpleMutableContext();
+				ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
+				if (classLoader == null) {
+					classLoader = getClass().getClassLoader();
+				}
+				evaluatorContext.setClassLoader(classLoader);				
+				createSelectorEvaluator(evaluatorContext, Generator.class);						
 			} catch (CompileException e) {
 				diagnostics.add
 				(new BasicDiagnostic
 					(Diagnostic.ERROR,
 					 CodegenValidator.DIAGNOSTIC_SOURCE,
 					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Selector script has errors: "+e.getMessage(),
 					 new Object [] { this, CodegenPackage.Literals.GROUP__SELECTOR }));
+			
+				result = false;						
+			} catch (Exception e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.WARNING,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.GENERATOR__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate selector script: "+e.getMessage(),
+					 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
 			
 				result = false;						
 			}			
@@ -160,11 +176,12 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	}
 
 	private ScriptEvaluator createSelectorEvaluator(Context context, Class<?> elementClass) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator(getSelector());
+		ScriptEvaluator se = new ScriptEvaluator();
 		se.setReturnType(Context.class);
 		se.setParameters(new String[] { "context", "group", "element" }, new Class[] { Context.class, this.getClass(), elementClass });
 		se.setThrownExceptions(new Class[] { Exception.class });
 		se.setParentClassLoader(context.getClassLoader());
+		se.cook(getSelector());
 		return se;
 	}
 
