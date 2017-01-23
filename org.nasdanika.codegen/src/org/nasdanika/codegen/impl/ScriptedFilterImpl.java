@@ -116,7 +116,7 @@ public abstract class ScriptedFilterImpl<T> extends FilterImpl<T> implements Scr
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate script: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
+						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_FILTER__SCRIPT }));
 				
 					result = false;						
 				}				

@@ -40,7 +40,7 @@ public interface JavaFilter<T> extends Filter<T> {
 	 * @return the value of the '<em>Class Name</em>' attribute.
 	 * @see #setClassName(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getJavaFilter_ClassName()
-	 * @model
+	 * @model annotation="org.nasdanika.ui.java-class root-type='org.nasdanika.codegen.Filter' super-interfaces='org.nasdanika.codegen.Filter'"
 	 * @generated
 	 */
 	String getClassName();

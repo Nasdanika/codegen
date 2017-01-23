@@ -115,7 +115,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate script: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
+						 new Object [] { this, CodegenPackage.Literals.SCRIPTED_GENERATOR__SCRIPT }));
 				
 					result = false;						
 				}				
@@ -143,6 +143,7 @@ public abstract class ScriptedGeneratorImpl<T> extends GeneratorImpl<T> implemen
 				return 2;
 			}
 			
+			@SuppressWarnings("unchecked")
 			@Override
 			public T execute(Context context, SubMonitor monitor) throws Exception {
 				SubMonitor subMon = SubMonitor.convert(monitor, size());

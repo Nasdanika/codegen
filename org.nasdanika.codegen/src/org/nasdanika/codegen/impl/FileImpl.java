@@ -4,7 +4,6 @@ package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -17,6 +16,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
@@ -40,7 +40,7 @@ import org.nasdanika.config.Service;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,19 +88,11 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Generator<C> getGenerator() {
-		return (Generator<C>)eGet(CodegenPackage.Literals.FILE__GENERATOR, true);
+	@SuppressWarnings("unchecked")
+	public EList<Generator<C>> getGenerators() {
+		return (EList<Generator<C>>)eGet(CodegenPackage.Literals.FILE__GENERATORS, true);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGenerator(Generator<C> newGenerator) {
-		eSet(CodegenPackage.Literals.FILE__GENERATOR, newGenerator);
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,14 +102,15 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {
-			if (getGenerator() == null) {
+			// Redundant.
+			if (getGenerators().isEmpty()) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CodegenValidator.DIAGNOSTIC_SOURCE,
 						 CodegenValidator.GENERATOR__VALIDATE,
 						 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
-						 new Object [] { this, CodegenPackage.Literals.FILE__GENERATOR }));
+						 new Object [] { this, CodegenPackage.Literals.FILE__GENERATORS }));
 				
 				result = false;
 			}
@@ -139,7 +132,11 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 
 	@Override
 	public Work<IFile> createWorkItem() throws Exception {
-		Work<List<C>> gWork = getGenerator() == null ? CodegenUtil.emptyWork(Collections.emptyList()) : getGenerator().createWork();
+		List<Work<List<C>>> gWork = new ArrayList<>();
+		for (Generator<C> g: getGenerators()) {
+			gWork.add(g.createWork());
+		}
+		
 		@SuppressWarnings("unchecked")
 		Merger<C> merger = (Merger<C>) getMerger();
 		
@@ -147,7 +144,10 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 
 			@Override
 			public int size() {
-				int ret = gWork.size() + 2;
+				int ret = 2;
+				for (Work<List<C>> gw: gWork) {
+					ret += gw.size();
+				}
 				if (merger != null) {
 					ret += merger.getWorkSize();
 				}				
@@ -167,7 +167,9 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					case APPEND:
 						List<C> cl = new ArrayList<>();
 						cl.add(load(file.getContents()));
-						cl.addAll(gWork.execute(sc, monitor));
+						for (Work<List<C>> gw: gWork) {
+							cl.addAll(gw.execute(sc, monitor));
+						}
 						file.setContents(store(join(cl)), false, true, monitor.split(1));
 						return file;
 					case MERGE:
@@ -175,7 +177,9 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 							throw new IllegalStateException("Merger is not set");
 						}
 						List<C> mcl = new ArrayList<>();
-						mcl.addAll(gWork.execute(sc, monitor));
+						for (Work<List<C>> gw: gWork) {
+							mcl.addAll(gw.execute(sc, monitor));
+						}
 						file.setContents(store(merger.merge(sc, file, load(file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
 						return file;
 					case CANCEL:
@@ -196,7 +200,9 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 								
 				if (!file.exists()) {
 					List<C> cl = new ArrayList<>();
-					cl.addAll(gWork.execute(sc, monitor));
+					for (Work<List<C>> gw: gWork) {
+						cl.addAll(gw.execute(sc, monitor));
+					}
 					file = CodegenUtil.createFile(container, name, store(join(cl)), monitor.split(1));
 				}
 				return file;

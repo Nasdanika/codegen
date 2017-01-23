@@ -534,17 +534,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerator_Iterator() {
+	public EAttribute getGenerator_Controller() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerator_Configurator() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -579,17 +570,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGroup_Selector() {
-		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGroup_Elements() {
-		return (EReference)groupEClass.getEStructuralFeatures().get(1);
+		return (EReference)groupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -669,7 +651,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFile_Generator() {
+	public EReference getFile_Generators() {
 		return (EReference)fileEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1226,13 +1208,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		workFactoryEClass = createEClass(WORK_FACTORY);
 
 		generatorEClass = createEClass(GENERATOR);
-		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
-		createEAttribute(generatorEClass, GENERATOR__CONFIGURATOR);
+		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		groupEClass = createEClass(GROUP);
-		createEAttribute(groupEClass, GROUP__SELECTOR);
 		createEReference(groupEClass, GROUP__ELEMENTS);
 
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
@@ -1248,7 +1228,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		fileEClass = createEClass(FILE);
 		createEReference(fileEClass, FILE__MERGER);
-		createEReference(fileEClass, FILE__GENERATOR);
+		createEReference(fileEClass, FILE__GENERATORS);
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
@@ -1536,8 +1516,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_Configurator(), ecorePackage.getEString(), "configurator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1551,7 +1530,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGroup_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(groupEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -1576,7 +1554,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(fileEClass_C);
 		g1.getETypeArguments().add(g2);
-		initEReference(getFile_Generator(), g1, null, "generator", null, 1, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFile_Generators(), g1, null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1689,6 +1667,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// org.nasdanika.ui.java-class
+		createOrgAnnotations();
 	}
 
 	/**
@@ -1748,28 +1728,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Validation context."
 		   });	
 		addAnnotation
-		  (getGenerator_Iterator(), 
+		  (getGenerator_Controller(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Iterator attribute may contain a fragment of Java code which controls\r\nhow many times the generator will be invoked and can modify generator\'s \r\ncontext for each invocation.\r\n\r\nThe iterator\'s code shall be a Java method body as shown below:\r\n\r\n```java\r\n<T extends Generator> Object iterate(Context context, T generator) throws Exception {\r\n    // --- Iterator code here ---\r\n}\r\n```\r\n\r\nwhere ``T`` is the type of the iterator declaring generator model element. \r\n\r\nIterator code may return one of the following:\r\n\r\n* ``null`` or ``false`` or empty collection - no iteration.\r\n* ``java.util.Collection`` with elements of type ``org.nasdanika.codegen.Context`` or an array containing ``Context`` elements - generator will be invoked for each element of array/iterable and the element will be passed to the generator as its context.\r\n* ``Context`` - single invocation with returned context.\r\n\r\nIf the iterator returns any other result, then the generator throws ``IllegalArgumentException``.\r\n\r\nBlank iterator code is equivalent to ``return context;``"
-		   });	
-		addAnnotation
-		  (getGenerator_Configurator(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Configurator script is a Java method body which can configure generation result. Configurator script is typically executed after the generator has created the generation result, but before invocation of child generators.\r\n\r\nConfigurator script has access to ``MutableContext context``, ``T result``, and org.eclipse.core.runtime.SubMonitor monitor`` arguments. The script can replace the result:\r\n\r\n```java\r\nT configure(MutableContext context, T result, org.eclipse.core.runtime.SubMonitor monitor) throws Exception {\r\n    --- Configurator script here ---\r\n\r\n    return result;\r\n}\r\n```"
+			 "documentation", "Generator controller class. Must implement org.nasdanika.codegen.GeneratorController\r\nfor generators and org.nasdanika.codegen.GroupController for groups."
 		   });	
 		addAnnotation
 		  (groupEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "Group of generators from which zero to all can be invoked during the generation process."
-		   });	
-		addAnnotation
-		  (getGroup_Selector(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Java code to select which group elements shall be invoked and to customize their contexts. Selector code is a Java method body as shown below\r\n\r\n```java\r\n<G extends Generator> Context select(Context context, G group, Generator element) throws Exception {\r\n    // --- Selector code here ---\r\n}\r\n```\r\n\r\nwhere ``G`` is the type of the selector declaring group model element and ``element`` is the group element being evaluated. \r\n\r\nIf selector returns ``null`` then given group element is not invoked during generation. Otherwise it is invoked with the returned context.\r\n\r\nBlank selector code is equivalent to ``return context;``"
 		   });	
 		addAnnotation
 		  (getGroup_Elements(), 
@@ -1820,10 +1788,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \r\nwhere ``T`` is ``String` for text files and ``InputStream`` for binary files."
 		   });	
 		addAnnotation
-		  (getFile_Generator(), 
+		  (getFile_Generators(), 
 		   source, 
 		   new String[] {
-			 "documentation", "File content generator."
+			 "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
 		   });	
 		addAnnotation
 		  (projectEClass, 
@@ -2064,6 +2032,37 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.ui.java-class</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.ui.java-class";	
+		addAnnotation
+		  (getGenerator_Controller(), 
+		   source, 
+		   new String[] {
+			 "root-type", "org.nasdanika.codegen.GeneratorController",
+			 "super-interfaces", "org.nasdanika.codegen.GeneratorController"
+		   });	
+		addAnnotation
+		  (getJavaGenerator_ClassName(), 
+		   source, 
+		   new String[] {
+			 "root-type", "org.nasdanika.codegen.Generator",
+			 "super-interfaces", "org.nasdanika.codegen.Generator"
+		   });	
+		addAnnotation
+		  (getJavaFilter_ClassName(), 
+		   source, 
+		   new String[] {
+			 "root-type", "org.nasdanika.codegen.Filter",
+			 "super-interfaces", "org.nasdanika.codegen.Filter"
 		   });
 	}
 

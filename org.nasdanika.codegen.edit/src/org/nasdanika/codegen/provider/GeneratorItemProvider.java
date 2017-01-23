@@ -45,50 +45,27 @@ public class GeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIteratorPropertyDescriptor(object);
-			addConfiguratorPropertyDescriptor(object);
+			addControllerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Iterator feature.
+	 * This adds a property descriptor for the Controller feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIteratorPropertyDescriptor(Object object) {
+	protected void addControllerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Generator_iterator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_iterator_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__ITERATOR,
-				 true,
+				 getString("_UI_Generator_controller_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_controller_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONTROLLER,
 				 true,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Configurator feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfiguratorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_configurator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configurator_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONFIGURATOR,
-				 true,
-				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -133,8 +110,7 @@ public class GeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Generator.class)) {
-			case CodegenPackage.GENERATOR__ITERATOR:
-			case CodegenPackage.GENERATOR__CONFIGURATOR:
+			case CodegenPackage.GENERATOR__CONTROLLER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,8 +9,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.codehaus.commons.compiler.CompileException;
-import org.codehaus.janino.ScriptEvaluator;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -22,12 +19,12 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
 import org.nasdanika.codegen.GeneratorLabelProvider;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
-import org.nasdanika.config.SimpleMutableContext;
 import org.nasdanika.config.impl.ConfigurationImpl;
 
 /**
@@ -38,8 +35,7 @@ import org.nasdanika.config.impl.ConfigurationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getIterator <em>Iterator</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfigurator <em>Configurator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,8 +65,8 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getIterator() {
-		return (String)eGet(CodegenPackage.Literals.GENERATOR__ITERATOR, true);
+	public String getController() {
+		return (String)eGet(CodegenPackage.Literals.GENERATOR__CONTROLLER, true);
 	}
 
 	/**
@@ -78,26 +74,8 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIterator(String newIterator) {
-		eSet(CodegenPackage.Literals.GENERATOR__ITERATOR, newIterator);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getConfigurator() {
-		return (String)eGet(CodegenPackage.Literals.GENERATOR__CONFIGURATOR, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConfigurator(String newConfigurator) {
-		eSet(CodegenPackage.Literals.GENERATOR__CONFIGURATOR, newConfigurator);
+	public void setController(String newController) {
+		eSet(CodegenPackage.Literals.GENERATOR__CONTROLLER, newController);
 	}
 
 	/**
@@ -137,57 +115,15 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 			}
 		}
 		
-		String iterator = getIterator();
-		if (iterator == null || iterator.trim().length() == 0) {
+		if (getController() == null || getController().trim().length() == 0) {
 			return Collections.singleton(thisContext);
 		}
 		
-		Object result = createIteratorEvaluator(thisContext).evaluate(new Object[] { thisContext, this });
-		if (result == null || Boolean.FALSE.equals(result)) {
-			return Collections.emptySet();
-		}
-		
-		if (result instanceof Context) {
-			return Collections.singleton((Context) result);
-		}
-		
-		if (result instanceof Collection) {
-			return (Collection<Context>) result;
-		}
-						
-		if (result.getClass().isArray() && Context.class.isAssignableFrom(result.getClass().getComponentType())) {
-			List<Context> ret = new ArrayList<>();
-			for (int i=0; i<Array.getLength(result); ++i) {
-				ret.add((Context) Array.get(result, i));
-			}
-			return ret;
-		}
-		
-		throw new IllegalArgumentException("Unexpected iterator return value: "+result);
+		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) thisContext.getClassLoader().loadClass(getController().trim()).newInstance();
+		return controller.iterate(thisContext, this);
 	}
-
-	private ScriptEvaluator createIteratorEvaluator(Context context) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator();
-		se.setReturnType(Object.class);
-		se.setParameters(new String[] { "context", "generator" }, new Class[] { Context.class, this.getClass() });
-		se.setThrownExceptions(new Class[] { Exception.class });
-		se.setParentClassLoader(context.getClassLoader());
-		se.cook(getIterator());
-		return se;
-	}
-	
-	private ScriptEvaluator createConfiguratorEvaluator(Context context, Class<?> resultType) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator();
-		se.setReturnType(resultType);
-		se.setParameters(new String[] { "context", "result", "monitor" }, new Class[] { Context.class, resultType, SubMonitor.class });
-		se.setThrownExceptions(new Class[] { Exception.class });
-		se.setParentClassLoader(context.getClassLoader());
-		se.cook(getConfigurator()+System.lineSeparator()+"return result;");
-		return se;
-	}	
 	
 	/**
-	 * Executes configurator script.
 	 * @param context
 	 * @param result
 	 * @param monitor
@@ -195,12 +131,13 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 */
 	@SuppressWarnings("unchecked")
 	protected T configure(Context context, T result, SubMonitor monitor) throws Exception {
-		if (result != null && getConfigurator() != null && getConfigurator().trim().length() > 0) {
-			return (T) createConfiguratorEvaluator(context, result.getClass()).evaluate(new Object[] { context, result, monitor });
+		if (getController() == null || getController().trim().length() == 0) {
+			monitor.worked(1);
+			return result;
 		}
 		
-		monitor.worked(1);
-		return result;
+		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) context.getClassLoader().loadClass(getController().trim()).newInstance();
+		return controller.configure(this, context, result, monitor);		
 	}
 	
 	/**
@@ -213,63 +150,46 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			SimpleMutableContext evaluatorContext = new SimpleMutableContext();
+		if (diagnostics != null && getController() != null && getController().trim().length() > 0) {
 			ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
 			if (classLoader == null) {
 				classLoader = getClass().getClassLoader();
 			}
-			evaluatorContext.setClassLoader(classLoader);
-			if (getIterator() != null && getIterator().trim().length() > 0) {
-				try {
-					createIteratorEvaluator(evaluatorContext);						
-				} catch (CompileException e) {
-					diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Iterator script has errors: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
-				
-					result = false;						
-				} catch (Exception e) {
-					diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.WARNING,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate iterator script: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
-				
-					result = false;						
-				}
-			}			
-			if (getConfigurator() != null && getConfigurator().trim().length() > 0) {
-				try {
-					createConfiguratorEvaluator(evaluatorContext, Object.class);						
-				} catch (CompileException e) {
-					diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Configurator script has errors: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONFIGURATOR }));
-				
-					result = false;						
-				} catch (Exception e) {
-					diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.WARNING,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate configuration script: "+e.getMessage(),
-						 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
-				
-					result = false;						
-				}
-			}			
+			try {
+				@SuppressWarnings("unchecked")
+				GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) classLoader.loadClass(getController().trim()).newInstance();
+				controller.validate(this, diagnostics, context);
+			} catch (ClassNotFoundException e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.GENERATOR__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Controller class not found in context classloader: "+e.getMessage(),
+					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
+			
+				result = false;										
+			} catch (InstantiationException e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.GENERATOR__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Controller class could not be instantiated: "+e.getMessage(),
+					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
+			
+				result = false;														
+			} catch (Exception e) {
+				diagnostics.add
+				(new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 CodegenValidator.DIAGNOSTIC_SOURCE,
+					 CodegenValidator.GENERATOR__VALIDATE,
+					 "["+EObjectValidator.getObjectLabel(this, context)+"] Validation error: "+e.getMessage(),
+					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
+			
+				result = false;																		
+			}
 		}
 		return result;
 	}

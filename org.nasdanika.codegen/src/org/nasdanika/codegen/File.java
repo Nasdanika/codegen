@@ -3,6 +3,7 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.config.Service;
 
 /**
@@ -19,7 +20,7 @@ import org.nasdanika.config.Service;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.File#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
@@ -60,31 +61,18 @@ public interface File<C> extends Resource<IFile> {
 	void setMerger(Service value);
 
 	/**
-	 * Returns the value of the '<em><b>Generator</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;C>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generator</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * File content generator.
+	 * File content generators. 
+	 * Content produced by each generator is appended to the file content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generator</em>' containment reference.
-	 * @see #setGenerator(Generator)
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Generator()
+	 * @return the value of the '<em>Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Generators()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Generator<C> getGenerator();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.File#getGenerator <em>Generator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generator</em>' containment reference.
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	void setGenerator(Generator<C> value);
+	EList<Generator<C>> getGenerators();
 } // File

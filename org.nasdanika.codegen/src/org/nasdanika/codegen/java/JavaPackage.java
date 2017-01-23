@@ -132,22 +132,13 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_NATURE__ITERATOR = CodegenPackage.NATURE__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__CONFIGURATOR = CodegenPackage.NATURE__CONFIGURATOR;
+	int JAVA_NATURE__CONTROLLER = CodegenPackage.NATURE__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Packagefragmentroots</b></em>' containment reference list.
@@ -286,22 +277,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FRAGMENT_ROOT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
+	int PACKAGE_FRAGMENT_ROOT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -449,22 +431,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FRAGMENT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
+	int PACKAGE_FRAGMENT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -612,22 +585,13 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CONFIGURATOR = CodegenPackage.GENERATOR__CONFIGURATOR;
+	int COMPILATION_UNIT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -784,22 +748,13 @@ public interface JavaPackage extends EPackage {
 	int TEXT_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_COMPILATION_UNIT__ITERATOR = COMPILATION_UNIT__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__CONFIGURATOR = COMPILATION_UNIT__CONFIGURATOR;
+	int TEXT_COMPILATION_UNIT__CONTROLLER = COMPILATION_UNIT__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -965,22 +920,13 @@ public interface JavaPackage extends EPackage {
 	int STRUCTURED_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURED_COMPILATION_UNIT__ITERATOR = COMPILATION_UNIT__ITERATOR;
-
-	/**
-	 * The feature id for the '<em><b>Configurator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__CONFIGURATOR = COMPILATION_UNIT__CONFIGURATOR;
+	int STRUCTURED_COMPILATION_UNIT__CONTROLLER = COMPILATION_UNIT__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

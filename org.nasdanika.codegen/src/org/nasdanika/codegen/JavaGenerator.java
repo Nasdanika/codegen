@@ -58,7 +58,7 @@ public interface JavaGenerator<T> extends Generator<T> {
 	 * @return the value of the '<em>Class Name</em>' attribute.
 	 * @see #setClassName(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getJavaGenerator_ClassName()
-	 * @model
+	 * @model annotation="org.nasdanika.ui.java-class root-type='org.nasdanika.codegen.Generator' super-interfaces='org.nasdanika.codegen.Generator'"
 	 * @generated
 	 */
 	String getClassName();

@@ -8,22 +8,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.codehaus.commons.compiler.CompileException;
-import org.codehaus.janino.ScriptEvaluator;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.GroupController;
 import org.nasdanika.codegen.Work;
-import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
-import org.nasdanika.config.SimpleMutableContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +26,6 @@ import org.nasdanika.config.SimpleMutableContext;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.GroupImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GroupImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -64,66 +56,11 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelector() {
-		return (String)eGet(CodegenPackage.Literals.GROUP__SELECTOR, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelector(String newSelector) {
-		eSet(CodegenPackage.Literals.GROUP__SELECTOR, newSelector);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	public EList<Generator<T>> getElements() {
 		return (EList<Generator<T>>)eGet(CodegenPackage.Literals.GROUP__ELEMENTS, true);
 	}
 		
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null && getSelector() != null && getSelector().trim().length() > 0) {
-			try {
-				SimpleMutableContext evaluatorContext = new SimpleMutableContext();
-				ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
-				if (classLoader == null) {
-					classLoader = getClass().getClassLoader();
-				}
-				evaluatorContext.setClassLoader(classLoader);				
-				createSelectorEvaluator(evaluatorContext, Generator.class);						
-			} catch (CompileException e) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Selector script has errors: "+e.getMessage(),
-					 new Object [] { this, CodegenPackage.Literals.GROUP__SELECTOR }));
-			
-				result = false;						
-			} catch (Exception e) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.WARNING,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Could not validate selector script: "+e.getMessage(),
-					 new Object [] { this, CodegenPackage.Literals.GENERATOR__ITERATOR }));
-			
-				result = false;						
-			}			
-		}
-		return result;
-	}	
-
 	@Override
 	public Work<List<T>> createWorkItem() throws Exception {
 		Map<Generator<?>, Work<List<T>>> workMap = new HashMap<>();
@@ -147,9 +84,11 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 				
 				for (Entry<Generator<?>, Work<List<T>>> we: workMap.entrySet()) {
 					Context elementContext = context;
-					
-					if (getSelector() != null && getSelector().trim().length() > 0) {
-						elementContext = (Context) createSelectorEvaluator(context, we.getKey().getClass()).evaluate(new Object[] { context, this, we.getKey() });
+
+					if (getController() != null || getController().trim().length() != 0) {
+						@SuppressWarnings("unchecked")
+						GroupController<T, Group<T>> controller = (GroupController<T, Group<T>>) context.getClassLoader().loadClass(getController().trim()).newInstance();
+						elementContext = controller.select(GroupImpl.this, we.getKey(), elementContext);
 						if (elementContext == null) {
 							monitor.worked(we.getValue().size());
 							continue;
@@ -173,16 +112,6 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	 */
 	protected Context configureElementContext(Context elementContext) {
 		return elementContext;
-	}
-
-	private ScriptEvaluator createSelectorEvaluator(Context context, Class<?> elementClass) throws CompileException {
-		ScriptEvaluator se = new ScriptEvaluator();
-		se.setReturnType(Context.class);
-		se.setParameters(new String[] { "context", "group", "element" }, new Class[] { Context.class, this.getClass(), elementClass });
-		se.setThrownExceptions(new Class[] { Exception.class });
-		se.setParentClassLoader(context.getClassLoader());
-		se.cook(getSelector());
-		return se;
 	}
 
 } //GroupImpl
