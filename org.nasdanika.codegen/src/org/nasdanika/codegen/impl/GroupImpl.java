@@ -85,7 +85,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 				for (Entry<Generator<?>, Work<List<T>>> we: workMap.entrySet()) {
 					Context elementContext = context;
 
-					if (getController() != null || getController().trim().length() != 0) {
+					if (getController() != null && getController().trim().length() != 0) {
 						@SuppressWarnings("unchecked")
 						GroupController<T, Group<T>> controller = (GroupController<T, Group<T>>) context.getClassLoader().loadClass(getController().trim()).newInstance();
 						elementContext = controller.select(GroupImpl.this, we.getKey(), elementContext);
