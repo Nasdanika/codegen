@@ -69,33 +69,6 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__INCLUDES = CodegenPackage.NATURE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__CONFIGURATION = CodegenPackage.NATURE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__DEFAULT_INCLUDES = CodegenPackage.NATURE__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,24 +76,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_NATURE__BASE_URL = CodegenPackage.NATURE__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__CLASS_PATH = CodegenPackage.NATURE__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -132,6 +87,51 @@ public interface JavaPackage extends EPackage {
 	int JAVA_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__CLASS_PATH = CodegenPackage.NATURE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__INCLUDES = CodegenPackage.NATURE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__DEFAULT_INCLUDES = CodegenPackage.NATURE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__CONFIGURATION = CodegenPackage.NATURE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,6 +139,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_NATURE__CONTROLLER = CodegenPackage.NATURE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_NATURE__NAMED_GENERATORS = CodegenPackage.NATURE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Packagefragmentroots</b></em>' containment reference list.
@@ -214,33 +223,6 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,24 +230,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT_ROOT__BASE_URL = CodegenPackage.GENERATOR__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT_ROOT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -277,6 +241,51 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,6 +293,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT_ROOT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -368,33 +386,6 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,24 +393,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT__BASE_URL = CodegenPackage.GENERATOR__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FRAGMENT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -431,6 +404,51 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,6 +456,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FRAGMENT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -522,33 +549,6 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,24 +556,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__BASE_URL = CodegenPackage.GENERATOR__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -585,6 +567,51 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CLASS_PATH = CodegenPackage.GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__INCLUDES = CodegenPackage.GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__DEFAULT_INCLUDES = CodegenPackage.GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__INCLUDE = CodegenPackage.GENERATOR__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -592,6 +619,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -685,33 +721,6 @@ public interface JavaPackage extends EPackage {
 	int TEXT_COMPILATION_UNIT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__INCLUDES = COMPILATION_UNIT__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__CONFIGURATION = COMPILATION_UNIT__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__DEFAULT_INCLUDES = COMPILATION_UNIT__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -719,24 +728,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_COMPILATION_UNIT__BASE_URL = COMPILATION_UNIT__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__CLASS_PATH = COMPILATION_UNIT__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -748,6 +739,51 @@ public interface JavaPackage extends EPackage {
 	int TEXT_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__CLASS_PATH = COMPILATION_UNIT__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__INCLUDES = COMPILATION_UNIT__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__DEFAULT_INCLUDES = COMPILATION_UNIT__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__CONFIGURATION = COMPILATION_UNIT__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -755,6 +791,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_COMPILATION_UNIT__CONTROLLER = COMPILATION_UNIT__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_COMPILATION_UNIT__NAMED_GENERATORS = COMPILATION_UNIT__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -857,33 +902,6 @@ public interface JavaPackage extends EPackage {
 	int STRUCTURED_COMPILATION_UNIT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__INCLUDES = COMPILATION_UNIT__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__CONFIGURATION = COMPILATION_UNIT__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__DEFAULT_INCLUDES = COMPILATION_UNIT__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -891,24 +909,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT__BASE_URL = COMPILATION_UNIT__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__CLASS_PATH = COMPILATION_UNIT__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURED_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -920,6 +920,51 @@ public interface JavaPackage extends EPackage {
 	int STRUCTURED_COMPILATION_UNIT__DESCRIPTION = COMPILATION_UNIT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__CLASS_PATH = COMPILATION_UNIT__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__INCLUDES = COMPILATION_UNIT__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__DEFAULT_INCLUDES = COMPILATION_UNIT__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__CONFIGURATION = COMPILATION_UNIT__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__INCLUDE = COMPILATION_UNIT__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,6 +972,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_COMPILATION_UNIT__CONTROLLER = COMPILATION_UNIT__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_COMPILATION_UNIT__NAMED_GENERATORS = COMPILATION_UNIT__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

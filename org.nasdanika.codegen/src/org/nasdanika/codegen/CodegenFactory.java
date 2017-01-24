@@ -22,6 +22,15 @@ public interface CodegenFactory extends EFactory {
 	CodegenFactory eINSTANCE = org.nasdanika.codegen.impl.CodegenFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Named Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Generator</em>'.
+	 * @generated
+	 */
+	NamedGenerator createNamedGenerator();
+
+	/**
 	 * Returns a new object of class '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

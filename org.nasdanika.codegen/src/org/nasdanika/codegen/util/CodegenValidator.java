@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
@@ -191,6 +192,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
 				return validateGenerator((Generator<?>)value, diagnostics, context);
+			case CodegenPackage.NAMED_GENERATOR:
+				return validateNamedGenerator((NamedGenerator)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GROUP:
@@ -328,6 +331,15 @@ public class CodegenValidator extends EObjectValidator {
 	 */
 	public boolean validateGenerator_validate(Generator<?> generator, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return generator.validate(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNamedGenerator(NamedGenerator namedGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint((EObject)namedGenerator, diagnostics, context);
 	}
 
 	/**

@@ -67,33 +67,6 @@ public interface MavenPackage extends EPackage {
 	int MAVEN_NATURE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_NATURE__INCLUDES = CodegenPackage.NATURE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_NATURE__CONFIGURATION = CodegenPackage.NATURE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_NATURE__DEFAULT_INCLUDES = CodegenPackage.NATURE__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,24 +74,6 @@ public interface MavenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAVEN_NATURE__BASE_URL = CodegenPackage.NATURE__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_NATURE__CLASS_PATH = CodegenPackage.NATURE__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -130,6 +85,51 @@ public interface MavenPackage extends EPackage {
 	int MAVEN_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__CLASS_PATH = CodegenPackage.NATURE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__INCLUDES = CodegenPackage.NATURE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__DEFAULT_INCLUDES = CodegenPackage.NATURE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__CONFIGURATION = CodegenPackage.NATURE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,6 +137,15 @@ public interface MavenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAVEN_NATURE__CONTROLLER = CodegenPackage.NATURE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_NATURE__NAMED_GENERATORS = CodegenPackage.NATURE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Pom Generator</b></em>' containment reference.

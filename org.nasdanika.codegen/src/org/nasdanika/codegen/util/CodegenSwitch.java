@@ -5,6 +5,7 @@ package org.nasdanika.codegen.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
@@ -111,6 +112,12 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseGenerator(generator);
 				if (result == null) result = caseConfiguration(generator);
 				if (result == null) result = caseWorkFactory(generator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.NAMED_GENERATOR: {
+				NamedGenerator namedGenerator = (NamedGenerator)theEObject;
+				T1 result = caseNamedGenerator(namedGenerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -489,6 +496,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseGenerator(Generator<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNamedGenerator(NamedGenerator object) {
 		return null;
 	}
 

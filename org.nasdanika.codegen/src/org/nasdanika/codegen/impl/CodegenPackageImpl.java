@@ -44,6 +44,7 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
@@ -93,6 +94,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass generatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedGeneratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -543,6 +551,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGenerator_NamedGenerators() {
+		return (EReference)generatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGenerator__IsFilterable() {
 		return generatorEClass.getEOperations().get(0);
 	}
@@ -554,6 +571,33 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EOperation getGenerator__Validate__DiagnosticChain_Map() {
 		return generatorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedGenerator() {
+		return namedGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedGenerator_Name() {
+		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedGenerator_Generator() {
+		return (EReference)namedGeneratorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1209,8 +1253,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
+		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
+
+		namedGeneratorEClass = createEClass(NAMED_GENERATOR);
+		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__NAME);
+		createEReference(namedGeneratorEClass, NAMED_GENERATOR__GENERATOR);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__ELEMENTS);
@@ -1517,6 +1566,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1528,6 +1578,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(namedGeneratorEClass, NamedGenerator.class, "NamedGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedGenerator_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getNamedGenerator_Generator(), g1, null, "generator", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
@@ -1732,6 +1789,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Generator controller class. Must implement org.nasdanika.codegen.GeneratorController\r\nfor generators and org.nasdanika.codegen.GroupController for groups."
+		   });	
+		addAnnotation
+		  (namedGeneratorEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "This class allows to mount generators to the parent generator context as property providers\r\naccessible by name. It can be used for conditional invocation of named\r\ngenerators by the containing generator. context.get(generatorName) returns Work created by contained generator."
+		   });	
+		addAnnotation
+		  (getNamedGenerator_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generator name."
+		   });	
+		addAnnotation
+		  (getNamedGenerator_Generator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The generator addressed by name.\r\n\r\nThe generator shall be parameterized with EJavaObject, but due to a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=510914 - it is now restricted to String generators.\r\nThe generic parameter shall be changed to EObject once the bug is fixed.\r\n\t\r\n"
 		   });	
 		addAnnotation
 		  (groupEClass, 

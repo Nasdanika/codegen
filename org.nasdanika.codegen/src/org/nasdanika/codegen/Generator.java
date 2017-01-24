@@ -6,6 +6,7 @@ import java.util.List;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.config.Configuration;
 
 
@@ -23,6 +24,7 @@ import org.nasdanika.config.Configuration;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -56,6 +58,22 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setController(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Named Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.NamedGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Named Generators</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Named Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_NamedGenerators()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<NamedGenerator> getNamedGenerators();
 
 	/**
 	 * <!-- begin-user-doc -->

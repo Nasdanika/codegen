@@ -72,6 +72,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.NamedGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedGeneratorItemProvider namedGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.NamedGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedGeneratorAdapter() {
+		if (namedGeneratorItemProvider == null) {
+			namedGeneratorItemProvider = new NamedGeneratorItemProvider(this);
+		}
+
+		return namedGeneratorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Group} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,6 +699,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
+		if (namedGeneratorItemProvider != null) namedGeneratorItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
 		if (workspaceItemProvider != null) workspaceItemProvider.dispose();

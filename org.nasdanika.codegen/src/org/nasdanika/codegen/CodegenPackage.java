@@ -71,7 +71,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 	 * @generated
 	 */
-	int PROVIDER = 21;
+	int PROVIDER = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
@@ -112,33 +112,6 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__INCLUDES = ConfigPackage.CONFIGURATION__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CONFIGURATION = ConfigPackage.CONFIGURATION__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__DEFAULT_INCLUDES = ConfigPackage.CONFIGURATION__DEFAULT_INCLUDES;
-
-	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,24 +119,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR__BASE_URL = ConfigPackage.CONFIGURATION__BASE_URL;
-
-	/**
-	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CLASS_PATH = ConfigPackage.CONFIGURATION__CLASS_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Include</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__INCLUDE = ConfigPackage.CONFIGURATION__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -175,6 +130,51 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__DESCRIPTION = ConfigPackage.CONFIGURATION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CLASS_PATH = ConfigPackage.CONFIGURATION__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__INCLUDES = ConfigPackage.CONFIGURATION__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__DEFAULT_INCLUDES = ConfigPackage.CONFIGURATION__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONFIGURATION = ConfigPackage.CONFIGURATION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__INCLUDE = ConfigPackage.CONFIGURATION__INCLUDE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,13 +184,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__CONTROLLER = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__NAMED_GENERATORS = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 1;
+	int GENERATOR_FEATURE_COUNT = ConfigPackage.CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -238,6 +247,52 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_OPERATION_COUNT = ConfigPackage.CONFIGURATION_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.NamedGeneratorImpl <em>Named Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.NamedGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedGenerator()
+	 * @generated
+	 */
+	int NAMED_GENERATOR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__GENERATOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Named Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Named Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,34 +300,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 2;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int GROUP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -284,6 +312,15 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -291,6 +328,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -302,15 +366,6 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,6 +373,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -390,34 +454,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
 	 * @generated
 	 */
-	int RESOURCE_GROUP = 3;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__INCLUDES = GROUP__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__DEFAULT_INCLUDES = GROUP__DEFAULT_INCLUDES;
+	int RESOURCE_GROUP = 4;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -429,6 +466,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__BASE_URL = GROUP__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__DESCRIPTION = GROUP__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,6 +482,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GROUP__CLASS_PATH = GROUP__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__INCLUDES = GROUP__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__DEFAULT_INCLUDES = GROUP__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -447,15 +520,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__INCLUDE = GROUP__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__DESCRIPTION = GROUP__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,6 +527,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GROUP__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -535,34 +608,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGenerator()
 	 * @generated
 	 */
-	int RESOURCE_GENERATOR = 4;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int RESOURCE_GENERATOR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -574,6 +620,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +636,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -592,15 +674,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,6 +681,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The number of structural features of the '<em>Resource Generator</em>' class.
@@ -671,34 +753,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkspace()
 	 * @generated
 	 */
-	int WORKSPACE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSPACE__INCLUDES = GROUP__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSPACE__CONFIGURATION = GROUP__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSPACE__DEFAULT_INCLUDES = GROUP__DEFAULT_INCLUDES;
+	int WORKSPACE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -710,6 +765,15 @@ public interface CodegenPackage extends EPackage {
 	int WORKSPACE__BASE_URL = GROUP__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__DESCRIPTION = GROUP__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,6 +781,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int WORKSPACE__CLASS_PATH = GROUP__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__INCLUDES = GROUP__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__DEFAULT_INCLUDES = GROUP__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__CONFIGURATION = GROUP__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -728,15 +819,6 @@ public interface CodegenPackage extends EPackage {
 	int WORKSPACE__INCLUDE = GROUP__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSPACE__DESCRIPTION = GROUP__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,6 +826,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int WORKSPACE__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -816,34 +907,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__INCLUDES = RESOURCE_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__CONFIGURATION = RESOURCE_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DEFAULT_INCLUDES = RESOURCE_GENERATOR__DEFAULT_INCLUDES;
+	int RESOURCE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -855,6 +919,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__BASE_URL = RESOURCE_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,6 +935,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__CLASS_PATH = RESOURCE_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__INCLUDES = RESOURCE_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DEFAULT_INCLUDES = RESOURCE_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONFIGURATION = RESOURCE_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -873,15 +973,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__INCLUDE = RESOURCE_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -889,6 +980,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__CONTROLLER = RESOURCE_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -970,34 +1070,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 6;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__INCLUDES = RESOURCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__CONFIGURATION = RESOURCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+	int FOLDER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1009,6 +1082,15 @@ public interface CodegenPackage extends EPackage {
 	int FOLDER__BASE_URL = RESOURCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1098,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1027,15 +1136,6 @@ public interface CodegenPackage extends EPackage {
 	int FOLDER__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__DESCRIPTION = RESOURCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1043,6 +1143,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1133,34 +1242,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNature()
 	 * @generated
 	 */
-	int NATURE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NATURE__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NATURE__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NATURE__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int NATURE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1172,6 +1254,15 @@ public interface CodegenPackage extends EPackage {
 	int NATURE__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1179,6 +1270,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATURE__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1190,15 +1308,6 @@ public interface CodegenPackage extends EPackage {
 	int NATURE__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NATURE__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1206,6 +1315,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATURE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATURE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The number of structural features of the '<em>Nature</em>' class.
@@ -1269,34 +1387,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__INCLUDES = RESOURCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+	int FILE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1308,6 +1399,15 @@ public interface CodegenPackage extends EPackage {
 	int FILE__BASE_URL = RESOURCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1315,6 +1415,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1326,15 +1453,6 @@ public interface CodegenPackage extends EPackage {
 	int FILE__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1342,6 +1460,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1441,34 +1568,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROJECT__INCLUDES = RESOURCE_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROJECT__CONFIGURATION = RESOURCE_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROJECT__DEFAULT_INCLUDES = RESOURCE_GENERATOR__DEFAULT_INCLUDES;
+	int PROJECT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1480,6 +1580,15 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT__BASE_URL = RESOURCE_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1487,6 +1596,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROJECT__CLASS_PATH = RESOURCE_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__INCLUDES = RESOURCE_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__DEFAULT_INCLUDES = RESOURCE_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__CONFIGURATION = RESOURCE_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1498,15 +1634,6 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT__INCLUDE = RESOURCE_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROJECT__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1514,6 +1641,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROJECT__CONTROLLER = RESOURCE_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1613,34 +1749,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryFile()
 	 * @generated
 	 */
-	int BINARY_FILE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__INCLUDES = FILE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__CONFIGURATION = FILE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__DEFAULT_INCLUDES = FILE__DEFAULT_INCLUDES;
+	int BINARY_FILE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1652,6 +1761,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__BASE_URL = FILE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__DESCRIPTION = FILE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1659,6 +1777,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE__CLASS_PATH = FILE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__INCLUDES = FILE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__DEFAULT_INCLUDES = FILE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__CONFIGURATION = FILE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1670,15 +1815,6 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__INCLUDE = FILE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__DESCRIPTION = FILE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1686,6 +1822,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE__CONTROLLER = FILE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1785,34 +1930,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextFile()
 	 * @generated
 	 */
-	int TEXT_FILE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__INCLUDES = FILE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__CONFIGURATION = FILE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__DEFAULT_INCLUDES = FILE__DEFAULT_INCLUDES;
+	int TEXT_FILE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1824,6 +1942,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__BASE_URL = FILE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__DESCRIPTION = FILE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,6 +1958,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__CLASS_PATH = FILE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__INCLUDES = FILE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__DEFAULT_INCLUDES = FILE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__CONFIGURATION = FILE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1842,15 +1996,6 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__INCLUDE = FILE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__DESCRIPTION = FILE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1858,6 +2003,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__CONTROLLER = FILE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1957,34 +2111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceReference()
 	 * @generated
 	 */
-	int RESOURCE_REFERENCE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REFERENCE__INCLUDES = RESOURCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REFERENCE__CONFIGURATION = RESOURCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REFERENCE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+	int RESOURCE_REFERENCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1996,6 +2123,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_REFERENCE__BASE_URL = RESOURCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2003,6 +2139,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_REFERENCE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2014,15 +2177,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_REFERENCE__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REFERENCE__DESCRIPTION = RESOURCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2030,6 +2184,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_REFERENCE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2120,34 +2283,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticText()
 	 * @generated
 	 */
-	int STATIC_TEXT = 14;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int STATIC_TEXT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2159,6 +2295,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2166,6 +2311,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2177,15 +2349,6 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2193,6 +2356,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -2265,34 +2437,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int CONTENT_REFERENCE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2304,6 +2449,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2311,6 +2465,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2322,15 +2503,6 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2338,6 +2510,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -2410,34 +2591,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 16;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int FILTER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2449,6 +2603,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2456,6 +2619,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2467,15 +2657,6 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2483,6 +2664,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2555,34 +2745,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 17;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int JAVA_GENERATOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2594,6 +2757,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2601,6 +2773,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2612,15 +2811,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2628,6 +2818,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2700,34 +2899,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 18;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__INCLUDES = FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__CONFIGURATION = FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+	int INTERPOLATOR = 19;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2739,6 +2911,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__BASE_URL = FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2746,6 +2927,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR__CLASS_PATH = FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__INCLUDES = FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONFIGURATION = FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2757,15 +2965,6 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__INCLUDE = FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__DESCRIPTION = FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2773,6 +2972,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2845,34 +3053,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJETEmitter()
 	 * @generated
 	 */
-	int JET_EMITTER = 19;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JET_EMITTER__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JET_EMITTER__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JET_EMITTER__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int JET_EMITTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2884,6 +3065,15 @@ public interface CodegenPackage extends EPackage {
 	int JET_EMITTER__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2891,6 +3081,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JET_EMITTER__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -2902,15 +3119,6 @@ public interface CodegenPackage extends EPackage {
 	int JET_EMITTER__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JET_EMITTER__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2918,6 +3126,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JET_EMITTER__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JET_EMITTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Template URI</b></em>' attribute.
@@ -2990,34 +3207,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 20;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__INCLUDES = FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+	int JAVA_FILTER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3029,6 +3219,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__BASE_URL = FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3036,6 +3235,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__CLASS_PATH = FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__INCLUDES = FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3047,15 +3273,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__INCLUDE = FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3063,6 +3280,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -3162,34 +3388,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 22;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__INCLUDES = JAVA_FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__DEFAULT_INCLUDES = JAVA_FILTER__DEFAULT_INCLUDES;
+	int JAVA_TEXT_FILTER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3201,6 +3400,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__BASE_URL = JAVA_FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3208,6 +3416,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER__CLASS_PATH = JAVA_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__INCLUDES = JAVA_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__DEFAULT_INCLUDES = JAVA_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3219,15 +3454,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__INCLUDE = JAVA_FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3235,6 +3461,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -3316,34 +3551,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 23;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__INCLUDES = JAVA_FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__DEFAULT_INCLUDES = JAVA_FILTER__DEFAULT_INCLUDES;
+	int JAVA_STREAM_FILTER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3355,6 +3563,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER__BASE_URL = JAVA_FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3362,6 +3579,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CLASS_PATH = JAVA_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__INCLUDES = JAVA_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__DEFAULT_INCLUDES = JAVA_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3373,15 +3617,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER__INCLUDE = JAVA_FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__DESCRIPTION = JAVA_FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3389,6 +3624,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -3470,34 +3714,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 24;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__INCLUDES = JAVA_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__DEFAULT_INCLUDES = JAVA_GENERATOR__DEFAULT_INCLUDES;
+	int JAVA_TEXT_GENERATOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3509,6 +3726,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__BASE_URL = JAVA_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3516,6 +3742,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR__CLASS_PATH = JAVA_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__INCLUDES = JAVA_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__DEFAULT_INCLUDES = JAVA_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3527,15 +3780,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__INCLUDE = JAVA_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3543,6 +3787,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3615,34 +3868,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 25;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__INCLUDES = JAVA_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__DEFAULT_INCLUDES = JAVA_GENERATOR__DEFAULT_INCLUDES;
+	int JAVA_STREAM_GENERATOR = 26;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3654,6 +3880,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR__BASE_URL = JAVA_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3661,6 +3896,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CLASS_PATH = JAVA_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__INCLUDES = JAVA_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__DEFAULT_INCLUDES = JAVA_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3672,15 +3934,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR__INCLUDE = JAVA_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__DESCRIPTION = JAVA_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3688,6 +3941,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3760,34 +4022,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_GENERATOR = 26;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+	int SCRIPTED_GENERATOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3799,6 +4034,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_GENERATOR__BASE_URL = GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3806,6 +4050,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_GENERATOR__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3817,15 +4088,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3833,6 +4095,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -3905,34 +4176,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_GENERATOR = 27;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+	int SCRIPTED_TEXT_GENERATOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3944,6 +4188,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_TEXT_GENERATOR__BASE_URL = SCRIPTED_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3951,6 +4204,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_GENERATOR__CLASS_PATH = SCRIPTED_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -3962,15 +4242,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_TEXT_GENERATOR__INCLUDE = SCRIPTED_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3978,6 +4249,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_GENERATOR__CONTROLLER = SCRIPTED_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_GENERATOR__NAMED_GENERATORS = SCRIPTED_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -4050,34 +4330,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_GENERATOR = 28;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+	int SCRIPTED_STREAM_GENERATOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4089,6 +4342,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_STREAM_GENERATOR__BASE_URL = SCRIPTED_GENERATOR__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4096,6 +4358,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_GENERATOR__CLASS_PATH = SCRIPTED_GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__INCLUDES = SCRIPTED_GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__DEFAULT_INCLUDES = SCRIPTED_GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__CONFIGURATION = SCRIPTED_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4107,15 +4396,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_STREAM_GENERATOR__INCLUDE = SCRIPTED_GENERATOR__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_GENERATOR__DESCRIPTION = SCRIPTED_GENERATOR__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4123,6 +4403,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_GENERATOR__CONTROLLER = SCRIPTED_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_GENERATOR__NAMED_GENERATORS = SCRIPTED_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -4195,34 +4484,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
 	 * @generated
 	 */
-	int SCRIPTED_FILTER = 29;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_FILTER__INCLUDES = FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_FILTER__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+	int SCRIPTED_FILTER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4234,6 +4496,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_FILTER__BASE_URL = FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4241,6 +4512,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_FILTER__CLASS_PATH = FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__INCLUDES = FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__DEFAULT_INCLUDES = FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4252,15 +4550,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_FILTER__INCLUDE = FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_FILTER__DESCRIPTION = FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4268,6 +4557,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_FILTER__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -4349,34 +4647,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_FILTER = 30;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+	int SCRIPTED_TEXT_FILTER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4388,6 +4659,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_TEXT_FILTER__BASE_URL = SCRIPTED_FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4395,6 +4675,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_FILTER__CLASS_PATH = SCRIPTED_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4406,15 +4713,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_TEXT_FILTER__INCLUDE = SCRIPTED_FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_TEXT_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4422,6 +4720,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_TEXT_FILTER__CONTROLLER = SCRIPTED_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_TEXT_FILTER__NAMED_GENERATORS = SCRIPTED_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -4503,34 +4810,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_FILTER = 31;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+	int SCRIPTED_STREAM_FILTER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4542,6 +4822,15 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_STREAM_FILTER__BASE_URL = SCRIPTED_FILTER__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4549,6 +4838,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_FILTER__CLASS_PATH = SCRIPTED_FILTER__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__INCLUDES = SCRIPTED_FILTER__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__DEFAULT_INCLUDES = SCRIPTED_FILTER__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__CONFIGURATION = SCRIPTED_FILTER__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4560,15 +4876,6 @@ public interface CodegenPackage extends EPackage {
 	int SCRIPTED_STREAM_FILTER__INCLUDE = SCRIPTED_FILTER__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCRIPTED_STREAM_FILTER__DESCRIPTION = SCRIPTED_FILTER__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4576,6 +4883,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPTED_STREAM_FILTER__CONTROLLER = SCRIPTED_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPTED_STREAM_FILTER__NAMED_GENERATORS = SCRIPTED_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -4657,34 +4973,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 32;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__INCLUDES = CONTENT_REFERENCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__DEFAULT_INCLUDES = CONTENT_REFERENCE__DEFAULT_INCLUDES;
+	int TEXT_CONTENT_REFERENCE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4696,6 +4985,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE__BASE_URL = CONTENT_REFERENCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__DESCRIPTION = CONTENT_REFERENCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4703,6 +5001,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__CLASS_PATH = CONTENT_REFERENCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__INCLUDES = CONTENT_REFERENCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__DEFAULT_INCLUDES = CONTENT_REFERENCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4714,15 +5039,6 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE__INCLUDE = CONTENT_REFERENCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__DESCRIPTION = CONTENT_REFERENCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4730,6 +5046,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -4802,34 +5127,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 33;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__INCLUDES = CONTENT_REFERENCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__DEFAULT_INCLUDES = CONTENT_REFERENCE__DEFAULT_INCLUDES;
+	int STREAM_CONTENT_REFERENCE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4841,6 +5139,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__BASE_URL = CONTENT_REFERENCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__DESCRIPTION = CONTENT_REFERENCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4848,6 +5155,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE__CLASS_PATH = CONTENT_REFERENCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__INCLUDES = CONTENT_REFERENCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__DEFAULT_INCLUDES = CONTENT_REFERENCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -4859,15 +5193,6 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__INCLUDE = CONTENT_REFERENCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__DESCRIPTION = CONTENT_REFERENCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4875,6 +5200,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -4947,34 +5281,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 34;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__INCLUDES = RESOURCE__INCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__CONFIGURATION = RESOURCE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+	int ZIP_ARCHIVE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4986,6 +5293,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__BASE_URL = RESOURCE__BASE_URL;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4993,6 +5309,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -5004,15 +5347,6 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__DESCRIPTION = RESOURCE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5020,6 +5354,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5119,7 +5462,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 35;
+	int RECONCILE_ACTION = 36;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5129,7 +5472,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 36;
+	int CONTEXT = 37;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -5139,7 +5482,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 37;
+	int INPUT_STREAM = 38;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -5149,7 +5492,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 38;
+	int VOID = 39;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -5159,7 +5502,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 39;
+	int IFILE = 40;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -5169,7 +5512,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 40;
+	int IFOLDER = 41;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -5179,7 +5522,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 41;
+	int IPROJECT = 42;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -5189,7 +5532,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 42;
+	int IPROJECT_NATURE = 43;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -5199,7 +5542,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 43;
+	int IWORKSPACE_ROOT = 44;
 
 
 	/**
@@ -5210,7 +5553,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 44;
+	int EXCEPTION = 45;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -5220,7 +5563,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 45;
+	int IRESOURCE = 46;
 
 
 	/**
@@ -5231,7 +5574,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 46;
+	int LIST = 47;
 
 
 	/**
@@ -5242,7 +5585,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 47;
+	int MERGER = 48;
 
 
 	/**
@@ -5253,7 +5596,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 48;
+	int SUB_MONITOR = 49;
 
 
 	/**
@@ -5264,7 +5607,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 49;
+	int ICONTAINER = 50;
 
 
 	/**
@@ -5300,6 +5643,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getGenerator_Controller();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Named Generators</em>'.
+	 * @see org.nasdanika.codegen.Generator#getNamedGenerators()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EReference getGenerator_NamedGenerators();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#isFilterable() <em>Is Filterable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5318,6 +5672,38 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGenerator__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.NamedGenerator <em>Named Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Generator</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator
+	 * @generated
+	 */
+	EClass getNamedGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator#getName()
+	 * @see #getNamedGenerator()
+	 * @generated
+	 */
+	EAttribute getNamedGenerator_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.NamedGenerator#getGenerator <em>Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Generator</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator#getGenerator()
+	 * @see #getNamedGenerator()
+	 * @generated
+	 */
+	EReference getNamedGenerator_Generator();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
@@ -6097,6 +6483,14 @@ public interface CodegenPackage extends EPackage {
 		EAttribute GENERATOR__CONTROLLER = eINSTANCE.getGenerator_Controller();
 
 		/**
+		 * The meta object literal for the '<em><b>Named Generators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR__NAMED_GENERATORS = eINSTANCE.getGenerator_NamedGenerators();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Filterable</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6111,6 +6505,32 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGenerator__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.NamedGeneratorImpl <em>Named Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.NamedGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedGenerator()
+		 * @generated
+		 */
+		EClass NAMED_GENERATOR = eINSTANCE.getNamedGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_GENERATOR__NAME = eINSTANCE.getNamedGenerator_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Generator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_GENERATOR__GENERATOR = eINSTANCE.getNamedGenerator_Generator();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.

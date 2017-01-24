@@ -22,9 +22,12 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
 import org.nasdanika.codegen.GeneratorLabelProvider;
+import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
+import org.nasdanika.config.MutableContext;
+import org.nasdanika.config.Provider;
 import org.nasdanika.config.impl.ConfigurationImpl;
 
 /**
@@ -36,6 +39,7 @@ import org.nasdanika.config.impl.ConfigurationImpl;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +80,16 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	 */
 	public void setController(String newController) {
 		eSet(CodegenPackage.Literals.GENERATOR__CONTROLLER, newController);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<NamedGenerator> getNamedGenerators() {
+		return (EList<NamedGenerator>)eGet(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS, true);
 	}
 
 	/**
@@ -244,6 +258,19 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				return ret;
 			}
 		};
+	}
+	
+	@Override
+	public Context createContext(Context parent, SubMonitor monitor) throws Exception {
+		Context ctx = super.createContext(parent, monitor);
+		if (getNamedGenerators().isEmpty()) {
+			return ctx;
+		}
+		MutableContext mctx = ctx.createSubContext();
+		for (NamedGenerator ng: getNamedGenerators()) {
+			mctx.set(ng.getName(), ng.getGenerator().createWork());
+		}
+		return mctx;
 	}
 		
 

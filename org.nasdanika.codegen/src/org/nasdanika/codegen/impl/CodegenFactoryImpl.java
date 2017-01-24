@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -91,6 +92,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case CodegenPackage.NAMED_GENERATOR: return (EObject)createNamedGenerator();
 			case CodegenPackage.GROUP: return (EObject)createGroup();
 			case CodegenPackage.RESOURCE_GROUP: return (EObject)createResourceGroup();
 			case CodegenPackage.WORKSPACE: return (EObject)createWorkspace();
@@ -202,6 +204,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedGenerator createNamedGenerator() {
+		NamedGeneratorImpl namedGenerator = new NamedGeneratorImpl();
+		return namedGenerator;
 	}
 
 	/**
