@@ -187,11 +187,14 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					case KEEP:
 						// Take no action
 						return file;
-					case OVERWRITE:
+					case CONFIRM_OVERWRITE:
 						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) context.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
 						if (overwritePredicate == null || overwritePredicate.test(file)) {
 							file.delete(true, true, monitor.split(1));
 						}
+						break;
+					case OVERWRITE:
+						file.delete(true, true, monitor.split(1));
 						break;
 					default:
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());

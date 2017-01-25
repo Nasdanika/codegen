@@ -605,6 +605,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNamedGenerator_ExecuteWork() {
+		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedGenerator_Description() {
+		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -1260,6 +1278,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		namedGeneratorEClass = createEClass(NAMED_GENERATOR);
 		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__NAME);
 		createEReference(namedGeneratorEClass, NAMED_GENERATOR__GENERATOR);
+		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__EXECUTE_WORK);
+		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__DESCRIPTION);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__ELEMENTS);
@@ -1585,6 +1605,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		initEReference(getNamedGenerator_Generator(), g1, null, "generator", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedGenerator_ExecuteWork(), ecorePackage.getEBoolean(), "executeWork", "true", 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
@@ -1699,6 +1721,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.KEEP);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.APPEND);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.MERGE);
+		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CONFIRM_OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CANCEL);
 
@@ -1807,6 +1830,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "The generator addressed by name.\r\n\r\nThe generator shall be parameterized with EJavaObject, but due to a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=510914 - it is now restricted to String generators.\r\nThe generic parameter shall be changed to EObject once the bug is fixed.\r\n\t\r\n"
+		   });	
+		addAnnotation
+		  (getNamedGenerator_ExecuteWork(), 
+		   source, 
+		   new String[] {
+			 "documentation", "If true (default), then the work created by contained generator is executed and \r\nthe work execution result is injected into the container context. If false, then the\r\nwork per-se is injected into the container generator context and it is up to the container\r\ngenerator to execute it."
+		   });	
+		addAnnotation
+		  (getNamedGenerator_Description(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Description."
 		   });	
 		addAnnotation
 		  (groupEClass, 
@@ -1956,10 +1991,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (reconcileActionEEnum.getELiterals().get(3), 
 		   source, 
 		   new String[] {
-			 "documentation", "Replace existing content with the new one. \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n\r\nIf the generation context contains ``overwrite-predicate`` property, then the value\r\nof the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.\r\nIf the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).\r\n\r\nThe predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).\r\n\r\nClients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "
+			 "documentation", "Replace existing content with the new one upon confirmation (see below). \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n\r\nIf the generation context contains ``overwrite-predicate`` property, then the value\r\nof the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.\r\nIf the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).\r\n\r\nThe predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).\r\n\r\nClients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "
 		   });	
 		addAnnotation
 		  (reconcileActionEEnum.getELiterals().get(4), 
+		   source, 
+		   new String[] {
+			 "documentation", "Replace existing content with the new one. \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n"
+		   });	
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(5), 
 		   source, 
 		   new String[] {
 			 "documentation", "Throw ``OperationCancelledException`` if resource/project already exists."

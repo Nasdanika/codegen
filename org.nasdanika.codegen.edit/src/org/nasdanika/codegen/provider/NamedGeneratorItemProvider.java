@@ -67,6 +67,8 @@ public class NamedGeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addExecuteWorkPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +89,50 @@ public class NamedGeneratorItemProvider
 				 CodegenPackage.Literals.NAMED_GENERATOR__NAME,
 				 true,
 				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Execute Work feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExecuteWorkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamedGenerator_executeWork_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedGenerator_executeWork_feature", "_UI_NamedGenerator_type"),
+				 CodegenPackage.Literals.NAMED_GENERATOR__EXECUTE_WORK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamedGenerator_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedGenerator_description_feature", "_UI_NamedGenerator_type"),
+				 CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION,
+				 true,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -162,6 +208,8 @@ public class NamedGeneratorItemProvider
 
 		switch (notification.getFeatureID(NamedGenerator.class)) {
 			case CodegenPackage.NAMED_GENERATOR__NAME:
+			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
+			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.NAMED_GENERATOR__GENERATOR:

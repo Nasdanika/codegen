@@ -21,6 +21,8 @@ import org.eclipse.emf.cdo.CDOObject;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.NamedGenerator#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.NamedGenerator#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.NamedGenerator#isExecuteWork <em>Execute Work</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator()
@@ -83,5 +85,59 @@ public interface NamedGenerator extends CDOObject {
 	 * @generated
 	 */
 	void setGenerator(Generator<String> value);
+
+	/**
+	 * Returns the value of the '<em><b>Execute Work</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true (default), then the work created by contained generator is executed and 
+	 * the work execution result is injected into the container context. If false, then the
+	 * work per-se is injected into the container generator context and it is up to the container
+	 * generator to execute it.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Execute Work</em>' attribute.
+	 * @see #setExecuteWork(boolean)
+	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_ExecuteWork()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isExecuteWork();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.NamedGenerator#isExecuteWork <em>Execute Work</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Execute Work</em>' attribute.
+	 * @see #isExecuteWork()
+	 * @generated
+	 */
+	void setExecuteWork(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Description.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 } // NamedGenerator

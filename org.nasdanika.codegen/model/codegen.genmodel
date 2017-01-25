@@ -15,6 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Keep"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Append"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Merge"/>
+      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/ConfirmOverwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Overwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Cancel"/>
     </genEnums>
@@ -52,6 +53,8 @@
     <genClasses ecoreClass="codegen.ecore#//NamedGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//NamedGenerator/generator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/executeWork"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/description"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>

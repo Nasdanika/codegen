@@ -6,8 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -27,7 +29,6 @@ import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
 import org.nasdanika.config.MutableContext;
-import org.nasdanika.config.Provider;
 import org.nasdanika.config.impl.ConfigurationImpl;
 
 /**
@@ -224,11 +225,34 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 	final public Work<List<T>> createWork() throws Exception {
 		Work<T> workItem = createWorkItem();
 		
+		class NamedGeneratorWorkEntry<WT> {
+			Work<List<WT>> work;
+			boolean execute;
+			
+			NamedGeneratorWorkEntry(Work<List<WT>> work, boolean execute) {
+				this.work = work;
+				this.execute = execute;
+			}
+		}
+		
+		// Strings for now.
+		Map<String, NamedGeneratorWorkEntry<String>> namedGeneratorsWork = new HashMap<>();
+
+		for (NamedGenerator ng: getNamedGenerators()) {
+			namedGeneratorsWork.put(ng.getName(), new NamedGeneratorWorkEntry<String>(ng.getGenerator().createWork(), ng.isExecuteWork()));
+		}		
+		
 		return new Work<List<T>>() {
 			
 			@Override
 			public int size() {
-				return getConfigWorkSize() + workItem.size() + (isExplicitConfigure() ? 0 : 1);
+				int ret = getConfigWorkSize() + workItem.size() + (isExplicitConfigure() ? 0 : 1);
+				for (NamedGeneratorWorkEntry<String> v: namedGeneratorsWork.values()) {
+					if (v.execute) {
+						ret += v.work.size();
+					}
+				}
+				return ret;
 			}
 			
 			@Override
@@ -246,32 +270,38 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				}
 				
 				if (iContexts.size() == 1) {
-					return Collections.singletonList(workItem.execute(iContexts.iterator().next(), monitor));
+					return Collections.singletonList(workItem.execute(injectNamedGenerators(iContexts.iterator().next(), monitor), monitor));
 				}
 
 				List<T> ret = new ArrayList<>();
 				monitor.setWorkRemaining(iContexts.size()*size());
 				for (Context iCtx: iContexts) {
-					T workResult = workItem.execute(iCtx, monitor);
+					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
 					ret.add(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split(1)));
 				}
 				return ret;
 			}
-		};
-	}
-	
-	@Override
-	public Context createContext(Context parent, SubMonitor monitor) throws Exception {
-		Context ctx = super.createContext(parent, monitor);
-		if (getNamedGenerators().isEmpty()) {
-			return ctx;
-		}
-		MutableContext mctx = ctx.createSubContext();
-		for (NamedGenerator ng: getNamedGenerators()) {
-			mctx.set(ng.getName(), ng.getGenerator().createWork());
-		}
-		return mctx;
-	}
-		
 
+			private Context injectNamedGenerators(Context context, SubMonitor monitor) throws Exception {
+				if (namedGeneratorsWork.isEmpty()) {
+					return context;
+				}
+				
+				MutableContext mctx = context.createSubContext();
+				for (Entry<String, NamedGeneratorWorkEntry<String>> ngwe: namedGeneratorsWork.entrySet()) {
+					if (ngwe.getValue().execute) {
+						StringBuilder sb = new StringBuilder();
+						for (String we: ngwe.getValue().work.execute(mctx, monitor)) {
+							sb.append(we);
+						}						
+						mctx.set(ngwe.getKey(), sb.toString());						
+					} else {
+						mctx.set(ngwe.getKey(), ngwe.getValue());
+					}
+				}
+				return mctx;
+			}
+		};
+	}		
+		
 } //GeneratorImpl

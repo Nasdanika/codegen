@@ -81,6 +81,17 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="executeWork" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true (default), then the work created by contained generator is executed and &#xD;&#xA;the work execution result is injected into the container context. If false, then the&#xD;&#xA;work per-se is injected into the container generator context and it is up to the container&#xD;&#xA;generator to execute it."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -271,12 +282,17 @@
         <details key="documentation" value="Merge new and existing content, typically using a merger service for files. &#xD;&#xA;For projects and directories merge is equivalent to append."/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="Overwrite" value="3">
+    <eLiterals name="ConfirmOverwrite" value="3" literal="Confirm Overwrite">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Replace existing content with the new one. &#xD;&#xA;For directories and projects it means deleting the project/directory&#xD;&#xA;and re-creating with the new content.&#xD;&#xA;&#xD;&#xA;If the generation context contains ``overwrite-predicate`` property, then the value&#xD;&#xA;of the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.&#xD;&#xA;If the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).&#xD;&#xA;&#xD;&#xA;The predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).&#xD;&#xA;&#xD;&#xA;Clients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "/>
+        <details key="documentation" value="Replace existing content with the new one upon confirmation (see below). &#xD;&#xA;For directories and projects it means deleting the project/directory&#xD;&#xA;and re-creating with the new content.&#xD;&#xA;&#xD;&#xA;If the generation context contains ``overwrite-predicate`` property, then the value&#xD;&#xA;of the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.&#xD;&#xA;If the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).&#xD;&#xA;&#xD;&#xA;The predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).&#xD;&#xA;&#xD;&#xA;Clients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="Cancel" value="4" literal="Cancel">
+    <eLiterals name="Overwrite" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Replace existing content with the new one. &#xD;&#xA;For directories and projects it means deleting the project/directory&#xD;&#xA;and re-creating with the new content.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="Cancel" value="5" literal="Cancel">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Throw ``OperationCancelledException`` if resource/project already exists."/>
       </eAnnotations>

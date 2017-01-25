@@ -275,13 +275,31 @@ public interface CodegenPackage extends EPackage {
 	int NAMED_GENERATOR__GENERATOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Execute Work</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__EXECUTE_WORK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Named Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR_FEATURE_COUNT = 2;
+	int NAMED_GENERATOR_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Named Generator</em>' class.
@@ -5706,6 +5724,28 @@ public interface CodegenPackage extends EPackage {
 	EReference getNamedGenerator_Generator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#isExecuteWork <em>Execute Work</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Execute Work</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator#isExecuteWork()
+	 * @see #getNamedGenerator()
+	 * @generated
+	 */
+	EAttribute getNamedGenerator_ExecuteWork();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator#getDescription()
+	 * @see #getNamedGenerator()
+	 * @generated
+	 */
+	EAttribute getNamedGenerator_Description();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6531,6 +6571,22 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAMED_GENERATOR__GENERATOR = eINSTANCE.getNamedGenerator_Generator();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute Work</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_GENERATOR__EXECUTE_WORK = eINSTANCE.getNamedGenerator_ExecuteWork();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_GENERATOR__DESCRIPTION = eINSTANCE.getNamedGenerator_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
