@@ -9,9 +9,11 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
@@ -75,7 +77,7 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 			pfrWorkSize += w.size();
 		}
 		
-		int workSize = pfrWorkSize + 2;
+		int workSize = pfrWorkSize + 4;
 		
 		return new Work<IProjectNature>() {
 
@@ -91,7 +93,11 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 				if (javaProject == null) {
 					javaProject = JavaCore.create(project);
 					IProjectDescription description = project.getDescription();
-					description.setNatureIds(new String[] { JavaCore.NATURE_ID });
+					String[] natureIds = description.getNatureIds();
+					String[] newNatureIds = new String[natureIds.length+1];
+					System.arraycopy(natureIds, 0, newNatureIds, 0, natureIds.length);
+					newNatureIds[newNatureIds.length - 1] = JavaCore.NATURE_ID;
+					description.setNatureIds(newNatureIds);
 					final ICommand java = description.newCommand();
 					java.setBuilderName(JavaCore.BUILDER_ID);
 					
@@ -104,6 +110,15 @@ public class JavaNatureImpl extends NatureImpl implements JavaNature {
 
 					description.setBuildSpec(new ICommand[] { java /*, manifest, schema */});							
 					project.setDescription(description, monitor.split(1));
+					
+					List<IClasspathEntry> classpathEntries = new ArrayList<>();
+
+					classpathEntries.add(
+							JavaCore.newContainerEntry(
+									new Path("org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8")));
+
+					javaProject.setRawClasspath(classpathEntries.toArray(new IClasspathEntry[classpathEntries.size()]),	monitor.split(1));
+					javaProject.setOutputLocation(new Path("/" + project.getName() + "/bin"), monitor.split(1));
 				}
 
 				javaProject = (IJavaProject) configure(context, (IProjectNature) javaProject, monitor.split(1));

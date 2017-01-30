@@ -8,13 +8,19 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.Field;
+import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.Method;
+import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
-import org.nasdanika.codegen.java.StructuredCompilationUnit;
-import org.nasdanika.codegen.java.TextCompilationUnit;
+import org.nasdanika.codegen.java.Type;
 import org.nasdanika.config.Configuration;
 
 /**
@@ -111,23 +117,108 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.TEXT_COMPILATION_UNIT: {
-				TextCompilationUnit textCompilationUnit = (TextCompilationUnit)theEObject;
-				T1 result = caseTextCompilationUnit(textCompilationUnit);
-				if (result == null) result = caseCompilationUnit(textCompilationUnit);
-				if (result == null) result = caseGenerator(textCompilationUnit);
-				if (result == null) result = caseConfiguration(textCompilationUnit);
-				if (result == null) result = caseWorkFactory(textCompilationUnit);
+			case JavaPackage.MEMBER: {
+				Member member = (Member)theEObject;
+				T1 result = caseMember(member);
+				if (result == null) result = caseGenerator(member);
+				if (result == null) result = caseConfiguration(member);
+				if (result == null) result = caseWorkFactory(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.STRUCTURED_COMPILATION_UNIT: {
-				StructuredCompilationUnit structuredCompilationUnit = (StructuredCompilationUnit)theEObject;
-				T1 result = caseStructuredCompilationUnit(structuredCompilationUnit);
-				if (result == null) result = caseCompilationUnit(structuredCompilationUnit);
-				if (result == null) result = caseGenerator(structuredCompilationUnit);
-				if (result == null) result = caseConfiguration(structuredCompilationUnit);
-				if (result == null) result = caseWorkFactory(structuredCompilationUnit);
+			case JavaPackage.TYPE: {
+				Type type = (Type)theEObject;
+				T1 result = caseType(type);
+				if (result == null) result = caseMember(type);
+				if (result == null) result = caseGenerator(type);
+				if (result == null) result = caseConfiguration(type);
+				if (result == null) result = caseWorkFactory(type);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.FIELD: {
+				Field field = (Field)theEObject;
+				T1 result = caseField(field);
+				if (result == null) result = caseMember(field);
+				if (result == null) result = caseGenerator(field);
+				if (result == null) result = caseConfiguration(field);
+				if (result == null) result = caseWorkFactory(field);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T1 result = caseOperation(operation);
+				if (result == null) result = caseMember(operation);
+				if (result == null) result = caseGenerator(operation);
+				if (result == null) result = caseConfiguration(operation);
+				if (result == null) result = caseWorkFactory(operation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.CLASS: {
+				org.nasdanika.codegen.java.Class class_ = (org.nasdanika.codegen.java.Class)theEObject;
+				T1 result = caseClass(class_);
+				if (result == null) result = caseType(class_);
+				if (result == null) result = caseMember(class_);
+				if (result == null) result = caseGenerator(class_);
+				if (result == null) result = caseConfiguration(class_);
+				if (result == null) result = caseWorkFactory(class_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				T1 result = caseInterface(interface_);
+				if (result == null) result = caseType(interface_);
+				if (result == null) result = caseMember(interface_);
+				if (result == null) result = caseGenerator(interface_);
+				if (result == null) result = caseConfiguration(interface_);
+				if (result == null) result = caseWorkFactory(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.ANNOTATION: {
+				Annotation annotation = (Annotation)theEObject;
+				T1 result = caseAnnotation(annotation);
+				if (result == null) result = caseType(annotation);
+				if (result == null) result = caseMember(annotation);
+				if (result == null) result = caseGenerator(annotation);
+				if (result == null) result = caseConfiguration(annotation);
+				if (result == null) result = caseWorkFactory(annotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.ENUM: {
+				org.nasdanika.codegen.java.Enum enum_ = (org.nasdanika.codegen.java.Enum)theEObject;
+				T1 result = caseEnum(enum_);
+				if (result == null) result = caseType(enum_);
+				if (result == null) result = caseMember(enum_);
+				if (result == null) result = caseGenerator(enum_);
+				if (result == null) result = caseConfiguration(enum_);
+				if (result == null) result = caseWorkFactory(enum_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.CONSTRUCTOR: {
+				Constructor constructor = (Constructor)theEObject;
+				T1 result = caseConstructor(constructor);
+				if (result == null) result = caseOperation(constructor);
+				if (result == null) result = caseMember(constructor);
+				if (result == null) result = caseGenerator(constructor);
+				if (result == null) result = caseConfiguration(constructor);
+				if (result == null) result = caseWorkFactory(constructor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.METHOD: {
+				Method method = (Method)theEObject;
+				T1 result = caseMethod(method);
+				if (result == null) result = caseOperation(method);
+				if (result == null) result = caseMember(method);
+				if (result == null) result = caseGenerator(method);
+				if (result == null) result = caseConfiguration(method);
+				if (result == null) result = caseWorkFactory(method);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -196,32 +287,152 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text Compilation Unit</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text Compilation Unit</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTextCompilationUnit(TextCompilationUnit object) {
+	public T1 caseMember(Member object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Structured Compilation Unit</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Structured Compilation Unit</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseStructuredCompilationUnit(StructuredCompilationUnit object) {
+	public T1 caseType(Type object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseField(Field object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseOperation(Operation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseClass(org.nasdanika.codegen.java.Class object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseInterface(Interface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAnnotation(Annotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEnum(org.nasdanika.codegen.java.Enum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constructor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constructor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseConstructor(Constructor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMethod(Method object) {
 		return null;
 	}
 

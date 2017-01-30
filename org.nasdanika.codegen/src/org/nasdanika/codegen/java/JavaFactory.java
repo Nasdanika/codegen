@@ -49,22 +49,76 @@ public interface JavaFactory extends EFactory {
 	PackageFragment createPackageFragment();
 
 	/**
-	 * Returns a new object of class '<em>Text Compilation Unit</em>'.
+	 * Returns a new object of class '<em>Compilation Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text Compilation Unit</em>'.
+	 * @return a new object of class '<em>Compilation Unit</em>'.
 	 * @generated
 	 */
-	TextCompilationUnit createTextCompilationUnit();
+	CompilationUnit createCompilationUnit();
 
 	/**
-	 * Returns a new object of class '<em>Structured Compilation Unit</em>'.
+	 * Returns a new object of class '<em>Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Structured Compilation Unit</em>'.
+	 * @return a new object of class '<em>Field</em>'.
 	 * @generated
 	 */
-	StructuredCompilationUnit createStructuredCompilationUnit();
+	Field createField();
+
+	/**
+	 * Returns a new object of class '<em>Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class</em>'.
+	 * @generated
+	 */
+	Class createClass();
+
+	/**
+	 * Returns a new object of class '<em>Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interface</em>'.
+	 * @generated
+	 */
+	Interface createInterface();
+
+	/**
+	 * Returns a new object of class '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation</em>'.
+	 * @generated
+	 */
+	Annotation createAnnotation();
+
+	/**
+	 * Returns a new object of class '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum</em>'.
+	 * @generated
+	 */
+	Enum createEnum();
+
+	/**
+	 * Returns a new object of class '<em>Constructor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constructor</em>'.
+	 * @generated
+	 */
+	Constructor createConstructor();
+
+	/**
+	 * Returns a new object of class '<em>Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method</em>'.
+	 * @generated
+	 */
+	Method createMethod();
 
 	/**
 	 * Returns the package supported by this factory.

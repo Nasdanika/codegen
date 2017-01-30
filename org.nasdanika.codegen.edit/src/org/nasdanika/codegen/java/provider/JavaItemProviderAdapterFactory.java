@@ -141,49 +141,187 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.TextCompilationUnit} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.CompilationUnit} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TextCompilationUnitItemProvider textCompilationUnitItemProvider;
+	protected CompilationUnitItemProvider compilationUnitItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.java.TextCompilationUnit}.
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.CompilationUnit}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTextCompilationUnitAdapter() {
-		if (textCompilationUnitItemProvider == null) {
-			textCompilationUnitItemProvider = new TextCompilationUnitItemProvider(this);
+	public Adapter createCompilationUnitAdapter() {
+		if (compilationUnitItemProvider == null) {
+			compilationUnitItemProvider = new CompilationUnitItemProvider(this);
 		}
 
-		return textCompilationUnitItemProvider;
+		return compilationUnitItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.StructuredCompilationUnit} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Field} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StructuredCompilationUnitItemProvider structuredCompilationUnitItemProvider;
+	protected FieldItemProvider fieldItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.java.StructuredCompilationUnit}.
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStructuredCompilationUnitAdapter() {
-		if (structuredCompilationUnitItemProvider == null) {
-			structuredCompilationUnitItemProvider = new StructuredCompilationUnitItemProvider(this);
+	public Adapter createFieldAdapter() {
+		if (fieldItemProvider == null) {
+			fieldItemProvider = new FieldItemProvider(this);
 		}
 
-		return structuredCompilationUnitItemProvider;
+		return fieldItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Class} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassItemProvider classItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Class}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassAdapter() {
+		if (classItemProvider == null) {
+			classItemProvider = new ClassItemProvider(this);
+		}
+
+		return classItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Interface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterfaceItemProvider interfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Interface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterfaceAdapter() {
+		if (interfaceItemProvider == null) {
+			interfaceItemProvider = new InterfaceItemProvider(this);
+		}
+
+		return interfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Annotation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnnotationItemProvider annotationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnnotationAdapter() {
+		if (annotationItemProvider == null) {
+			annotationItemProvider = new AnnotationItemProvider(this);
+		}
+
+		return annotationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Enum} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumItemProvider enumItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Enum}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumAdapter() {
+		if (enumItemProvider == null) {
+			enumItemProvider = new EnumItemProvider(this);
+		}
+
+		return enumItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Constructor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstructorItemProvider constructorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Constructor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstructorAdapter() {
+		if (constructorItemProvider == null) {
+			constructorItemProvider = new ConstructorItemProvider(this);
+		}
+
+		return constructorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.Method} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodItemProvider methodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.Method}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodAdapter() {
+		if (methodItemProvider == null) {
+			methodItemProvider = new MethodItemProvider(this);
+		}
+
+		return methodItemProvider;
 	}
 
 	/**
@@ -288,8 +426,14 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 		if (javaNatureItemProvider != null) javaNatureItemProvider.dispose();
 		if (packageFragmentRootItemProvider != null) packageFragmentRootItemProvider.dispose();
 		if (packageFragmentItemProvider != null) packageFragmentItemProvider.dispose();
-		if (textCompilationUnitItemProvider != null) textCompilationUnitItemProvider.dispose();
-		if (structuredCompilationUnitItemProvider != null) structuredCompilationUnitItemProvider.dispose();
+		if (compilationUnitItemProvider != null) compilationUnitItemProvider.dispose();
+		if (fieldItemProvider != null) fieldItemProvider.dispose();
+		if (classItemProvider != null) classItemProvider.dispose();
+		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (annotationItemProvider != null) annotationItemProvider.dispose();
+		if (enumItemProvider != null) enumItemProvider.dispose();
+		if (constructorItemProvider != null) constructorItemProvider.dispose();
+		if (methodItemProvider != null) methodItemProvider.dispose();
 	}
 
 }

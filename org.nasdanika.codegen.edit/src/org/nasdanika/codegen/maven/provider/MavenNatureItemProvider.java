@@ -274,12 +274,42 @@ public class MavenNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
-				 JavaFactory.eINSTANCE.createTextCompilationUnit()));
+				 JavaFactory.eINSTANCE.createCompilationUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
-				 JavaFactory.eINSTANCE.createStructuredCompilationUnit()));
+				 JavaFactory.eINSTANCE.createField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createEnum()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createConstructor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createMethod()));
 	}
 
 	/**

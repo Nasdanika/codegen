@@ -358,12 +358,42 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createTextCompilationUnit()));
+				 JavaFactory.eINSTANCE.createCompilationUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createStructuredCompilationUnit()));
+				 JavaFactory.eINSTANCE.createField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createEnum()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createConstructor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createMethod()));
 
 		newChildDescriptors.add
 			(createChildParameter

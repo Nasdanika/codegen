@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
@@ -172,12 +171,7 @@ public class PackageFragmentItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PACKAGE_FRAGMENT__COMPILATIONUNITS,
-				 JavaFactory.eINSTANCE.createTextCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.PACKAGE_FRAGMENT__COMPILATIONUNITS,
-				 JavaFactory.eINSTANCE.createStructuredCompilationUnit()));
+				 JavaFactory.eINSTANCE.createCompilationUnit()));
 	}
 
 	/**

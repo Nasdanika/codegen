@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.java;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.nasdanika.codegen.Generator;
 
@@ -21,10 +22,11 @@ import org.nasdanika.codegen.Generator;
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isFormat <em>Format</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.java.ICompilationUnit>"
+ * @model superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.java.ICompilationUnit>"
  * @generated
  */
 public interface CompilationUnit extends Generator<ICompilationUnit> {
@@ -116,5 +118,20 @@ public interface CompilationUnit extends Generator<ICompilationUnit> {
 	 * @generated
 	 */
 	void setFormat(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;java.lang.String>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generator to produce compilation unit content.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit_Generators()
+	 * @model type="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>" containment="true"
+	 * @generated
+	 */
+	EList<Generator<String>> getGenerators();
 
 } // CompilationUnit

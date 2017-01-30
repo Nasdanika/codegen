@@ -2,7 +2,11 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory;
@@ -17,6 +21,7 @@ import org.eclipse.emf.codegen.util.CodeGenUtil;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -28,11 +33,15 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
+import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.ImportManager;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
+import org.nasdanika.config.MutableContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,11 +54,12 @@ import org.nasdanika.config.Context;
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isFormat <em>Format</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> implements CompilationUnit {
+public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> implements CompilationUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,6 +135,16 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 		eSet(JavaPackage.Literals.COMPILATION_UNIT__FORMAT, newFormat);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Generator<String>> getGenerators() {
+		return (EList<Generator<String>>)eGet(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS, true);
+	}
+
 	protected ICompilationUnit generateCompilationUnit(Context context, String content, SubMonitor monitor) throws Exception {		
 		String interpolatedName = context.interpolate(getName());
 		if (!interpolatedName.endsWith(JAVA_EXTENSION)) {
@@ -224,6 +244,73 @@ public abstract class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit
 	public boolean isFilterable() {
 		return true;
 	}
+	
+	
+	@Override
+	protected Work<ICompilationUnit> createWorkItem() throws Exception {		
+		List<Work<List<String>>> gWorkList = new ArrayList<>();
+		for (Generator<String> g: getGenerators()) {
+			gWorkList.add(g.createWork());
+		}
+		
+		return new Work<ICompilationUnit>() {
+
+			@Override
+			public int size() {
+				int ret = 3; // 3 is generateCompilationUnit work size
+				for (Work<List<String>> w: gWorkList) {
+					ret += w.size();
+				}
+				return ret; 
+			}
+			
+			@Override
+			public ICompilationUnit execute(Context context, SubMonitor monitor) throws Exception {
+				IPackageFragment packageFragment = context.get(IPackageFragment.class);
+				Object pTypesObj = context.get("package-types"); // List of short names of types defined in the containing package.
+				Set<String> implicitImports = new HashSet<>();
+				if (pTypesObj instanceof Iterable) {
+					for (Object pType: (Iterable<?>) pTypesObj) {
+						implicitImports.add(packageFragment.getElementName()+"."+pType);
+					}
+				}
+				ImportManager importManager = new SimpleImportManager(implicitImports);
+				MutableContext gContext = context.createSubContext();
+				gContext.set(ImportManager.class, importManager);
+				gContext.set("import", importManager);
+				
+				StringBuilder bodyBuilder = new StringBuilder();
+				for (Work<List<String>> gWork: gWorkList) {
+					for (String e: gWork.execute(gContext, monitor)) {
+						if (bodyBuilder.length() > 0) {
+							bodyBuilder.append(System.lineSeparator());
+						}
+						bodyBuilder.append(e);
+					}
+				}
+				
+				StringBuilder contentBuilder = new StringBuilder();
+				contentBuilder.append("package ").append(packageFragment.getElementName()).append(";").append(System.lineSeparator()).append(System.lineSeparator());
+				
+				String lastFirstPackageSegment = null;
+				for (String ie: importManager.getImports()) {
+					int dotIdx = ie.indexOf('.');
+					String fps = ie.substring(0, dotIdx);
+					if (lastFirstPackageSegment != null && !lastFirstPackageSegment.equals(fps)) {
+						contentBuilder.append(System.lineSeparator());
+					}
+					contentBuilder.append("import ").append(ie).append(";").append(System.lineSeparator());
+				}
+				contentBuilder.append(System.lineSeparator());
+				contentBuilder.append(bodyBuilder);
+				
+				return generateCompilationUnit(gContext, contentBuilder.toString(), monitor);
+			}
+			
+		};
+	}	
+	
+
 	
 } //CompilationUnitImpl
 

@@ -12,13 +12,17 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.nasdanika.codegen.java.Annotation;
+import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.Field;
+import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
-import org.nasdanika.codegen.java.StructuredCompilationUnit;
-import org.nasdanika.codegen.java.TextCompilationUnit;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,8 +71,14 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.JAVA_NATURE: return (EObject)createJavaNature();
 			case JavaPackage.PACKAGE_FRAGMENT_ROOT: return (EObject)createPackageFragmentRoot();
 			case JavaPackage.PACKAGE_FRAGMENT: return (EObject)createPackageFragment();
-			case JavaPackage.TEXT_COMPILATION_UNIT: return (EObject)createTextCompilationUnit();
-			case JavaPackage.STRUCTURED_COMPILATION_UNIT: return (EObject)createStructuredCompilationUnit();
+			case JavaPackage.COMPILATION_UNIT: return (EObject)createCompilationUnit();
+			case JavaPackage.FIELD: return (EObject)createField();
+			case JavaPackage.CLASS: return (EObject)createClass();
+			case JavaPackage.INTERFACE: return (EObject)createInterface();
+			case JavaPackage.ANNOTATION: return (EObject)createAnnotation();
+			case JavaPackage.ENUM: return (EObject)createEnum();
+			case JavaPackage.CONSTRUCTOR: return (EObject)createConstructor();
+			case JavaPackage.METHOD: return (EObject)createMethod();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -151,9 +161,9 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextCompilationUnit createTextCompilationUnit() {
-		TextCompilationUnitImpl textCompilationUnit = new TextCompilationUnitImpl();
-		return textCompilationUnit;
+	public CompilationUnit createCompilationUnit() {
+		CompilationUnitImpl compilationUnit = new CompilationUnitImpl();
+		return compilationUnit;
 	}
 
 	/**
@@ -161,9 +171,69 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuredCompilationUnit createStructuredCompilationUnit() {
-		StructuredCompilationUnitImpl structuredCompilationUnit = new StructuredCompilationUnitImpl();
-		return structuredCompilationUnit;
+	public Field createField() {
+		FieldImpl field = new FieldImpl();
+		return field;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.nasdanika.codegen.java.Class createClass() {
+		ClassImpl class_ = new ClassImpl();
+		return class_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Interface createInterface() {
+		InterfaceImpl interface_ = new InterfaceImpl();
+		return interface_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.nasdanika.codegen.java.Enum createEnum() {
+		EnumImpl enum_ = new EnumImpl();
+		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constructor createConstructor() {
+		ConstructorImpl constructor = new ConstructorImpl();
+		return constructor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Method createMethod() {
+		MethodImpl method = new MethodImpl();
+		return method;
 	}
 
 	/**

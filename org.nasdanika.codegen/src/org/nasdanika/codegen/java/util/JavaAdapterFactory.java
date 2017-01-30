@@ -9,13 +9,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.WorkFactory;
+import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.Field;
+import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.Method;
+import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
-import org.nasdanika.codegen.java.StructuredCompilationUnit;
-import org.nasdanika.codegen.java.TextCompilationUnit;
+import org.nasdanika.codegen.java.Type;
 import org.nasdanika.config.Configuration;
 
 /**
@@ -91,12 +97,44 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createCompilationUnitAdapter();
 			}
 			@Override
-			public Adapter caseTextCompilationUnit(TextCompilationUnit object) {
-				return createTextCompilationUnitAdapter();
+			public Adapter caseMember(Member object) {
+				return createMemberAdapter();
 			}
 			@Override
-			public Adapter caseStructuredCompilationUnit(StructuredCompilationUnit object) {
-				return createStructuredCompilationUnitAdapter();
+			public Adapter caseType(Type object) {
+				return createTypeAdapter();
+			}
+			@Override
+			public Adapter caseField(Field object) {
+				return createFieldAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
+			public Adapter caseClass(org.nasdanika.codegen.java.Class object) {
+				return createClassAdapter();
+			}
+			@Override
+			public Adapter caseInterface(Interface object) {
+				return createInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseEnum(org.nasdanika.codegen.java.Enum object) {
+				return createEnumAdapter();
+			}
+			@Override
+			public Adapter caseConstructor(Constructor object) {
+				return createConstructorAdapter();
+			}
+			@Override
+			public Adapter caseMethod(Method object) {
+				return createMethodAdapter();
 			}
 			@Override
 			public Adapter caseConfiguration(Configuration object) {
@@ -191,30 +229,142 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.TextCompilationUnit <em>Text Compilation Unit</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Member <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.TextCompilationUnit
+	 * @see org.nasdanika.codegen.java.Member
 	 * @generated
 	 */
-	public Adapter createTextCompilationUnitAdapter() {
+	public Adapter createMemberAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.StructuredCompilationUnit <em>Structured Compilation Unit</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.StructuredCompilationUnit
+	 * @see org.nasdanika.codegen.java.Type
 	 * @generated
 	 */
-	public Adapter createStructuredCompilationUnitAdapter() {
+	public Adapter createTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Field <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Field
+	 * @generated
+	 */
+	public Adapter createFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Class <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Class
+	 * @generated
+	 */
+	public Adapter createClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Interface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Interface
+	 * @generated
+	 */
+	public Adapter createInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Enum
+	 * @generated
+	 */
+	public Adapter createEnumAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Constructor <em>Constructor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Constructor
+	 * @generated
+	 */
+	public Adapter createConstructorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Method <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.Method
+	 * @generated
+	 */
+	public Adapter createMethodAdapter() {
 		return null;
 	}
 

@@ -159,11 +159,37 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/CompilationUnit/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/CompilationUnit/merge"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/CompilationUnit/format"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/CompilationUnit/generators"/>
       </genClasses>
-      <genClasses ecoreClass="codegen.ecore#//java/TextCompilationUnit">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/TextCompilationUnit/generator"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Member">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Member/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Member/modifiers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/Member/commentGenerators"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Member/comment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Member/annotations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/Member/bodyGenerators"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Member/typeParameters"/>
       </genClasses>
-      <genClasses ecoreClass="codegen.ecore#//java/StructuredCompilationUnit"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Type">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Type/superTypes"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/Field">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Field/type"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/Operation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Operation/parameters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Operation/thrownExceptions"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/Class"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Interface"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Annotation"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Enum">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Enum/superInterfaces"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/Constructor"/>
+      <genClasses ecoreClass="codegen.ecore#//java/Method">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Method/returnType"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Maven" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//maven">

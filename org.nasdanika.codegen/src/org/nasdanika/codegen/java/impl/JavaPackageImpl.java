@@ -15,14 +15,20 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.impl.CodegenPackageImpl;
+import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.Field;
+import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.Method;
+import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
-import org.nasdanika.codegen.java.StructuredCompilationUnit;
-import org.nasdanika.codegen.java.TextCompilationUnit;
+import org.nasdanika.codegen.java.Type;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
 import org.nasdanika.config.ConfigPackage;
@@ -67,14 +73,70 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textCompilationUnitEClass = null;
+	private EClass memberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass structuredCompilationUnitEClass = null;
+	private EClass typeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constructorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,8 +351,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTextCompilationUnit() {
-		return textCompilationUnitEClass;
+	public EReference getCompilationUnit_Generators() {
+		return (EReference)compilationUnitEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -298,8 +360,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTextCompilationUnit_Generator() {
-		return (EReference)textCompilationUnitEClass.getEStructuralFeatures().get(0);
+	public EClass getMember() {
+		return memberEClass;
 	}
 
 	/**
@@ -307,8 +369,197 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStructuredCompilationUnit() {
-		return structuredCompilationUnitEClass;
+	public EAttribute getMember_Name() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_Modifiers() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMember_CommentGenerators() {
+		return (EReference)memberEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_Comment() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_Annotations() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMember_BodyGenerators() {
+		return (EReference)memberEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_TypeParameters() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getType() {
+		return typeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getType_SuperTypes() {
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getField() {
+		return fieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getField_Type() {
+		return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperation() {
+		return operationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Parameters() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_ThrownExceptions() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClass_() {
+		return classEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterface() {
+		return interfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnum() {
+		return enumEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEnum_SuperInterfaces() {
+		return (EAttribute)enumEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstructor() {
+		return constructorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethod() {
+		return methodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethod_ReturnType() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -390,11 +641,40 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__NAME);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__MERGE);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__FORMAT);
+		createEReference(compilationUnitEClass, COMPILATION_UNIT__GENERATORS);
 
-		textCompilationUnitEClass = createEClass(TEXT_COMPILATION_UNIT);
-		createEReference(textCompilationUnitEClass, TEXT_COMPILATION_UNIT__GENERATOR);
+		memberEClass = createEClass(MEMBER);
+		createEAttribute(memberEClass, MEMBER__NAME);
+		createEAttribute(memberEClass, MEMBER__MODIFIERS);
+		createEReference(memberEClass, MEMBER__COMMENT_GENERATORS);
+		createEAttribute(memberEClass, MEMBER__COMMENT);
+		createEAttribute(memberEClass, MEMBER__ANNOTATIONS);
+		createEReference(memberEClass, MEMBER__BODY_GENERATORS);
+		createEAttribute(memberEClass, MEMBER__TYPE_PARAMETERS);
 
-		structuredCompilationUnitEClass = createEClass(STRUCTURED_COMPILATION_UNIT);
+		typeEClass = createEClass(TYPE);
+		createEAttribute(typeEClass, TYPE__SUPER_TYPES);
+
+		fieldEClass = createEClass(FIELD);
+		createEAttribute(fieldEClass, FIELD__TYPE);
+
+		operationEClass = createEClass(OPERATION);
+		createEAttribute(operationEClass, OPERATION__PARAMETERS);
+		createEAttribute(operationEClass, OPERATION__THROWN_EXCEPTIONS);
+
+		classEClass = createEClass(CLASS);
+
+		interfaceEClass = createEClass(INTERFACE);
+
+		annotationEClass = createEClass(ANNOTATION);
+
+		enumEClass = createEClass(ENUM);
+		createEAttribute(enumEClass, ENUM__SUPER_INTERFACES);
+
+		constructorEClass = createEClass(CONSTRUCTOR);
+
+		methodEClass = createEClass(METHOD);
+		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
 
 		// Create data types
 		iJavaProjectEDataType = createEDataType(IJAVA_PROJECT);
@@ -447,8 +727,19 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		g2 = createEGenericType(this.getICompilationUnit());
 		g1.getETypeArguments().add(g2);
 		compilationUnitEClass.getEGenericSuperTypes().add(g1);
-		textCompilationUnitEClass.getESuperTypes().add(this.getCompilationUnit());
-		structuredCompilationUnitEClass.getESuperTypes().add(this.getCompilationUnit());
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		memberEClass.getEGenericSuperTypes().add(g1);
+		typeEClass.getESuperTypes().add(this.getMember());
+		fieldEClass.getESuperTypes().add(this.getMember());
+		operationEClass.getESuperTypes().add(this.getMember());
+		classEClass.getESuperTypes().add(this.getType());
+		interfaceEClass.getESuperTypes().add(this.getType());
+		annotationEClass.getESuperTypes().add(this.getType());
+		enumEClass.getESuperTypes().add(this.getType());
+		constructorEClass.getESuperTypes().add(this.getOperation());
+		methodEClass.getESuperTypes().add(this.getOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaNatureEClass, JavaNature.class, "JavaNature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -462,18 +753,53 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getPackageFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackageFragment_Compilationunits(), this.getCompilationUnit(), null, "compilationunits", null, 0, -1, PackageFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompilationUnit_Name(), ecorePackage.getEString(), "name", null, 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationUnit_Merge(), ecorePackage.getEBoolean(), "merge", "true", 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationUnit_Format(), ecorePackage.getEBoolean(), "format", "true", 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(textCompilationUnitEClass, TextCompilationUnit.class, "TextCompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theCodegenPackage.getGenerator());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		initEReference(getTextCompilationUnit_Generator(), g1, null, "generator", null, 0, 1, TextCompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompilationUnit_Generators(), g1, null, "generators", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(structuredCompilationUnitEClass, StructuredCompilationUnit.class, "StructuredCompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getMember_CommentGenerators(), g1, null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Annotations(), ecorePackage.getEString(), "annotations", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getMember_BodyGenerators(), g1, null, "bodyGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_TypeParameters(), ecorePackage.getEString(), "typeParameters", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getType_SuperTypes(), ecorePackage.getEString(), "superTypes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getField_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(operationEClass, Operation.class, "Operation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperation_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_ThrownExceptions(), ecorePackage.getEString(), "thrownExceptions", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(classEClass, org.nasdanika.codegen.java.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(enumEClass, org.nasdanika.codegen.java.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnum_SuperInterfaces(), ecorePackage.getEString(), "superInterfaces", null, 0, -1, org.nasdanika.codegen.java.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMethod_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(iJavaProjectEDataType, IJavaProject.class, "IJavaProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -567,22 +893,70 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			 "documentation", "If true, generated/merged source is automatically formatted."
 		   });	
 		addAnnotation
-		  (textCompilationUnitEClass, 
-		   source, 
-		   new String[] {
-			 "documentation", "Text compilation units uses a text generator to produce its content."
-		   });	
-		addAnnotation
-		  (getTextCompilationUnit_Generator(), 
+		  (getCompilationUnit_Generators(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Generator to produce compilation unit content."
 		   });	
 		addAnnotation
-		  (structuredCompilationUnitEClass, 
+		  (getMember_Name(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Structured compilation unit assembles its content from import and type declarations.\r\n\r\nWork in progress..."
+			 "documentation", "Member name, not applicable to constructors."
+		   });	
+		addAnnotation
+		  (getMember_Modifiers(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Modifiers, e.g. public final. Interpolated."
+		   });	
+		addAnnotation
+		  (getMember_CommentGenerators(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Comment generators in addition to comment attribute content."
+		   });	
+		addAnnotation
+		  (getMember_Comment(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Comment. Interpolated. "
+		   });	
+		addAnnotation
+		  (getMember_Annotations(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."
+		   });	
+		addAnnotation
+		  (getMember_BodyGenerators(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generators which generate member body. For Field field initializer is considered as body.\r\n"
+		   });	
+		addAnnotation
+		  (getMember_TypeParameters(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Type parameters, interpolated."
+		   });	
+		addAnnotation
+		  (getType_SuperTypes(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.\r\nFor classes the first supertype goes to the extends clause and the rest to the implements clause. For interfaces all supertypes go to the implements clause.\r\nFor enum everything goes to the implements clause. Not applicable to annotations."
+		   });	
+		addAnnotation
+		  (getOperation_Parameters(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Parameters, interpolated."
+		   });	
+		addAnnotation
+		  (getEnum_SuperInterfaces(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Superinterfaces are listed in implements clause. Elements are interpolated and each element can be a comma-separated list of superinterfaces."
 		   });
 	}
 

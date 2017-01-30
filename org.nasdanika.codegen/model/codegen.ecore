@@ -591,7 +591,7 @@
         <eTypeArguments eClassifier="#//java/IPackageFragment"/>
       </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Compilation unit."/>
       </eAnnotations>
@@ -612,15 +612,8 @@
           <details key="documentation" value="If true, generated/merged source is automatically formatted."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eGenericSuperTypes eClassifier="#//Generator">
-        <eTypeArguments eClassifier="#//java/ICompilationUnit"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextCompilationUnit" eSuperTypes="#//java/CompilationUnit">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Text compilation units uses a text generator to produce its content."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="generator" containment="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="generators" upperBound="-1"
+          containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generator to produce compilation unit content."/>
         </eAnnotations>
@@ -628,11 +621,97 @@
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eStructuralFeatures>
+      <eGenericSuperTypes eClassifier="#//Generator">
+        <eTypeArguments eClassifier="#//java/ICompilationUnit"/>
+      </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StructuredCompilationUnit" eSuperTypes="#//java/CompilationUnit">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Structured compilation unit assembles its content from import and type declarations.&#xD;&#xA;&#xD;&#xA;Work in progress..."/>
-      </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Member name, not applicable to constructors."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Modifiers, e.g. public final. Interpolated."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="commentGenerators" upperBound="-1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Comment generators in addition to comment attribute content."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Comment. Interpolated. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotations" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyGenerators" upperBound="-1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generators which generate member body. For Field field initializer is considered as body.&#xD;&#xA;"/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Type parameters, interpolated."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eGenericSuperTypes eClassifier="#//Generator">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//java/Member">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="superTypes" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.&#xD;&#xA;For classes the first supertype goes to the extends clause and the rest to the implements clause. For interfaces all supertypes go to the implements clause.&#xD;&#xA;For enum everything goes to the implements clause. Not applicable to annotations."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//java/Member">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//java/Member">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Parameters, interpolated."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thrownExceptions" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//java/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//java/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//java/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//java/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="superInterfaces" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Superinterfaces are listed in implements clause. Elements are interpolated and each element can be a comma-separated list of superinterfaces."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//java/Operation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//java/Operation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="maven" nsURI="urn:org.nasdanika.codegen.maven" nsPrefix="org.nasdanika.codegen.maven">
