@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
@@ -92,6 +93,7 @@ public class PackageFragmentItemProvider extends GeneratorItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JavaPackage.Literals.PACKAGE_FRAGMENT__COMPILATIONUNITS);
+			childrenFeatures.add(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -151,6 +153,7 @@ public class PackageFragmentItemProvider extends GeneratorItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JavaPackage.PACKAGE_FRAGMENT__COMPILATIONUNITS:
+			case JavaPackage.PACKAGE_FRAGMENT__RESOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -172,6 +175,31 @@ public class PackageFragmentItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PACKAGE_FRAGMENT__COMPILATIONUNITS,
 				 JavaFactory.eINSTANCE.createCompilationUnit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createBinaryFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createTextFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createResourceReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createZipArchive()));
 	}
 
 	/**

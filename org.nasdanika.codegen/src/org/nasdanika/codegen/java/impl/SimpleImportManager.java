@@ -34,16 +34,18 @@ public class SimpleImportManager implements ImportManager {
 		if (lastDotIdx == -1) {
 			return fullyQualifiedTypeName;
 		}
-		String shortName = fullyQualifiedTypeName.substring(lastDotIdx + 1, fullyQualifiedTypeName.length());
+		int ltIdx = fullyQualifiedTypeName.indexOf('<', lastDotIdx);
+		String shortName = fullyQualifiedTypeName.substring(lastDotIdx + 1, ltIdx == -1 ? fullyQualifiedTypeName.length() : ltIdx);		
+		String pShortName = fullyQualifiedTypeName.substring(lastDotIdx + 1, fullyQualifiedTypeName.length());		
 		String efqn = imports.get(shortName);
 		if (efqn == null) {
 			imports.put(shortName, fullyQualifiedTypeName);
 			if ("java.lang".equals(fullyQualifiedTypeName.substring(0, lastDotIdx))) {
 				implicitImports.add(fullyQualifiedTypeName);
 			}
-			return shortName;
+			return pShortName;
 		}
-		return efqn.equals(fullyQualifiedTypeName) ? shortName : fullyQualifiedTypeName;
+		return efqn.equals(fullyQualifiedTypeName) ? pShortName : fullyQualifiedTypeName;
 	}
 
 	@Override

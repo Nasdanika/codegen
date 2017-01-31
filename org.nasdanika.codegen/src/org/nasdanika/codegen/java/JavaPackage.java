@@ -322,13 +322,22 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT_ROOT__PACKAGEFRAGMENTS = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT_ROOT__RESOURCES = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Package Fragment Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FRAGMENT_ROOT_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+	int PACKAGE_FRAGMENT_ROOT_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -485,13 +494,22 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE_FRAGMENT__COMPILATIONUNITS = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FRAGMENT__RESOURCES = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Package Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FRAGMENT_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+	int PACKAGE_FRAGMENT_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -3020,6 +3038,17 @@ public interface JavaPackage extends EPackage {
 	EReference getPackageFragmentRoot_Packagefragments();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.PackageFragmentRoot#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see org.nasdanika.codegen.java.PackageFragmentRoot#getResources()
+	 * @see #getPackageFragmentRoot()
+	 * @generated
+	 */
+	EReference getPackageFragmentRoot_Resources();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.PackageFragment <em>Package Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3050,6 +3079,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackageFragment_Compilationunits();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.PackageFragment#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see org.nasdanika.codegen.java.PackageFragment#getResources()
+	 * @see #getPackageFragment()
+	 * @generated
+	 */
+	EReference getPackageFragment_Resources();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.CompilationUnit <em>Compilation Unit</em>}'.
@@ -3460,6 +3500,14 @@ public interface JavaPackage extends EPackage {
 		EReference PACKAGE_FRAGMENT_ROOT__PACKAGEFRAGMENTS = eINSTANCE.getPackageFragmentRoot_Packagefragments();
 
 		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE_FRAGMENT_ROOT__RESOURCES = eINSTANCE.getPackageFragmentRoot_Resources();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.java.impl.PackageFragmentImpl <em>Package Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3484,6 +3532,14 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE_FRAGMENT__COMPILATIONUNITS = eINSTANCE.getPackageFragment_Compilationunits();
+
+		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE_FRAGMENT__RESOURCES = eINSTANCE.getPackageFragment_Resources();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.

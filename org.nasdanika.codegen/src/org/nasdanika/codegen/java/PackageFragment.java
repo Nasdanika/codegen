@@ -2,9 +2,11 @@
  */
 package org.nasdanika.codegen.java;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +23,7 @@ import org.nasdanika.codegen.Generator;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.java.PackageFragment#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.PackageFragment#getCompilationunits <em>Compilationunits</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.PackageFragment#getResources <em>Resources</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.java.JavaPackage#getPackageFragment()
@@ -75,5 +78,20 @@ public interface PackageFragment extends Generator<IPackageFragment> {
 	 * @generated
 	 */
 	EList<CompilationUnit> getCompilationunits();
+
+	/**
+	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Resource}&lt;org.eclipse.core.resources.IResource>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Folder can contain other resource generators.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resources</em>' containment reference list.
+	 * @see org.nasdanika.codegen.java.JavaPackage#getPackageFragment_Resources()
+	 * @model type="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IResource>" containment="true"
+	 * @generated
+	 */
+	EList<Resource<IResource>> getResources();
 
 } // PackageFragment

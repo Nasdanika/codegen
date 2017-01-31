@@ -288,6 +288,15 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPackageFragmentRoot_Resources() {
+		return (EReference)packageFragmentRootEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPackageFragment() {
 		return packageFragmentEClass;
 	}
@@ -308,6 +317,15 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	public EReference getPackageFragment_Compilationunits() {
 		return (EReference)packageFragmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackageFragment_Resources() {
+		return (EReference)packageFragmentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -632,10 +650,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		packageFragmentRootEClass = createEClass(PACKAGE_FRAGMENT_ROOT);
 		createEAttribute(packageFragmentRootEClass, PACKAGE_FRAGMENT_ROOT__NAME);
 		createEReference(packageFragmentRootEClass, PACKAGE_FRAGMENT_ROOT__PACKAGEFRAGMENTS);
+		createEReference(packageFragmentRootEClass, PACKAGE_FRAGMENT_ROOT__RESOURCES);
 
 		packageFragmentEClass = createEClass(PACKAGE_FRAGMENT);
 		createEAttribute(packageFragmentEClass, PACKAGE_FRAGMENT__NAME);
 		createEReference(packageFragmentEClass, PACKAGE_FRAGMENT__COMPILATIONUNITS);
+		createEReference(packageFragmentEClass, PACKAGE_FRAGMENT__RESOURCES);
 
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__NAME);
@@ -748,10 +768,18 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(packageFragmentRootEClass, PackageFragmentRoot.class, "PackageFragmentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackageFragmentRoot_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageFragmentRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackageFragmentRoot_Packagefragments(), this.getPackageFragment(), null, "packagefragments", null, 0, -1, PackageFragmentRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getResource());
+		g2 = createEGenericType(theCodegenPackage.getIResource());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPackageFragmentRoot_Resources(), g1, null, "resources", null, 0, -1, PackageFragmentRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageFragmentEClass, PackageFragment.class, "PackageFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackageFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackageFragment_Compilationunits(), this.getCompilationUnit(), null, "compilationunits", null, 0, -1, PackageFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getResource());
+		g2 = createEGenericType(theCodegenPackage.getIResource());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPackageFragment_Resources(), g1, null, "resources", null, 0, -1, PackageFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompilationUnit_Name(), ecorePackage.getEString(), "name", null, 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -851,6 +879,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			 "documentation", "Package fragments (packages)."
 		   });	
 		addAnnotation
+		  (getPackageFragmentRoot_Resources(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Folder can contain other resource generators."
+		   });	
+		addAnnotation
 		  (packageFragmentEClass, 
 		   source, 
 		   new String[] {
@@ -867,6 +901,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Package compilation units."
+		   });	
+		addAnnotation
+		  (getPackageFragment_Resources(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Folder can contain other resource generators."
 		   });	
 		addAnnotation
 		  (compilationUnitEClass, 

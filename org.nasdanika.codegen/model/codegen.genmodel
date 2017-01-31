@@ -150,10 +150,12 @@
       <genClasses ecoreClass="codegen.ecore#//java/PackageFragmentRoot">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/PackageFragmentRoot/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PackageFragmentRoot/packagefragments"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PackageFragmentRoot/resources"/>
       </genClasses>
       <genClasses ecoreClass="codegen.ecore#//java/PackageFragment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/PackageFragment/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PackageFragment/compilationunits"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PackageFragment/resources"/>
       </genClasses>
       <genClasses ecoreClass="codegen.ecore#//java/CompilationUnit">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/CompilationUnit/name"/>

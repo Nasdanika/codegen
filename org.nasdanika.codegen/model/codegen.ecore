@@ -568,6 +568,15 @@
           <details key="documentation" value="Package fragments (packages)."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Folder can contain other resource generators."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Resource">
+          <eTypeArguments eClassifier="#//IResource"/>
+        </eGenericType>
+      </eStructuralFeatures>
       <eGenericSuperTypes eClassifier="#//Generator">
         <eTypeArguments eClassifier="#//java/IPackageFragmentRoot"/>
       </eGenericSuperTypes>
@@ -586,6 +595,15 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Package compilation units."/>
         </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Folder can contain other resource generators."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Resource">
+          <eTypeArguments eClassifier="#//IResource"/>
+        </eGenericType>
       </eStructuralFeatures>
       <eGenericSuperTypes eClassifier="#//Generator">
         <eTypeArguments eClassifier="#//java/IPackageFragment"/>

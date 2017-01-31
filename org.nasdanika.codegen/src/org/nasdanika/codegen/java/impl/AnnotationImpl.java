@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.util.Iterator;
-
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 

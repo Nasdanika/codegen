@@ -64,17 +64,24 @@ public class ClassImpl extends TypeImpl implements org.nasdanika.codegen.java.Cl
 		if (!getSuperTypes().isEmpty()) {
 			int idx = 0;
 			for (String st: getSuperTypes()) {
-				if (idx == 0) {
-					ret.append(" extends ");
-				} else {
-					if (idx == 1) {
-						ret.append(" implements ");
+				String superTypeName = context.interpolate(st);
+				if (superTypeName.trim().length() > 0) {
+					if (idx == 0) {
+						if (Object.class.getName().equals(superTypeName)) {
+							++idx;
+							continue; 
+						}
+						ret.append(" extends ");
 					} else {
-						ret.append(", ");
+						if (idx == 1) {
+							ret.append(" implements ");
+						} else {
+							ret.append(", ");
+						}
 					}
+					ret.append(superTypeName);
+					++idx;
 				}
-				ret.append(context.interpolate(st));
-				++idx;
 			}
 		}
 		ret.append(" {").append(System.lineSeparator()).append(body).append(System.lineSeparator()).append("}").append(System.lineSeparator());		

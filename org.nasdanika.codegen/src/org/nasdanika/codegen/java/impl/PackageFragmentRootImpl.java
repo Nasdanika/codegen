@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -19,6 +21,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
+import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
@@ -38,6 +41,7 @@ import org.nasdanika.config.MutableContext;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getPackagefragments <em>Packagefragments</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getResources <em>Resources</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +94,16 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 		return (EList<PackageFragment>)eGet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__PACKAGEFRAGMENTS, true);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Resource<IResource>> getResources() {
+		return (EList<Resource<IResource>>)eGet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__RESOURCES, true);
+	}
+
 	@Override
 	public Work<IPackageFragmentRoot> createWorkItem() throws Exception {
 		
@@ -100,8 +114,16 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 			allPackageFragmentsWorkSize += pfw.size();
 			allPackageFragmentsWork.add(pfw);
 		}
-				
-		int workSize = 2 + allPackageFragmentsWorkSize;
+
+		int resourceWorkSize = 0;
+		List<Work<List<IResource>>> rWork = new ArrayList<>();
+		for (Resource<IResource> r: getResources()) {
+			Work<List<IResource>> rw = r.createWork();
+			resourceWorkSize += rw.size();
+			rWork.add(rw);
+		}
+						
+		int workSize = 2 + allPackageFragmentsWorkSize + resourceWorkSize;
 		
 		return new Work<IPackageFragmentRoot>() {
 			
@@ -133,11 +155,17 @@ public class PackageFragmentRootImpl extends GeneratorImpl<IPackageFragmentRoot>
 				for (Work<List<IPackageFragment>> pfw: allPackageFragmentsWork) {
 					pfw.execute(pfContext, monitor);
 				}
+				
+				MutableContext sc = context.createSubContext().set(IContainer.class, (IContainer) result.getUnderlyingResource());
+				for (Work<List<IResource>> rw: rWork) {
+					rw.execute(sc, monitor);
+				}				
+				
 				return result;
 			}
 		};
 	}
-	
+		
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
