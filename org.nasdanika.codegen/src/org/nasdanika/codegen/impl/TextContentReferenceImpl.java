@@ -8,12 +8,14 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.net.URL;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.config.Context;
+import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +25,8 @@ import org.nasdanika.config.Context;
  * @generated
  */
 public class TextContentReferenceImpl extends ContentReferenceImpl<String> implements TextContentReference {
+	private static final String BUNDLE_PROTOCOL = "bundle://";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,7 +57,15 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 
 			@Override
 			public String execute(Context context, SubMonitor monitor) throws Exception {
-				URL url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
+				URL url;
+				if (getRef().startsWith(BUNDLE_PROTOCOL)) {
+					String bp = getRef().substring(BUNDLE_PROTOCOL.length());
+					int slashIdx = bp.indexOf("/");
+					Bundle bundle = Platform.getBundle(bp.substring(0, slashIdx));
+					url = bundle.getEntry(bp.substring(slashIdx));
+				} else {
+					url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
+				}
 				monitor.subTask("Loading text from: "+url);
 				StringWriter sw = new StringWriter();
 				try (Reader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {

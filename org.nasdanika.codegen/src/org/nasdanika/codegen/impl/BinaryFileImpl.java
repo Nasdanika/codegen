@@ -10,6 +10,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,12 +40,12 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	protected InputStream store(InputStream content) throws Exception {
+	protected InputStream store(Context context, InputStream content) throws Exception {
 		return content;
 	}
 
 	@Override
-	protected InputStream load(InputStream content) throws Exception {
+	protected InputStream load(Context context, InputStream content) throws Exception {
 		return content;
 	}
 

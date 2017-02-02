@@ -166,11 +166,11 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					switch (getReconcileAction()) {
 					case APPEND:
 						List<C> cl = new ArrayList<>();
-						cl.add(load(file.getContents()));
+						cl.add(load(context, file.getContents()));
 						for (Work<List<C>> gw: gWork) {
 							cl.addAll(gw.execute(sc, monitor));
 						}
-						file.setContents(store(join(cl)), false, true, monitor.split(1));
+						file.setContents(store(context, join(cl)), false, true, monitor.split(1));
 						return file;
 					case MERGE:
 						if (merger == null) {
@@ -180,7 +180,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 						for (Work<List<C>> gw: gWork) {
 							mcl.addAll(gw.execute(sc, monitor));
 						}
-						file.setContents(store(merger.merge(sc, file, load(file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
+						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
 						return file;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
@@ -206,16 +206,16 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					for (Work<List<C>> gw: gWork) {
 						cl.addAll(gw.execute(sc, monitor));
 					}
-					file = CodegenUtil.createFile(container, name, store(join(cl)), monitor.split(1));
+					file = CodegenUtil.createFile(container, name, store(context, join(cl)), monitor.split(1));
 				}
 				return file;
 			}
 		};
 	}
 	
-	protected abstract InputStream store(C content) throws Exception;
+	protected abstract InputStream store(Context context, C content) throws Exception;
 	
-	protected abstract C load(InputStream content) throws Exception;
+	protected abstract C load(Context context, InputStream content) throws Exception;
 	
 	protected abstract C join(List<C> content) throws Exception;
 	

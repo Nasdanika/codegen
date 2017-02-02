@@ -2068,13 +2068,22 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__GENERATORS = FILE__GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__ENCODING = FILE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Text File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+	int TEXT_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -5966,6 +5975,17 @@ public interface CodegenPackage extends EPackage {
 	EClass getTextFile();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.TextFile#getEncoding <em>Encoding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Encoding</em>'.
+	 * @see org.nasdanika.codegen.TextFile#getEncoding()
+	 * @see #getTextFile()
+	 * @generated
+	 */
+	EAttribute getTextFile_Encoding();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceReference <em>Resource Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6777,6 +6797,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEXT_FILE = eINSTANCE.getTextFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Encoding</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_FILE__ENCODING = eINSTANCE.getTextFile_Encoding();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceReferenceImpl <em>Resource Reference</em>}' class.

@@ -812,6 +812,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTextFile_Encoding() {
+		return (EAttribute)textFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResourceReference() {
 		return resourceReferenceEClass;
 	}
@@ -1312,6 +1321,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		binaryFileEClass = createEClass(BINARY_FILE);
 
 		textFileEClass = createEClass(TEXT_FILE);
+		createEAttribute(textFileEClass, TEXT_FILE__ENCODING);
 
 		resourceReferenceEClass = createEClass(RESOURCE_REFERENCE);
 		createEReference(resourceReferenceEClass, RESOURCE_REFERENCE__TARGET);
@@ -1651,6 +1661,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(binaryFileEClass, BinaryFile.class, "BinaryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(textFileEClass, TextFile.class, "TextFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextFile_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, TextFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceReferenceEClass, ResourceReference.class, "ResourceReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getResource());
@@ -1962,6 +1973,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Text file with ``String`` content."
+		   });	
+		addAnnotation
+		  (getTextFile_Encoding(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Optional character encoding."
 		   });	
 		addAnnotation
 		  (reconcileActionEEnum, 

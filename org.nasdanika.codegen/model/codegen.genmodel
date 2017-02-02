@@ -86,7 +86,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//BinaryFile"/>
-    <genClasses ecoreClass="codegen.ecore#//TextFile"/>
+    <genClasses ecoreClass="codegen.ecore#//TextFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextFile/encoding"/>
+    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//ResourceReference/target"/>
     </genClasses>
