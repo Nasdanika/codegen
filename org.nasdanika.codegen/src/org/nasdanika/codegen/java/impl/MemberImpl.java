@@ -128,8 +128,8 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Generator<?>> getBodyGenerators() {
-		return (EList<Generator<?>>)eGet(JavaPackage.Literals.MEMBER__BODY_GENERATORS, true);
+	public EList<Generator<String>> getBodyGenerators() {
+		return (EList<Generator<String>>)eGet(JavaPackage.Literals.MEMBER__BODY_GENERATORS, true);
 	}
 
 	/**
@@ -150,7 +150,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 		}
 		
 		List<Work<List<String>>> bodyWorkList = new ArrayList<>();
-		for (Generator<String> bg: getCommentGenerators()) {
+		for (Generator<String> bg: getBodyGenerators()) {
 			bodyWorkList.add(bg.createWork());
 		}
 		

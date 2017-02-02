@@ -126,7 +126,7 @@ public interface Member extends Generator<String> {
 
 	/**
 	 * Returns the value of the '<em><b>Body Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;?>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;java.lang.String>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -135,10 +135,10 @@ public interface Member extends Generator<String> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_BodyGenerators()
-	 * @model containment="true"
+	 * @model type="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>" containment="true"
 	 * @generated
 	 */
-	EList<Generator<?>> getBodyGenerators();
+	EList<Generator<String>> getBodyGenerators();
 
 	/**
 	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute list.

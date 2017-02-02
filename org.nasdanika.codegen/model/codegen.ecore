@@ -681,7 +681,7 @@
           <details key="documentation" value="Generators which generate member body. For Field field initializer is considered as body.&#xD;&#xA;"/>
         </eAnnotations>
         <eGenericType eClassifier="#//Generator">
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" upperBound="-1"
