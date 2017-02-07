@@ -140,6 +140,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/generator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/merger"/>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//Mustache"/>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

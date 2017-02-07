@@ -44,6 +44,7 @@ import org.nasdanika.codegen.JavaStreamGenerator;
 import org.nasdanika.codegen.JavaTextFilter;
 import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
@@ -332,6 +333,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass zipArchiveEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mustacheEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1118,6 +1126,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMustache() {
+		return mustacheEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1378,6 +1395,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEReference(zipArchiveEClass, ZIP_ARCHIVE__GENERATOR);
 		createEReference(zipArchiveEClass, ZIP_ARCHIVE__MERGER);
 
+		mustacheEClass = createEClass(MUSTACHE);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 
@@ -1590,6 +1609,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getIContainer());
 		g1.getETypeArguments().add(g2);
 		zipArchiveEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getFilter());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		mustacheEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1726,6 +1749,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getZipArchive_Generator(), g1, null, "generator", null, 1, 1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getZipArchive_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mustacheEClass, Mustache.class, "Mustache", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -2165,6 +2190,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
+		   });	
+		addAnnotation
+		  (mustacheEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.\r\n\r\nImport manager and Java Expression Evaluator are functions and as such \r\ncan be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."
 		   });
 	}
 

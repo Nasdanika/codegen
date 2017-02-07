@@ -260,6 +260,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateStreamContentReference((StreamContentReference)value, diagnostics, context);
 			case CodegenPackage.ZIP_ARCHIVE:
 				return validateZipArchive((ZipArchive)value, diagnostics, context);
+			case CodegenPackage.MUSTACHE:
+				return validateMustache((Mustache)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
@@ -956,6 +958,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)zipArchive, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)zipArchive, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(zipArchive, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMustache(Mustache mustache, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)mustache, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)mustache, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(mustache, diagnostics, context);
 		return result;
 	}
 

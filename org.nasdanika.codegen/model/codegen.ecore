@@ -542,6 +542,14 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IContainer" instanceClassName="org.eclipse.core.resources.IContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mustache">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.&#xD;&#xA;&#xD;&#xA;Import manager and Java Expression Evaluator are functions and as such &#xD;&#xA;can be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//Filter">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eSubpackages name="java" nsURI="urn:org.nasdanika.codegen.java" nsPrefix="org.nasdanika.codegen.java">
     <eClassifiers xsi:type="ecore:EClass" name="JavaNature" eSuperTypes="#//Nature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

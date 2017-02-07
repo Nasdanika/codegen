@@ -229,6 +229,15 @@ public interface CodegenFactory extends EFactory {
 	ZipArchive createZipArchive();
 
 	/**
+	 * Returns a new object of class '<em>Mustache</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mustache</em>'.
+	 * @generated
+	 */
+	Mustache createMustache();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

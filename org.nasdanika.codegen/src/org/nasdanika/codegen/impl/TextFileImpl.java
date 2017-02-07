@@ -7,10 +7,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -73,7 +71,6 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	protected InputStream store(Context context, String content) throws Exception {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		String charsetName = context.interpolate(getEncoding());
-		System.out.println(charsetName);
 		baos.write(charsetName == null || charsetName.trim().length() == 0 ? content.getBytes() : content.getBytes(charsetName));
 		baos.close(); 
 		return new ByteArrayInputStream(baos.toByteArray());

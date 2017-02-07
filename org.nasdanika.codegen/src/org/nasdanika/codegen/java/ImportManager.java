@@ -1,8 +1,8 @@
 package org.nasdanika.codegen.java;
 
 import java.util.Collection;
+import java.util.function.Function;
 
-import org.nasdanika.config.Context;
 import org.nasdanika.config.TokenSource;
 
 /**
@@ -12,7 +12,7 @@ import org.nasdanika.config.TokenSource;
  * @author Pavel
  *
  */
-public interface ImportManager extends TokenSource {
+public interface ImportManager extends Function<String, Object> {
 	
 	/**
 	 * Adds fully qualified name to the list of imports. 
@@ -21,9 +21,8 @@ public interface ImportManager extends TokenSource {
 	 */
 	String addImport(String fullyQualifiedTypeName);
 	
-	
 	@Override
-	default Object getToken(Context context, String name) {
+	default Object apply(String name) {
 		return addImport(name);
 	}
 	

@@ -439,6 +439,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -605,6 +610,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 CodegenFactory.eINSTANCE.createMustache()));
 
 		newChildDescriptors.add
 			(createChildParameter

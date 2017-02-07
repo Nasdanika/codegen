@@ -257,6 +257,11 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
+				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
 				 JavaFactory.eINSTANCE.createJavaNature()));
 
 		newChildDescriptors.add

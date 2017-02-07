@@ -259,6 +259,11 @@ public class MavenNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
 				 JavaFactory.eINSTANCE.createJavaNature()));
 
 		newChildDescriptors.add
