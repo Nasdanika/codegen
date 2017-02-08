@@ -46,7 +46,11 @@
 			<url>http://www.nasdanika.org/products/config/repository</url>
 			<layout>p2</layout>
 		</repository>
-		
+		<repository>
+			<id>presentation</id>
+			<url>http://www.nasdanika.org/products/presentation/repository</url>
+			<layout>p2</layout>
+		</repository>		
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
