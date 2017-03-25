@@ -137,8 +137,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 			gWork.add(g.createWork());
 		}
 		
-		@SuppressWarnings("unchecked")
-		Merger<C> merger = (Merger<C>) getMerger();
+		Service mergerService = getMerger();
 		
 		return new Work<IFile>() {
 
@@ -148,8 +147,8 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 				for (Work<List<C>> gw: gWork) {
 					ret += gw.size();
 				}
-				if (merger != null) {
-					ret += merger.getWorkSize();
+				if (mergerService != null) {					
+					ret += mergerService.getConfigWorkSize() + 1;
 				}				
 				return ret;
 			}
@@ -173,14 +172,15 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 						file.setContents(store(context, join(cl)), false, true, monitor.split(1));
 						return file;
 					case MERGE:
-						if (merger == null) {
+						if (mergerService == null) {
 							throw new IllegalStateException("Merger is not set");
 						}
 						List<C> mcl = new ArrayList<>();
 						for (Work<List<C>> gw: gWork) {
 							mcl.addAll(gw.execute(sc, monitor));
 						}
-						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents()), join(mcl), monitor)), false, true, monitor.split(1));
+						@SuppressWarnings("unchecked") Merger<C> merger = (Merger<C>) mergerService.get(context, monitor);
+						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents()), join(mcl), monitor.split(1))), false, true, monitor.split(1));
 						return file;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
