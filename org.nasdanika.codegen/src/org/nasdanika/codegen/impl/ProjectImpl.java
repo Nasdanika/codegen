@@ -2,12 +2,17 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
@@ -22,10 +27,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Nature;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceModificationTracker;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
@@ -48,6 +55,8 @@ import org.nasdanika.config.MutableContext;
  * @generated
  */
 public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Project {
+	private static final String RESOURCE_MODIFICATIONS_TRACKER_PROPERTIES_FILE = ".settings/org.nasdanika.codegen.resourceStamps.properties";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +202,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 			allResourcesWork.add(rw);
 		}		
 
-		int workSize = 4 + allNaturesWorkSize + allResourcesWorkSize;
+		int workSize = 5 + allNaturesWorkSize + allResourcesWorkSize;
 		
 		return new Work<IProject>() {
 
@@ -204,7 +213,6 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 
 			@Override
 			public IProject execute(Context context, SubMonitor monitor) throws Exception {
-				
 				IWorkspace workspace = context.get(IWorkspace.class);
 				String projectName = context.interpolate(getName());
 				IProject project = workspace.getRoot().getProject(projectName);
@@ -240,13 +248,35 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 
 				project = configure(context, project, monitor.split(1));
 				MutableContext sc = context.createSubContext().set(IProject.class, project).set(IContainer.class, project);
-
-				for (Work<List<IProjectNature>> nw: allNaturesWork) {
-					nw.execute(sc, monitor);
-				}
 				
-				for (Work<List<IResource>> rw: allResourcesWork) {
-					rw.execute(sc, monitor);
+				Properties modificationTrack = new Properties(); // TODO - load in the project controller
+				IFile trackingFile = project.getFile(RESOURCE_MODIFICATIONS_TRACKER_PROPERTIES_FILE);
+				if (trackingFile.exists()) {
+					modificationTrack.load(trackingFile.getContents());
+				}
+				ResourceModificationTracker resourceModificationTracker = new PropertiesResourceModificationTracker(modificationTrack);
+				sc.set(ResourceModificationTracker.class, resourceModificationTracker);
+				
+				try {
+	
+					for (Work<List<IProjectNature>> nw: allNaturesWork) {
+						nw.execute(sc, monitor);
+					}
+					
+					for (Work<List<IResource>> rw: allResourcesWork) {
+						rw.execute(sc, monitor);
+					}
+				} finally {
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					modificationTrack.store(baos, "Resource stamps");
+					baos.close();
+					InputStream in = new ByteArrayInputStream(baos.toByteArray());
+					if (trackingFile.exists()) {
+						trackingFile.setContents(in, 0, monitor.split(1));
+					} else {
+						CodegenUtil.createFile(project, RESOURCE_MODIFICATIONS_TRACKER_PROPERTIES_FILE, in, monitor.split(1));
+					}
+					modificationTrack.store(System.out, "Track");					
 				}
 				
 				return project;

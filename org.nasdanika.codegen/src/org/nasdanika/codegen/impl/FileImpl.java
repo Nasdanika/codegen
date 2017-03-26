@@ -25,6 +25,7 @@ import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ReconcileAction;
+import org.nasdanika.codegen.ResourceModificationTracker;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
@@ -161,6 +162,12 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 				IFile file = container.getFile(new Path(name));
 				MutableContext sc = context.createSubContext().set(IFile.class, file);
 				
+				// Delete unmodified resources 
+				ResourceModificationTracker resourceModificationTracker = context.get(ResourceModificationTracker.class);
+				if (resourceModificationTracker != null && !resourceModificationTracker.isResourceModified(file)) {
+					file.delete(true, true, monitor.split(1));
+				}
+				
 				if (file.exists()) {
 					switch (getReconcileAction()) {
 					case APPEND:
@@ -207,6 +214,10 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 						cl.addAll(gw.execute(sc, monitor));
 					}
 					file = CodegenUtil.createFile(container, name, store(context, join(cl)), monitor.split(1));
+				}
+				
+				if (resourceModificationTracker != null) {
+					resourceModificationTracker.resourceModified(file);
 				}
 				return file;
 			}
