@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -186,6 +187,8 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 				}
 				workingCopy.getBuffer().setContents(formatCompilationUnit(packageFragment.getJavaProject(), content));
 				workingCopy.commitWorkingCopy(false, monitor.split(1));
+			} catch (Exception e) {
+				throw new InvocationTargetException(e, "A problem merging "+compilationUnit.getResource().getProjectRelativePath());
 			} finally {
 				workingCopy.discardWorkingCopy();
 			}				

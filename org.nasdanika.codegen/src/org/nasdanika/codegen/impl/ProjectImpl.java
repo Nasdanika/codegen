@@ -276,7 +276,6 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 					} else {
 						CodegenUtil.createFile(project, RESOURCE_MODIFICATIONS_TRACKER_PROPERTIES_FILE, in, monitor.split(1));
 					}
-					modificationTrack.store(System.out, "Track");					
 				}
 				
 				return project;
