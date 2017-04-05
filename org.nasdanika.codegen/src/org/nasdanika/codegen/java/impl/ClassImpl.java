@@ -4,7 +4,6 @@ package org.nasdanika.codegen.java.impl;
 
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.config.Context;
 
