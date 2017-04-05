@@ -214,11 +214,11 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 						cl.addAll(gw.execute(sc, monitor));
 					}
 					file = CodegenUtil.createFile(container, name, store(context, join(cl)), monitor.split(1));
+					if (resourceModificationTracker != null) {
+						resourceModificationTracker.resourceModified(file);
+					}
 				}
 				
-				if (resourceModificationTracker != null) {
-					resourceModificationTracker.resourceModified(file);
-				}
 				return file;
 			}
 		};
