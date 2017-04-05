@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toc label="Nasdanika" link_to="../org.nasdanika.help/toc.xml#Nasdanika">
+   <topic href="doc/codegen.html" label="Code generation">
+      <anchor id="code_generation"/>
+   </topic>
+</toc>
