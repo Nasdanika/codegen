@@ -4,6 +4,113 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
-		<h1 id="codegen">Codegen</h1>
+		<h1 id="nasdanika-code-generation">Nasdanika Code Generation</h1>
+		<p>Nasdanika Code Generation provides an Ecore model which encapsulates generation of Eclipse projects, folders, files, packages, compilation units, ...
+			It also provides an editor for the model. Code can be generated from a model by using context menu item and then supplying input configuration either as a file or interactively
+			through UI dialogs.</p>
+		<h2 id="concepts">Concepts</h2>
+		<p>The model contains generators and filters. Filter is a generator which contains another generator and performs some processing on the contained generator output to produce its own output. 
+			Please consult the 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/">model API documentation</a> for the complete list of model elements.
+		</p>
+		<p>In the model generators are organized in a tree, e.g. workspace "generator" (it doesn't actually generate anything) may contain project generators, which in turn may contain file, folder, and nature generators.</p>
+		<p>Java nature generator may contain package fragment roots generators, which contain package fragment generators, which in turn contain compilation unit generators.</p>
+		<p>Maven nature may contain pom.xml generator.</p>
+		<p>
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Generator.html">Generator</a> extends 
+			<a href="http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config/apidocs/org/nasdanika/config/Configuration.html?is-external=true">Configuration</a> and as such may contain configuration items - properties, services, and configuration categories.
+		</p>
+		<p>Generation works in the following way:</p>
+		<ul>
+			<li>Generators create 
+				<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Work.html">Work</a>.
+			</li>
+			<li>Work takes 
+				<a href="http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config/apidocs/org/nasdanika/config/Context.html?is-external=true">Context</a> and progress monitor as its 
+				<code>execute()</code> method arguments. 
+			</li>
+			<li>Because Generator extends Configuration, it has createContext() method. When generator's work is executed it receives a context created by its generator with container generator context as its parent. The top level generator receives its context from the client code, e.g. from the model editor. What it means is that each child generator inherits properties and services from its parent generator. </li>
+		</ul>
+		<h3 id="name-interpolation">Name interpolation</h3>
+		<p>Some generators, e.g. project generator, have name attribute. During generation the name attribute value gets interpolated to produce the name of the generated artifact, e.g. workspace project.
+			Interpolation means expanding 
+			<code>{{&lt;property name&gt;[|&lt;default value&gt;]}}</code> tokens to the value of the property with the specified name from the generation context. Interpolation makes iteration (see below) possible.
+			<br/>
+		</p>
+		<h3 id="reconcile-action-and-merging">Reconcile action and merging</h3>
+		<p>Reconcile action attribute allows to specify what to do if an artifact about to be generated already exists. One of options is "Merge". 
+			If "Merge" is selected the generator must contain 
+			<code>merger</code> services implementing 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Merger">Merger</a> interface, which would combine generated and existing artifact content.
+		</p>
+		<h3 id="controller">Controller</h3>
+		<p>All generators have 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Generator.html#getController--">Controller</a> attribute which may contain a name of Java class implementing 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/GeneratorController">GeneratorController</a> interface for generators and 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/GroupController">GroupController</a> interface for groups.
+		</p>
+		<p>Controllers allow to validate the generator configuration before execution, execute generator work zero or more times with different contexts, and configure results of execution.</p>
+		<h3 id="modification-tracking">Modification tracking</h3>
+		<p>If resource generator context contains 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/ResourceModificationTracker.html">ResourceModificationTracker</a> service, then this service is used for tracking resource modifications. Modification tracking allows generators to overwrite resources which haven't been modified since last generation and preserve them, confirm overwrite or merge otherwise.
+		</p>
+		<p>Resource modification tracker is added to the context of 
+			<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Project.html">Project</a> and inherited by its children. Resource modifications are stored in 
+			<code>.settings/org.nasdanika.codegen.resourceStamps.properties</code> file in the form of 
+			<code>&lt;file path&gt;=&lt;file SHA-256 digest&gt;</code>.
+			<br/>
+		</p>
+		<h2 id="creating-a-model">Creating a model</h2>
+		<ul>
+			<li>Install Configuration editor from 
+				<code>http://www.nasdanika.org/products/codegen/repository</code>.
+			</li>
+			<li>File &gt; New &gt; Other &gt; Nasdanika/Code Generation Model.</li>
+			<li>Select the root model element. If the model is going to be used to generate code from the editor, select "Workspace". </li>
+			<li>Add child elements to the root and configure.</li>
+			<li>Right-click on the model root or other model element and select "Validate" context menu item to validate the model.</li>
+		</ul>
+		<h2 id="generating-code">Generating code</h2>
+		<h3 id="from-the-editor">From the editor</h3>
+		<ul>
+			<li>Right-click on the model root or other model element and select "Generate". </li>
+			<li>Enter values for unbound properties to a dialog when requested.</li>
+		</ul>
+		<p>If the project containing the generation model is a Java project, then Java classes defined in the project or referenced by the project are available in the generators context class loader.</p>
+		<h3 id="programmatically">Programmatically</h3>
+		<p>See 
+			<a href="https://github.com/Nasdanika/codegen-ecore-web-ui/blob/master/org.nasdanika.codegen.ecore.web.ui/src/org/nasdanika/codegen/ecore/web/ui/WebUIGenerationTarget.java#L90">WebUIGenerationTarget.execute()</a> method:
+		</p>
+		<ul>
+			<li>Load the model.</li>
+			<li>Call 
+				<code>Generator.createWork()</code>.
+			</li>
+			<li>Call 
+				<code>Work.execute()</code> providing context and monitor.
+				<br/>
+			</li>
+		</ul>
+		<h2 id="api-documentation">API Documentation</h2>
+		<ul>
+			<li>
+				<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/">Model</a>
+			</li>
+			<li>
+				<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen.edit/apidocs/">Edit</a>
+			</li>
+			<li>
+				<a href="http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen.editor/apidocs/">Editor</a>
+			</li>
+		</ul>
+		<h2 id="example">Example</h2>
+		<p>
+			<a href="https://github.com/Nasdanika/codegen-ecore-web-ui">Codegen Ecore Web UI Generation Target</a> - This project contains a model which generates routes, renderers and resource sets for 
+			<a href="https://github.com/Nasdanika/server/blob/master/org.nasdanika.cdo.web/doc/application-rendering.md">Nasdanika Application Rendering Framework</a> from an Ecore model.
+		</p>
+		<p>Below is a screenshot of the generator model:</p>
+		<p>
+			<img alt="web-ui-generation-target-codegen-model.png" border="0" src="web-ui-generation-target-codegen-model.png"/>
+		</p>
 	</body>
 </html>
