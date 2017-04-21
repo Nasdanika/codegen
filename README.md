@@ -1,6 +1,10 @@
 # Nasdanika Code Generation
 
-[Online documentation](org.nasdanika.codegen.editor/doc/codegen.md).
+* [Online documentation](org.nasdanika.codegen.editor/doc/codegen.md).
+* JavaDoc
+  * [Model](http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs)
+  * [Edit](http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen.edit/apidocs)
+  * [Editor](http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen.editor/apidocs)  
 
 ## P2 Repository
 
