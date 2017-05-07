@@ -144,7 +144,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 
 			@Override
 			public int size() {
-				int ret = 2;
+				int ret = 3;
 				for (Work<List<C>> gw: gWork) {
 					ret += gw.size();
 				}
@@ -172,11 +172,11 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					switch (getReconcileAction()) {
 					case APPEND:
 						List<C> cl = new ArrayList<>();
-						cl.add(load(context, file.getContents()));
+						cl.add(load(context, file.getContents(), file.getCharset()));
 						for (Work<List<C>> gw: gWork) {
 							cl.addAll(gw.execute(sc, monitor));
 						}
-						file.setContents(store(context, join(cl)), false, true, monitor.split(1));
+						file.setContents(store(context, join(cl), file.getCharset()), false, true, monitor.split(1));
 						return file;
 					case MERGE:
 						if (mergerService == null) {
@@ -187,7 +187,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 							mcl.addAll(gw.execute(sc, monitor));
 						}
 						@SuppressWarnings("unchecked") Merger<C> merger = (Merger<C>) mergerService.get(context, monitor);
-						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents()), join(mcl), monitor.split(1))), false, true, monitor.split(1));
+						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents(), file.getCharset()), join(mcl), monitor.split(1)), file.getCharset()), false, true, monitor.split(1));
 						return file;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
@@ -213,7 +213,10 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 					for (Work<List<C>> gw: gWork) {
 						cl.addAll(gw.execute(sc, monitor));
 					}
-					file = CodegenUtil.createFile(container, name, store(context, join(cl)), monitor.split(1));
+					file = CodegenUtil.createFile(container, name, store(context, join(cl), file.getCharset()), monitor.split(1));
+					if (getEncoding() != null && !getEncoding().equals(file.getCharset())) {
+						file.setCharset(getEncoding(), monitor.split(1));
+					}
 					if (resourceModificationTracker != null) {
 						resourceModificationTracker.resourceModified(file);
 					}
@@ -224,10 +227,18 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 		};
 	}
 	
-	protected abstract InputStream store(Context context, C content) throws Exception;
+	protected abstract InputStream store(Context context, C content, String charset) throws Exception;
 	
-	protected abstract C load(Context context, InputStream content) throws Exception;
+	protected abstract C load(Context context, InputStream content, String charset) throws Exception;
 	
 	protected abstract C join(List<C> content) throws Exception;
+	
+	/**
+	 * Text file overrides.
+	 * @return
+	 */
+	public String getEncoding() {
+		return null;
+	}
 	
 } //FileImpl

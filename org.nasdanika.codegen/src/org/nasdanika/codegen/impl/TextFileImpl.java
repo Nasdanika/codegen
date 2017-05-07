@@ -68,19 +68,19 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	}
 
 	@Override
-	protected InputStream store(Context context, String content) throws Exception {
+	protected InputStream store(Context context, String content, String charset) throws Exception {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		String charsetName = context.interpolate(getEncoding());
-		baos.write(charsetName == null || charsetName.trim().length() == 0 ? content.getBytes() : content.getBytes(charsetName));
+		baos.write(content.getBytes(charsetName == null || charsetName.trim().length() == 0 ? charset : charsetName));
 		baos.close(); 
 		return new ByteArrayInputStream(baos.toByteArray());
 	}
 
 	@Override
-	protected String load(Context context, InputStream content) throws Exception {
+	protected String load(Context context, InputStream content, String charset) throws Exception {
 		StringWriter w = new StringWriter();
 		String charsetName = context.interpolate(getEncoding());		
-		try (Reader r = new BufferedReader(charsetName == null || charsetName.trim().length() == 0 ? new InputStreamReader(content) : new InputStreamReader(content, charsetName))) {
+		try (Reader r = new BufferedReader(new InputStreamReader(content, charsetName == null || charsetName.trim().length() == 0 ? charset : charsetName))) {
 			int ch; 
 			while ((ch = r.read()) != -1) {
 				w.write(ch);

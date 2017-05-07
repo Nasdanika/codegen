@@ -40,12 +40,12 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	protected InputStream store(Context context, InputStream content) throws Exception {
+	protected InputStream store(Context context, InputStream content, String charset) throws Exception {
 		return content;
 	}
 
 	@Override
-	protected InputStream load(Context context, InputStream content) throws Exception {
+	protected InputStream load(Context context, InputStream content, String charset) throws Exception {
 		return content;
 	}
 
