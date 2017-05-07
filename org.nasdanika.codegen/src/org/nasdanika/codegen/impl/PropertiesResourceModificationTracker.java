@@ -25,6 +25,9 @@ public class PropertiesResourceModificationTracker implements ResourceModificati
 
 	@Override
 	public boolean isResourceModified(IResource resource) throws Exception {
+		if (!resource.exists()) {
+			return false; // Not existent means that all modifications are gone -> not modified.
+		}
 		String resStamp = properties.getProperty(resource.getProjectRelativePath().toString());
 		if (resStamp == null) {
 			// Not tracked same as modified
