@@ -15,7 +15,7 @@ import org.eclipse.core.resources.IProjectNature;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getNature()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.IProjectNature>"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.IProjectNature&gt;"
  * @generated
  */
 public interface Nature extends Generator<IProjectNature> {

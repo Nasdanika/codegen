@@ -20,7 +20,7 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getTextFile()
- * @model superTypes="org.nasdanika.codegen.File<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.File&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface TextFile extends File<String> {

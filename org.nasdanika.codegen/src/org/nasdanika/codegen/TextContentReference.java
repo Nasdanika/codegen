@@ -10,7 +10,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getTextContentReference()
- * @model superTypes="org.nasdanika.codegen.ContentReference<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.ContentReference&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface TextContentReference extends ContentReference<String> {

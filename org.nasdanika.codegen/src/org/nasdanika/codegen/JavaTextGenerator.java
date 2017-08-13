@@ -14,7 +14,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJavaTextGenerator()
- * @model superTypes="org.nasdanika.codegen.JavaGenerator<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.JavaGenerator&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface JavaTextGenerator extends JavaGenerator<String> {

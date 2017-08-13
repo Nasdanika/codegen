@@ -37,7 +37,7 @@ public interface MavenNature extends Nature {
 	 * @return the value of the '<em>Pom Generator</em>' containment reference.
 	 * @see #setPomGenerator(Generator)
 	 * @see org.nasdanika.codegen.maven.MavenPackage#getMavenNature_PomGenerator()
-	 * @model type="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>" containment="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true"
 	 * @generated
 	 */
 	Generator<String> getPomGenerator();

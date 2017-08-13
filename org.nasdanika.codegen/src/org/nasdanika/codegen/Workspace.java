@@ -15,7 +15,7 @@ import org.eclipse.core.resources.IProject;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getWorkspace()
- * @model superTypes="org.nasdanika.codegen.Group<org.nasdanika.codegen.IProject>"
+ * @model superTypes="org.nasdanika.codegen.Group&lt;org.nasdanika.codegen.IProject&gt;"
  * @generated
  */
 public interface Workspace extends Group<IProject> {

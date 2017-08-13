@@ -23,13 +23,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGroup()
- * @model superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.List<T>>"
+ * @model superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
  * @generated
  */
 public interface Group<T> extends Generator<List<T>> {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;T>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;T&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->

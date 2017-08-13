@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getProject()
- * @model superTypes="org.nasdanika.codegen.ResourceGenerator<org.nasdanika.codegen.IProject>"
+ * @model superTypes="org.nasdanika.codegen.ResourceGenerator&lt;org.nasdanika.codegen.IProject&gt;"
  * @generated
  */
 public interface Project extends ResourceGenerator<IProject> {
@@ -81,7 +81,7 @@ public interface Project extends ResourceGenerator<IProject> {
 
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Resource}&lt;org.eclipse.core.resources.IResource>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.eclipse.core.resources.IResource&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
@@ -93,7 +93,7 @@ public interface Project extends ResourceGenerator<IProject> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resources</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getProject_Resources()
-	 * @model type="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IResource>" containment="true"
+	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&gt;" containment="true"
 	 * @generated
 	 */
 	EList<Resource<IResource>> getResources();

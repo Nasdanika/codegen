@@ -202,5 +202,24 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//maven/MavenNature/pomGenerator"/>
       </genClasses>
     </nestedGenPackages>
+    <nestedGenPackages prefix="Wizard" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
+        ecorePackage="codegen.ecore#//wizard">
+      <genClasses ecoreClass="codegen.ecore#//wizard/Wizard">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//wizard/Wizard/pages"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//wizard/WizardPage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//wizard/WizardPage/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//wizard/WizardPage/title"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//wizard/WizardPage/description"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//wizard/WizardPage/content"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="codegen.ecore#//wizard/WizardPageContent">
+        <genOperations ecoreOperation="codegen.ecore#//wizard/WizardPageContent/validate">
+          <genParameters ecoreParameter="codegen.ecore#//wizard/WizardPageContent/validate/diagnostics"/>
+          <genParameters ecoreParameter="codegen.ecore#//wizard/WizardPageContent/validate/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="codegen.ecore#//wizard/WizardPageContent/shallShow"/>
+      </genClasses>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

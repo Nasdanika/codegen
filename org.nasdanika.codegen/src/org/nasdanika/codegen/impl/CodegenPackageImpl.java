@@ -71,6 +71,8 @@ import org.nasdanika.codegen.java.impl.JavaPackageImpl;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.codegen.wizard.WizardPackage;
+import org.nasdanika.codegen.wizard.impl.WizardPackageImpl;
 import org.nasdanika.config.ConfigPackage;
 import org.nasdanika.config.Context;
 import org.nasdanika.config.Provider;
@@ -498,16 +500,19 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Obtain or create and register interdependencies
 		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) : JavaPackage.eINSTANCE);
 		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) : MavenPackage.eINSTANCE);
+		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) : WizardPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCodegenPackage.createPackageContents();
 		theJavaPackage.createPackageContents();
 		theMavenPackage.createPackageContents();
+		theWizardPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCodegenPackage.initializePackageContents();
 		theJavaPackage.initializePackageContents();
 		theMavenPackage.initializePackageContents();
+		theWizardPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -1443,11 +1448,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Obtain other dependent packages
 		JavaPackage theJavaPackage = (JavaPackage)EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
 		MavenPackage theMavenPackage = (MavenPackage)EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI);
+		WizardPackage theWizardPackage = (WizardPackage)EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI);
 		ConfigPackage theConfigPackage = (ConfigPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theJavaPackage);
 		getESubpackages().add(theMavenPackage);
+		getESubpackages().add(theWizardPackage);
 
 		// Create type parameters
 		addETypeParameter(workFactoryEClass, "T");

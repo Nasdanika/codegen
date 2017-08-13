@@ -20,7 +20,7 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJETEmitter()
- * @model superTypes="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface JETEmitter extends Generator<String> {

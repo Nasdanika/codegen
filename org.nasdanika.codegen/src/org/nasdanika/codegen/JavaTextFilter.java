@@ -14,7 +14,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJavaTextFilter()
- * @model superTypes="org.nasdanika.codegen.JavaFilter<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.JavaFilter&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface JavaTextFilter extends JavaFilter<String> {

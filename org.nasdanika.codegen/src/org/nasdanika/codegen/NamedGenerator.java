@@ -71,7 +71,7 @@ public interface NamedGenerator extends CDOObject {
 	 * @return the value of the '<em>Generator</em>' containment reference.
 	 * @see #setGenerator(Generator)
 	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Generator()
-	 * @model type="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>" containment="true" required="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true" required="true"
 	 * @generated
 	 */
 	Generator<String> getGenerator();

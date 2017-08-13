@@ -10,7 +10,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getScriptedTextGenerator()
- * @model superTypes="org.nasdanika.codegen.ScriptedGenerator<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.ScriptedGenerator&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface ScriptedTextGenerator extends ScriptedGenerator<String> {

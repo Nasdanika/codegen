@@ -28,7 +28,7 @@ import org.nasdanika.config.Configuration;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
- * @model abstract="true" superTypes="org.nasdanika.config.Configuration org.nasdanika.codegen.WorkFactory<org.nasdanika.codegen.List<T>>"
+ * @model abstract="true" superTypes="org.nasdanika.config.Configuration org.nasdanika.codegen.WorkFactory&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
  * @generated
  */
 public interface Generator<T> extends Configuration, WorkFactory<List<T>> {

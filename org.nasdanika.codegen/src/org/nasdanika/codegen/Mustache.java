@@ -17,7 +17,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getMustache()
- * @model superTypes="org.nasdanika.codegen.Filter<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.Filter&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface Mustache extends Filter<String> {

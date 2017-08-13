@@ -23,13 +23,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFolder()
- * @model superTypes="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IFolder>"
+ * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFolder&gt;"
  * @generated
  */
 public interface Folder extends Resource<IFolder> {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Resource}&lt;org.eclipse.core.resources.IResource>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.eclipse.core.resources.IResource&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
@@ -41,7 +41,7 @@ public interface Folder extends Resource<IFolder> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getFolder_Children()
-	 * @model type="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IResource>" containment="true"
+	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&gt;" containment="true"
 	 * @generated
 	 */
 	EList<Resource<IResource>> getChildren();

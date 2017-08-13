@@ -15,7 +15,7 @@ import java.io.InputStream;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJavaStreamFilter()
- * @model superTypes="org.nasdanika.codegen.JavaFilter<org.nasdanika.codegen.InputStream>"
+ * @model superTypes="org.nasdanika.codegen.JavaFilter&lt;org.nasdanika.codegen.InputStream&gt;"
  * @generated
  */
 public interface JavaStreamFilter extends JavaFilter<InputStream> {

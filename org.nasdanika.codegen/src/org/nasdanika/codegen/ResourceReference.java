@@ -22,7 +22,7 @@ import org.eclipse.core.resources.IResource;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceReference()
- * @model superTypes="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IResource>"
+ * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&gt;"
  * @generated
  */
 public interface ResourceReference extends Resource<IResource> {
@@ -40,7 +40,7 @@ public interface ResourceReference extends Resource<IResource> {
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Resource)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceReference_Target()
-	 * @model type="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IResource>"
+	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&gt;"
 	 * @generated
 	 */
 	Resource<IResource> getTarget();

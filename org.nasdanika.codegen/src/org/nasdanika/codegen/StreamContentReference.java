@@ -11,7 +11,7 @@ import java.io.InputStream;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getStreamContentReference()
- * @model superTypes="org.nasdanika.codegen.ContentReference<org.nasdanika.codegen.InputStream>"
+ * @model superTypes="org.nasdanika.codegen.ContentReference&lt;org.nasdanika.codegen.InputStream&gt;"
  * @generated
  */
 public interface StreamContentReference extends ContentReference<InputStream> {

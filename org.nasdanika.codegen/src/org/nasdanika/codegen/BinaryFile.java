@@ -16,7 +16,7 @@ import java.io.InputStream;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getBinaryFile()
- * @model superTypes="org.nasdanika.codegen.File<org.nasdanika.codegen.InputStream>"
+ * @model superTypes="org.nasdanika.codegen.File&lt;org.nasdanika.codegen.InputStream&gt;"
  * @generated
  */
 public interface BinaryFile extends File<InputStream> {

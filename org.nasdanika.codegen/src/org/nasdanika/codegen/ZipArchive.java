@@ -26,7 +26,7 @@ import org.nasdanika.config.Service;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getZipArchive()
- * @model superTypes="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IContainer>"
+ * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IContainer&gt;"
  * @generated
  */
 public interface ZipArchive extends Resource<IContainer> {
@@ -41,7 +41,7 @@ public interface ZipArchive extends Resource<IContainer> {
 	 * @return the value of the '<em>Generator</em>' containment reference.
 	 * @see #setGenerator(Generator)
 	 * @see org.nasdanika.codegen.CodegenPackage#getZipArchive_Generator()
-	 * @model type="org.nasdanika.codegen.Generator<org.nasdanika.codegen.InputStream>" containment="true" required="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.InputStream&gt;" containment="true" required="true"
 	 * @generated
 	 */
 	Generator<InputStream> getGenerator();

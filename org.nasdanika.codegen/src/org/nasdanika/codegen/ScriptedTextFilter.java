@@ -10,7 +10,7 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getScriptedTextFilter()
- * @model superTypes="org.nasdanika.codegen.ScriptedFilter<org.eclipse.emf.ecore.EString>"
+ * @model superTypes="org.nasdanika.codegen.ScriptedFilter&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
 public interface ScriptedTextFilter extends ScriptedFilter<String> {

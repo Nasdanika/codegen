@@ -24,7 +24,7 @@ import org.nasdanika.config.Service;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource<org.nasdanika.codegen.IFile>"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&gt;"
  * @generated
  */
 public interface File<C> extends Resource<IFile> {
@@ -62,7 +62,7 @@ public interface File<C> extends Resource<IFile> {
 
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;C>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;C&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->

@@ -11,7 +11,7 @@ import java.io.InputStream;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getScriptedStreamGenerator()
- * @model superTypes="org.nasdanika.codegen.ScriptedGenerator<org.nasdanika.codegen.InputStream>"
+ * @model superTypes="org.nasdanika.codegen.ScriptedGenerator&lt;org.nasdanika.codegen.InputStream&gt;"
  * @generated
  */
 public interface ScriptedStreamGenerator extends ScriptedGenerator<InputStream> {

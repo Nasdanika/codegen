@@ -26,7 +26,7 @@ import org.nasdanika.codegen.Generator;
  * </ul>
  *
  * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit()
- * @model superTypes="org.nasdanika.codegen.Generator<org.nasdanika.codegen.java.ICompilationUnit>"
+ * @model superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.java.ICompilationUnit&gt;"
  * @generated
  */
 public interface CompilationUnit extends Generator<ICompilationUnit> {
@@ -121,7 +121,7 @@ public interface CompilationUnit extends Generator<ICompilationUnit> {
 
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}&lt;java.lang.String>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.lang.String&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -129,7 +129,7 @@ public interface CompilationUnit extends Generator<ICompilationUnit> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit_Generators()
-	 * @model type="org.nasdanika.codegen.Generator<org.eclipse.emf.ecore.EString>" containment="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true"
 	 * @generated
 	 */
 	EList<Generator<String>> getGenerators();

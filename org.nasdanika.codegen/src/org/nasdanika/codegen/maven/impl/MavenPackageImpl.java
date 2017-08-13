@@ -14,6 +14,8 @@ import org.nasdanika.codegen.java.impl.JavaPackageImpl;
 import org.nasdanika.codegen.maven.MavenFactory;
 import org.nasdanika.codegen.maven.MavenNature;
 import org.nasdanika.codegen.maven.MavenPackage;
+import org.nasdanika.codegen.wizard.WizardPackage;
+import org.nasdanika.codegen.wizard.impl.WizardPackageImpl;
 import org.nasdanika.config.ConfigPackage;
 
 /**
@@ -82,16 +84,19 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		// Obtain or create and register interdependencies
 		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) : CodegenPackage.eINSTANCE);
 		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) : JavaPackage.eINSTANCE);
+		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) : WizardPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theMavenPackage.createPackageContents();
 		theCodegenPackage.createPackageContents();
 		theJavaPackage.createPackageContents();
+		theWizardPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theMavenPackage.initializePackageContents();
 		theCodegenPackage.initializePackageContents();
 		theJavaPackage.initializePackageContents();
+		theWizardPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theMavenPackage.freeze();
