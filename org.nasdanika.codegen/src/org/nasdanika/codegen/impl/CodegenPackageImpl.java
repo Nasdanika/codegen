@@ -30,9 +30,12 @@ import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.codegen.ECoreModelGenerator;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.Folder;
+import org.nasdanika.codegen.FreeMarkerGenerator;
+import org.nasdanika.codegen.FreeMarkerTemplateLoaderType;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.Interpolator;
@@ -201,6 +204,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass freeMarkerGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eCoreModelGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass contentReferenceEClass = null;
 
 	/**
@@ -349,6 +366,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EEnum reconcileActionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum freeMarkerTemplateLoaderTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -870,6 +894,69 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFreeMarkerGenerator() {
+		return freeMarkerGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFreeMarkerGenerator_TemplateLoaderType() {
+		return (EAttribute)freeMarkerGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFreeMarkerGenerator_Base() {
+		return (EAttribute)freeMarkerGeneratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFreeMarkerGenerator_Template() {
+		return (EAttribute)freeMarkerGeneratorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFreeMarkerGenerator_Model() {
+		return (EAttribute)freeMarkerGeneratorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getECoreModelGenerator() {
+		return eCoreModelGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getECoreModelGenerator_Model() {
+		return (EAttribute)eCoreModelGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getContentReference() {
 		return contentReferenceEClass;
 	}
@@ -1149,6 +1236,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getFreeMarkerTemplateLoaderType() {
+		return freeMarkerTemplateLoaderTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getContext() {
 		return contextEDataType;
 	}
@@ -1351,6 +1447,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		staticTextEClass = createEClass(STATIC_TEXT);
 		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENT);
 
+		freeMarkerGeneratorEClass = createEClass(FREE_MARKER_GENERATOR);
+		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE);
+		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__BASE);
+		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__TEMPLATE);
+		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__MODEL);
+
+		eCoreModelGeneratorEClass = createEClass(ECORE_MODEL_GENERATOR);
+		createEAttribute(eCoreModelGeneratorEClass, ECORE_MODEL_GENERATOR__MODEL);
+
 		contentReferenceEClass = createEClass(CONTENT_REFERENCE);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__REF);
 
@@ -1404,6 +1509,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
+		freeMarkerTemplateLoaderTypeEEnum = createEEnum(FREE_MARKER_TEMPLATE_LOADER_TYPE);
 
 		// Create data types
 		contextEDataType = createEDataType(CONTEXT);
@@ -1540,6 +1646,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		staticTextEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		freeMarkerGeneratorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		eCoreModelGeneratorEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(contentReferenceEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -1702,6 +1816,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(freeMarkerGeneratorEClass, FreeMarkerGenerator.class, "FreeMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFreeMarkerGenerator_TemplateLoaderType(), this.getFreeMarkerTemplateLoaderType(), "templateLoaderType", null, 1, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFreeMarkerGenerator_Base(), ecorePackage.getEString(), "base", null, 0, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFreeMarkerGenerator_Template(), ecorePackage.getEString(), "template", null, 1, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFreeMarkerGenerator_Model(), ecorePackage.getEString(), "model", null, 0, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(eCoreModelGeneratorEClass, ECoreModelGenerator.class, "ECoreModelGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getECoreModelGenerator_Model(), ecorePackage.getEString(), "model", null, 1, 1, ECoreModelGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1767,6 +1890,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CONFIRM_OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CANCEL);
+
+		initEEnum(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.class, "FreeMarkerTemplateLoaderType");
+		addEEnumLiteral(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.URL);
+		addEEnumLiteral(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.BUNDLE);
+		addEEnumLiteral(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.PACKAGE);
 
 		// Initialize data types
 		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -2077,6 +2205,42 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Text content."
+		   });	
+		addAnnotation
+		  (freeMarkerGeneratorEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Generates text from template and model using [FreeMarker](http://freemarker.org/)."
+		   });	
+		addAnnotation
+		  (getFreeMarkerGenerator_Base(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Base URL, bundle path, or package for resolving templates. \r\nIf empty, then templates are resolved relative to the \r\ncontext base URL, which typically would be the generator model location."
+		   });	
+		addAnnotation
+		  (getFreeMarkerGenerator_Template(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Template name."
+		   });	
+		addAnnotation
+		  (getFreeMarkerGenerator_Model(), 
+		   source, 
+		   new String[] {
+			 "documentation", "The name of a property which value is used as the model for the template.\r\nIf blank, the generation context is used as the model."
+		   });	
+		addAnnotation
+		  (eCoreModelGeneratorEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Writes the model specified in ``model`` context property to XML."
+		   });	
+		addAnnotation
+		  (getECoreModelGenerator_Model(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Name of the property which value is the model to write to XML."
 		   });	
 		addAnnotation
 		  (contentReferenceEClass, 

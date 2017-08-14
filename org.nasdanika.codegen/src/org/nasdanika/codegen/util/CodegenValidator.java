@@ -220,6 +220,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateResourceReference((ResourceReference)value, diagnostics, context);
 			case CodegenPackage.STATIC_TEXT:
 				return validateStaticText((StaticText)value, diagnostics, context);
+			case CodegenPackage.FREE_MARKER_GENERATOR:
+				return validateFreeMarkerGenerator((FreeMarkerGenerator)value, diagnostics, context);
+			case CodegenPackage.ECORE_MODEL_GENERATOR:
+				return validateECoreModelGenerator((ECoreModelGenerator)value, diagnostics, context);
 			case CodegenPackage.CONTENT_REFERENCE:
 				return validateContentReference((ContentReference<?>)value, diagnostics, context);
 			case CodegenPackage.FILTER:
@@ -264,6 +268,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateMustache((Mustache)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
+			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
+				return validateFreeMarkerTemplateLoaderType((FreeMarkerTemplateLoaderType)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
 				return validateContext((Context)value, diagnostics, context);
 			case CodegenPackage.INPUT_STREAM:
@@ -588,6 +594,44 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)staticText, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)staticText, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(staticText, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFreeMarkerGenerator(FreeMarkerGenerator freeMarkerGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)freeMarkerGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)freeMarkerGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(freeMarkerGenerator, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateECoreModelGenerator(ECoreModelGenerator eCoreModelGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)eCoreModelGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)eCoreModelGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(eCoreModelGenerator, diagnostics, context);
 		return result;
 	}
 
@@ -986,6 +1030,15 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReconcileAction(ReconcileAction reconcileAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFreeMarkerTemplateLoaderType(FreeMarkerTemplateLoaderType freeMarkerTemplateLoaderType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

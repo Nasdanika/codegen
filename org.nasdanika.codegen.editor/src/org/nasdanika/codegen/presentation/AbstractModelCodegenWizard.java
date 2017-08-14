@@ -9,10 +9,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.nasdanika.codegen.wizard.Wizard;
 import org.nasdanika.codegen.wizard.WizardPage;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
+import org.nasdanika.config.Provider;
 
 public class AbstractModelCodegenWizard extends AbstractCodegenWizard {
 
@@ -32,11 +34,15 @@ public class AbstractModelCodegenWizard extends AbstractCodegenWizard {
 				}
 				
 				String[] path = name.split("\\.");
-				WizardPage page = (WizardPage) getPage(path[0]);
-				if (page == null) {
+				Object obj = getPage(path[0]);				
+				if (obj == null) {
 					return null;
 				}
-				Object obj = page.getContent();
+				
+				if (obj instanceof ModelWizardPage) {
+					obj = ((ModelWizardPage) obj).getData();
+				}
+				
 				for (int i=1; i < path.length; ++i) {
 					if (obj instanceof Context) {
 						StringBuilder subNameBuilder = new StringBuilder(path[i]);
@@ -77,13 +83,14 @@ public class AbstractModelCodegenWizard extends AbstractCodegenWizard {
 	}
 	
 	/**
-	 * @return Base URL for loading generator resources. This implementation returns wizard's class package URL.
+	 * @return Base URL for loading generator resources. This implementation returns wizard's model URL.
 	 * @throws MalformedURLException 
 	 */
 	protected URL getBaseURL() {
 		try {
-			URL classURL = getClass().getClassLoader().getResource(getClass().getName().replace('.', '/')+".class");
-			return new URL(classURL, "..");
+//			URL classURL = getClass().getClassLoader().getResource(getClass().getName().replace('.', '/')+".class");
+			URI resourceURI = getWizard().eResource().getURI();
+			return new URL(resourceURI.toString());
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e); // TODO - better handling?
 		}

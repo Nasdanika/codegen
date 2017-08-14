@@ -319,6 +319,16 @@ public class CompilationUnitItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add

@@ -302,6 +302,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.FreeMarkerGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FreeMarkerGeneratorItemProvider freeMarkerGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.FreeMarkerGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFreeMarkerGeneratorAdapter() {
+		if (freeMarkerGeneratorItemProvider == null) {
+			freeMarkerGeneratorItemProvider = new FreeMarkerGeneratorItemProvider(this);
+		}
+
+		return freeMarkerGeneratorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ECoreModelGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ECoreModelGeneratorItemProvider eCoreModelGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ECoreModelGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createECoreModelGeneratorAdapter() {
+		if (eCoreModelGeneratorItemProvider == null) {
+			eCoreModelGeneratorItemProvider = new ECoreModelGeneratorItemProvider(this);
+		}
+
+		return eCoreModelGeneratorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Interpolator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -732,6 +778,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (textFileItemProvider != null) textFileItemProvider.dispose();
 		if (resourceReferenceItemProvider != null) resourceReferenceItemProvider.dispose();
 		if (staticTextItemProvider != null) staticTextItemProvider.dispose();
+		if (freeMarkerGeneratorItemProvider != null) freeMarkerGeneratorItemProvider.dispose();
+		if (eCoreModelGeneratorItemProvider != null) eCoreModelGeneratorItemProvider.dispose();
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();
 		if (jetEmitterItemProvider != null) jetEmitterItemProvider.dispose();
 		if (javaTextFilterItemProvider != null) javaTextFilterItemProvider.dispose();

@@ -187,6 +187,16 @@ public class GroupItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add

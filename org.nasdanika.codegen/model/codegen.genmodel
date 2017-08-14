@@ -19,6 +19,11 @@
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Overwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Cancel"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codegen.ecore#//FreeMarkerTemplateLoaderType">
+      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/URL"/>
+      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/Bundle"/>
+      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/Package"/>
+    </genEnums>
     <genDataTypes ecoreDataType="codegen.ecore#//Context"/>
     <genDataTypes ecoreDataType="codegen.ecore#//InputStream"/>
     <genDataTypes ecoreDataType="codegen.ecore#//Void"/>
@@ -94,6 +99,15 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//StaticText">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/content"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//FreeMarkerGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/templateLoaderType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/model"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ECoreModelGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ECoreModelGenerator/model"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ContentReference">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//ContentReference/T"/>

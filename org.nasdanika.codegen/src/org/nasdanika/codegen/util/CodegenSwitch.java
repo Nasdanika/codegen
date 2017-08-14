@@ -254,6 +254,24 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.FREE_MARKER_GENERATOR: {
+				FreeMarkerGenerator freeMarkerGenerator = (FreeMarkerGenerator)theEObject;
+				T1 result = caseFreeMarkerGenerator(freeMarkerGenerator);
+				if (result == null) result = caseGenerator(freeMarkerGenerator);
+				if (result == null) result = caseConfiguration(freeMarkerGenerator);
+				if (result == null) result = caseWorkFactory(freeMarkerGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.ECORE_MODEL_GENERATOR: {
+				ECoreModelGenerator eCoreModelGenerator = (ECoreModelGenerator)theEObject;
+				T1 result = caseECoreModelGenerator(eCoreModelGenerator);
+				if (result == null) result = caseGenerator(eCoreModelGenerator);
+				if (result == null) result = caseConfiguration(eCoreModelGenerator);
+				if (result == null) result = caseWorkFactory(eCoreModelGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.CONTENT_REFERENCE: {
 				ContentReference<?> contentReference = (ContentReference<?>)theEObject;
 				T1 result = caseContentReference(contentReference);
@@ -716,6 +734,36 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseStaticText(StaticText object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Free Marker Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Free Marker Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFreeMarkerGenerator(FreeMarkerGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ECore Model Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ECore Model Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseECoreModelGenerator(ECoreModelGenerator object) {
 		return null;
 	}
 

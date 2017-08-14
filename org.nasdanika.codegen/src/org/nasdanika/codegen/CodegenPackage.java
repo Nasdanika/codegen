@@ -71,7 +71,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 	 * @generated
 	 */
-	int PROVIDER = 22;
+	int PROVIDER = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
@@ -2457,6 +2457,341 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.FreeMarkerGeneratorImpl <em>Free Marker Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.FreeMarkerGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerGenerator()
+	 * @generated
+	 */
+	int FREE_MARKER_GENERATOR = 16;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__BASE_URL = GENERATOR__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Template Loader Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Base</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__BASE = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__TEMPLATE = GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__MODEL = GENERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Free Marker Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Free Marker Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ECoreModelGeneratorImpl <em>ECore Model Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ECoreModelGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getECoreModelGenerator()
+	 * @generated
+	 */
+	int ECORE_MODEL_GENERATOR = 17;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__BASE_URL = GENERATOR__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CLASS_PATH = GENERATOR__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__INCLUDES = GENERATOR__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__DEFAULT_INCLUDES = GENERATOR__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__INCLUDE = GENERATOR__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__MODEL = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>ECore Model Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR = GENERATOR___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR___GET_CONFIG_WORK_SIZE = GENERATOR___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>ECore Model Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentReferenceImpl <em>Content Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2464,7 +2799,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 16;
+	int CONTENT_REFERENCE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2618,7 +2953,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 17;
+	int FILTER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2772,7 +3107,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 18;
+	int JAVA_GENERATOR = 20;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2926,7 +3261,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 19;
+	int INTERPOLATOR = 21;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3080,7 +3415,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJETEmitter()
 	 * @generated
 	 */
-	int JET_EMITTER = 20;
+	int JET_EMITTER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3234,7 +3569,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 21;
+	int JAVA_FILTER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3415,7 +3750,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 23;
+	int JAVA_TEXT_FILTER = 25;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3578,7 +3913,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 24;
+	int JAVA_STREAM_FILTER = 26;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3741,7 +4076,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 25;
+	int JAVA_TEXT_GENERATOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3895,7 +4230,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 26;
+	int JAVA_STREAM_GENERATOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4049,7 +4384,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_GENERATOR = 27;
+	int SCRIPTED_GENERATOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4203,7 +4538,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_GENERATOR = 28;
+	int SCRIPTED_TEXT_GENERATOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4357,7 +4692,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_GENERATOR = 29;
+	int SCRIPTED_STREAM_GENERATOR = 31;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4511,7 +4846,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
 	 * @generated
 	 */
-	int SCRIPTED_FILTER = 30;
+	int SCRIPTED_FILTER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4674,7 +5009,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_FILTER = 31;
+	int SCRIPTED_TEXT_FILTER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4837,7 +5172,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_FILTER = 32;
+	int SCRIPTED_STREAM_FILTER = 34;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5000,7 +5335,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 33;
+	int TEXT_CONTENT_REFERENCE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5154,7 +5489,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 34;
+	int STREAM_CONTENT_REFERENCE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5308,7 +5643,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 35;
+	int ZIP_ARCHIVE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5489,7 +5824,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMustache()
 	 * @generated
 	 */
-	int MUSTACHE = 36;
+	int MUSTACHE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5643,7 +5978,17 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 37;
+	int RECONCILE_ACTION = 39;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.FreeMarkerTemplateLoaderType
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
+	 * @generated
+	 */
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 40;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5653,7 +5998,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 38;
+	int CONTEXT = 41;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -5663,7 +6008,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 39;
+	int INPUT_STREAM = 42;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -5673,7 +6018,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 40;
+	int VOID = 43;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -5683,7 +6028,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 41;
+	int IFILE = 44;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -5693,7 +6038,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 42;
+	int IFOLDER = 45;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -5703,7 +6048,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 43;
+	int IPROJECT = 46;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -5713,7 +6058,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 44;
+	int IPROJECT_NATURE = 47;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -5723,7 +6068,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 45;
+	int IWORKSPACE_ROOT = 48;
 
 
 	/**
@@ -5734,7 +6079,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 46;
+	int EXCEPTION = 49;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -5744,7 +6089,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 47;
+	int IRESOURCE = 50;
 
 
 	/**
@@ -5755,7 +6100,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 48;
+	int LIST = 51;
 
 
 	/**
@@ -5766,7 +6111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 49;
+	int MERGER = 52;
 
 
 	/**
@@ -5777,7 +6122,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 50;
+	int SUB_MONITOR = 53;
 
 
 	/**
@@ -5788,7 +6133,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 51;
+	int ICONTAINER = 54;
 
 
 	/**
@@ -6182,6 +6527,81 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getStaticText_Content();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.FreeMarkerGenerator <em>Free Marker Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Free Marker Generator</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator
+	 * @generated
+	 */
+	EClass getFreeMarkerGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.FreeMarkerGenerator#getTemplateLoaderType <em>Template Loader Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Template Loader Type</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator#getTemplateLoaderType()
+	 * @see #getFreeMarkerGenerator()
+	 * @generated
+	 */
+	EAttribute getFreeMarkerGenerator_TemplateLoaderType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.FreeMarkerGenerator#getBase <em>Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator#getBase()
+	 * @see #getFreeMarkerGenerator()
+	 * @generated
+	 */
+	EAttribute getFreeMarkerGenerator_Base();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.FreeMarkerGenerator#getTemplate <em>Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Template</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator#getTemplate()
+	 * @see #getFreeMarkerGenerator()
+	 * @generated
+	 */
+	EAttribute getFreeMarkerGenerator_Template();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.FreeMarkerGenerator#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator#getModel()
+	 * @see #getFreeMarkerGenerator()
+	 * @generated
+	 */
+	EAttribute getFreeMarkerGenerator_Model();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ECoreModelGenerator <em>ECore Model Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ECore Model Generator</em>'.
+	 * @see org.nasdanika.codegen.ECoreModelGenerator
+	 * @generated
+	 */
+	EClass getECoreModelGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ECoreModelGenerator#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model</em>'.
+	 * @see org.nasdanika.codegen.ECoreModelGenerator#getModel()
+	 * @see #getECoreModelGenerator()
+	 * @generated
+	 */
+	EAttribute getECoreModelGenerator_Model();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ContentReference <em>Content Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6500,6 +6920,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getReconcileAction();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Free Marker Template Loader Type</em>'.
+	 * @see org.nasdanika.codegen.FreeMarkerTemplateLoaderType
+	 * @generated
+	 */
+	EEnum getFreeMarkerTemplateLoaderType();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.config.Context <em>Context</em>}'.
@@ -7007,6 +7437,66 @@ public interface CodegenPackage extends EPackage {
 		EAttribute STATIC_TEXT__CONTENT = eINSTANCE.getStaticText_Content();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FreeMarkerGeneratorImpl <em>Free Marker Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.FreeMarkerGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerGenerator()
+		 * @generated
+		 */
+		EClass FREE_MARKER_GENERATOR = eINSTANCE.getFreeMarkerGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Template Loader Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE = eINSTANCE.getFreeMarkerGenerator_TemplateLoaderType();
+
+		/**
+		 * The meta object literal for the '<em><b>Base</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FREE_MARKER_GENERATOR__BASE = eINSTANCE.getFreeMarkerGenerator_Base();
+
+		/**
+		 * The meta object literal for the '<em><b>Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FREE_MARKER_GENERATOR__TEMPLATE = eINSTANCE.getFreeMarkerGenerator_Template();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FREE_MARKER_GENERATOR__MODEL = eINSTANCE.getFreeMarkerGenerator_Model();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ECoreModelGeneratorImpl <em>ECore Model Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ECoreModelGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getECoreModelGenerator()
+		 * @generated
+		 */
+		EClass ECORE_MODEL_GENERATOR = eINSTANCE.getECoreModelGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ECORE_MODEL_GENERATOR__MODEL = eINSTANCE.getECoreModelGenerator_Model();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContentReferenceImpl <em>Content Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7297,6 +7787,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RECONCILE_ACTION = eINSTANCE.getReconcileAction();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.FreeMarkerTemplateLoaderType
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
+		 * @generated
+		 */
+		EEnum FREE_MARKER_TEMPLATE_LOADER_TYPE = eINSTANCE.getFreeMarkerTemplateLoaderType();
 
 		/**
 		 * The meta object literal for the '<em>Context</em>' data type.

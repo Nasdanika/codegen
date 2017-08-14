@@ -71,7 +71,11 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 			
 			@Override
 			public String execute(Context context, SubMonitor monitor) throws Exception {
-				return getContent();
+				try {
+					return getContent();
+				} finally {
+					monitor.worked(size());
+				}
 			}
 			
 		};

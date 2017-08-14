@@ -374,6 +374,16 @@ public class MemberItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add
@@ -545,6 +555,16 @@ public class MemberItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
 				 CodegenFactory.eINSTANCE.createStaticText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter

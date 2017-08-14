@@ -112,6 +112,24 @@ public interface CodegenFactory extends EFactory {
 	StaticText createStaticText();
 
 	/**
+	 * Returns a new object of class '<em>Free Marker Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Free Marker Generator</em>'.
+	 * @generated
+	 */
+	FreeMarkerGenerator createFreeMarkerGenerator();
+
+	/**
+	 * Returns a new object of class '<em>ECore Model Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ECore Model Generator</em>'.
+	 * @generated
+	 */
+	ECoreModelGenerator createECoreModelGenerator();
+
+	/**
 	 * Returns a new object of class '<em>Interpolator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -192,6 +192,16 @@ public class ZipArchiveItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add

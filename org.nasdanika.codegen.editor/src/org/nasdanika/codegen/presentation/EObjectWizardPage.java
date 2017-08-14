@@ -26,7 +26,7 @@ import org.nasdanika.presentation.EObjectRenderer;
  * @author 
  *
  */
-public abstract class EObjectWizardPage extends WizardPage {
+public abstract class EObjectWizardPage<T extends EObject> extends WizardPage {
 	
 	/**
 	 * Constructor for SampleNewWizardPage.
@@ -102,6 +102,6 @@ public abstract class EObjectWizardPage extends WizardPage {
 		setPageComplete(validationResult.getSeverity() != Diagnostic.ERROR);
 	}
 
-	protected abstract EObject getData();
+	protected abstract T getData();
 
 }

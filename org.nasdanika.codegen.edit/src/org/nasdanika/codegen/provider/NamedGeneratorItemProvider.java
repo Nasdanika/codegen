@@ -278,6 +278,16 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add

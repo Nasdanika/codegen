@@ -166,6 +166,14 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createStaticTextAdapter();
 			}
 			@Override
+			public Adapter caseFreeMarkerGenerator(FreeMarkerGenerator object) {
+				return createFreeMarkerGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseECoreModelGenerator(ECoreModelGenerator object) {
+				return createECoreModelGeneratorAdapter();
+			}
+			@Override
 			public <T> Adapter caseContentReference(ContentReference<T> object) {
 				return createContentReferenceAdapter();
 			}
@@ -508,6 +516,34 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStaticTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.FreeMarkerGenerator <em>Free Marker Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.FreeMarkerGenerator
+	 * @generated
+	 */
+	public Adapter createFreeMarkerGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ECoreModelGenerator <em>ECore Model Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ECoreModelGenerator
+	 * @generated
+	 */
+	public Adapter createECoreModelGeneratorAdapter() {
 		return null;
 	}
 

@@ -102,6 +102,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.TEXT_FILE: return (EObject)createTextFile();
 			case CodegenPackage.RESOURCE_REFERENCE: return (EObject)createResourceReference();
 			case CodegenPackage.STATIC_TEXT: return (EObject)createStaticText();
+			case CodegenPackage.FREE_MARKER_GENERATOR: return (EObject)createFreeMarkerGenerator();
+			case CodegenPackage.ECORE_MODEL_GENERATOR: return (EObject)createECoreModelGenerator();
 			case CodegenPackage.INTERPOLATOR: return (EObject)createInterpolator();
 			case CodegenPackage.JET_EMITTER: return (EObject)createJETEmitter();
 			case CodegenPackage.JAVA_TEXT_FILTER: return (EObject)createJavaTextFilter();
@@ -131,6 +133,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 		switch (eDataType.getClassifierID()) {
 			case CodegenPackage.RECONCILE_ACTION:
 				return createReconcileActionFromString(eDataType, initialValue);
+			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
+				return createFreeMarkerTemplateLoaderTypeFromString(eDataType, initialValue);
 			case CodegenPackage.CONTEXT:
 				return createContextFromString(eDataType, initialValue);
 			case CodegenPackage.INPUT_STREAM:
@@ -174,6 +178,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 		switch (eDataType.getClassifierID()) {
 			case CodegenPackage.RECONCILE_ACTION:
 				return convertReconcileActionToString(eDataType, instanceValue);
+			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
+				return convertFreeMarkerTemplateLoaderTypeToString(eDataType, instanceValue);
 			case CodegenPackage.CONTEXT:
 				return convertContextToString(eDataType, instanceValue);
 			case CodegenPackage.INPUT_STREAM:
@@ -305,6 +311,26 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public StaticText createStaticText() {
 		StaticTextImpl staticText = new StaticTextImpl();
 		return staticText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FreeMarkerGenerator createFreeMarkerGenerator() {
+		FreeMarkerGeneratorImpl freeMarkerGenerator = new FreeMarkerGeneratorImpl();
+		return freeMarkerGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ECoreModelGenerator createECoreModelGenerator() {
+		ECoreModelGeneratorImpl eCoreModelGenerator = new ECoreModelGeneratorImpl();
+		return eCoreModelGenerator;
 	}
 
 	/**
@@ -464,6 +490,26 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	public String convertReconcileActionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FreeMarkerTemplateLoaderType createFreeMarkerTemplateLoaderTypeFromString(EDataType eDataType, String initialValue) {
+		FreeMarkerTemplateLoaderType result = FreeMarkerTemplateLoaderType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFreeMarkerTemplateLoaderTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
