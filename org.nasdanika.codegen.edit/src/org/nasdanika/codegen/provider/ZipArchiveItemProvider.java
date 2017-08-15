@@ -327,6 +327,11 @@ public class ZipArchiveItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR,
+				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.ZIP_ARCHIVE__GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add

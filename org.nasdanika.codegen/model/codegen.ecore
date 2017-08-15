@@ -162,26 +162,31 @@
       <eTypeArguments eClassifier="#//IProjectNature"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="File" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Generates IFile."/>
+      <details key="documentation" value="Generates project resource - file or directory."/>
+    </eAnnotations>
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reconcileAction" eType="#//ReconcileAction"
+        defaultValueLiteral="Append">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Action to take if resource with given name already exists."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//ResourceGenerator">
+      <eTypeArguments eTypeParameter="#//Resource/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericFile" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide&#xD;&#xA;file contents."/>
     </eAnnotations>
     <eTypeParameters name="C"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="merger" eType="ecore:EClass ../../org.nasdanika.config/model/config.ecore#//Service"
-        containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new&#xD;&#xA;content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger&lt;T>`` &#xD;&#xA;where ``T`` is ``String` for text files and ``InputStream`` for binary files."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generators" lowerBound="1"
-        upperBound="-1" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="File content generators. &#xD;&#xA;Content produced by each generator is appended to the file content."/>
-      </eAnnotations>
-      <eGenericType eClassifier="#//Generator">
-        <eTypeArguments eTypeParameter="#//File/C"/>
-      </eGenericType>
-    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
       <eTypeArguments eClassifier="#//IFile"/>
     </eGenericSuperTypes>
@@ -222,24 +227,28 @@
       <eTypeArguments eClassifier="#//IProject"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="File" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Generates project resource - file or directory."/>
+      <details key="documentation" value="Generates IFile."/>
     </eAnnotations>
-    <eTypeParameters name="T"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eTypeParameters name="C"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merger" eType="ecore:EClass ../../org.nasdanika.config/model/config.ecore#//Service"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"/>
+        <details key="documentation" value="If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new&#xD;&#xA;content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger&lt;T>`` &#xD;&#xA;where ``T`` is ``String` for text files and ``InputStream`` for binary files."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reconcileAction" eType="#//ReconcileAction"
-        defaultValueLiteral="Append">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generators" lowerBound="1"
+        upperBound="-1" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Action to take if resource with given name already exists."/>
+        <details key="documentation" value="File content generators. &#xD;&#xA;Content produced by each generator is appended to the file content."/>
       </eAnnotations>
+      <eGenericType eClassifier="#//Generator">
+        <eTypeArguments eTypeParameter="#//File/C"/>
+      </eGenericType>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="#//ResourceGenerator">
-      <eTypeArguments eTypeParameter="#//Resource/T"/>
+    <eGenericSuperTypes eClassifier="#//Resource">
+      <eTypeArguments eClassifier="#//IFile"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryFile">
@@ -788,13 +797,54 @@
     <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//java/Operation">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PluginNature" eSuperTypes="#//Nature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Java nature."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="manifestGenerator" lowerBound="1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generates MANIFEST.MF file."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buildPropertiesGenerator"
+          lowerBound="1" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generates build.properties file."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pluginXmlGenerator" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional generator of ``plugin.xml`` file."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentXmlGenerator"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional generator of ``fragment.xml`` file."/>
+        </eAnnotations>
+        <eGenericType eClassifier="#//Generator">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="maven" nsURI="urn:org.nasdanika.codegen.maven" nsPrefix="org.nasdanika.codegen.maven">
     <eClassifiers xsi:type="ecore:EClass" name="MavenNature" eSuperTypes="#//Nature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Maven nature."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pomGenerator" containment="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pomGenerator" lowerBound="1"
+          containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Optional generator of ``pom.xml`` file."/>
         </eAnnotations>

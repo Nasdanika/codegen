@@ -23,6 +23,7 @@ import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.PluginNature;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,6 +80,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.ENUM: return (EObject)createEnum();
 			case JavaPackage.CONSTRUCTOR: return (EObject)createConstructor();
 			case JavaPackage.METHOD: return (EObject)createMethod();
+			case JavaPackage.PLUGIN_NATURE: return (EObject)createPluginNature();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -234,6 +236,16 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PluginNature createPluginNature() {
+		PluginNatureImpl pluginNature = new PluginNatureImpl();
+		return pluginNature;
 	}
 
 	/**

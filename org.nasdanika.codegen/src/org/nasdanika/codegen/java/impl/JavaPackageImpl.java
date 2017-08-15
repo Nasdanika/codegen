@@ -28,6 +28,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.PluginNature;
 import org.nasdanika.codegen.java.Type;
 import org.nasdanika.codegen.maven.MavenPackage;
 import org.nasdanika.codegen.maven.impl.MavenPackageImpl;
@@ -139,6 +140,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass methodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pluginNatureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -590,6 +598,51 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPluginNature() {
+		return pluginNatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPluginNature_ManifestGenerator() {
+		return (EReference)pluginNatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPluginNature_BuildPropertiesGenerator() {
+		return (EReference)pluginNatureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPluginNature_PluginXmlGenerator() {
+		return (EReference)pluginNatureEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPluginNature_FragmentXmlGenerator() {
+		return (EReference)pluginNatureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getIJavaProject() {
 		return iJavaProjectEDataType;
 	}
@@ -701,6 +754,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		methodEClass = createEClass(METHOD);
 		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
 
+		pluginNatureEClass = createEClass(PLUGIN_NATURE);
+		createEReference(pluginNatureEClass, PLUGIN_NATURE__MANIFEST_GENERATOR);
+		createEReference(pluginNatureEClass, PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR);
+		createEReference(pluginNatureEClass, PLUGIN_NATURE__PLUGIN_XML_GENERATOR);
+		createEReference(pluginNatureEClass, PLUGIN_NATURE__FRAGMENT_XML_GENERATOR);
+
 		// Create data types
 		iJavaProjectEDataType = createEDataType(IJAVA_PROJECT);
 		iPackageFragmentRootEDataType = createEDataType(IPACKAGE_FRAGMENT_ROOT);
@@ -765,6 +824,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		enumEClass.getESuperTypes().add(this.getType());
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		methodEClass.getESuperTypes().add(this.getOperation());
+		pluginNatureEClass.getESuperTypes().add(theCodegenPackage.getNature());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaNatureEClass, JavaNature.class, "JavaNature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -833,6 +893,24 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethod_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pluginNatureEClass, PluginNature.class, "PluginNature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPluginNature_ManifestGenerator(), g1, null, "manifestGenerator", null, 1, 1, PluginNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPluginNature_BuildPropertiesGenerator(), g1, null, "buildPropertiesGenerator", null, 1, 1, PluginNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPluginNature_PluginXmlGenerator(), g1, null, "pluginXmlGenerator", null, 0, 1, PluginNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPluginNature_FragmentXmlGenerator(), g1, null, "fragmentXmlGenerator", null, 0, 1, PluginNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(iJavaProjectEDataType, IJavaProject.class, "IJavaProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1002,6 +1080,36 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Superinterfaces are listed in implements clause. Elements are interpolated and each element can be a comma-separated list of superinterfaces."
+		   });	
+		addAnnotation
+		  (pluginNatureEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Java nature."
+		   });	
+		addAnnotation
+		  (getPluginNature_ManifestGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generates MANIFEST.MF file."
+		   });	
+		addAnnotation
+		  (getPluginNature_BuildPropertiesGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generates build.properties file."
+		   });	
+		addAnnotation
+		  (getPluginNature_PluginXmlGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Optional generator of ``plugin.xml`` file."
+		   });	
+		addAnnotation
+		  (getPluginNature_FragmentXmlGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Optional generator of ``fragment.xml`` file."
 		   });
 	}
 

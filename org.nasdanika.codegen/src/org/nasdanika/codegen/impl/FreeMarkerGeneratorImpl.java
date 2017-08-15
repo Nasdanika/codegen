@@ -151,7 +151,8 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 			public String execute(Context context, SubMonitor monitor) throws Exception {
 				try {
 					Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
-					if (getBase() == null || getBase().trim().length() == 0) {
+					String base = context.interpolate(getBase());
+					if (base == null || base.trim().length() == 0) {
 						cfg.setLocalizedLookup(false);
 						cfg.setTemplateLoader(new URLTemplateLoader() {
 							
@@ -163,13 +164,12 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 									throw new IllegalArgumentException("Malformed name", e);
 								}
 							}
-						});
-						
+						});						
 					} else {
 						switch (getTemplateLoaderType()) {
 						case BUNDLE:
-							int idx = getBase().indexOf('/');
-							String bundleName = idx == -1 ? getBase() : getBase().substring(0, idx);
+							int idx = base.indexOf('/');
+							String bundleName = idx == -1 ? base : base.substring(0, idx);
 							Bundle bundle = Platform.getBundle(bundleName);
 							if (bundle == null) {
 								throw new IllegalArgumentException("Bundle not found: "+bundleName);
@@ -178,8 +178,8 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 								
 								@Override
 								protected URL getURL(String name) {
-									String entryName = idx == -1 ? "/"+name : getBase().substring(idx)+"/"+name;
-									Enumeration<String> paths = bundle.getEntryPaths(idx == -1 ? "/" : getBase().substring(idx));
+									String entryName = idx == -1 ? "/"+name : base.substring(idx)+"/"+name;
+									Enumeration<String> paths = bundle.getEntryPaths(idx == -1 ? "/" : base.substring(idx));
 									while (paths.hasMoreElements()) {
 										String path = paths.nextElement();
 										if (path.equals(entryName)) {
@@ -191,11 +191,11 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 							});
 							break;
 						case PACKAGE:
-							cfg.setTemplateLoader(new ClassTemplateLoader(context.getClassLoader(), getBase()));
+							cfg.setTemplateLoader(new ClassTemplateLoader(context.getClassLoader(), base));
 							break;
 						case URL:
 							cfg.setLocalizedLookup(false);
-							URL url = new URL((URL) context.get(BASE_URL_PROPERTY), getBase());
+							URL url = new URL((URL) context.get(BASE_URL_PROPERTY), base);
 							cfg.setTemplateLoader(new URLTemplateLoader() {
 								
 								@Override
@@ -250,9 +250,14 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 						
 					});					
 					
-					Template temp = cfg.getTemplate(getTemplate());
+					Template temp = cfg.getTemplate(context.interpolate(getTemplate()));
 					Writer out = new StringWriter();
-					temp.process(context.get(getModel()), out);
+					Object modelValue = context;
+					String modelKey = getModel();
+					if (modelKey != null && modelKey.trim().length() > 0) {
+						modelValue = context.get(modelKey);
+					}
+					temp.process(modelValue, out);
 					out.close();
 					return out.toString();
 				} finally {

@@ -325,6 +325,29 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.PluginNature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PluginNatureItemProvider pluginNatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.PluginNature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPluginNatureAdapter() {
+		if (pluginNatureItemProvider == null) {
+			pluginNatureItemProvider = new PluginNatureItemProvider(this);
+		}
+
+		return pluginNatureItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +457,7 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 		if (enumItemProvider != null) enumItemProvider.dispose();
 		if (constructorItemProvider != null) constructorItemProvider.dispose();
 		if (methodItemProvider != null) methodItemProvider.dispose();
+		if (pluginNatureItemProvider != null) pluginNatureItemProvider.dispose();
 	}
 
 }

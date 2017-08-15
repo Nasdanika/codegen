@@ -121,6 +121,15 @@ public interface JavaFactory extends EFactory {
 	Method createMethod();
 
 	/**
+	 * Returns a new object of class '<em>Plugin Nature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plugin Nature</em>'.
+	 * @generated
+	 */
+	PluginNature createPluginNature();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

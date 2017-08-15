@@ -206,12 +206,14 @@ public class CodegenValidator extends EObjectValidator {
 				return validateFolder((Folder)value, diagnostics, context);
 			case CodegenPackage.NATURE:
 				return validateNature((Nature)value, diagnostics, context);
-			case CodegenPackage.FILE:
-				return validateFile((File<?>)value, diagnostics, context);
-			case CodegenPackage.PROJECT:
-				return validateProject((Project)value, diagnostics, context);
 			case CodegenPackage.RESOURCE:
 				return validateResource((Resource<?>)value, diagnostics, context);
+			case CodegenPackage.GENERIC_FILE:
+				return validateGenericFile((GenericFile<?>)value, diagnostics, context);
+			case CodegenPackage.PROJECT:
+				return validateProject((Project)value, diagnostics, context);
+			case CodegenPackage.FILE:
+				return validateFile((File<?>)value, diagnostics, context);
 			case CodegenPackage.BINARY_FILE:
 				return validateBinaryFile((BinaryFile)value, diagnostics, context);
 			case CodegenPackage.TEXT_FILE:
@@ -518,6 +520,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resource, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resource, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(resource, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGenericFile(GenericFile<?> genericFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)genericFile, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)genericFile, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(genericFile, diagnostics, context);
 		return result;
 	}
 

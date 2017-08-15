@@ -323,6 +323,11 @@ public class FilterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

@@ -413,6 +413,11 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

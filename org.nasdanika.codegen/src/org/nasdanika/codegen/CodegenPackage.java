@@ -71,7 +71,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProvider()
 	 * @generated
 	 */
-	int PROVIDER = 24;
+	int PROVIDER = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
@@ -925,7 +925,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 11;
+	int RESOURCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1398,14 +1398,14 @@ public interface CodegenPackage extends EPackage {
 	int NATURE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.FileImpl <em>File</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GenericFileImpl <em>Generic File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.FileImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
+	 * @see org.nasdanika.codegen.impl.GenericFileImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGenericFile()
 	 * @generated
 	 */
-	int FILE = 9;
+	int GENERIC_FILE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1414,7 +1414,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__BASE_URL = RESOURCE__BASE_URL;
+	int GENERIC_FILE__BASE_URL = RESOURCE__BASE_URL;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1423,7 +1423,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
+	int GENERIC_FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
@@ -1432,7 +1432,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__CLASS_PATH = RESOURCE__CLASS_PATH;
+	int GENERIC_FILE__CLASS_PATH = RESOURCE__CLASS_PATH;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
@@ -1441,7 +1441,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__INCLUDES = RESOURCE__INCLUDES;
+	int GENERIC_FILE__INCLUDES = RESOURCE__INCLUDES;
 
 	/**
 	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
@@ -1450,7 +1450,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+	int GENERIC_FILE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1459,7 +1459,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
+	int GENERIC_FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' reference list.
@@ -1468,7 +1468,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__INCLUDE = RESOURCE__INCLUDE;
+	int GENERIC_FILE__INCLUDE = RESOURCE__INCLUDE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1477,7 +1477,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
+	int GENERIC_FILE__CONTROLLER = RESOURCE__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -1486,7 +1486,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+	int GENERIC_FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1495,7 +1495,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__NAME = RESOURCE__NAME;
+	int GENERIC_FILE__NAME = RESOURCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
@@ -1504,34 +1504,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+	int GENERIC_FILE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Merger</b></em>' containment reference.
+	 * The number of structural features of the '<em>Generic File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__MERGER = RESOURCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__GENERATORS = RESOURCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>File</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+	int GENERIC_FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -1540,7 +1522,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+	int GENERIC_FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
 
 	/**
 	 * The operation id for the '<em>Get Config Work Size</em>' operation.
@@ -1549,7 +1531,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
+	int GENERIC_FILE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -1558,7 +1540,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+	int GENERIC_FILE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1567,16 +1549,26 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int GENERIC_FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>File</em>' class.
+	 * The number of operations of the '<em>Generic File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+	int GENERIC_FILE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.FileImpl <em>File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.FileImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ProjectImpl <em>Project</em>}' class.
@@ -1586,7 +1578,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 10;
+	int PROJECT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1760,6 +1752,177 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT_OPERATION_COUNT = RESOURCE_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__BASE_URL = RESOURCE__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__INCLUDE = RESOURCE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__MERGER = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__GENERATORS = RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.BinaryFileImpl <em>Binary File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1767,7 +1930,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryFile()
 	 * @generated
 	 */
-	int BINARY_FILE = 12;
+	int BINARY_FILE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -1948,7 +2111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextFile()
 	 * @generated
 	 */
-	int TEXT_FILE = 13;
+	int TEXT_FILE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2138,7 +2301,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceReference()
 	 * @generated
 	 */
-	int RESOURCE_REFERENCE = 14;
+	int RESOURCE_REFERENCE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2310,7 +2473,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticText()
 	 * @generated
 	 */
-	int STATIC_TEXT = 15;
+	int STATIC_TEXT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2464,7 +2627,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerGenerator()
 	 * @generated
 	 */
-	int FREE_MARKER_GENERATOR = 16;
+	int FREE_MARKER_GENERATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2645,7 +2808,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getECoreModelGenerator()
 	 * @generated
 	 */
-	int ECORE_MODEL_GENERATOR = 17;
+	int ECORE_MODEL_GENERATOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2799,7 +2962,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 18;
+	int CONTENT_REFERENCE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -2953,7 +3116,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 19;
+	int FILTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3107,7 +3270,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 20;
+	int JAVA_GENERATOR = 21;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3261,7 +3424,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 21;
+	int INTERPOLATOR = 22;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3415,7 +3578,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJETEmitter()
 	 * @generated
 	 */
-	int JET_EMITTER = 22;
+	int JET_EMITTER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3569,7 +3732,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 23;
+	int JAVA_FILTER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3750,7 +3913,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 25;
+	int JAVA_TEXT_FILTER = 26;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -3913,7 +4076,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 26;
+	int JAVA_STREAM_FILTER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4076,7 +4239,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 27;
+	int JAVA_TEXT_GENERATOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4230,7 +4393,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 28;
+	int JAVA_STREAM_GENERATOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4384,7 +4547,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_GENERATOR = 29;
+	int SCRIPTED_GENERATOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4538,7 +4701,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_GENERATOR = 30;
+	int SCRIPTED_TEXT_GENERATOR = 31;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4692,7 +4855,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamGenerator()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_GENERATOR = 31;
+	int SCRIPTED_STREAM_GENERATOR = 32;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -4846,7 +5009,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedFilter()
 	 * @generated
 	 */
-	int SCRIPTED_FILTER = 32;
+	int SCRIPTED_FILTER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5009,7 +5172,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedTextFilter()
 	 * @generated
 	 */
-	int SCRIPTED_TEXT_FILTER = 33;
+	int SCRIPTED_TEXT_FILTER = 34;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5172,7 +5335,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getScriptedStreamFilter()
 	 * @generated
 	 */
-	int SCRIPTED_STREAM_FILTER = 34;
+	int SCRIPTED_STREAM_FILTER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5335,7 +5498,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 35;
+	int TEXT_CONTENT_REFERENCE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5489,7 +5652,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 36;
+	int STREAM_CONTENT_REFERENCE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5643,7 +5806,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 37;
+	int ZIP_ARCHIVE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5824,7 +5987,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMustache()
 	 * @generated
 	 */
-	int MUSTACHE = 38;
+	int MUSTACHE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
@@ -5978,7 +6141,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 39;
+	int RECONCILE_ACTION = 40;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -5988,7 +6151,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 40;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 41;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5998,7 +6161,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 41;
+	int CONTEXT = 42;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -6008,7 +6171,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 42;
+	int INPUT_STREAM = 43;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -6018,7 +6181,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 43;
+	int VOID = 44;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -6028,7 +6191,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 44;
+	int IFILE = 45;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -6038,7 +6201,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 45;
+	int IFOLDER = 46;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -6048,7 +6211,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 46;
+	int IPROJECT = 47;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -6058,7 +6221,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 47;
+	int IPROJECT_NATURE = 48;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -6068,7 +6231,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 48;
+	int IWORKSPACE_ROOT = 49;
 
 
 	/**
@@ -6079,7 +6242,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 49;
+	int EXCEPTION = 50;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -6089,7 +6252,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 50;
+	int IRESOURCE = 51;
 
 
 	/**
@@ -6100,7 +6263,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 51;
+	int LIST = 52;
 
 
 	/**
@@ -6111,7 +6274,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 52;
+	int MERGER = 53;
 
 
 	/**
@@ -6122,7 +6285,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 53;
+	int SUB_MONITOR = 54;
 
 
 	/**
@@ -6133,7 +6296,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 54;
+	int ICONTAINER = 55;
 
 
 	/**
@@ -6452,6 +6615,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_ReconcileAction();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.GenericFile <em>Generic File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generic File</em>'.
+	 * @see org.nasdanika.codegen.GenericFile
+	 * @generated
+	 */
+	EClass getGenericFile();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.BinaryFile <em>Binary File</em>}'.
@@ -7371,6 +7544,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__RECONCILE_ACTION = eINSTANCE.getResource_ReconcileAction();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GenericFileImpl <em>Generic File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.GenericFileImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGenericFile()
+		 * @generated
+		 */
+		EClass GENERIC_FILE = eINSTANCE.getGenericFile();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.BinaryFileImpl <em>Binary File</em>}' class.

@@ -21,6 +21,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.PluginNature;
 import org.nasdanika.codegen.java.Type;
 import org.nasdanika.config.Configuration;
 
@@ -135,6 +136,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMethod(Method object) {
 				return createMethodAdapter();
+			}
+			@Override
+			public Adapter casePluginNature(PluginNature object) {
+				return createPluginNatureAdapter();
 			}
 			@Override
 			public Adapter caseConfiguration(Configuration object) {
@@ -365,6 +370,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.PluginNature <em>Plugin Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.PluginNature
+	 * @generated
+	 */
+	public Adapter createPluginNatureAdapter() {
 		return null;
 	}
 

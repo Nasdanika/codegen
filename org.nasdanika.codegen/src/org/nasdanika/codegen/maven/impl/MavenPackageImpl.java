@@ -195,7 +195,7 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		EGenericType g1 = createEGenericType(theCodegenPackage.getGenerator());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		initEReference(getMavenNature_PomGenerator(), g1, null, "pomGenerator", null, 0, 1, MavenNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMavenNature_PomGenerator(), g1, null, "pomGenerator", null, 1, 1, MavenNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel

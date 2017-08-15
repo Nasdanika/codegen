@@ -274,6 +274,11 @@ public class CompilationUnitItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add

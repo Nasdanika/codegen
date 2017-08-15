@@ -322,6 +322,11 @@ public class GroupItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

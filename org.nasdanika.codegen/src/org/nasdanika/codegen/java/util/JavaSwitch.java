@@ -20,6 +20,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.PackageFragment;
 import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.PluginNature;
 import org.nasdanika.codegen.java.Type;
 import org.nasdanika.config.Configuration;
 
@@ -219,6 +220,16 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseGenerator(method);
 				if (result == null) result = caseConfiguration(method);
 				if (result == null) result = caseWorkFactory(method);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.PLUGIN_NATURE: {
+				PluginNature pluginNature = (PluginNature)theEObject;
+				T1 result = casePluginNature(pluginNature);
+				if (result == null) result = caseNature(pluginNature);
+				if (result == null) result = caseGenerator(pluginNature);
+				if (result == null) result = caseConfiguration(pluginNature);
+				if (result == null) result = caseWorkFactory(pluginNature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -433,6 +444,21 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMethod(Method object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plugin Nature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plugin Nature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePluginNature(PluginNature object) {
 		return null;
 	}
 

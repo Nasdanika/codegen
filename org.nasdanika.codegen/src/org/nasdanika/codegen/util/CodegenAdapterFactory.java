@@ -138,16 +138,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createNatureAdapter();
 			}
 			@Override
-			public <C> Adapter caseFile(File<C> object) {
-				return createFileAdapter();
+			public <T> Adapter caseResource(Resource<T> object) {
+				return createResourceAdapter();
+			}
+			@Override
+			public <C> Adapter caseGenericFile(GenericFile<C> object) {
+				return createGenericFileAdapter();
 			}
 			@Override
 			public Adapter caseProject(Project object) {
 				return createProjectAdapter();
 			}
 			@Override
-			public <T> Adapter caseResource(Resource<T> object) {
-				return createResourceAdapter();
+			public <C> Adapter caseFile(File<C> object) {
+				return createFileAdapter();
 			}
 			@Override
 			public Adapter caseBinaryFile(BinaryFile object) {
@@ -460,6 +464,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.GenericFile <em>Generic File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.GenericFile
+	 * @generated
+	 */
+	public Adapter createGenericFileAdapter() {
 		return null;
 	}
 

@@ -37,6 +37,7 @@ import org.nasdanika.codegen.Folder;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.FreeMarkerTemplateLoaderType;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.GenericFile;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.Interpolator;
 import org.nasdanika.codegen.JETEmitter;
@@ -170,6 +171,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass resourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass genericFileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -831,6 +839,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGenericFile() {
+		return genericFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBinaryFile() {
 		return binaryFileEClass;
 	}
@@ -1422,9 +1439,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		natureEClass = createEClass(NATURE);
 
-		fileEClass = createEClass(FILE);
-		createEReference(fileEClass, FILE__MERGER);
-		createEReference(fileEClass, FILE__GENERATORS);
+		resourceEClass = createEClass(RESOURCE);
+		createEAttribute(resourceEClass, RESOURCE__NAME);
+		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
+
+		genericFileEClass = createEClass(GENERIC_FILE);
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
@@ -1432,9 +1451,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEReference(projectEClass, PROJECT__RESOURCES);
 		createEAttribute(projectEClass, PROJECT__RECONCILE_ACTION);
 
-		resourceEClass = createEClass(RESOURCE);
-		createEAttribute(resourceEClass, RESOURCE__NAME);
-		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
+		fileEClass = createEClass(FILE);
+		createEReference(fileEClass, FILE__MERGER);
+		createEReference(fileEClass, FILE__GENERATORS);
 
 		binaryFileEClass = createEClass(BINARY_FILE);
 
@@ -1567,8 +1586,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		ETypeParameter generatorEClass_T = addETypeParameter(generatorEClass, "T");
 		ETypeParameter groupEClass_T = addETypeParameter(groupEClass, "T");
 		ETypeParameter resourceGeneratorEClass_T = addETypeParameter(resourceGeneratorEClass, "T");
-		ETypeParameter fileEClass_C = addETypeParameter(fileEClass, "C");
 		ETypeParameter resourceEClass_T = addETypeParameter(resourceEClass, "T");
+		addETypeParameter(genericFileEClass, "C");
+		ETypeParameter fileEClass_C = addETypeParameter(fileEClass, "C");
 		ETypeParameter contentReferenceEClass_T = addETypeParameter(contentReferenceEClass, "T");
 		ETypeParameter filterEClass_T = addETypeParameter(filterEClass, "T");
 		ETypeParameter javaGeneratorEClass_T = addETypeParameter(javaGeneratorEClass, "T");
@@ -1618,18 +1638,22 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getIProjectNature());
 		g1.getETypeArguments().add(g2);
 		natureEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIFile());
-		g1.getETypeArguments().add(g2);
-		fileEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getResourceGenerator());
-		g2 = createEGenericType(this.getIProject());
-		g1.getETypeArguments().add(g2);
-		projectEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getResourceGenerator());
 		g2 = createEGenericType(resourceEClass_T);
 		g1.getETypeArguments().add(g2);
 		resourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResource());
+		g2 = createEGenericType(this.getIFile());
+		g1.getETypeArguments().add(g2);
+		genericFileEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceGenerator());
+		g2 = createEGenericType(this.getIProject());
+		g1.getETypeArguments().add(g2);
+		projectEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResource());
+		g2 = createEGenericType(this.getIFile());
+		g1.getETypeArguments().add(g2);
+		fileEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getFile());
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
@@ -1782,12 +1806,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(natureEClass, Nature.class, "Nature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFile_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getGenerator());
-		g2 = createEGenericType(fileEClass_C);
-		g1.getETypeArguments().add(g2);
-		initEReference(getFile_Generators(), g1, null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Append", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(genericFileEClass, GenericFile.class, "GenericFile", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1798,9 +1821,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getProject_Resources(), g1, null, "resources", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Append", 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Append", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFile_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(fileEClass_C);
+		g1.getETypeArguments().add(g2);
+		initEReference(getFile_Generators(), g1, null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryFileEClass, BinaryFile.class, "BinaryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2057,22 +2083,28 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Generates project nature, e.g. Java or Maven nature."
 		   });	
 		addAnnotation
-		  (fileEClass, 
+		  (resourceEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Generates IFile."
+			 "documentation", "Generates project resource - file or directory."
 		   });	
 		addAnnotation
-		  (getFile_Merger(), 
+		  (getResource_Name(), 
 		   source, 
 		   new String[] {
-			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \r\nwhere ``T`` is ``String` for text files and ``InputStream`` for binary files."
+			 "documentation", "Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"
 		   });	
 		addAnnotation
-		  (getFile_Generators(), 
+		  (getResource_ReconcileAction(), 
 		   source, 
 		   new String[] {
-			 "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
+			 "documentation", "Action to take if resource with given name already exists."
+		   });	
+		addAnnotation
+		  (genericFileEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide\r\nfile contents."
 		   });	
 		addAnnotation
 		  (projectEClass, 
@@ -2105,22 +2137,22 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Action to take if a project with given name already exists."
 		   });	
 		addAnnotation
-		  (resourceEClass, 
+		  (fileEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Generates project resource - file or directory."
+			 "documentation", "Generates IFile."
 		   });	
 		addAnnotation
-		  (getResource_Name(), 
+		  (getFile_Merger(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"
+			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \r\nwhere ``T`` is ``String` for text files and ``InputStream`` for binary files."
 		   });	
 		addAnnotation
-		  (getResource_ReconcileAction(), 
+		  (getFile_Generators(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Action to take if resource with given name already exists."
+			 "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
 		   });	
 		addAnnotation
 		  (binaryFileEClass, 

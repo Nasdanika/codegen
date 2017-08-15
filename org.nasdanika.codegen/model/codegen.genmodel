@@ -74,10 +74,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Folder/children"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Nature"/>
-    <genClasses ecoreClass="codegen.ecore#//File">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//File/C"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/merger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
+    <genClasses ecoreClass="codegen.ecore#//Resource">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Resource/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//GenericFile">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//GenericFile/C"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Project/name"/>
@@ -85,10 +88,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Project/resources"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Project/reconcileAction"/>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//Resource">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Resource/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
+    <genClasses ecoreClass="codegen.ecore#//File">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//File/C"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/merger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//BinaryFile"/>
     <genClasses ecoreClass="codegen.ecore#//TextFile">
@@ -208,6 +211,12 @@
       <genClasses ecoreClass="codegen.ecore#//java/Constructor"/>
       <genClasses ecoreClass="codegen.ecore#//java/Method">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//java/Method/returnType"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/PluginNature">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/manifestGenerator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/buildPropertiesGenerator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/pluginXmlGenerator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/fragmentXmlGenerator"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Maven" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
