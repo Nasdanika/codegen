@@ -4,16 +4,18 @@ package org.nasdanika.codegen.provider;
 
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 
@@ -156,11 +158,25 @@ public class FreeMarkerGeneratorItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FreeMarkerGenerator)object).getBaseURL();
+		FreeMarkerGenerator freeMarker = (FreeMarkerGenerator) object;
+		
+		EObject container = freeMarker.eContainer();
+		if (container != null) {
+			AdapterFactory af = getAdapterFactory();
+			if (af instanceof ComposeableAdapterFactory) {
+				af = ((ComposeableAdapterFactory) af).getRootAdapterFactory();
+			}
+			Object provider = af.adapt(container, IItemPropertySource.class);
+			if (provider instanceof CreateChildCommand.Helper) {
+				return ((CreateChildCommand.Helper) provider).getCreateChildText(container, freeMarker.eContainmentFeature(), freeMarker, Collections.singleton(container))+" "+freeMarker.getTemplate();
+			}
+		}
+		
+		String label = freeMarker.getTemplate();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FreeMarkerGenerator_type") :
 			getString("_UI_FreeMarkerGenerator_type") + " " + label;
