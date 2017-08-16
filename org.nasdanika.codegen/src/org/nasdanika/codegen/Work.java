@@ -9,6 +9,25 @@ import org.nasdanika.config.Context;
  */
 public interface Work<T> {
 	
+	Work<Object> NO_WORK = new Work<Object>() {
+
+		@Override
+		public int size() {
+			return 0;
+		}
+
+		@Override
+		public Object execute(Context context, SubMonitor monitor) throws Exception {
+			return null;
+		}
+		
+	};
+	
+	@SuppressWarnings("unchecked")
+	static <T> Work<T> noWork() {
+		return (Work<T>) NO_WORK;
+	}
+	
 	/**
 	 * @return Total number of work units in this item.
 	 */
