@@ -13,8 +13,11 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.NatureImpl;
@@ -77,7 +80,6 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 		eSet(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR, newPomGenerator);
 	}
 
-
 	@Override
 	public Work<IProjectNature> createWorkItem() throws Exception {
 		Work<List<String>> pomWork = getPomGenerator().createWork();
@@ -85,7 +87,7 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 
 			@Override
 			public int size() {
-				return 2 + pomWork.size();
+				return 3 + pomWork.size();
 			}
 
 			@Override
@@ -121,6 +123,11 @@ public class MavenNatureImpl extends NatureImpl implements MavenNature {
 					writer.close();
 					baos.close(); 
 					pom.create(new ByteArrayInputStream(baos.toByteArray()), false, monitor.split(1));
+				}
+
+				IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
+				if (javaProject != null) {
+					javaProject.setOutputLocation(new Path("/" + project.getName() + "/target/classes"), monitor.split(1));
 				}
 				
 				return project.getNature(MAVEN_2_NATURE_ID);								
