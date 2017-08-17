@@ -149,7 +149,6 @@ public class PluginNatureImpl extends NatureImpl implements PluginNature {
 		Generator<String> fragmentGenerator = pluginGenerator == null ? getPluginXmlGenerator() : null;
 		Work<List<String>> fragmentWork = fragmentGenerator == null ? Work.noWork() : fragmentGenerator.createWork();
 		
-		// TODO - plugin, fragment, generators
 		return new Work<IProjectNature>() {
 
 			@Override

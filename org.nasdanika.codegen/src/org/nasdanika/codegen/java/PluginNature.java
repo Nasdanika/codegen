@@ -11,7 +11,7 @@ import org.nasdanika.codegen.Nature;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Java nature.
+ * Plugin nature, generates MANIFEST.MF, build.properties, plugin.xml or fragment.xml
  * <!-- end-model-doc -->
  *
  * <p>

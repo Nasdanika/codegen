@@ -163,6 +163,11 @@ public class FilterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
 				 CodegenFactory.eINSTANCE.createProject()));
 
 		newChildDescriptors.add
@@ -324,6 +329,11 @@ public class FilterItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FILTER__GENERATOR,
 				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILTER__GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
 
 		newChildDescriptors.add
 			(createChildParameter

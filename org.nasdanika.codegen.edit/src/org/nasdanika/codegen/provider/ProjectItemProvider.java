@@ -207,12 +207,22 @@ public class ProjectItemProvider extends ResourceGeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.PROJECT__NATURES,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.PROJECT__NATURES,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.PROJECT__RESOURCES,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.PROJECT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter

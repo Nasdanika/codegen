@@ -15,6 +15,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.FeatureNature;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaFactory;
@@ -81,6 +82,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.CONSTRUCTOR: return (EObject)createConstructor();
 			case JavaPackage.METHOD: return (EObject)createMethod();
 			case JavaPackage.PLUGIN_NATURE: return (EObject)createPluginNature();
+			case JavaPackage.FEATURE_NATURE: return (EObject)createFeatureNature();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -246,6 +248,16 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public PluginNature createPluginNature() {
 		PluginNatureImpl pluginNature = new PluginNatureImpl();
 		return pluginNature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureNature createFeatureNature() {
+		FeatureNatureImpl featureNature = new FeatureNatureImpl();
+		return featureNature;
 	}
 
 	/**

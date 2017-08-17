@@ -190,7 +190,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				return result;
 			}
 			case CodegenPackage.GENERIC_FILE: {
-				GenericFile<?> genericFile = (GenericFile<?>)theEObject;
+				GenericFile genericFile = (GenericFile)theEObject;
 				T1 result = caseGenericFile(genericFile);
 				if (result == null) result = caseResource(genericFile);
 				if (result == null) result = caseResourceGenerator(genericFile);
@@ -699,7 +699,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <C> T1 caseGenericFile(GenericFile<C> object) {
+	public T1 caseGenericFile(GenericFile object) {
 		return null;
 	}
 

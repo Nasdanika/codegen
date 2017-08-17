@@ -67,6 +67,15 @@ public interface CodegenFactory extends EFactory {
 	Folder createFolder();
 
 	/**
+	 * Returns a new object of class '<em>Generic File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generic File</em>'.
+	 * @generated
+	 */
+	GenericFile createGenericFile();
+
+	/**
 	 * Returns a new object of class '<em>Project</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

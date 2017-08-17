@@ -29,6 +29,17 @@ public class GenericFileItemProvider extends ResourceItemProvider {
 	public GenericFileItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
+	
+	/**
+	 * This returns Resource.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GenericFile"));
+	}	
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -53,7 +64,7 @@ public class GenericFileItemProvider extends ResourceItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GenericFile<?>)object).getName();
+		String label = ((GenericFile)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GenericFile_type") :
 			getString("_UI_GenericFile_type") + " " + label;

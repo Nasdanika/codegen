@@ -334,6 +334,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -350,6 +355,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -524,6 +534,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -540,6 +555,11 @@ public class MemberItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -167,6 +167,11 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createProject()));
 
 		newChildDescriptors.add
@@ -328,6 +333,11 @@ public class FileItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
 				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
 
 		newChildDescriptors.add
 			(createChildParameter

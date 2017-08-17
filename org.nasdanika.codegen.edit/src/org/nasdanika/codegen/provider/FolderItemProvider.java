@@ -143,6 +143,11 @@ public class FolderItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FOLDER__CHILDREN,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FOLDER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add

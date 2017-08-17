@@ -214,6 +214,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -230,6 +235,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -404,6 +414,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -420,6 +435,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -594,6 +614,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -610,6 +635,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -784,6 +814,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -800,6 +835,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -187,6 +187,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.GenericFile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenericFileItemProvider genericFileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.GenericFile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenericFileAdapter() {
+		if (genericFileItemProvider == null) {
+			genericFileItemProvider = new GenericFileItemProvider(this);
+		}
+
+		return genericFileItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Project} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -773,6 +796,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
 		if (workspaceItemProvider != null) workspaceItemProvider.dispose();
 		if (folderItemProvider != null) folderItemProvider.dispose();
+		if (genericFileItemProvider != null) genericFileItemProvider.dispose();
 		if (projectItemProvider != null) projectItemProvider.dispose();
 		if (binaryFileItemProvider != null) binaryFileItemProvider.dispose();
 		if (textFileItemProvider != null) textFileItemProvider.dispose();

@@ -142,7 +142,7 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createResourceAdapter();
 			}
 			@Override
-			public <C> Adapter caseGenericFile(GenericFile<C> object) {
+			public Adapter caseGenericFile(GenericFile object) {
 				return createGenericFileAdapter();
 			}
 			@Override

@@ -3125,6 +3125,169 @@ public interface JavaPackage extends EPackage {
 	int PLUGIN_NATURE_OPERATION_COUNT = CodegenPackage.NATURE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.java.impl.FeatureNatureImpl <em>Feature Nature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.java.impl.FeatureNatureImpl
+	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getFeatureNature()
+	 * @generated
+	 */
+	int FEATURE_NATURE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__BASE_URL = CodegenPackage.NATURE__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__DESCRIPTION = CodegenPackage.NATURE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__CLASS_PATH = CodegenPackage.NATURE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__INCLUDES = CodegenPackage.NATURE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__DEFAULT_INCLUDES = CodegenPackage.NATURE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__CONFIGURATION = CodegenPackage.NATURE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__INCLUDE = CodegenPackage.NATURE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__CONTROLLER = CodegenPackage.NATURE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__NAMED_GENERATORS = CodegenPackage.NATURE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Feature Xml Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__FEATURE_XML_GENERATOR = CodegenPackage.NATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Build Properties Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR = CodegenPackage.NATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Feature Nature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE_FEATURE_COUNT = CodegenPackage.NATURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = CodegenPackage.NATURE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE___GET_CONFIG_WORK_SIZE = CodegenPackage.NATURE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE___IS_FILTERABLE = CodegenPackage.NATURE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.NATURE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Feature Nature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_NATURE_OPERATION_COUNT = CodegenPackage.NATURE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>IJava Project</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3132,7 +3295,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getIJavaProject()
 	 * @generated
 	 */
-	int IJAVA_PROJECT = 15;
+	int IJAVA_PROJECT = 16;
 
 	/**
 	 * The meta object id for the '<em>IPackage Fragment Root</em>' data type.
@@ -3142,7 +3305,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getIPackageFragmentRoot()
 	 * @generated
 	 */
-	int IPACKAGE_FRAGMENT_ROOT = 16;
+	int IPACKAGE_FRAGMENT_ROOT = 17;
 
 	/**
 	 * The meta object id for the '<em>IPackage Fragment</em>' data type.
@@ -3152,7 +3315,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getIPackageFragment()
 	 * @generated
 	 */
-	int IPACKAGE_FRAGMENT = 17;
+	int IPACKAGE_FRAGMENT = 18;
 
 	/**
 	 * The meta object id for the '<em>ICompilation Unit</em>' data type.
@@ -3162,7 +3325,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getICompilationUnit()
 	 * @generated
 	 */
-	int ICOMPILATION_UNIT = 18;
+	int ICOMPILATION_UNIT = 19;
 
 
 	/**
@@ -3624,6 +3787,38 @@ public interface JavaPackage extends EPackage {
 	EReference getPluginNature_FragmentXmlGenerator();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.FeatureNature <em>Feature Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Feature Nature</em>'.
+	 * @see org.nasdanika.codegen.java.FeatureNature
+	 * @generated
+	 */
+	EClass getFeatureNature();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.java.FeatureNature#getFeatureXmlGenerator <em>Feature Xml Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Feature Xml Generator</em>'.
+	 * @see org.nasdanika.codegen.java.FeatureNature#getFeatureXmlGenerator()
+	 * @see #getFeatureNature()
+	 * @generated
+	 */
+	EReference getFeatureNature_FeatureXmlGenerator();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.java.FeatureNature#getBuildPropertiesGenerator <em>Build Properties Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Build Properties Generator</em>'.
+	 * @see org.nasdanika.codegen.java.FeatureNature#getBuildPropertiesGenerator()
+	 * @see #getFeatureNature()
+	 * @generated
+	 */
+	EReference getFeatureNature_BuildPropertiesGenerator();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.jdt.core.IJavaProject <em>IJava Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4063,6 +4258,32 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLUGIN_NATURE__FRAGMENT_XML_GENERATOR = eINSTANCE.getPluginNature_FragmentXmlGenerator();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.java.impl.FeatureNatureImpl <em>Feature Nature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.java.impl.FeatureNatureImpl
+		 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getFeatureNature()
+		 * @generated
+		 */
+		EClass FEATURE_NATURE = eINSTANCE.getFeatureNature();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature Xml Generator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_NATURE__FEATURE_XML_GENERATOR = eINSTANCE.getFeatureNature_FeatureXmlGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Properties Generator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR = eINSTANCE.getFeatureNature_BuildPropertiesGenerator();
 
 		/**
 		 * The meta object literal for the '<em>IJava Project</em>' data type.

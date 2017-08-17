@@ -169,6 +169,11 @@ public class MavenNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
 				 CodegenFactory.eINSTANCE.createProject()));
 
 		newChildDescriptors.add
@@ -330,6 +335,11 @@ public class MavenNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
 				 JavaFactory.eINSTANCE.createPluginNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MavenPackage.Literals.MAVEN_NATURE__POM_GENERATOR,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
 	}
 
 	/**

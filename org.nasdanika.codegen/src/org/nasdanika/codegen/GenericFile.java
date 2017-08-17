@@ -16,8 +16,8 @@ import org.eclipse.core.resources.IFile;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenericFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&gt;"
+ * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&gt;"
  * @generated
  */
-public interface GenericFile<C> extends Resource<IFile> {
+public interface GenericFile extends Resource<IFile> {
 } // GenericFile

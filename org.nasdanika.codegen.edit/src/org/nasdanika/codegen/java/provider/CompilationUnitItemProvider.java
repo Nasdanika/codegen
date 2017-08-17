@@ -279,6 +279,11 @@ public class CompilationUnitItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 JavaFactory.eINSTANCE.createFeatureNature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
 				 CodegenFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
@@ -295,6 +300,11 @@ public class CompilationUnitItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
 				 CodegenFactory.eINSTANCE.createFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
 
 		newChildDescriptors.add
 			(createChildParameter

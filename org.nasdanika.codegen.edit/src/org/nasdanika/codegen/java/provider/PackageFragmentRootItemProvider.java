@@ -185,6 +185,11 @@ public class PackageFragmentRootItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createGenericFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__RESOURCES,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add

@@ -130,6 +130,15 @@ public interface JavaFactory extends EFactory {
 	PluginNature createPluginNature();
 
 	/**
+	 * Returns a new object of class '<em>Feature Nature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feature Nature</em>'.
+	 * @generated
+	 */
+	FeatureNature createFeatureNature();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -270,7 +270,9 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				}
 				
 				if (iContexts.size() == 1) {
-					return Collections.singletonList(workItem.execute(injectNamedGenerators(iContexts.iterator().next(), monitor), monitor));
+					Context iCtx = iContexts.iterator().next();
+					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
+					return Collections.singletonList(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split(1)));
 				}
 
 				List<T> ret = new ArrayList<>();

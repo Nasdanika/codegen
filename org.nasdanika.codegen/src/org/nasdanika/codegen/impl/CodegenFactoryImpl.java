@@ -97,6 +97,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.RESOURCE_GROUP: return (EObject)createResourceGroup();
 			case CodegenPackage.WORKSPACE: return (EObject)createWorkspace();
 			case CodegenPackage.FOLDER: return (EObject)createFolder();
+			case CodegenPackage.GENERIC_FILE: return (EObject)createGenericFile();
 			case CodegenPackage.PROJECT: return (EObject)createProject();
 			case CodegenPackage.BINARY_FILE: return (EObject)createBinaryFile();
 			case CodegenPackage.TEXT_FILE: return (EObject)createTextFile();
@@ -261,6 +262,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public Folder createFolder() {
 		FolderImpl folder = new FolderImpl();
 		return folder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenericFile createGenericFile() {
+		GenericFileImpl genericFile = new GenericFileImpl();
+		return genericFile;
 	}
 
 	/**

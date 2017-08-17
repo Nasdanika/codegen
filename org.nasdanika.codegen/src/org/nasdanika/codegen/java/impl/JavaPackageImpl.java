@@ -18,6 +18,7 @@ import org.nasdanika.codegen.impl.CodegenPackageImpl;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.FeatureNature;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaFactory;
@@ -147,6 +148,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass pluginNatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass featureNatureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -643,6 +651,33 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFeatureNature() {
+		return featureNatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeatureNature_FeatureXmlGenerator() {
+		return (EReference)featureNatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeatureNature_BuildPropertiesGenerator() {
+		return (EReference)featureNatureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getIJavaProject() {
 		return iJavaProjectEDataType;
 	}
@@ -760,6 +795,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(pluginNatureEClass, PLUGIN_NATURE__PLUGIN_XML_GENERATOR);
 		createEReference(pluginNatureEClass, PLUGIN_NATURE__FRAGMENT_XML_GENERATOR);
 
+		featureNatureEClass = createEClass(FEATURE_NATURE);
+		createEReference(featureNatureEClass, FEATURE_NATURE__FEATURE_XML_GENERATOR);
+		createEReference(featureNatureEClass, FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR);
+
 		// Create data types
 		iJavaProjectEDataType = createEDataType(IJAVA_PROJECT);
 		iPackageFragmentRootEDataType = createEDataType(IPACKAGE_FRAGMENT_ROOT);
@@ -825,6 +864,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		methodEClass.getESuperTypes().add(this.getOperation());
 		pluginNatureEClass.getESuperTypes().add(theCodegenPackage.getNature());
+		featureNatureEClass.getESuperTypes().add(theCodegenPackage.getNature());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaNatureEClass, JavaNature.class, "JavaNature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -911,6 +951,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPluginNature_FragmentXmlGenerator(), g1, null, "fragmentXmlGenerator", null, 0, 1, PluginNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(featureNatureEClass, FeatureNature.class, "FeatureNature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getFeatureNature_FeatureXmlGenerator(), g1, null, "featureXmlGenerator", null, 1, 1, FeatureNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEReference(getFeatureNature_BuildPropertiesGenerator(), g1, null, "buildPropertiesGenerator", null, 1, 1, FeatureNature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(iJavaProjectEDataType, IJavaProject.class, "IJavaProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1085,7 +1135,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		  (pluginNatureEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Java nature."
+			 "documentation", "Plugin nature, generates MANIFEST.MF, build.properties, plugin.xml or fragment.xml"
 		   });	
 		addAnnotation
 		  (getPluginNature_ManifestGenerator(), 
@@ -1110,6 +1160,24 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Optional generator of ``fragment.xml`` file."
+		   });	
+		addAnnotation
+		  (featureNatureEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Feature nature. Generates feature.xml and build.properties."
+		   });	
+		addAnnotation
+		  (getFeatureNature_FeatureXmlGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generates MANIFEST.MF file."
+		   });	
+		addAnnotation
+		  (getFeatureNature_BuildPropertiesGenerator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generates build.properties file."
 		   });
 	}
 

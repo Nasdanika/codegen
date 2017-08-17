@@ -26,6 +26,10 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkingSet;
+import org.eclipse.ui.IWorkingSetManager;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.Nature;
@@ -242,6 +246,15 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 				if (!project.exists()) {
 					IProjectDescription description = workspace.newProjectDescription(projectName);
 					project.create(description, monitor.split(1));
+				}
+
+				IStructuredSelection selection = context.get(IStructuredSelection.class);
+				if (selection != null && !selection.isEmpty() && selection.getFirstElement() instanceof IWorkingSet) {
+					IWorkbench workbench = context.get(IWorkbench.class);
+					if (workbench != null) {
+						IWorkingSetManager workingSetManager = workbench.getWorkingSetManager();
+						workingSetManager.addToWorkingSets(project, new IWorkingSet[] { (IWorkingSet) selection.getFirstElement() });
+					}
 				}
 				
 				project.open(monitor.split(1));

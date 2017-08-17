@@ -3,8 +3,10 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.Map;
-
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -12,7 +14,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GenericFile;
+import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.config.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +25,7 @@ import org.nasdanika.codegen.util.CodegenValidator;
  *
  * @generated
  */
-public abstract class GenericFileImpl<C> extends ResourceImpl<IFile> implements GenericFile<C> {
+public class GenericFileImpl extends ResourceImpl<IFile> implements GenericFile {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,5 +63,26 @@ public abstract class GenericFileImpl<C> extends ResourceImpl<IFile> implements 
 		}
 		return result;
 	}
+	
+
+	@Override
+	public Work<IFile> createWorkItem() throws Exception {
+		
+		return new Work<IFile>() {
+
+			@Override
+			public int size() {
+				return 1;
+			}
+
+			@Override
+			public IFile execute(Context context, SubMonitor monitor) throws Exception {
+				IContainer container = context.get(IContainer.class);
+				String name = context.interpolate(getName());				
+				return container.getFile(new Path(name));
+			}
+		};
+	}
+	
 
 } //GenericFileImpl

@@ -209,7 +209,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.RESOURCE:
 				return validateResource((Resource<?>)value, diagnostics, context);
 			case CodegenPackage.GENERIC_FILE:
-				return validateGenericFile((GenericFile<?>)value, diagnostics, context);
+				return validateGenericFile((GenericFile)value, diagnostics, context);
 			case CodegenPackage.PROJECT:
 				return validateProject((Project)value, diagnostics, context);
 			case CodegenPackage.FILE:
@@ -528,7 +528,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGenericFile(GenericFile<?> genericFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateGenericFile(GenericFile genericFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment((EObject)genericFile, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms((EObject)genericFile, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)genericFile, diagnostics, context);

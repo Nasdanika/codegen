@@ -348,6 +348,29 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.FeatureNature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FeatureNatureItemProvider featureNatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.FeatureNature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFeatureNatureAdapter() {
+		if (featureNatureItemProvider == null) {
+			featureNatureItemProvider = new FeatureNatureItemProvider(this);
+		}
+
+		return featureNatureItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +481,7 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 		if (constructorItemProvider != null) constructorItemProvider.dispose();
 		if (methodItemProvider != null) methodItemProvider.dispose();
 		if (pluginNatureItemProvider != null) pluginNatureItemProvider.dispose();
+		if (featureNatureItemProvider != null) featureNatureItemProvider.dispose();
 	}
 
 }

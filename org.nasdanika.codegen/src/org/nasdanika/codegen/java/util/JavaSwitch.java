@@ -11,6 +11,7 @@ import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
+import org.nasdanika.codegen.java.FeatureNature;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaNature;
@@ -230,6 +231,16 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseGenerator(pluginNature);
 				if (result == null) result = caseConfiguration(pluginNature);
 				if (result == null) result = caseWorkFactory(pluginNature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.FEATURE_NATURE: {
+				FeatureNature featureNature = (FeatureNature)theEObject;
+				T1 result = caseFeatureNature(featureNature);
+				if (result == null) result = caseNature(featureNature);
+				if (result == null) result = caseGenerator(featureNature);
+				if (result == null) result = caseConfiguration(featureNature);
+				if (result == null) result = caseWorkFactory(featureNature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -459,6 +470,21 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePluginNature(PluginNature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Nature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Nature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureNature(FeatureNature object) {
 		return null;
 	}
 

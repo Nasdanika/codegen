@@ -79,9 +79,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="codegen.ecore#//GenericFile">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//GenericFile/C"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//GenericFile"/>
     <genClasses ecoreClass="codegen.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Project/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Project/natures"/>
@@ -217,6 +215,10 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/buildPropertiesGenerator"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/pluginXmlGenerator"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/PluginNature/fragmentXmlGenerator"/>
+      </genClasses>
+      <genClasses ecoreClass="codegen.ecore#//java/FeatureNature">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/FeatureNature/featureXmlGenerator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//java/FeatureNature/buildPropertiesGenerator"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Maven" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
