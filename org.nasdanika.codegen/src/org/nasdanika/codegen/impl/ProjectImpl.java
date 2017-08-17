@@ -249,11 +249,19 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 				}
 
 				IStructuredSelection selection = context.get(IStructuredSelection.class);
-				if (selection != null && !selection.isEmpty() && selection.getFirstElement() instanceof IWorkingSet) {
-					IWorkbench workbench = context.get(IWorkbench.class);
-					if (workbench != null) {
-						IWorkingSetManager workingSetManager = workbench.getWorkingSetManager();
-						workingSetManager.addToWorkingSets(project, new IWorkingSet[] { (IWorkingSet) selection.getFirstElement() });
+				if (selection != null) {
+					List<IWorkingSet> workingSets = new ArrayList<>();
+					for (Object se: selection.toArray()) {
+						if (se instanceof IWorkingSet) {
+							workingSets.add((IWorkingSet) se);
+						}
+					}
+					if (workingSets.isEmpty()) {
+						IWorkbench workbench = context.get(IWorkbench.class);
+						if (workbench != null) {
+							IWorkingSetManager workingSetManager = workbench.getWorkingSetManager();
+							workingSetManager.addToWorkingSets(project, workingSets.toArray(new IWorkingSet[workingSets.size()]));
+						}
 					}
 				}
 				
