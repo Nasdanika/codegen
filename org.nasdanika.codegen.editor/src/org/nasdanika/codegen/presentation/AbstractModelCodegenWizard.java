@@ -99,7 +99,7 @@ public class AbstractModelCodegenWizard extends AbstractCodegenWizard {
 	@Override
 	public void addPages() {
 		for (WizardPage wizardPage: getWizard().getPages()) {
-			addPage(new ModelWizardPage(wizardPage));
+			addPage(new ModelWizardPage(wizardPage, editingDomain));
 		}
 	}
 	

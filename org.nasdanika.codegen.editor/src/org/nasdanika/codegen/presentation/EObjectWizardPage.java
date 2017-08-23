@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecp.ui.view.swt.ECPSWTViewRenderer;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -28,13 +29,16 @@ import org.nasdanika.presentation.EObjectRenderer;
  */
 public abstract class EObjectWizardPage<T extends EObject> extends WizardPage {
 	
+	private EditingDomain editingDomain;
+
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
 	 * @param pageName
 	 */
-	public EObjectWizardPage(String pageName) {
+	public EObjectWizardPage(String pageName, EditingDomain editingDomain) {
 		super(pageName);
+		this.editingDomain = editingDomain;
 	}
 
 	@Override
@@ -77,7 +81,7 @@ public abstract class EObjectWizardPage<T extends EObject> extends WizardPage {
 				if ("eobject_renderer".equals(ce.getName()) 
 						&& pageData.eClass().getName().equals(ce.getAttribute("eclass_name"))
 						&& pageData.eClass().getEPackage().getNsURI().equals(ce.getAttribute("epackage_ns_uri"))) {
-					((EObjectRenderer) ce.createExecutableExtension("renderer_class_name")).render(body, pageData, null);
+					((EObjectRenderer) ce.createExecutableExtension("renderer_class_name")).render(body, pageData, editingDomain);
 					return;
 				}
 			}					
