@@ -9,13 +9,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.jface.wizard.IWizardPage;
 import org.nasdanika.codegen.wizard.Wizard;
 import org.nasdanika.codegen.wizard.WizardPage;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
-import org.nasdanika.config.Provider;
 
+/**
+ * Base class for wizards which use {@link Wizard} model for collecting user input.
+ * @author Pavel Vlasov
+ *
+ */
 public class AbstractModelCodegenWizard extends AbstractCodegenWizard {
 
 	@Override
