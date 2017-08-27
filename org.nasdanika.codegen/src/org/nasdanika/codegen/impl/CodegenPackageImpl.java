@@ -704,6 +704,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResourceGenerator_Enabled() {
+		return (EAttribute)resourceGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWorkspace() {
 		return workspaceEClass;
 	}
@@ -1431,6 +1440,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
 		resourceGeneratorEClass = createEClass(RESOURCE_GENERATOR);
+		createEAttribute(resourceGeneratorEClass, RESOURCE_GENERATOR__ENABLED);
 
 		workspaceEClass = createEClass(WORKSPACE);
 
@@ -1794,6 +1804,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceGeneratorEClass, ResourceGenerator.class, "ResourceGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResourceGenerator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, ResourceGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2056,6 +2067,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "ResourceGenerator generates a workspace resource - file or directory. "
+		   });	
+		addAnnotation
+		  (getResourceGenerator_Enabled(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Resource generator generates resource only if this attribute is true. \r\nThe purpose of this attribute is to help with generator model development \r\nby disabling model parts which are still work in progress and would fail the generation\r\nprocess, or, on the opposite, already working parts which would create delay and distraction\r\nin testing and troubleshooting. "
 		   });	
 		addAnnotation
 		  (workspaceEClass, 

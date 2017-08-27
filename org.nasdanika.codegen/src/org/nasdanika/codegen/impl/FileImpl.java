@@ -132,7 +132,7 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	}			
 
 	@Override
-	public Work<IFile> createWorkItem() throws Exception {
+	protected Work<IFile> createWorkItem() throws Exception {
 		List<Work<List<C>>> gWork = new ArrayList<>();
 		for (Generator<C> g: getGenerators()) {
 			gWork.add(g.createWork());

@@ -68,6 +68,7 @@
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
     <genClasses ecoreClass="codegen.ecore#//ResourceGenerator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//ResourceGenerator/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceGenerator/enabled"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Workspace"/>
     <genClasses ecoreClass="codegen.ecore#//Folder">

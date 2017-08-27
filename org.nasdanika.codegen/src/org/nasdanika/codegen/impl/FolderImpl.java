@@ -67,7 +67,7 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 	}
 
 	@Override
-	public Work<IFolder> createWorkItem() throws Exception {
+	protected Work<IFolder> createWorkItem() throws Exception {
 		List<Work<List<IResource>>> rWork = new ArrayList<>();
 		int[] workSize = { 3 };
 		for (Resource<IResource> r: getChildren()) {

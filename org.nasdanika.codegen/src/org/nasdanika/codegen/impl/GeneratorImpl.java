@@ -262,6 +262,9 @@ public abstract class GeneratorImpl<T> extends ConfigurationImpl implements Gene
 				if (label == null) {
 					label = EcoreUtil.getID(GeneratorImpl.this);
 				}
+				if (label == null || label.trim().length() == 0) {
+					label = GeneratorImpl.this.eClass().getName();
+				}
 				monitor.setTaskName("Generating "+label);
 				Collection<Context> iContexts = iterate(createContext(context, monitor));
 				if (iContexts.isEmpty()) {
