@@ -1,13 +1,10 @@
 package org.nasdanika.codegen.presentation;
 
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecp.ui.view.swt.ECPSWTViewRenderer;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -76,17 +73,7 @@ public abstract class EObjectWizardPage<T extends EObject> extends WizardPage {
 		Composite body = form.getBody();
 				
 		try {
-			for (IConfigurationElement ce: Platform.getExtensionRegistry().getConfigurationElementsFor("org.nasdanika.presentation.eobject_renderer")) {
-				// TODO renderers cache to improve performance?
-				if ("eobject_renderer".equals(ce.getName()) 
-						&& pageData.eClass().getName().equals(ce.getAttribute("eclass_name"))
-						&& pageData.eClass().getEPackage().getNsURI().equals(ce.getAttribute("epackage_ns_uri"))) {
-					((EObjectRenderer) ce.createExecutableExtension("renderer_class_name")).render(body, pageData, editingDomain);
-					return;
-				}
-			}					
-		
-			ECPSWTViewRenderer.INSTANCE.render(body, pageData);
+			EObjectRenderer.Util.render(body, pageData, editingDomain);
 		} catch (Exception e) {
 			Label lblNewLabel = new Label(body, SWT.NONE);
 			lblNewLabel.setText("Error rendering form: "+e);
