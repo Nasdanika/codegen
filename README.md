@@ -308,6 +308,7 @@ public class MyApplicationWorkspaceWizard extends AbstractModelCodegenNewWizard 
 </project>
 ```
 
+In the example above ``generalInformation`` in the id of a wizard page, and ``groupID``, ``name``, and ``version`` are names of attributes of the page content.
 
 ## How to contribute
 
