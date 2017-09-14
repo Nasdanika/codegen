@@ -188,7 +188,7 @@ public class SampleAction implements IObjectActionDelegate {
 
 }
 ``` 
-Use [GenerateAction](https://github.com/Nasdanika/codegen/blob/master/org.nasdanika.codegen.editor/src/org/nasdanika/codegen/presentation/GenerateAction.java) as guidance, but remember that in your case selection is the input model, not the generator model as in the GenerateAction case.
+Use [GenerateAction](https://github.com/Nasdanika/codegen/blob/master/org.nasdanika.codegen.editor/src/org/nasdanika/codegen/presentation/GenerateAction.java) as guidance, but remember that in this case selection is the input model, not the generator model as in GenerateAction.
 
 ```xml
 <extension point="org.eclipse.ui.popupMenus" id="mine">
@@ -205,7 +205,7 @@ Use [GenerateAction](https://github.com/Nasdanika/codegen/blob/master/org.nasdan
       </action>
    </objectContribution>
 </extension>
-
+```
 
 ## Creating a model-driven code generator from a template file/folder/project/workspace
 
