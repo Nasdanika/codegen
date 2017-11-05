@@ -34,5 +34,17 @@
             file="toc.xml"
             primary="false">
       </toc>
+      <toc
+            file="doc/model/toc.xml"
+            primary="false">
+      </toc>
    </extension>
+   
+   <extension
+         point="org.eclipse.help.contentProducer">
+      <binding
+            producerId="org.nasdanika.help.MarkdownContentProducer">
+      </binding>
+   </extension>
+   
 </plugin>
