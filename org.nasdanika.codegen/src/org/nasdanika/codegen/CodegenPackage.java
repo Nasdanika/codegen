@@ -710,13 +710,22 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__ENABLED = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Resource Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 0;
+	int RESOURCE_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -1009,6 +1018,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__ENABLED = RESOURCE_GENERATOR__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,6 +1188,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__ENABLED = RESOURCE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1489,6 +1516,15 @@ public interface CodegenPackage extends EPackage {
 	int GENERIC_FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_FILE__ENABLED = RESOURCE__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1662,6 +1698,15 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__ENABLED = RESOURCE_GENERATOR__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,6 +1876,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__ENABLED = RESOURCE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2014,6 +2068,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__ENABLED = FILE__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2193,6 +2256,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__ENABLED = FILE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2383,6 +2455,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_REFERENCE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REFERENCE__ENABLED = RESOURCE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5890,6 +5971,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__ENABLED = RESOURCE__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6456,6 +6546,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResourceGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceGenerator#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see org.nasdanika.codegen.ResourceGenerator#isEnabled()
+	 * @see #getResourceGenerator()
+	 * @generated
+	 */
+	EAttribute getResourceGenerator_Enabled();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Workspace <em>Workspace</em>}'.
@@ -7412,6 +7513,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESOURCE_GENERATOR = eINSTANCE.getResourceGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_GENERATOR__ENABLED = eINSTANCE.getResourceGenerator_Enabled();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.WorkspaceImpl <em>Workspace</em>}' class.

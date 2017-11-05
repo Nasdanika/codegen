@@ -256,7 +256,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 							workingSets.add((IWorkingSet) se);
 						}
 					}
-					if (workingSets.isEmpty()) {
+					if (!workingSets.isEmpty()) {
 						IWorkbench workbench = context.get(IWorkbench.class);
 						if (workbench != null) {
 							IWorkingSetManager workingSetManager = workbench.getWorkingSetManager();

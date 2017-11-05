@@ -66,7 +66,7 @@ public class GenericFileImpl extends ResourceImpl<IFile> implements GenericFile 
 	
 
 	@Override
-	public Work<IFile> createWorkItem() throws Exception {
+	protected Work<IFile> createWorkItem() throws Exception {
 		
 		return new Work<IFile>() {
 
