@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     
+        <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../resources/css/lightbox.css" rel="stylesheet">
+        <link href="../resources/highlight/styles/github.css" rel="stylesheet">
+        <link href="../resources/css/github-markdown.css" rel="stylesheet">
+		
+        <script src="../resources/js/jquery-1.12.1.min.js"></script>
+        <script src="../resources/js/underscore-min.js"></script>
+        <script src="../resources/js/backbone-min.js"></script>
+        <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../resources/js/d3.min.js"></script>
+        <script src="../resources/js/c3.min.js"></script>
+        <script src="../resources/js/require.js"></script>
+        <script src="../resources/js/lightbox.min.js"></script>
+        <script src="../resources/highlight/highlight.pack.js"></script>
+        
+        <style>
+			/* for block of numbers */
+			td.hljs-ln-numbers {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			
+				text-align: center;
+				color: #ccc;
+				border-right: 1px solid #CCC;
+				vertical-align: top;
+				padding-right: 5px;
+				white-space: nowrap;
+			
+				/* your custom style here */
+			}
+			
+			/* for block of code */
+			td.hljs-ln-code {
+				padding-left: 10px;
+			}
+        </style>
+        	
+    </head>
+
+    <body>
+    	
+<script>document.title="EClass WizardPageContent";</script>
+<h2>
+<img src="../resources/images/EClass.gif" style="margin-right:5px"/><I>WizardPageContent</I></h2>
+<div style="margin-bottom:5px;font-family:monospace"></div>
+<div>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#nsd_18f_tab_0" data-toggle="tab">Documentation</a>
+    </li>
+    <li>
+      <a href="#nsd_18f_tab_1" data-toggle="tab">Diagram</a>
+    </li>
+    <li>
+      <a href="#nsd_18f_tab_2" data-toggle="tab">
+<img src="../resources/images/EOperation.gif" style="margin-right:5px"/> Operations</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="nsd_18f_tab_0" class="tab-pane active">
+      <div style="margin-top:10px;margin-bottom:10px" class="markdown-body"><p>Base class for wizard page content. Wizard implementations shall provide concrete subclasses of this class. </p></div></div>
+    <div id="nsd_18f_tab_1" class="tab-pane">
+      <img src="WizardPageContent.png"/>
+    </div>
+    <div id="nsd_18f_tab_2" class="tab-pane">
+      <div id="nsd_18g_accordion" role="tablist" class="panel-group">
+        <div class="panel panel-default">
+          <div role="tab" id="nsd_18h_collapse_heading" class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#nsd_18g_accordion" href="#nsd_18h_collapse_collapse" aria-expanded="false" aria-controls="nsd_18h_collapse_collapse"><b>shallShow</b> : EBoolean - <I>Returns true (default) if the page shall be shown. </I></a>
+            </h4>
+          </div>
+          <div id="nsd_18h_collapse_collapse" class="panel-collapse collapse">
+            <div id="nsd_18h_collapse_panel_body" class="panel-body"><p>Returns true (default) if the page shall be shown. Override to conditionally skip pages. For example, if the user doesn&rsquo;t check, say &ldquo;Connect to database&rdquo; checkbox, when then there is no point in showing &ldquo;Database Connection Configuration&rdquo; page.</p>
+              <table class="table table-bordered">
+                <tr>
+                  <th style="align:left">Type</th>
+                  <td>
+<a href="../687474703a2f2f7777772e65636c697073652e6f72672f656d662f323030322f45636f7265/EBoolean.html">
+<img src="../resources/images/EDataType.gif" style="margin-right:5px"/>EBoolean</a></td>
+                </tr>
+                <tr>
+                  <th style="align:left">Cardinality</th>
+                  <td>0..1</td>
+                </tr>
+                <tr>
+                  <th style="align:left">Exceptions</th>
+                  <td>
+                    <ul></ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="align:left">Unique</th>
+                  <td>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  </td>
+                </tr>
+              </table></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div role="tab" id="nsd_18i_collapse_heading" class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#nsd_18g_accordion" href="#nsd_18i_collapse_collapse" aria-expanded="false" aria-controls="nsd_18i_collapse_collapse"><b>validate</b> : EBoolean - <I>Validates the content. </I></a>
+            </h4>
+          </div>
+          <div id="nsd_18i_collapse_collapse" class="panel-collapse collapse">
+            <div id="nsd_18i_collapse_panel_body" class="panel-body"><p>Validates the content. This method is used by isPageComplete(), which is turn is used by canFlipToNextPage() and canFinish(). isPageComplete() returns true if vaildation yields no error level diagnostics.</p>
+              <table class="table table-bordered">
+                <tr>
+                  <th style="align:left">Type</th>
+                  <td>
+<a href="../687474703a2f2f7777772e65636c697073652e6f72672f656d662f323030322f45636f7265/EBoolean.html">
+<img src="../resources/images/EDataType.gif" style="margin-right:5px"/>EBoolean</a></td>
+                </tr>
+                <tr>
+                  <th style="align:left">Cardinality</th>
+                  <td>0..1</td>
+                </tr>
+                <tr>
+                  <th style="align:left">Exceptions</th>
+                  <td>
+                    <ul></ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="align:left">Unique</th>
+                  <td>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  </td>
+                </tr>
+              </table>
+              <h3>Parameters</h3>
+              <h4>diagnostics : 
+<a href="../687474703a2f2f7777772e65636c697073652e6f72672f656d662f323030322f45636f7265/EDiagnosticChain.html">
+<img src="../resources/images/EDataType.gif" style="margin-right:5px"/>EDiagnosticChain</a> 0..1</h4>
+              <div style="margin-top:10px;margin-bottom:20px" class="markdown-body"><p>Diagnostics to add validation messages to.</p></div>
+              <h4>context : 
+<a href="../687474703a2f2f7777772e65636c697073652e6f72672f656d662f323030322f45636f7265/EMap.html">
+<img src="../resources/images/EDataType.gif" style="margin-right:5px"/>EMap</a> 0..1</h4>
+              <div style="margin-top:10px;margin-bottom:20px" class="markdown-body"><p>Validation context.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+</div>
+	</body>
+</html>

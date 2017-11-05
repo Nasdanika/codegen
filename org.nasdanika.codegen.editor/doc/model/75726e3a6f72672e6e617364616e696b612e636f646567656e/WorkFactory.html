@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     
+        <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../resources/css/lightbox.css" rel="stylesheet">
+        <link href="../resources/highlight/styles/github.css" rel="stylesheet">
+        <link href="../resources/css/github-markdown.css" rel="stylesheet">
+		
+        <script src="../resources/js/jquery-1.12.1.min.js"></script>
+        <script src="../resources/js/underscore-min.js"></script>
+        <script src="../resources/js/backbone-min.js"></script>
+        <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../resources/js/d3.min.js"></script>
+        <script src="../resources/js/c3.min.js"></script>
+        <script src="../resources/js/require.js"></script>
+        <script src="../resources/js/lightbox.min.js"></script>
+        <script src="../resources/highlight/highlight.pack.js"></script>
+        
+        <style>
+			/* for block of numbers */
+			td.hljs-ln-numbers {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			
+				text-align: center;
+				color: #ccc;
+				border-right: 1px solid #CCC;
+				vertical-align: top;
+				padding-right: 5px;
+				white-space: nowrap;
+			
+				/* your custom style here */
+			}
+			
+			/* for block of code */
+			td.hljs-ln-code {
+				padding-left: 10px;
+			}
+        </style>
+        	
+    </head>
+
+    <body>
+    	
+<script>document.title="EClass WorkFactory";</script>
+<h2>
+<img src="../resources/images/EClass.gif" style="margin-right:5px"/><I>WorkFactory</I></h2>
+<div style="margin-bottom:5px;font-family:monospace">org.nasdanika.codegen.WorkFactory</div>
+<div>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#nsd_jq_tab_0" data-toggle="tab">Documentation</a>
+    </li>
+    <li>
+      <a href="#nsd_jq_tab_1" data-toggle="tab">Diagram</a>
+    </li>
+    <li>
+      <a href="#nsd_jq_tab_2" data-toggle="tab">Subtypes</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="nsd_jq_tab_0" class="tab-pane active">
+      <div style="margin-top:10px;margin-bottom:10px" class="markdown-body"><p>Work factory creates work to be executed during generation.</p></div></div>
+    <div id="nsd_jq_tab_1" class="tab-pane">
+      <img src="WorkFactory.png"/>
+    </div>
+    <div id="nsd_jq_tab_2" class="tab-pane">
+      <table class="table table-bordered">
+        <tr class="info">
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>
+<a href="Generator.html">Generator</a></td>
+          <td>Generator is the base class for model element performing code generation.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Group.html">Group</a></td>
+          <td>Group of generators from which zero to all can be invoked during the generation process.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="ResourceGroup.html">ResourceGroup</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ResourceGenerator.html">ResourceGenerator</a></td>
+          <td>ResourceGenerator generates a workspace resource - file or directory.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Workspace.html">Workspace</a></td>
+          <td>Workspace is a group of projects.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Folder.html">Folder</a></td>
+          <td>Generates IFolder.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Nature.html">Nature</a></td>
+          <td>Generates project nature, e.g. Java or Maven nature.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Resource.html">Resource</a></td>
+          <td>Generates project resource - file or directory.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="GenericFile.html">GenericFile</a></td>
+          <td>Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide file contents.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Project.html">Project</a></td>
+          <td>Generates workspace project.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="File.html">File</a></td>
+          <td>Generates IFile.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="BinaryFile.html">BinaryFile</a></td>
+          <td>Binary file, with InputStream content.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="TextFile.html">TextFile</a></td>
+          <td>Text file with String content.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="ResourceReference.html">ResourceReference</a></td>
+          <td>Reference to a resource generator defined elsewhere.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="StaticText.html">StaticText</a></td>
+          <td>Static text. Can be used as text file content or as input to interpolator or filter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="FreeMarkerGenerator.html">FreeMarkerGenerator</a></td>
+          <td>Generates text from template and model using FreeMarker.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="ECoreModelGenerator.html">ECoreModelGenerator</a></td>
+          <td>Writes the model specified in model context property to XML.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="ContentReference.html">ContentReference</a></td>
+          <td>Reference (URL) to a content residing elsewhere, e.g. a template in a version control system available for download over HTTP.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="Filter.html">Filter</a></td>
+          <td>Filter transforms input of a generator to produce output.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaGenerator.html">JavaGenerator</a></td>
+          <td>This generator instantiates and invokes Java class to generate output. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="Interpolator.html">Interpolator</a></td>
+          <td>Interpolator produces output by expanding mustache tokens {{token}} in the input using context properties.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JETEmitter.html">JETEmitter</a></td>
+          <td>Invokes org.eclipse.emf.codegen.jet.JETEmitter to compile and evaluate a template.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaFilter.html">JavaFilter</a></td>
+          <td>Instantiates a Java class to filter content. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaTextFilter.html">JavaTextFilter</a></td>
+          <td>String binding of JavaFilter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaStreamFilter.html">JavaStreamFilter</a></td>
+          <td>InputStream binding of JavaFilter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaTextGenerator.html">JavaTextGenerator</a></td>
+          <td>String binding of JavaGenerator.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="JavaStreamGenerator.html">JavaStreamGenerator</a></td>
+          <td>InputStream binding of JavaGenerator.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedGenerator.html">ScriptedGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedTextGenerator.html">ScriptedTextGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedStreamGenerator.html">ScriptedStreamGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedFilter.html">ScriptedFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedTextFilter.html">ScriptedTextFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ScriptedStreamFilter.html">ScriptedStreamFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="TextContentReference.html">TextContentReference</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="StreamContentReference.html">StreamContentReference</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="ZipArchive.html">ZipArchive</a></td>
+          <td>Zip archive extracts its entries into its container. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="Mustache.html">Mustache</a></td>
+          <td>Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope. </td>
+        </tr>
+      </table>
+    </div></div>
+</div>
+	</body>
+</html>
