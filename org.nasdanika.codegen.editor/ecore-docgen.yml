@@ -3,4 +3,5 @@ models:
   
 output:
   help: /org.nasdanika.codegen.editor/doc/model
+  site: /org.nasdanika.codegen.editor/doc/site
   
