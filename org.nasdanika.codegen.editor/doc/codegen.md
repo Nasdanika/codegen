@@ -2,7 +2,10 @@
 
 Nasdanika Code Generation provides an Ecore model which encapsulates generation of Eclipse projects, folders, files, packages, compilation units, ...
 It also provides an editor for the model. Code can be generated from a model by using context menu item and then supplying input configuration either as a file or interactively
-through UI dialogs.
+through UI dialogs. 
+
+Also the model can be created programmatically, e.g. as a result of reading a configuration file or transforming another model. In this case the codegen model would act as an abstraction
+layer providing a unified [WorkFactory](http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/WorkFactory.html)/[Work](http://www.nasdanika.org/products/codegen/apidocs/org.nasdanika.codegen/apidocs/org/nasdanika/codegen/Work.html) API facading different lower-level API's.
 
 ## Concepts 
 
