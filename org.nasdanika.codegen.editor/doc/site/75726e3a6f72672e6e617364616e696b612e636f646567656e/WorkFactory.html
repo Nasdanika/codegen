@@ -1,0 +1,217 @@
+
+<script>document.title="EClass WorkFactory";</script>
+<h2>
+<img src="resources/images/EClass.gif" style="margin-right:5px"/><I>WorkFactory</I></h2>
+<div style="margin-bottom:5px;font-family:monospace">org.nasdanika.codegen.WorkFactory</div>
+<div>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#nsd_4m8_tab_0" data-toggle="tab">Documentation</a>
+    </li>
+    <li>
+      <a href="#nsd_4m8_tab_1" data-toggle="tab">Diagram</a>
+    </li>
+    <li>
+      <a href="#nsd_4m8_tab_2" data-toggle="tab">Subtypes</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="nsd_4m8_tab_0" class="tab-pane active">
+      <div style="margin-top:10px;margin-bottom:10px" class="markdown-body"><p>Work factory creates work to be executed during generation.</p></div></div>
+    <div id="nsd_4m8_tab_1" class="tab-pane">
+      <img src="75726e3a6f72672e6e617364616e696b612e636f646567656e/WorkFactory.png"/>
+    </div>
+    <div id="nsd_4m8_tab_2" class="tab-pane">
+      <table class="table table-bordered">
+        <tr class="info">
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Generator.html">Generator</a></td>
+          <td>Generator is the base class for model element performing code generation.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Group.html">Group</a></td>
+          <td>Group of generators from which zero to all can be invoked during the generation process.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ResourceGroup.html">ResourceGroup</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ResourceGenerator.html">ResourceGenerator</a></td>
+          <td>ResourceGenerator generates a workspace resource - file or directory.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Workspace.html">Workspace</a></td>
+          <td>Workspace is a group of projects.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Folder.html">Folder</a></td>
+          <td>Generates IFolder.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Nature.html">Nature</a></td>
+          <td>Generates project nature, e.g. Java or Maven nature.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Resource.html">Resource</a></td>
+          <td>Generates project resource - file or directory.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/GenericFile.html">GenericFile</a></td>
+          <td>Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide file contents.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Project.html">Project</a></td>
+          <td>Generates workspace project.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/File.html">File</a></td>
+          <td>Generates IFile.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/BinaryFile.html">BinaryFile</a></td>
+          <td>Binary file, with InputStream content.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/TextFile.html">TextFile</a></td>
+          <td>Text file with String content.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ResourceReference.html">ResourceReference</a></td>
+          <td>Reference to a resource generator defined elsewhere.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/StaticText.html">StaticText</a></td>
+          <td>Static text. Can be used as text file content or as input to interpolator or filter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/FreeMarkerGenerator.html">FreeMarkerGenerator</a></td>
+          <td>Generates text from template and model using FreeMarker.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ECoreModelGenerator.html">ECoreModelGenerator</a></td>
+          <td>Writes the model specified in model context property to XML.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ContentReference.html">ContentReference</a></td>
+          <td>Reference (URL) to a content residing elsewhere, e.g. a template in a version control system available for download over HTTP.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Filter.html">Filter</a></td>
+          <td>Filter transforms input of a generator to produce output.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaGenerator.html">JavaGenerator</a></td>
+          <td>This generator instantiates and invokes Java class to generate output. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Interpolator.html">Interpolator</a></td>
+          <td>Interpolator produces output by expanding mustache tokens {{token}} in the input using context properties.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JETEmitter.html">JETEmitter</a></td>
+          <td>Invokes org.eclipse.emf.codegen.jet.JETEmitter to compile and evaluate a template.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaFilter.html">JavaFilter</a></td>
+          <td>Instantiates a Java class to filter content. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaTextFilter.html">JavaTextFilter</a></td>
+          <td>String binding of JavaFilter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaStreamFilter.html">JavaStreamFilter</a></td>
+          <td>InputStream binding of JavaFilter.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaTextGenerator.html">JavaTextGenerator</a></td>
+          <td>String binding of JavaGenerator.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/JavaStreamGenerator.html">JavaStreamGenerator</a></td>
+          <td>InputStream binding of JavaGenerator.</td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedGenerator.html">ScriptedGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedTextGenerator.html">ScriptedTextGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedStreamGenerator.html">ScriptedStreamGenerator</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedFilter.html">ScriptedFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedTextFilter.html">ScriptedTextFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedStreamFilter.html">ScriptedStreamFilter</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/TextContentReference.html">TextContentReference</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/StreamContentReference.html">StreamContentReference</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/ZipArchive.html">ZipArchive</a></td>
+          <td>Zip archive extracts its entries into its container. </td>
+        </tr>
+        <tr>
+          <td>
+<a href="#router/doc-content/75726e3a6f72672e6e617364616e696b612e636f646567656e/Mustache.html">Mustache</a></td>
+          <td>Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope. </td>
+        </tr>
+      </table>
+    </div></div>
+</div>

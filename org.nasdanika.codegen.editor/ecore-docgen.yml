@@ -4,4 +4,13 @@ models:
 output:
   help: /org.nasdanika.codegen.editor/doc/model
   site: /org.nasdanika.codegen.editor/doc/site
+
+apidocs:
+  - https://www.nasdanika.org/products/codegen/apidocs/model/
+  
+modeldocs:
+  site:
+    "urn:org.nasdanika.config": "https://www.nasdanika.org/products/config/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"
+    "http://www.eclipse.org/emf/2002/Ecore": "https://www.nasdanika.org/products/config/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"
+  
   

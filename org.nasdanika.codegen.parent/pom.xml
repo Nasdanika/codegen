@@ -14,7 +14,7 @@
 	</prerequisites>
 
 	<properties>
-		<tycho-version>0.26.0</tycho-version>
+		<tycho-version>1.1.0</tycho-version>
 	</properties>
 
 	<repositories>
@@ -89,6 +89,15 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-site-plugin</artifactId>
+			    <version>3.7.1</version>
+			    <configuration>
+			        <skip>true</skip>
+			        <skipDeploy>true</skipDeploy>
+			    </configuration>
+			</plugin>		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
@@ -109,9 +118,9 @@
 						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.platform.doc.isv/reference/api</link>
 						<link>http://stleary.github.io/JSON-java</link>			
 						<link>https://osgi.org/javadoc/r4v42/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config/apidocs/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config.edit/apidocs/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/org.nasdanika.config.editor/apidocs/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/model/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/edit/</link>
+						<link>http://www.nasdanika.org/products/config/apidocs/editor/</link>
 					</links>
 				</configuration>				
 			</plugin>
