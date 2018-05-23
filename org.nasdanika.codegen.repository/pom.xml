@@ -60,7 +60,7 @@
 							<outputDirectory>${basedir}/target/site/modeldoc</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../org.nasdanika.config/modeldoc/site</directory>
+									<directory>${basedir}/../org.nasdanika.codegen.editor/doc/site</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -76,7 +76,7 @@
 							<outputDirectory>${basedir}/target/site/apidocs/model</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../org.nasdanika.config/target/site/apidocs</directory>
+									<directory>${basedir}/../org.nasdanika.codegen/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -92,7 +92,7 @@
 							<outputDirectory>${basedir}/target/site/apidocs/edit</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../org.nasdanika.config.edit/target/site/apidocs</directory>
+									<directory>${basedir}/../org.nasdanika.codegen.edit/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -108,7 +108,7 @@
 							<outputDirectory>${basedir}/target/site/apidocs/editor</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../org.nasdanika.config.editor/target/site/apidocs</directory>
+									<directory>${basedir}/../org.nasdanika.codegen.editor/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
