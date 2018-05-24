@@ -8,5 +8,11 @@
               <include name="**"/>
             </fileset>
           </ftp>
+
+	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen">
+ 	    <fileset>
+              <include name="**"/>
+            </fileset>
+          </ftp>
   </target>
 </project>
