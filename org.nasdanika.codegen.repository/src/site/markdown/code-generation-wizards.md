@@ -3,7 +3,7 @@
 There are two abstract code generation wizards in the editor bundle:
 
 * ``AbstractCodegenWizard`` - This class implements ``performFinish()`` which uses a generator model to perform code generation.
-* ``AbstractModelCodegenWizard`` - A sub-class of the above class which loads wizard pages from a model. It uses [EObjectRenderer.Util.render()](https://www.nasdanika.org/products/presentation/apidocs/org.nasdanika.presentation/apidocs/org/nasdanika/presentation/EObjectRenderer.Util.html) to render pages. This allows to create wizards with minimal effort.
+* ``AbstractModelCodegenWizard`` - A sub-class of the above class which loads wizard pages from a model. It uses [EObjectRenderer.Util.render()](../presentation/apidocs/org.nasdanika.presentation/apidocs/index.html?org/nasdanika/presentation/EObjectRenderer.Util.html) to render pages. This allows to create wizards with minimal effort.
 
 Example of a concrete wizard extending ``AbstractModelCodegenWizard``: 
 
