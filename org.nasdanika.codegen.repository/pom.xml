@@ -131,7 +131,7 @@
 	<distributionManagement>
 		<site>
 			<id>nasdanika-org</id>
-			<url>ftp://${env.FTP_SERVER}/config</url>
+			<url>ftp://${env.FTP_SERVER}/codegen</url>
 		</site>
 	</distributionManagement>	
 
