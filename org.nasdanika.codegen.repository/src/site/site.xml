@@ -12,6 +12,9 @@
  
    <menu name="Main">
       <item name="Overview" href="index.html" />
+      <item name="Code generation wizards" href="code-generation-wizards.html" />
+      <item name="Multi-form model editors" href="multi-form-model-editors.html" />
+      <item name="Creating a model-driven code generator" href="creating-model-driven-code-generator.html" />
       <item name="Model Documentation" href="modeldoc/index.html" />
       <item name="Project information" href="project-info.html" />      
    </menu>
@@ -41,7 +44,7 @@
   <custom>
     <fluidoSkin>
       <gitHub>
-        <projectId>nasdanika/config</projectId>
+        <projectId>nasdanika/codegen</projectId>
         <ribbonOrientation>right</ribbonOrientation>
         <ribbonColor>gray</ribbonColor>
       </gitHub>
