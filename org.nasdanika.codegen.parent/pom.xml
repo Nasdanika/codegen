@@ -118,9 +118,9 @@
 						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.platform.doc.isv/reference/api</link>
 						<link>http://stleary.github.io/JSON-java</link>			
 						<link>https://osgi.org/javadoc/r4v42/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/model/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/edit/</link>
-						<link>http://www.nasdanika.org/products/config/apidocs/editor/</link>
+						<link>https://www.nasdanika.org/products/config/apidocs/model</link>
+						<link>https://www.nasdanika.org/products/config/apidocs/edit</link>
+						<link>https://www.nasdanika.org/products/config/apidocs/editor</link>
 					</links>
 				</configuration>				
 			</plugin>
