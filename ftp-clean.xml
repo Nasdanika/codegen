@@ -4,13 +4,13 @@
   <target name="upload">
 
 	  <ftp passive="yes" action="delete" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen">
- 	    <fileset>
+ 	    <fileset defaultexcludes="false">
               <include name="**"/>
             </fileset>
           </ftp>
 
 	  <ftp passive="yes" action="rmdir" server="${ftp.server}" userid="${ftp.user}" password="${ftp.password}" remotedir="/codegen">
- 	    <fileset>
+ 	    <fileset defaultexcludes="false">
               <include name="**"/>
             </fileset>
           </ftp>
