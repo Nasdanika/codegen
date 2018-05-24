@@ -3,9 +3,9 @@
 * [Online documentation](https://github.com/Nasdanika/codegen/blob/master/org.nasdanika.codegen.editor/doc/codegen.md).
 * [Model documentation](modeldoc/index.html)
 * JavaDoc
-  * [Model](apidocs/model)
-  * [Edit](apidocs/edit)
-  * [Editor](apidocs/editor)  
+    * [Model](apidocs/model)
+    * [Edit](apidocs/edit)
+    * [Editor](apidocs/editor)  
 
 ## P2 Repository
 
