@@ -7,6 +7,7 @@ output:
 
 apidocs:
   - https://www.nasdanika.org/products/codegen/apidocs/model/
+  - https://docs.oracle.com/javase/8/docs/api/
   
 modeldocs:
   site:
