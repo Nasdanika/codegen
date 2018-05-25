@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Filter;
-import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
@@ -22,16 +21,10 @@ import org.nasdanika.config.Context;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Filter</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.FilterImpl#getGenerator <em>Generator</em>}</li>
- * </ul>
  *
  * @generated
  */
-public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T> {
+public abstract class FilterImpl<T> extends ConverterImpl<T, T> implements Filter<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,44 +42,6 @@ public abstract class FilterImpl<T> extends GeneratorImpl<T> implements Filter<T
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.FILTER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Generator<T> getGenerator() {
-		return (Generator<T>)eGet(CodegenPackage.Literals.FILTER__GENERATOR, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGenerator(Generator<T> newGenerator) {
-		eSet(CodegenPackage.Literals.FILTER__GENERATOR, newGenerator);
-	}
-		
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			if (getGenerator() == null) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
-					 new Object [] { this, CodegenPackage.Literals.FILTER__GENERATOR }));
-			
-				result = false;						
-			}
-			
-		}
-		return result;
 	}
 	
 	@Override

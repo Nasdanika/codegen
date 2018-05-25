@@ -115,9 +115,13 @@
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//ContentReference/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ContentReference/ref"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//Converter">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/S"/>
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/T"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Converter/generator"/>
+    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Filter">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Filter/T"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Filter/generator"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//JavaGenerator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//JavaGenerator/T"/>

@@ -4,12 +4,9 @@ package org.nasdanika.codegen.impl;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceGenerator;
-import org.nasdanika.codegen.Work;
 import org.nasdanika.config.Context;
 
 /**

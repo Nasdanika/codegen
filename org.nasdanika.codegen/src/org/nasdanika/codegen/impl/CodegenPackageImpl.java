@@ -30,6 +30,7 @@ import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.codegen.Converter;
 import org.nasdanika.codegen.ECoreModelGenerator;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
@@ -227,6 +228,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass contentReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass converterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1001,8 +1009,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFilter() {
-		return filterEClass;
+	public EClass getConverter() {
+		return converterEClass;
 	}
 
 	/**
@@ -1010,8 +1018,17 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilter_Generator() {
-		return (EReference)filterEClass.getEStructuralFeatures().get(0);
+	public EReference getConverter_Generator() {
+		return (EReference)converterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFilter() {
+		return filterEClass;
 	}
 
 	/**
@@ -1488,8 +1505,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		contentReferenceEClass = createEClass(CONTENT_REFERENCE);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__REF);
 
+		converterEClass = createEClass(CONVERTER);
+		createEReference(converterEClass, CONVERTER__GENERATOR);
+
 		filterEClass = createEClass(FILTER);
-		createEReference(filterEClass, FILTER__GENERATOR);
 
 		javaGeneratorEClass = createEClass(JAVA_GENERATOR);
 		createEAttribute(javaGeneratorEClass, JAVA_GENERATOR__CLASS_NAME);
@@ -1599,6 +1618,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		ETypeParameter resourceEClass_T = addETypeParameter(resourceEClass, "T");
 		ETypeParameter fileEClass_C = addETypeParameter(fileEClass, "C");
 		ETypeParameter contentReferenceEClass_T = addETypeParameter(contentReferenceEClass, "T");
+		ETypeParameter converterEClass_S = addETypeParameter(converterEClass, "S");
+		ETypeParameter converterEClass_T = addETypeParameter(converterEClass, "T");
 		ETypeParameter filterEClass_T = addETypeParameter(filterEClass, "T");
 		ETypeParameter javaGeneratorEClass_T = addETypeParameter(javaGeneratorEClass, "T");
 		ETypeParameter javaFilterEClass_T = addETypeParameter(javaFilterEClass, "T");
@@ -1692,6 +1713,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		contentReferenceEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(converterEClass_T);
+		g1.getETypeArguments().add(g2);
+		converterEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getConverter());
+		g2 = createEGenericType(filterEClass_T);
+		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(filterEClass_T);
 		g1.getETypeArguments().add(g2);
 		filterEClass.getEGenericSuperTypes().add(g1);
@@ -1864,11 +1891,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(converterEClass, Converter.class, "Converter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
-		g2 = createEGenericType(filterEClass_T);
+		g2 = createEGenericType(converterEClass_S);
 		g1.getETypeArguments().add(g2);
-		initEReference(getFilter_Generator(), g1, null, "generator", null, 1, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConverter_Generator(), g1, null, "generator", null, 1, 1, Converter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(javaGeneratorEClass, JavaGenerator.class, "JavaGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaGenerator_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JavaGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2303,16 +2332,22 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 			 "documentation", "Content location (URL)."
 		   });	
 		addAnnotation
+		  (converterEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Converter converts input of a generator to produce output."
+		   });	
+		addAnnotation
+		  (getConverter_Generator(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generator producing converter input."
+		   });	
+		addAnnotation
 		  (filterEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Filter transforms input of a generator to produce output."
-		   });	
-		addAnnotation
-		  (getFilter_Generator(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Generator producing filter input."
+			 "documentation", "Filter is a converter with the same input and output types, \r\ne.g. text interpolator or stream compressor."
 		   });	
 		addAnnotation
 		  (javaGeneratorEClass, 

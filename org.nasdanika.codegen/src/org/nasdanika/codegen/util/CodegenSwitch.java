@@ -292,9 +292,19 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.CONVERTER: {
+				Converter<?, ?> converter = (Converter<?, ?>)theEObject;
+				T1 result = caseConverter(converter);
+				if (result == null) result = caseGenerator(converter);
+				if (result == null) result = caseConfiguration(converter);
+				if (result == null) result = caseWorkFactory(converter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.FILTER: {
 				Filter<?> filter = (Filter<?>)theEObject;
 				T1 result = caseFilter(filter);
+				if (result == null) result = caseConverter(filter);
 				if (result == null) result = caseGenerator(filter);
 				if (result == null) result = caseConfiguration(filter);
 				if (result == null) result = caseWorkFactory(filter);
@@ -314,6 +324,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				Interpolator interpolator = (Interpolator)theEObject;
 				T1 result = caseInterpolator(interpolator);
 				if (result == null) result = caseFilter(interpolator);
+				if (result == null) result = caseConverter(interpolator);
 				if (result == null) result = caseGenerator(interpolator);
 				if (result == null) result = caseConfiguration(interpolator);
 				if (result == null) result = caseWorkFactory(interpolator);
@@ -333,6 +344,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				JavaFilter<?> javaFilter = (JavaFilter<?>)theEObject;
 				T1 result = caseJavaFilter(javaFilter);
 				if (result == null) result = caseFilter(javaFilter);
+				if (result == null) result = caseConverter(javaFilter);
 				if (result == null) result = caseGenerator(javaFilter);
 				if (result == null) result = caseConfiguration(javaFilter);
 				if (result == null) result = caseWorkFactory(javaFilter);
@@ -350,6 +362,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseJavaTextFilter(javaTextFilter);
 				if (result == null) result = caseJavaFilter(javaTextFilter);
 				if (result == null) result = caseFilter(javaTextFilter);
+				if (result == null) result = caseConverter(javaTextFilter);
 				if (result == null) result = caseGenerator(javaTextFilter);
 				if (result == null) result = caseConfiguration(javaTextFilter);
 				if (result == null) result = caseWorkFactory(javaTextFilter);
@@ -361,6 +374,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseJavaStreamFilter(javaStreamFilter);
 				if (result == null) result = caseJavaFilter(javaStreamFilter);
 				if (result == null) result = caseFilter(javaStreamFilter);
+				if (result == null) result = caseConverter(javaStreamFilter);
 				if (result == null) result = caseGenerator(javaStreamFilter);
 				if (result == null) result = caseConfiguration(javaStreamFilter);
 				if (result == null) result = caseWorkFactory(javaStreamFilter);
@@ -420,6 +434,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				ScriptedFilter<?> scriptedFilter = (ScriptedFilter<?>)theEObject;
 				T1 result = caseScriptedFilter(scriptedFilter);
 				if (result == null) result = caseFilter(scriptedFilter);
+				if (result == null) result = caseConverter(scriptedFilter);
 				if (result == null) result = caseGenerator(scriptedFilter);
 				if (result == null) result = caseConfiguration(scriptedFilter);
 				if (result == null) result = caseWorkFactory(scriptedFilter);
@@ -431,6 +446,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseScriptedTextFilter(scriptedTextFilter);
 				if (result == null) result = caseScriptedFilter(scriptedTextFilter);
 				if (result == null) result = caseFilter(scriptedTextFilter);
+				if (result == null) result = caseConverter(scriptedTextFilter);
 				if (result == null) result = caseGenerator(scriptedTextFilter);
 				if (result == null) result = caseConfiguration(scriptedTextFilter);
 				if (result == null) result = caseWorkFactory(scriptedTextFilter);
@@ -442,6 +458,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseScriptedStreamFilter(scriptedStreamFilter);
 				if (result == null) result = caseScriptedFilter(scriptedStreamFilter);
 				if (result == null) result = caseFilter(scriptedStreamFilter);
+				if (result == null) result = caseConverter(scriptedStreamFilter);
 				if (result == null) result = caseGenerator(scriptedStreamFilter);
 				if (result == null) result = caseConfiguration(scriptedStreamFilter);
 				if (result == null) result = caseWorkFactory(scriptedStreamFilter);
@@ -483,6 +500,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				Mustache mustache = (Mustache)theEObject;
 				T1 result = caseMustache(mustache);
 				if (result == null) result = caseFilter(mustache);
+				if (result == null) result = caseConverter(mustache);
 				if (result == null) result = caseGenerator(mustache);
 				if (result == null) result = caseConfiguration(mustache);
 				if (result == null) result = caseWorkFactory(mustache);
@@ -805,6 +823,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseContentReference(ContentReference<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Converter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Converter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <S, T> T1 caseConverter(Converter<S, T> object) {
 		return null;
 	}
 

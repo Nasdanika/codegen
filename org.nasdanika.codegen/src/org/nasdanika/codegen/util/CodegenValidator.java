@@ -228,6 +228,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateECoreModelGenerator((ECoreModelGenerator)value, diagnostics, context);
 			case CodegenPackage.CONTENT_REFERENCE:
 				return validateContentReference((ContentReference<?>)value, diagnostics, context);
+			case CodegenPackage.CONVERTER:
+				return validateConverter((Converter<?, ?>)value, diagnostics, context);
 			case CodegenPackage.FILTER:
 				return validateFilter((Filter<?>)value, diagnostics, context);
 			case CodegenPackage.JAVA_GENERATOR:
@@ -672,6 +674,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)contentReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)contentReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(contentReference, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConverter(Converter<?, ?> converter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)converter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)converter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(converter, diagnostics, context);
 		return result;
 	}
 

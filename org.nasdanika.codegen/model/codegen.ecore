@@ -404,21 +404,32 @@
       <eTypeArguments eTypeParameter="#//ContentReference/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Converter" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Filter transforms input of a generator to produce output."/>
+      <details key="documentation" value="Converter converts input of a generator to produce output."/>
     </eAnnotations>
+    <eTypeParameters name="S"/>
     <eTypeParameters name="T"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generator" lowerBound="1"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Generator producing filter input."/>
+        <details key="documentation" value="Generator producing converter input."/>
       </eAnnotations>
       <eGenericType eClassifier="#//Generator">
-        <eTypeArguments eTypeParameter="#//Filter/T"/>
+        <eTypeArguments eTypeParameter="#//Converter/S"/>
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
+      <eTypeArguments eTypeParameter="#//Converter/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Filter is a converter with the same input and output types, &#xD;&#xA;e.g. text interpolator or stream compressor."/>
+    </eAnnotations>
+    <eTypeParameters name="T"/>
+    <eGenericSuperTypes eClassifier="#//Converter">
+      <eTypeArguments eTypeParameter="#//Filter/T"/>
       <eTypeArguments eTypeParameter="#//Filter/T"/>
     </eGenericSuperTypes>
   </eClassifiers>

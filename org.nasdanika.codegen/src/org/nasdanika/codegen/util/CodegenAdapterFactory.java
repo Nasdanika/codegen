@@ -182,6 +182,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createContentReferenceAdapter();
 			}
 			@Override
+			public <S, T> Adapter caseConverter(Converter<S, T> object) {
+				return createConverterAdapter();
+			}
+			@Override
 			public <T> Adapter caseFilter(Filter<T> object) {
 				return createFilterAdapter();
 			}
@@ -576,6 +580,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Converter <em>Converter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Converter
+	 * @generated
+	 */
+	public Adapter createConverterAdapter() {
 		return null;
 	}
 

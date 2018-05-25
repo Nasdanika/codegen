@@ -9,8 +9,8 @@ layer providing a unified [WorkFactory](https://www.nasdanika.org/products/codeg
 
 ## Concepts 
 
-The model contains generators and filters. Filter is a generator which contains another generator and performs some processing on the contained generator output to produce its own output. 
-Please consult the [model API documentation](https://www.nasdanika.org/products/codegen/apidocs/model/index.html?) for the complete list of model elements.
+The model contains generators and converters/filters. Converter/filter is a generator which contains another generator and performs some processing on the contained generator output to produce its own output. 
+See the [model documentation](https://www.nasdanika.org/products/codegen/modeldoc/index.html) and [model API documentation](https://www.nasdanika.org/products/codegen/apidocs/model/index.html) for the complete list of model elements.
 
 In the model generators are organized in a tree, e.g. workspace "generator" (it doesn't actually generate anything) may contain project generators, which in turn may contain file, folder, and nature generators.
 
