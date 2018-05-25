@@ -185,7 +185,7 @@
 	</modules>
 	<name>Nasdanika Code Generation</name>
 	<!-- For resolution of JavaDoc between modules -->
-	<url>http://www.nasdanika.org/codegen/apidocs/</url>
+	<url>http://www.nasdanika.org/products/codegen/apidocs/</url>
 	<organization>
 		<name>Nasdanika LLC</name>
 		<url>http://www.nasdanika.org</url>
