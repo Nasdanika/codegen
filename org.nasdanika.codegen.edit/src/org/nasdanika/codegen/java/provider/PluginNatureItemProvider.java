@@ -349,6 +349,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -549,6 +554,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -749,6 +759,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -945,6 +960,11 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
 
 		newChildDescriptors.add
 			(createChildParameter

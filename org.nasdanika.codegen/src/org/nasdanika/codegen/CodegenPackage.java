@@ -6378,6 +6378,205 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.BundleResourceImpl <em>Bundle Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.BundleResourceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBundleResource()
+	 * @generated
+	 */
+	int BUNDLE_RESOURCE = 41;
+
+	/**
+	 * The feature id for the '<em><b>Base URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__BASE_URL = RESOURCE__BASE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__DESCRIPTION = RESOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Class Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__CLASS_PATH = RESOURCE__CLASS_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__INCLUDES = RESOURCE__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Default Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__DEFAULT_INCLUDES = RESOURCE__DEFAULT_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__INCLUDE = RESOURCE__INCLUDE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__ENABLED = RESOURCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__NAME = RESOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__MERGER = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Bundle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__BUNDLE = RESOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__PATHS = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Bundle Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Create Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR = RESOURCE___CREATE_CONTEXT__CONTEXT_SUBMONITOR;
+
+	/**
+	 * The operation id for the '<em>Get Config Work Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE___GET_CONFIG_WORK_SIZE = RESOURCE___GET_CONFIG_WORK_SIZE;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Bundle Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6385,7 +6584,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 41;
+	int RECONCILE_ACTION = 42;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -6395,7 +6594,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 42;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 43;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -6405,7 +6604,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 43;
+	int CONTEXT = 44;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -6415,7 +6614,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 44;
+	int INPUT_STREAM = 45;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -6425,7 +6624,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 45;
+	int VOID = 46;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -6435,7 +6634,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 46;
+	int IFILE = 47;
 
 	/**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -6445,7 +6644,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFolder()
 	 * @generated
 	 */
-	int IFOLDER = 47;
+	int IFOLDER = 48;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -6455,7 +6654,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 48;
+	int IPROJECT = 49;
 
 	/**
 	 * The meta object id for the '<em>IProject Nature</em>' data type.
@@ -6465,7 +6664,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIProjectNature()
 	 * @generated
 	 */
-	int IPROJECT_NATURE = 49;
+	int IPROJECT_NATURE = 50;
 
 	/**
 	 * The meta object id for the '<em>IWorkspace Root</em>' data type.
@@ -6475,7 +6674,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 50;
+	int IWORKSPACE_ROOT = 51;
 
 
 	/**
@@ -6486,7 +6685,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 51;
+	int EXCEPTION = 52;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -6496,7 +6695,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 52;
+	int IRESOURCE = 53;
 
 
 	/**
@@ -6507,7 +6706,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 53;
+	int LIST = 54;
 
 
 	/**
@@ -6518,7 +6717,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 54;
+	int MERGER = 55;
 
 
 	/**
@@ -6529,7 +6728,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getSubMonitor()
 	 * @generated
 	 */
-	int SUB_MONITOR = 55;
+	int SUB_MONITOR = 56;
 
 
 	/**
@@ -6540,7 +6739,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 56;
+	int ICONTAINER = 57;
 
 
 	/**
@@ -7348,6 +7547,49 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMustache();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.BundleResource <em>Bundle Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bundle Resource</em>'.
+	 * @see org.nasdanika.codegen.BundleResource
+	 * @generated
+	 */
+	EClass getBundleResource();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.BundleResource#getMerger <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Merger</em>'.
+	 * @see org.nasdanika.codegen.BundleResource#getMerger()
+	 * @see #getBundleResource()
+	 * @generated
+	 */
+	EReference getBundleResource_Merger();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.BundleResource#getBundle <em>Bundle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bundle</em>'.
+	 * @see org.nasdanika.codegen.BundleResource#getBundle()
+	 * @see #getBundleResource()
+	 * @generated
+	 */
+	EAttribute getBundleResource_Bundle();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.BundleResource#getPaths <em>Paths</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Paths</em>'.
+	 * @see org.nasdanika.codegen.BundleResource#getPaths()
+	 * @see #getBundleResource()
+	 * @generated
+	 */
+	EAttribute getBundleResource_Paths();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
@@ -8243,6 +8485,40 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MUSTACHE = eINSTANCE.getMustache();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.BundleResourceImpl <em>Bundle Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.BundleResourceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBundleResource()
+		 * @generated
+		 */
+		EClass BUNDLE_RESOURCE = eINSTANCE.getBundleResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUNDLE_RESOURCE__MERGER = eINSTANCE.getBundleResource_Merger();
+
+		/**
+		 * The meta object literal for the '<em><b>Bundle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUNDLE_RESOURCE__BUNDLE = eINSTANCE.getBundleResource_Bundle();
+
+		/**
+		 * The meta object literal for the '<em><b>Paths</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUNDLE_RESOURCE__PATHS = eINSTANCE.getBundleResource_Paths();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.

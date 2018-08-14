@@ -266,6 +266,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createMustacheAdapter();
 			}
 			@Override
+			public Adapter caseBundleResource(BundleResource object) {
+				return createBundleResourceAdapter();
+			}
+			@Override
 			public Adapter caseConfiguration(Configuration object) {
 				return createConfigurationAdapter();
 			}
@@ -874,6 +878,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMustacheAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.BundleResource <em>Bundle Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.BundleResource
+	 * @generated
+	 */
+	public Adapter createBundleResourceAdapter() {
 		return null;
 	}
 

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.codegen.BinaryFile;
+import org.nasdanika.codegen.BundleResource;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
@@ -375,6 +376,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass mustacheEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bundleResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1270,6 +1278,42 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBundleResource() {
+		return bundleResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBundleResource_Merger() {
+		return (EReference)bundleResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBundleResource_Bundle() {
+		return (EAttribute)bundleResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBundleResource_Paths() {
+		return (EAttribute)bundleResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1555,6 +1599,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		mustacheEClass = createEClass(MUSTACHE);
 
+		bundleResourceEClass = createEClass(BUNDLE_RESOURCE);
+		createEReference(bundleResourceEClass, BUNDLE_RESOURCE__MERGER);
+		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__BUNDLE);
+		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__PATHS);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 		freeMarkerTemplateLoaderTypeEEnum = createEEnum(FREE_MARKER_TEMPLATE_LOADER_TYPE);
@@ -1794,6 +1843,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		mustacheEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResource());
+		g2 = createEGenericType(this.getIContainer());
+		g1.getETypeArguments().add(g2);
+		bundleResourceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1853,8 +1906,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Natures(), this.getNature(), null, "natures", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(this.getIResource());
+		g2.setEUpperBound(g3);
 		initEReference(getProject_Resources(), g1, null, "resources", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Append", 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1946,6 +2001,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getZipArchive_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mustacheEClass, Mustache.class, "Mustache", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bundleResourceEClass, BundleResource.class, "BundleResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBundleResource_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBundleResource_Bundle(), ecorePackage.getEString(), "bundle", null, 1, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBundleResource_Paths(), ecorePackage.getEString(), "paths", null, 0, -1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -2191,7 +2251,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getFile_Merger(), 
 		   source, 
 		   new String[] {
-			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \r\nwhere ``T`` is ``String` for text files and ``InputStream`` for binary files."
+			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \nwhere ``T`` is ``String`` for text files and ``InputStream`` for binary files."
 		   });	
 		addAnnotation
 		  (getFile_Generators(), 
@@ -2450,6 +2510,30 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.\r\n\r\nImport manager and Java Expression Evaluator are functions and as such \r\ncan be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."
+		   });	
+		addAnnotation
+		  (bundleResourceEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Bundle resource copies entries matching the paths into its container. If bundle resource name is not empty, it is used as a prefix for entry names. / separator is added at the end of the bundle resource name if it doesn\'t already end with /\nBundle resource reconcile action is applied to all entries and merger is applied to all files."
+		   });	
+		addAnnotation
+		  (getBundleResource_Merger(), 
+		   source, 
+		   new String[] {
+			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
+		   });	
+		addAnnotation
+		  (getBundleResource_Bundle(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Source bundle symbolic name, interpolated."
+		   });	
+		addAnnotation
+		  (getBundleResource_Paths(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Paths to match, interpolated. If path ends with / it means a directory and all resources from that directory match."
 		   });
 	}
 

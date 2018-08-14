@@ -161,6 +161,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/merger"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Mustache"/>
+    <genClasses ecoreClass="codegen.ecore#//BundleResource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//BundleResource/merger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResource/bundle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResource/paths"/>
+    </genClasses>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

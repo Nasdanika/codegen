@@ -40,7 +40,7 @@ public interface File<C> extends Resource<IFile> {
 	 * <!-- begin-model-doc -->
 	 * If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new
 	 * content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` 
-	 * where ``T`` is ``String` for text files and ``InputStream`` for binary files.
+	 * where ``T`` is ``String`` for text files and ``InputStream`` for binary files.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Merger</em>' containment reference.
 	 * @see #setMerger(Service)

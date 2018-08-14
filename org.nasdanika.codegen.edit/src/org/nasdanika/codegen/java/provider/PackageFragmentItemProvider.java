@@ -205,6 +205,11 @@ public class PackageFragmentItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE_FRAGMENT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
 	}
 
 	/**

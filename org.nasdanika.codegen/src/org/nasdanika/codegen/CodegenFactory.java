@@ -265,6 +265,15 @@ public interface CodegenFactory extends EFactory {
 	Mustache createMustache();
 
 	/**
+	 * Returns a new object of class '<em>Bundle Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bundle Resource</em>'.
+	 * @generated
+	 */
+	BundleResource createBundleResource();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

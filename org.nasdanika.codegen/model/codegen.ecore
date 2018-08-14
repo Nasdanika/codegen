@@ -219,7 +219,9 @@
         <details key="documentation" value="Project resources."/>
       </eAnnotations>
       <eGenericType eClassifier="#//Resource">
-        <eTypeArguments eClassifier="#//IResource"/>
+        <eTypeArguments>
+          <eUpperBound eClassifier="#//IResource"/>
+        </eTypeArguments>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reconcileAction" eType="#//ReconcileAction"
@@ -617,6 +619,32 @@
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//Filter">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BundleResource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Bundle resource copies entries matching the paths into its container. If bundle resource name is not empty, it is used as a prefix for entry names. / separator is added at the end of the bundle resource name if it doesn't already end with /&#xA;Bundle resource reconcile action is applied to all entries and merger is applied to all files."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merger" eType="ecore:EClass ../../org.nasdanika.config/model/config.ecore#//Service"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new&#xD;&#xA;content file entries. The merger class shall implement ``org.nasdanika.codegen.Merger&lt;InputStream>``."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bundle" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Source bundle symbolic name, interpolated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Paths to match, interpolated. If path ends with / it means a directory and all resources from that directory match."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Resource">
+      <eTypeArguments eClassifier="#//IContainer"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eSubpackages name="java" nsURI="urn:org.nasdanika.codegen.java" nsPrefix="org.nasdanika.codegen.java">

@@ -26,4 +26,5 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: org.nasdanika.codegen.presentation.CodegenEditorPlugin$Implementation
+Automatic-Module-Name: org.nasdanika.codegen.editor
 

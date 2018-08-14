@@ -262,6 +262,11 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONVERTER__GENERATOR,
 				 JavaFactory.eINSTANCE.createJavaNature()));
 
 		newChildDescriptors.add

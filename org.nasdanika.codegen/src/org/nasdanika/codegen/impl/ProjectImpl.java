@@ -114,8 +114,8 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Resource<IResource>> getResources() {
-		return (EList<Resource<IResource>>)eGet(CodegenPackage.Literals.PROJECT__RESOURCES, true);
+	public EList<Resource<? extends IResource>> getResources() {
+		return (EList<Resource<? extends IResource>>)eGet(CodegenPackage.Literals.PROJECT__RESOURCES, true);
 	}
 
 	/**
@@ -198,10 +198,10 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 			allNaturesWork.add(nw);
 		}
 				
-		List<Work<List<IResource>>> allResourcesWork = new ArrayList<>(); 
+		List<Work<?>> allResourcesWork = new ArrayList<>(); 
 		int allResourcesWorkSize = 0;
-		for (Resource<IResource> res: getResources()) {
-			Work<List<IResource>> rw = res.createWork();
+		for (Resource<? extends IResource> res: getResources()) {
+			Work<?> rw = res.createWork();
 			allResourcesWorkSize += rw.size();
 			allResourcesWork.add(rw);
 		}		
@@ -284,7 +284,7 @@ public class ProjectImpl extends ResourceGeneratorImpl<IProject> implements Proj
 						nw.execute(sc, monitor);
 					}
 					
-					for (Work<List<IResource>> rw: allResourcesWork) {
+					for (Work<?> rw: allResourcesWork) {
 						rw.execute(sc, monitor);
 					}
 				} finally {

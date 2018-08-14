@@ -243,6 +243,11 @@ public class ProjectItemProvider extends ResourceGeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.PROJECT__RESOURCES,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.PROJECT__RESOURCES,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
 	}
 
 }

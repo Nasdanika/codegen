@@ -414,6 +414,11 @@ public class CompilationUnitItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 	}
 

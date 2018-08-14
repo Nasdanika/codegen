@@ -119,6 +119,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.STREAM_CONTENT_REFERENCE: return (EObject)createStreamContentReference();
 			case CodegenPackage.ZIP_ARCHIVE: return (EObject)createZipArchive();
 			case CodegenPackage.MUSTACHE: return (EObject)createMustache();
+			case CodegenPackage.BUNDLE_RESOURCE: return (EObject)createBundleResource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -482,6 +483,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public Mustache createMustache() {
 		MustacheImpl mustache = new MustacheImpl();
 		return mustache;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BundleResource createBundleResource() {
+		BundleResourceImpl bundleResource = new BundleResourceImpl();
+		return bundleResource;
 	}
 
 	/**

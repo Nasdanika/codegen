@@ -60,12 +60,17 @@ import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.config.Configuration;
 import org.nasdanika.config.Context;
 
+/**
+ * Executes code generation using selected generators. Performs model validation before generation.
+ * @author Pavel Vlasov
+ *
+ */
 public abstract class GenerateAction extends Action implements ISelectionChangedListener, GeneratorLabelProvider {
 
 	private ISelectionProvider selectionProvider;
 	private ArrayList<Generator<Object>> selectedGenerators;
 
-	public GenerateAction(String name) {
+	protected GenerateAction(String name) {
 		super(name);
 	}
 

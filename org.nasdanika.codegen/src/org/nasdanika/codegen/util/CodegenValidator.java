@@ -270,6 +270,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateZipArchive((ZipArchive)value, diagnostics, context);
 			case CodegenPackage.MUSTACHE:
 				return validateMustache((Mustache)value, diagnostics, context);
+			case CodegenPackage.BUNDLE_RESOURCE:
+				return validateBundleResource((BundleResource)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
@@ -1063,6 +1065,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)mustache, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)mustache, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(mustache, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBundleResource(BundleResource bundleResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment((EObject)bundleResource, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)bundleResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(bundleResource, diagnostics, context);
 		return result;
 	}
 

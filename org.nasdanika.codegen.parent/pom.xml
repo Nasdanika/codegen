@@ -21,12 +21,12 @@
 		<!-- configure p2 repository to resolve against -->
 		<repository>
 			<id>oxygen</id>
-			<url>http://download.eclipse.org/releases/oxygen</url>
+			<url>http://download.eclipse.org/releases/photon</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>orbit</id>
-				<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20170516192513/repository</url>
+				<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
@@ -37,22 +37,22 @@
 		</repository>
 		<repository>
 			<id>maven-osgi</id>
-			<url>http://www.nasdanika.org/maven-osgi</url>
+			<url>https://www.nasdanika.org/products/maven-osgi/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>config</id>
-			<url>http://www.nasdanika.org/products/config/repository</url>
+			<url>https://www.nasdanika.org/products/config/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>presentation</id>
-			<url>http://www.nasdanika.org/products/presentation/repository</url>
+			<url>https://www.nasdanika.org/products/presentation/repository</url>
 			<layout>p2</layout>
 		</repository>		
 		<repository>
 			<id>help</id>
-			<url>http://www.nasdanika.org/products/help/repository</url>
+			<url>https://www.nasdanika.org/products/help/repository</url>
 			<layout>p2</layout>
 		</repository>		
 	</repositories>

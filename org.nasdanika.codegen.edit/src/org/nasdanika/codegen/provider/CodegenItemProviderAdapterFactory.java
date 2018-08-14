@@ -693,6 +693,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.BundleResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BundleResourceItemProvider bundleResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.BundleResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBundleResourceAdapter() {
+		if (bundleResourceItemProvider == null) {
+			bundleResourceItemProvider = new BundleResourceItemProvider(this);
+		}
+
+		return bundleResourceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -818,6 +841,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (streamContentReferenceItemProvider != null) streamContentReferenceItemProvider.dispose();
 		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
+		if (bundleResourceItemProvider != null) bundleResourceItemProvider.dispose();
 	}
 
 }

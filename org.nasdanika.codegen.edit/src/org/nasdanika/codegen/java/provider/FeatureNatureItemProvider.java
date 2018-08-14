@@ -345,6 +345,11 @@ public class FeatureNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -541,6 +546,11 @@ public class FeatureNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResource()));
 
 		newChildDescriptors.add
 			(createChildParameter
