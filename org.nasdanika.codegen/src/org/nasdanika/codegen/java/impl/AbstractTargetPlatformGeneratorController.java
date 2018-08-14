@@ -20,7 +20,7 @@ public abstract class AbstractTargetPlatformGeneratorController implements Gener
 	
 	@Override
 	public IFile configure(GenericFile generator, Context context, IFile targetFile, SubMonitor monitor) throws Exception {				
-		ITargetPlatformService service = (ITargetPlatformService) PDECore.getDefault().acquireService(ITargetPlatformService.class.getName());
+		ITargetPlatformService service = (ITargetPlatformService) PDECore.getDefault().acquireService(ITargetPlatformService.class);
 		
 		ITargetDefinition targetDefinition = service.getTarget(targetFile).getTargetDefinition();
 		targetDefinition.setName(getTargetName(targetFile));		
