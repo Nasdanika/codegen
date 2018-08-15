@@ -24,6 +24,7 @@ import org.nasdanika.config.Service;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.BundleResource#getMerger <em>Merger</em>}</li>
  *   <li>{@link org.nasdanika.codegen.BundleResource#getBundle <em>Bundle</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.BundleResource#getBasePath <em>Base Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.BundleResource#getPaths <em>Paths</em>}</li>
  * </ul>
  *
@@ -82,6 +83,31 @@ public interface BundleResource extends Resource<IContainer> {
 	 * @generated
 	 */
 	void setBundle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Base path is added to paths to match, but not to the target paths.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Base Path</em>' attribute.
+	 * @see #setBasePath(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getBundleResource_BasePath()
+	 * @model
+	 * @generated
+	 */
+	String getBasePath();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.BundleResource#getBasePath <em>Base Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base Path</em>' attribute.
+	 * @see #getBasePath()
+	 * @generated
+	 */
+	void setBasePath(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Paths</b></em>' attribute list.

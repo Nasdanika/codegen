@@ -6514,13 +6514,22 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE__BUNDLE = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE__BASE_PATH = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_RESOURCE__PATHS = RESOURCE_FEATURE_COUNT + 2;
+	int BUNDLE_RESOURCE__PATHS = RESOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Bundle Resource</em>' class.
@@ -6529,7 +6538,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 3;
+	int BUNDLE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Create Context</em>' operation.
@@ -7581,6 +7590,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getBundleResource_Bundle();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.BundleResource#getBasePath <em>Base Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Path</em>'.
+	 * @see org.nasdanika.codegen.BundleResource#getBasePath()
+	 * @see #getBundleResource()
+	 * @generated
+	 */
+	EAttribute getBundleResource_BasePath();
+
+	/**
 	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.BundleResource#getPaths <em>Paths</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7615,6 +7635,10 @@ public interface CodegenPackage extends EPackage {
 	 * Returns the meta object for data type '{@link org.nasdanika.config.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Context provides access to properties and services. Contexts are typically chained
+     * with a child context "inheriting" properties and services of the parent context(s).
+     * <!-- end-model-doc -->
 	 * @return the meta object for data type '<em>Context</em>'.
 	 * @see org.nasdanika.config.Context
 	 * @model instanceClass="org.nasdanika.config.Context"
@@ -8511,6 +8535,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUNDLE_RESOURCE__BUNDLE = eINSTANCE.getBundleResource_Bundle();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUNDLE_RESOURCE__BASE_PATH = eINSTANCE.getBundleResource_BasePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Paths</b></em>' attribute list feature.

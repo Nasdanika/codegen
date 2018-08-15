@@ -60,7 +60,7 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link MavenPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,8 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		if (isInited) return (MavenPackage)EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MavenPackageImpl());
+		Object registeredMavenPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		MavenPackageImpl theMavenPackage = registeredMavenPackage instanceof MavenPackageImpl ? (MavenPackageImpl)registeredMavenPackage : new MavenPackageImpl();
 
 		isInited = true;
 
@@ -82,9 +83,12 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		ConfigPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) : CodegenPackage.eINSTANCE);
-		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) : JavaPackage.eINSTANCE);
-		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) : WizardPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
+		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(registeredPackage instanceof CodegenPackageImpl ? registeredPackage : CodegenPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
+		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(registeredPackage instanceof JavaPackageImpl ? registeredPackage : JavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI);
+		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(registeredPackage instanceof WizardPackageImpl ? registeredPackage : WizardPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theMavenPackage.createPackageContents();
@@ -101,7 +105,6 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 		// Mark meta-data to indicate it can't be changed
 		theMavenPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(MavenPackage.eNS_URI, theMavenPackage);
 		return theMavenPackage;
@@ -209,18 +212,18 @@ public class MavenPackageImpl extends EPackageImpl implements MavenPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (mavenNatureEClass, 
-		   source, 
+		  (mavenNatureEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Maven nature."
-		   });	
+			   "documentation", "Maven nature."
+		   });
 		addAnnotation
-		  (getMavenNature_PomGenerator(), 
-		   source, 
+		  (getMavenNature_PomGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Optional generator of ``pom.xml`` file."
+			   "documentation", "Optional generator of ``pom.xml`` file."
 		   });
 	}
 

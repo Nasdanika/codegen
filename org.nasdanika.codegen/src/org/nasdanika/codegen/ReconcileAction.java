@@ -25,6 +25,9 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Keep</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Discard the generated content and keep the original or skip the generation step altogether.
+	 * <!-- end-model-doc -->
 	 * @see #KEEP_VALUE
 	 * @generated
 	 * @ordered
@@ -35,6 +38,10 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Append</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Append the new content to the existing. For project and directories it means
+	 * adding new resources next to the existing, which is semantically equivalent to merging.
+	 * <!-- end-model-doc -->
 	 * @see #APPEND_VALUE
 	 * @generated
 	 * @ordered
@@ -43,6 +50,10 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Merge</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Merge new and existing content, typically using a merger service for files. 
+	 * For projects and directories merge is equivalent to append.
+	 * <!-- end-model-doc -->
 	 * @see #MERGE_VALUE
 	 * @generated
 	 * @ordered
@@ -53,6 +64,19 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Confirm Overwrite</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Replace existing content with the new one upon confirmation (see below). 
+	 * For directories and projects it means deleting the project/directory
+	 * and re-creating with the new content.
+	 * 
+	 * If the generation context contains ``overwrite-predicate`` property, then the value
+	 * of the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.
+	 * If the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).
+	 * 
+	 * The predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).
+	 * 
+	 * Clients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. 
+	 * <!-- end-model-doc -->
 	 * @see #CONFIRM_OVERWRITE_VALUE
 	 * @generated
 	 * @ordered
@@ -61,6 +85,12 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Overwrite</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Replace existing content with the new one. 
+	 * For directories and projects it means deleting the project/directory
+	 * and re-creating with the new content.
+	 * 
+	 * <!-- end-model-doc -->
 	 * @see #OVERWRITE_VALUE
 	 * @generated
 	 * @ordered
@@ -71,6 +101,9 @@ public enum ReconcileAction implements Enumerator {
 	 * The '<em><b>Cancel</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Throw ``OperationCancelledException`` if resource/project already exists.
+	 * <!-- end-model-doc -->
 	 * @see #CANCEL_VALUE
 	 * @generated
 	 * @ordered

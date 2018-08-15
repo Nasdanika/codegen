@@ -90,7 +90,7 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link WizardPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -104,7 +104,8 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 		if (isInited) return (WizardPackage)EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI);
 
 		// Obtain or create and register package
-		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new WizardPackageImpl());
+		Object registeredWizardPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		WizardPackageImpl theWizardPackage = registeredWizardPackage instanceof WizardPackageImpl ? (WizardPackageImpl)registeredWizardPackage : new WizardPackageImpl();
 
 		isInited = true;
 
@@ -112,9 +113,12 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 		ConfigPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) : CodegenPackage.eINSTANCE);
-		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) : JavaPackage.eINSTANCE);
-		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) : MavenPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
+		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(registeredPackage instanceof CodegenPackageImpl ? registeredPackage : CodegenPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
+		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(registeredPackage instanceof JavaPackageImpl ? registeredPackage : JavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI);
+		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(registeredPackage instanceof MavenPackageImpl ? registeredPackage : MavenPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theWizardPackage.createPackageContents();
@@ -130,7 +134,7 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theWizardPackage, 
+			(theWizardPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return WizardValidator.INSTANCE;
@@ -140,7 +144,6 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 		// Mark meta-data to indicate it can't be changed
 		theWizardPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(WizardPackage.eNS_URI, theWizardPackage);
 		return theWizardPackage;
@@ -342,54 +345,54 @@ public class WizardPackageImpl extends EPackageImpl implements WizardPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "documentation", "This EPackage contains classes for creating model-driven (code generation) wizards with\r\npages backed by model elements and rendered with EMF Forms or EObjectRenderer instances."
-		   });	
+			   "documentation", "This EPackage contains classes for creating model-driven (code generation) wizards with\r\npages backed by model elements and rendered with EMF Forms or EObjectRenderer instances."
+		   });
 		addAnnotation
-		  (wizardEClass, 
-		   source, 
+		  (wizardEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Wizard is a list of pages for collecting user input."
-		   });	
+			   "documentation", "Wizard is a list of pages for collecting user input."
+		   });
 		addAnnotation
-		  (wizardPageEClass, 
-		   source, 
+		  (wizardPageEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Wizard page has name, message and contains wizard page content which is specific for a particular wizard."
-		   });	
+			   "documentation", "Wizard page has name, message and contains wizard page content which is specific for a particular wizard."
+		   });
 		addAnnotation
-		  (wizardPageContentEClass, 
-		   source, 
+		  (wizardPageContentEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Base class for wizard page content. Wizard implementations shall provide\r\nconcrete subclasses of this class. "
-		   });	
+			   "documentation", "Base class for wizard page content. Wizard implementations shall provide\r\nconcrete subclasses of this class. "
+		   });
 		addAnnotation
-		  (getWizardPageContent__Validate__DiagnosticChain_Map(), 
-		   source, 
+		  (getWizardPageContent__Validate__DiagnosticChain_Map(),
+		   source,
 		   new String[] {
-			 "documentation", "Validates the content. This method is used by isPageComplete(), \r\nwhich is turn is used by canFlipToNextPage() and canFinish().\r\nisPageComplete() returns true if vaildation yields no error level diagnostics."
-		   });	
+			   "documentation", "Validates the content. This method is used by isPageComplete(), \r\nwhich is turn is used by canFlipToNextPage() and canFinish().\r\nisPageComplete() returns true if vaildation yields no error level diagnostics."
+		   });
 		addAnnotation
-		  ((getWizardPageContent__Validate__DiagnosticChain_Map()).getEParameters().get(0), 
-		   source, 
+		  ((getWizardPageContent__Validate__DiagnosticChain_Map()).getEParameters().get(0),
+		   source,
 		   new String[] {
-			 "documentation", "Diagnostics to add validation messages to."
-		   });	
+			   "documentation", "Diagnostics to add validation messages to."
+		   });
 		addAnnotation
-		  ((getWizardPageContent__Validate__DiagnosticChain_Map()).getEParameters().get(1), 
-		   source, 
+		  ((getWizardPageContent__Validate__DiagnosticChain_Map()).getEParameters().get(1),
+		   source,
 		   new String[] {
-			 "documentation", "Validation context."
-		   });	
+			   "documentation", "Validation context."
+		   });
 		addAnnotation
-		  (getWizardPageContent__ShallShow(), 
-		   source, 
+		  (getWizardPageContent__ShallShow(),
+		   source,
 		   new String[] {
-			 "documentation", "Returns true (default) if the page shall be shown. \r\nOverride to conditionally skip pages. For example, if the user doesn\'t check, say \"Connect to database\" checkbox, when then there is no point in showing \"Database Connection Configuration\" page."
+			   "documentation", "Returns true (default) if the page shall be shown. \r\nOverride to conditionally skip pages. For example, if the user doesn\'t check, say \"Connect to database\" checkbox, when then there is no point in showing \"Database Connection Configuration\" page."
 		   });
 	}
 

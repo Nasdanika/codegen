@@ -524,7 +524,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link CodegenPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -538,7 +538,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		if (isInited) return (CodegenPackage)EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CodegenPackageImpl());
+		Object registeredCodegenPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		CodegenPackageImpl theCodegenPackage = registeredCodegenPackage instanceof CodegenPackageImpl ? (CodegenPackageImpl)registeredCodegenPackage : new CodegenPackageImpl();
 
 		isInited = true;
 
@@ -546,9 +547,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		ConfigPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI) : JavaPackage.eINSTANCE);
-		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) : MavenPackage.eINSTANCE);
-		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) : WizardPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
+		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(registeredPackage instanceof JavaPackageImpl ? registeredPackage : JavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI);
+		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(registeredPackage instanceof MavenPackageImpl ? registeredPackage : MavenPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI);
+		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(registeredPackage instanceof WizardPackageImpl ? registeredPackage : WizardPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCodegenPackage.createPackageContents();
@@ -564,7 +568,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theCodegenPackage, 
+			(theCodegenPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return CodegenValidator.INSTANCE;
@@ -574,7 +578,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Mark meta-data to indicate it can't be changed
 		theCodegenPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(CodegenPackage.eNS_URI, theCodegenPackage);
 		return theCodegenPackage;
@@ -1305,8 +1308,17 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBundleResource_Paths() {
+	public EAttribute getBundleResource_BasePath() {
 		return (EAttribute)bundleResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBundleResource_Paths() {
+		return (EAttribute)bundleResourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1602,6 +1614,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		bundleResourceEClass = createEClass(BUNDLE_RESOURCE);
 		createEReference(bundleResourceEClass, BUNDLE_RESOURCE__MERGER);
 		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__BUNDLE);
+		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__BASE_PATH);
 		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__PATHS);
 
 		// Create enums
@@ -1890,8 +1903,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(this.getIResource());
+		g2.setEUpperBound(g3);
 		initEReference(getFolder_Children(), g1, null, "children", null, 0, -1, Folder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(natureEClass, Nature.class, "Nature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2005,6 +2020,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(bundleResourceEClass, BundleResource.class, "BundleResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBundleResource_Merger(), theConfigPackage.getService(), null, "merger", null, 0, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundleResource_Bundle(), ecorePackage.getEString(), "bundle", null, 1, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBundleResource_BasePath(), ecorePackage.getEString(), "basePath", null, 0, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundleResource_Paths(), ecorePackage.getEString(), "paths", null, 0, -1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
@@ -2054,486 +2070,492 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "documentation", "Code generation model."
-		   });	
+			   "documentation", "Code generation model."
+		   });
 		addAnnotation
-		  (workFactoryEClass, 
-		   source, 
+		  (workFactoryEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Work factory creates work to be executed during generation."
-		   });	
+			   "documentation", "Work factory creates work to be executed during generation."
+		   });
 		addAnnotation
-		  (contextEDataType, 
-		   source, 
+		  (contextEDataType,
+		   source,
 		   new String[] {
-			 "documentation", "Context provides access to properties and services. Contexts are typically chained\r\nwith a child context \"inheriting\" properties and services of the parent context(s)."
-		   });	
+			   "documentation", "Context provides access to properties and services. Contexts are typically chained\r\nwith a child context \"inheriting\" properties and services of the parent context(s)."
+		   });
 		addAnnotation
-		  (generatorEClass, 
-		   source, 
+		  (generatorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generator is the base class for model element performing code generation."
-		   });	
+			   "documentation", "Generator is the base class for model element performing code generation."
+		   });
 		addAnnotation
-		  (getGenerator__IsFilterable(), 
-		   source, 
+		  (getGenerator__IsFilterable(),
+		   source,
 		   new String[] {
-			 "documentation", "Resource generators shall return true from this method, e.g.:\r\n\r\n* Project, \r\n* File, \r\n* Folder, \r\n* Package fragment (root)\r\n* Compilation unit.\r\n* Zip Archive\r\n\r\nGenerators which do not create workspace resources but rather contribute to their creation shall return false."
-		   });	
+			   "documentation", "Resource generators shall return true from this method, e.g.:\r\n\r\n* Project, \r\n* File, \r\n* Folder, \r\n* Package fragment (root)\r\n* Compilation unit.\r\n* Zip Archive\r\n\r\nGenerators which do not create workspace resources but rather contribute to their creation shall return false."
+		   });
 		addAnnotation
-		  (getGenerator__Validate__DiagnosticChain_Map(), 
-		   source, 
+		  (getGenerator__Validate__DiagnosticChain_Map(),
+		   source,
 		   new String[] {
-			 "documentation", "Validates element."
-		   });	
+			   "documentation", "Validates element."
+		   });
 		addAnnotation
-		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(0), 
-		   source, 
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(0),
+		   source,
 		   new String[] {
-			 "documentation", "Diagnostics to add validation messages to."
-		   });	
+			   "documentation", "Diagnostics to add validation messages to."
+		   });
 		addAnnotation
-		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(1), 
-		   source, 
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(1),
+		   source,
 		   new String[] {
-			 "documentation", "Validation context."
-		   });	
+			   "documentation", "Validation context."
+		   });
 		addAnnotation
-		  (getGenerator_Controller(), 
-		   source, 
+		  (getGenerator_Controller(),
+		   source,
 		   new String[] {
-			 "documentation", "Generator controller class. Must implement org.nasdanika.codegen.GeneratorController\r\nfor generators and org.nasdanika.codegen.GroupController for groups."
-		   });	
+			   "documentation", "Generator controller class. Must implement org.nasdanika.codegen.GeneratorController\r\nfor generators and org.nasdanika.codegen.GroupController for groups."
+		   });
 		addAnnotation
-		  (namedGeneratorEClass, 
-		   source, 
+		  (namedGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "This class allows to mount generators to the parent generator context as property providers\r\naccessible by name. It can be used for conditional invocation of named\r\ngenerators by the containing generator. context.get(generatorName) returns Work created by contained generator."
-		   });	
+			   "documentation", "This class allows to mount generators to the parent generator context as property providers\r\naccessible by name. It can be used for conditional invocation of named\r\ngenerators by the containing generator. context.get(generatorName) returns Work created by contained generator."
+		   });
 		addAnnotation
-		  (getNamedGenerator_Name(), 
-		   source, 
+		  (getNamedGenerator_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Generator name."
-		   });	
+			   "documentation", "Generator name."
+		   });
 		addAnnotation
-		  (getNamedGenerator_Generator(), 
-		   source, 
+		  (getNamedGenerator_Generator(),
+		   source,
 		   new String[] {
-			 "documentation", "The generator addressed by name.\r\n\r\nThe generator shall be parameterized with EJavaObject, but due to a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=510914 - it is now restricted to String generators.\r\nThe generic parameter shall be changed to EObject once the bug is fixed.\r\n\t\r\n"
-		   });	
+			   "documentation", "The generator addressed by name.\r\n\r\nThe generator shall be parameterized with EJavaObject, but due to a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=510914 - it is now restricted to String generators.\r\nThe generic parameter shall be changed to EObject once the bug is fixed.\r\n\t\r\n"
+		   });
 		addAnnotation
-		  (getNamedGenerator_ExecuteWork(), 
-		   source, 
+		  (getNamedGenerator_ExecuteWork(),
+		   source,
 		   new String[] {
-			 "documentation", "If true (default), then the work created by contained generator is executed and \r\nthe work execution result is injected into the container context. If false, then the\r\nwork per-se is injected into the container generator context and it is up to the container\r\ngenerator to execute it."
-		   });	
+			   "documentation", "If true (default), then the work created by contained generator is executed and \r\nthe work execution result is injected into the container context. If false, then the\r\nwork per-se is injected into the container generator context and it is up to the container\r\ngenerator to execute it."
+		   });
 		addAnnotation
-		  (getNamedGenerator_Description(), 
-		   source, 
+		  (getNamedGenerator_Description(),
+		   source,
 		   new String[] {
-			 "documentation", "Description."
-		   });	
+			   "documentation", "Description."
+		   });
 		addAnnotation
-		  (groupEClass, 
-		   source, 
+		  (groupEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Group of generators from which zero to all can be invoked during the generation process."
-		   });	
+			   "documentation", "Group of generators from which zero to all can be invoked during the generation process."
+		   });
 		addAnnotation
-		  (getGroup_Elements(), 
-		   source, 
+		  (getGroup_Elements(),
+		   source,
 		   new String[] {
-			 "documentation", "Group elements."
-		   });	
+			   "documentation", "Group elements."
+		   });
 		addAnnotation
-		  (resourceGeneratorEClass, 
-		   source, 
+		  (resourceGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "ResourceGenerator generates a workspace resource - file or directory. "
-		   });	
+			   "documentation", "ResourceGenerator generates a workspace resource - file or directory. "
+		   });
 		addAnnotation
-		  (getResourceGenerator_Enabled(), 
-		   source, 
+		  (getResourceGenerator_Enabled(),
+		   source,
 		   new String[] {
-			 "documentation", "Resource generator generates resource only if this attribute is true. \r\nThe purpose of this attribute is to help with generator model development \r\nby disabling model parts which are still work in progress and would fail the generation\r\nprocess, or, on the opposite, already working parts which would create delay and distraction\r\nin testing and troubleshooting. "
-		   });	
+			   "documentation", "Resource generator generates resource only if this attribute is true. \r\nThe purpose of this attribute is to help with generator model development \r\nby disabling model parts which are still work in progress and would fail the generation\r\nprocess, or, on the opposite, already working parts which would create delay and distraction\r\nin testing and troubleshooting. "
+		   });
 		addAnnotation
-		  (workspaceEClass, 
-		   source, 
+		  (workspaceEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Workspace is a group of projects."
-		   });	
+			   "documentation", "Workspace is a group of projects."
+		   });
 		addAnnotation
-		  (folderEClass, 
-		   source, 
+		  (folderEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates IFolder."
-		   });	
+			   "documentation", "Generates IFolder."
+		   });
 		addAnnotation
-		  (getFolder_Children(), 
-		   source, 
+		  (getFolder_Children(),
+		   source,
 		   new String[] {
-			 "documentation", "Folder can contain other resource generators."
-		   });	
+			   "documentation", "Folder can contain other resource generators."
+		   });
 		addAnnotation
-		  (natureEClass, 
-		   source, 
+		  (natureEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates project nature, e.g. Java or Maven nature."
-		   });	
+			   "documentation", "Generates project nature, e.g. Java or Maven nature."
+		   });
 		addAnnotation
-		  (resourceEClass, 
-		   source, 
+		  (resourceEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates project resource - file or directory."
-		   });	
+			   "documentation", "Generates project resource - file or directory."
+		   });
 		addAnnotation
-		  (getResource_Name(), 
-		   source, 
+		  (getResource_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"
-		   });	
+			   "documentation", "Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``"
+		   });
 		addAnnotation
-		  (getResource_ReconcileAction(), 
-		   source, 
+		  (getResource_ReconcileAction(),
+		   source,
 		   new String[] {
-			 "documentation", "Action to take if resource with given name already exists."
-		   });	
+			   "documentation", "Action to take if resource with given name already exists."
+		   });
 		addAnnotation
-		  (genericFileEClass, 
-		   source, 
+		  (genericFileEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide\r\nfile contents."
-		   });	
+			   "documentation", "Generic file creates a file handler (IFile) and then it is responsibility of the controller to provide\r\nfile contents."
+		   });
 		addAnnotation
-		  (projectEClass, 
-		   source, 
+		  (projectEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates workspace project."
-		   });	
+			   "documentation", "Generates workspace project."
+		   });
 		addAnnotation
-		  (getProject_Name(), 
-		   source, 
+		  (getProject_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Project name. The name is interpolated \r\nduring generation and as such may contain tokens to be expanded."
-		   });	
+			   "documentation", "Project name. The name is interpolated \r\nduring generation and as such may contain tokens to be expanded."
+		   });
 		addAnnotation
-		  (getProject_Natures(), 
-		   source, 
+		  (getProject_Natures(),
+		   source,
 		   new String[] {
-			 "documentation", "Project natures."
-		   });	
+			   "documentation", "Project natures."
+		   });
 		addAnnotation
-		  (getProject_Resources(), 
-		   source, 
+		  (getProject_Resources(),
+		   source,
 		   new String[] {
-			 "documentation", "Project resources."
-		   });	
+			   "documentation", "Project resources."
+		   });
 		addAnnotation
-		  (getProject_ReconcileAction(), 
-		   source, 
+		  (getProject_ReconcileAction(),
+		   source,
 		   new String[] {
-			 "documentation", "Action to take if a project with given name already exists."
-		   });	
+			   "documentation", "Action to take if a project with given name already exists."
+		   });
 		addAnnotation
-		  (fileEClass, 
-		   source, 
+		  (fileEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates IFile."
-		   });	
+			   "documentation", "Generates IFile."
+		   });
 		addAnnotation
-		  (getFile_Merger(), 
-		   source, 
+		  (getFile_Merger(),
+		   source,
 		   new String[] {
-			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \nwhere ``T`` is ``String`` for text files and ``InputStream`` for binary files."
-		   });	
+			   "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\ncontent of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` \nwhere ``T`` is ``String`` for text files and ``InputStream`` for binary files."
+		   });
 		addAnnotation
-		  (getFile_Generators(), 
-		   source, 
+		  (getFile_Generators(),
+		   source,
 		   new String[] {
-			 "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
-		   });	
+			   "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
+		   });
 		addAnnotation
-		  (binaryFileEClass, 
-		   source, 
+		  (binaryFileEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Binary file, with ``InputStream`` content."
-		   });	
+			   "documentation", "Binary file, with ``InputStream`` content."
+		   });
 		addAnnotation
-		  (textFileEClass, 
-		   source, 
+		  (textFileEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Text file with ``String`` content."
-		   });	
+			   "documentation", "Text file with ``String`` content."
+		   });
 		addAnnotation
-		  (getTextFile_Encoding(), 
-		   source, 
+		  (getTextFile_Encoding(),
+		   source,
 		   new String[] {
-			 "documentation", "Optional character encoding."
-		   });	
+			   "documentation", "Optional character encoding."
+		   });
 		addAnnotation
-		  (reconcileActionEEnum, 
-		   source, 
+		  (reconcileActionEEnum,
+		   source,
 		   new String[] {
-			 "documentation", "Defines an action to take if project/resource with a given name already exists in the workspace."
-		   });	
+			   "documentation", "Defines an action to take if project/resource with a given name already exists in the workspace."
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(0), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(0),
+		   source,
 		   new String[] {
-			 "documentation", "Discard the generated content and keep the original or skip the generation step altogether."
-		   });	
+			   "documentation", "Discard the generated content and keep the original or skip the generation step altogether."
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(1), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(1),
+		   source,
 		   new String[] {
-			 "documentation", "Append the new content to the existing. For project and directories it means\r\nadding new resources next to the existing, which is semantically equivalent to merging."
-		   });	
+			   "documentation", "Append the new content to the existing. For project and directories it means\r\nadding new resources next to the existing, which is semantically equivalent to merging."
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(2), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(2),
+		   source,
 		   new String[] {
-			 "documentation", "Merge new and existing content, typically using a merger service for files. \r\nFor projects and directories merge is equivalent to append."
-		   });	
+			   "documentation", "Merge new and existing content, typically using a merger service for files. \r\nFor projects and directories merge is equivalent to append."
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(3), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(3),
+		   source,
 		   new String[] {
-			 "documentation", "Replace existing content with the new one upon confirmation (see below). \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n\r\nIf the generation context contains ``overwrite-predicate`` property, then the value\r\nof the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.\r\nIf the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).\r\n\r\nThe predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).\r\n\r\nClients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "
-		   });	
+			   "documentation", "Replace existing content with the new one upon confirmation (see below). \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n\r\nIf the generation context contains ``overwrite-predicate`` property, then the value\r\nof the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.\r\nIf the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).\r\n\r\nThe predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).\r\n\r\nClients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. "
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(4), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(4),
+		   source,
 		   new String[] {
-			 "documentation", "Replace existing content with the new one. \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n"
-		   });	
+			   "documentation", "Replace existing content with the new one. \r\nFor directories and projects it means deleting the project/directory\r\nand re-creating with the new content.\r\n"
+		   });
 		addAnnotation
-		  (reconcileActionEEnum.getELiterals().get(5), 
-		   source, 
+		  (reconcileActionEEnum.getELiterals().get(5),
+		   source,
 		   new String[] {
-			 "documentation", "Throw ``OperationCancelledException`` if resource/project already exists."
-		   });	
+			   "documentation", "Throw ``OperationCancelledException`` if resource/project already exists."
+		   });
 		addAnnotation
-		  (resourceReferenceEClass, 
-		   source, 
+		  (resourceReferenceEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Reference to a resource generator defined elsewhere."
-		   });	
+			   "documentation", "Reference to a resource generator defined elsewhere."
+		   });
 		addAnnotation
-		  (getResourceReference_Target(), 
-		   source, 
+		  (getResourceReference_Target(),
+		   source,
 		   new String[] {
-			 "documentation", "Reference target."
-		   });	
+			   "documentation", "Reference target."
+		   });
 		addAnnotation
-		  (staticTextEClass, 
-		   source, 
+		  (staticTextEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Static text. Can be used as text file content or as input to interpolator or filter."
-		   });	
+			   "documentation", "Static text. Can be used as text file content or as input to interpolator or filter."
+		   });
 		addAnnotation
-		  (getStaticText_Content(), 
-		   source, 
+		  (getStaticText_Content(),
+		   source,
 		   new String[] {
-			 "documentation", "Text content."
-		   });	
+			   "documentation", "Text content."
+		   });
 		addAnnotation
-		  (freeMarkerGeneratorEClass, 
-		   source, 
+		  (freeMarkerGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Generates text from template and model using [FreeMarker](http://freemarker.org/)."
-		   });	
+			   "documentation", "Generates text from template and model using [FreeMarker](http://freemarker.org/)."
+		   });
 		addAnnotation
-		  (getFreeMarkerGenerator_Base(), 
-		   source, 
+		  (getFreeMarkerGenerator_Base(),
+		   source,
 		   new String[] {
-			 "documentation", "Base URL, bundle path, or package for resolving templates. \r\nIf empty, then templates are resolved relative to the \r\ncontext base URL, which typically would be the generator model location."
-		   });	
+			   "documentation", "Base URL, bundle path, or package for resolving templates. \r\nIf empty, then templates are resolved relative to the \r\ncontext base URL, which typically would be the generator model location."
+		   });
 		addAnnotation
-		  (getFreeMarkerGenerator_Template(), 
-		   source, 
+		  (getFreeMarkerGenerator_Template(),
+		   source,
 		   new String[] {
-			 "documentation", "Template name."
-		   });	
+			   "documentation", "Template name."
+		   });
 		addAnnotation
-		  (getFreeMarkerGenerator_Model(), 
-		   source, 
+		  (getFreeMarkerGenerator_Model(),
+		   source,
 		   new String[] {
-			 "documentation", "The name of a property which value is used as the model for the template.\r\nIf blank, the generation context is used as the model."
-		   });	
+			   "documentation", "The name of a property which value is used as the model for the template.\r\nIf blank, the generation context is used as the model."
+		   });
 		addAnnotation
-		  (eCoreModelGeneratorEClass, 
-		   source, 
+		  (eCoreModelGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Writes the model specified in ``model`` context property to XML."
-		   });	
+			   "documentation", "Writes the model specified in ``model`` context property to XML."
+		   });
 		addAnnotation
-		  (getECoreModelGenerator_Model(), 
-		   source, 
+		  (getECoreModelGenerator_Model(),
+		   source,
 		   new String[] {
-			 "documentation", "Name of the property which value is the model to write to XML."
-		   });	
+			   "documentation", "Name of the property which value is the model to write to XML."
+		   });
 		addAnnotation
-		  (contentReferenceEClass, 
-		   source, 
+		  (contentReferenceEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Reference (URL) to a content residing elsewhere, e.g. a template in a version control\r\nsystem available for download over HTTP."
-		   });	
+			   "documentation", "Reference (URL) to a content residing elsewhere, e.g. a template in a version control\r\nsystem available for download over HTTP."
+		   });
 		addAnnotation
-		  (getContentReference_Ref(), 
-		   source, 
+		  (getContentReference_Ref(),
+		   source,
 		   new String[] {
-			 "documentation", "Content location (URL)."
-		   });	
+			   "documentation", "Content location (URL)."
+		   });
 		addAnnotation
-		  (converterEClass, 
-		   source, 
+		  (converterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Converter converts input of a generator to produce output."
-		   });	
+			   "documentation", "Converter converts input of a generator to produce output."
+		   });
 		addAnnotation
-		  (getConverter_Generator(), 
-		   source, 
+		  (getConverter_Generator(),
+		   source,
 		   new String[] {
-			 "documentation", "Generator producing converter input."
-		   });	
+			   "documentation", "Generator producing converter input."
+		   });
 		addAnnotation
-		  (filterEClass, 
-		   source, 
+		  (filterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Filter is a converter with the same input and output types, \r\ne.g. text interpolator or stream compressor."
-		   });	
+			   "documentation", "Filter is a converter with the same input and output types, \r\ne.g. text interpolator or stream compressor."
+		   });
 		addAnnotation
-		  (javaGeneratorEClass, 
-		   source, 
+		  (javaGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "This generator instantiates and invokes Java class to generate output. \r\nThe generator Java class shall implement ``org.nasdanika.codegen.IGenerator``.\r\n\r\nFor example, JET templates may use a skeleton like shown below:\r\n\r\n\r\n```java\r\npublic class CLASS implements org.nasdanika.codegen.IGenerator<String> {\r\n\n    \n\npublic String generate(org.nasdanika.codegen.Context context, org.eclipse.core.runtime.IProgressMonitor monitor) throws Exception {\r\n        \nreturn \"\";\n   \r\n    }\n \r\n}\r\n```\r\n\r\nand classes compiled from these template can be used by the JavaGenerator."
-		   });	
+			   "documentation", "This generator instantiates and invokes Java class to generate output. \r\nThe generator Java class shall implement ``org.nasdanika.codegen.IGenerator``.\r\n\r\nFor example, JET templates may use a skeleton like shown below:\r\n\r\n\r\n```java\r\npublic class CLASS implements org.nasdanika.codegen.IGenerator<String> {\r\n\n    \n\npublic String generate(org.nasdanika.codegen.Context context, org.eclipse.core.runtime.IProgressMonitor monitor) throws Exception {\r\n        \nreturn \"\";\n   \r\n    }\n \r\n}\r\n```\r\n\r\nand classes compiled from these template can be used by the JavaGenerator."
+		   });
 		addAnnotation
-		  (getJavaGenerator_ClassName(), 
-		   source, 
+		  (getJavaGenerator_ClassName(),
+		   source,
 		   new String[] {
-			 "documentation", "Generator class name."
-		   });	
+			   "documentation", "Generator class name."
+		   });
 		addAnnotation
-		  (interpolatorEClass, 
-		   source, 
+		  (interpolatorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Interpolator produces output by expanding mustache tokens ``{{token}}`` in the \r\ninput using context properties."
-		   });	
+			   "documentation", "Interpolator produces output by expanding mustache tokens ``{{token}}`` in the \r\ninput using context properties."
+		   });
 		addAnnotation
-		  (jetEmitterEClass, 
-		   source, 
+		  (jetEmitterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Invokes ``org.eclipse.emf.codegen.jet.JETEmitter`` to compile and evaluate a template."
-		   });	
+			   "documentation", "Invokes ``org.eclipse.emf.codegen.jet.JETEmitter`` to compile and evaluate a template."
+		   });
 		addAnnotation
-		  (getJETEmitter_TemplateURI(), 
-		   source, 
+		  (getJETEmitter_TemplateURI(),
+		   source,
 		   new String[] {
-			 "documentation", "Template location."
-		   });	
+			   "documentation", "Template location."
+		   });
 		addAnnotation
-		  (javaFilterEClass, 
-		   source, 
+		  (javaFilterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Instantiates a Java class to filter content. \r\nThe filter Java class shall implement ``org.nasdanika.codegen.IFilter<T>``, where\r\n``T`` is content type - ``String`` for text files and ``InputStream`` for binary files."
-		   });	
+			   "documentation", "Instantiates a Java class to filter content. \r\nThe filter Java class shall implement ``org.nasdanika.codegen.IFilter<T>``, where\r\n``T`` is content type - ``String`` for text files and ``InputStream`` for binary files."
+		   });
 		addAnnotation
-		  (getJavaFilter_ClassName(), 
-		   source, 
+		  (getJavaFilter_ClassName(),
+		   source,
 		   new String[] {
-			 "documentation", "Filter class name."
-		   });	
+			   "documentation", "Filter class name."
+		   });
 		addAnnotation
-		  (providerEClass, 
-		   source, 
+		  (providerEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Providers are used to create configuration items using given context."
-		   });	
+			   "documentation", "Providers are used to create configuration items using given context."
+		   });
 		addAnnotation
-		  (javaTextFilterEClass, 
-		   source, 
+		  (javaTextFilterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "``String`` binding of JavaFilter."
-		   });	
+			   "documentation", "``String`` binding of JavaFilter."
+		   });
 		addAnnotation
-		  (javaStreamFilterEClass, 
-		   source, 
+		  (javaStreamFilterEClass,
+		   source,
 		   new String[] {
-			 "documentation", "``InputStream`` binding of JavaFilter."
-		   });	
+			   "documentation", "``InputStream`` binding of JavaFilter."
+		   });
 		addAnnotation
-		  (javaTextGeneratorEClass, 
-		   source, 
+		  (javaTextGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "``String`` binding of JavaGenerator."
-		   });	
+			   "documentation", "``String`` binding of JavaGenerator."
+		   });
 		addAnnotation
-		  (javaStreamGeneratorEClass, 
-		   source, 
+		  (javaStreamGeneratorEClass,
+		   source,
 		   new String[] {
-			 "documentation", "``InputStream`` binding of JavaGenerator."
-		   });	
+			   "documentation", "``InputStream`` binding of JavaGenerator."
+		   });
 		addAnnotation
-		  (getScriptedGenerator_Script(), 
-		   source, 
+		  (getScriptedGenerator_Script(),
+		   source,
 		   new String[] {
-			 "documentation", "Script is a Java method body taking ``Context context, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
-		   });	
+			   "documentation", "Script is a Java method body taking ``Context context, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
+		   });
 		addAnnotation
-		  (getScriptedFilter_Script(), 
-		   source, 
+		  (getScriptedFilter_Script(),
+		   source,
 		   new String[] {
-			 "documentation", "Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
-		   });	
+			   "documentation", "Script is a Java method body taking ``Context context, IGenerator generator, IProgressMonitor monitor`` and returning String or InputStream depending on type binding:\r\n\r\n```java\r\nT generate(Context context, IGenerator generator, IProgressMonitor monitor) throws Exception {\r\n    // --- Script here ---\r\n}\r\n```"
+		   });
 		addAnnotation
-		  (zipArchiveEClass, 
-		   source, 
+		  (zipArchiveEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Zip archive extracts its entries into its container. If zip archive name is not empty, it is used as a prefix for entry names. / separator is added at the end of the archive name if it doesn\'t already end with /\r\nZip archive reconcile action is applied to all entries and merger is applied to all files."
-		   });	
+			   "documentation", "Zip archive extracts its entries into its container. If zip archive name is not empty, it is used as a prefix for entry names. / separator is added at the end of the archive name if it doesn\'t already end with /\r\nZip archive reconcile action is applied to all entries and merger is applied to all files."
+		   });
 		addAnnotation
-		  (getZipArchive_Merger(), 
-		   source, 
+		  (getZipArchive_Merger(),
+		   source,
 		   new String[] {
-			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
-		   });	
+			   "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
+		   });
 		addAnnotation
-		  (mustacheEClass, 
-		   source, 
+		  (mustacheEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.\r\n\r\nImport manager and Java Expression Evaluator are functions and as such \r\ncan be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."
-		   });	
+			   "documentation", "Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.\r\n\r\nImport manager and Java Expression Evaluator are functions and as such \r\ncan be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."
+		   });
 		addAnnotation
-		  (bundleResourceEClass, 
-		   source, 
+		  (bundleResourceEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Bundle resource copies entries matching the paths into its container. If bundle resource name is not empty, it is used as a prefix for entry names. / separator is added at the end of the bundle resource name if it doesn\'t already end with /\nBundle resource reconcile action is applied to all entries and merger is applied to all files."
-		   });	
+			   "documentation", "Bundle resource copies entries matching the paths into its container. If bundle resource name is not empty, it is used as a prefix for entry names. / separator is added at the end of the bundle resource name if it doesn\'t already end with /\nBundle resource reconcile action is applied to all entries and merger is applied to all files."
+		   });
 		addAnnotation
-		  (getBundleResource_Merger(), 
-		   source, 
+		  (getBundleResource_Merger(),
+		   source,
 		   new String[] {
-			 "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
-		   });	
+			   "documentation", "If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new\r\ncontent file entries. The merger class shall implement ``org.nasdanika.codegen.Merger<InputStream>``."
+		   });
 		addAnnotation
-		  (getBundleResource_Bundle(), 
-		   source, 
+		  (getBundleResource_Bundle(),
+		   source,
 		   new String[] {
-			 "documentation", "Source bundle symbolic name, interpolated."
-		   });	
+			   "documentation", "Source bundle symbolic name, interpolated."
+		   });
 		addAnnotation
-		  (getBundleResource_Paths(), 
-		   source, 
+		  (getBundleResource_BasePath(),
+		   source,
 		   new String[] {
-			 "documentation", "Paths to match, interpolated. If path ends with / it means a directory and all resources from that directory match."
+			   "documentation", "Base path is added to paths to match, but not to the target paths."
+		   });
+		addAnnotation
+		  (getBundleResource_Paths(),
+		   source,
+		   new String[] {
+			   "documentation", "Paths to match, interpolated. If path ends with / it means a directory and all resources from that directory match."
 		   });
 	}
 
@@ -2544,27 +2566,27 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	protected void createOrgAnnotations() {
-		String source = "org.nasdanika.ui.java-class";	
+		String source = "org.nasdanika.ui.java-class";
 		addAnnotation
-		  (getGenerator_Controller(), 
-		   source, 
+		  (getGenerator_Controller(),
+		   source,
 		   new String[] {
-			 "root-type", "org.nasdanika.codegen.GeneratorController",
-			 "super-interfaces", "org.nasdanika.codegen.GeneratorController"
-		   });	
+			   "root-type", "org.nasdanika.codegen.GeneratorController",
+			   "super-interfaces", "org.nasdanika.codegen.GeneratorController"
+		   });
 		addAnnotation
-		  (getJavaGenerator_ClassName(), 
-		   source, 
+		  (getJavaGenerator_ClassName(),
+		   source,
 		   new String[] {
-			 "root-type", "org.nasdanika.codegen.Generator",
-			 "super-interfaces", "org.nasdanika.codegen.Generator"
-		   });	
+			   "root-type", "org.nasdanika.codegen.Generator",
+			   "super-interfaces", "org.nasdanika.codegen.Generator"
+		   });
 		addAnnotation
-		  (getJavaFilter_ClassName(), 
-		   source, 
+		  (getJavaFilter_ClassName(),
+		   source,
 		   new String[] {
-			 "root-type", "org.nasdanika.codegen.Filter",
-			 "super-interfaces", "org.nasdanika.codegen.Filter"
+			   "root-type", "org.nasdanika.codegen.Filter",
+			   "super-interfaces", "org.nasdanika.codegen.Filter"
 		   });
 	}
 

@@ -51,6 +51,7 @@ public class BundleResourceItemProvider extends ResourceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addBundlePropertyDescriptor(object);
+			addBasePathPropertyDescriptor(object);
 			addPathsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -70,6 +71,28 @@ public class BundleResourceItemProvider extends ResourceItemProvider {
 				 getString("_UI_BundleResource_bundle_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BundleResource_bundle_feature", "_UI_BundleResource_type"),
 				 CodegenPackage.Literals.BUNDLE_RESOURCE__BUNDLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Base Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBasePathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BundleResource_basePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BundleResource_basePath_feature", "_UI_BundleResource_type"),
+				 CodegenPackage.Literals.BUNDLE_RESOURCE__BASE_PATH,
 				 true,
 				 false,
 				 false,
@@ -169,6 +192,7 @@ public class BundleResourceItemProvider extends ResourceItemProvider {
 
 		switch (notification.getFeatureID(BundleResource.class)) {
 			case CodegenPackage.BUNDLE_RESOURCE__BUNDLE:
+			case CodegenPackage.BUNDLE_RESOURCE__BASE_PATH:
 			case CodegenPackage.BUNDLE_RESOURCE__PATHS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

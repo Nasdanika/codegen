@@ -153,7 +153,9 @@
         <details key="documentation" value="Folder can contain other resource generators."/>
       </eAnnotations>
       <eGenericType eClassifier="#//Resource">
-        <eTypeArguments eClassifier="#//IResource"/>
+        <eTypeArguments>
+          <eUpperBound eClassifier="#//IResource"/>
+        </eTypeArguments>
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
@@ -635,6 +637,11 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Source bundle symbolic name, interpolated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Base path is added to paths to match, but not to the target paths."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" upperBound="-1"

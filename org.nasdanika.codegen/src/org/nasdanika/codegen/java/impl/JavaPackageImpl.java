@@ -212,7 +212,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link JavaPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -226,7 +226,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		if (isInited) return (JavaPackage)EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
 
 		// Obtain or create and register package
-		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof JavaPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new JavaPackageImpl());
+		Object registeredJavaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		JavaPackageImpl theJavaPackage = registeredJavaPackage instanceof JavaPackageImpl ? (JavaPackageImpl)registeredJavaPackage : new JavaPackageImpl();
 
 		isInited = true;
 
@@ -234,9 +235,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		ConfigPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) instanceof CodegenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI) : CodegenPackage.eINSTANCE);
-		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) instanceof MavenPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI) : MavenPackage.eINSTANCE);
-		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) instanceof WizardPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI) : WizardPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
+		CodegenPackageImpl theCodegenPackage = (CodegenPackageImpl)(registeredPackage instanceof CodegenPackageImpl ? registeredPackage : CodegenPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MavenPackage.eNS_URI);
+		MavenPackageImpl theMavenPackage = (MavenPackageImpl)(registeredPackage instanceof MavenPackageImpl ? registeredPackage : MavenPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(WizardPackage.eNS_URI);
+		WizardPackageImpl theWizardPackage = (WizardPackageImpl)(registeredPackage instanceof WizardPackageImpl ? registeredPackage : WizardPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theJavaPackage.createPackageContents();
@@ -253,7 +257,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Mark meta-data to indicate it can't be changed
 		theJavaPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(JavaPackage.eNS_URI, theJavaPackage);
 		return theJavaPackage;
@@ -980,204 +983,204 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";	
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (javaNatureEClass, 
-		   source, 
+		  (javaNatureEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Java nature."
-		   });	
+			   "documentation", "Java nature."
+		   });
 		addAnnotation
-		  (getJavaNature_Packagefragmentroots(), 
-		   source, 
+		  (getJavaNature_Packagefragmentroots(),
+		   source,
 		   new String[] {
-			 "documentation", "Package fragments roots (source folders)."
-		   });	
+			   "documentation", "Package fragments roots (source folders)."
+		   });
 		addAnnotation
-		  (packageFragmentRootEClass, 
-		   source, 
+		  (packageFragmentRootEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Package fragment root (source folder)."
-		   });	
+			   "documentation", "Package fragment root (source folder)."
+		   });
 		addAnnotation
-		  (getPackageFragmentRoot_Name(), 
-		   source, 
+		  (getPackageFragmentRoot_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Folder name within the project. Interpolated and may be a path name, i.e. \r\ncontain file separators, e.g. ``src/java``."
-		   });	
+			   "documentation", "Folder name within the project. Interpolated and may be a path name, i.e. \r\ncontain file separators, e.g. ``src/java``."
+		   });
 		addAnnotation
-		  (getPackageFragmentRoot_Packagefragments(), 
-		   source, 
+		  (getPackageFragmentRoot_Packagefragments(),
+		   source,
 		   new String[] {
-			 "documentation", "Package fragments (packages)."
-		   });	
+			   "documentation", "Package fragments (packages)."
+		   });
 		addAnnotation
-		  (getPackageFragmentRoot_Resources(), 
-		   source, 
+		  (getPackageFragmentRoot_Resources(),
+		   source,
 		   new String[] {
-			 "documentation", "Folder can contain other resource generators."
-		   });	
+			   "documentation", "Folder can contain other resource generators."
+		   });
 		addAnnotation
-		  (packageFragmentEClass, 
-		   source, 
+		  (packageFragmentEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Package fragment (package)."
-		   });	
+			   "documentation", "Package fragment (package)."
+		   });
 		addAnnotation
-		  (getPackageFragment_Name(), 
-		   source, 
+		  (getPackageFragment_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Package name, interpolated."
-		   });	
+			   "documentation", "Package name, interpolated."
+		   });
 		addAnnotation
-		  (getPackageFragment_Compilationunits(), 
-		   source, 
+		  (getPackageFragment_Compilationunits(),
+		   source,
 		   new String[] {
-			 "documentation", "Package compilation units."
-		   });	
+			   "documentation", "Package compilation units."
+		   });
 		addAnnotation
-		  (getPackageFragment_Resources(), 
-		   source, 
+		  (getPackageFragment_Resources(),
+		   source,
 		   new String[] {
-			 "documentation", "Folder can contain other resource generators."
-		   });	
+			   "documentation", "Folder can contain other resource generators."
+		   });
 		addAnnotation
-		  (compilationUnitEClass, 
-		   source, 
+		  (compilationUnitEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Compilation unit."
-		   });	
+			   "documentation", "Compilation unit."
+		   });
 		addAnnotation
-		  (getCompilationUnit_Name(), 
-		   source, 
+		  (getCompilationUnit_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Compilation unit name without ``.java`` extension. Interpolated."
-		   });	
+			   "documentation", "Compilation unit name without ``.java`` extension. Interpolated."
+		   });
 		addAnnotation
-		  (getCompilationUnit_Merge(), 
-		   source, 
+		  (getCompilationUnit_Merge(),
+		   source,
 		   new String[] {
-			 "documentation", "If true, new and old compilation unit content gets merged with ``org.eclipse.emf.codegen.merge.java.JMerger``."
-		   });	
+			   "documentation", "If true, new and old compilation unit content gets merged with ``org.eclipse.emf.codegen.merge.java.JMerger``."
+		   });
 		addAnnotation
-		  (getCompilationUnit_Format(), 
-		   source, 
+		  (getCompilationUnit_Format(),
+		   source,
 		   new String[] {
-			 "documentation", "If true, generated/merged source is automatically formatted."
-		   });	
+			   "documentation", "If true, generated/merged source is automatically formatted."
+		   });
 		addAnnotation
-		  (getCompilationUnit_Generators(), 
-		   source, 
+		  (getCompilationUnit_Generators(),
+		   source,
 		   new String[] {
-			 "documentation", "Generator to produce compilation unit content."
-		   });	
+			   "documentation", "Generator to produce compilation unit content."
+		   });
 		addAnnotation
-		  (getMember_Name(), 
-		   source, 
+		  (getMember_Name(),
+		   source,
 		   new String[] {
-			 "documentation", "Member name, not applicable to constructors."
-		   });	
+			   "documentation", "Member name, not applicable to constructors."
+		   });
 		addAnnotation
-		  (getMember_Modifiers(), 
-		   source, 
+		  (getMember_Modifiers(),
+		   source,
 		   new String[] {
-			 "documentation", "Modifiers, e.g. public final. Interpolated."
-		   });	
+			   "documentation", "Modifiers, e.g. public final. Interpolated."
+		   });
 		addAnnotation
-		  (getMember_CommentGenerators(), 
-		   source, 
+		  (getMember_CommentGenerators(),
+		   source,
 		   new String[] {
-			 "documentation", "Comment generators in addition to comment attribute content."
-		   });	
+			   "documentation", "Comment generators in addition to comment attribute content."
+		   });
 		addAnnotation
-		  (getMember_Comment(), 
-		   source, 
+		  (getMember_Comment(),
+		   source,
 		   new String[] {
-			 "documentation", "Comment. Interpolated. "
-		   });	
+			   "documentation", "Comment. Interpolated. "
+		   });
 		addAnnotation
-		  (getMember_Annotations(), 
-		   source, 
+		  (getMember_Annotations(),
+		   source,
 		   new String[] {
-			 "documentation", "Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."
-		   });	
+			   "documentation", "Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."
+		   });
 		addAnnotation
-		  (getMember_BodyGenerators(), 
-		   source, 
+		  (getMember_BodyGenerators(),
+		   source,
 		   new String[] {
-			 "documentation", "Generators which generate member body. For Field field initializer is considered as body.\r\n"
-		   });	
+			   "documentation", "Generators which generate member body. For Field field initializer is considered as body.\r\n"
+		   });
 		addAnnotation
-		  (getMember_TypeParameters(), 
-		   source, 
+		  (getMember_TypeParameters(),
+		   source,
 		   new String[] {
-			 "documentation", "Type parameters, interpolated."
-		   });	
+			   "documentation", "Type parameters, interpolated."
+		   });
 		addAnnotation
-		  (getType_SuperTypes(), 
-		   source, 
+		  (getType_SuperTypes(),
+		   source,
 		   new String[] {
-			 "documentation", "Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.\r\nFor classes the first supertype goes to the extends clause and the rest to the implements clause. For interfaces all supertypes go to the implements clause.\r\nFor enum everything goes to the implements clause. Not applicable to annotations."
-		   });	
+			   "documentation", "Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.\r\nFor classes the first supertype goes to the extends clause and the rest to the implements clause. For interfaces all supertypes go to the implements clause.\r\nFor enum everything goes to the implements clause. Not applicable to annotations."
+		   });
 		addAnnotation
-		  (getOperation_Parameters(), 
-		   source, 
+		  (getOperation_Parameters(),
+		   source,
 		   new String[] {
-			 "documentation", "Parameters, interpolated."
-		   });	
+			   "documentation", "Parameters, interpolated."
+		   });
 		addAnnotation
-		  (getEnum_SuperInterfaces(), 
-		   source, 
+		  (getEnum_SuperInterfaces(),
+		   source,
 		   new String[] {
-			 "documentation", "Superinterfaces are listed in implements clause. Elements are interpolated and each element can be a comma-separated list of superinterfaces."
-		   });	
+			   "documentation", "Superinterfaces are listed in implements clause. Elements are interpolated and each element can be a comma-separated list of superinterfaces."
+		   });
 		addAnnotation
-		  (pluginNatureEClass, 
-		   source, 
+		  (pluginNatureEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Plugin nature, generates MANIFEST.MF, build.properties, plugin.xml or fragment.xml"
-		   });	
+			   "documentation", "Plugin nature, generates MANIFEST.MF, build.properties, plugin.xml or fragment.xml"
+		   });
 		addAnnotation
-		  (getPluginNature_ManifestGenerator(), 
-		   source, 
+		  (getPluginNature_ManifestGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Generates MANIFEST.MF file."
-		   });	
+			   "documentation", "Generates MANIFEST.MF file."
+		   });
 		addAnnotation
-		  (getPluginNature_BuildPropertiesGenerator(), 
-		   source, 
+		  (getPluginNature_BuildPropertiesGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Generates build.properties file."
-		   });	
+			   "documentation", "Generates build.properties file."
+		   });
 		addAnnotation
-		  (getPluginNature_PluginXmlGenerator(), 
-		   source, 
+		  (getPluginNature_PluginXmlGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Optional generator of ``plugin.xml`` file."
-		   });	
+			   "documentation", "Optional generator of ``plugin.xml`` file."
+		   });
 		addAnnotation
-		  (getPluginNature_FragmentXmlGenerator(), 
-		   source, 
+		  (getPluginNature_FragmentXmlGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Optional generator of ``fragment.xml`` file."
-		   });	
+			   "documentation", "Optional generator of ``fragment.xml`` file."
+		   });
 		addAnnotation
-		  (featureNatureEClass, 
-		   source, 
+		  (featureNatureEClass,
+		   source,
 		   new String[] {
-			 "documentation", "Feature nature. Generates feature.xml and build.properties."
-		   });	
+			   "documentation", "Feature nature. Generates feature.xml and build.properties."
+		   });
 		addAnnotation
-		  (getFeatureNature_FeatureXmlGenerator(), 
-		   source, 
+		  (getFeatureNature_FeatureXmlGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Generates MANIFEST.MF file."
-		   });	
+			   "documentation", "Generates MANIFEST.MF file."
+		   });
 		addAnnotation
-		  (getFeatureNature_BuildPropertiesGenerator(), 
-		   source, 
+		  (getFeatureNature_BuildPropertiesGenerator(),
+		   source,
 		   new String[] {
-			 "documentation", "Generates build.properties file."
+			   "documentation", "Generates build.properties file."
 		   });
 	}
 

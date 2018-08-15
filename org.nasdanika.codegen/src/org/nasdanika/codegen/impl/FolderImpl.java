@@ -62,16 +62,16 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Resource<IResource>> getChildren() {
-		return (EList<Resource<IResource>>)eGet(CodegenPackage.Literals.FOLDER__CHILDREN, true);
+	public EList<Resource<? extends IResource>> getChildren() {
+		return (EList<Resource<? extends IResource>>)eGet(CodegenPackage.Literals.FOLDER__CHILDREN, true);
 	}
 
 	@Override
 	protected Work<IFolder> createWorkItem() throws Exception {
-		List<Work<List<IResource>>> rWork = new ArrayList<>();
+		List<Work<?>> rWork = new ArrayList<>();
 		int[] workSize = { 3 };
-		for (Resource<IResource> r: getChildren()) {
-			Work<List<IResource>> rw = r.createWork();
+		for (Resource<? extends IResource> r: getChildren()) {
+			Work<?> rw = r.createWork();
 			workSize[0] += rw.size();
 			rWork.add(rw);
 		}
@@ -118,7 +118,7 @@ public class FolderImpl extends ResourceImpl<IFolder> implements Folder {
 				folder = configure(context, folder, monitor.split(1));
 				
 				MutableContext sc = context.createSubContext().set(IContainer.class, folder);
-				for (Work<List<IResource>> rw: rWork) {
+				for (Work<?> rw: rWork) {
 					rw.execute(sc, monitor);
 				}
 				return folder;
