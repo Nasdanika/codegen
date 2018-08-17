@@ -274,6 +274,33 @@ public interface CodegenFactory extends EFactory {
 	BundleResource createBundleResource();
 
 	/**
+	 * Returns a new object of class '<em>Static Bytes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Static Bytes</em>'.
+	 * @generated
+	 */
+	StaticBytes createStaticBytes();
+
+	/**
+	 * Returns a new object of class '<em>Object Text Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Text Generator</em>'.
+	 * @generated
+	 */
+	ObjectTextGenerator createObjectTextGenerator();
+
+	/**
+	 * Returns a new object of class '<em>Object Stream Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Stream Generator</em>'.
+	 * @generated
+	 */
+	ObjectStreamGenerator createObjectStreamGenerator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

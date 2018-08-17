@@ -7,6 +7,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -87,6 +91,11 @@ public class CodegenActionBarContributor
 				}
 			}
 		};
+		
+	/**
+	 * Actions contributed by extensions.	
+	 */
+	protected List<IAction> contributedActions = new ArrayList<>();	
 		
 	protected GenerateAction generateAction = new GenerateAction("Generate") {
 		
@@ -186,6 +195,18 @@ public class CodegenActionBarContributor
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
 		controlAction = new ControlAction();
+		
+		for (IConfigurationElement ce: Platform.getExtensionRegistry().getConfigurationElementsFor("org.nasdanika.codegen.editor.menu_action")) {
+			if ("action".equals(ce.getName())) {					
+				try {
+					contributedActions.add((IAction) ce.createExecutableExtension("class"));
+				} catch (Exception e) {
+					IStatus status = new Status(Status.ERROR, "org.nasdanika.codegen.editor", "Unable to instantiate contributed action: "+e, e);
+					CodegenEditorPlugin.getPlugin().getLog().log(status);
+				}
+			}					
+		}
+		
 	}
 
 	/**
@@ -443,6 +464,9 @@ public class CodegenActionBarContributor
 		
 	    String key = (style & ADDITIONS_LAST_STYLE) == 0 ? "additions-end" : "additions";
         menuManager.insertBefore(key, generateAction);
+    	for (IAction contributedAction: contributedActions) {
+            menuManager.insertBefore(key, contributedAction);    		
+    	}
 
 		super.addGlobalActions(menuManager);
 	}
@@ -464,7 +488,12 @@ public class CodegenActionBarContributor
 	    ISelectionProvider selectionProvider = activeEditor instanceof ISelectionProvider ? (ISelectionProvider) activeEditor :	activeEditor.getEditorSite().getSelectionProvider();
    	    if (selectionProvider != null) {
    	    	selectionProvider.addSelectionChangedListener(generateAction);
-   	    }
+   	    	for (IAction contributedAction: contributedActions) {
+   	    		if (contributedAction instanceof ISelectionChangedListener) {
+   	    			selectionProvider.addSelectionChangedListener((ISelectionChangedListener) contributedAction);
+   	    		}
+   	    	}
+   	    }   	    
 	}
 	
 }

@@ -40,7 +40,7 @@ public interface ScriptedGenerator<T> extends Generator<T> {
 	 * @return the value of the '<em>Script</em>' attribute.
 	 * @see #setScript(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getScriptedGenerator_Script()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getScript();

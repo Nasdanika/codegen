@@ -120,6 +120,9 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.ZIP_ARCHIVE: return (EObject)createZipArchive();
 			case CodegenPackage.MUSTACHE: return (EObject)createMustache();
 			case CodegenPackage.BUNDLE_RESOURCE: return (EObject)createBundleResource();
+			case CodegenPackage.STATIC_BYTES: return (EObject)createStaticBytes();
+			case CodegenPackage.OBJECT_TEXT_GENERATOR: return (EObject)createObjectTextGenerator();
+			case CodegenPackage.OBJECT_STREAM_GENERATOR: return (EObject)createObjectStreamGenerator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -493,6 +496,36 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public BundleResource createBundleResource() {
 		BundleResourceImpl bundleResource = new BundleResourceImpl();
 		return bundleResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StaticBytes createStaticBytes() {
+		StaticBytesImpl staticBytes = new StaticBytesImpl();
+		return staticBytes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectTextGenerator createObjectTextGenerator() {
+		ObjectTextGeneratorImpl objectTextGenerator = new ObjectTextGeneratorImpl();
+		return objectTextGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectStreamGenerator createObjectStreamGenerator() {
+		ObjectStreamGeneratorImpl objectStreamGenerator = new ObjectStreamGeneratorImpl();
+		return objectStreamGenerator;
 	}
 
 	/**

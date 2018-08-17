@@ -167,6 +167,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResource/basePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResource/paths"/>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//StaticBytes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticBytes/content"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//ObjectGenerator">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//ObjectGenerator/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ObjectGenerator/delegate"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ObjectTextGenerator"/>
+    <genClasses ecoreClass="codegen.ecore#//ObjectStreamGenerator"/>
     <nestedGenPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
         ecorePackage="codegen.ecore#//java">
       <genDataTypes ecoreDataType="codegen.ecore#//java/IJavaProject"/>

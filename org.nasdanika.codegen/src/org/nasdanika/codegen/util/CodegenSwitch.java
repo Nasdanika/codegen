@@ -518,6 +518,44 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.STATIC_BYTES: {
+				StaticBytes staticBytes = (StaticBytes)theEObject;
+				T1 result = caseStaticBytes(staticBytes);
+				if (result == null) result = caseGenerator(staticBytes);
+				if (result == null) result = caseConfiguration(staticBytes);
+				if (result == null) result = caseWorkFactory(staticBytes);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.OBJECT_GENERATOR: {
+				ObjectGenerator<?> objectGenerator = (ObjectGenerator<?>)theEObject;
+				T1 result = caseObjectGenerator(objectGenerator);
+				if (result == null) result = caseGenerator(objectGenerator);
+				if (result == null) result = caseConfiguration(objectGenerator);
+				if (result == null) result = caseWorkFactory(objectGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.OBJECT_TEXT_GENERATOR: {
+				ObjectTextGenerator objectTextGenerator = (ObjectTextGenerator)theEObject;
+				T1 result = caseObjectTextGenerator(objectTextGenerator);
+				if (result == null) result = caseObjectGenerator(objectTextGenerator);
+				if (result == null) result = caseGenerator(objectTextGenerator);
+				if (result == null) result = caseConfiguration(objectTextGenerator);
+				if (result == null) result = caseWorkFactory(objectTextGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.OBJECT_STREAM_GENERATOR: {
+				ObjectStreamGenerator objectStreamGenerator = (ObjectStreamGenerator)theEObject;
+				T1 result = caseObjectStreamGenerator(objectStreamGenerator);
+				if (result == null) result = caseObjectGenerator(objectStreamGenerator);
+				if (result == null) result = caseGenerator(objectStreamGenerator);
+				if (result == null) result = caseConfiguration(objectStreamGenerator);
+				if (result == null) result = caseWorkFactory(objectStreamGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1164,6 +1202,66 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseBundleResource(BundleResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Static Bytes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Static Bytes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStaticBytes(StaticBytes object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseObjectGenerator(ObjectGenerator<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Text Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Text Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseObjectTextGenerator(ObjectTextGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Stream Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Stream Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseObjectStreamGenerator(ObjectStreamGenerator object) {
 		return null;
 	}
 

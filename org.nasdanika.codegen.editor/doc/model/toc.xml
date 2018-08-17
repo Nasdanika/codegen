@@ -67,6 +67,9 @@
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/Mustache.html" label="Mustache"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/NamedGenerator.html" label="NamedGenerator"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/Nature.html" label="Nature"/>
+<topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ObjectGenerator.html" label="ObjectGenerator"/>
+<topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ObjectStreamGenerator.html" label="ObjectStreamGenerator"/>
+<topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ObjectTextGenerator.html" label="ObjectTextGenerator"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/Project.html" label="Project"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/Provider.html" label="Provider"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ReconcileAction.html" label="ReconcileAction"/>
@@ -80,6 +83,7 @@
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedStreamGenerator.html" label="ScriptedStreamGenerator"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedTextFilter.html" label="ScriptedTextFilter"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/ScriptedTextGenerator.html" label="ScriptedTextGenerator"/>
+<topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/StaticBytes.html" label="StaticBytes"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/StaticText.html" label="StaticText"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/StreamContentReference.html" label="StreamContentReference"/>
 <topic href="doc/model/75726e3a6f72672e6e617364616e696b612e636f646567656e/SubMonitor.html" label="SubMonitor"/>

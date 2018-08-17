@@ -350,6 +350,21 @@ public class FeatureNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__FEATURE_XML_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -551,6 +566,21 @@ public class FeatureNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.FEATURE_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter

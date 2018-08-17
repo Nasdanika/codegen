@@ -270,6 +270,22 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createBundleResourceAdapter();
 			}
 			@Override
+			public Adapter caseStaticBytes(StaticBytes object) {
+				return createStaticBytesAdapter();
+			}
+			@Override
+			public <T> Adapter caseObjectGenerator(ObjectGenerator<T> object) {
+				return createObjectGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseObjectTextGenerator(ObjectTextGenerator object) {
+				return createObjectTextGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseObjectStreamGenerator(ObjectStreamGenerator object) {
+				return createObjectStreamGeneratorAdapter();
+			}
+			@Override
 			public Adapter caseConfiguration(Configuration object) {
 				return createConfigurationAdapter();
 			}
@@ -892,6 +908,62 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBundleResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.StaticBytes <em>Static Bytes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.StaticBytes
+	 * @generated
+	 */
+	public Adapter createStaticBytesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ObjectGenerator <em>Object Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ObjectGenerator
+	 * @generated
+	 */
+	public Adapter createObjectGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ObjectTextGenerator <em>Object Text Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ObjectTextGenerator
+	 * @generated
+	 */
+	public Adapter createObjectTextGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ObjectStreamGenerator <em>Object Stream Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ObjectStreamGenerator
+	 * @generated
+	 */
+	public Adapter createObjectStreamGeneratorAdapter() {
 		return null;
 	}
 

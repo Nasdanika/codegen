@@ -716,6 +716,75 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.StaticBytes} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StaticBytesItemProvider staticBytesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.StaticBytes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStaticBytesAdapter() {
+		if (staticBytesItemProvider == null) {
+			staticBytesItemProvider = new StaticBytesItemProvider(this);
+		}
+
+		return staticBytesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ObjectTextGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ObjectTextGeneratorItemProvider objectTextGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ObjectTextGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createObjectTextGeneratorAdapter() {
+		if (objectTextGeneratorItemProvider == null) {
+			objectTextGeneratorItemProvider = new ObjectTextGeneratorItemProvider(this);
+		}
+
+		return objectTextGeneratorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ObjectStreamGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ObjectStreamGeneratorItemProvider objectStreamGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ObjectStreamGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createObjectStreamGeneratorAdapter() {
+		if (objectStreamGeneratorItemProvider == null) {
+			objectStreamGeneratorItemProvider = new ObjectStreamGeneratorItemProvider(this);
+		}
+
+		return objectStreamGeneratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,6 +911,9 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
 		if (bundleResourceItemProvider != null) bundleResourceItemProvider.dispose();
+		if (staticBytesItemProvider != null) staticBytesItemProvider.dispose();
+		if (objectTextGeneratorItemProvider != null) objectTextGeneratorItemProvider.dispose();
+		if (objectStreamGeneratorItemProvider != null) objectStreamGeneratorItemProvider.dispose();
 	}
 
 }

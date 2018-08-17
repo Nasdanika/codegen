@@ -354,6 +354,21 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__MANIFEST_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -559,6 +574,21 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__BUILD_PROPERTIES_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -764,6 +794,21 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__PLUGIN_XML_GENERATOR,
 				 MavenFactory.eINSTANCE.createMavenNature()));
 
 		newChildDescriptors.add
@@ -965,6 +1010,21 @@ public class PluginNatureItemProvider extends NatureItemProvider {
 			(createChildParameter
 				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
 				 CodegenFactory.eINSTANCE.createBundleResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PLUGIN_NATURE__FRAGMENT_XML_GENERATOR,
+				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter

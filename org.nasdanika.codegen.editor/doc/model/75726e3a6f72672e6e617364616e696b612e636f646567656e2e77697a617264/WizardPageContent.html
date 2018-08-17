@@ -56,32 +56,32 @@
 <div>
   <ul class="nav nav-tabs">
     <li class="active">
-      <a href="#nsd_19x_tab_0" data-toggle="tab">Documentation</a>
+      <a href="#nsd_1c1_tab_0" data-toggle="tab">Documentation</a>
     </li>
     <li>
-      <a href="#nsd_19x_tab_1" data-toggle="tab">Diagram</a>
+      <a href="#nsd_1c1_tab_1" data-toggle="tab">Diagram</a>
     </li>
     <li>
-      <a href="#nsd_19x_tab_2" data-toggle="tab">
+      <a href="#nsd_1c1_tab_2" data-toggle="tab">
 <img src="../resources/images/EOperation.gif" style="margin-right:5px"/> Operations</a>
     </li>
   </ul>
   <div class="tab-content">
-    <div id="nsd_19x_tab_0" class="tab-pane active">
+    <div id="nsd_1c1_tab_0" class="tab-pane active">
       <div style="margin-top:10px;margin-bottom:10px" class="markdown-body"><p>Base class for wizard page content. Wizard implementations shall provide concrete subclasses of this class. </p></div></div>
-    <div id="nsd_19x_tab_1" class="tab-pane">
+    <div id="nsd_1c1_tab_1" class="tab-pane">
       <img src="WizardPageContent.png"/>
     </div>
-    <div id="nsd_19x_tab_2" class="tab-pane">
-      <div id="nsd_19y_accordion" role="tablist" class="panel-group">
+    <div id="nsd_1c1_tab_2" class="tab-pane">
+      <div id="nsd_1c2_accordion" role="tablist" class="panel-group">
         <div class="panel panel-default">
-          <div role="tab" id="nsd_19z_collapse_heading" class="panel-heading">
+          <div role="tab" id="nsd_1c3_collapse_heading" class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#nsd_19y_accordion" href="#nsd_19z_collapse_collapse" aria-expanded="false" aria-controls="nsd_19z_collapse_collapse"><b>shallShow</b> : EBoolean - <I>Returns true (default) if the page shall be shown. </I></a>
+              <a data-toggle="collapse" data-parent="#nsd_1c2_accordion" href="#nsd_1c3_collapse_collapse" aria-expanded="false" aria-controls="nsd_1c3_collapse_collapse"><b>shallShow</b> : EBoolean - <I>Returns true (default) if the page shall be shown. </I></a>
             </h4>
           </div>
-          <div id="nsd_19z_collapse_collapse" class="panel-collapse collapse">
-            <div id="nsd_19z_collapse_panel_body" class="panel-body"><p>Returns true (default) if the page shall be shown. Override to conditionally skip pages. For example, if the user doesn&rsquo;t check, say &ldquo;Connect to database&rdquo; checkbox, when then there is no point in showing &ldquo;Database Connection Configuration&rdquo; page.</p>
+          <div id="nsd_1c3_collapse_collapse" class="panel-collapse collapse">
+            <div id="nsd_1c3_collapse_panel_body" class="panel-body"><p>Returns true (default) if the page shall be shown. Override to conditionally skip pages. For example, if the user doesn&rsquo;t check, say &ldquo;Connect to database&rdquo; checkbox, when then there is no point in showing &ldquo;Database Connection Configuration&rdquo; page.</p>
               <table class="table table-bordered">
                 <tr>
                   <th style="align:left">Type</th>
@@ -109,13 +109,13 @@
           </div>
         </div>
         <div class="panel panel-default">
-          <div role="tab" id="nsd_1a0_collapse_heading" class="panel-heading">
+          <div role="tab" id="nsd_1c4_collapse_heading" class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#nsd_19y_accordion" href="#nsd_1a0_collapse_collapse" aria-expanded="false" aria-controls="nsd_1a0_collapse_collapse"><b>validate</b> : EBoolean - <I>Validates the content. </I></a>
+              <a data-toggle="collapse" data-parent="#nsd_1c2_accordion" href="#nsd_1c4_collapse_collapse" aria-expanded="false" aria-controls="nsd_1c4_collapse_collapse"><b>validate</b> : EBoolean - <I>Validates the content. </I></a>
             </h4>
           </div>
-          <div id="nsd_1a0_collapse_collapse" class="panel-collapse collapse">
-            <div id="nsd_1a0_collapse_panel_body" class="panel-body"><p>Validates the content. This method is used by isPageComplete(), which is turn is used by canFlipToNextPage() and canFinish(). isPageComplete() returns true if vaildation yields no error level diagnostics.</p>
+          <div id="nsd_1c4_collapse_collapse" class="panel-collapse collapse">
+            <div id="nsd_1c4_collapse_panel_body" class="panel-body"><p>Validates the content. This method is used by isPageComplete(), which is turn is used by canFlipToNextPage() and canFinish(). isPageComplete() returns true if vaildation yields no error level diagnostics.</p>
               <table class="table table-bordered">
                 <tr>
                   <th style="align:left">Type</th>

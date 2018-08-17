@@ -53,6 +53,9 @@ import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Nature;
+import org.nasdanika.codegen.ObjectGenerator;
+import org.nasdanika.codegen.ObjectStreamGenerator;
+import org.nasdanika.codegen.ObjectTextGenerator;
 import org.nasdanika.codegen.Project;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
@@ -65,6 +68,7 @@ import org.nasdanika.codegen.ScriptedStreamFilter;
 import org.nasdanika.codegen.ScriptedStreamGenerator;
 import org.nasdanika.codegen.ScriptedTextFilter;
 import org.nasdanika.codegen.ScriptedTextGenerator;
+import org.nasdanika.codegen.StaticBytes;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.TextContentReference;
@@ -383,6 +387,34 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass bundleResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass staticBytesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectTextGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectStreamGeneratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1326,6 +1358,60 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStaticBytes() {
+		return staticBytesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStaticBytes_Content() {
+		return (EAttribute)staticBytesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getObjectGenerator() {
+		return objectGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObjectGenerator_Delegate() {
+		return (EAttribute)objectGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getObjectTextGenerator() {
+		return objectTextGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getObjectStreamGenerator() {
+		return objectStreamGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1617,6 +1703,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__BASE_PATH);
 		createEAttribute(bundleResourceEClass, BUNDLE_RESOURCE__PATHS);
 
+		staticBytesEClass = createEClass(STATIC_BYTES);
+		createEAttribute(staticBytesEClass, STATIC_BYTES__CONTENT);
+
+		objectGeneratorEClass = createEClass(OBJECT_GENERATOR);
+		createEAttribute(objectGeneratorEClass, OBJECT_GENERATOR__DELEGATE);
+
+		objectTextGeneratorEClass = createEClass(OBJECT_TEXT_GENERATOR);
+
+		objectStreamGeneratorEClass = createEClass(OBJECT_STREAM_GENERATOR);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 		freeMarkerTemplateLoaderTypeEEnum = createEEnum(FREE_MARKER_TEMPLATE_LOADER_TYPE);
@@ -1688,6 +1784,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addETypeParameter(providerEClass, "T");
 		ETypeParameter scriptedGeneratorEClass_T = addETypeParameter(scriptedGeneratorEClass, "T");
 		ETypeParameter scriptedFilterEClass_T = addETypeParameter(scriptedFilterEClass, "T");
+		ETypeParameter objectGeneratorEClass_T = addETypeParameter(objectGeneratorEClass, "T");
 		addETypeParameter(listEDataType, "T");
 		addETypeParameter(mergerEDataType, "T");
 
@@ -1860,6 +1957,22 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getIContainer());
 		g1.getETypeArguments().add(g2);
 		bundleResourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		staticBytesEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(objectGeneratorEClass_T);
+		g1.getETypeArguments().add(g2);
+		objectGeneratorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getObjectGenerator());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		objectTextGeneratorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getObjectGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		objectStreamGeneratorEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1991,7 +2104,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(javaStreamGeneratorEClass, JavaStreamGenerator.class, "JavaStreamGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scriptedGeneratorEClass, ScriptedGenerator.class, "ScriptedGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getScriptedGenerator_Script(), ecorePackage.getEString(), "script", null, 0, 1, ScriptedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScriptedGenerator_Script(), ecorePackage.getEString(), "script", null, 1, 1, ScriptedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(scriptedTextGeneratorEClass, ScriptedTextGenerator.class, "ScriptedTextGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2022,6 +2135,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getBundleResource_Bundle(), ecorePackage.getEString(), "bundle", null, 1, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundleResource_BasePath(), ecorePackage.getEString(), "basePath", null, 0, 1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundleResource_Paths(), ecorePackage.getEString(), "paths", null, 0, -1, BundleResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(staticBytesEClass, StaticBytes.class, "StaticBytes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaticBytes_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, StaticBytes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(objectGeneratorEClass, ObjectGenerator.class, "ObjectGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getObjectGenerator_Delegate(), ecorePackage.getEJavaObject(), "delegate", null, 1, 1, ObjectGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(objectTextGeneratorEClass, ObjectTextGenerator.class, "ObjectTextGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(objectStreamGeneratorEClass, ObjectStreamGenerator.class, "ObjectStreamGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -2556,6 +2679,30 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Paths to match, interpolated. If path ends with / it means a directory and all resources from that directory match."
+		   });
+		addAnnotation
+		  (staticBytesEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Static bytes array. Typically it would be used in programmatically created generator models."
+		   });
+		addAnnotation
+		  (getStaticBytes_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "Text content."
+		   });
+		addAnnotation
+		  (objectGeneratorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generator delegating to a Java object. Typically sub-classes of this class would be used by programmatically constructed generators."
+		   });
+		addAnnotation
+		  (getObjectGenerator_Delegate(),
+		   source,
+		   new String[] {
+			   "documentation", "Object to which generation is delegated. Must implement Generator<T> where T is String or InputStream depending on the sub-class."
 		   });
 	}
 
