@@ -36,7 +36,7 @@
             primary="false">
       </toc>
       <toc
-            file="doc/model/toc.xml"
+            file="doc/modeldoc/toc.xml"
             primary="false">
       </toc>
    </extension>

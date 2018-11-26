@@ -102,9 +102,14 @@ Everyone is permitted to copy and distribute copies of this Agreement, but in or
 This Agreement is governed by the laws of the State of New York and the intellectual property laws of the United States of America. No party to this Agreement will bring a legal action under this Agreement more than one year after the cause of action arose. Each party waives its rights to a jury trial in any resulting litigation.
    </license>
 
-   <includes
-         id="org.nasdanika.config.feature"
-         version="0.0.0"/>
+   <url>
+      <update label="Nasdanika Codegen" url="https://www.nasdanika.org/products/codegen/repository"/>
+      <discovery label="Nasdanika Config" url="https://www.nasdanika.org/products/config/repository"/>
+   </url>
+
+   <requires>
+      <import feature="org.nasdanika.config.feature" version="0.1.0.qualifier"/>
+   </requires>
 
    <plugin
          id="org.nasdanika.codegen"

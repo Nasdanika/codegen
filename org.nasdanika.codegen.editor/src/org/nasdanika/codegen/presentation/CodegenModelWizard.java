@@ -32,14 +32,20 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.CheckboxTreeViewer;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -57,6 +63,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Workspace;
 import org.nasdanika.codegen.provider.CodegenEditPlugin;
 
 
@@ -116,6 +123,8 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected CodegenModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	
+	protected WorkbenchResourcesSelectionWizardPage workbenchResourcesSelectionWizardPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -180,19 +189,50 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected EObject createInitialModel() {
+	protected EObject createInitialModel(IFile modelFile) {
 		EClass eClass = (EClass)codegenPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		if (eClass.getInstanceClass() == Workspace.class) {
+			createModelFromTemplate(
+					modelFile, 
+					ResourcesPlugin.getWorkspace().getRoot(), 
+					workbenchResourcesSelectionWizardPage.getCheckedContentProvider());			
+		}
+		
 		EObject rootObject = codegenFactory.create(eClass);
 		return rootObject;
+	}
+
+	/**
+	 * Creates initial model from template resources.
+	 * @param modelFile Model file is used to place template resources into the same project and to 
+	 * compute relative path to those resources.
+	 * @param element Template element to create model from, e.g. project or file.
+	 * @param checkboxTreeViewer Provides checked state and content provider.
+	 * @return
+	 */
+	protected EObject createModelFromTemplate(
+			IFile modelFile, 
+			Object element, 
+			ITreeContentProvider contentProvider) {
+		// TODO Create things based on type.
+		if (element == ResourcesPlugin.getWorkspace().getRoot()) {
+			// Entry rule.
+
+			// TODO - builder from extensions.
+			return codegenFactory.createWorkspace();
+		}
+		
+		return null;
+		
 	}
 
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -222,7 +262,7 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 
 							// Add the initial model object to the contents.
 							//
-							EObject rootObject = createInitialModel();
+							EObject rootObject = createInitialModel(modelFile);
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
@@ -367,7 +407,7 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
+		 * @generated NOT
 		 */
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE); {
@@ -398,6 +438,15 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 				data.horizontalAlignment = GridData.FILL;
 				data.grabExcessHorizontalSpace = true;
 				initialObjectField.setLayoutData(data);
+				SelectionListener listener = new SelectionAdapter() {
+					
+					@Override
+					public void widgetDefaultSelected(SelectionEvent e) {
+						CodegenModelWizardInitialObjectCreationPage.this.getContainer().updateButtons();
+					}
+					
+				};
+				initialObjectField.addSelectionListener(listener);
 			}
 
 			for (String objectName : getInitialObjectNames()) {
@@ -434,6 +483,11 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 
 			setPageComplete(validatePage());
 			setControl(composite);
+		}
+		
+		@Override
+		public boolean canFlipToNextPage() {
+			return super.canFlipToNextPage() && "Workspace".equals(initialObjectField.getText());
 		}
 
 		/**
@@ -541,7 +595,7 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 		@Override
-	public void addPages() {
+	public void addPages() {			
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new CodegenModelWizardNewFileCreationPage("Whatever", selection);
@@ -586,7 +640,10 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage = new CodegenModelWizardInitialObjectCreationPage("Whatever2");
 		initialObjectCreationPage.setTitle(CodegenEditorPlugin.INSTANCE.getString("_UI_CodegenModelWizard_label"));
 		initialObjectCreationPage.setDescription(CodegenEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
+		addPage(initialObjectCreationPage);		
+		
+		workbenchResourcesSelectionWizardPage = new WorkbenchResourcesSelectionWizardPage();
+		addPage(workbenchResourcesSelectionWizardPage);
 	}
 
 	/**

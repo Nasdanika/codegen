@@ -12,12 +12,16 @@
  
    <menu name="Main">
       <item name="Overview" href="index.html" />
-      <item name="Code generation wizards" href="code-generation-wizards.html" />
-      <item name="Multi-form model editors" href="multi-form-model-editors.html" />
-      <item name="Creating a model-driven code generator" href="creating-model-driven-code-generator.html" />
+      <item name="Developer guide" href="developer-guide/index.html" />
       <item name="Model Documentation" href="modeldoc/index.html" />
       <item name="Project information" href="project-info.html" />      
    </menu>
+   
+   <menu name="User Guide">
+      <item name="Code generation wizards" href="user-guide/code-generation-wizards.html" />
+      <item name="Multi-form model editors" href="user-guide/multi-form-model-editors.html" />
+      <item name="Creating a model-driven code generator" href="user-guide/creating-model-driven-code-generator.html" />
+   </menu>  
 
    <menu name="Java API">
       <item name="Model" href="apidocs/model/index.html" />

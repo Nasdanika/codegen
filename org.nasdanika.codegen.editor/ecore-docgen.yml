@@ -2,8 +2,8 @@ models:
   - ../org.nasdanika.codegen/model/codegen.genmodel
   
 output:
-  help: /org.nasdanika.codegen.editor/doc/model
-  site: /org.nasdanika.codegen.editor/doc/site
+  help: /org.nasdanika.codegen.editor/doc/modeldoc
+  site: /org.nasdanika.codegen.repository/src/site/resources/modeldoc
 
 apidocs:
   - https://www.nasdanika.org/products/codegen/apidocs/model/

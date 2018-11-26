@@ -14,7 +14,7 @@ import org.nasdanika.codegen.wizard.WizardPage;
 import org.nasdanika.presentation.EObjectViewer;
 
 /**
- * Viewer which uses a form to edit bounded context generator model information.
+ * Viewer which uses a form to edit model information.
  * @author Pavel Vlasov
  *
  */
