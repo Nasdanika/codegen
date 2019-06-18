@@ -1,0 +1,17 @@
+models:
+  - ../org.nasdanika.codegen/model/codegen.genmodel
+  
+output:
+  help: /org.nasdanika.codegen.editor/doc/modeldoc
+  site: /org.nasdanika.codegen.repository/src/site/resources/modeldoc
+
+apidocs:
+  - https://www.nasdanika.org/products/codegen/apidocs/model/
+  - https://docs.oracle.com/javase/8/docs/api/
+  
+modeldocs:
+  site:
+    "urn:org.nasdanika.config": "https://www.nasdanika.org/products/config/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"
+    "http://www.eclipse.org/emf/2002/Ecore": "https://www.nasdanika.org/products/config/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"
+  
+  

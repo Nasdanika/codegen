@@ -1,0 +1,24 @@
+/**
+ */
+package org.nasdanika.codegen;
+
+import java.io.InputStream;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Binary File</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * Binary file, with ``InputStream`` content.
+ * <!-- end-model-doc -->
+ *
+ *
+ * @see org.nasdanika.codegen.CodegenPackage#getBinaryFile()
+ * @model superTypes="org.nasdanika.codegen.File&lt;org.nasdanika.codegen.InputStream&gt;"
+ * @generated
+ */
+public interface BinaryFile extends File<InputStream> {
+
+} // BinaryFile

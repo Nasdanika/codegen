@@ -22,4 +22,6 @@ jobs:
     
     steps:
       - checkout
-      - run: cd org.nasdanika.codegen.parent; mvn -s ../.circleci/settings.xml clean javadoc:javadoc package site-deploy
+      - run: 
+            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package site-deploy
+            no_output_timeout: 120m
