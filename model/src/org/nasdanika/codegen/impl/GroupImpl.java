@@ -3,14 +3,18 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
@@ -57,10 +61,85 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Generator<T>> getElements() {
-		return (EList<Generator<T>>)eGet(CodegenPackage.Literals.GROUP__ELEMENTS, true);
+		return (EList<Generator<T>>)eDynamicGet(CodegenPackage.GROUP__ELEMENTS, CodegenPackage.Literals.GROUP__ELEMENTS, true, true);
 	}
 		
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CodegenPackage.GROUP__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.GROUP__ELEMENTS:
+				return getElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.GROUP__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Generator<T>>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.GROUP__ELEMENTS:
+				getElements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.GROUP__ELEMENTS:
+				return !getElements().isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
 	@Override
 	public Work<List<T>> createWorkItem() throws Exception {
 		Map<Generator<?>, Work<List<T>>> workMap = new HashMap<>();

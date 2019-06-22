@@ -28,6 +28,16 @@ import org.nasdanika.config.Context;
  */
 public class StaticBytesImpl extends GeneratorImpl<InputStream> implements StaticBytes {
 	/**
+	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final byte[] CONTENT_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -51,8 +61,9 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public byte[] getContent() {
-		return (byte[])eGet(CodegenPackage.Literals.STATIC_BYTES__CONTENT, true);
+		return (byte[])eDynamicGet(CodegenPackage.STATIC_BYTES__CONTENT, CodegenPackage.Literals.STATIC_BYTES__CONTENT, true, true);
 	}
 
 	/**
@@ -60,10 +71,69 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContent(byte[] newContent) {
-		eSet(CodegenPackage.Literals.STATIC_BYTES__CONTENT, newContent);
+		eDynamicSet(CodegenPackage.STATIC_BYTES__CONTENT, CodegenPackage.Literals.STATIC_BYTES__CONTENT, newContent);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_BYTES__CONTENT:
+				return getContent();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_BYTES__CONTENT:
+				setContent((byte[])newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_BYTES__CONTENT:
+				setContent(CONTENT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_BYTES__CONTENT:
+				return CONTENT_EDEFAULT == null ? getContent() != null : !CONTENT_EDEFAULT.equals(getContent());
+		}
+		return super.eIsSet(featureID);
+	}
+
 	@Override
 	public Work<InputStream> createWorkItem() throws Exception {
 		return new Work<InputStream>() {

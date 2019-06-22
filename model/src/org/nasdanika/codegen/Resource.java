@@ -2,13 +2,15 @@
  */
 package org.nasdanika.codegen;
 
+import java.io.InputStream;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Generates project resource - file or directory.
+ * ResourceGenerator generates an InputStream resource - file or container. 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,10 +22,10 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResource()
- * @model abstract="true"
+ * @model abstract="true" TBounds="org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;"
  * @generated
  */
-public interface Resource<T> extends ResourceGenerator<T> {
+public interface Resource<T extends org.nasdanika.common.resources.Resource<InputStream>> extends Generator<T> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -33,12 +35,12 @@ public interface Resource<T> extends ResourceGenerator<T> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resource name. Interpolated. May be a path name, i.e. contain separators, e.g. ``mydir/myfile.txt``
+	 * Generator name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResource_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

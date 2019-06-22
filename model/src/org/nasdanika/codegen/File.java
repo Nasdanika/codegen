@@ -2,9 +2,8 @@
  */
 package org.nasdanika.codegen;
 
-import org.eclipse.core.resources.IFile;
+import java.io.InputStream;
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.config.Service;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,25 +11,25 @@ import org.nasdanika.config.Service;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Generates IFile.
+ * Generates File for a given content.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
  *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&lt;org.nasdanika.codegen.InputStream&gt;&gt;"
  * @generated
  */
-public interface File<C> extends Resource<IFile> {
+public interface File<C> extends Resource<org.nasdanika.common.resources.File<InputStream>> {
 
 	/**
-	 * Returns the value of the '<em><b>Merger</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Merger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Merger</em>' containment reference isn't clear,
@@ -42,23 +41,23 @@ public interface File<C> extends Resource<IFile> {
 	 * content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` 
 	 * where ``T`` is ``String`` for text files and ``InputStream`` for binary files.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merger</em>' containment reference.
-	 * @see #setMerger(Service)
+	 * @return the value of the '<em>Merger</em>' attribute.
+	 * @see #setMerger(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Merger()
-	 * @model containment="true"
+	 * @model annotation="org.nasdanika.ui.java-class root-type='org.nasdanika.codegen.Merger' super-interfaces='org.nasdanika.codegen.Merger'"
 	 * @generated
 	 */
-	Service getMerger();
+	String getMerger();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}' containment reference.
+	 * Sets the value of the '{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Merger</em>' containment reference.
+	 * @param value the new value of the '<em>Merger</em>' attribute.
 	 * @see #getMerger()
 	 * @generated
 	 */
-	void setMerger(Service value);
+	void setMerger(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.

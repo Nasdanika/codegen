@@ -2,7 +2,7 @@
  */
 package org.nasdanika.codegen;
 
-import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.eclipse.emf.cdo.CDOObject;
  * <!-- begin-model-doc -->
  * This class allows to mount generators to the parent generator context as property providers
  * accessible by name. It can be used for conditional invocation of named
- * generators by the containing generator. context.get(generatorName) returns Work created by contained generator.
+ * generators by the containing generator. context.get(generatorName) returns Work created by the contained generator or the work result if executeWork is set to true.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,10 +27,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface NamedGenerator extends CDOObject {
+public interface NamedGenerator extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

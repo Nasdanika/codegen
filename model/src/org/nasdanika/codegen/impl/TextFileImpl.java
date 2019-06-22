@@ -31,6 +31,16 @@ import org.nasdanika.config.Context;
  */
 public class TextFileImpl extends FileImpl<String> implements TextFile {
 	/**
+	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncoding()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ENCODING_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -54,8 +64,9 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getEncoding() {
-		return (String)eGet(CodegenPackage.Literals.TEXT_FILE__ENCODING, true);
+		return (String)eDynamicGet(CodegenPackage.TEXT_FILE__ENCODING, CodegenPackage.Literals.TEXT_FILE__ENCODING, true, true);
 	}
 
 	/**
@@ -63,8 +74,67 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEncoding(String newEncoding) {
-		eSet(CodegenPackage.Literals.TEXT_FILE__ENCODING, newEncoding);
+		eDynamicSet(CodegenPackage.TEXT_FILE__ENCODING, CodegenPackage.Literals.TEXT_FILE__ENCODING, newEncoding);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.TEXT_FILE__ENCODING:
+				return getEncoding();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.TEXT_FILE__ENCODING:
+				setEncoding((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.TEXT_FILE__ENCODING:
+				setEncoding(ENCODING_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.TEXT_FILE__ENCODING:
+				return ENCODING_EDEFAULT == null ? getEncoding() != null : !ENCODING_EDEFAULT.equals(getEncoding());
+		}
+		return super.eIsSet(featureID);
 	}
 
 	@Override

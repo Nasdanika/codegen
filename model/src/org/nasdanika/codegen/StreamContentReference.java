@@ -9,6 +9,10 @@ import java.io.InputStream;
  * A representation of the model object '<em><b>Stream Content Reference</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * InputStream binding of ContentReference.
+ * <!-- end-model-doc -->
+ *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getStreamContentReference()
  * @model superTypes="org.nasdanika.codegen.ContentReference&lt;org.nasdanika.codegen.InputStream&gt;"

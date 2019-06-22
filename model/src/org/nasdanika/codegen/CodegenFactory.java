@@ -40,15 +40,6 @@ public interface CodegenFactory extends EFactory {
 	<T> Group<T> createGroup();
 
 	/**
-	 * Returns a new object of class '<em>Resource Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Group</em>'.
-	 * @generated
-	 */
-	ResourceGroup createResourceGroup();
-
-	/**
 	 * Returns a new object of class '<em>Workspace</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,33 +47,6 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	Workspace createWorkspace();
-
-	/**
-	 * Returns a new object of class '<em>Folder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Folder</em>'.
-	 * @generated
-	 */
-	Folder createFolder();
-
-	/**
-	 * Returns a new object of class '<em>Generic File</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generic File</em>'.
-	 * @generated
-	 */
-	GenericFile createGenericFile();
-
-	/**
-	 * Returns a new object of class '<em>Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Project</em>'.
-	 * @generated
-	 */
-	Project createProject();
 
 	/**
 	 * Returns a new object of class '<em>Binary File</em>'.
@@ -103,13 +67,13 @@ public interface CodegenFactory extends EFactory {
 	TextFile createTextFile();
 
 	/**
-	 * Returns a new object of class '<em>Resource Reference</em>'.
+	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Reference</em>'.
+	 * @return a new object of class '<em>Container</em>'.
 	 * @generated
 	 */
-	ResourceReference createResourceReference();
+	Container createContainer();
 
 	/**
 	 * Returns a new object of class '<em>Static Text</em>'.
@@ -148,15 +112,6 @@ public interface CodegenFactory extends EFactory {
 	Interpolator createInterpolator();
 
 	/**
-	 * Returns a new object of class '<em>JET Emitter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>JET Emitter</em>'.
-	 * @generated
-	 */
-	JETEmitter createJETEmitter();
-
-	/**
 	 * Returns a new object of class '<em>Java Text Filter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,40 +148,13 @@ public interface CodegenFactory extends EFactory {
 	JavaStreamGenerator createJavaStreamGenerator();
 
 	/**
-	 * Returns a new object of class '<em>Scripted Text Generator</em>'.
+	 * Returns a new object of class '<em>Java Resource Generator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scripted Text Generator</em>'.
+	 * @return a new object of class '<em>Java Resource Generator</em>'.
 	 * @generated
 	 */
-	ScriptedTextGenerator createScriptedTextGenerator();
-
-	/**
-	 * Returns a new object of class '<em>Scripted Stream Generator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scripted Stream Generator</em>'.
-	 * @generated
-	 */
-	ScriptedStreamGenerator createScriptedStreamGenerator();
-
-	/**
-	 * Returns a new object of class '<em>Scripted Text Filter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scripted Text Filter</em>'.
-	 * @generated
-	 */
-	ScriptedTextFilter createScriptedTextFilter();
-
-	/**
-	 * Returns a new object of class '<em>Scripted Stream Filter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scripted Stream Filter</em>'.
-	 * @generated
-	 */
-	ScriptedStreamFilter createScriptedStreamFilter();
+	JavaResourceGenerator createJavaResourceGenerator();
 
 	/**
 	 * Returns a new object of class '<em>Text Content Reference</em>'.
@@ -265,15 +193,6 @@ public interface CodegenFactory extends EFactory {
 	Mustache createMustache();
 
 	/**
-	 * Returns a new object of class '<em>Bundle Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Resource</em>'.
-	 * @generated
-	 */
-	BundleResource createBundleResource();
-
-	/**
 	 * Returns a new object of class '<em>Static Bytes</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,24 +200,6 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	StaticBytes createStaticBytes();
-
-	/**
-	 * Returns a new object of class '<em>Object Text Generator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Text Generator</em>'.
-	 * @generated
-	 */
-	ObjectTextGenerator createObjectTextGenerator();
-
-	/**
-	 * Returns a new object of class '<em>Object Stream Generator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Stream Generator</em>'.
-	 * @generated
-	 */
-	ObjectStreamGenerator createObjectStreamGenerator();
 
 	/**
 	 * Returns the package supported by this factory.

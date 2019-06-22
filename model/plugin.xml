@@ -14,28 +14,4 @@
             genModel="model/codegen.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated codegen -->
-      <package
-            uri="urn:org.nasdanika.codegen.java"
-            class="org.nasdanika.codegen.java.JavaPackage"
-            genModel="model/codegen.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated codegen -->
-      <package
-            uri="urn:org.nasdanika.codegen.maven"
-            class="org.nasdanika.codegen.maven.MavenPackage"
-            genModel="model/codegen.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated codegen -->
-      <package
-            uri="urn:org.nasdanika.codegen.wizard"
-            class="org.nasdanika.codegen.wizard.WizardPackage"
-            genModel="model/codegen.genmodel"/>
-   </extension>
-
 </plugin>

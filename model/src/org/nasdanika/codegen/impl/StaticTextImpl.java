@@ -24,6 +24,16 @@ import org.nasdanika.config.Context;
  */
 public class StaticTextImpl extends GeneratorImpl<String> implements StaticText {
 	/**
+	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTENT_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -47,8 +57,9 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getContent() {
-		return (String)eGet(CodegenPackage.Literals.STATIC_TEXT__CONTENT, true);
+		return (String)eDynamicGet(CodegenPackage.STATIC_TEXT__CONTENT, CodegenPackage.Literals.STATIC_TEXT__CONTENT, true, true);
 	}
 
 	/**
@@ -56,8 +67,67 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContent(String newContent) {
-		eSet(CodegenPackage.Literals.STATIC_TEXT__CONTENT, newContent);
+		eDynamicSet(CodegenPackage.STATIC_TEXT__CONTENT, CodegenPackage.Literals.STATIC_TEXT__CONTENT, newContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_TEXT__CONTENT:
+				return getContent();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_TEXT__CONTENT:
+				setContent((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_TEXT__CONTENT:
+				setContent(CONTENT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.STATIC_TEXT__CONTENT:
+				return CONTENT_EDEFAULT == null ? getContent() != null : !CONTENT_EDEFAULT.equals(getContent());
+		}
+		return super.eIsSet(featureID);
 	}
 
 	@Override

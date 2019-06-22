@@ -48,6 +48,43 @@ import freemarker.template.WrappingTemplateModel;
  */
 public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements FreeMarkerGenerator {
 	/**
+	 * The default value of the '{@link #getTemplateLoaderType() <em>Template Loader Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemplateLoaderType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FreeMarkerTemplateLoaderType TEMPLATE_LOADER_TYPE_EDEFAULT = FreeMarkerTemplateLoaderType.URL;
+	/**
+	 * The default value of the '{@link #getBase() <em>Base</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBase()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BASE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTemplate() <em>Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemplate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEMPLATE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODEL_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -71,8 +108,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FreeMarkerTemplateLoaderType getTemplateLoaderType() {
-		return (FreeMarkerTemplateLoaderType)eGet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, true);
+		return (FreeMarkerTemplateLoaderType)eDynamicGet(CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, true, true);
 	}
 
 	/**
@@ -80,8 +118,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTemplateLoaderType(FreeMarkerTemplateLoaderType newTemplateLoaderType) {
-		eSet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, newTemplateLoaderType);
+		eDynamicSet(CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE, newTemplateLoaderType);
 	}
 
 	/**
@@ -89,8 +128,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBase() {
-		return (String)eGet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__BASE, true);
+		return (String)eDynamicGet(CodegenPackage.FREE_MARKER_GENERATOR__BASE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__BASE, true, true);
 	}
 
 	/**
@@ -98,8 +138,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBase(String newBase) {
-		eSet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__BASE, newBase);
+		eDynamicSet(CodegenPackage.FREE_MARKER_GENERATOR__BASE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__BASE, newBase);
 	}
 
 	/**
@@ -107,8 +148,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTemplate() {
-		return (String)eGet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE, true);
+		return (String)eDynamicGet(CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE, true, true);
 	}
 
 	/**
@@ -116,8 +158,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTemplate(String newTemplate) {
-		eSet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE, newTemplate);
+		eDynamicSet(CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE, CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE, newTemplate);
 	}
 
 	/**
@@ -125,8 +168,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getModel() {
-		return (String)eGet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__MODEL, true);
+		return (String)eDynamicGet(CodegenPackage.FREE_MARKER_GENERATOR__MODEL, CodegenPackage.Literals.FREE_MARKER_GENERATOR__MODEL, true, true);
 	}
 
 	/**
@@ -134,10 +178,99 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setModel(String newModel) {
-		eSet(CodegenPackage.Literals.FREE_MARKER_GENERATOR__MODEL, newModel);
+		eDynamicSet(CodegenPackage.FREE_MARKER_GENERATOR__MODEL, CodegenPackage.Literals.FREE_MARKER_GENERATOR__MODEL, newModel);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE:
+				return getTemplateLoaderType();
+			case CodegenPackage.FREE_MARKER_GENERATOR__BASE:
+				return getBase();
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE:
+				return getTemplate();
+			case CodegenPackage.FREE_MARKER_GENERATOR__MODEL:
+				return getModel();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE:
+				setTemplateLoaderType((FreeMarkerTemplateLoaderType)newValue);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__BASE:
+				setBase((String)newValue);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE:
+				setTemplate((String)newValue);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__MODEL:
+				setModel((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE:
+				setTemplateLoaderType(TEMPLATE_LOADER_TYPE_EDEFAULT);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__BASE:
+				setBase(BASE_EDEFAULT);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE:
+				setTemplate(TEMPLATE_EDEFAULT);
+				return;
+			case CodegenPackage.FREE_MARKER_GENERATOR__MODEL:
+				setModel(MODEL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE:
+				return getTemplateLoaderType() != TEMPLATE_LOADER_TYPE_EDEFAULT;
+			case CodegenPackage.FREE_MARKER_GENERATOR__BASE:
+				return BASE_EDEFAULT == null ? getBase() != null : !BASE_EDEFAULT.equals(getBase());
+			case CodegenPackage.FREE_MARKER_GENERATOR__TEMPLATE:
+				return TEMPLATE_EDEFAULT == null ? getTemplate() != null : !TEMPLATE_EDEFAULT.equals(getTemplate());
+			case CodegenPackage.FREE_MARKER_GENERATOR__MODEL:
+				return MODEL_EDEFAULT == null ? getModel() != null : !MODEL_EDEFAULT.equals(getModel());
+		}
+		return super.eIsSet(featureID);
+	}
+
 	@Override
 	public Work<String> createWorkItem() throws Exception {
 		return new Work<String>() {

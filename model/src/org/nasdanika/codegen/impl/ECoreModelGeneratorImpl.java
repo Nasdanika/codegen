@@ -33,6 +33,17 @@ import org.nasdanika.config.Context;
  */
 public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implements ECoreModelGenerator {
 	/**
+	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODEL_EDEFAULT = null;
+
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -56,8 +67,9 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getModel() {
-		return (String)eGet(CodegenPackage.Literals.ECORE_MODEL_GENERATOR__MODEL, true);
+		return (String)eDynamicGet(CodegenPackage.ECORE_MODEL_GENERATOR__MODEL, CodegenPackage.Literals.ECORE_MODEL_GENERATOR__MODEL, true, true);
 	}
 
 	/**
@@ -65,10 +77,69 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setModel(String newModel) {
-		eSet(CodegenPackage.Literals.ECORE_MODEL_GENERATOR__MODEL, newModel);
+		eDynamicSet(CodegenPackage.ECORE_MODEL_GENERATOR__MODEL, CodegenPackage.Literals.ECORE_MODEL_GENERATOR__MODEL, newModel);
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.ECORE_MODEL_GENERATOR__MODEL:
+				return getModel();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.ECORE_MODEL_GENERATOR__MODEL:
+				setModel((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.ECORE_MODEL_GENERATOR__MODEL:
+				setModel(MODEL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.ECORE_MODEL_GENERATOR__MODEL:
+				return MODEL_EDEFAULT == null ? getModel() != null : !MODEL_EDEFAULT.equals(getModel());
+		}
+		return super.eIsSet(featureID);
+	}
 
 	@Override
 	public Work<InputStream> createWorkItem() throws Exception {

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.config.Configuration;
+import org.eclipse.emf.ecore.EObject;
 
 
 /**
@@ -25,13 +25,16 @@ import org.nasdanika.config.Configuration;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
- * @model abstract="true" superTypes="org.nasdanika.config.Configuration org.nasdanika.codegen.WorkFactory&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.WorkFactory&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
  * @generated
  */
-public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
+public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 
 	/**
 	 * Returns the value of the '<em><b>Controller</b></em>' attribute.
@@ -68,12 +71,99 @@ public interface Generator<T> extends Configuration, WorkFactory<List<T>> {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This class allows to mount generators to the parent generator context as property providers
+	 * accessible by name. It can be used for conditional invocation of named
+	 * generators by the containing generator. context.get(generatorName) returns Work created by contained generator.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Named Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_NamedGenerators()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<NamedGenerator> getNamedGenerators();
+
+	/**
+	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generator creates work  only if this attribute is true. 
+	 * The purpose of this attribute is to help with generator model development 
+	 * by disabling model parts which are still work in progress and would fail the generation
+	 * process, or, on the opposite, already working parts which would create delay and distraction
+	 * in testing and troubleshooting. 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Enabled</em>' attribute.
+	 * @see #setEnabled(boolean)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Enabled()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isEnabled();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enabled</em>' attribute.
+	 * @see #isEnabled()
+	 * @generated
+	 */
+	void setEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generator description.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Custom generator configuration in YAML format.
+	 * Configuration is merged into a context passed to work created by the generator.
+	 * Configuration values may contain interpolation tokens referencing other properties.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Configuration</em>' attribute.
+	 * @see #setConfiguration(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Configuration()
+	 * @model
+	 * @generated
+	 */
+	String getConfiguration();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Configuration</em>' attribute.
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	void setConfiguration(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

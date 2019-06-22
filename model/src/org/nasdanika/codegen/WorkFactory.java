@@ -1,5 +1,7 @@
 package org.nasdanika.codegen;
 
+import org.nasdanika.common.Work;
+
 /**
  * Creates work to be executed.
  * @author Pavel Vlasov

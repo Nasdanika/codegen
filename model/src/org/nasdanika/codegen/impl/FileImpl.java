@@ -4,33 +4,31 @@ package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.CodegenUtil;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ReconcileAction;
-import org.nasdanika.codegen.ResourceModificationTracker;
-import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.config.Context;
-import org.nasdanika.config.MutableContext;
-import org.nasdanika.config.Service;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,13 +38,23 @@ import org.nasdanika.config.Service;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMerger <em>Merger</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMerger <em>Merger</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C> {
+public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.resources.File<InputStream>> implements File<C> {
+	/**
+	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMerger()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MERGER_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,8 +79,9 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Service getMerger() {
-		return (Service)eGet(CodegenPackage.Literals.FILE__MERGER, true);
+	@Override
+	public String getMerger() {
+		return (String)eDynamicGet(CodegenPackage.FILE__MERGER, CodegenPackage.Literals.FILE__MERGER, true, true);
 	}
 
 	/**
@@ -80,8 +89,39 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMerger(Service newMerger) {
-		eSet(CodegenPackage.Literals.FILE__MERGER, newMerger);
+	@Override
+	public void setMerger(String newMerger) {
+		eDynamicSet(CodegenPackage.FILE__MERGER, CodegenPackage.Literals.FILE__MERGER, newMerger);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CodegenPackage.FILE__GENERATORS:
+				return ((InternalEList<?>)getGenerators()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.FILE__GENERATORS:
+				return getGenerators();
+			case CodegenPackage.FILE__MERGER:
+				return getMerger();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -90,8 +130,63 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.FILE__GENERATORS:
+				getGenerators().clear();
+				getGenerators().addAll((Collection<? extends Generator<C>>)newValue);
+				return;
+			case CodegenPackage.FILE__MERGER:
+				setMerger((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.FILE__GENERATORS:
+				getGenerators().clear();
+				return;
+			case CodegenPackage.FILE__MERGER:
+				setMerger(MERGER_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.FILE__GENERATORS:
+				return !getGenerators().isEmpty();
+			case CodegenPackage.FILE__MERGER:
+				return MERGER_EDEFAULT == null ? getMerger() != null : !MERGER_EDEFAULT.equals(getMerger());
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public EList<Generator<C>> getGenerators() {
-		return (EList<Generator<C>>)eGet(CodegenPackage.Literals.FILE__GENERATORS, true);
+		return (EList<Generator<C>>)eDynamicGet(CodegenPackage.FILE__GENERATORS, CodegenPackage.Literals.FILE__GENERATORS, true, true);
 	}
 
 	/**
@@ -129,10 +224,12 @@ public abstract class FileImpl<C> extends ResourceImpl<IFile> implements File<C>
 			}
 		}
 		return result;
-	}			
+	}	
+	
+	
 
 	@Override
-	protected Work<IFile> createWorkItem() throws Exception {
+	protected Work<File<InputStream>> _createWorkItem() throws Exception {
 		List<Work<List<C>>> gWork = new ArrayList<>();
 		for (Generator<C> g: getGenerators()) {
 			gWork.add(g.createWork());

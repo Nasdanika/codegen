@@ -1,7 +1,7 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.core.runtime.SubMonitor;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
 
 public interface IFilter<T> {
 

@@ -2,7 +2,7 @@ package org.nasdanika.codegen;
 
 import java.util.List;
 
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
 
 public interface GroupController<T, G extends Group<T>> extends GeneratorController<List<T>,G> {
 
@@ -14,6 +14,6 @@ public interface GroupController<T, G extends Group<T>> extends GeneratorControl
 	 * @return Null if element shall not be invoked, element context otherwise.
 	 * @throws Exception
 	 */
-	Context select(G group, Generator<?> element, Context context) throws Exception;
+	Context select(G group, Generator<T> element, Context context) throws Exception;
 	
 }

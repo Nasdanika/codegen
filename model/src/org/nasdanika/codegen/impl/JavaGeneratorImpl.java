@@ -32,6 +32,16 @@ import org.nasdanika.config.Provider;
  */
 public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements JavaGenerator<T> {
 	/**
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_NAME_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -55,8 +65,9 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getClassName() {
-		return (String)eGet(CodegenPackage.Literals.JAVA_GENERATOR__CLASS_NAME, true);
+		return (String)eDynamicGet(CodegenPackage.JAVA_GENERATOR__CLASS_NAME, CodegenPackage.Literals.JAVA_GENERATOR__CLASS_NAME, true, true);
 	}
 
 	/**
@@ -64,10 +75,69 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setClassName(String newClassName) {
-		eSet(CodegenPackage.Literals.JAVA_GENERATOR__CLASS_NAME, newClassName);
+		eDynamicSet(CodegenPackage.JAVA_GENERATOR__CLASS_NAME, CodegenPackage.Literals.JAVA_GENERATOR__CLASS_NAME, newClassName);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
+				return getClassName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
+				setClassName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? getClassName() != null : !CLASS_NAME_EDEFAULT.equals(getClassName());
+		}
+		return super.eIsSet(featureID);
+	}
+
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);

@@ -1,8 +1,7 @@
 package org.nasdanika.codegen;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * Merges new and old content of a file
@@ -12,7 +11,7 @@ import org.nasdanika.config.Context;
  */
 public interface Merger<T> {
 	
-	T merge(Context context, IFile file, T oldContent, T newContent, IProgressMonitor progressMonitor) throws Exception;
+	T merge(Context context, File<T> file, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
 
 	int getWorkSize();
 	

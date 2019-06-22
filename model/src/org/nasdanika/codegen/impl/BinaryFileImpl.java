@@ -10,7 +10,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->

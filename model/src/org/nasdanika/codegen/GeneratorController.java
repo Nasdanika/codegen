@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
 
 /**
  * Generators use controllers for iteration. 
