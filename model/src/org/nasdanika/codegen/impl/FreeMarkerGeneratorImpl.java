@@ -9,16 +9,15 @@ import java.net.URL;
 import java.util.Enumeration;
 
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.FreeMarkerTemplateLoaderType;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 import org.osgi.framework.Bundle;
 
-import freemarker.cache.ClassTemplateLoader;
 import freemarker.cache.URLTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -270,132 +269,136 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	@Override
-	public Work<String> createWorkItem() throws Exception {
-		return new Work<String>() {
+	protected Work<Context, String> createWorkItem() throws Exception {
+		return new Work<Context, String>() {
 			
 			@Override
-			public int size() {
+			public long size() {
 				return 1;
 			}
 			
 			@Override
-			public String execute(Context context, SubMonitor monitor) throws Exception {
-				try {
-					Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
-					String base = context.interpolate(getBase());
-					if (base == null || base.trim().length() == 0) {
+			public String getName() {
+				return getTitle();
+			}
+			
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return false;
+			}
+			
+			@Override
+			public String execute(Context context, ProgressMonitor monitor) throws Exception {
+				Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
+				String base = context.interpolate(getBase());
+				if (base == null || base.trim().length() == 0) {
+					cfg.setLocalizedLookup(false);
+					cfg.setTemplateLoader(new URLTemplateLoader() {
+						
+						@Override
+						protected URL getURL(String name) {
+							try {
+								// Resolving relative to the resource URI, will it work?
+								return new URL(new URL(eResource().getURI().toString()), name);
+							} catch (MalformedURLException e) {
+								throw new IllegalArgumentException("Malformed name", e);
+							}
+						}
+					});						
+				} else {
+					switch (getTemplateLoaderType()) {
+					case BUNDLE:
+						int idx = base.indexOf('/');
+						String bundleName = idx == -1 ? base : base.substring(0, idx);
+						Bundle bundle = Platform.getBundle(bundleName);
+						if (bundle == null) {
+							throw new IllegalArgumentException("Bundle not found: "+bundleName);
+						}
+						cfg.setTemplateLoader(new URLTemplateLoader() {
+							
+							@Override
+							protected URL getURL(String name) {
+								String entryName = idx == -1 ? "/"+name : base.substring(idx)+"/"+name;
+								Enumeration<String> paths = bundle.getEntryPaths(idx == -1 ? "/" : base.substring(idx));
+								while (paths.hasMoreElements()) {
+									String path = paths.nextElement();
+									if (path.equals(entryName)) {
+										return bundle.getEntry(path);
+									}
+								}
+								return null;
+							}
+						});
+						break;
+					case URL:
 						cfg.setLocalizedLookup(false);
+						URL url = new URL(new URL(eResource().getURI().toString()), base);
 						cfg.setTemplateLoader(new URLTemplateLoader() {
 							
 							@Override
 							protected URL getURL(String name) {
 								try {
-									return new URL((URL) context.get(BASE_URL_PROPERTY), name);
+									return new URL(url, name);
 								} catch (MalformedURLException e) {
 									throw new IllegalArgumentException("Malformed name", e);
 								}
 							}
-						});						
-					} else {
-						switch (getTemplateLoaderType()) {
-						case BUNDLE:
-							int idx = base.indexOf('/');
-							String bundleName = idx == -1 ? base : base.substring(0, idx);
-							Bundle bundle = Platform.getBundle(bundleName);
-							if (bundle == null) {
-								throw new IllegalArgumentException("Bundle not found: "+bundleName);
-							}
-							cfg.setTemplateLoader(new URLTemplateLoader() {
-								
-								@Override
-								protected URL getURL(String name) {
-									String entryName = idx == -1 ? "/"+name : base.substring(idx)+"/"+name;
-									Enumeration<String> paths = bundle.getEntryPaths(idx == -1 ? "/" : base.substring(idx));
-									while (paths.hasMoreElements()) {
-										String path = paths.nextElement();
-										if (path.equals(entryName)) {
-											return bundle.getEntry(path);
-										}
-									}
-									return null;
-								}
-							});
-							break;
-						case PACKAGE:
-							cfg.setTemplateLoader(new ClassTemplateLoader(context.getClassLoader(), base));
-							break;
-						case URL:
-							cfg.setLocalizedLookup(false);
-							URL url = new URL((URL) context.get(BASE_URL_PROPERTY), base);
-							cfg.setTemplateLoader(new URLTemplateLoader() {
-								
-								@Override
-								protected URL getURL(String name) {
-									try {
-										return new URL(url, name);
-									} catch (MalformedURLException e) {
-										throw new IllegalArgumentException("Malformed name", e);
-									}
-								}
-							});
-							break;
-						default:
-							throw new IllegalArgumentException("Unexpected template loader type: "+getTemplateLoaderType());
-						}
+						});
+						break;
+					default:
+						throw new IllegalArgumentException("Unexpected template loader type: "+getTemplateLoaderType());
 					}
-
-					cfg.setDefaultEncoding("UTF-8");
-					cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
-					cfg.setLogTemplateExceptions(false);
-					
-					class ContextWrapper extends WrappingTemplateModel implements TemplateHashModel {
-						
-						private Context context;
-
-						ContextWrapper(Context context, ObjectWrapper ow) {
-							super(ow);
-							this.context = context;
-						}
-
-						@Override
-						public TemplateModel get(String key) throws TemplateModelException {
-							return wrap(context.get(key));
-						}
-
-						@Override
-						public boolean isEmpty() throws TemplateModelException {
-							return false;
-						}
-						
-					}
-					
-					cfg.setObjectWrapper(new DefaultObjectWrapper(cfg.getIncompatibleImprovements()) {
-						
-						@Override
-						protected TemplateModel handleUnknownType(Object obj) throws TemplateModelException {
-							if (obj instanceof Context) {
-								return new ContextWrapper((Context) obj, this);
-							}
-							return super.handleUnknownType(obj);
-						}
-						
-					});					
-					
-					Template temp = cfg.getTemplate(context.interpolate(getTemplate()));
-					Writer out = new StringWriter();
-					Object modelValue = context;
-					String modelKey = getModel();
-					if (modelKey != null && modelKey.trim().length() > 0) {
-						modelValue = context.get(modelKey);
-					}
-					temp.process(modelValue, out);
-					out.close();
-					return out.toString();
-				} finally {
-					monitor.worked(size());
 				}
+
+				cfg.setDefaultEncoding("UTF-8");
+				cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+				cfg.setLogTemplateExceptions(false);
+				
+				class ContextWrapper extends WrappingTemplateModel implements TemplateHashModel {
+					
+					private Context context;
+
+					ContextWrapper(Context context, ObjectWrapper ow) {
+						super(ow);
+						this.context = context;
+					}
+
+					@Override
+					public TemplateModel get(String key) throws TemplateModelException {
+						return wrap(context.get(key));
+					}
+
+					@Override
+					public boolean isEmpty() throws TemplateModelException {
+						return false;
+					}
+					
+				}
+				
+				cfg.setObjectWrapper(new DefaultObjectWrapper(cfg.getIncompatibleImprovements()) {
+					
+					@Override
+					protected TemplateModel handleUnknownType(Object obj) throws TemplateModelException {
+						if (obj instanceof Context) {
+							return new ContextWrapper((Context) obj, this);
+						}
+						return super.handleUnknownType(obj);
+					}
+					
+				});					
+				
+				Template temp = cfg.getTemplate(context.interpolate(getTemplate()));
+				Writer out = new StringWriter();
+				Object modelValue = context;
+				String modelKey = getModel();
+				if (modelKey != null && modelKey.trim().length() > 0) {
+					modelValue = context.get(modelKey);
+				}
+				temp.process(modelValue, out);
+				out.close();
+				return out.toString();
 			}
 			
 		};

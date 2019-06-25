@@ -36,17 +36,7 @@ public enum FreeMarkerTemplateLoaderType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUNDLE(1, "Bundle", "Bundle"),
-
-	/**
-	 * The '<em><b>Package</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PACKAGE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PACKAGE(2, "Package", "Package");
+	BUNDLE(1, "Bundle", "Bundle");
 
 	/**
 	 * The '<em><b>URL</b></em>' literal value.
@@ -79,21 +69,6 @@ public enum FreeMarkerTemplateLoaderType implements Enumerator {
 	public static final int BUNDLE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Package</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Package</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PACKAGE
-	 * @model name="Package"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PACKAGE_VALUE = 2;
-
-	/**
 	 * An array of all the '<em><b>Free Marker Template Loader Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +78,6 @@ public enum FreeMarkerTemplateLoaderType implements Enumerator {
 		new FreeMarkerTemplateLoaderType[] {
 			URL,
 			BUNDLE,
-			PACKAGE,
 		};
 
 	/**
@@ -162,7 +136,6 @@ public enum FreeMarkerTemplateLoaderType implements Enumerator {
 		switch (value) {
 			case URL_VALUE: return URL;
 			case BUNDLE_VALUE: return BUNDLE;
-			case PACKAGE_VALUE: return PACKAGE;
 		}
 		return null;
 	}

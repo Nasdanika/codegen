@@ -17,7 +17,6 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="codegen.ecore#//FreeMarkerTemplateLoaderType">
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/URL"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/Bundle"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/Package"/>
     </genEnums>
     <genDataTypes ecoreDataType="codegen.ecore#//Exception"/>
     <genDataTypes ecoreDataType="codegen.ecore#//InputStream"/>
