@@ -6,12 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -22,18 +19,17 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
-import org.nasdanika.codegen.GeneratorLabelProvider;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.MutableContext;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 /**
@@ -44,6 +40,7 @@ import org.osgi.framework.FrameworkUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
@@ -54,6 +51,15 @@ import org.osgi.framework.FrameworkUtil;
  * @generated
  */
 public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container implements Generator<T> {
+	/**
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TITLE_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getController() <em>Controller</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -118,6 +124,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	protected int eStaticFeatureCount() {
 		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTitle() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__TITLE, CodegenPackage.Literals.GENERATOR__TITLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTitle(String newTitle) {
+		eDynamicSet(CodegenPackage.GENERATOR__TITLE, CodegenPackage.Literals.GENERATOR__TITLE, newTitle);
 	}
 
 	/**
@@ -254,9 +280,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		if (getController() == null || getController().trim().length() == 0) {
 			return Collections.singleton(thisContext);
 		}
-		
-		ClassLoader classLoader = thisContext.get(ClassLoader.class, getClass().getClassLoader());		
-		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) classLoader.loadClass(getController().trim()).newInstance();
+					
+		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) loadClass(getController().trim()).getConstructor().newInstance();
 		return controller.iterate(thisContext, this);
 	}
 	
@@ -267,14 +292,12 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	protected T configure(Context context, T result, SubMonitor monitor) throws Exception {
+	protected T configure(Context context, T result, ProgressMonitor monitor) throws Exception {
 		if (getController() == null || getController().trim().length() == 0) {
-			monitor.worked(1);
 			return result;
 		}
 		
-		ClassLoader classLoader = context.get(ClassLoader.class, getClass().getClassLoader());		
-		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) classLoader.loadClass(getController().trim()).newInstance();
+		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) loadClass(getController().trim()).getConstructor().newInstance();
 		return controller.configure(this, context, result, monitor);		
 	}
 	
@@ -289,13 +312,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = true;
 		if (diagnostics != null && getController() != null && getController().trim().length() > 0) {
-			ClassLoader classLoader = (ClassLoader) context.get(ClassLoader.class);
-			if (classLoader == null) {
-				classLoader = getClass().getClassLoader();
-			}
 			try {
 				@SuppressWarnings("unchecked")
-				GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) classLoader.loadClass(getController().trim()).newInstance();
+				GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) loadClass(getController().trim()).getConstructor().newInstance();
 				controller.validate(this, diagnostics, context);
 			} catch (ClassNotFoundException e) {
 				diagnostics.add
@@ -354,6 +373,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CodegenPackage.GENERATOR__TITLE:
+				return getTitle();
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return getController();
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
@@ -377,6 +398,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CodegenPackage.GENERATOR__TITLE:
+				setTitle((String)newValue);
+				return;
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController((String)newValue);
 				return;
@@ -405,6 +429,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CodegenPackage.GENERATOR__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController(CONTROLLER_EDEFAULT);
 				return;
@@ -432,6 +459,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CodegenPackage.GENERATOR__TITLE:
+				return TITLE_EDEFAULT == null ? getTitle() != null : !TITLE_EDEFAULT.equals(getTitle());
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return CONTROLLER_EDEFAULT == null ? getController() != null : !CONTROLLER_EDEFAULT.equals(getController());
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
@@ -452,108 +481,151 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * The work item execute() method receives context created by the generator using parent context passed to the work which wraps this work.
 	 * @throws Exception
 	 */
-	protected abstract Work<T> createWorkItem() throws Exception;	
+	protected abstract Work<Context, T> createWorkItem() throws Exception;	
 
 	/**
-	 * Creates work which creates context and then iterates over contexts created 
-	 * the iterator and invokes work created by <code>createWorkItem()</code> for each context. 
+	 * Creates work which creates a context by:
+	 * 
+	 * * Combining the passed context and generator configuration, 
+	 * * Injecting named generators as property computers. Each named generator is allocated 100 progress monitor ticks.
+	 * 
+	 * Then the work iterates over the contexts created 
+	 * by the iterator and invokes work created by <code>createWorkItem()</code> for each context.
+	 *  
 	 */
 	@Override
-	final public Work<List<T>> createWork() throws Exception {
-		Work<T> workItem = createWorkItem();
+	final public Work<Context, List<T>> createWork() throws Exception {
+		Work<Context, T> workItem = createWorkItem();
+
+// TODO - implement named generators as property computers with pre-allocated ticks executed once and then returning computed value if accessed again.		
+//		class NamedGeneratorWorkEntry<WT> {
+//			Work<Context, List<WT>> work;
+//			boolean execute;
+//			
+//			NamedGeneratorWorkEntry(Work<Context, List<WT>> work, boolean execute) {
+//				this.work = work;
+//				this.execute = execute;
+//			}
+//		}
+//		
+//		// Strings for now.
+//		Map<String, NamedGeneratorWorkEntry<String>> namedGeneratorsWork = new HashMap<>();
+//
+//		for (NamedGenerator ng: getNamedGenerators()) {
+//			namedGeneratorsWork.put(ng.getName(), new NamedGeneratorWorkEntry<String>(ng.getGenerator().createWork(), ng.isExecuteWork()));
+//		}		
 		
-		class NamedGeneratorWorkEntry<WT> {
-			Work<List<WT>> work;
-			boolean execute;
-			
-			NamedGeneratorWorkEntry(Work<List<WT>> work, boolean execute) {
-				this.work = work;
-				this.execute = execute;
-			}
+		if (!getNamedGenerators().isEmpty()) {
+			throw new UnsupportedOperationException("Not implemented yet - see the comment above");
 		}
 		
-		// Strings for now.
-		Map<String, NamedGeneratorWorkEntry<String>> namedGeneratorsWork = new HashMap<>();
-
-		for (NamedGenerator ng: getNamedGenerators()) {
-			namedGeneratorsWork.put(ng.getName(), new NamedGeneratorWorkEntry<String>(ng.getGenerator().createWork(), ng.isExecuteWork()));
-		}		
-		
-		return new Work<List<T>>() {
+		return new Work<Context, List<T>>() {
 			
 			@Override
-			public int size() {
-				int ret = workItem.size() + (isExplicitConfigure() ? 0 : 1);
-				for (NamedGeneratorWorkEntry<String> v: namedGeneratorsWork.values()) {
-					if (v.execute) {
-						ret += v.work.size();
-					}
-				}
+			public long size() {
+				long ret = workItem.size() + (isExplicitConfigure() ? 0 : 1);
+//				for (NamedGeneratorWorkEntry<String> v: namedGeneratorsWork.values()) {
+//					if (v.execute) {
+//						ret += v.work.size();
+//					}
+//				}
 				return ret;
 			}
 			
 			@Override
-			public List<T> execute(Context context, SubMonitor monitor) throws Exception {
-				GeneratorLabelProvider labelProvider = context.get(GeneratorLabelProvider.class);
-				String label = labelProvider == null ? null : labelProvider.getLabel(GeneratorImpl.this);
-				if (label == null) {
-					label = EcoreUtil.getID(GeneratorImpl.this);
-				}
-				if (label == null || label.trim().length() == 0) {
-					label = GeneratorImpl.this.eClass().getName();
-				}
-				monitor.setTaskName("Generating "+label);
-				Collection<Context> iContexts = iterate(createContext(context, monitor));
+			public String getName() {
+				return getTitle();
+			}
+			
+			@Override
+			public List<T> execute(Context context, ProgressMonitor monitor) throws Exception {
+				Collection<Context> iContexts = iterate(createContext(context));
 				if (iContexts.isEmpty()) {
-					monitor.worked(workItem.size());
 					return Collections.emptyList();
 				}
 				
 				if (iContexts.size() == 1) {
 					Context iCtx = iContexts.iterator().next();
 					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
-					return Collections.singletonList(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split(1)));
+					return Collections.singletonList(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split("Configuring work result", 1, workResult)));
 				}
 
 				List<T> ret = new ArrayList<>();
-				monitor.setWorkRemaining(iContexts.size()*size());
 				for (Context iCtx: iContexts) {
 					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
-					ret.add(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split(1)));
+					ret.add(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split("Configuring work result", 1, workResult)));
 				}
 				return ret;
 			}
+			
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return workItem.undo(progressMonitor);
+			}
 
-			private Context injectNamedGenerators(Context context, SubMonitor monitor) throws Exception {
-				if (namedGeneratorsWork.isEmpty()) {
+			private Context injectNamedGenerators(Context context, ProgressMonitor monitor) throws Exception {
+				EList<NamedGenerator> namedGenerators = getNamedGenerators();
+				if (namedGenerators.isEmpty()) {
 					return context;
 				}
 				
-				MutableContext mctx = context.fork();
-				for (Entry<String, NamedGeneratorWorkEntry<String>> ngwe: namedGeneratorsWork.entrySet()) {
-					if (ngwe.getValue().execute) {
-						StringBuilder sb = new StringBuilder();
-						for (String we: ngwe.getValue().work.execute(mctx, monitor)) {
-							sb.append(we);
-						}						
-						mctx.set(ngwe.getKey(), sb.toString());						
-					} else {
-						mctx.set(ngwe.getKey(), ngwe.getValue());
-					}
-				}
-				return mctx;
+				// TODO
+				throw new UnsupportedOperationException("Named generators are not implemented yet");
+//				
+//				MutableContext mctx = context.fork();
+//				for (Entry<String, NamedGeneratorWorkEntry<String>> ngwe: namedGeneratorsWork.entrySet()) {
+//					if (ngwe.getValue().execute) {
+//						StringBuilder sb = new StringBuilder();
+//						for (String we: ngwe.getValue().work.execute(mctx, monitor)) {
+//							sb.append(we);
+//						}						
+//						mctx.set(ngwe.getKey(), sb.toString());						
+//					} else {
+//						mctx.set(ngwe.getKey(), ngwe.getValue());
+//					}
+//				}
+//				return mctx;
 			}
 		};
-	}		
+	}	
 	
-	// Class loading - bundle symbolic name from uri (authority?), then iterate over bundles and use bundle's loadClass() if found
-	// otherwise use the thead context classloader, context classloader, and this class classloader.
-	private void test() {
+	/**
+	 * Creates a context by returning the parent context if the configuration is empty
+	 * and parsing the configuration as YAML, creating a context from it and chaining that context with the parent context. 
+	 * @param parent
+	 * @return
+	 */
+	protected Context createContext(Context parent) {
+		String configuration = getConfiguration();
+		if (configuration == null || configuration.trim().length() == 0) {
+			return parent;
+		}
+		
+		// TODO.
+		throw new UnsupportedOperationException("Configuration loading is not yet implemented");
+	}
+	
+	/**
+	 * Class loading - bundle symbolic name from uri (authority?), then iterate over bundles and use bundle's loadClass() if found
+	 * otherwise use the thread context classloader, context classloader, and this class classloader.
+	 * @param className
+	 * @return
+	 * @throws ClassNotFoundException 
+	 */
+	protected Class<?> loadClass(String className) throws ClassNotFoundException {
 		URI uri = eResource().getURI();
 		if (uri.isPlatformPlugin()) {
-			
+			for (Bundle bundle: FrameworkUtil.getBundle(GeneratorImpl.class).getBundleContext().getBundles()) {
+				if (bundle.getSymbolicName().equals(uri.authority())) {
+					return bundle.loadClass(className);
+				}
+			}			
 		}
-//		FrameworkUtil.getBundle(getClass()).getBundleContext().get
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		if (cl == null) {
+			cl = getClass().getClassLoader();
+		}
+		return cl.loadClass(className);
 	}
 		
 } //GeneratorImpl

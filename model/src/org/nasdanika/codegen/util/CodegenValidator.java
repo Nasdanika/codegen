@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.*;
+import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -151,8 +152,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateTextFile((TextFile)value, diagnostics, context);
 			case CodegenPackage.CONTAINER:
 				return validateContainer((Container)value, diagnostics, context);
-			case CodegenPackage.WORKSPACE:
-				return validateWorkspace((Workspace)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GROUP:
+				return validateResourceGroup((ResourceGroup)value, diagnostics, context);
 			case CodegenPackage.STATIC_TEXT:
 				return validateStaticText((StaticText)value, diagnostics, context);
 			case CodegenPackage.STATIC_BYTES:
@@ -200,7 +201,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.INPUT_STREAM:
 				return validateInputStream((InputStream)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
-				return validateContext((org.nasdanika.common.Context)value, diagnostics, context);
+				return validateContext((Context)value, diagnostics, context);
 			case CodegenPackage.IRESOURCE:
 				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
 			case CodegenPackage.ICONTAINER:
@@ -281,25 +282,6 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(group, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(group, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(group, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateWorkspace(Workspace workspace, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(workspace, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(workspace, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGenerator_validate(workspace, diagnostics, context);
 		return result;
 	}
 
@@ -395,6 +377,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(container, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(container, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(container, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceGroup(ResourceGroup resourceGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceGroup, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(resourceGroup, diagnostics, context);
 		return result;
 	}
 
@@ -791,7 +792,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateContext(org.nasdanika.common.Context context, DiagnosticChain diagnostics, Map<Object, Object> theContext) {
+	public boolean validateContext(Context context, DiagnosticChain diagnostics, Map<Object, Object> theContext) {
 		return true;
 	}
 

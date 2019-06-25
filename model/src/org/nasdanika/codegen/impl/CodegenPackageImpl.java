@@ -42,15 +42,16 @@ import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.StaticBytes;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.WorkFactory;
-import org.nasdanika.codegen.Workspace;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,13 +93,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass workspaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass fileEClass = null;
 
 	/**
@@ -128,6 +122,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass containerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -436,7 +437,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGenerator_Controller() {
+	public EAttribute getGenerator_Title() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -446,8 +447,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGenerator_Controller() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getGenerator_NamedGenerators() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(1);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -457,16 +468,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Enabled() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getGenerator_Description() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -476,8 +477,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGenerator_Configuration() {
+	public EAttribute getGenerator_Description() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGenerator_Configuration() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -536,18 +547,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedGenerator_ExecuteWork() {
-		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getNamedGenerator_Description() {
-		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -568,16 +569,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EReference getGroup_Elements() {
 		return (EReference)groupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getWorkspace() {
-		return workspaceEClass;
 	}
 
 	/**
@@ -688,6 +679,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EReference getContainer_Resources() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceGroup() {
+		return resourceGroupEClass;
 	}
 
 	/**
@@ -1142,6 +1143,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		workFactoryEClass = createEClass(WORK_FACTORY);
 
 		generatorEClass = createEClass(GENERATOR);
+		createEAttribute(generatorEClass, GENERATOR__TITLE);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
 		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
 		createEAttribute(generatorEClass, GENERATOR__ENABLED);
@@ -1153,7 +1155,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		namedGeneratorEClass = createEClass(NAMED_GENERATOR);
 		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__NAME);
 		createEReference(namedGeneratorEClass, NAMED_GENERATOR__GENERATOR);
-		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__EXECUTE_WORK);
 		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__DESCRIPTION);
 
 		groupEClass = createEClass(GROUP);
@@ -1175,7 +1176,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__RESOURCES);
 
-		workspaceEClass = createEClass(WORKSPACE);
+		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
 		staticTextEClass = createEClass(STATIC_TEXT);
 		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENT);
@@ -1332,7 +1333,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
-		workspaceEClass.getEGenericSuperTypes().add(g1);
+		resourceGroupEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
@@ -1418,6 +1419,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGenerator_Title(), ecorePackage.getEString(), "title", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1441,7 +1443,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		initEReference(getNamedGenerator_Generator(), g1, null, "generator", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamedGenerator_ExecuteWork(), ecorePackage.getEBoolean(), "executeWork", "true", 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1474,7 +1475,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2.getETypeArguments().add(g3);
 		initEReference(getContainer_Resources(), g1, null, "resources", null, 0, -1, org.nasdanika.codegen.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1551,7 +1552,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Initialize data types
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(inputStreamEDataType, InputStream.class, "InputStream", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(contextEDataType, org.nasdanika.common.Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iResourceEDataType, org.nasdanika.common.resources.Resource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iContainerEDataType, org.nasdanika.common.resources.Container.class, "IContainer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iFileEDataType, org.nasdanika.common.resources.File.class, "IFile", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -44,6 +44,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Generator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
@@ -81,7 +82,7 @@
     <genClasses ecoreClass="codegen.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Container/resources"/>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//Workspace"/>
+    <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
     <genClasses ecoreClass="codegen.ecore#//StaticText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/content"/>
     </genClasses>

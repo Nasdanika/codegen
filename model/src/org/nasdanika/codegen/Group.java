@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Group of generators from which zero to all can be invoked during the generation process.
+ * A group of generators from which zero to all can be invoked during the generation process. The group itself doesn't generate anything - it is an aggregation and conditional invocation construct.
  * <!-- end-model-doc -->
  *
  * <p>

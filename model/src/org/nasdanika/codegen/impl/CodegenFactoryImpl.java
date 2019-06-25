@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.codegen.*;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.resources.File;
 import org.nasdanika.common.resources.Resource;
 
@@ -63,7 +64,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.BINARY_FILE: return createBinaryFile();
 			case CodegenPackage.TEXT_FILE: return createTextFile();
 			case CodegenPackage.CONTAINER: return createContainer();
-			case CodegenPackage.WORKSPACE: return createWorkspace();
+			case CodegenPackage.RESOURCE_GROUP: return createResourceGroup();
 			case CodegenPackage.STATIC_TEXT: return createStaticText();
 			case CodegenPackage.STATIC_BYTES: return createStaticBytes();
 			case CodegenPackage.FREE_MARKER_GENERATOR: return createFreeMarkerGenerator();
@@ -181,17 +182,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	@Override
-	public Workspace createWorkspace() {
-		WorkspaceImpl workspace = new WorkspaceImpl();
-		return workspace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public BinaryFile createBinaryFile() {
 		BinaryFileImpl binaryFile = new BinaryFileImpl();
 		return binaryFile;
@@ -217,6 +207,17 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public org.nasdanika.codegen.Container createContainer() {
 		ContainerImpl container = new ContainerImpl();
 		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceGroup createResourceGroup() {
+		ResourceGroupImpl resourceGroup = new ResourceGroupImpl();
+		return resourceGroup;
 	}
 
 	/**
@@ -418,8 +419,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.nasdanika.common.Context createContextFromString(EDataType eDataType, String initialValue) {
-		return (org.nasdanika.common.Context)super.createFromString(eDataType, initialValue);
+	public Context createContextFromString(EDataType eDataType, String initialValue) {
+		return (Context)super.createFromString(eDataType, initialValue);
 	}
 
 	/**

@@ -64,7 +64,7 @@ public class MustacheItemProvider extends FilterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Mustache)object).getBaseURL();
+		String label = ((Mustache)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Mustache_type") :
 			getString("_UI_Mustache_type") + " " + label;

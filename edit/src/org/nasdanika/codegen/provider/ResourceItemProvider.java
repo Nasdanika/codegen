@@ -22,7 +22,7 @@ import org.nasdanika.codegen.Resource;
  * @generated
  */
 public class ResourceItemProvider 
-	extends ResourceGeneratorItemProvider {
+	extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,17 +92,6 @@ public class ResourceItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns Resource.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Resource"));
 	}
 
 	/**

@@ -2,10 +2,11 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.io.InputStream;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.common.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ import org.nasdanika.codegen.ResourceGroup;
  *
  * @generated
  */
-public class ResourceGroupImpl extends GroupImpl<Resource<?>> implements ResourceGroup {
+public class ResourceGroupImpl extends GroupImpl<Resource<InputStream>> implements ResourceGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

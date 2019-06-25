@@ -63,7 +63,7 @@ public class InterpolatorItemProvider extends FilterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Interpolator)object).getBaseURL();
+		String label = ((Interpolator)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Interpolator_type") :
 			getString("_UI_Interpolator_type") + " " + label;

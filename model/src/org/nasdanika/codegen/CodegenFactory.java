@@ -40,15 +40,6 @@ public interface CodegenFactory extends EFactory {
 	<T> Group<T> createGroup();
 
 	/**
-	 * Returns a new object of class '<em>Workspace</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Workspace</em>'.
-	 * @generated
-	 */
-	Workspace createWorkspace();
-
-	/**
 	 * Returns a new object of class '<em>Binary File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,6 +65,15 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	Container createContainer();
+
+	/**
+	 * Returns a new object of class '<em>Resource Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Group</em>'.
+	 * @generated
+	 */
+	ResourceGroup createResourceGroup();
 
 	/**
 	 * Returns a new object of class '<em>Static Text</em>'.

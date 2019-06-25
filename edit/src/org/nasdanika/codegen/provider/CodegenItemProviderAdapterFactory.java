@@ -141,98 +141,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Workspace} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WorkspaceItemProvider workspaceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Workspace}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWorkspaceAdapter() {
-		if (workspaceItemProvider == null) {
-			workspaceItemProvider = new WorkspaceItemProvider(this);
-		}
-
-		return workspaceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Folder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FolderItemProvider folderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Folder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFolderAdapter() {
-		if (folderItemProvider == null) {
-			folderItemProvider = new FolderItemProvider(this);
-		}
-
-		return folderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.GenericFile} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GenericFileItemProvider genericFileItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.GenericFile}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGenericFileAdapter() {
-		if (genericFileItemProvider == null) {
-			genericFileItemProvider = new GenericFileItemProvider(this);
-		}
-
-		return genericFileItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Project} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProjectItemProvider projectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Project}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProjectAdapter() {
-		if (projectItemProvider == null) {
-			projectItemProvider = new ProjectItemProvider(this);
-		}
-
-		return projectItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.BinaryFile} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,26 +187,26 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceReference} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceReferenceItemProvider resourceReferenceItemProvider;
+	protected ContainerItemProvider containerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceReference}.
+	 * This creates an adapter for a {@link org.nasdanika.codegen.Container}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceReferenceAdapter() {
-		if (resourceReferenceItemProvider == null) {
-			resourceReferenceItemProvider = new ResourceReferenceItemProvider(this);
+	public Adapter createContainerAdapter() {
+		if (containerItemProvider == null) {
+			containerItemProvider = new ContainerItemProvider(this);
 		}
 
-		return resourceReferenceItemProvider;
+		return containerItemProvider;
 	}
 
 	/**
@@ -394,29 +302,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.JETEmitter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JETEmitterItemProvider jetEmitterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.JETEmitter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJETEmitterAdapter() {
-		if (jetEmitterItemProvider == null) {
-			jetEmitterItemProvider = new JETEmitterItemProvider(this);
-		}
-
-		return jetEmitterItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.JavaTextFilter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,95 +394,26 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedTextGenerator} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.JavaResourceGenerator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ScriptedTextGeneratorItemProvider scriptedTextGeneratorItemProvider;
+	protected JavaResourceGeneratorItemProvider javaResourceGeneratorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedTextGenerator}.
+	 * This creates an adapter for a {@link org.nasdanika.codegen.JavaResourceGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createScriptedTextGeneratorAdapter() {
-		if (scriptedTextGeneratorItemProvider == null) {
-			scriptedTextGeneratorItemProvider = new ScriptedTextGeneratorItemProvider(this);
+	public Adapter createJavaResourceGeneratorAdapter() {
+		if (javaResourceGeneratorItemProvider == null) {
+			javaResourceGeneratorItemProvider = new JavaResourceGeneratorItemProvider(this);
 		}
 
-		return scriptedTextGeneratorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedStreamGenerator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScriptedStreamGeneratorItemProvider scriptedStreamGeneratorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedStreamGenerator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScriptedStreamGeneratorAdapter() {
-		if (scriptedStreamGeneratorItemProvider == null) {
-			scriptedStreamGeneratorItemProvider = new ScriptedStreamGeneratorItemProvider(this);
-		}
-
-		return scriptedStreamGeneratorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedTextFilter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScriptedTextFilterItemProvider scriptedTextFilterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedTextFilter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScriptedTextFilterAdapter() {
-		if (scriptedTextFilterItemProvider == null) {
-			scriptedTextFilterItemProvider = new ScriptedTextFilterItemProvider(this);
-		}
-
-		return scriptedTextFilterItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ScriptedStreamFilter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScriptedStreamFilterItemProvider scriptedStreamFilterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ScriptedStreamFilter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScriptedStreamFilterAdapter() {
-		if (scriptedStreamFilterItemProvider == null) {
-			scriptedStreamFilterItemProvider = new ScriptedStreamFilterItemProvider(this);
-		}
-
-		return scriptedStreamFilterItemProvider;
+		return javaResourceGeneratorItemProvider;
 	}
 
 	/**
@@ -693,29 +509,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.BundleResource} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BundleResourceItemProvider bundleResourceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.BundleResource}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBundleResourceAdapter() {
-		if (bundleResourceItemProvider == null) {
-			bundleResourceItemProvider = new BundleResourceItemProvider(this);
-		}
-
-		return bundleResourceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.StaticBytes} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -739,57 +532,12 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ObjectTextGenerator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ObjectTextGeneratorItemProvider objectTextGeneratorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ObjectTextGenerator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createObjectTextGeneratorAdapter() {
-		if (objectTextGeneratorItemProvider == null) {
-			objectTextGeneratorItemProvider = new ObjectTextGeneratorItemProvider(this);
-		}
-
-		return objectTextGeneratorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ObjectStreamGenerator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ObjectStreamGeneratorItemProvider objectStreamGeneratorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.ObjectStreamGenerator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createObjectStreamGeneratorAdapter() {
-		if (objectStreamGeneratorItemProvider == null) {
-			objectStreamGeneratorItemProvider = new ObjectStreamGeneratorItemProvider(this);
-		}
-
-		return objectStreamGeneratorItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -800,6 +548,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -848,6 +597,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -858,6 +608,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -868,6 +619,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -882,38 +634,28 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (namedGeneratorItemProvider != null) namedGeneratorItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
-		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
-		if (workspaceItemProvider != null) workspaceItemProvider.dispose();
-		if (folderItemProvider != null) folderItemProvider.dispose();
-		if (genericFileItemProvider != null) genericFileItemProvider.dispose();
-		if (projectItemProvider != null) projectItemProvider.dispose();
 		if (binaryFileItemProvider != null) binaryFileItemProvider.dispose();
 		if (textFileItemProvider != null) textFileItemProvider.dispose();
-		if (resourceReferenceItemProvider != null) resourceReferenceItemProvider.dispose();
+		if (containerItemProvider != null) containerItemProvider.dispose();
+		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
 		if (staticTextItemProvider != null) staticTextItemProvider.dispose();
+		if (staticBytesItemProvider != null) staticBytesItemProvider.dispose();
 		if (freeMarkerGeneratorItemProvider != null) freeMarkerGeneratorItemProvider.dispose();
 		if (eCoreModelGeneratorItemProvider != null) eCoreModelGeneratorItemProvider.dispose();
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();
-		if (jetEmitterItemProvider != null) jetEmitterItemProvider.dispose();
 		if (javaTextFilterItemProvider != null) javaTextFilterItemProvider.dispose();
 		if (javaStreamFilterItemProvider != null) javaStreamFilterItemProvider.dispose();
 		if (javaTextGeneratorItemProvider != null) javaTextGeneratorItemProvider.dispose();
 		if (javaStreamGeneratorItemProvider != null) javaStreamGeneratorItemProvider.dispose();
-		if (scriptedTextGeneratorItemProvider != null) scriptedTextGeneratorItemProvider.dispose();
-		if (scriptedStreamGeneratorItemProvider != null) scriptedStreamGeneratorItemProvider.dispose();
-		if (scriptedTextFilterItemProvider != null) scriptedTextFilterItemProvider.dispose();
-		if (scriptedStreamFilterItemProvider != null) scriptedStreamFilterItemProvider.dispose();
+		if (javaResourceGeneratorItemProvider != null) javaResourceGeneratorItemProvider.dispose();
 		if (textContentReferenceItemProvider != null) textContentReferenceItemProvider.dispose();
 		if (streamContentReferenceItemProvider != null) streamContentReferenceItemProvider.dispose();
-		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
-		if (bundleResourceItemProvider != null) bundleResourceItemProvider.dispose();
-		if (staticBytesItemProvider != null) staticBytesItemProvider.dispose();
-		if (objectTextGeneratorItemProvider != null) objectTextGeneratorItemProvider.dispose();
-		if (objectStreamGeneratorItemProvider != null) objectStreamGeneratorItemProvider.dispose();
+		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 	}
 
 }

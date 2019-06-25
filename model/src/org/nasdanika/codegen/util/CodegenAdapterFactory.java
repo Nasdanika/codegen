@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.*;
+import org.nasdanika.common.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,7 +83,7 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
-			public <T extends org.nasdanika.common.resources.Resource<InputStream>> Adapter caseResource(Resource<T> object) {
+			public <T extends Resource<InputStream>> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
 				return createResourceAdapter();
 			}
 			@Override
@@ -102,8 +103,8 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createContainerAdapter();
 			}
 			@Override
-			public Adapter caseWorkspace(Workspace object) {
-				return createWorkspaceAdapter();
+			public Adapter caseResourceGroup(ResourceGroup object) {
+				return createResourceGroupAdapter();
 			}
 			@Override
 			public Adapter caseStaticText(StaticText object) {
@@ -258,20 +259,6 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Workspace <em>Workspace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Workspace
-	 * @generated
-	 */
-	public Adapter createWorkspaceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.File <em>File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -338,6 +325,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceGroup <em>Resource Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceGroup
+	 * @generated
+	 */
+	public Adapter createResourceGroupAdapter() {
 		return null;
 	}
 

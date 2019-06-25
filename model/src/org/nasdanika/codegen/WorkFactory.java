@@ -1,5 +1,6 @@
 package org.nasdanika.codegen;
 
+import org.nasdanika.common.Context;
 import org.nasdanika.common.Work;
 
 /**
@@ -16,6 +17,6 @@ public interface WorkFactory<T> {
 	 * @return
 	 * @throws Exception
 	 */
-	Work<T> createWork() throws Exception;
+	Work<Context, T> createWork() throws Exception;
 	
 }

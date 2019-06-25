@@ -10,13 +10,18 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.config.provider.ConfigurationItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.Generator} object.
@@ -25,7 +30,7 @@ import org.nasdanika.config.provider.ConfigurationItemProvider;
  * @generated
  */
 public class GeneratorItemProvider 
-	extends ConfigurationItemProvider {
+	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,9 +52,35 @@ public class GeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTitlePropertyDescriptor(object);
 			addControllerPropertyDescriptor(object);
+			addEnabledPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addConfigurationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_title_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -66,6 +97,72 @@ public class GeneratorItemProvider
 				 getString("_UI_Generator_controller_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_controller_feature", "_UI_Generator_type"),
 				 CodegenPackage.Literals.GENERATOR__CONTROLLER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_enabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_enabled_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_description_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Configuration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_configuration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configuration_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONFIGURATION,
 				 true,
 				 false,
 				 false,
@@ -105,17 +202,6 @@ public class GeneratorItemProvider
 	}
 
 	/**
-	 * This returns Generator.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Generator"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +209,7 @@ public class GeneratorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Generator<?>)object).getBaseURL();
+		String label = ((Generator<?>)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Generator_type") :
 			getString("_UI_Generator_type") + " " + label;
@@ -142,7 +228,11 @@ public class GeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Generator.class)) {
+			case CodegenPackage.GENERATOR__TITLE:
 			case CodegenPackage.GENERATOR__CONTROLLER:
+			case CodegenPackage.GENERATOR__ENABLED:
+			case CodegenPackage.GENERATOR__DESCRIPTION:
+			case CodegenPackage.GENERATOR__CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:

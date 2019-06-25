@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * Generators use controllers for iteration. 
@@ -33,8 +33,7 @@ public interface GeneratorController<T, G extends Generator<T>> {
 	 * This method can modify and replace the result.
 	 * @throws Exception
 	 */
-	default T configure(G generator, Context context, T result, SubMonitor monitor) throws Exception {
-		monitor.worked(1);
+	default T configure(G generator, Context context, T result, ProgressMonitor monitor) throws Exception {
 		return result;
 	}
 

@@ -91,7 +91,7 @@ public class ECoreModelGeneratorItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ECoreModelGenerator)object).getBaseURL();
+		String label = ((ECoreModelGenerator)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ECoreModelGenerator_type") :
 			getString("_UI_ECoreModelGenerator_type") + " " + label;

@@ -101,13 +101,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__TITLE = WORK_FACTORY_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 0;
+	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -116,7 +125,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 1;
+	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -125,7 +134,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ENABLED = WORK_FACTORY_FEATURE_COUNT + 2;
+	int GENERATOR__ENABLED = WORK_FACTORY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -134,7 +143,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__DESCRIPTION = WORK_FACTORY_FEATURE_COUNT + 3;
+	int GENERATOR__DESCRIPTION = WORK_FACTORY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
@@ -143,7 +152,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONFIGURATION = WORK_FACTORY_FEATURE_COUNT + 4;
+	int GENERATOR__CONFIGURATION = WORK_FACTORY_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -152,7 +161,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 5;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -210,22 +219,13 @@ public interface CodegenPackage extends EPackage {
 	int NAMED_GENERATOR__GENERATOR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Execute Work</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_GENERATOR__EXECUTE_WORK = 2;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR__DESCRIPTION = 3;
+	int NAMED_GENERATOR__DESCRIPTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Named Generator</em>' class.
@@ -234,7 +234,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR_FEATURE_COUNT = 4;
+	int NAMED_GENERATOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Named Generator</em>' class.
@@ -254,6 +254,15 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int GROUP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -346,16 +355,6 @@ public interface CodegenPackage extends EPackage {
 	int GROUP_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.WorkspaceImpl <em>Workspace</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.WorkspaceImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkspace()
-	 * @generated
-	 */
-	int WORKSPACE = 9;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceImpl <em>Resource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -364,6 +363,15 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int RESOURCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -473,6 +481,15 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int FILE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__TITLE = RESOURCE__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -602,6 +619,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__TITLE = FILE__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -727,6 +753,15 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int TEXT_FILE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__TITLE = FILE__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -865,6 +900,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER = 8;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__TITLE = RESOURCE__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -973,13 +1017,32 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGroupImpl <em>Resource Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGroupImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
+	 * @generated
+	 */
+	int RESOURCE_GROUP = 9;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__TITLE = GROUP__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__CONTROLLER = GROUP__CONTROLLER;
+	int RESOURCE_GROUP__CONTROLLER = GROUP__CONTROLLER;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -988,7 +1051,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
+	int RESOURCE_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -997,7 +1060,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__ENABLED = GROUP__ENABLED;
+	int RESOURCE_GROUP__ENABLED = GROUP__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1006,7 +1069,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__DESCRIPTION = GROUP__DESCRIPTION;
+	int RESOURCE_GROUP__DESCRIPTION = GROUP__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
@@ -1015,7 +1078,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__CONFIGURATION = GROUP__CONFIGURATION;
+	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1024,16 +1087,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE__ELEMENTS = GROUP__ELEMENTS;
+	int RESOURCE_GROUP__ELEMENTS = GROUP__ELEMENTS;
 
 	/**
-	 * The number of structural features of the '<em>Workspace</em>' class.
+	 * The number of structural features of the '<em>Resource Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE_FEATURE_COUNT = GROUP_FEATURE_COUNT + 0;
+	int RESOURCE_GROUP_FEATURE_COUNT = GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -1042,7 +1105,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE___IS_FILTERABLE = GROUP___IS_FILTERABLE;
+	int RESOURCE_GROUP___IS_FILTERABLE = GROUP___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1051,16 +1114,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RESOURCE_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Workspace</em>' class.
+	 * The number of operations of the '<em>Resource Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
+	int RESOURCE_GROUP_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StaticTextImpl <em>Static Text</em>}' class.
@@ -1071,6 +1134,15 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int STATIC_TEXT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1343,6 +1415,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES = 11;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__TITLE = GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1431,6 +1512,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_BYTES_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1550,6 +1640,15 @@ public interface CodegenPackage extends EPackage {
 	int FREE_MARKER_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__TITLE = GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1638,6 +1737,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ECORE_MODEL_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1730,6 +1838,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__TITLE = GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1818,6 +1935,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERTER_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__TITLE = CONVERTER__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1910,6 +2036,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER_OPERATION_COUNT = CONVERTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__TITLE = GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2000,6 +2135,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__TITLE = FILTER__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2088,6 +2232,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__TITLE = FILTER__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2189,6 +2342,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__TITLE = JAVA_FILTER__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2286,6 +2448,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER_OPERATION_COUNT = JAVA_FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__TITLE = JAVA_FILTER__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2387,6 +2558,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER_OPERATION_COUNT = JAVA_FILTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2475,6 +2655,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR_OPERATION_COUNT = JAVA_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2567,6 +2756,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR_OPERATION_COUNT = JAVA_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2655,6 +2853,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_RESOURCE_GENERATOR_OPERATION_COUNT = JAVA_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__TITLE = CONTENT_REFERENCE__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2747,6 +2954,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE_OPERATION_COUNT = CONTENT_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__TITLE = CONTENT_REFERENCE__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2837,6 +3053,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE_OPERATION_COUNT = CONTENT_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__TITLE = FILTER__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2925,6 +3150,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MUSTACHE_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__TITLE = GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -3152,6 +3386,17 @@ public interface CodegenPackage extends EPackage {
 	EClass getGenerator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.codegen.Generator#getTitle()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_Title();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3259,17 +3504,6 @@ public interface CodegenPackage extends EPackage {
 	EReference getNamedGenerator_Generator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#isExecuteWork <em>Execute Work</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Execute Work</em>'.
-	 * @see org.nasdanika.codegen.NamedGenerator#isExecuteWork()
-	 * @see #getNamedGenerator()
-	 * @generated
-	 */
-	EAttribute getNamedGenerator_ExecuteWork();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3300,16 +3534,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGroup_Elements();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.Workspace <em>Workspace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Workspace</em>'.
-	 * @see org.nasdanika.codegen.Workspace
-	 * @generated
-	 */
-	EClass getWorkspace();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.File <em>File</em>}'.
@@ -3426,6 +3650,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContainer_Resources();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGroup <em>Resource Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Group</em>'.
+	 * @see org.nasdanika.codegen.ResourceGroup
+	 * @generated
+	 */
+	EClass getResourceGroup();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.StaticText <em>Static Text</em>}'.
@@ -3916,6 +4150,14 @@ public interface CodegenPackage extends EPackage {
 		EClass GENERATOR = eINSTANCE.getGenerator();
 
 		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__TITLE = eINSTANCE.getGenerator_Title();
+
+		/**
 		 * The meta object literal for the '<em><b>Controller</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3998,14 +4240,6 @@ public interface CodegenPackage extends EPackage {
 		EReference NAMED_GENERATOR__GENERATOR = eINSTANCE.getNamedGenerator_Generator();
 
 		/**
-		 * The meta object literal for the '<em><b>Execute Work</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAMED_GENERATOR__EXECUTE_WORK = eINSTANCE.getNamedGenerator_ExecuteWork();
-
-		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4030,16 +4264,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GROUP__ELEMENTS = eINSTANCE.getGroup_Elements();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.WorkspaceImpl <em>Workspace</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.impl.WorkspaceImpl
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkspace()
-		 * @generated
-		 */
-		EClass WORKSPACE = eINSTANCE.getWorkspace();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FileImpl <em>File</em>}' class.
@@ -4138,6 +4362,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__RESOURCES = eINSTANCE.getContainer_Resources();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGroupImpl <em>Resource Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGroupImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
+		 * @generated
+		 */
+		EClass RESOURCE_GROUP = eINSTANCE.getResourceGroup();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.StaticTextImpl <em>Static Text</em>}' class.

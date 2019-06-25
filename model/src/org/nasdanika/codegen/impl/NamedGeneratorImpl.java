@@ -21,7 +21,6 @@ import org.nasdanika.codegen.NamedGenerator;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getGenerator <em>Generator</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#isExecuteWork <em>Execute Work</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -37,15 +36,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #isExecuteWork() <em>Execute Work</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isExecuteWork()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean EXECUTE_WORK_EDEFAULT = true;
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -141,26 +131,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public boolean isExecuteWork() {
-		return (Boolean)eDynamicGet(CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK, CodegenPackage.Literals.NAMED_GENERATOR__EXECUTE_WORK, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setExecuteWork(boolean newExecuteWork) {
-		eDynamicSet(CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK, CodegenPackage.Literals.NAMED_GENERATOR__EXECUTE_WORK, newExecuteWork);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getDescription() {
 		return (String)eDynamicGet(CodegenPackage.NAMED_GENERATOR__DESCRIPTION, CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION, true, true);
 	}
@@ -201,8 +171,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 				return getName();
 			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
 				return getGenerator();
-			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
-				return isExecuteWork();
 			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				return getDescription();
 		}
@@ -223,9 +191,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
 				setGenerator((Generator<String>)newValue);
-				return;
-			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
-				setExecuteWork((Boolean)newValue);
 				return;
 			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				setDescription((String)newValue);
@@ -248,9 +213,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
 				setGenerator((Generator<String>)null);
 				return;
-			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
-				setExecuteWork(EXECUTE_WORK_EDEFAULT);
-				return;
 			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -270,8 +232,6 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
 				return getGenerator() != null;
-			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
-				return isExecuteWork() != EXECUTE_WORK_EDEFAULT;
 			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}

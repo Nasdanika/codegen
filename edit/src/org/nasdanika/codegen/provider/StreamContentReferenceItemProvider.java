@@ -64,7 +64,7 @@ public class StreamContentReferenceItemProvider extends ContentReferenceItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StreamContentReference)object).getBaseURL();
+		String label = ((StreamContentReference)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StreamContentReference_type") :
 			getString("_UI_StreamContentReference_type") + " " + label;

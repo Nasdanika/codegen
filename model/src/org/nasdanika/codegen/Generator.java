@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.codegen.Generator#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
@@ -35,6 +36,31 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Generator<T> extends EObject, WorkFactory<List<T>> {
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generator descriptive name to display in the editor, reports and progress monitors .
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Controller</b></em>' attribute.

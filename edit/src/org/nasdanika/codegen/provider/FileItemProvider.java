@@ -9,15 +9,13 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.File;
-import org.nasdanika.codegen.java.JavaFactory;
-import org.nasdanika.codegen.maven.MavenFactory;
-import org.nasdanika.config.ConfigFactory;
-import org.nasdanika.config.ConfigPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.File} object.
@@ -47,8 +45,31 @@ public class FileItemProvider extends ResourceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMergerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Merger feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMergerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_File_merger_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_File_merger_feature", "_UI_File_type"),
+				 CodegenPackage.Literals.FILE__MERGER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -63,7 +84,6 @@ public class FileItemProvider extends ResourceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.FILE__MERGER);
 			childrenFeatures.add(CodegenPackage.Literals.FILE__GENERATORS);
 		}
 		return childrenFeatures;
@@ -80,17 +100,6 @@ public class FileItemProvider extends ResourceItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns File.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/File"));
 	}
 
 	/**
@@ -121,6 +130,8 @@ public class FileItemProvider extends ResourceItemProvider {
 
 		switch (notification.getFeatureID(File.class)) {
 			case CodegenPackage.FILE__MERGER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case CodegenPackage.FILE__GENERATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -141,38 +152,8 @@ public class FileItemProvider extends ResourceItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.FILE__MERGER,
-				 ConfigFactory.eINSTANCE.createService()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createWorkspace()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createFolder()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createGenericFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createProject()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -187,12 +168,22 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceReference()));
+				 CodegenFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createStaticText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -208,11 +199,6 @@ public class FileItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJETEmitter()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -237,22 +223,7 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createScriptedTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createScriptedStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createScriptedTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -267,125 +238,12 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createMustache()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createBundleResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createJavaNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createPackageFragmentRoot()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createPackageFragment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createEnum()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createPluginNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createFeatureNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 MavenFactory.eINSTANCE.createMavenNature()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == ConfigPackage.Literals.CONFIGURATION__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.FILE__MERGER;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+				 CodegenFactory.eINSTANCE.createZipArchive()));
 	}
 
 }

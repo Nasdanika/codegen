@@ -64,7 +64,7 @@ public class TextContentReferenceItemProvider extends ContentReferenceItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TextContentReference)object).getBaseURL();
+		String label = ((TextContentReference)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TextContentReference_type") :
 			getString("_UI_TextContentReference_type") + " " + label;

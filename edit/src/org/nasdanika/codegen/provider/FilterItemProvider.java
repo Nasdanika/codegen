@@ -44,17 +44,6 @@ public class FilterItemProvider extends ConverterItemProvider {
 	}
 
 	/**
-	 * This returns Filter.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Filter"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +51,7 @@ public class FilterItemProvider extends ConverterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Filter<?>)object).getBaseURL();
+		String label = ((Filter<?>)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Filter_type") :
 			getString("_UI_Filter_type") + " " + label;

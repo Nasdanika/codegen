@@ -91,7 +91,7 @@ public class StaticBytesItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StaticBytes)object).getBaseURL();
+		String label = ((StaticBytes)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StaticBytes_type") :
 			getString("_UI_StaticBytes_type") + " " + label;

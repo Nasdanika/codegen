@@ -73,17 +73,6 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 	}
 
 	/**
-	 * This returns ContentReference.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentReference"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,7 +80,7 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ContentReference<?>)object).getBaseURL();
+		String label = ((ContentReference<?>)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ContentReference_type") :
 			getString("_UI_ContentReference_type") + " " + label;

@@ -65,7 +65,7 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_StaticText_content_feature", "_UI_StaticText_type"),
 				 CodegenPackage.Literals.STATIC_TEXT__CONTENT,
 				 true,
-				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -91,7 +91,7 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StaticText)object).getBaseURL();
+		String label = ((StaticText)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_StaticText_type") :
 			getString("_UI_StaticText_type") + " " + label;

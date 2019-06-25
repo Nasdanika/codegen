@@ -19,17 +19,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.NamedGenerator;
-
-import org.nasdanika.codegen.java.JavaFactory;
-
-import org.nasdanika.codegen.maven.MavenFactory;
-
-import org.nasdanika.config.provider.CDOItemProviderAdapterEx;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.NamedGenerator} object.
@@ -38,7 +33,7 @@ import org.nasdanika.config.provider.CDOItemProviderAdapterEx;
  * @generated
  */
 public class NamedGeneratorItemProvider 
-	extends CDOItemProviderAdapterEx
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -67,7 +62,6 @@ public class NamedGeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addExecuteWorkPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -96,28 +90,6 @@ public class NamedGeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Execute Work feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExecuteWorkPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NamedGenerator_executeWork_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NamedGenerator_executeWork_feature", "_UI_NamedGenerator_type"),
-				 CodegenPackage.Literals.NAMED_GENERATOR__EXECUTE_WORK,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +104,7 @@ public class NamedGeneratorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NamedGenerator_description_feature", "_UI_NamedGenerator_type"),
 				 CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION,
 				 true,
-				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -208,7 +180,6 @@ public class NamedGeneratorItemProvider
 
 		switch (notification.getFeatureID(NamedGenerator.class)) {
 			case CodegenPackage.NAMED_GENERATOR__NAME:
-			case CodegenPackage.NAMED_GENERATOR__EXECUTE_WORK:
 			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -238,31 +209,6 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createWorkspace()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createFolder()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createGenericFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createProject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -273,12 +219,22 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createResourceReference()));
+				 CodegenFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createStaticText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -294,11 +250,6 @@ public class NamedGeneratorItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJETEmitter()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -323,22 +274,7 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createScriptedTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createScriptedStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createScriptedTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createScriptedStreamFilter()));
+				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -353,102 +289,12 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createMustache()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createBundleResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createObjectTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createObjectStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createJavaNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createPackageFragmentRoot()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createPackageFragment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createEnum()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createPluginNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 JavaFactory.eINSTANCE.createFeatureNature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 MavenFactory.eINSTANCE.createMavenNature()));
+				 CodegenFactory.eINSTANCE.createZipArchive()));
 	}
 
 	/**

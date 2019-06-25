@@ -64,7 +64,7 @@ public class ResourceGroupItemProvider extends GroupItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceGroup)object).getBaseURL();
+		String label = ((ResourceGroup)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ResourceGroup_type") :
 			getString("_UI_ResourceGroup_type") + " " + label;
