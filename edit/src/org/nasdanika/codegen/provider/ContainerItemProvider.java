@@ -62,7 +62,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.CONTAINER__RESOURCES);
+			childrenFeatures.add(CodegenPackage.Literals.CONTAINER__CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +118,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Container.class)) {
-			case CodegenPackage.CONTAINER__RESOURCES:
+			case CodegenPackage.CONTAINER__CHILDREN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,17 +138,17 @@ public class ContainerItemProvider extends ResourceItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.CONTAINER__RESOURCES,
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.CONTAINER__RESOURCES,
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createTextFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.CONTAINER__RESOURCES,
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createContainer()));
 	}
 

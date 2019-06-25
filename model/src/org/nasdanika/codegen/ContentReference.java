@@ -25,6 +25,7 @@ package org.nasdanika.codegen;
  * @generated
  */
 public interface ContentReference<T> extends Generator<T> {
+	
 	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->

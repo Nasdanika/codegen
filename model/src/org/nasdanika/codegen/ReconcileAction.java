@@ -61,27 +61,6 @@ public enum ReconcileAction implements Enumerator {
 	MERGE(2, "Merge", "Merge"),
 
 	/**
-	 * The '<em><b>Confirm Overwrite</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Replace existing content with the new one upon confirmation (see below). 
-	 * For directories and projects it means deleting the project/directory
-	 * and re-creating with the new content.
-	 * 
-	 * If the generation context contains ``overwrite-predicate`` property, then the value
-	 * of the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.
-	 * If the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).
-	 * 
-	 * The predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).
-	 * 
-	 * Clients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. 
-	 * <!-- end-model-doc -->
-	 * @see #CONFIRM_OVERWRITE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CONFIRM_OVERWRITE(3, "ConfirmOverwrite", "Confirm Overwrite"), /**
 	 * The '<em><b>Overwrite</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,7 +74,7 @@ public enum ReconcileAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OVERWRITE(4, "Overwrite", "Overwrite"),
+	OVERWRITE(3, "Overwrite", "Overwrite"),
 
 	/**
 	 * The '<em><b>Cancel</b></em>' literal object.
@@ -108,7 +87,7 @@ public enum ReconcileAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCEL(5, "Cancel", "Cancel");
+	CANCEL(4, "Cancel", "Cancel");
 	
 	/**
 	 * Context property which holds overwrite predicate.
@@ -172,30 +151,6 @@ public enum ReconcileAction implements Enumerator {
 	public static final int MERGE_VALUE = 2;
 
 	/**
-	 * The '<em><b>Confirm Overwrite</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Replace existing content with the new one upon confirmation (see below). 
-	 * For directories and projects it means deleting the project/directory
-	 * and re-creating with the new content.
-	 * 
-	 * If the generation context contains ``overwrite-predicate`` property, then the value
-	 * of the property is cast to ``java.util.function.Predicate`` and its ``test()`` method is invoked.
-	 * If the return value is ``true`` then the resource/project get overwritten, if ``false`` it is left intact (same as ``Keep``).
-	 * 
-	 * The predicate may throw ``org.eclipse.core.runtime.OperationCanceledException`` to cancel generation (same as ``Cancel``).
-	 * 
-	 * Clients may create overwrite predicates which open an overwrite confirmation dialog to solicit overwrite decision from the user. 
-	 * <!-- end-model-doc -->
-	 * @see #CONFIRM_OVERWRITE
-	 * @model name="ConfirmOverwrite" literal="Confirm Overwrite"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CONFIRM_OVERWRITE_VALUE = 3;
-
-	/**
 	 * The '<em><b>Overwrite</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -214,7 +169,7 @@ public enum ReconcileAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OVERWRITE_VALUE = 4;
+	public static final int OVERWRITE_VALUE = 3;
 
 	/**
 	 * The '<em><b>Cancel</b></em>' literal value.
@@ -232,7 +187,7 @@ public enum ReconcileAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCEL_VALUE = 5;
+	public static final int CANCEL_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Reconcile Action</b></em>' enumerators.
@@ -245,7 +200,6 @@ public enum ReconcileAction implements Enumerator {
 			KEEP,
 			APPEND,
 			MERGE,
-			CONFIRM_OVERWRITE,
 			OVERWRITE,
 			CANCEL,
 		};
@@ -307,7 +261,6 @@ public enum ReconcileAction implements Enumerator {
 			case KEEP_VALUE: return KEEP;
 			case APPEND_VALUE: return APPEND;
 			case MERGE_VALUE: return MERGE;
-			case CONFIRM_OVERWRITE_VALUE: return CONFIRM_OVERWRITE;
 			case OVERWRITE_VALUE: return OVERWRITE;
 			case CANCEL_VALUE: return CANCEL;
 		}

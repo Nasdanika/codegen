@@ -7,11 +7,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
 
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -28,6 +25,8 @@ import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 
 /**
@@ -226,116 +225,103 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 		return result;
 	}	
 	
-	
-
 	@Override
-	protected Work<File<InputStream>> _createWorkItem() throws Exception {
-		List<Work<List<C>>> gWork = new ArrayList<>();
+	protected Work<Context, org.nasdanika.common.resources.File<InputStream>> createWorkItem() throws Exception {
+		List<Work<Context, List<C>>> gWork = new ArrayList<>();
 		for (Generator<C> g: getGenerators()) {
 			gWork.add(g.createWork());
 		}
 		
-		Service mergerService = getMerger();
+		String mergerClass = getMerger();
 		
-		return new Work<IFile>() {
+		return new Work<Context, org.nasdanika.common.resources.File<InputStream>>() {
 
 			@Override
-			public int size() {
-				int ret = 3;
-				for (Work<List<C>> gw: gWork) {
+			public long size() {
+				long ret = 3;
+				for (Work<Context, List<C>> gw: gWork) {
 					ret += gw.size();
 				}
-				if (mergerService != null) {					
-					ret += mergerService.getConfigWorkSize() + 1;
+				if (mergerClass != null) {					
+					++ret;
 				}				
 				return ret;
 			}
 
+			@SuppressWarnings("unchecked")
 			@Override
-			public IFile execute(Context context, SubMonitor monitor) throws Exception {
-				IContainer container = context.get(IContainer.class);
+			public org.nasdanika.common.resources.File<InputStream> execute(Context context, ProgressMonitor monitor) throws Exception {
+				org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
 				String name = context.interpolate(getName());
 				
-				IFile file = container.getFile(new Path(name));
-				MutableContext sc = context.createSubContext().set(IFile.class, file);
+				org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
+				MutableContext sc = context.fork();
+				sc.register(org.nasdanika.common.resources.File.class, file);
 				
 				// Delete unmodified resources 
-				ResourceModificationTracker resourceModificationTracker = context.get(ResourceModificationTracker.class);
-				if (resourceModificationTracker != null && !resourceModificationTracker.isResourceModified(file)) {
-					file.delete(true, true, monitor.split(1));
+				// TODO - support of modification tracking - use digests.
+//				ResourceModificationTracker resourceModificationTracker = context.get(ResourceModificationTracker.class);
+//				if (resourceModificationTracker != null && !resourceModificationTracker.isResourceModified(file)) {
+//					file.delete(true, true, monitor.split(1));
+//				}
+				
+				List<C> cl = new ArrayList<>();
+				for (Work<Context, List<C>> gw: gWork) {
+					cl.addAll(gw.execute(sc, monitor));
 				}
+				C contents = join(cl);
 				
 				if (file.exists()) {
 					switch (getReconcileAction()) {
 					case APPEND:
-						List<C> cl = new ArrayList<>();
-						cl.add(load(context, file.getContents(), file.getCharset()));
-						for (Work<List<C>> gw: gWork) {
-							cl.addAll(gw.execute(sc, monitor));
-						}
-						file.setContents(store(context, join(cl), file.getCharset()), false, true, monitor.split(1));
-						return file;
+						file.appendContents(store(context, contents), monitor);
+						break;
 					case MERGE:
-						if (mergerService == null) {
+						if (mergerClass == null || mergerClass.trim().length() == 0) {
 							throw new IllegalStateException("Merger is not set");
 						}
-						List<C> mcl = new ArrayList<>();
-						for (Work<List<C>> gw: gWork) {
-							mcl.addAll(gw.execute(sc, monitor));
-						}
-						@SuppressWarnings("unchecked") Merger<C> merger = (Merger<C>) mergerService.get(context, monitor);
-						file.setContents(store(context, merger.merge(sc, file, load(context, file.getContents(), file.getCharset()), join(mcl), monitor.split(1)), file.getCharset()), false, true, monitor.split(1));
-						return file;
+						Merger<C> merger = (Merger<C>) loadClass(mergerClass).getConstructor().newInstance();
+						C oldContent = load(context, file.getContents(monitor));
+						C mergedContents = merger.merge(context, file, oldContent, contents, monitor);
+						file.setContents(store(context, mergedContents), monitor);
+						break;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
 					case KEEP:
 						// Take no action
 						return file;
-					case CONFIRM_OVERWRITE:
-						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) context.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
-						if (overwritePredicate == null || overwritePredicate.test(file)) {
-							file.delete(true, true, monitor.split(1));
-						}
-						break;
 					case OVERWRITE:
-						file.delete(true, true, monitor.split(1));
+						file.setContents(store(context, contents), monitor);
 						break;
 					default:
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 					}
-				}
-								
-				if (!file.exists()) {
-					List<C> cl = new ArrayList<>();
-					for (Work<List<C>> gw: gWork) {
-						cl.addAll(gw.execute(sc, monitor));
-					}
-					file = CodegenUtil.createFile(container, name, store(context, join(cl), file.getCharset()), monitor.split(1));
-					if (getEncoding() != null && !getEncoding().equals(file.getCharset())) {
-						file.setCharset(getEncoding(), monitor.split(1));
-					}
-					if (resourceModificationTracker != null) {
-						resourceModificationTracker.resourceModified(file);
-					}
+				} else {
+					file.setContents(store(context, contents), monitor);					
 				}
 				
+				// TODO - modification tracking - compute new digest, perhaps part of store().
+				
 				return file;
+			}
+
+			@Override
+			public String getName() {
+				return "File "+FileImpl.this.getName();
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				// TODO Implement - copy the original content somewhere, e.g. in-memory, restore.
+				return false;
 			}
 		};
 	}
 	
-	protected abstract InputStream store(Context context, C content, String charset) throws Exception;
+	protected abstract InputStream store(Context context, C content) throws Exception;
 	
-	protected abstract C load(Context context, InputStream content, String charset) throws Exception;
+	protected abstract C load(Context context, InputStream content) throws Exception;
 	
 	protected abstract C join(List<C> content) throws Exception;
-	
-	/**
-	 * Text file overrides.
-	 * @return
-	 */
-	public String getEncoding() {
-		return null;
-	}
 	
 } //FileImpl

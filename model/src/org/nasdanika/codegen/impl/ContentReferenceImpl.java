@@ -2,8 +2,10 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.net.URL;
 import java.util.Map;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -12,6 +14,8 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.common.Context;
+import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +31,22 @@ import org.nasdanika.codegen.util.CodegenValidator;
  * @generated
  */
 public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implements ContentReference<T> {
+
+	protected static final String BUNDLE_PROTOCOL = "bundle://";
+	
+	protected URL resolveRef(Context context) throws Exception {
+		String ref = context.interpolate(getRef());
+		if (ref.startsWith(BUNDLE_PROTOCOL)) {
+			String bp = getRef().substring(BUNDLE_PROTOCOL.length());
+			int slashIdx = bp.indexOf("/");
+			Bundle bundle = Platform.getBundle(bp.substring(0, slashIdx));
+			return bundle.getEntry(bp.substring(slashIdx));
+		}
+		
+		// TODO - resolve relative to the model URI.
+		return new URL(ref);
+	}
+	
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->

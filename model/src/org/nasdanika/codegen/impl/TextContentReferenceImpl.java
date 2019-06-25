@@ -6,16 +6,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.net.URL;
 
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextContentReference;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.config.Context;
-import org.osgi.framework.Bundle;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +22,6 @@ import org.osgi.framework.Bundle;
  * @generated
  */
 public class TextContentReferenceImpl extends ContentReferenceImpl<String> implements TextContentReference {
-	private static final String BUNDLE_PROTOCOL = "bundle://";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -47,35 +43,34 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 	}
 	
 	@Override
-	protected Work<String> createWorkItem() throws Exception {
-		return new Work<String>() {
+	protected Work<Context, String> createWorkItem() throws Exception {
+		return new Work<Context, String>() {
 
 			@Override
-			public int size() {
+			public long size() {
 				return 1;
+			}
+			
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
+			}
+			
+			@Override
+			public String getName() {
+				return "Loading text from "+getRef();
 			}
 
 			@Override
-			public String execute(Context context, SubMonitor monitor) throws Exception {
-				URL url;
-				if (getRef().startsWith(BUNDLE_PROTOCOL)) {
-					String bp = getRef().substring(BUNDLE_PROTOCOL.length());
-					int slashIdx = bp.indexOf("/");
-					Bundle bundle = Platform.getBundle(bp.substring(0, slashIdx));
-					url = bundle.getEntry(bp.substring(slashIdx));
-				} else {
-					url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
-				}
-				monitor.subTask("Loading text from: "+url);
+			public String execute(Context context, ProgressMonitor monitor) throws Exception {
 				StringWriter sw = new StringWriter();
-				try (Reader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
+				try (Reader reader = new BufferedReader(new InputStreamReader(resolveRef(context).openStream()))) {
 					int ch;
 					while ((ch = reader.read()) != -1) {
 						sw.write(ch);
 					}
 				}
 				sw.close();
-				monitor.worked(1);
 				return sw.toString();
 			}
 		};

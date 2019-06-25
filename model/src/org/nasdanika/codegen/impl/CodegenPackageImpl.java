@@ -677,7 +677,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getContainer_Resources() {
+	public EReference getContainer_Children() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1174,7 +1174,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(textFileEClass, TEXT_FILE__ENCODING);
 
 		containerEClass = createEClass(CONTAINER);
-		createEReference(containerEClass, CONTAINER__RESOURCES);
+		createEReference(containerEClass, CONTAINER__CHILDREN);
 
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
@@ -1323,7 +1323,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		textFileEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(this.getIContainer());
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
@@ -1473,7 +1473,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
-		initEReference(getContainer_Resources(), g1, null, "resources", null, 0, -1, org.nasdanika.codegen.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Children(), g1, null, "children", null, 0, -1, org.nasdanika.codegen.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1540,7 +1540,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.KEEP);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.APPEND);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.MERGE);
-		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CONFIRM_OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.OVERWRITE);
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.CANCEL);
 

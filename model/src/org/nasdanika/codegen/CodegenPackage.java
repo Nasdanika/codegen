@@ -972,13 +972,13 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__RESOURCES = RESOURCE_FEATURE_COUNT + 0;
+	int CONTAINER__CHILDREN = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -3641,15 +3641,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getContainer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Container#getResources <em>Resources</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Container#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resources</em>'.
-	 * @see org.nasdanika.codegen.Container#getResources()
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.codegen.Container#getChildren()
 	 * @see #getContainer()
 	 * @generated
 	 */
-	EReference getContainer_Resources();
+	EReference getContainer_Children();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGroup <em>Resource Group</em>}'.
@@ -4356,12 +4356,12 @@ public interface CodegenPackage extends EPackage {
 		EClass CONTAINER = eINSTANCE.getContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTAINER__RESOURCES = eINSTANCE.getContainer_Resources();
+		EReference CONTAINER__CHILDREN = eINSTANCE.getContainer_Children();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGroupImpl <em>Resource Group</em>}' class.

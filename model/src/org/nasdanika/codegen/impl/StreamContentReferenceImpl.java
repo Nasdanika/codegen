@@ -3,14 +3,13 @@
 package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
-import java.net.URL;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.StreamContentReference;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,23 +39,27 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 	}
 
 	@Override
-	protected Work<InputStream> createWorkItem() throws Exception {
-		return new Work<InputStream>() {
+	protected Work<Context, InputStream> createWorkItem() throws Exception {
+		return new Work<Context, InputStream>() {
 			
 			@Override
-			public int size() {
+			public long size() {
 				return 1;
 			}
 			
 			@Override
-			public InputStream execute(Context context, SubMonitor monitor) throws Exception {
-				URL url = new URL((URL) context.get(BASE_URL_PROPERTY), getRef());
-				monitor.subTask("Opening URL stream: "+url);
-				try {
-					return url.openStream();
-				} finally {
-					monitor.worked(1);
-				}
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
+			}
+			
+			@Override
+			public String getName() {
+				return "Loading binary content from "+getRef();
+			}
+			
+			@Override
+			public InputStream execute(Context context, ProgressMonitor monitor) throws Exception {
+				return resolveRef(context).openStream();
 			}
 		};
 	}

@@ -9,12 +9,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextFile;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,19 +139,19 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	}
 
 	@Override
-	protected InputStream store(Context context, String content, String charset) throws Exception {
+	protected InputStream store(Context context, String content) throws Exception {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		String charsetName = context.interpolate(getEncoding());
-		baos.write(content.getBytes(charsetName == null || charsetName.trim().length() == 0 ? charset : charsetName));
+		baos.write(content.getBytes(charsetName == null || charsetName.trim().length() == 0 ? StandardCharsets.UTF_8.name() : charsetName));
 		baos.close(); 
 		return new ByteArrayInputStream(baos.toByteArray());
 	}
 
 	@Override
-	protected String load(Context context, InputStream content, String charset) throws Exception {
+	protected String load(Context context, InputStream content) throws Exception {
 		StringWriter w = new StringWriter();
 		String charsetName = context.interpolate(getEncoding());		
-		try (Reader r = new BufferedReader(new InputStreamReader(content, charsetName == null || charsetName.trim().length() == 0 ? charset : charsetName))) {
+		try (Reader r = new BufferedReader(new InputStreamReader(content, charsetName == null || charsetName.trim().length() == 0 ? StandardCharsets.UTF_8.name() : charsetName))) {
 			int ch; 
 			while ((ch = r.read()) != -1) {
 				w.write(ch);

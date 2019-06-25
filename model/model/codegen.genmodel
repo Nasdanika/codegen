@@ -11,7 +11,6 @@
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Keep"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Append"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Merge"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/ConfirmOverwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Overwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Cancel"/>
     </genEnums>
@@ -80,7 +79,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextFile/encoding"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Container/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Container/children"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
     <genClasses ecoreClass="codegen.ecore#//StaticText">
