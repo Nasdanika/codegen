@@ -18,42 +18,36 @@
 	</properties>
 
 	<repositories>
-		<!-- configure p2 repository to resolve against -->
 		<repository>
-			<id>photon</id>
-			<url>http://download.eclipse.org/releases/photon</url>
+			<id>eclipse</id>
+			<url>http://download.eclipse.org/releases/2019-03</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>orbit</id>
-				<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository</url>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20181128170323/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>third-party</id>
-			<url>http://www.nasdanika.org/products/third-party/repository</url>
+			<url>https://www.nasdanika.org/home/products/third-party/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>core</id>
+			<url>https://www.nasdanika.org/home/products/core/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>html</id>
+			<url>https://www.nasdanika.org/home/products/html/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>maven-osgi</id>
-			<url>https://www.nasdanika.org/products/maven-osgi/repository</url>
+			<url>https://www.nasdanika.org/home/products/maven-osgi/repository</url>
 			<layout>p2</layout>
 		</repository>
-		<repository>
-			<id>config</id>
-			<url>https://www.nasdanika.org/products/config/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>presentation</id>
-			<url>https://www.nasdanika.org/products/presentation/repository</url>
-			<layout>p2</layout>
-		</repository>		
-		<repository>
-			<id>help</id>
-			<url>https://www.nasdanika.org/products/help/repository</url>
-			<layout>p2</layout>
-		</repository>		
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

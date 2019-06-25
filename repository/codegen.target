@@ -2,14 +2,13 @@
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.codehaus.janino" version="3.0.6"/>
-<unit id="org.codehaus.janino.commons-compiler" version="3.0.6"/>
-<repository location="http://www.nasdanika.org/maven-osgi"/>
+<repository location="https://www.nasdanika.org/home/products/maven-osgi/repository"/>
+	<unit id="org.freemarker.freemarker" version="2.3.28.stable"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.freemarker" version="2.3.22.v20160210-1233"/>
 <unit id="org.freemarker.source" version="2.3.22.v20160210-1233"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170516192513/repository"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20181128170323/repository"/>
 </location>
 </locations>
 <environment>
