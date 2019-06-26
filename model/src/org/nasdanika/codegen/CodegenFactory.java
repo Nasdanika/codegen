@@ -31,15 +31,6 @@ public interface CodegenFactory extends EFactory {
 	NamedGenerator createNamedGenerator();
 
 	/**
-	 * Returns a new object of class '<em>Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Group</em>'.
-	 * @generated
-	 */
-	<T> Group<T> createGroup();
-
-	/**
 	 * Returns a new object of class '<em>Binary File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +173,15 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	ZipArchive createZipArchive();
+
+	/**
+	 * Returns a new object of class '<em>Text Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Group</em>'.
+	 * @generated
+	 */
+	TextGroup createTextGroup();
 
 	/**
 	 * Returns a new object of class '<em>Mustache</em>'.

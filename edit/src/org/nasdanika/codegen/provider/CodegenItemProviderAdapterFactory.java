@@ -95,29 +95,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Group} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GroupItemProvider groupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.Group}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGroupAdapter() {
-		if (groupItemProvider == null) {
-			groupItemProvider = new GroupItemProvider(this);
-		}
-
-		return groupItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +463,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.TextGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextGroupItemProvider textGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.TextGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextGroupAdapter() {
+		if (textGroupItemProvider == null) {
+			textGroupItemProvider = new TextGroupItemProvider(this);
+		}
+
+		return textGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Mustache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -637,7 +637,6 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	@Override
 	public void dispose() {
 		if (namedGeneratorItemProvider != null) namedGeneratorItemProvider.dispose();
-		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (binaryFileItemProvider != null) binaryFileItemProvider.dispose();
 		if (textFileItemProvider != null) textFileItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
@@ -656,6 +655,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (streamContentReferenceItemProvider != null) streamContentReferenceItemProvider.dispose();
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
 		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
+		if (textGroupItemProvider != null) textGroupItemProvider.dispose();
 	}
 
 }

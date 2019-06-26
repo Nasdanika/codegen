@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Container extends Resource<org.nasdanika.common.resources.Container<InputStream>> {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.nasdanika.common.resources.Resource&lt;java.io.InputStream&gt;&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;org.nasdanika.common.resources.Resource&lt;java.io.InputStream&gt;&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -37,9 +37,9 @@ public interface Container extends Resource<org.nasdanika.common.resources.Conta
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getContainer_Children()
-	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;&gt;" containment="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>> getChildren();
+	EList<Generator<org.nasdanika.common.resources.Resource<InputStream>>> getChildren();
 
 } // Container

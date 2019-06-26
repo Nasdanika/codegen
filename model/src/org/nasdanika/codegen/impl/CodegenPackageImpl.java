@@ -48,6 +48,7 @@ import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -248,6 +249,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass zipArchiveEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -987,6 +995,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getTextGroup() {
+		return textGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMustache() {
 		return mustacheEClass;
 	}
@@ -1239,6 +1257,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		zipArchiveEClass = createEClass(ZIP_ARCHIVE);
 		createEReference(zipArchiveEClass, ZIP_ARCHIVE__ENTRIES);
 
+		textGroupEClass = createEClass(TEXT_GROUP);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 		freeMarkerTemplateLoaderTypeEEnum = createEEnum(FREE_MARKER_TEMPLATE_LOADER_TYPE);
@@ -1310,10 +1330,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2.getETypeArguments().add(g3);
 		generatorEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
-		g2 = createEGenericType(this.getList());
+		g2 = createEGenericType(groupEClass_T);
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(groupEClass_T);
-		g2.getETypeArguments().add(g3);
 		groupEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(resourceEClass_T);
@@ -1425,6 +1443,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		zipArchiveEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGroup());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		textGroupEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1456,7 +1478,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getNamedGenerator_Generator(), g1, null, "generator", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(groupEClass, Group.class, "Group", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(groupEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -1479,7 +1501,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getTextFile_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, TextFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getResource());
+		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(this.getIResource());
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
@@ -1546,6 +1568,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
 		initEReference(getZipArchive_Entries(), g1, null, "entries", null, 0, -1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textGroupEClass, TextGroup.class, "TextGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");

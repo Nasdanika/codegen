@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,10 +21,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGroup()
- * @model superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface Group<T> extends Generator<List<T>> {
+public interface Group<T> extends Generator<T> {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;T&gt;</code>.

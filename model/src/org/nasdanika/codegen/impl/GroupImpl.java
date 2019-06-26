@@ -35,7 +35,7 @@ import org.nasdanika.common.Work;
  *
  * @generated
  */
-public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
+public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,7 +141,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 	}
 
 	@Override
-	protected Work<Context, List<T>> createWorkItem() throws Exception {
+	protected Work<Context, T> createWorkItem() throws Exception {
 		Map<Generator<T>, Work<Context, List<T>>> workMap = new HashMap<>();
 		long[] allSize = { 1 };
 		for (Generator<T> e: getElements()) {
@@ -150,7 +150,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 			allSize[0] += ew.size();
 		}
 		
-		return new Work<Context, List<T>>() {
+		return new Work<Context, T>() {
 
 			@Override
 			public long size() {
@@ -172,7 +172,7 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 			}
 
 			@Override
-			public List<T> execute(Context context, ProgressMonitor monitor) throws Exception {
+			public T execute(Context context, ProgressMonitor monitor) throws Exception {
 				List<T> ret = new ArrayList<>();
 				
 				for (Entry<Generator<T>, Work<Context, List<T>>> we: workMap.entrySet()) {
@@ -193,11 +193,18 @@ public class GroupImpl<T> extends GeneratorImpl<List<T>> implements Group<T> {
 						ret.addAll(r);
 					}
 				}				
-				return ret;
+				return join(ret);
 			}
 		};
 	}
-	
+
+	/**
+	 * Joins content producing elements.
+	 * @param ret
+	 * @return
+	 */
+	protected abstract T join(List<T> elementResults);
+
 	/**
 	 * Subclasses can override to customize elements context.
 	 * @param elementContext

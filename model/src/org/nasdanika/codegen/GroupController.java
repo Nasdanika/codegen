@@ -1,10 +1,8 @@
 package org.nasdanika.codegen;
 
-import java.util.List;
-
 import org.nasdanika.common.Context;
 
-public interface GroupController<T, G extends Group<T>> extends GeneratorController<List<T>,G> {
+public interface GroupController<T, G extends Group<T>> extends GeneratorController<T,G> {
 
 	/**
 	 * Selects group element for execution

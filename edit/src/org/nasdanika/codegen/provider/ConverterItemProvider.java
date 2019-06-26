@@ -128,11 +128,6 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -219,6 +214,11 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.CONVERTER__GENERATOR,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextGroup()));
 	}
 
 }

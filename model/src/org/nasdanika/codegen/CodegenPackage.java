@@ -3260,6 +3260,115 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextGroupImpl <em>Text Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.TextGroupImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGroup()
+	 * @generated
+	 */
+	int TEXT_GROUP = 29;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__TITLE = GROUP__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__ENABLED = GROUP__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__DESCRIPTION = GROUP__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__ELEMENTS = GROUP__ELEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Text Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP_FEATURE_COUNT = GROUP_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP___IS_FILTERABLE = GROUP___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Text Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3267,7 +3376,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 29;
+	int RECONCILE_ACTION = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -3277,7 +3386,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 30;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 31;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -3287,7 +3396,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 33;
+	int CONTEXT = 34;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -3297,7 +3406,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 32;
+	int INPUT_STREAM = 33;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -3307,7 +3416,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 37;
+	int VOID = 38;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -3317,7 +3426,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 36;
+	int IFILE = 37;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -3327,7 +3436,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 31;
+	int EXCEPTION = 32;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -3337,7 +3446,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 34;
+	int IRESOURCE = 35;
 
 
 	/**
@@ -3348,7 +3457,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 38;
+	int LIST = 39;
 
 
 	/**
@@ -3359,7 +3468,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 39;
+	int MERGER = 40;
 
 
 	/**
@@ -3370,7 +3479,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 35;
+	int ICONTAINER = 36;
 
 
 	/**
@@ -3971,6 +4080,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getZipArchive_Entries();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.TextGroup <em>Text Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Group</em>'.
+	 * @see org.nasdanika.codegen.TextGroup
+	 * @generated
+	 */
+	EClass getTextGroup();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
@@ -4658,6 +4777,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ZIP_ARCHIVE__ENTRIES = eINSTANCE.getZipArchive_Entries();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextGroupImpl <em>Text Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.TextGroupImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGroup()
+		 * @generated
+		 */
+		EClass TEXT_GROUP = eINSTANCE.getTextGroup();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.

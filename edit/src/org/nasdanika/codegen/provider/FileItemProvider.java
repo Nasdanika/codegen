@@ -153,11 +153,6 @@ public class FileItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
-				 CodegenFactory.eINSTANCE.createGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -244,6 +239,11 @@ public class FileItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.FILE__GENERATORS,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__GENERATORS,
+				 CodegenFactory.eINSTANCE.createTextGroup()));
 	}
 
 }

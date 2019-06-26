@@ -60,7 +60,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CodegenPackage.NAMED_GENERATOR: return createNamedGenerator();
-			case CodegenPackage.GROUP: return createGroup();
 			case CodegenPackage.BINARY_FILE: return createBinaryFile();
 			case CodegenPackage.TEXT_FILE: return createTextFile();
 			case CodegenPackage.CONTAINER: return createContainer();
@@ -79,6 +78,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.STREAM_CONTENT_REFERENCE: return createStreamContentReference();
 			case CodegenPackage.MUSTACHE: return createMustache();
 			case CodegenPackage.ZIP_ARCHIVE: return createZipArchive();
+			case CodegenPackage.TEXT_GROUP: return createTextGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -163,17 +163,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public NamedGenerator createNamedGenerator() {
 		NamedGeneratorImpl namedGenerator = new NamedGeneratorImpl();
 		return namedGenerator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public <T> Group<T> createGroup() {
-		GroupImpl<T> group = new GroupImpl<T>();
-		return group;
 	}
 
 	/**
@@ -350,6 +339,17 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ZipArchive createZipArchive() {
 		ZipArchiveImpl zipArchive = new ZipArchiveImpl();
 		return zipArchive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextGroup createTextGroup() {
+		TextGroupImpl textGroup = new TextGroupImpl();
+		return textGroup;
 	}
 
 	/**

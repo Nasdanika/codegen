@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
@@ -62,8 +63,8 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<org.nasdanika.codegen.Resource<Resource<InputStream>>> getChildren() {
-		return (EList<org.nasdanika.codegen.Resource<Resource<InputStream>>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
+	public EList<Generator<Resource<InputStream>>> getChildren() {
+		return (EList<Generator<Resource<InputStream>>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 		switch (featureID) {
 			case CodegenPackage.CONTAINER__CHILDREN:
 				getChildren().clear();
-				getChildren().addAll((Collection<? extends org.nasdanika.codegen.Resource<Resource<InputStream>>>)newValue);
+				getChildren().addAll((Collection<? extends Generator<Resource<InputStream>>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,7 +145,7 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 	protected Work<Context, org.nasdanika.common.resources.Container<InputStream>> createWorkItem() throws Exception {
 		List<Work<Context, List<org.nasdanika.common.resources.Resource<InputStream>>>> childrenWork = new ArrayList<>();
 		int[] workSize = { 3 };
-		for (org.nasdanika.codegen.Resource<Resource<InputStream>> child: getChildren()) {
+		for (Generator<Resource<InputStream>> child: getChildren()) {
 			Work<Context, List<Resource<InputStream>>> childWork = child.createWork();
 			workSize[0] += childWork.size();
 			childrenWork.add(childWork);

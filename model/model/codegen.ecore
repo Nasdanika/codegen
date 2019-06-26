@@ -129,7 +129,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Group">
+  <eClassifiers xsi:type="ecore:EClass" name="Group" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of generators from which zero to all can be invoked during the generation process. The group itself doesn't generate anything - it is an aggregation and conditional invocation construct."/>
     </eAnnotations>
@@ -144,9 +144,7 @@
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
-      <eTypeArguments eClassifier="#//List">
-        <eTypeArguments eTypeParameter="#//Group/T"/>
-      </eTypeArguments>
+      <eTypeArguments eTypeParameter="#//Group/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReconcileAction">
@@ -262,7 +260,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Folder can contain other resource generators."/>
       </eAnnotations>
-      <eGenericType eClassifier="#//Resource">
+      <eGenericType eClassifier="#//Generator">
         <eTypeArguments eClassifier="#//IResource">
           <eTypeArguments eClassifier="#//InputStream"/>
         </eTypeArguments>
@@ -528,6 +526,14 @@
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
       <eTypeArguments eClassifier="#//InputStream"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextGroup">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A group of text generators."/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//Group">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

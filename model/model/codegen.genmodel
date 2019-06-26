@@ -130,5 +130,6 @@
     <genClasses ecoreClass="codegen.ecore#//ZipArchive">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/entries"/>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//TextGroup"/>
   </genPackages>
 </genmodel:GenModel>

@@ -203,11 +203,6 @@ public class NamedGeneratorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
-				 CodegenFactory.eINSTANCE.createGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -294,6 +289,11 @@ public class NamedGeneratorItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextGroup()));
 	}
 
 	/**
