@@ -19,7 +19,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.codegen.CodegenFactory;
@@ -33,7 +32,7 @@ import org.nasdanika.codegen.NamedGenerator;
  * @generated
  */
 public class NamedGeneratorItemProvider 
-	extends ItemProviderAdapter
+	extends ItemProviderAdapterBase
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -104,7 +103,7 @@ public class NamedGeneratorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NamedGenerator_description_feature", "_UI_NamedGenerator_type"),
 				 CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

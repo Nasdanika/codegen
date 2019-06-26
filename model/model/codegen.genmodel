@@ -3,7 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.codegen/src" modelPluginID="org.nasdanika.codegen"
     modelName="Codegen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="8.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightFields="false" providerRootExtendsClass="org.nasdanika.codegen.provider.ItemProviderAdapterBase"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>codegen.ecore</foreignModel>
   <genPackages prefix="Codegen" basePackage="org.nasdanika" disposableProviderFactory="true"
       ecorePackage="codegen.ecore#/">
@@ -46,8 +47,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/description"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
@@ -57,7 +58,7 @@
     <genClasses ecoreClass="codegen.ecore#//NamedGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//NamedGenerator/generator"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/description"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/description"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>
@@ -82,10 +83,11 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
     <genClasses ecoreClass="codegen.ecore#//StaticText">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/contents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/interpolate"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//StaticBytes">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticBytes/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticBytes/contents"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//FreeMarkerGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/templateLoaderType"/>

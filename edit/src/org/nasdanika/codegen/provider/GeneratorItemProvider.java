@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -30,7 +29,7 @@ import org.nasdanika.codegen.Generator;
  * @generated
  */
 public class GeneratorItemProvider 
-	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+	extends ItemProviderAdapterBase implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -142,7 +141,7 @@ public class GeneratorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_description_feature", "_UI_Generator_type"),
 				 CodegenPackage.Literals.GENERATOR__DESCRIPTION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -164,7 +163,7 @@ public class GeneratorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configuration_feature", "_UI_Generator_type"),
 				 CodegenPackage.Literals.GENERATOR__CONFIGURATION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

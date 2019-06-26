@@ -47,7 +47,7 @@ public abstract class ResourceImpl<T extends org.nasdanika.common.resources.Reso
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ReconcileAction RECONCILE_ACTION_EDEFAULT = ReconcileAction.APPEND;
+	protected static final ReconcileAction RECONCILE_ACTION_EDEFAULT = ReconcileAction.OVERWRITE;
 
 	/**
 	 * <!-- begin-user-doc -->

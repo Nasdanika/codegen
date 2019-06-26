@@ -65,7 +65,7 @@ public class StaticBytesItemProvider extends GeneratorItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_StaticBytes_content_feature", "_UI_StaticBytes_type"),
 				 CodegenPackage.Literals.STATIC_BYTES__CONTENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

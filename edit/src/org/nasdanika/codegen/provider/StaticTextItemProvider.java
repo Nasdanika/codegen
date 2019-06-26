@@ -65,7 +65,7 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_StaticText_content_feature", "_UI_StaticText_type"),
 				 CodegenPackage.Literals.STATIC_TEXT__CONTENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
