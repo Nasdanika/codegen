@@ -4,26 +4,19 @@ package org.nasdanika.codegen.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -35,18 +28,16 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.java.provider.JavaItemProviderAdapterFactory;
-import org.nasdanika.codegen.maven.provider.MavenItemProviderAdapterFactory;
-import org.nasdanika.codegen.provider.CodegenItemProviderAdapterFactory;
 
 /**
  * This is the action bar contributor for the Codegen model editor.
@@ -91,39 +82,6 @@ public class CodegenActionBarContributor
 				}
 			}
 		};
-		
-	/**
-	 * Actions contributed by extensions.	
-	 */
-	protected List<IAction> contributedActions = new ArrayList<>();	
-		
-	protected GenerateAction generateAction = new GenerateAction("Generate") {
-		
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		{
-			adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-			adapterFactory.addAdapterFactory(new CodegenItemProviderAdapterFactory());
-			adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
-			adapterFactory.addAdapterFactory(new MavenItemProviderAdapterFactory());
-			adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		}
-		
-
-		@Override
-		public String getLabel(Generator<?> generator) {
-			
-			if (generator != null && adapterFactory != null && !generator.eIsProxy()) {
-				IItemLabelProvider itemLabelProvider = (IItemLabelProvider) adapterFactory.adapt(generator,	IItemLabelProvider.class);
-				if (itemLabelProvider != null) {
-					return itemLabelProvider.getText(generator);
-				}
-			}
-			
-			return null;
-		}
-		
-	};
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
@@ -195,18 +153,6 @@ public class CodegenActionBarContributor
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
 		controlAction = new ControlAction();
-		
-		for (IConfigurationElement ce: Platform.getExtensionRegistry().getConfigurationElementsFor("org.nasdanika.codegen.editor.menu_action")) {
-			if ("action".equals(ce.getName())) {					
-				try {
-					contributedActions.add((IAction) ce.createExecutableExtension("class"));
-				} catch (Exception e) {
-					IStatus status = new Status(Status.ERROR, "org.nasdanika.codegen.editor", "Unable to instantiate contributed action: "+e, e);
-					CodegenEditorPlugin.getPlugin().getLog().log(status);
-				}
-			}					
-		}
-		
 	}
 
 	/**
@@ -217,6 +163,7 @@ public class CodegenActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("codegen-settings"));
 		toolBarManager.add(new Separator("codegen-additions"));
 	}
@@ -253,6 +200,7 @@ public class CodegenActionBarContributor
 		//
 		submenuManager.addMenuListener
 			(new IMenuListener() {
+				 @Override
 				 public void menuAboutToShow(IMenuManager menuManager) {
 					 menuManager.updateAll(true);
 				 }
@@ -300,6 +248,7 @@ public class CodegenActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//
@@ -345,17 +294,15 @@ public class CodegenActionBarContributor
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
-		List<IAction> actions = new ArrayList<IAction>();
+		Collection<IAction> actions = new ArrayList<IAction>();
 		if (descriptors != null) {
 			for (Object descriptor : descriptors) {
 				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
 			}
 		}
-		// Sort
-		Collections.sort(actions, (a1, a2) -> a1.getText().compareTo(a2.getText()));
 		return actions;
 	}
 
@@ -461,12 +408,6 @@ public class CodegenActionBarContributor
 
 		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
-		
-	    String key = (style & ADDITIONS_LAST_STYLE) == 0 ? "additions-end" : "additions";
-        menuManager.insertBefore(key, generateAction);
-    	for (IAction contributedAction: contributedActions) {
-            menuManager.insertBefore(key, contributedAction);    		
-    	}
 
 		super.addGlobalActions(menuManager);
 	}
@@ -481,19 +422,5 @@ public class CodegenActionBarContributor
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-	    ISelectionProvider selectionProvider = activeEditor instanceof ISelectionProvider ? (ISelectionProvider) activeEditor :	activeEditor.getEditorSite().getSelectionProvider();
-   	    if (selectionProvider != null) {
-   	    	selectionProvider.addSelectionChangedListener(generateAction);
-   	    	for (IAction contributedAction: contributedActions) {
-   	    		if (contributedAction instanceof ISelectionChangedListener) {
-   	    			selectionProvider.addSelectionChangedListener((ISelectionChangedListener) contributedAction);
-   	    		}
-   	    	}
-   	    }   	    
-	}
-	
+
 }

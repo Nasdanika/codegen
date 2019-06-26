@@ -108,7 +108,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </url>
 
    <requires>
-      <import feature="org.nasdanika.config.feature" version="0.1.0.qualifier"/>
+      <import feature="org.eclipse.emf.ecp.emfforms.runtime.feature" version="1.20.0.20190311-1236"/>
    </requires>
 
    <plugin
