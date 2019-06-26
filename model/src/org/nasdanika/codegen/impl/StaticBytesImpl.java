@@ -20,22 +20,21 @@ import org.nasdanika.common.Work;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.StaticBytesImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.StaticBytesImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class StaticBytesImpl extends GeneratorImpl<InputStream> implements StaticBytes {
 	/**
-	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * The default value of the '{@link #getContents() <em>Contents</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContent()
+	 * @see #getContents()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final byte[] CONTENT_EDEFAULT = null;
-
+	protected static final byte[] CONTENTS_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,8 +60,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	 * @generated
 	 */
 	@Override
-	public byte[] getContent() {
-		return (byte[])eDynamicGet(CodegenPackage.STATIC_BYTES__CONTENT, CodegenPackage.Literals.STATIC_BYTES__CONTENT, true, true);
+	public byte[] getContents() {
+		return (byte[])eDynamicGet(CodegenPackage.STATIC_BYTES__CONTENTS, CodegenPackage.Literals.STATIC_BYTES__CONTENTS, true, true);
 	}
 
 	/**
@@ -71,10 +70,10 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	 * @generated
 	 */
 	@Override
-	public void setContent(byte[] newContent) {
-		eDynamicSet(CodegenPackage.STATIC_BYTES__CONTENT, CodegenPackage.Literals.STATIC_BYTES__CONTENT, newContent);
+	public void setContents(byte[] newContents) {
+		eDynamicSet(CodegenPackage.STATIC_BYTES__CONTENTS, CodegenPackage.Literals.STATIC_BYTES__CONTENTS, newContents);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,8 +82,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.STATIC_BYTES__CONTENT:
-				return getContent();
+			case CodegenPackage.STATIC_BYTES__CONTENTS:
+				return getContents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -97,8 +96,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.STATIC_BYTES__CONTENT:
-				setContent((byte[])newValue);
+			case CodegenPackage.STATIC_BYTES__CONTENTS:
+				setContents((byte[])newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,8 +111,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.STATIC_BYTES__CONTENT:
-				setContent(CONTENT_EDEFAULT);
+			case CodegenPackage.STATIC_BYTES__CONTENTS:
+				setContents(CONTENTS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -127,8 +126,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.STATIC_BYTES__CONTENT:
-				return CONTENT_EDEFAULT == null ? getContent() != null : !CONTENT_EDEFAULT.equals(getContent());
+			case CodegenPackage.STATIC_BYTES__CONTENTS:
+				return CONTENTS_EDEFAULT == null ? getContents() != null : !CONTENTS_EDEFAULT.equals(getContents());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -144,8 +143,8 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 			
 			@Override
 			public InputStream execute(Context context, ProgressMonitor monitor) throws Exception {
-				byte[] content = getContent();
-				return content == null ? null : new ByteArrayInputStream(content);
+				byte[] contents = getContents();
+				return contents == null ? null : new ByteArrayInputStream(contents);
 			}
 
 			@Override

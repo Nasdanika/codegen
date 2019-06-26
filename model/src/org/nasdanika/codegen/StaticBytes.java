@@ -18,7 +18,7 @@ import java.io.InputStream;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.StaticBytes#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.StaticBytes#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getStaticBytes()
@@ -27,28 +27,28 @@ import java.io.InputStream;
  */
 public interface StaticBytes extends Generator<InputStream> {
 	/**
-	 * Returns the value of the '<em><b>Content</b></em>' attribute.
+	 * Returns the value of the '<em><b>Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Text content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Content</em>' attribute.
-	 * @see #setContent(byte[])
-	 * @see org.nasdanika.codegen.CodegenPackage#getStaticBytes_Content()
+	 * @return the value of the '<em>Contents</em>' attribute.
+	 * @see #setContents(byte[])
+	 * @see org.nasdanika.codegen.CodegenPackage#getStaticBytes_Contents()
 	 * @model
 	 * @generated
 	 */
-	byte[] getContent();
+	byte[] getContents();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.StaticBytes#getContent <em>Content</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.codegen.StaticBytes#getContents <em>Contents</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Content</em>' attribute.
-	 * @see #getContent()
+	 * @param value the new value of the '<em>Contents</em>' attribute.
+	 * @see #getContents()
 	 * @generated
 	 */
-	void setContent(byte[] value);
+	void setContents(byte[] value);
 
 } // StaticBytes

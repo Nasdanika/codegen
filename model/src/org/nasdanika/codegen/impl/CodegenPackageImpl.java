@@ -707,8 +707,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStaticText_Content() {
+	public EAttribute getStaticText_Contents() {
 		return (EAttribute)staticTextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStaticText_Interpolate() {
+		return (EAttribute)staticTextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -997,7 +1007,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStaticBytes_Content() {
+	public EAttribute getStaticBytes_Contents() {
 		return (EAttribute)staticBytesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1179,10 +1189,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
 		staticTextEClass = createEClass(STATIC_TEXT);
-		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENT);
+		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENTS);
+		createEAttribute(staticTextEClass, STATIC_TEXT__INTERPOLATE);
 
 		staticBytesEClass = createEClass(STATIC_BYTES);
-		createEAttribute(staticBytesEClass, STATIC_BYTES__CONTENT);
+		createEAttribute(staticBytesEClass, STATIC_BYTES__CONTENTS);
 
 		freeMarkerGeneratorEClass = createEClass(FREE_MARKER_GENERATOR);
 		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__TEMPLATE_LOADER_TYPE);
@@ -1478,10 +1489,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaticText_Contents(), ecorePackage.getEString(), "contents", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaticText_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticBytesEClass, StaticBytes.class, "StaticBytes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaticBytes_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, StaticBytes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaticBytes_Contents(), ecorePackage.getEByteArray(), "contents", null, 0, 1, StaticBytes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(freeMarkerGeneratorEClass, FreeMarkerGenerator.class, "FreeMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFreeMarkerGenerator_TemplateLoaderType(), this.getFreeMarkerTemplateLoaderType(), "templateLoaderType", null, 1, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

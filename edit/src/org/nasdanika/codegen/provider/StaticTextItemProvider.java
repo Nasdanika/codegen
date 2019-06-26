@@ -45,29 +45,52 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContentPropertyDescriptor(object);
+			addContentsPropertyDescriptor(object);
+			addInterpolatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Content feature.
+	 * This adds a property descriptor for the Contents feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContentPropertyDescriptor(Object object) {
+	protected void addContentsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_StaticText_content_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StaticText_content_feature", "_UI_StaticText_type"),
-				 CodegenPackage.Literals.STATIC_TEXT__CONTENT,
+				 getString("_UI_StaticText_contents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StaticText_contents_feature", "_UI_StaticText_type"),
+				 CodegenPackage.Literals.STATIC_TEXT__CONTENTS,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Interpolate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInterpolatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StaticText_interpolate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StaticText_interpolate_feature", "_UI_StaticText_type"),
+				 CodegenPackage.Literals.STATIC_TEXT__INTERPOLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -110,7 +133,8 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StaticText.class)) {
-			case CodegenPackage.STATIC_TEXT__CONTENT:
+			case CodegenPackage.STATIC_TEXT__CONTENTS:
+			case CodegenPackage.STATIC_TEXT__INTERPOLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

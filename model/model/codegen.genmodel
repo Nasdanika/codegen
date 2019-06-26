@@ -83,7 +83,7 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
     <genClasses ecoreClass="codegen.ecore#//StaticText">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/contents"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/contents"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/interpolate"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//StaticBytes">

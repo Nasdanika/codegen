@@ -1190,13 +1190,22 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * The feature id for the '<em><b>Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_TEXT__CONTENT = GENERATOR_FEATURE_COUNT + 0;
+	int STATIC_TEXT__CONTENTS = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__INTERPOLATE = GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Static Text</em>' class.
@@ -1205,7 +1214,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_TEXT_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+	int STATIC_TEXT_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -1469,13 +1478,13 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * The feature id for the '<em><b>Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_BYTES__CONTENT = GENERATOR_FEATURE_COUNT + 0;
+	int STATIC_BYTES__CONTENTS = GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Static Bytes</em>' class.
@@ -3672,15 +3681,26 @@ public interface CodegenPackage extends EPackage {
 	EClass getStaticText();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StaticText#getContent <em>Content</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StaticText#getContents <em>Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see org.nasdanika.codegen.StaticText#getContent()
+	 * @return the meta object for the attribute '<em>Contents</em>'.
+	 * @see org.nasdanika.codegen.StaticText#getContents()
 	 * @see #getStaticText()
 	 * @generated
 	 */
-	EAttribute getStaticText_Content();
+	EAttribute getStaticText_Contents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StaticText#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.StaticText#isInterpolate()
+	 * @see #getStaticText()
+	 * @generated
+	 */
+	EAttribute getStaticText_Interpolate();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.FreeMarkerGenerator <em>Free Marker Generator</em>}'.
@@ -3973,15 +3993,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getStaticBytes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StaticBytes#getContent <em>Content</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StaticBytes#getContents <em>Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see org.nasdanika.codegen.StaticBytes#getContent()
+	 * @return the meta object for the attribute '<em>Contents</em>'.
+	 * @see org.nasdanika.codegen.StaticBytes#getContents()
 	 * @see #getStaticBytes()
 	 * @generated
 	 */
-	EAttribute getStaticBytes_Content();
+	EAttribute getStaticBytes_Contents();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
@@ -4384,12 +4404,20 @@ public interface CodegenPackage extends EPackage {
 		EClass STATIC_TEXT = eINSTANCE.getStaticText();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Contents</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STATIC_TEXT__CONTENT = eINSTANCE.getStaticText_Content();
+		EAttribute STATIC_TEXT__CONTENTS = eINSTANCE.getStaticText_Contents();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATIC_TEXT__INTERPOLATE = eINSTANCE.getStaticText_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FreeMarkerGeneratorImpl <em>Free Marker Generator</em>}' class.
@@ -4652,12 +4680,12 @@ public interface CodegenPackage extends EPackage {
 		EClass STATIC_BYTES = eINSTANCE.getStaticBytes();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Contents</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STATIC_BYTES__CONTENT = eINSTANCE.getStaticBytes_Content();
+		EAttribute STATIC_BYTES__CONTENTS = eINSTANCE.getStaticBytes_Contents();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
