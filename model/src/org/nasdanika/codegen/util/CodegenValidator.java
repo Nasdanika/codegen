@@ -5,19 +5,11 @@ package org.nasdanika.codegen.util;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.codegen.CodeGenPlugin;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.*;
 import org.nasdanika.common.Context;
 
@@ -96,32 +88,94 @@ public class CodegenValidator extends EObjectValidator {
 	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (value instanceof EObject) {
-			org.eclipse.emf.ecore.resource.Resource resource = ((EObject) value).eResource();
-			if (resource != null) {
-				IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
-				if (modelFile.exists()) {
-					IProject project = modelFile.getProject();
-					if (project.exists()) {
-						try {
-							IProjectNature javaNature = project.getNature(JavaCore.NATURE_ID);
-							if (javaNature instanceof IJavaProject) {
-								context.put(ClassLoader.class, new JavaProjectClassLoader(getClass().getClassLoader(), (IJavaProject) javaNature));
-							}
-						} catch (Exception e) {
-							CodeGenPlugin.getPlugin().log(e);
-						}
-					}
-				}
-			}
+		switch (classifierID) {
+			case CodegenPackage.WORK_FACTORY:
+				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
+			case CodegenPackage.GENERATOR:
+				return validateGenerator((Generator<?>)value, diagnostics, context);
+			case CodegenPackage.NAMED_GENERATOR:
+				return validateNamedGenerator((NamedGenerator)value, diagnostics, context);
+			case CodegenPackage.GROUP:
+				return validateGroup((Group<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE:
+				return validateResource((Resource<?>)value, diagnostics, context);
+			case CodegenPackage.FILE:
+				return validateFile((File<?>)value, diagnostics, context);
+			case CodegenPackage.BINARY_FILE:
+				return validateBinaryFile((BinaryFile)value, diagnostics, context);
+			case CodegenPackage.TEXT_FILE:
+				return validateTextFile((TextFile)value, diagnostics, context);
+			case CodegenPackage.CONTAINER:
+				return validateContainer((Container)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GROUP:
+				return validateResourceGroup((ResourceGroup)value, diagnostics, context);
+			case CodegenPackage.STATIC_TEXT:
+				return validateStaticText((StaticText)value, diagnostics, context);
+			case CodegenPackage.STATIC_BYTES:
+				return validateStaticBytes((StaticBytes)value, diagnostics, context);
+			case CodegenPackage.FREE_MARKER_GENERATOR:
+				return validateFreeMarkerGenerator((FreeMarkerGenerator)value, diagnostics, context);
+			case CodegenPackage.ECORE_MODEL_GENERATOR:
+				return validateECoreModelGenerator((ECoreModelGenerator)value, diagnostics, context);
+			case CodegenPackage.CONTENT_REFERENCE:
+				return validateContentReference((ContentReference<?>)value, diagnostics, context);
+			case CodegenPackage.CONVERTER:
+				return validateConverter((Converter<?, ?>)value, diagnostics, context);
+			case CodegenPackage.FILTER:
+				return validateFilter((Filter<?>)value, diagnostics, context);
+			case CodegenPackage.JAVA_GENERATOR:
+				return validateJavaGenerator((JavaGenerator<?>)value, diagnostics, context);
+			case CodegenPackage.INTERPOLATOR:
+				return validateInterpolator((Interpolator)value, diagnostics, context);
+			case CodegenPackage.JAVA_FILTER:
+				return validateJavaFilter((JavaFilter<?>)value, diagnostics, context);
+			case CodegenPackage.JAVA_TEXT_FILTER:
+				return validateJavaTextFilter((JavaTextFilter)value, diagnostics, context);
+			case CodegenPackage.JAVA_STREAM_FILTER:
+				return validateJavaStreamFilter((JavaStreamFilter)value, diagnostics, context);
+			case CodegenPackage.JAVA_TEXT_GENERATOR:
+				return validateJavaTextGenerator((JavaTextGenerator)value, diagnostics, context);
+			case CodegenPackage.JAVA_STREAM_GENERATOR:
+				return validateJavaStreamGenerator((JavaStreamGenerator)value, diagnostics, context);
+			case CodegenPackage.JAVA_RESOURCE_GENERATOR:
+				return validateJavaResourceGenerator((JavaResourceGenerator)value, diagnostics, context);
+			case CodegenPackage.TEXT_CONTENT_REFERENCE:
+				return validateTextContentReference((TextContentReference)value, diagnostics, context);
+			case CodegenPackage.STREAM_CONTENT_REFERENCE:
+				return validateStreamContentReference((StreamContentReference)value, diagnostics, context);
+			case CodegenPackage.MUSTACHE:
+				return validateMustache((Mustache)value, diagnostics, context);
+			case CodegenPackage.ZIP_ARCHIVE:
+				return validateZipArchive((ZipArchive)value, diagnostics, context);
+			case CodegenPackage.RECONCILE_ACTION:
+				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
+			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
+				return validateFreeMarkerTemplateLoaderType((FreeMarkerTemplateLoaderType)value, diagnostics, context);
+			case CodegenPackage.EXCEPTION:
+				return validateException((Exception)value, diagnostics, context);
+			case CodegenPackage.INPUT_STREAM:
+				return validateInputStream((InputStream)value, diagnostics, context);
+			case CodegenPackage.CONTEXT:
+				return validateContext((Context)value, diagnostics, context);
+			case CodegenPackage.IRESOURCE:
+				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
+			case CodegenPackage.ICONTAINER:
+				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
+			case CodegenPackage.IFILE:
+				return validateIFile((org.nasdanika.common.resources.File<?>)value, diagnostics, context);
+			case CodegenPackage.VOID:
+				return validateVoid((Void)value, diagnostics, context);
+			case CodegenPackage.LIST:
+				return validateList((List<?>)value, diagnostics, context);
+			case CodegenPackage.MERGER:
+				return validateMerger((Merger<?>)value, diagnostics, context);
+			default:
+				return true;
 		}
-		
-		// TODO - inject project class loader into context if not there yet.
-		return validateGen(classifierID, value, diagnostics, context);
 	}
 	
 	/**

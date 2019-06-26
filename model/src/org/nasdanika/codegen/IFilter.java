@@ -1,10 +1,10 @@
 package org.nasdanika.codegen;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 public interface IFilter<T> {
 
-	T filter(Context context, T input, SubMonitor monitor) throws Exception;
+	T filter(Context context, T input, ProgressMonitor monitor) throws Exception;
 	
 }

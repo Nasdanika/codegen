@@ -3206,13 +3206,13 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__RESOURCES = GENERATOR_FEATURE_COUNT + 0;
+	int ZIP_ARCHIVE__ENTRIES = GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Zip Archive</em>' class.
@@ -3942,15 +3942,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getZipArchive();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.ZipArchive#getResources <em>Resources</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.ZipArchive#getEntries <em>Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resources</em>'.
-	 * @see org.nasdanika.codegen.ZipArchive#getResources()
+	 * @return the meta object for the containment reference list '<em>Entries</em>'.
+	 * @see org.nasdanika.codegen.ZipArchive#getEntries()
 	 * @see #getZipArchive()
 	 * @generated
 	 */
-	EReference getZipArchive_Resources();
+	EReference getZipArchive_Entries();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
@@ -4624,12 +4624,12 @@ public interface CodegenPackage extends EPackage {
 		EClass ZIP_ARCHIVE = eINSTANCE.getZipArchive();
 
 		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ZIP_ARCHIVE__RESOURCES = eINSTANCE.getZipArchive_Resources();
+		EReference ZIP_ARCHIVE__ENTRIES = eINSTANCE.getZipArchive_Entries();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.

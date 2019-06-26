@@ -4,10 +4,9 @@
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <repository location="https://www.nasdanika.org/home/products/maven-osgi/repository"/>
 	<unit id="org.freemarker.freemarker" version="2.3.28.stable"/>
+	<unit id="com.github.spullara.mustache.java.compiler" version="0.9.6"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.freemarker" version="2.3.22.v20160210-1233"/>
-<unit id="org.freemarker.source" version="2.3.22.v20160210-1233"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20181128170323/repository"/>
 </location>
 </locations>

@@ -126,7 +126,7 @@
     <genClasses ecoreClass="codegen.ecore#//StreamContentReference"/>
     <genClasses ecoreClass="codegen.ecore#//Mustache"/>
     <genClasses ecoreClass="codegen.ecore#//ZipArchive">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/entries"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

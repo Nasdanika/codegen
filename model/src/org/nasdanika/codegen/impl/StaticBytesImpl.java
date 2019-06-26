@@ -5,13 +5,12 @@ package org.nasdanika.codegen.impl;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.StaticBytes;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,22 +134,28 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	}
 
 	@Override
-	public Work<InputStream> createWorkItem() throws Exception {
-		return new Work<InputStream>() {
+	public Work<Context, InputStream> createWorkItem() throws Exception {
+		return new Work<Context, InputStream>() {
 			
 			@Override
-			public int size() {
+			public long size() {
 				return 1;
 			}
 			
 			@Override
-			public InputStream execute(Context context, SubMonitor monitor) throws Exception {
-				try {
-					byte[] content = getContent();
-					return content == null ? null : new ByteArrayInputStream(content);
-				} finally {
-					monitor.worked(size());
-				}
+			public InputStream execute(Context context, ProgressMonitor monitor) throws Exception {
+				byte[] content = getContent();
+				return content == null ? null : new ByteArrayInputStream(content);
+			}
+
+			@Override
+			public String getName() {
+				return getTitle();
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
 			}
 			
 		};

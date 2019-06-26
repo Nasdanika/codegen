@@ -62,7 +62,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.ZIP_ARCHIVE__RESOURCES);
+			childrenFeatures.add(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +118,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ZipArchive.class)) {
-			case CodegenPackage.ZIP_ARCHIVE__RESOURCES:
+			case CodegenPackage.ZIP_ARCHIVE__ENTRIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,17 +138,17 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__RESOURCES,
+				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__RESOURCES,
+				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
 				 CodegenFactory.eINSTANCE.createTextFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__RESOURCES,
+				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
 				 CodegenFactory.eINSTANCE.createContainer()));
 	}
 

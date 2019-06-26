@@ -4,7 +4,6 @@ package org.nasdanika.codegen.impl;
 
 import java.util.Map;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -12,10 +11,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JavaGenerator;
-import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.config.Context;
-import org.nasdanika.config.Provider;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,24 +155,10 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 		return result;
 	}	
 		
+	@SuppressWarnings("unchecked")
 	@Override
-	public Work<T> createWorkItem() throws Exception {
-		return new Work<T>() {
-			
-			@Override
-			public int size() {
-				return 3;
-			}
-			
-			@Override
-			public T execute(Context context, SubMonitor monitor) throws Exception {
-				Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
-				@SuppressWarnings({ "unchecked", "rawtypes" })
-				Work<T> generator = (Work<T>) (obj instanceof Provider ? ((Provider<Work<T>>) obj).get(context, monitor.split(1)) : obj);
-				return generator.execute(context, monitor.split(1));
-			}
-			
-		};
+	public Work<Context, T> createWorkItem() throws Exception {
+		return (Work<Context, T>) loadClass(getClassName()).getConstructor().newInstance();
 	}
 
 	

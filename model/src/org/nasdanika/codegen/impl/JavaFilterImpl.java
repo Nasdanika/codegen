@@ -5,7 +5,6 @@ package org.nasdanika.codegen.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -15,8 +14,8 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.IFilter;
 import org.nasdanika.codegen.JavaFilter;
 import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.config.Context;
-import org.nasdanika.config.Provider;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -164,11 +163,10 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 	}
 	
 	@Override
-	protected T filter(Context context, List<T> generationResult, SubMonitor subMonitor) throws Exception {
-		Object obj = context.getClassLoader().loadClass(getClassName()).newInstance();
-		@SuppressWarnings({ "unchecked", "rawtypes" })
-		IFilter<T> filter = (IFilter<T>) (obj instanceof Provider ? ((Provider<IFilter>) obj).get(context, subMonitor.split(getFilterWorkSize())) : obj);
-		return filter.filter(context, join(generationResult), subMonitor);
+	protected T filter(Context context, List<T> generationResult, ProgressMonitor monitor) throws Exception {
+		@SuppressWarnings("unchecked")
+		IFilter<T> filter = (IFilter<T>) loadClass(getClassName()).getConstructor().newInstance();
+		return filter.filter(context, join(generationResult), monitor);
 	}
 	
 	protected abstract T join(List<T> generationResult) throws Exception;

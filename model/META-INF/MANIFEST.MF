@@ -12,7 +12,7 @@ Export-Package: org.nasdanika.codegen,
  org.nasdanika.codegen.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.nasdanika.common;bundle-version="1.0.0",
+ org.nasdanika.common;bundle-version="1.0.0";visibility:=reexport,
  com.github.spullara.mustache.java.compiler;bundle-version="0.9.5",
  org.freemarker.freemarker;bundle-version="2.3.28"
 Bundle-ActivationPolicy: lazy

@@ -2,12 +2,12 @@
  */
 package org.nasdanika.codegen.impl;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.StaticText;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,21 +131,27 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	}
 
 	@Override
-	public Work<String> createWorkItem() throws Exception {
-		return new Work<String>() {
+	public Work<Context, String> createWorkItem() throws Exception {
+		return new Work<Context, String>() {
 			
 			@Override
-			public int size() {
+			public long size() {
 				return 1;
 			}
 			
 			@Override
-			public String execute(Context context, SubMonitor monitor) throws Exception {
-				try {
-					return getContent();
-				} finally {
-					monitor.worked(size());
-				}
+			public String execute(Context context, ProgressMonitor monitor) throws Exception {
+				return getContent();
+			}
+
+			@Override
+			public String getName() {
+				return getTitle();
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
 			}
 			
 		};

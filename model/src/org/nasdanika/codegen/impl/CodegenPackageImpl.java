@@ -967,7 +967,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getZipArchive_Resources() {
+	public EReference getZipArchive_Entries() {
 		return (EReference)zipArchiveEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1226,7 +1226,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		mustacheEClass = createEClass(MUSTACHE);
 
 		zipArchiveEClass = createEClass(ZIP_ARCHIVE);
-		createEReference(zipArchiveEClass, ZIP_ARCHIVE__RESOURCES);
+		createEReference(zipArchiveEClass, ZIP_ARCHIVE__ENTRIES);
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
@@ -1533,7 +1533,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
-		initEReference(getZipArchive_Resources(), g1, null, "resources", null, 0, -1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZipArchive_Entries(), g1, null, "entries", null, 0, -1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");

@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.ZipArchive#getResources <em>Resources</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.ZipArchive#getEntries <em>Entries</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getZipArchive()
@@ -27,18 +27,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ZipArchive extends Generator<InputStream> {
 	/**
-	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.nasdanika.common.resources.Resource&lt;java.io.InputStream&gt;&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Folder can contain other resource generators.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Resources</em>' containment reference list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getZipArchive_Resources()
+	 * @return the value of the '<em>Entries</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getZipArchive_Entries()
 	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>> getResources();
+	EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>> getEntries();
 
 } // ZipArchive
