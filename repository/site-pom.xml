@@ -26,7 +26,7 @@
 			    <version>3.7.1</version>
 			    <configuration>
 			        <chmod>false</chmod>			        
-			        <locales>en,ru</locales>			        
+			        <locales>en</locales>			        
 			    </configuration>
 			</plugin>			
 			<plugin>
@@ -130,7 +130,7 @@
 							<outputDirectory>${basedir}/target/site/model-doc</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/target/products/org.nasdanika.cv.tests.product/linux/gtk/x86_64/target/model-doc</directory>
+									<directory>${basedir}/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64/target/model-doc</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
