@@ -6,22 +6,24 @@
   <body>
  
     <breadcrumbs>
-      <item name="Nasdanika" href="../site/index.html"/>
+      <item name="Nasdanika" href="../../index.html"/>
       <item name="Codegen" href="index.html"/>
     </breadcrumbs>
  
    <menu name="Main">
       <item name="Overview" href="index.html" />
-      <item name="Developer guide" href="developer-guide/index.html" />
-      <item name="Model Documentation" href="modeldoc/index.html" />
+      <!--<item name="Developer guide" href="developer-guide/index.html" />-->
+      <item name="Model Documentation" href="model-doc/index.html" />
       <item name="Project information" href="project-info.html" />      
    </menu>
    
+   <!--
    <menu name="User Guide">
       <item name="Code generation wizards" href="user-guide/code-generation-wizards.html" />
       <item name="Multi-form model editors" href="user-guide/multi-form-model-editors.html" />
       <item name="Creating a model-driven code generator" href="user-guide/creating-model-driven-code-generator.html" />
-   </menu>  
+   </menu>
+   -->  
 
    <menu name="Java API">
       <item name="Model" href="apidocs/model/index.html" />
@@ -30,12 +32,16 @@
    </menu>
 
    <menu name="Issues">
-      <item name="Roadmap" href="../../mantis/roadmap_page.php?project_id=4" />
-      <item name="All" href="../../mantis/view_all_bug_page.php?project_id=4" />
-      <item name="Change Log" href="../../mantis/changelog_page.php?project_id=4" />
+      <item name="Roadmap" href="../../../mantis/roadmap_page.php?project_id=4" />
+      <item name="All" href="../../../mantis/view_all_bug_page.php?project_id=4" />
+      <item name="Change Log" href="../../../mantis/changelog_page.php?project_id=4" />
    </menu>
  
-   <footer><![CDATA[All rights reserved.]]></footer>
+   <footer>
+	Build ${env.CIRCLE_BUILD_NUM}.${env.CIRCLE_BRANCH}.${env.CIRCLE_SHA1} 
+	&nbsp;&bull;&nbsp;
+	All rights reserved
+   </footer>
  
   </body>    
  
@@ -53,9 +59,10 @@
         <ribbonColor>gray</ribbonColor>
       </gitHub>
       <googleSearch>
-        <sitesearch>https://www.nasdanika.org/products/codegen</sitesearch>
+        <sitesearch>https://www.nasdanika.org/home/products/codegen</sitesearch>
       </googleSearch>      
     </fluidoSkin>
   </custom>
+  
  
 </project>

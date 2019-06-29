@@ -22,6 +22,19 @@ jobs:
     
     steps:
       - checkout
+
+      # Install Graphviz for diagram generation
+      - run: sudo apt-get install graphviz
+
+      # OSGi build
       - run: 
-            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package site-deploy
+            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
             no_output_timeout: 120m
+
+      # Executing tests
+      - run: cd repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64;./eclipse
+
+      # Deploying sites
+      - run: cd repository;mvn -f site-pom.xml -s ../.circleci/settings.xml site-deploy
+            
+

@@ -39,6 +39,11 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
+			<id>html</id>
+			<url>https://www.nasdanika.org/home/products/html/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
 			<id>maven-osgi</id>
 			<url>https://www.nasdanika.org/home/products/maven-osgi/repository</url>
 			<layout>p2</layout>
@@ -87,7 +92,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
+				<version>3.1.0</version>
 				<configuration>
 					<linksource>true</linksource>
 					<failOnError>false</failOnError>
@@ -166,6 +171,10 @@
 		<module>model</module>
 		<module>edit</module>
 		<module>editor</module>
+		
+		<module>tests</module>
+		<module>tests.feature</module>
+
 		<module>feature</module>
 		<module>repository</module>
 
