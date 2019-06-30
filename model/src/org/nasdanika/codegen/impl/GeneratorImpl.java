@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -29,6 +27,7 @@ import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.nasdanika.emf.DiagnosticHelper;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -341,45 +340,35 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		DiagnosticHelper helper = new DiagnosticHelper(diagnostics, CodegenValidator.DIAGNOSTIC_SOURCE, CodegenValidator.GENERATOR__VALIDATE, this);
 		boolean result = true;
 		if (diagnostics != null && getController() != null && getController().trim().length() > 0 && context != null && Boolean.TRUE.equals(context.get(Generator.VALIDATE_JAVA_CONTRIBUTORS))) {
 			try {
-				@SuppressWarnings("unchecked")
-				GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) loadClass(getController().trim()).getConstructor().newInstance();
-				result = controller.validate(this, diagnostics, context);
+				Class<?> controllerClass = loadClass(getController().trim());
+				if (GeneratorController.class.isAssignableFrom(controllerClass)) {
+					@SuppressWarnings("unchecked")
+					GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) controllerClass.getConstructor().newInstance();
+					result = controller.validate(this, diagnostics, context) && result;
+				} else {
+					helper.error(
+							"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class does not implement " + GeneratorController.class,
+							CodegenPackage.Literals.GENERATOR__CONTROLLER);					
+				}
 			} catch (ClassNotFoundException e) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Controller class not found in context classloader: "+e.getMessage(),
-					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
-			
-				result = false;										
+				helper.error(
+						"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class not found in context classloader: "+e.getMessage(),
+						CodegenPackage.Literals.GENERATOR__CONTROLLER);
 			} catch (InstantiationException e) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Controller class could not be instantiated: "+e.getMessage(),
-					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
-			
-				result = false;														
+				helper.error(
+						"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class could not be instantiated: "+e.getMessage(),
+						CodegenPackage.Literals.GENERATOR__CONTROLLER);
 			} catch (Exception e) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Validation error: "+e.getMessage(),
-					 new Object [] { this, CodegenPackage.Literals.GENERATOR__CONTROLLER }));
-			
-				result = false;																		
+				helper.error(
+						"["+EObjectValidator.getObjectLabel(this, context)+"] Validation error: "+e.getMessage(),
+						CodegenPackage.Literals.GENERATOR__CONTROLLER);
 			}
 		}
-		return result;
+		return result && helper.isSuccess();
 	}
 	
 	/**
