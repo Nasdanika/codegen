@@ -168,7 +168,7 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 			public org.nasdanika.common.resources.Container<InputStream> execute(Context context, ProgressMonitor progressMonitor) throws Exception {
 				@SuppressWarnings("unchecked")
 				org.nasdanika.common.resources.Container<InputStream> parent = context.get(org.nasdanika.common.resources.Container.class);
-				String name = context.interpolate(getName());
+				String name = context.interpolate(ContainerImpl.this.getName());
 				
 				org.nasdanika.common.resources.Container<InputStream> container = parent.getContainer(name);
 				

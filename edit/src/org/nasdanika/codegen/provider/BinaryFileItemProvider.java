@@ -58,14 +58,15 @@ public class BinaryFileItemProvider extends FileItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BinaryFile)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BinaryFile_type") :
-			getString("_UI_BinaryFile_type") + " " + label;
+		String label = ((BinaryFile)object).getTitle();
+		if (isBlank(label)) {
+			label = ((BinaryFile)object).getName();
+		}
+		return isBlank(label) ?	getString("_UI_BinaryFile_type") : label;
 	}
 	
 

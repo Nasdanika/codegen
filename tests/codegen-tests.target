@@ -8,6 +8,8 @@
 			<unit id="org.apache.commons.text" version="1.4.0"/>
 			<unit id="org.jsoup" version="1.11.3"/>
 			<unit id="net.sourceforge.plantuml" version="1.2019.5"/>
+			<unit id="com.github.spullara.mustache.java.compiler" version="0.9.6"/>
+			<unit id="org.freemarker.freemarker" version="2.3.28.stable"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<unit id="org.nasdanika.equinox.feature.feature.group" version="1.0.0.201906011629"/>

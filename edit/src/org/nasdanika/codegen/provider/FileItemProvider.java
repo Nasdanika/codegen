@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.File;
@@ -106,14 +107,15 @@ public class FileItemProvider extends ResourceItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((File<?>)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_File_type") :
-			getString("_UI_File_type") + " " + label;
+		String label = ((File<?>)object).getTitle();
+		if (isBlank(label)) {
+			label = ((File<?>)object).getName();
+		}
+		return isBlank(label) ?	getString("_UI_File_type") : label;
 	}
 	
 

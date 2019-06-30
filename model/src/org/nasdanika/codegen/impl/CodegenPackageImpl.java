@@ -456,7 +456,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Controller() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -466,7 +466,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EReference getGenerator_NamedGenerators() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(2);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -476,7 +476,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Enabled() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -486,7 +486,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Description() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -496,7 +496,17 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Configuration() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGenerator_ContextPath() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1172,11 +1182,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__TITLE);
-		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
-		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
 		createEAttribute(generatorEClass, GENERATOR__ENABLED);
 		createEAttribute(generatorEClass, GENERATOR__DESCRIPTION);
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATION);
+		createEAttribute(generatorEClass, GENERATOR__CONTEXT_PATH);
+		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
+		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
@@ -1453,11 +1464,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Title(), ecorePackage.getEString(), "title", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Configuration(), ecorePackage.getEString(), "configuration", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 

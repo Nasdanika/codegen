@@ -68,21 +68,6 @@
         <details key="documentation" value="Generator descriptive name to display in the editor, reports and progress monitors ."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="controller" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Generator controller class. Must implement org.nasdanika.codegen.GeneratorController&#xA;for generators and org.nasdanika.codegen.GroupController for groups."/>
-      </eAnnotations>
-      <eAnnotations source="org.nasdanika.ui.java-class">
-        <details key="root-type" value="org.nasdanika.codegen.GeneratorController"/>
-        <details key="super-interfaces" value="org.nasdanika.codegen.GeneratorController"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namedGenerators" upperBound="-1"
-        eType="#//NamedGenerator" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This class allows to mount generators to the parent generator context as property providers&#xD;&#xA;accessible by name. It can be used for conditional invocation of named&#xD;&#xA;generators by the containing generator. context.get(generatorName) returns Work created by contained generator."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -97,6 +82,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="configuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Custom generator configuration in YAML format.&#xA;Configuration is merged into a context passed to work created by the generator.&#xA;Configuration values may contain interpolation tokens referencing other properties."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If contextPath is not null and not empty/blank then the given path used as a prefix &#xA;prepended to the propety names when getting property values from the context. &#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="controller" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Generator controller class. Must implement org.nasdanika.codegen.GeneratorController&#xA;for generators and org.nasdanika.codegen.GroupController for groups."/>
+      </eAnnotations>
+      <eAnnotations source="org.nasdanika.ui.java-class">
+        <details key="root-type" value="org.nasdanika.codegen.GeneratorController"/>
+        <details key="super-interfaces" value="org.nasdanika.codegen.GeneratorController"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedGenerators" upperBound="-1"
+        eType="#//NamedGenerator" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This class allows to mount generators to the parent generator context as property providers&#xD;&#xA;accessible by name. It can be used for conditional invocation of named&#xD;&#xA;generators by the containing generator. context.get(generatorName) returns Work created by contained generator."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//WorkFactory">
@@ -401,7 +406,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaGenerator" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This generator instantiates and invokes Java class to generate output. &#xD;&#xA;The generator Java class shall implement ``org.nasdanika.codegen.IGenerator``.&#xD;&#xA;&#xD;&#xA;For example, JET templates may use a skeleton like shown below:&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;```java&#xD;&#xA;public class CLASS implements org.nasdanika.codegen.IGenerator&lt;String> {&#xD;&#xA;&#xA;    &#xA;&#xA;public String generate(org.nasdanika.codegen.Context context, org.eclipse.core.runtime.IProgressMonitor monitor) throws Exception {&#xD;&#xA;        &#xA;return &quot;&quot;;&#xA;   &#xD;&#xA;    }&#xA; &#xD;&#xA;}&#xD;&#xA;```&#xD;&#xA;&#xD;&#xA;and classes compiled from these template can be used by the JavaGenerator."/>
+      <details key="documentation" value="This generator instantiates and invokes Java class to generate output. &#xA;The generator Java class shall implement ``org.nasdanika.common.Work&lt;Context, T>`` where ``T`` is the generator/work return type.&#xA;"/>
     </eAnnotations>
     <eTypeParameters name="T"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

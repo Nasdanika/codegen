@@ -44,11 +44,12 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//Generator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/description"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>

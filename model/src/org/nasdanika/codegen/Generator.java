@@ -24,11 +24,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#getTitle <em>Title</em>}</li>
- *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
- *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -36,6 +37,14 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Generator<T> extends EObject, WorkFactory<List<T>> {
+	
+	/**
+	 * If diagnostic context with has this key with value ``true`` then java contributors such as controllers, mergers, java generators
+	 * shall be instantiated and their validate() methods shall be invoked where applicable. This flag shall be set to true at runtime, 
+	 * before generation and typically wouldn't be set to true at design time when java contributors may not be available for loading.
+	 */
+	String VALIDATE_JAVA_CONTRIBUTORS = GeneratorController.class.getName()+":validate-java-contributors";
+	
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
@@ -190,6 +199,33 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setConfiguration(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If contextPath is not null and not empty/blank then the given path used as a prefix 
+	 * prepended to the propety names when getting property values from the context. 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context Path</em>' attribute.
+	 * @see #setContextPath(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_ContextPath()
+	 * @model
+	 * @generated
+	 */
+	String getContextPath();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context Path</em>' attribute.
+	 * @see #getContextPath()
+	 * @generated
+	 */
+	void setContextPath(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

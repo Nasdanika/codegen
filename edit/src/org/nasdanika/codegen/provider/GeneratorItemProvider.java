@@ -52,10 +52,11 @@ public class GeneratorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTitlePropertyDescriptor(object);
-			addControllerPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addConfigurationPropertyDescriptor(object);
+			addContextPathPropertyDescriptor(object);
+			addControllerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,6 +172,28 @@ public class GeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Context Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_contextPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_contextPath_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONTEXT_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -228,10 +251,11 @@ public class GeneratorItemProvider
 
 		switch (notification.getFeatureID(Generator.class)) {
 			case CodegenPackage.GENERATOR__TITLE:
-			case CodegenPackage.GENERATOR__CONTROLLER:
 			case CodegenPackage.GENERATOR__ENABLED:
 			case CodegenPackage.GENERATOR__DESCRIPTION:
 			case CodegenPackage.GENERATOR__CONFIGURATION:
+			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+			case CodegenPackage.GENERATOR__CONTROLLER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:

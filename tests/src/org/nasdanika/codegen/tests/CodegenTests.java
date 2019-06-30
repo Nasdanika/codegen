@@ -7,6 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({
 	GenerateModelDocumentation.class,
+	GeneratorTests.class
 })
 public class CodegenTests {
 	

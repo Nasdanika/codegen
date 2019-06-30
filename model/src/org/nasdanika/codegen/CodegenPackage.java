@@ -110,31 +110,13 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__TITLE = WORK_FACTORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ENABLED = WORK_FACTORY_FEATURE_COUNT + 3;
+	int GENERATOR__ENABLED = WORK_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -143,7 +125,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__DESCRIPTION = WORK_FACTORY_FEATURE_COUNT + 4;
+	int GENERATOR__DESCRIPTION = WORK_FACTORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
@@ -152,7 +134,34 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONFIGURATION = WORK_FACTORY_FEATURE_COUNT + 5;
+	int GENERATOR__CONFIGURATION = WORK_FACTORY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONTEXT_PATH = WORK_FACTORY_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -161,7 +170,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 6;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -265,24 +274,6 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +299,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -374,24 +392,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +417,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -492,24 +519,6 @@ public interface CodegenPackage extends EPackage {
 	int FILE__TITLE = RESOURCE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,6 +544,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -628,24 +664,6 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__TITLE = FILE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__CONTROLLER = FILE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,6 +689,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE__CONFIGURATION = FILE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__CONTEXT_PATH = FILE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__CONTROLLER = FILE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -764,24 +809,6 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__TITLE = FILE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__CONTROLLER = FILE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -807,6 +834,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__CONFIGURATION = FILE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__CONTEXT_PATH = FILE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__CONTROLLER = FILE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -909,24 +963,6 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__TITLE = RESOURCE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__CONTROLLER = RESOURCE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -952,6 +988,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINER__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1036,24 +1099,6 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__TITLE = GROUP__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__CONTROLLER = GROUP__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1079,6 +1124,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONTEXT_PATH = GROUP__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1145,24 +1217,6 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_TEXT__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1188,6 +1242,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' attribute.
@@ -1433,24 +1514,6 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_BYTES__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_BYTES__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1476,6 +1539,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_BYTES__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' attribute.
@@ -1532,24 +1622,6 @@ public interface CodegenPackage extends EPackage {
 	int FREE_MARKER_GENERATOR__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FREE_MARKER_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FREE_MARKER_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1575,6 +1647,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Template Loader Type</b></em>' attribute.
@@ -1658,24 +1757,6 @@ public interface CodegenPackage extends EPackage {
 	int ECORE_MODEL_GENERATOR__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECORE_MODEL_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECORE_MODEL_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1701,6 +1782,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ECORE_MODEL_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
@@ -1757,24 +1865,6 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,6 +1890,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1856,24 +1973,6 @@ public interface CodegenPackage extends EPackage {
 	int CONVERTER__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVERTER__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVERTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1899,6 +1998,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERTER__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -1955,24 +2081,6 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__TITLE = CONVERTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__CONTROLLER = CONVERTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1998,6 +2106,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER__CONFIGURATION = CONVERTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONTROLLER = CONVERTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2054,24 +2189,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2097,6 +2214,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2153,24 +2297,6 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__TITLE = FILTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__CONTROLLER = FILTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2196,6 +2322,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR__CONFIGURATION = FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONTEXT_PATH = FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2252,24 +2405,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__TITLE = FILTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__CONTROLLER = FILTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2295,6 +2430,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__CONTEXT_PATH = FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2360,24 +2522,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__TITLE = JAVA_FILTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2403,6 +2547,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__CONTEXT_PATH = JAVA_FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2468,24 +2639,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER__TITLE = JAVA_FILTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2511,6 +2664,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__CONTEXT_PATH = JAVA_FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -2576,24 +2756,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_TEXT_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2619,6 +2781,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2675,24 +2864,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_STREAM_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2718,6 +2889,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2774,24 +2972,6 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_RESOURCE_GENERATOR__TITLE = JAVA_GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_RESOURCE_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_RESOURCE_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2817,6 +2997,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_RESOURCE_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2873,24 +3080,6 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE__TITLE = CONTENT_REFERENCE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2916,6 +3105,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__CONTEXT_PATH = CONTENT_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -2972,24 +3188,6 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__TITLE = CONTENT_REFERENCE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3015,6 +3213,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__CONTEXT_PATH = CONTENT_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -3071,24 +3296,6 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__TITLE = FILTER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MUSTACHE__CONTROLLER = FILTER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MUSTACHE__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3114,6 +3321,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MUSTACHE__CONFIGURATION = FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__CONTEXT_PATH = FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
@@ -3170,24 +3404,6 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__TITLE = GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__CONTROLLER = GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3213,6 +3429,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -3279,24 +3522,6 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GROUP__TITLE = GROUP__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_GROUP__CONTROLLER = GROUP__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3322,6 +3547,33 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONTEXT_PATH = GROUP__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -3568,6 +3820,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_Configuration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context Path</em>'.
+	 * @see org.nasdanika.codegen.Generator#getContextPath()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_ContextPath();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#isFilterable() <em>Is Filterable</em>}' operation.
@@ -4335,6 +4598,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__CONFIGURATION = eINSTANCE.getGenerator_Configuration();
+
+		/**
+		 * The meta object literal for the '<em><b>Context Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__CONTEXT_PATH = eINSTANCE.getGenerator_ContextPath();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Filterable</b></em>' operation.

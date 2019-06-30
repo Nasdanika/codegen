@@ -60,14 +60,12 @@ public class ResourceGroupItemProvider extends GroupItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ResourceGroup)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceGroup_type") :
-			getString("_UI_ResourceGroup_type") + " " + label;
+		return label == null || label.trim().length() == 0 ? getString("_UI_ResourceGroup_type") : label;
 	}
 	
 

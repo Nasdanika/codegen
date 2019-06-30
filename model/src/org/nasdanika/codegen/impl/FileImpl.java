@@ -252,7 +252,7 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 			@Override
 			public org.nasdanika.common.resources.File<InputStream> execute(Context context, ProgressMonitor monitor) throws Exception {
 				org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
-				String name = context.interpolate(getName());
+				String name = context.interpolate(FileImpl.this.getName());
 				
 				org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
 				MutableContext sc = context.fork();

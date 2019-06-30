@@ -41,11 +41,12 @@ import org.osgi.framework.FrameworkUtil;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextPath <em>Context Path</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,15 +61,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected static final String TITLE_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getController() <em>Controller</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getController()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CONTROLLER_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,6 +88,25 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected static final String CONFIGURATION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getContextPath() <em>Context Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTEXT_PATH_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getController() <em>Controller</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getController()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTROLLER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,6 +251,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getContextPath() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONTEXT_PATH, CodegenPackage.Literals.GENERATOR__CONTEXT_PATH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContextPath(String newContextPath) {
+		eDynamicSet(CodegenPackage.GENERATOR__CONTEXT_PATH, CodegenPackage.Literals.GENERATOR__CONTEXT_PATH, newContextPath);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isFilterable() {
@@ -311,11 +342,11 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = true;
-		if (diagnostics != null && getController() != null && getController().trim().length() > 0) {
+		if (diagnostics != null && getController() != null && getController().trim().length() > 0 && context != null && Boolean.TRUE.equals(context.get(Generator.VALIDATE_JAVA_CONTRIBUTORS))) {
 			try {
 				@SuppressWarnings("unchecked")
 				GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) loadClass(getController().trim()).getConstructor().newInstance();
-				controller.validate(this, diagnostics, context);
+				result = controller.validate(this, diagnostics, context);
 			} catch (ClassNotFoundException e) {
 				diagnostics.add
 				(new BasicDiagnostic
@@ -375,16 +406,18 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__TITLE:
 				return getTitle();
-			case CodegenPackage.GENERATOR__CONTROLLER:
-				return getController();
-			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
-				return getNamedGenerators();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled();
 			case CodegenPackage.GENERATOR__DESCRIPTION:
 				return getDescription();
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return getConfiguration();
+			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+				return getContextPath();
+			case CodegenPackage.GENERATOR__CONTROLLER:
+				return getController();
+			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
+				return getNamedGenerators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,13 +434,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__TITLE:
 				setTitle((String)newValue);
 				return;
-			case CodegenPackage.GENERATOR__CONTROLLER:
-				setController((String)newValue);
-				return;
-			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
-				getNamedGenerators().clear();
-				getNamedGenerators().addAll((Collection<? extends NamedGenerator>)newValue);
-				return;
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
@@ -416,6 +442,16 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				setConfiguration((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+				setContextPath((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__CONTROLLER:
+				setController((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
+				getNamedGenerators().clear();
+				getNamedGenerators().addAll((Collection<? extends NamedGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -432,12 +468,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case CodegenPackage.GENERATOR__CONTROLLER:
-				setController(CONTROLLER_EDEFAULT);
-				return;
-			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
-				getNamedGenerators().clear();
-				return;
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -446,6 +476,15 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				setConfiguration(CONFIGURATION_EDEFAULT);
+				return;
+			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+				setContextPath(CONTEXT_PATH_EDEFAULT);
+				return;
+			case CodegenPackage.GENERATOR__CONTROLLER:
+				setController(CONTROLLER_EDEFAULT);
+				return;
+			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
+				getNamedGenerators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -461,16 +500,18 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__TITLE:
 				return TITLE_EDEFAULT == null ? getTitle() != null : !TITLE_EDEFAULT.equals(getTitle());
-			case CodegenPackage.GENERATOR__CONTROLLER:
-				return CONTROLLER_EDEFAULT == null ? getController() != null : !CONTROLLER_EDEFAULT.equals(getController());
-			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
-				return !getNamedGenerators().isEmpty();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled() != ENABLED_EDEFAULT;
 			case CodegenPackage.GENERATOR__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return CONFIGURATION_EDEFAULT == null ? getConfiguration() != null : !CONFIGURATION_EDEFAULT.equals(getConfiguration());
+			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+				return CONTEXT_PATH_EDEFAULT == null ? getContextPath() != null : !CONTEXT_PATH_EDEFAULT.equals(getContextPath());
+			case CodegenPackage.GENERATOR__CONTROLLER:
+				return CONTROLLER_EDEFAULT == null ? getController() != null : !CONTROLLER_EDEFAULT.equals(getController());
+			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
+				return !getNamedGenerators().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

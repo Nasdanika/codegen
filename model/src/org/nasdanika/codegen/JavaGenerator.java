@@ -10,26 +10,8 @@ package org.nasdanika.codegen;
  *
  * <!-- begin-model-doc -->
  * This generator instantiates and invokes Java class to generate output. 
- * The generator Java class shall implement ``org.nasdanika.codegen.IGenerator``.
+ * The generator Java class shall implement ``org.nasdanika.common.Work<Context, T>`` where ``T`` is the generator/work return type.
  * 
- * For example, JET templates may use a skeleton like shown below:
- * 
- * 
- * ```java
- * public class CLASS implements org.nasdanika.codegen.IGenerator<String> {
- * 
- *     
- * 
- * public String generate(org.nasdanika.codegen.Context context, org.eclipse.core.runtime.IProgressMonitor monitor) throws Exception {
- *         
- * return "";
- *    
- *     }
- *  
- * }
- * ```
- * 
- * and classes compiled from these template can be used by the JavaGenerator.
  * <!-- end-model-doc -->
  *
  * <p>

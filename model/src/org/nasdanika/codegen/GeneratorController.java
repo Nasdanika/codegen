@@ -2,9 +2,7 @@ package org.nasdanika.codegen;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 
@@ -13,12 +11,8 @@ import org.nasdanika.common.ProgressMonitor;
  * @author Pavel
  *
  */
-public interface GeneratorController<T, G extends Generator<T>> {
-	
-	default boolean validate(G generator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-	
+public interface GeneratorController<T, G extends Generator<T>> extends GenerationParticipant<T,G> {
+			
 	/**
 	 * May produce zero or more contexts to execute the generator zero or more times.
 	 * @param context
