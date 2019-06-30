@@ -626,6 +626,10 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @return
 	 */
 	protected Context createContext(Context parent) {
+		if (parent != null && getContextPath() != null && getContextPath().trim().length() > 0) {
+			parent = parent.subContext(getContextPath());
+		}
+		
 		String configuration = getConfiguration();
 		if (configuration == null || configuration.trim().length() == 0) {
 			return parent;
