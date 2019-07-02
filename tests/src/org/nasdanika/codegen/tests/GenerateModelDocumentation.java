@@ -7,6 +7,7 @@ import java.util.function.BiFunction;
 import org.junit.Test;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.PrintStreamProgressMonitor;
+import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
@@ -34,7 +35,15 @@ public class GenerateModelDocumentation {
 		generator.loadGenModel(MODEL_URI);
 		Container<InputStream> fsc = new FileSystemContainer(new File("target/model-doc"));
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		generator.generate(fsc.adapt(null, encoder, null), progressMonitor);		
+		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
+		Container<Object> container = fsc.adapt(null, encoder, null);
+		generator.generate(container, progressMonitor.compose(pe));
+		org.nasdanika.common.resources.File<Object> progressFile = container.getFile("progress-report.json");
+		if (progressFile == null) {
+			System.out.println(pe);
+		} else {
+			progressFile.setContents(pe.toString(), progressMonitor);
+		}		
 	}
 	
 }
