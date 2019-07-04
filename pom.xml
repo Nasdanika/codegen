@@ -172,6 +172,8 @@
 		<module>edit</module>
 		<module>editor</module>
 		
+		<module>html</module>
+
 		<module>tests</module>
 		<module>tests.feature</module>
 

@@ -11,21 +11,26 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.Test;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.html.CodegenDocumentationGenerator;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.PrintStreamProgressMonitor;
+import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SimpleMutableContext;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
+import org.nasdanika.html.app.impl.ProgressReportGenerator;
 
 /**
  * Tests of generators.
  * @author Pavel
  *
  */
-public class GeneratorTests {
+public class GeneratorTests extends TestsBase {
 
 	
+	private static final String HELLO_WORLD_MODEL_URI = "org.nasdanika.codegen.tests/generator-models/hello-world.codegen";
+
 	/**
 	 * Generates a greetings file.
 	 * @throws Exception
@@ -37,8 +42,8 @@ public class GeneratorTests {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		
 		resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
-		URI bankUri = URI.createPlatformPluginURI("org.nasdanika.codegen.tests/generator-models/hello-world.codegen", false);
-		Resource bankResource = resourceSet.getResource(bankUri, true);
+		URI modelUri = URI.createPlatformPluginURI(HELLO_WORLD_MODEL_URI, false);
+		Resource bankResource = resourceSet.getResource(modelUri, true);
 		Generator<org.nasdanika.common.resources.File<InputStream>> generator = (Generator<org.nasdanika.common.resources.File<InputStream>>) bankResource.getContents().iterator().next();
 		
 		// TODO - validate				
@@ -49,6 +54,21 @@ public class GeneratorTests {
 		
 		ProgressMonitor pm = new PrintStreamProgressMonitor();
 		generator.createWork().execute(mc, pm);		
+	}
+
+	@Test
+	public void testHelloWorldDocumentationGeneration() throws Exception {
+		CodegenDocumentationGenerator generator = new CodegenDocumentationGenerator("Nasdanika Hello World Codegen Model", null);
+		generator.loadModel(HELLO_WORLD_MODEL_URI);
+		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-model-doc/hello-world"));
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
+		Container<Object> container = fsc.adapt(null, encoder, null);
+		generator.generate(container, progressMonitor.compose(pe));
+		
+		// HTML report
+		ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+		prg.generate(container.getContainer("progress-report"), progressMonitor);		
 	}
 	
 }
