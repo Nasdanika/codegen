@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.codegen.Interpolator;
 
@@ -59,16 +58,13 @@ public class InterpolatorItemProvider extends FilterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Interpolator)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Interpolator_type") :
-			getString("_UI_Interpolator_type") + " " + label;
-	}
-	
+		return isBlank(label) ?	getString("_UI_Interpolator_type") : label;
+	}	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -80,7 +76,6 @@ public class InterpolatorItemProvider extends FilterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

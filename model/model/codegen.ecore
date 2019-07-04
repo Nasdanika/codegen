@@ -301,7 +301,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticText">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Static text. Can be used as text file content or as input to interpolator or filter."/>
+      <details key="documentation" value="![static text](https://www.nasdanika.org/home/products/codegen/icons/StaticText.gif) Static text. Can be used as a text file contents or as an input to an interpolator or a filter.&#xA;Use static text for relatively small amounts of text which are convenient to edit in the generator model editor. &#xA;For large amounts of text or for content types which are easier to edit in a specialized editor (e.g. JavaScript or XML), use external files and TextContentReference."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

@@ -81,7 +81,6 @@ public class TextGroupItemProvider extends GroupItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -80,7 +80,6 @@ public class BinaryFileItemProvider extends FileItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -12,7 +12,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextFile;
 

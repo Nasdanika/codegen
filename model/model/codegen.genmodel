@@ -49,6 +49,7 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controllerArguments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
@@ -74,6 +75,7 @@
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//File/C"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/merger"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//File/mergerArguments"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//BinaryFile"/>
     <genClasses ecoreClass="codegen.ecore#//TextFile">
@@ -114,18 +116,22 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//JavaGenerator">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//JavaGenerator/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaGenerator/className"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaGenerator/arguments"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Interpolator"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//JavaFilter">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//JavaFilter/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaFilter/className"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaFilter/arguments"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//JavaTextFilter"/>
     <genClasses ecoreClass="codegen.ecore#//JavaStreamFilter"/>
     <genClasses ecoreClass="codegen.ecore#//JavaTextGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
     <genClasses ecoreClass="codegen.ecore#//JavaResourceGenerator"/>
-    <genClasses ecoreClass="codegen.ecore#//TextContentReference"/>
+    <genClasses ecoreClass="codegen.ecore#//TextContentReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextContentReference/interpolate"/>
+    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//StreamContentReference"/>
     <genClasses ecoreClass="codegen.ecore#//Mustache"/>
     <genClasses ecoreClass="codegen.ecore#//ZipArchive">

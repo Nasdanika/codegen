@@ -81,7 +81,6 @@ public class JavaStreamGeneratorItemProvider extends JavaGeneratorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

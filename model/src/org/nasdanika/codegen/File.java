@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getMergerArguments <em>Merger Arguments</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
@@ -58,6 +59,28 @@ public interface File<C> extends Resource<org.nasdanika.common.resources.File<In
 	 * @generated
 	 */
 	void setMerger(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Merger constructor arguments. Codegen uses the first constructor with the matching number of parameters.
+	 * 
+	 * String argument values are interpolated by the context and then are converted to 
+	 * the constructor parameter types using ``Converter`` service obtained from the context
+	 * or ``DefaultConverter.INSTANCE`` if there is no converter service. 
+	 * 
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Merger Arguments</em>' attribute list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_MergerArguments()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getMergerArguments();
 
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.

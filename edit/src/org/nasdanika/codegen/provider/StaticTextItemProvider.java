@@ -110,14 +110,12 @@ public class StaticTextItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((StaticText)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StaticText_type") :
-			getString("_UI_StaticText_type") + " " + label;
+		return isBlank(label) ?	getString("_UI_StaticText_type") : label;
 	}
 	
 

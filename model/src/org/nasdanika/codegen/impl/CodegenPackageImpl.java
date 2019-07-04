@@ -465,8 +465,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGenerator_ControllerArguments() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getGenerator_NamedGenerators() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(6);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -607,6 +617,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EAttribute getFile_Merger() {
 		return (EAttribute)fileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFile_MergerArguments() {
+		return (EAttribute)fileEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -885,6 +905,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getJavaGenerator_Arguments() {
+		return (EAttribute)javaGeneratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInterpolator() {
 		return interpolatorEClass;
 	}
@@ -907,6 +937,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EAttribute getJavaFilter_ClassName() {
 		return (EAttribute)javaFilterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getJavaFilter_Arguments() {
+		return (EAttribute)javaFilterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -967,6 +1007,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EClass getTextContentReference() {
 		return textContentReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextContentReference_Interpolate() {
+		return (EAttribute)textContentReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1187,6 +1237,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATION);
 		createEAttribute(generatorEClass, GENERATOR__CONTEXT_PATH);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
+		createEAttribute(generatorEClass, GENERATOR__CONTROLLER_ARGUMENTS);
 		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
@@ -1206,6 +1257,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		fileEClass = createEClass(FILE);
 		createEReference(fileEClass, FILE__GENERATORS);
 		createEAttribute(fileEClass, FILE__MERGER);
+		createEAttribute(fileEClass, FILE__MERGER_ARGUMENTS);
 
 		binaryFileEClass = createEClass(BINARY_FILE);
 
@@ -1243,11 +1295,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		javaGeneratorEClass = createEClass(JAVA_GENERATOR);
 		createEAttribute(javaGeneratorEClass, JAVA_GENERATOR__CLASS_NAME);
+		createEAttribute(javaGeneratorEClass, JAVA_GENERATOR__ARGUMENTS);
 
 		interpolatorEClass = createEClass(INTERPOLATOR);
 
 		javaFilterEClass = createEClass(JAVA_FILTER);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__CLASS_NAME);
+		createEAttribute(javaFilterEClass, JAVA_FILTER__ARGUMENTS);
 
 		javaTextFilterEClass = createEClass(JAVA_TEXT_FILTER);
 
@@ -1260,6 +1314,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		javaResourceGeneratorEClass = createEClass(JAVA_RESOURCE_GENERATOR);
 
 		textContentReferenceEClass = createEClass(TEXT_CONTENT_REFERENCE);
+		createEAttribute(textContentReferenceEClass, TEXT_CONTENT_REFERENCE__INTERPOLATE);
 
 		streamContentReferenceEClass = createEClass(STREAM_CONTENT_REFERENCE);
 
@@ -1469,6 +1524,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getGenerator_Configuration(), ecorePackage.getEString(), "configuration", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_ControllerArguments(), ecorePackage.getEString(), "controllerArguments", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1506,6 +1562,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getFile_Generators(), g1, null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFile_Merger(), ecorePackage.getEString(), "merger", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFile_MergerArguments(), ecorePackage.getEString(), "mergerArguments", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryFileEClass, BinaryFile.class, "BinaryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1551,11 +1608,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(javaGeneratorEClass, JavaGenerator.class, "JavaGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaGenerator_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JavaGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaGenerator_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, JavaGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interpolatorEClass, Interpolator.class, "Interpolator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaFilter_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaFilter_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaTextFilterEClass, JavaTextFilter.class, "JavaTextFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1568,6 +1627,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(javaResourceGeneratorEClass, JavaResourceGenerator.class, "JavaResourceGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(textContentReferenceEClass, TextContentReference.class, "TextContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextContentReference_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, TextContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(streamContentReferenceEClass, StreamContentReference.class, "StreamContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

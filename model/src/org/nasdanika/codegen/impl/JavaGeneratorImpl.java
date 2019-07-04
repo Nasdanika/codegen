@@ -2,11 +2,13 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
@@ -24,6 +26,7 @@ import org.nasdanika.common.Work;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.JavaGeneratorImpl#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.JavaGeneratorImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,11 +86,24 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<String> getArguments() {
+		return (EList<String>)eDynamicGet(CodegenPackage.JAVA_GENERATOR__ARGUMENTS, CodegenPackage.Literals.JAVA_GENERATOR__ARGUMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
 				return getClassName();
+			case CodegenPackage.JAVA_GENERATOR__ARGUMENTS:
+				return getArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -97,11 +113,16 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
 				setClassName((String)newValue);
+				return;
+			case CodegenPackage.JAVA_GENERATOR__ARGUMENTS:
+				getArguments().clear();
+				getArguments().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,6 +139,9 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
 				setClassName(CLASS_NAME_EDEFAULT);
 				return;
+			case CodegenPackage.JAVA_GENERATOR__ARGUMENTS:
+				getArguments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -132,6 +156,8 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 		switch (featureID) {
 			case CodegenPackage.JAVA_GENERATOR__CLASS_NAME:
 				return CLASS_NAME_EDEFAULT == null ? getClassName() != null : !CLASS_NAME_EDEFAULT.equals(getClassName());
+			case CodegenPackage.JAVA_GENERATOR__ARGUMENTS:
+				return !getArguments().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

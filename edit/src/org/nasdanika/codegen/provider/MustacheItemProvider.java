@@ -60,14 +60,12 @@ public class MustacheItemProvider extends FilterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Mustache)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Mustache_type") :
-			getString("_UI_Mustache_type") + " " + label;
+		return isBlank(label) ?	getString("_UI_Mustache_type") : label;
 	}
 	
 
@@ -81,7 +79,6 @@ public class MustacheItemProvider extends FilterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,6 +26,9 @@ import org.nasdanika.codegen.GeneratorFilter;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Converter;
+import org.nasdanika.common.DefaultConverter;
+import org.nasdanika.common.InterpolatingSource;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 import org.nasdanika.emf.DiagnosticHelper;
@@ -45,6 +49,7 @@ import org.osgi.framework.FrameworkUtil;
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextPath <em>Context Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
@@ -174,6 +179,17 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public void setController(String newController) {
 		eDynamicSet(CodegenPackage.GENERATOR__CONTROLLER, CodegenPackage.Literals.GENERATOR__CONTROLLER, newController);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<String> getControllerArguments() {
+		return (EList<String>)eDynamicGet(CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS, CodegenPackage.Literals.GENERATOR__CONTROLLER_ARGUMENTS, true, true);
 	}
 
 	/**
@@ -405,6 +421,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return getContextPath();
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return getController();
+			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
+				return getControllerArguments();
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				return getNamedGenerators();
 		}
@@ -437,6 +455,10 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
+				getControllerArguments().clear();
+				getControllerArguments().addAll((Collection<? extends String>)newValue);
 				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				getNamedGenerators().clear();
@@ -472,6 +494,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController(CONTROLLER_EDEFAULT);
 				return;
+			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
+				getControllerArguments().clear();
+				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				getNamedGenerators().clear();
 				return;
@@ -499,6 +524,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return CONTEXT_PATH_EDEFAULT == null ? getContextPath() != null : !CONTEXT_PATH_EDEFAULT.equals(getContextPath());
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return CONTROLLER_EDEFAULT == null ? getController() != null : !CONTROLLER_EDEFAULT.equals(getController());
+			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
+				return !getControllerArguments().isEmpty();
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				return !getNamedGenerators().isEmpty();
 		}
@@ -576,14 +603,14 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				
 				if (iContexts.size() == 1) {
 					Context iCtx = iContexts.iterator().next();
-					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
-					return Collections.singletonList(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split("Configuring work result", 1, workResult)));
+					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor).computingContext(), monitor);
+					return Collections.singletonList(isExplicitConfigure() ? workResult : configure(iCtx.computingContext(), workResult, monitor.split("Configuring work result", 1, workResult)));
 				}
 
 				List<T> ret = new ArrayList<>();
 				for (Context iCtx: iContexts) {
-					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor), monitor);
-					ret.add(isExplicitConfigure() ? workResult : configure(iCtx, workResult, monitor.split("Configuring work result", 1, workResult)));
+					T workResult = workItem.execute(injectNamedGenerators(iCtx, monitor).computingContext(), monitor);
+					ret.add(isExplicitConfigure() ? workResult : configure(iCtx.computingContext(), workResult, monitor.split("Configuring work result", 1, workResult)));
 				}
 				return ret;
 			}
@@ -635,8 +662,12 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			return parent;
 		}
 		
-		// TODO.
-		throw new UnsupportedOperationException("Configuration loading is not yet implemented");
+		Map<String, Object> configMap = DefaultConverter.INSTANCE.toYamlMap(configuration);
+		if (configMap == null) {
+			throw new IllegalStateException("Configuration is not a YAML map");
+		}
+		
+		return Context.wrap(new InterpolatingSource(configMap::get)).compose(parent);
 	}
 	
 	/**
@@ -660,6 +691,29 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			cl = getClass().getClassLoader();
 		}
 		return cl.loadClass(className);
+	}
+	
+	protected Object instantiate(Context context, String className, List<String> arguments) throws Exception {
+		Class<?> clazz = loadClass(className);
+		for (Constructor<?> constructor: clazz.getConstructors()) {
+			if (constructor.getParameterCount() == arguments.size()) {
+				Class<?>[] pt = constructor.getParameterTypes();
+				Object[] args = new Object[pt.length];
+				Converter converter = context.get(Converter.class);
+				if (converter == null) {
+					converter = DefaultConverter.INSTANCE;
+				}
+				for (int i=0; i < args.length; ++i) {
+					String arg = context.interpolate(arguments.get(i));
+					args[i] = converter.convert(arg, pt[i]);
+					if (args[i] == null) {
+						throw new IllegalArgumentException("Cannot convert '"+arg+"' to "+pt[i]);
+					}
+				}
+				return constructor.newInstance(args);
+			}
+		}
+		throw new InstantiationException("Could not find a constructor with "+arguments.size()+" parameters in "+className);
 	}
 		
 } //GeneratorImpl

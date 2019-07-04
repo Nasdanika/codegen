@@ -46,6 +46,7 @@ public class JavaFilterItemProvider extends FilterItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addClassNamePropertyDescriptor(object);
+			addArgumentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +67,28 @@ public class JavaFilterItemProvider extends FilterItemProvider {
 				 CodegenPackage.Literals.JAVA_FILTER__CLASS_NAME,
 				 true,
 				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Arguments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgumentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaFilter_arguments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_arguments_feature", "_UI_JavaFilter_type"),
+				 CodegenPackage.Literals.JAVA_FILTER__ARGUMENTS,
+				 true,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -100,6 +123,7 @@ public class JavaFilterItemProvider extends FilterItemProvider {
 
 		switch (notification.getFeatureID(JavaFilter.class)) {
 			case CodegenPackage.JAVA_FILTER__CLASS_NAME:
+			case CodegenPackage.JAVA_FILTER__ARGUMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

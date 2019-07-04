@@ -81,7 +81,6 @@ public class JavaTextGeneratorItemProvider extends JavaGeneratorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

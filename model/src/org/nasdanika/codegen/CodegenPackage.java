@@ -155,13 +155,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONTROLLER_ARGUMENTS = WORK_FACTORY_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 6;
+	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -170,7 +179,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 7;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -319,6 +328,15 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__CONTROLLER = GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,6 +453,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -564,6 +591,15 @@ public interface CodegenPackage extends EPackage {
 	int FILE__CONTROLLER = RESOURCE__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONTROLLER_ARGUMENTS = RESOURCE__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,13 +645,22 @@ public interface CodegenPackage extends EPackage {
 	int FILE__MERGER = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__MERGER_ARGUMENTS = RESOURCE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -709,6 +754,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__CONTROLLER = FILE__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__CONTROLLER_ARGUMENTS = FILE__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,6 +806,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_FILE__MERGER = FILE__MERGER;
+
+	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__MERGER_ARGUMENTS = FILE__MERGER_ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Binary File</em>' class.
@@ -854,6 +917,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_FILE__CONTROLLER = FILE__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__CONTROLLER_ARGUMENTS = FILE__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -897,6 +969,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__MERGER = FILE__MERGER;
+
+	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__MERGER_ARGUMENTS = FILE__MERGER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
@@ -1006,6 +1087,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINER__CONTROLLER = RESOURCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__CONTROLLER_ARGUMENTS = RESOURCE__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -1144,6 +1234,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__CONTROLLER = GROUP__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONTROLLER_ARGUMENTS = GROUP__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1260,6 +1359,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -1559,6 +1667,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__CONTROLLER = GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1665,6 +1782,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -1802,6 +1928,15 @@ public interface CodegenPackage extends EPackage {
 	int ECORE_MODEL_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1908,6 +2043,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -2018,6 +2162,15 @@ public interface CodegenPackage extends EPackage {
 	int CONVERTER__CONTROLLER = GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2124,6 +2277,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER__CONTROLLER = CONVERTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONTROLLER_ARGUMENTS = CONVERTER__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -2234,6 +2396,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR__CONTROLLER = GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2252,13 +2423,22 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_GENERATOR__CLASS_NAME = GENERATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__ARGUMENTS = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Java Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+	int JAVA_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -2340,6 +2520,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR__CONTROLLER = FILTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONTROLLER_ARGUMENTS = FILTER__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -2450,6 +2639,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__CONTROLLER = FILTER__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__CONTROLLER_ARGUMENTS = FILTER__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2477,13 +2675,22 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__CLASS_NAME = FILTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__ARGUMENTS = FILTER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Java Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_FEATURE_COUNT = FILTER_FEATURE_COUNT + 1;
+	int JAVA_FILTER_FEATURE_COUNT = FILTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -2567,6 +2774,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__CONTROLLER_ARGUMENTS = JAVA_FILTER__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2592,6 +2808,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_FILTER__CLASS_NAME = JAVA_FILTER__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__ARGUMENTS = JAVA_FILTER__ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Java Text Filter</em>' class.
@@ -2684,6 +2909,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER__CONTROLLER = JAVA_FILTER__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__CONTROLLER_ARGUMENTS = JAVA_FILTER__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2709,6 +2943,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CLASS_NAME = JAVA_FILTER__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__ARGUMENTS = JAVA_FILTER__ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Java Stream Filter</em>' class.
@@ -2801,6 +3044,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__CONTROLLER_ARGUMENTS = JAVA_GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2817,6 +3069,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_TEXT_GENERATOR__CLASS_NAME = JAVA_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__ARGUMENTS = JAVA_GENERATOR__ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Java Text Generator</em>' class.
@@ -2909,6 +3170,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__CONTROLLER_ARGUMENTS = JAVA_GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2925,6 +3195,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CLASS_NAME = JAVA_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__ARGUMENTS = JAVA_GENERATOR__ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Java Stream Generator</em>' class.
@@ -3017,6 +3296,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_RESOURCE_GENERATOR__CONTROLLER = JAVA_GENERATOR__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__CONTROLLER_ARGUMENTS = JAVA_GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3033,6 +3321,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_RESOURCE_GENERATOR__CLASS_NAME = JAVA_GENERATOR__CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__ARGUMENTS = JAVA_GENERATOR__ARGUMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Java Resource Generator</em>' class.
@@ -3125,6 +3422,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__CONTROLLER_ARGUMENTS = CONTENT_REFERENCE__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3143,13 +3449,22 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_CONTENT_REFERENCE__REF = CONTENT_REFERENCE__REF;
 
 	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__INTERPOLATE = CONTENT_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Text Content Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_CONTENT_REFERENCE_FEATURE_COUNT = CONTENT_REFERENCE_FEATURE_COUNT + 0;
+	int TEXT_CONTENT_REFERENCE_FEATURE_COUNT = CONTENT_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -3231,6 +3546,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_CONTENT_REFERENCE__CONTROLLER = CONTENT_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__CONTROLLER_ARGUMENTS = CONTENT_REFERENCE__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -3341,6 +3665,15 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__CONTROLLER = FILTER__CONTROLLER;
 
 	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__CONTROLLER_ARGUMENTS = FILTER__CONTROLLER_ARGUMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3447,6 +3780,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -3565,6 +3907,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_GROUP__CONTROLLER = GROUP__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONTROLLER_ARGUMENTS = GROUP__CONTROLLER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -3778,6 +4129,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getGenerator_Controller();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.Generator#getControllerArguments <em>Controller Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Controller Arguments</em>'.
+	 * @see org.nasdanika.codegen.Generator#getControllerArguments()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_ControllerArguments();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3936,6 +4298,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFile_Merger();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.File#getMergerArguments <em>Merger Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Merger Arguments</em>'.
+	 * @see org.nasdanika.codegen.File#getMergerArguments()
+	 * @see #getFile()
+	 * @generated
+	 */
+	EAttribute getFile_MergerArguments();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}'.
@@ -4223,6 +4596,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getJavaGenerator_ClassName();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.JavaGenerator#getArguments <em>Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Arguments</em>'.
+	 * @see org.nasdanika.codegen.JavaGenerator#getArguments()
+	 * @see #getJavaGenerator()
+	 * @generated
+	 */
+	EAttribute getJavaGenerator_Arguments();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Interpolator <em>Interpolator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4252,6 +4636,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaFilter_ClassName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.JavaFilter#getArguments <em>Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Arguments</em>'.
+	 * @see org.nasdanika.codegen.JavaFilter#getArguments()
+	 * @see #getJavaFilter()
+	 * @generated
+	 */
+	EAttribute getJavaFilter_Arguments();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.JavaTextFilter <em>Java Text Filter</em>}'.
@@ -4312,6 +4707,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTextContentReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.TextContentReference#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.TextContentReference#isInterpolate()
+	 * @see #getTextContentReference()
+	 * @generated
+	 */
+	EAttribute getTextContentReference_Interpolate();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.StreamContentReference <em>Stream Content Reference</em>}'.
@@ -4568,6 +4974,14 @@ public interface CodegenPackage extends EPackage {
 		EAttribute GENERATOR__CONTROLLER = eINSTANCE.getGenerator_Controller();
 
 		/**
+		 * The meta object literal for the '<em><b>Controller Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__CONTROLLER_ARGUMENTS = eINSTANCE.getGenerator_ControllerArguments();
+
+		/**
 		 * The meta object literal for the '<em><b>Named Generators</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4692,6 +5106,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILE__MERGER = eINSTANCE.getFile_Merger();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE__MERGER_ARGUMENTS = eINSTANCE.getFile_MergerArguments();
 
 		/**
 		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
@@ -4934,6 +5356,14 @@ public interface CodegenPackage extends EPackage {
 		EAttribute JAVA_GENERATOR__CLASS_NAME = eINSTANCE.getJavaGenerator_ClassName();
 
 		/**
+		 * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_GENERATOR__ARGUMENTS = eINSTANCE.getJavaGenerator_Arguments();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.InterpolatorImpl <em>Interpolator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4960,6 +5390,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_FILTER__CLASS_NAME = eINSTANCE.getJavaFilter_ClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_FILTER__ARGUMENTS = eINSTANCE.getJavaFilter_Arguments();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.JavaTextFilterImpl <em>Java Text Filter</em>}' class.
@@ -5020,6 +5458,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEXT_CONTENT_REFERENCE = eINSTANCE.getTextContentReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_CONTENT_REFERENCE__INTERPOLATE = eINSTANCE.getTextContentReference_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.StreamContentReferenceImpl <em>Stream Content Reference</em>}' class.

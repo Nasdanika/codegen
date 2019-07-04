@@ -46,6 +46,7 @@ public class FileItemProvider extends ResourceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addMergerPropertyDescriptor(object);
+			addMergerArgumentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +67,28 @@ public class FileItemProvider extends ResourceItemProvider {
 				 CodegenPackage.Literals.FILE__MERGER,
 				 true,
 				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Merger Arguments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMergerArgumentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_File_mergerArguments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_File_mergerArguments_feature", "_UI_File_type"),
+				 CodegenPackage.Literals.FILE__MERGER_ARGUMENTS,
+				 true,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -131,6 +154,7 @@ public class FileItemProvider extends ResourceItemProvider {
 
 		switch (notification.getFeatureID(File.class)) {
 			case CodegenPackage.FILE__MERGER:
+			case CodegenPackage.FILE__MERGER_ARGUMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.FILE__GENERATORS:

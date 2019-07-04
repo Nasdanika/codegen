@@ -9,7 +9,9 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Static text. Can be used as text file content or as input to interpolator or filter.
+ * ![static text](https://www.nasdanika.org/home/products/codegen/icons/StaticText.gif) Static text. Can be used as a text file contents or as an input to an interpolator or a filter.
+ * Use static text for relatively small amounts of text which are convenient to edit in the generator model editor. 
+ * For large amounts of text or for content types which are easier to edit in a specialized editor (e.g. JavaScript or XML), use external files and TextContentReference.
  * <!-- end-model-doc -->
  *
  * <p>

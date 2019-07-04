@@ -81,7 +81,6 @@ public class JavaTextFilterItemProvider extends JavaFilterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

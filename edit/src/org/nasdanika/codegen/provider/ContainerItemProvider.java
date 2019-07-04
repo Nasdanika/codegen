@@ -103,7 +103,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 		if (isBlank(label)) {
 			label = ((BinaryFile)object).getName();
 		}
-		return label == null || label.trim().length() == 0 ? getString("_UI_Container_type") :	label;
+		return isBlank(label) ? getString("_UI_Container_type") :	label;
 	}
 
 

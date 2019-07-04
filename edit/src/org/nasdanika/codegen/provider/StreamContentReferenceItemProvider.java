@@ -60,16 +60,13 @@ public class StreamContentReferenceItemProvider extends ContentReferenceItemProv
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((StreamContentReference)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StreamContentReference_type") :
-			getString("_UI_StreamContentReference_type") + " " + label;
-	}
-	
+		return isBlank(label) ? getString("_UI_StreamContentReference_type") : label;
+	}	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -81,7 +78,6 @@ public class StreamContentReferenceItemProvider extends ContentReferenceItemProv
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

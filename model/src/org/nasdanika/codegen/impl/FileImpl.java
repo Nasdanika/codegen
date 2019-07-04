@@ -39,6 +39,7 @@ import org.nasdanika.common.Work;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerators <em>Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMerger <em>Merger</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMergerArguments <em>Merger Arguments</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +99,17 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<String> getMergerArguments() {
+		return (EList<String>)eDynamicGet(CodegenPackage.FILE__MERGER_ARGUMENTS, CodegenPackage.Literals.FILE__MERGER_ARGUMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -119,6 +131,8 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 				return getGenerators();
 			case CodegenPackage.FILE__MERGER:
 				return getMerger();
+			case CodegenPackage.FILE__MERGER_ARGUMENTS:
+				return getMergerArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,6 +153,10 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 			case CodegenPackage.FILE__MERGER:
 				setMerger((String)newValue);
 				return;
+			case CodegenPackage.FILE__MERGER_ARGUMENTS:
+				getMergerArguments().clear();
+				getMergerArguments().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -157,6 +175,9 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 			case CodegenPackage.FILE__MERGER:
 				setMerger(MERGER_EDEFAULT);
 				return;
+			case CodegenPackage.FILE__MERGER_ARGUMENTS:
+				getMergerArguments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -173,6 +194,8 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 				return !getGenerators().isEmpty();
 			case CodegenPackage.FILE__MERGER:
 				return MERGER_EDEFAULT == null ? getMerger() != null : !MERGER_EDEFAULT.equals(getMerger());
+			case CodegenPackage.FILE__MERGER_ARGUMENTS:
+				return !getMergerArguments().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

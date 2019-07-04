@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
  * </ul>
  *
@@ -96,6 +97,28 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setController(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Controller constructor arguments. Codegen uses the first constructor with the matching number of parameters.
+	 * 
+	 * String argument values are interpolated by the context and then are converted to 
+	 * the constructor parameter types using ``Converter`` service obtained from the context
+	 * or ``DefaultConverter.INSTANCE`` if there is no converter service. 
+	 * 
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Controller Arguments</em>' attribute list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_ControllerArguments()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getControllerArguments();
 
 	/**
 	 * Returns the value of the '<em><b>Named Generators</b></em>' containment reference list.

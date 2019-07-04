@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,7 @@ package org.nasdanika.codegen;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.JavaFilter#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.JavaFilter#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJavaFilter()
@@ -54,5 +57,27 @@ public interface JavaFilter<T> extends Filter<T> {
 	 * @generated
 	 */
 	void setClassName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Arguments</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generator constructor arguments. Codegen uses the first constructor with the matching number of parameters.
+	 * 
+	 * String argument values are interpolated by the context and then are converted to 
+	 * the constructor parameter types using ``Converter`` service obtained from the context
+	 * or ``DefaultConverter.INSTANCE`` if there is no converter service. 
+	 * 
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Arguments</em>' attribute list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getJavaFilter_Arguments()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getArguments();
 
 } // JavaFilter
