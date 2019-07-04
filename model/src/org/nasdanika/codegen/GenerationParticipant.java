@@ -1,8 +1,7 @@
 package org.nasdanika.codegen;
 
-import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.nasdanika.common.Context;
 
 /**
  * Generation participant such as a generator controller or a class provided to JavaGenerator can validate the underlying generator.
@@ -20,7 +19,7 @@ public interface GenerationParticipant<T, G extends Generator<T>> {
 	 * @param context
 	 * @return
 	 */
-	default boolean validate(G generator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	default boolean validate(G generator, DiagnosticChain diagnostics, Context context) {
 		return true;
 	}
 	

@@ -348,7 +348,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				if (GeneratorController.class.isAssignableFrom(controllerClass)) {
 					@SuppressWarnings("unchecked")
 					GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) controllerClass.getConstructor().newInstance();
-					result = controller.validate(this, diagnostics, context) && result;
+					result = controller.validate(this, diagnostics, (Context) context.get(Context.class)) && result;
 				} else {
 					helper.error(
 							"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class does not implement " + GeneratorController.class,

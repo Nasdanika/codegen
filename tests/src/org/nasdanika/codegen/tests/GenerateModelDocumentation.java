@@ -11,6 +11,7 @@ import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
+import org.nasdanika.html.app.impl.ProgressReportGenerator;
 import org.nasdanika.html.ecore.EcoreDocumentationGenerator;
 
 public class GenerateModelDocumentation {
@@ -43,7 +44,11 @@ public class GenerateModelDocumentation {
 			System.out.println(pe);
 		} else {
 			progressFile.setContents(pe.toString(), progressMonitor);
-		}		
+		}
+		
+		// HTML report
+		ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+		prg.generate(container.getContainer("progress-report"), progressMonitor);		
 	}
 	
 }

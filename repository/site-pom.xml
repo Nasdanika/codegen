@@ -105,6 +105,22 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>copy-edit-icons</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/icons</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../edit/icons/full/obj16</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-editor-javadoc</id>
 						<phase>pre-site</phase>
 						<goals>
