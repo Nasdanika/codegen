@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Wrong number of arguments test" description="Tests that an error is issues when the number of controller arguments doesn't match the number of parameters of any declared controller constructor." configuration="name: Mr. ${surname}" controller="org.nasdanika.codegen.tests.models.StaticTextControllerWithArguments" contents="Hello, ${name}!"/>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Arguments without a controller test" description="Shall show a warning if enabled." configuration="name: Mr. ${surname}" contents="Hello, ${name}!">
+  <controllerArguments>value-1</controllerArguments>
+</org.nasdanika.codegen:StaticText>
