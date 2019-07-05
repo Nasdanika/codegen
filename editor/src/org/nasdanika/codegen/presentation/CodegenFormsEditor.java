@@ -12,6 +12,6 @@ import org.eclipse.emfforms.spi.editor.GenericEditor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CodegenEditor extends GenericEditor {
+public class CodegenFormsEditor extends GenericEditor {
 	
 }
