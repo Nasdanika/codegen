@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Interpolation test" description="Tests token interpolation." contents="Hello, ${name}!" interpolate="true"/>
+<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Interpolation test" description="Tests token interpolation." contents="Hello, ${greetings/name}!" interpolate="true"/>

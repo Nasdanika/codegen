@@ -29,7 +29,7 @@
             name="%_UI_CodegenEditor_label"
             icon="icons/full/obj16/CodegenModelFile.gif"
             extensions="codegen"
-            class="org.nasdanika.codegen.presentation.CodegenEditor"
+            class="org.nasdanika.codegen.presentation.CodegenFormsEditor"
             contributorClass="org.nasdanika.codegen.presentation.CodegenActionBarContributor">
       </editor>
    </extension>
