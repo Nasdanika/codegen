@@ -175,6 +175,7 @@
 		<module>html</module>
 
 		<module>tests</module>
+		<module>tests.models</module>
 		<module>tests.feature</module>
 
 		<module>feature</module>

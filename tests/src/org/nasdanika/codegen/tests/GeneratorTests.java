@@ -29,7 +29,7 @@ import org.nasdanika.html.app.impl.ProgressReportGenerator;
 public class GeneratorTests extends TestsBase {
 
 	
-	private static final String HELLO_WORLD_MODEL_URI = "org.nasdanika.codegen.tests/generator-models/hello-world.codegen";
+	private static final String TEST_MODELS_BASE_URI = "org.nasdanika.codegen.tests.models/models/";
 
 	/**
 	 * Generates a greetings file.
@@ -42,7 +42,7 @@ public class GeneratorTests extends TestsBase {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		
 		resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
-		URI modelUri = URI.createPlatformPluginURI(HELLO_WORLD_MODEL_URI, false);
+		URI modelUri = URI.createPlatformPluginURI(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen", false);
 		Resource bankResource = resourceSet.getResource(modelUri, true);
 		Generator<org.nasdanika.common.resources.File<InputStream>> generator = (Generator<org.nasdanika.common.resources.File<InputStream>>) bankResource.getContents().iterator().next();
 		
@@ -59,7 +59,7 @@ public class GeneratorTests extends TestsBase {
 	@Test
 	public void testHelloWorldDocumentationGeneration() throws Exception {
 		CodegenDocumentationGenerator generator = new CodegenDocumentationGenerator("Nasdanika Hello World Codegen Model", null);
-		generator.loadModel(HELLO_WORLD_MODEL_URI);
+		generator.loadModel(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen");
 		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-model-doc/hello-world"));
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);

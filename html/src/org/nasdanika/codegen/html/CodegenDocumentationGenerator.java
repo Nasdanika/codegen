@@ -1,5 +1,7 @@
 package org.nasdanika.codegen.html;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.json.JSONObject;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
@@ -26,6 +29,7 @@ import org.nasdanika.html.app.impl.ActionImpl;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.html.app.viewparts.ContentPanelViewPart;
+import org.nasdanika.html.app.viewparts.JsTreeNavigationPanelViewPart;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Container;
 import org.nasdanika.html.bootstrap.Table;
@@ -114,7 +118,20 @@ public class CodegenDocumentationGenerator {
 		docContext.register(org.nasdanika.common.resources.Container.class, resourceConsumer.getContainer("doc"));
 		docContext.put("image-path", "doc/");
 		
-		ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(principalAction.getChildren().get(0)); 
+		ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(principalAction.getChildren().get(0)) {
+			
+			@Override
+			protected ViewPart getNavigationPanelViewPart() {
+				return new JsTreeNavigationPanelViewPart(getNavigationPanelActions(), getActiveAction()) {
+					@Override
+					protected void configureJsTree(JSONObject jsTree) {
+						// TODO State and search plug-ins.
+						super.configureJsTree(jsTree);
+					}
+				};
+			}
+			
+		}; 
 		
 		applicationBuilder.build(app, progressMonitor);
 		
@@ -135,7 +152,7 @@ public class CodegenDocumentationGenerator {
 	 * @param platformPluginUri
 	 */
 	public void loadModel(String platformPluginUri) {
-		loadModel(URI.createPlatformPluginURI("org.nasdanika.codegen.tests/generator-models/hello-world.codegen", false));		
+		loadModel(URI.createPlatformPluginURI(platformPluginUri, false));		
 	}
 	
 	/**
