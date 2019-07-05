@@ -358,30 +358,36 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		DiagnosticHelper helper = new DiagnosticHelper(diagnostics, CodegenValidator.DIAGNOSTIC_SOURCE, CodegenValidator.GENERATOR__VALIDATE, this);
 		boolean result = true;
-		if (diagnostics != null && getController() != null && getController().trim().length() > 0 && context != null && Boolean.TRUE.equals(context.get(Generator.VALIDATE_JAVA_CONTRIBUTORS))) {
-			try {
-				Class<?> controllerClass = loadClass(getController().trim());
-				if (GeneratorController.class.isAssignableFrom(controllerClass)) {
-					@SuppressWarnings("unchecked")
-					GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) controllerClass.getConstructor().newInstance();
-					result = controller.validate(this, diagnostics, (Context) context.get(Context.class)) && result;
-				} else {
+		if (diagnostics != null && isEnabled()) {
+			if (getController() == null || getController().trim().length() == 0) {
+				if (!getControllerArguments().isEmpty()) {
+					helper.warning("Arguments without a controller", CodegenPackage.Literals.GENERATOR__CONTROLLER_ARGUMENTS);
+				}				
+			} else if (context != null && Boolean.TRUE.equals(context.get(Generator.VALIDATE_JAVA_CONTRIBUTORS))) {
+				try {
+					Class<?> controllerClass = loadClass(getController().trim());
+					if (GeneratorController.class.isAssignableFrom(controllerClass)) {
+						@SuppressWarnings("unchecked")
+						GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) controllerClass.getConstructor().newInstance();
+						result = controller.validate(this, diagnostics, (Context) context.get(Context.class)) && result;
+					} else {
+						helper.error(
+								"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class does not implement " + GeneratorController.class,
+								CodegenPackage.Literals.GENERATOR__CONTROLLER);					
+					}
+				} catch (ClassNotFoundException e) {
 					helper.error(
-							"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class does not implement " + GeneratorController.class,
-							CodegenPackage.Literals.GENERATOR__CONTROLLER);					
+							"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class not found in context classloader: "+e.getMessage(),
+							CodegenPackage.Literals.GENERATOR__CONTROLLER);
+				} catch (InstantiationException e) {
+					helper.error(
+							"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class could not be instantiated: "+e.getMessage(),
+							CodegenPackage.Literals.GENERATOR__CONTROLLER);
+				} catch (Exception e) {
+					helper.error(
+							"["+EObjectValidator.getObjectLabel(this, context)+"] Validation error: "+e.getMessage(),
+							CodegenPackage.Literals.GENERATOR__CONTROLLER);
 				}
-			} catch (ClassNotFoundException e) {
-				helper.error(
-						"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class not found in context classloader: "+e.getMessage(),
-						CodegenPackage.Literals.GENERATOR__CONTROLLER);
-			} catch (InstantiationException e) {
-				helper.error(
-						"["+EObjectValidator.getObjectLabel(this, context)+"] Controller class could not be instantiated: "+e.getMessage(),
-						CodegenPackage.Literals.GENERATOR__CONTROLLER);
-			} catch (Exception e) {
-				helper.error(
-						"["+EObjectValidator.getObjectLabel(this, context)+"] Validation error: "+e.getMessage(),
-						CodegenPackage.Literals.GENERATOR__CONTROLLER);
 			}
 		}
 		return result && helper.isSuccess();
