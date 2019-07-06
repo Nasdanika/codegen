@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.html.CodegenDocumentationGenerator;
+import org.nasdanika.codegen.util.ValidatingModelGenerator;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressEntry;
@@ -43,11 +44,10 @@ public class GeneratorTests extends TestsBase {
 		
 		resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
 		URI modelUri = URI.createPlatformPluginURI(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen", false);
-		Resource bankResource = resourceSet.getResource(modelUri, true);
-		Generator<org.nasdanika.common.resources.File<InputStream>> generator = (Generator<org.nasdanika.common.resources.File<InputStream>>) bankResource.getContents().iterator().next();
+		Resource modelResource = resourceSet.getResource(modelUri, true);
+		Generator<org.nasdanika.common.resources.File<InputStream>> generator = (Generator<org.nasdanika.common.resources.File<InputStream>>) modelResource.getContents().iterator().next();
 		
-		// TODO - validate				
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/hello-world"));
+		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/text-file/hello-world"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);
 		mc.put("name", "World");
@@ -55,6 +55,28 @@ public class GeneratorTests extends TestsBase {
 		ProgressMonitor pm = new PrintStreamProgressMonitor();
 		generator.createWork().execute(mc, pm);		
 	}
+	
+	/**
+	 * Generates a greetings file.
+	 * @throws Exception
+	 */
+	@Test
+	public void testHelloWorldValidatingGeneration() throws Exception {
+		ValidatingModelGenerator<org.nasdanika.common.resources.File<InputStream>> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen");
+		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/text-file/hello-world-validated"));
+		MutableContext mc = new SimpleMutableContext();
+		mc.register(Container.class, fsc);
+		mc.put("name", "World");
+		
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
+		validatingModelGenerator.execute(mc, progressMonitor.compose(pe));	
+		
+		// HTML report
+		Container<Object> container = fsc.adapt(null, encoder, null);
+		ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+		prg.generate(container.getContainer("progress-report"), progressMonitor);				
+	}	
 
 	@Test
 	public void testHelloWorldDocumentationGeneration() throws Exception {
