@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Bad configuration test" description="Tests configuration with errors (unparsable)." configuration="name: Mr. ${surname}&#xD;&#xA; a: b" contents="Hello, ${name}!" interpolate="true"/>

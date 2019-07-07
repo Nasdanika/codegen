@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.Test;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.html.CodegenDocumentationGenerator;
 import org.nasdanika.codegen.util.ValidatingModelGenerator;
 import org.nasdanika.common.MutableContext;
@@ -23,14 +24,11 @@ import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.html.app.impl.ProgressReportGenerator;
 
 /**
- * Tests of generators.
+ * Tests of {@link TextFile}.
  * @author Pavel
  *
  */
-public class GeneratorTests extends TestsBase {
-
-	
-	private static final String TEST_MODELS_BASE_URI = "org.nasdanika.codegen.tests.models/models/";
+public class TextFileTests extends TestsBase {
 
 	/**
 	 * Generates a greetings file.
@@ -82,7 +80,7 @@ public class GeneratorTests extends TestsBase {
 	public void testHelloWorldDocumentationGeneration() throws Exception {
 		CodegenDocumentationGenerator generator = new CodegenDocumentationGenerator("Nasdanika Hello World Codegen Model", null);
 		generator.loadModel(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-model-doc/hello-world"));
+		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-model-doc/text-file/hello-world"));
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
 		Container<Object> container = fsc.adapt(null, encoder, null);
