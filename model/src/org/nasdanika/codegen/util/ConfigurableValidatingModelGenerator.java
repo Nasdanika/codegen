@@ -82,7 +82,7 @@ public abstract class ConfigurableValidatingModelGenerator<T,C> extends Validati
 				Diagnostic diagnostic = validateConfiguration(context);
 				diagnosticToProgress(progressMonitor, size(), diagnostic);
 				if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-					throw new IllegalStateException("Generator configuration validation failed");
+					throw new IllegalArgumentException("Generator configuration validation failed");
 				}
 				return null;
 			}

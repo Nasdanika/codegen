@@ -77,6 +77,8 @@ public class StaticTextTests extends TestsBase {
 		prg.generate(container.getContainer("progress-report"), progressMonitor);		
 	}
 	
+	// TODO - implement proper report generation.
+	
 	// --- Interpolation ---
 	
 	/**
@@ -207,7 +209,7 @@ public class StaticTextTests extends TestsBase {
 	 * Generates a greeting with interpolation and an invalid configuration loaded from a map.
 	 * @throws Exception
 	 */
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testInterpolationWithInvalidConfiguration() throws Exception {
 		Map<String, Object> config = new HashMap<>();
 		config.put("greetngs", Collections.singletonMap("name", "World"));
