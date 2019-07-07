@@ -326,6 +326,41 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.GENERATOR_REFERENCE: {
+				GeneratorReference<?> generatorReference = (GeneratorReference<?>)theEObject;
+				T1 result = caseGeneratorReference(generatorReference);
+				if (result == null) result = caseGenerator(generatorReference);
+				if (result == null) result = caseWorkFactory(generatorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.TEXT_GENERATOR_REFERENCE: {
+				TextGeneratorReference textGeneratorReference = (TextGeneratorReference)theEObject;
+				T1 result = caseTextGeneratorReference(textGeneratorReference);
+				if (result == null) result = caseGeneratorReference(textGeneratorReference);
+				if (result == null) result = caseGenerator(textGeneratorReference);
+				if (result == null) result = caseWorkFactory(textGeneratorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.STREAM_GENERATOR_REFERENCE: {
+				StreamGeneratorReference streamGeneratorReference = (StreamGeneratorReference)theEObject;
+				T1 result = caseStreamGeneratorReference(streamGeneratorReference);
+				if (result == null) result = caseGeneratorReference(streamGeneratorReference);
+				if (result == null) result = caseGenerator(streamGeneratorReference);
+				if (result == null) result = caseWorkFactory(streamGeneratorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: {
+				ResourceGeneratorReference resourceGeneratorReference = (ResourceGeneratorReference)theEObject;
+				T1 result = caseResourceGeneratorReference(resourceGeneratorReference);
+				if (result == null) result = caseGeneratorReference(resourceGeneratorReference);
+				if (result == null) result = caseGenerator(resourceGeneratorReference);
+				if (result == null) result = caseWorkFactory(resourceGeneratorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -747,6 +782,66 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTextGroup(TextGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseGeneratorReference(GeneratorReference<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextGeneratorReference(TextGeneratorReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stream Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stream Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStreamGeneratorReference(StreamGeneratorReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseResourceGeneratorReference(ResourceGeneratorReference object) {
 		return null;
 	}
 

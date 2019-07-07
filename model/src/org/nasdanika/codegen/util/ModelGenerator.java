@@ -40,7 +40,7 @@ public class ModelGenerator<T> implements Work<Context, List<T>>, GenerationPart
 	 * @throws Exception 
 	 */
 	public ModelGenerator(URI modelUri) throws Exception {
-		this(null, modelUri);
+		this(createResourceSet(), modelUri);
 	}	
 	
 	/**
@@ -55,20 +55,26 @@ public class ModelGenerator<T> implements Work<Context, List<T>>, GenerationPart
 	}
 	
 	/**
+	 * Creates a new {@link ResourceSet} if it was not passed to a constructor explicitly. This implementation creates a new resource set and configures it to load the model by registering an {@link XMIResourceFactoryImpl}
+	 * and putting {@link CodegenPackage} to the package registry. If the model uses model elements from other {@link EPackage}s pass  a resource set constructed by the client to one of the 
+	 * constructors which accept resource set. The resource set can be constructed by this method and then additional packages may be registered by the client code before passing the resource
+	 * set to a constructor.   
+	 * @return
+	 */
+	public static ResourceSet createResourceSet() {
+		ResourceSetImpl resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+		resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
+		return resourceSet;
+	}
+	
+	/**
 	 * Creates a generator by loading a generator model from the specified URI into the specified {@link ResourceSet}.
-	 * @param resourceSet Resource set to load the model to. If this parameter is null then a new resource set is created and configured to load the model by registering an {@link XMIResourceFactoryImpl}
-	 * and putting {@link CodegenPackage} to the package registry. If the model uses model elements from other {@link EPackage}s, a resource set shall be constructed by the client.   
-	 * @param modelUri Model URI. The first element of the model resource contents is used as the {@link Generator}, other elements are ignored.
+	 * @param resourceSet Resource set to load the model to. 
 	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
 	public ModelGenerator(ResourceSet resourceSet, URI modelUri) throws Exception {
-		if (resourceSet == null) {
-			resourceSet = new ResourceSetImpl();
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-			resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
-		}
-		
 		Resource modelResource = resourceSet.getResource(modelUri, true);
 		generator = (Generator<T>) modelResource.getContents().iterator().next();
 		work = generator.createWork();

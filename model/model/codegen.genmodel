@@ -47,6 +47,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/description"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configurationReference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controllerArguments"/>
@@ -138,5 +139,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipArchive/entries"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//TextGroup"/>
+    <genClasses image="false" ecoreClass="codegen.ecore#//GeneratorReference">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//GeneratorReference/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorReference/model"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//TextGeneratorReference"/>
+    <genClasses ecoreClass="codegen.ecore#//StreamGeneratorReference"/>
+    <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorReference"/>
   </genPackages>
 </genmodel:GenModel>

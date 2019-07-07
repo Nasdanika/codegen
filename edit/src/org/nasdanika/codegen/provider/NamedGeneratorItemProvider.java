@@ -294,6 +294,21 @@ public class NamedGeneratorItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
 				 CodegenFactory.eINSTANCE.createTextGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 	}
 
 	/**

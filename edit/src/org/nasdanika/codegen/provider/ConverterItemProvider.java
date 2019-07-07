@@ -219,6 +219,21 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.CONVERTER__GENERATOR,
 				 CodegenFactory.eINSTANCE.createTextGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 	}
 
 }

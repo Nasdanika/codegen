@@ -187,6 +187,22 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createTextGroupAdapter();
 			}
 			@Override
+			public <T> Adapter caseGeneratorReference(GeneratorReference<T> object) {
+				return createGeneratorReferenceAdapter();
+			}
+			@Override
+			public Adapter caseTextGeneratorReference(TextGeneratorReference object) {
+				return createTextGeneratorReferenceAdapter();
+			}
+			@Override
+			public Adapter caseStreamGeneratorReference(StreamGeneratorReference object) {
+				return createStreamGeneratorReferenceAdapter();
+			}
+			@Override
+			public Adapter caseResourceGeneratorReference(ResourceGeneratorReference object) {
+				return createResourceGeneratorReferenceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -595,6 +611,62 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.GeneratorReference <em>Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.GeneratorReference
+	 * @generated
+	 */
+	public Adapter createGeneratorReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.TextGeneratorReference <em>Text Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.TextGeneratorReference
+	 * @generated
+	 */
+	public Adapter createTextGeneratorReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.StreamGeneratorReference <em>Stream Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.StreamGeneratorReference
+	 * @generated
+	 */
+	public Adapter createStreamGeneratorReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceGeneratorReference <em>Resource Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceGeneratorReference
+	 * @generated
+	 */
+	public Adapter createResourceGeneratorReferenceAdapter() {
 		return null;
 	}
 

@@ -79,6 +79,9 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.MUSTACHE: return createMustache();
 			case CodegenPackage.ZIP_ARCHIVE: return createZipArchive();
 			case CodegenPackage.TEXT_GROUP: return createTextGroup();
+			case CodegenPackage.TEXT_GENERATOR_REFERENCE: return createTextGeneratorReference();
+			case CodegenPackage.STREAM_GENERATOR_REFERENCE: return createStreamGeneratorReference();
+			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: return createResourceGeneratorReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -350,6 +353,39 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public TextGroup createTextGroup() {
 		TextGroupImpl textGroup = new TextGroupImpl();
 		return textGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextGeneratorReference createTextGeneratorReference() {
+		TextGeneratorReferenceImpl textGeneratorReference = new TextGeneratorReferenceImpl();
+		return textGeneratorReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StreamGeneratorReference createStreamGeneratorReference() {
+		StreamGeneratorReferenceImpl streamGeneratorReference = new StreamGeneratorReferenceImpl();
+		return streamGeneratorReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceGeneratorReference createResourceGeneratorReference() {
+		ResourceGeneratorReferenceImpl resourceGeneratorReference = new ResourceGeneratorReferenceImpl();
+		return resourceGeneratorReference;
 	}
 
 	/**

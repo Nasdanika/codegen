@@ -55,6 +55,7 @@ public class GeneratorItemProvider
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addConfigurationPropertyDescriptor(object);
+			addConfigurationReferencePropertyDescriptor(object);
 			addContextPathPropertyDescriptor(object);
 			addControllerPropertyDescriptor(object);
 			addControllerArgumentsPropertyDescriptor(object);
@@ -195,6 +196,28 @@ public class GeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Configuration Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigurationReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_configurationReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configurationReference_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONFIGURATION_REFERENCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Context Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,6 +300,7 @@ public class GeneratorItemProvider
 			case CodegenPackage.GENERATOR__ENABLED:
 			case CodegenPackage.GENERATOR__DESCRIPTION:
 			case CodegenPackage.GENERATOR__CONFIGURATION:
+			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 			case CodegenPackage.GENERATOR__CONTROLLER:
 			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:

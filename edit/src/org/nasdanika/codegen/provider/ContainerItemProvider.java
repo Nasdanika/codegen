@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
@@ -101,7 +100,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	public String getText(Object object) {
 		String label = ((Container)object).getName();
 		if (isBlank(label)) {
-			label = ((BinaryFile)object).getName();
+			label = ((Container)object).getName();
 		}
 		return isBlank(label) ? getString("_UI_Container_type") :	label;
 	}
@@ -231,6 +230,21 @@ public class ContainerItemProvider extends ResourceItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.CONTAINER__CHILDREN,
 				 CodegenFactory.eINSTANCE.createTextGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
+				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
+				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.CONTAINER__CHILDREN,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 	}
 
 }

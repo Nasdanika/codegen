@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getConfigurationReference <em>Configuration Reference</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getControllerArguments <em>Controller Arguments</em>}</li>
@@ -202,7 +203,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Custom generator configuration in YAML format.
-	 * Configuration is merged into a context passed to work created by the generator.
+	 * Configuration is merged into a context passed to the work created by the generator.
 	 * Configuration values may contain interpolation tokens referencing other properties.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Configuration</em>' attribute.
@@ -222,6 +223,35 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setConfiguration(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An interpolated URL of generator configuration in YAML, JSON, or properties formats. Format is determined by extension - ``.yml``, ``.json``, or ``.properties``.
+	 * The URL is resolved relative to the model. If both inline configuration and configurationReference are defined the configuration reference entries shadow the configuration entries.
+	 * 
+	 * As with the inline configuration, referenced configuration is merged into a context passed to the work created by the generator.
+	 * Configuration values may contain interpolation tokens referencing other properties.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Configuration Reference</em>' attribute.
+	 * @see #setConfigurationReference(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_ConfigurationReference()
+	 * @model
+	 * @generated
+	 */
+	String getConfigurationReference();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getConfigurationReference <em>Configuration Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Configuration Reference</em>' attribute.
+	 * @see #getConfigurationReference()
+	 * @generated
+	 */
+	void setConfigurationReference(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Context Path</b></em>' attribute.

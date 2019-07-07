@@ -137,13 +137,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__CONFIGURATION = WORK_FACTORY_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONFIGURATION_REFERENCE = WORK_FACTORY_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTEXT_PATH = WORK_FACTORY_FEATURE_COUNT + 4;
+	int GENERATOR__CONTEXT_PATH = WORK_FACTORY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -152,7 +161,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 5;
+	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
@@ -161,7 +170,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTROLLER_ARGUMENTS = WORK_FACTORY_FEATURE_COUNT + 6;
+	int GENERATOR__CONTROLLER_ARGUMENTS = WORK_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -170,7 +179,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 7;
+	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -179,7 +188,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 8;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -310,6 +319,15 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,6 +453,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -571,6 +598,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__CONFIGURATION = RESOURCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONFIGURATION_REFERENCE = RESOURCE__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -736,6 +772,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__CONFIGURATION = FILE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__CONFIGURATION_REFERENCE = FILE__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -897,6 +942,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__CONFIGURATION = FILE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__CONFIGURATION_REFERENCE = FILE__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1071,6 +1125,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__CONFIGURATION = RESOURCE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__CONFIGURATION_REFERENCE = RESOURCE__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1216,6 +1279,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONFIGURATION_REFERENCE = GROUP__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1341,6 +1413,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1649,6 +1730,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1764,6 +1854,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1910,6 +2009,15 @@ public interface CodegenPackage extends EPackage {
 	int ECORE_MODEL_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2025,6 +2133,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2144,6 +2261,15 @@ public interface CodegenPackage extends EPackage {
 	int CONVERTER__CONFIGURATION = GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2261,6 +2387,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__CONFIGURATION = CONVERTER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONFIGURATION_REFERENCE = CONVERTER__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2376,6 +2511,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2504,6 +2648,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__CONFIGURATION = FILTER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONFIGURATION_REFERENCE = FILTER__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2619,6 +2772,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__CONFIGURATION = FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__CONFIGURATION_REFERENCE = FILTER__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2756,6 +2918,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__CONFIGURATION_REFERENCE = JAVA_FILTER__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2889,6 +3060,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CONFIGURATION = JAVA_FILTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__CONFIGURATION_REFERENCE = JAVA_FILTER__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -3026,6 +3206,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__CONFIGURATION_REFERENCE = JAVA_GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3150,6 +3339,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__CONFIGURATION_REFERENCE = JAVA_GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -3278,6 +3476,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_RESOURCE_GENERATOR__CONFIGURATION = JAVA_GENERATOR__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__CONFIGURATION_REFERENCE = JAVA_GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3402,6 +3609,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__CONFIGURATION_REFERENCE = CONTENT_REFERENCE__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -3530,6 +3746,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__CONFIGURATION = CONTENT_REFERENCE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__CONFIGURATION_REFERENCE = CONTENT_REFERENCE__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3647,6 +3872,15 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__CONFIGURATION = FILTER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__CONFIGURATION_REFERENCE = FILTER__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3762,6 +3996,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -3891,6 +4134,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GROUP__CONFIGURATION = GROUP__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__CONFIGURATION_REFERENCE = GROUP__CONFIGURATION_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3972,6 +4224,550 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GROUP_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl <em>Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.GeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorReference()
+	 * @generated
+	 */
+	int GENERATOR_REFERENCE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__TITLE = GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__ENABLED = GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__MODEL = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextGeneratorReferenceImpl <em>Text Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.TextGeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGeneratorReference()
+	 * @generated
+	 */
+	int TEXT_GENERATOR_REFERENCE = 31;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__TITLE = GENERATOR_REFERENCE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__ENABLED = GENERATOR_REFERENCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__DESCRIPTION = GENERATOR_REFERENCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__CONFIGURATION = GENERATOR_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__CONFIGURATION_REFERENCE = GENERATOR_REFERENCE__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__CONTROLLER = GENERATOR_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS = GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__MODEL = GENERATOR_REFERENCE__MODEL;
+
+	/**
+	 * The number of structural features of the '<em>Text Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE___IS_FILTERABLE = GENERATOR_REFERENCE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Text Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StreamGeneratorReferenceImpl <em>Stream Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.StreamGeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamGeneratorReference()
+	 * @generated
+	 */
+	int STREAM_GENERATOR_REFERENCE = 32;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__TITLE = GENERATOR_REFERENCE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__ENABLED = GENERATOR_REFERENCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__DESCRIPTION = GENERATOR_REFERENCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__CONFIGURATION = GENERATOR_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__CONFIGURATION_REFERENCE = GENERATOR_REFERENCE__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__CONTROLLER = GENERATOR_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS = GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__MODEL = GENERATOR_REFERENCE__MODEL;
+
+	/**
+	 * The number of structural features of the '<em>Stream Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE___IS_FILTERABLE = GENERATOR_REFERENCE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Stream Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl <em>Resource Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
+	 * @generated
+	 */
+	int RESOURCE_GENERATOR_REFERENCE = 33;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__TITLE = GENERATOR_REFERENCE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__ENABLED = GENERATOR_REFERENCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__DESCRIPTION = GENERATOR_REFERENCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONFIGURATION = GENERATOR_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONFIGURATION_REFERENCE = GENERATOR_REFERENCE__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONTROLLER = GENERATOR_REFERENCE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS = GENERATOR_REFERENCE__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__MODEL = GENERATOR_REFERENCE__MODEL;
+
+	/**
+	 * The number of structural features of the '<em>Resource Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE___IS_FILTERABLE = GENERATOR_REFERENCE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3979,7 +4775,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 30;
+	int RECONCILE_ACTION = 34;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -3989,7 +4785,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 31;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 35;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -3999,7 +4795,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 34;
+	int CONTEXT = 38;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -4009,7 +4805,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 33;
+	int INPUT_STREAM = 37;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -4019,7 +4815,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 38;
+	int VOID = 42;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -4029,7 +4825,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 37;
+	int IFILE = 41;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -4039,7 +4835,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 32;
+	int EXCEPTION = 36;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -4049,7 +4845,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 35;
+	int IRESOURCE = 39;
 
 
 	/**
@@ -4060,7 +4856,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 39;
+	int LIST = 43;
 
 
 	/**
@@ -4071,7 +4867,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 40;
+	int MERGER = 44;
 
 
 	/**
@@ -4082,7 +4878,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 36;
+	int ICONTAINER = 40;
 
 
 	/**
@@ -4182,6 +4978,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_Configuration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getConfigurationReference <em>Configuration Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Configuration Reference</em>'.
+	 * @see org.nasdanika.codegen.Generator#getConfigurationReference()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_ConfigurationReference();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}'.
@@ -4761,6 +5568,57 @@ public interface CodegenPackage extends EPackage {
 	EClass getTextGroup();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.GeneratorReference <em>Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.GeneratorReference
+	 * @generated
+	 */
+	EClass getGeneratorReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.GeneratorReference#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model</em>'.
+	 * @see org.nasdanika.codegen.GeneratorReference#getModel()
+	 * @see #getGeneratorReference()
+	 * @generated
+	 */
+	EAttribute getGeneratorReference_Model();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.TextGeneratorReference <em>Text Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.TextGeneratorReference
+	 * @generated
+	 */
+	EClass getTextGeneratorReference();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.StreamGeneratorReference <em>Stream Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stream Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.StreamGeneratorReference
+	 * @generated
+	 */
+	EClass getStreamGeneratorReference();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGeneratorReference <em>Resource Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.ResourceGeneratorReference
+	 * @generated
+	 */
+	EClass getResourceGeneratorReference();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5012,6 +5870,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__CONFIGURATION = eINSTANCE.getGenerator_Configuration();
+
+		/**
+		 * The meta object literal for the '<em><b>Configuration Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__CONFIGURATION_REFERENCE = eINSTANCE.getGenerator_ConfigurationReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Context Path</b></em>' attribute feature.
@@ -5504,6 +6370,54 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEXT_GROUP = eINSTANCE.getTextGroup();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl <em>Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.GeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorReference()
+		 * @generated
+		 */
+		EClass GENERATOR_REFERENCE = eINSTANCE.getGeneratorReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_REFERENCE__MODEL = eINSTANCE.getGeneratorReference_Model();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextGeneratorReferenceImpl <em>Text Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.TextGeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGeneratorReference()
+		 * @generated
+		 */
+		EClass TEXT_GENERATOR_REFERENCE = eINSTANCE.getTextGeneratorReference();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.StreamGeneratorReferenceImpl <em>Stream Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.StreamGeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamGeneratorReference()
+		 * @generated
+		 */
+		EClass STREAM_GENERATOR_REFERENCE = eINSTANCE.getStreamGeneratorReference();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl <em>Resource Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
+		 * @generated
+		 */
+		EClass RESOURCE_GENERATOR_REFERENCE = eINSTANCE.getResourceGeneratorReference();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.

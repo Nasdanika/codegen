@@ -47,6 +47,7 @@ import org.osgi.framework.FrameworkUtil;
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfigurationReference <em>Configuration Reference</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextPath <em>Context Path</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getControllerArguments <em>Controller Arguments</em>}</li>
@@ -93,6 +94,15 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 */
 	protected static final String CONFIGURATION_EDEFAULT = null;
 
+	/**
+	 * The default value of the '{@link #getConfigurationReference() <em>Configuration Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigurationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONFIGURATION_REFERENCE_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getContextPath() <em>Context Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -269,6 +279,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@Override
+	public String getConfigurationReference() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE, CodegenPackage.Literals.GENERATOR__CONFIGURATION_REFERENCE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setConfigurationReference(String newConfigurationReference) {
+		eDynamicSet(CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE, CodegenPackage.Literals.GENERATOR__CONFIGURATION_REFERENCE, newConfigurationReference);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getContextPath() {
 		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONTEXT_PATH, CodegenPackage.Literals.GENERATOR__CONTEXT_PATH, true, true);
 	}
@@ -423,6 +453,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return getDescription();
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return getConfiguration();
+			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
+				return getConfigurationReference();
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				return getContextPath();
 			case CodegenPackage.GENERATOR__CONTROLLER:
@@ -455,6 +487,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				setConfiguration((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
+				setConfigurationReference((String)newValue);
 				return;
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				setContextPath((String)newValue);
@@ -494,6 +529,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				setConfiguration(CONFIGURATION_EDEFAULT);
 				return;
+			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
+				setConfigurationReference(CONFIGURATION_REFERENCE_EDEFAULT);
+				return;
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				setContextPath(CONTEXT_PATH_EDEFAULT);
 				return;
@@ -526,6 +564,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return CONFIGURATION_EDEFAULT == null ? getConfiguration() != null : !CONFIGURATION_EDEFAULT.equals(getConfiguration());
+			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
+				return CONFIGURATION_REFERENCE_EDEFAULT == null ? getConfigurationReference() != null : !CONFIGURATION_REFERENCE_EDEFAULT.equals(getConfigurationReference());
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				return CONTEXT_PATH_EDEFAULT == null ? getContextPath() != null : !CONTEXT_PATH_EDEFAULT.equals(getContextPath());
 			case CodegenPackage.GENERATOR__CONTROLLER:

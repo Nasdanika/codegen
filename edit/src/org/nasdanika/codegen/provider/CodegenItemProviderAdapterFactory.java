@@ -486,6 +486,75 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.TextGeneratorReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextGeneratorReferenceItemProvider textGeneratorReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.TextGeneratorReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextGeneratorReferenceAdapter() {
+		if (textGeneratorReferenceItemProvider == null) {
+			textGeneratorReferenceItemProvider = new TextGeneratorReferenceItemProvider(this);
+		}
+
+		return textGeneratorReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.StreamGeneratorReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StreamGeneratorReferenceItemProvider streamGeneratorReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.StreamGeneratorReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStreamGeneratorReferenceAdapter() {
+		if (streamGeneratorReferenceItemProvider == null) {
+			streamGeneratorReferenceItemProvider = new StreamGeneratorReferenceItemProvider(this);
+		}
+
+		return streamGeneratorReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGeneratorReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceGeneratorReferenceItemProvider resourceGeneratorReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceGeneratorReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceGeneratorReferenceAdapter() {
+		if (resourceGeneratorReferenceItemProvider == null) {
+			resourceGeneratorReferenceItemProvider = new ResourceGeneratorReferenceItemProvider(this);
+		}
+
+		return resourceGeneratorReferenceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Mustache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -656,6 +725,9 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
 		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
 		if (textGroupItemProvider != null) textGroupItemProvider.dispose();
+		if (textGeneratorReferenceItemProvider != null) textGeneratorReferenceItemProvider.dispose();
+		if (streamGeneratorReferenceItemProvider != null) streamGeneratorReferenceItemProvider.dispose();
+		if (resourceGeneratorReferenceItemProvider != null) resourceGeneratorReferenceItemProvider.dispose();
 	}
 
 }

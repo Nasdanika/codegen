@@ -184,6 +184,33 @@ public interface CodegenFactory extends EFactory {
 	TextGroup createTextGroup();
 
 	/**
+	 * Returns a new object of class '<em>Text Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Generator Reference</em>'.
+	 * @generated
+	 */
+	TextGeneratorReference createTextGeneratorReference();
+
+	/**
+	 * Returns a new object of class '<em>Stream Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stream Generator Reference</em>'.
+	 * @generated
+	 */
+	StreamGeneratorReference createStreamGeneratorReference();
+
+	/**
+	 * Returns a new object of class '<em>Resource Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Generator Reference</em>'.
+	 * @generated
+	 */
+	ResourceGeneratorReference createResourceGeneratorReference();
+
+	/**
 	 * Returns a new object of class '<em>Mustache</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

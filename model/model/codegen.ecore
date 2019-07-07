@@ -81,7 +81,13 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="configuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Custom generator configuration in YAML format.&#xA;Configuration is merged into a context passed to work created by the generator.&#xA;Configuration values may contain interpolation tokens referencing other properties."/>
+        <details key="documentation" value="Custom generator configuration in YAML format.&#xA;Configuration is merged into a context passed to the work created by the generator.&#xA;Configuration values may contain interpolation tokens referencing other properties."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configurationReference"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An interpolated URL of generator configuration in YAML, JSON, or properties formats. Format is determined by extension - ``.yml``, ``.json``, or ``.properties``.&#xA;The URL is resolved relative to the model. If both inline configuration and configurationReference are defined the configuration reference entries shadow the configuration entries.&#xA;&#xA;As with the inline configuration, referenced configuration is merged into a context passed to the work created by the generator.&#xA;Configuration values may contain interpolation tokens referencing other properties."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -568,6 +574,46 @@
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//Group">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorReference" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Reference to a generator model."/>
+    </eAnnotations>
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Model URL resolved relative to this model."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Generator">
+      <eTypeArguments eTypeParameter="#//GeneratorReference/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextGeneratorReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="``String`` binding of GeneratorReference."/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//GeneratorReference">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StreamGeneratorReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="``InputStream`` binding of GeneratorReference."/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//GeneratorReference">
+      <eTypeArguments eClassifier="#//InputStream"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceGeneratorReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="``Resource&lt;InputStream>`` binding of GeneratorReference."/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="#//GeneratorReference">
+      <eTypeArguments eClassifier="#//IResource">
+        <eTypeArguments eClassifier="#//InputStream"/>
+      </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>
