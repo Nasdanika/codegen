@@ -68,12 +68,12 @@ public class TextFileTests extends TestsBase {
 		
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
-		validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+		validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe.split("Model doc", 1)));	
 		
 		// HTML report
 		Container<Object> container = fsc.adapt(null, encoder, null);
 		ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
+		prg.generate(container.getContainer("progress-report"), progressMonitor.split("Progress report", 1));				
 	}	
 
 	@Test

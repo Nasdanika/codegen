@@ -148,7 +148,7 @@ public class StaticTextTests extends TestsBase {
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
 		Context context = mc.compose(Context.wrap(config::get));
-		List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+		List<String> result = validatingModelGenerator.createWork(context).execute(progressMonitor.compose(pe));	
 		
 		// HTML report
 		Container<Object> container = fsc.adapt(null, encoder, null);
