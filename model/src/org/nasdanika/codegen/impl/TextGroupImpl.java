@@ -5,7 +5,6 @@ package org.nasdanika.codegen.impl;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextGroup;
 

@@ -3,7 +3,6 @@
 package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GeneratorReference;
 import org.nasdanika.common.Context;
@@ -131,7 +130,7 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	}
 	
 	@Override
-	protected Work<Context, T> createWorkItem() throws Exception {
+	protected Work<T> createWorkItem(Context context) throws Exception {
 		throw new UnsupportedOperationException("TODO - interpolate the reference, load. The same for validation");
 	}
 

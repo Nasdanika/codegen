@@ -4,7 +4,6 @@ package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.nasdanika.codegen.CodegenPackage;

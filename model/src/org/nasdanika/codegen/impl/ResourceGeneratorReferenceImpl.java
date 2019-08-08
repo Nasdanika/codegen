@@ -5,10 +5,8 @@ package org.nasdanika.codegen.impl;
 import java.io.InputStream;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceGeneratorReference;
-
 import org.nasdanika.common.resources.Resource;
 
 /**

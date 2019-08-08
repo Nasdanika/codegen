@@ -135,10 +135,10 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 	}
 	
 	@Override
-	protected Work<Context, InputStream> createWorkItem() throws Exception {
+	protected Work<InputStream> createWorkItem(Context context) throws Exception {
 		/**
 		 * Implement ZipOutputStreamContainer in common for storing entries
-		 * create one, fork context, register as Container service.
+		 * create one, fork context, register the ZipOutputStreamContainer as a Container service.
 		 * Store entries.
 		 */
 		throw new UnsupportedOperationException("TODO - implement");

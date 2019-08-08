@@ -51,7 +51,7 @@ public class TextFileTests extends TestsBase {
 		mc.put("name", "World");
 		
 		ProgressMonitor pm = new PrintStreamProgressMonitor();
-		generator.createWork().execute(mc, pm);		
+		generator.createWork(mc).execute(pm);		
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class TextFileTests extends TestsBase {
 		
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
-		validatingModelGenerator.execute(mc, progressMonitor.compose(pe));	
+		validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
 		
 		// HTML report
 		Container<Object> container = fsc.adapt(null, encoder, null);

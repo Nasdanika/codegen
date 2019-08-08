@@ -34,32 +34,25 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 	public ValidatingModelGenerator(ResourceSet resourceSet, String platformPluginUri) throws Exception {
 		super(resourceSet, platformPluginUri);
 	}
-
-	@Override
-	public long size() {
-		return super.size() + 1;
-	}
 	
-	/**
-	 * Validates the generator model and then executes generation.
-	 */
 	@Override
-	public List<T> execute(Context context, ProgressMonitor progressMonitor) throws Exception {
+	public Work<List<T>> createWork(Context context) throws Exception {
+		Work<List<T>> gWork = super.createWork(context);
 		
-		new Work<Context, Object>() {
+		return new Work<List<T>>() {
 
 			@Override
 			public long size() {
-				return 1;
+				return gWork.size() + 1;
 			}
 
 			@Override
 			public String getName() {
-				return "Validating "+ValidatingModelGenerator.this.getName();
+				return "Validating and executing "+gWork.getName();
 			}
 
 			@Override
-			public Object execute(Context context, ProgressMonitor progressMonitor) throws Exception {
+			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
 				Diagnostician diagnostician = new Diagnostician() {
 					
 					public Map<Object,Object> createDefaultContext() {
@@ -75,7 +68,7 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 				if (validationResult.getSeverity() == Diagnostic.ERROR) {
 					throw new IllegalStateException("Generator model validation failed");
 				}
-				return null;
+				return gWork.execute(progressMonitor.split(gWork.getName(), gWork.size(), gWork));
 			}
 
 			@Override
@@ -83,9 +76,8 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 				return true;
 			}
 			
-		}.splitAndExecute(context, progressMonitor);
-				
-		return super.execute(context, progressMonitor);
+		};
+		
 	}
 	
 	static void diagnosticToProgress(ProgressMonitor progressMonitor, long worked, Diagnostic diagnostic) {

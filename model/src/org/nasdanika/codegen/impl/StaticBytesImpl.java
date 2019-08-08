@@ -131,10 +131,11 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	@Override
-	public Work<Context, InputStream> createWorkItem() throws Exception {
-		return new Work<Context, InputStream>() {
+	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+		
+		return new Work<InputStream>() {
 			
 			@Override
 			public long size() {
@@ -142,7 +143,7 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 			}
 			
 			@Override
-			public InputStream execute(Context context, ProgressMonitor monitor) throws Exception {
+			public InputStream execute(ProgressMonitor monitor) throws Exception {
 				byte[] contents = getContents();
 				return contents == null ? null : new ByteArrayInputStream(contents);
 			}

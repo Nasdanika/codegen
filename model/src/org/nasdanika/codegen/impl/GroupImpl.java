@@ -4,10 +4,7 @@ package org.nasdanika.codegen.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +15,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.GroupController;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
@@ -139,63 +137,35 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	@Override
-	protected Work<Context, T> createWorkItem() throws Exception {
-		Map<Generator<T>, Work<Context, List<T>>> workMap = new HashMap<>();
-		long[] allSize = { 1 };
-		for (Generator<T> e: getElements()) {
-			Work<Context, List<T>> ew = e.createWork();
-			workMap.put(e, ew);
-			allSize[0] += ew.size();
-		}
+	protected Work<T> createWorkItem(Context context) throws Exception {
 		
-		return new Work<Context, T>() {
-
-			@Override
-			public long size() {
-				return allSize[0];
-			}
+		CompoundWork<T, List<T>> ret = new CompoundWork<T, List<T>>(getTitle(), getExecutor(context)) {
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				boolean result = true;
-				for (Work<Context, List<T>> work: workMap.values()) {
-					result = work.undo(progressMonitor) && result;
-				}
-				return result;
-			}
-			
-			@Override
-			public String getName() {
-				return getTitle();
-			}
-
-			@Override
-			public T execute(Context context, ProgressMonitor monitor) throws Exception {
-				List<T> ret = new ArrayList<>();
+			protected T combine(List<List<T>> results, ProgressMonitor monitor) {
+				List<T> all = results.stream().reduce(new ArrayList<T>(), (i, r) -> {
+					i.addAll(r);
+					return i;
+				});
 				
-				for (Entry<Generator<T>, Work<Context, List<T>>> we: workMap.entrySet()) {
-					Context elementContext = context;
-
-					if (getController() != null && getController().trim().length() != 0) {
-						@SuppressWarnings("unchecked")
-						GroupController<T, Group<T>> controller = (GroupController<T, Group<T>>) loadClass(getController().trim()).getConstructor().newInstance();
-						elementContext = controller.select(GroupImpl.this, we.getKey(), elementContext);
-						if (elementContext == null) {
-							monitor.worked(we.getValue().size(), "Skipped "+we.getValue().getName());
-							continue;
-						}
-					}
-										
-					List<T> r = we.getValue().splitAndExecute(configureElementContext(elementContext), monitor);
-					if (r != null) {
-						ret.addAll(r);
-					}
-				}				
-				return join(ret);
+				return GroupImpl.this.join(all);
 			}
+			
 		};
+		
+		@SuppressWarnings("unchecked")
+		GroupController<T, Group<T>> controller = (GroupController<T, Group<T>>) instantiate(context, getController());
+		
+		for (Generator<T> e: getElements()) {
+			Context elementContext = controller == null ? context : controller.select(GroupImpl.this, e, context);
+			if (elementContext != null) {
+				ret.add(e.createWork(elementContext));
+			}
+		}
+
+		return ret;
 	}
 
 	/**

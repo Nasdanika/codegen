@@ -12,18 +12,18 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GenerationParticipant;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.WorkFactory;
 
 /**
  * This class loads a generator model and delegates its generation methods to it. 
  * @author Pavel
  *
  */
-public class ModelGenerator<T> implements Work<Context, List<T>>, GenerationParticipant<T, Generator<T>> { 
+public class ModelGenerator<T> implements WorkFactory<List<T>>, GenerationParticipant<T, Generator<T>> { 
 
 	protected Generator<T> generator;
-	protected Work<Context, List<T>> work;
+	protected Work<List<T>> work;
 
 	/**
 	 * Creates a generator by loading a generator model specified by the platform URI, e.g. ``org.nasdanika.codegen.tests.models/models/static-text/basic.codegen``, into a new {@link ResourceSet}. 
@@ -77,27 +77,11 @@ public class ModelGenerator<T> implements Work<Context, List<T>>, GenerationPart
 	public ModelGenerator(ResourceSet resourceSet, URI modelUri) throws Exception {
 		Resource modelResource = resourceSet.getResource(modelUri, true);
 		generator = (Generator<T>) modelResource.getContents().iterator().next();
-		work = generator.createWork();
 	}
-
+	
 	@Override
-	public long size() {
-		return work.size();
-	}
-
-	@Override
-	public String getName() {
-		return work.getName();
-	}
-
-	@Override
-	public List<T> execute(Context context, ProgressMonitor progressMonitor) throws Exception {
-		return work.execute(context, progressMonitor);
-	}
-
-	@Override
-	public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-		return work.undo(progressMonitor);
+	public Work<List<T>> createWork(Context context) throws Exception {
+		return generator.createWork(context);
 	}
 
 }

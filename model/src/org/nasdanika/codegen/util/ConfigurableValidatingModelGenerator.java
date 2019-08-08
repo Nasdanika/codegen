@@ -53,48 +53,37 @@ public abstract class ConfigurableValidatingModelGenerator<T,C> extends Validati
 	 * @return
 	 */
 	protected abstract Context createConfigurationContext(Context chain);
-
-	/**
-	 * Consumes an additional tick to validate configuration.
-	 */
-	@Override
-	public long size() {		
-		return super.size() + 1;
-	}
 	
 	@Override
-	public List<T> execute(Context context, ProgressMonitor progressMonitor) throws Exception {
-		
-		new Work<Context, Object>() {
+	public Work<List<T>> createWork(Context context) throws Exception {		
+		Diagnostic diagnostic = validateConfiguration(context);
+		if (diagnostic.getSeverity() == Diagnostic.ERROR) {
+			return new Work<List<T>>() {
 
-			@Override
-			public long size() {
-				return 1;
-			}
-
-			@Override
-			public String getName() {
-				return "Validating configuration of "+ConfigurableValidatingModelGenerator.this.getName();
-			}
-
-			@Override
-			public Object execute(Context context, ProgressMonitor progressMonitor) throws Exception {
-				Diagnostic diagnostic = validateConfiguration(context);
-				diagnosticToProgress(progressMonitor, size(), diagnostic);
-				if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-					throw new IllegalArgumentException("Generator configuration validation failed");
+				@Override
+				public long size() {
+					return 1;
 				}
-				return null;
-			}
 
-			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				return true;
-			}
-			
-		}.splitAndExecute(context, progressMonitor);
+				@Override
+				public String getName() {
+					return "Configuration diagnostic";
+				}
+
+				@Override
+				public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
+					diagnosticToProgress(progressMonitor, size(), diagnostic);
+					throw new IllegalArgumentException("Generator configuration validation failed: "+diagnostic); // TODO - diagnostic exception with attached diagnostic.
+				}
+
+				@Override
+				public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+					return true;
+				}
+			};
+		}				
 				
-		return super.execute(createConfigurationContext(context), progressMonitor);
+		return super.createWork(createConfigurationContext(context));
 	}
 
 }

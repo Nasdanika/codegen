@@ -180,11 +180,11 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 		}
 		return result;
 	}	
-		
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Work<Context, T> createWorkItem() throws Exception {
-		return (Work<Context, T>) loadClass(getClassName()).getConstructor().newInstance();
+	protected Work<T> createWorkItem(Context context) throws Exception {
+		return (Work<T>) instantiate(context, getClassName(), getArguments());
 	}
 
 	

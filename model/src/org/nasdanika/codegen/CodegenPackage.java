@@ -63,10 +63,10 @@ public interface CodegenPackage extends EPackage {
 	CodegenPackage eINSTANCE = org.nasdanika.codegen.impl.CodegenPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.WorkFactory
+	 * @see org.nasdanika.common.WorkFactory
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkFactory()
 	 * @generated
 	 */
@@ -4882,11 +4882,11 @@ public interface CodegenPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Work Factory</em>'.
-	 * @see org.nasdanika.codegen.WorkFactory
+	 * @see org.nasdanika.common.WorkFactory
 	 * @model instanceClass="org.nasdanika.codegen.WorkFactory" typeParameters="T"
 	 * @generated
 	 */
@@ -5796,10 +5796,10 @@ public interface CodegenPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.codegen.WorkFactory
+		 * @see org.nasdanika.common.WorkFactory
 		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkFactory()
 		 * @generated
 		 */

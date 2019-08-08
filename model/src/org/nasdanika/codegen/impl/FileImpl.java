@@ -24,6 +24,7 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
@@ -249,37 +250,25 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 	}	
 	
 	@Override
-	protected Work<Context, org.nasdanika.common.resources.File<InputStream>> createWorkItem() throws Exception {
-		List<Work<Context, List<C>>> gWork = new ArrayList<>();
-		for (Generator<C> g: getGenerators()) {
-			gWork.add(g.createWork());
-		}
+	protected Work<org.nasdanika.common.resources.File<InputStream>> createWorkItem(Context context) throws Exception {
 		
-		String mergerClass = getMerger();
+		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
+		String name = context.interpolate(FileImpl.this.getName());
 		
-		return new Work<Context, org.nasdanika.common.resources.File<InputStream>>() {
+		org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
+		MutableContext sc = context.fork();
+		sc.register(org.nasdanika.common.resources.File.class, file);
+								
+		CompoundWork<org.nasdanika.common.resources.File<InputStream>, List<C>> ret = new CompoundWork<org.nasdanika.common.resources.File<InputStream>, List<C>>(context.interpolate(getName()), getExecutor(context)) {
 
 			@Override
-			public long size() {
-				long ret = 3;
-				for (Work<Context, List<C>> gw: gWork) {
-					ret += gw.size();
-				}
-				if (mergerClass != null) {					
-					++ret;
-				}				
-				return ret;
-			}
-
-			@SuppressWarnings("unchecked")
-			@Override
-			public org.nasdanika.common.resources.File<InputStream> execute(Context context, ProgressMonitor monitor) throws Exception {
-				org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
-				String name = context.interpolate(FileImpl.this.getName());
+			protected org.nasdanika.common.resources.File<InputStream> combine(List<List<C>> results, ProgressMonitor monitor) throws Exception {
+				List<C> all = results.stream().reduce(new ArrayList<C>(), (i, r) -> {
+					i.addAll(r);
+					return i;
+				});
 				
-				org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
-				MutableContext sc = context.fork();
-				sc.register(org.nasdanika.common.resources.File.class, file);
+				C contents = join(all);
 				
 				// Delete unmodified resources 
 				// TODO - support of modification tracking - use digests.
@@ -288,11 +277,6 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 //					file.delete(true, true, monitor.split(1));
 //				}
 				
-				List<C> cl = new ArrayList<>();
-				for (Work<Context, List<C>> gw: gWork) {
-					cl.addAll(gw.execute(sc, monitor));
-				}
-				C contents = join(cl);
 				
 				if (file.exists()) {
 					switch (getReconcileAction()) {
@@ -300,10 +284,11 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 						file.appendContents(store(context, contents), monitor);
 						break;
 					case MERGE:
+						String mergerClass = getMerger();
 						if (mergerClass == null || mergerClass.trim().length() == 0) {
 							throw new IllegalStateException("Merger is not set");
 						}
-						Merger<C> merger = (Merger<C>) loadClass(mergerClass).getConstructor().newInstance();
+						@SuppressWarnings("unchecked") Merger<C> merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						C oldContent = load(context, file.getContents(monitor));
 						C mergedContents = merger.merge(context, file, oldContent, contents, monitor);
 						file.setContents(store(context, mergedContents), monitor);
@@ -327,18 +312,20 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 				
 				return file;
 			}
-
-			@Override
-			public String getName() {
-				return "File "+FileImpl.this.getName();
-			}
-
+			
 			@Override
 			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				// TODO Implement - copy the original content somewhere, e.g. in-memory, restore.
-				return false;
+				// TODO Implement - copy the original content somewhere, e.g. in-memory, restore. Split progress monitor.
+				return super.undo(progressMonitor);
 			}
+			
 		};
+		
+		for (Generator<C> g: getGenerators()) {
+			ret.add(g.createWork(sc));
+		}
+		
+		return ret;
 	}
 	
 	protected abstract InputStream store(Context context, C content) throws Exception;

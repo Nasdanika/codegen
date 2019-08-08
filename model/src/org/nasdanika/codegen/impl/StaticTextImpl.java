@@ -170,8 +170,9 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	}
 
 	@Override
-	public Work<Context, String> createWorkItem() throws Exception {
-		return new Work<Context, String>() {
+	protected Work<String> createWorkItem(Context context) throws Exception {
+		
+		return new Work<String>() {
 			
 			@Override
 			public long size() {
@@ -179,7 +180,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 			}
 			
 			@Override
-			public String execute(Context context, ProgressMonitor monitor) throws Exception {
+			public String execute(ProgressMonitor monitor) throws Exception {
 				return isInterpolate() ? context.interpolate(getContents()) : getContents();
 			}
 

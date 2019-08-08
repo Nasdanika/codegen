@@ -3,7 +3,6 @@
 package org.nasdanika.codegen.impl;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.ReconcileAction;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
@@ -142,35 +142,18 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 	}
 	
 	@Override
-	protected Work<Context, org.nasdanika.common.resources.Container<InputStream>> createWorkItem() throws Exception {
-		List<Work<Context, List<org.nasdanika.common.resources.Resource<InputStream>>>> childrenWork = new ArrayList<>();
-		int[] workSize = { 3 };
-		for (Generator<Resource<InputStream>> child: getChildren()) {
-			Work<Context, List<Resource<InputStream>>> childWork = child.createWork();
-			workSize[0] += childWork.size();
-			childrenWork.add(childWork);
-		}
+	protected Work<org.nasdanika.common.resources.Container<InputStream>> createWorkItem(Context context) throws Exception {
+		@SuppressWarnings("unchecked")
+		org.nasdanika.common.resources.Container<InputStream> parent = context.get(org.nasdanika.common.resources.Container.class);
+		String name = context.interpolate(ContainerImpl.this.getName());
 		
-		return new Work<Context, org.nasdanika.common.resources.Container<InputStream>>() {
-
-			@Override
-			public long size() {
-				return workSize[0];
-			}
+		org.nasdanika.common.resources.Container<InputStream> container = parent.getContainer(name);
+		boolean existedBeforGeneration = container.exists();
+		
+		CompoundWork<org.nasdanika.common.resources.Container<InputStream>, List<org.nasdanika.common.resources.Resource<InputStream>>> ret = new CompoundWork<org.nasdanika.common.resources.Container<InputStream>, List<org.nasdanika.common.resources.Resource<InputStream>>>(getTitle(), getExecutor(context)) {
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				// TODO Implement - copy the original contents in-memory or somewhere else.
-				return false;
-			}
-			
-			@Override
-			public org.nasdanika.common.resources.Container<InputStream> execute(Context context, ProgressMonitor progressMonitor) throws Exception {
-				@SuppressWarnings("unchecked")
-				org.nasdanika.common.resources.Container<InputStream> parent = context.get(org.nasdanika.common.resources.Container.class);
-				String name = context.interpolate(ContainerImpl.this.getName());
-				
-				org.nasdanika.common.resources.Container<InputStream> container = parent.getContainer(name);
+			public org.nasdanika.common.resources.Container<InputStream> execute(ProgressMonitor progressMonitor) throws Exception {
 				
 				if (container.exists()) {
 					switch (getReconcileAction()) {
@@ -193,29 +176,30 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 					}
 				}
-								
-				container = configure(context, container, progressMonitor);
 				
-				MutableContext sc = context.fork();
-				sc.register(org.nasdanika.common.resources.Container.class, container);
-				for (Work<Context, List<Resource<InputStream>>> rw: childrenWork) {
-					rw.splitAndExecute(context, progressMonitor);
-				}
-				return container;
-			}
-
-			@Override
-			public String getName() {
-				return "Container "+ContainerImpl.this.getName();
+				return super.execute(progressMonitor);
 			}
 			
+			@Override
+			protected org.nasdanika.common.resources.Container<InputStream> combine(List<List<Resource<InputStream>>> results, ProgressMonitor progressMonitor) throws Exception {
+				return container;				
+			}
+			
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				// TODO - delete the container if it did not exist.
+				return super.undo(progressMonitor);
+			}
 		};
+		
+		MutableContext sc = context.fork();
+		sc.register(org.nasdanika.common.resources.Container.class, container);
+		
+		for (Generator<Resource<InputStream>> child: getChildren()) {
+			ret.add(child.createWork(context));
+		}
+		
+		return ret;
 	}
-	
-	@Override
-	protected boolean isExplicitConfigure() {
-		return true;
-	}
-	
 
 } //ContainerImpl

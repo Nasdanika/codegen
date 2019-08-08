@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.*;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.WorkFactory;
 
 /**
  * <!-- begin-user-doc -->

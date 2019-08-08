@@ -2,10 +2,12 @@
  */
 package org.nasdanika.codegen.impl;
 
+import static org.nasdanika.codegen.CodegenPackage.CONTAINER;
 import static org.nasdanika.codegen.CodegenPackage.RESOURCE;
 
 import java.io.InputStream;
 import java.util.List;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -53,10 +55,10 @@ import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.WorkFactory;
 
 /**
  * <!-- begin-user-doc -->

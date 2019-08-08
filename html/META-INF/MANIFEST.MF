@@ -12,4 +12,4 @@ Require-Bundle: org.nasdanika.html.emf;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;bundle-version="2.15.0",
  org.nasdanika.codegen;bundle-version="0.2.0"
 Export-Package: org.nasdanika.codegen.html
-Automatic-Module-Name: org.nasdanika.html.ecore
+Automatic-Module-Name: org.nasdanika.codegen.html

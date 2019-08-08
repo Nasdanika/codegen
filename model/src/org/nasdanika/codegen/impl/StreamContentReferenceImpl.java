@@ -37,10 +37,11 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.STREAM_CONTENT_REFERENCE;
 	}
-
+	
 	@Override
-	protected Work<Context, InputStream> createWorkItem() throws Exception {
-		return new Work<Context, InputStream>() {
+	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+
+		return new Work<InputStream>() {
 			
 			@Override
 			public long size() {
@@ -58,10 +59,11 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 			}
 			
 			@Override
-			public InputStream execute(Context context, ProgressMonitor monitor) throws Exception {
+			public InputStream execute(ProgressMonitor monitor) throws Exception {
 				return resolveRef(context).openStream();
 			}
 		};
+		
 	}
 
 } //StreamContentReferenceImpl

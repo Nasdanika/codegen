@@ -137,8 +137,9 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 	}
 
 	@Override
-	protected Work<Context, String> createWorkItem() throws Exception {
-		return new Work<Context, String>() {
+	protected Work<String> createWorkItem(Context context) throws Exception {
+
+		return new Work<String>() {
 
 			@Override
 			public long size() {
@@ -156,7 +157,7 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 			}
 
 			@Override
-			public String execute(Context context, ProgressMonitor monitor) throws Exception {
+			public String execute(ProgressMonitor monitor) throws Exception {
 				StringWriter sw = new StringWriter();
 				try (Reader reader = new BufferedReader(new InputStreamReader(resolveRef(context).openStream()))) {
 					int ch;

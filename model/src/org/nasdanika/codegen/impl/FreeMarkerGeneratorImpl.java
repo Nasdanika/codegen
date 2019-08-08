@@ -271,8 +271,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	}
 	
 	@Override
-	protected Work<Context, String> createWorkItem() throws Exception {
-		return new Work<Context, String>() {
+	protected Work<String> createWorkItem(Context context) throws Exception {
+		
+		return new Work<String>() {
 			
 			@Override
 			public long size() {
@@ -290,7 +291,7 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 			}
 			
 			@Override
-			public String execute(Context context, ProgressMonitor monitor) throws Exception {
+			public String execute(ProgressMonitor monitor) throws Exception {
 				Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
 				String base = context.interpolate(getBase());
 				if (base == null || base.trim().length() == 0) {

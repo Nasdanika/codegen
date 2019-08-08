@@ -143,8 +143,9 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 	}
 	
 	@Override
-	protected Work<Context, InputStream> createWorkItem() throws Exception {
-		return new Work<Context, InputStream>() {
+	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+
+		return new Work<InputStream>() {
 			
 			@Override
 			public long size() {
@@ -162,7 +163,7 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 			}
 			
 			@Override
-			public InputStream execute(Context context, ProgressMonitor progressMonitor) throws Exception {
+			public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource resource = resourceSet.createResource(URI.createURI("http:///irrelevant.xml"));
 				resource.getContents().add(EcoreUtil.copy((EObject) context.get(getModel())));
@@ -173,6 +174,7 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 			}
 			
 		};
+		
 	}
 
 } //ECoreModelGeneratorImpl

@@ -39,9 +39,11 @@ public abstract class FilterImpl<T> extends ConverterImpl<T, T> implements Filte
 	}
 	
 	@Override
-	public Work<Context, T> createWorkItem() throws Exception {
-		Work<Context, List<T>> gWork = getGenerator().createWork();
-		return new Work<Context, T>() {
+	protected Work<T> createWorkItem(Context context) throws Exception {
+
+		Work<List<T>> gWork = getGenerator().createWork(context);
+		
+		return new Work<T>() {
 			
 			@Override
 			public long size() {
@@ -49,9 +51,9 @@ public abstract class FilterImpl<T> extends ConverterImpl<T, T> implements Filte
 			}
 			
 			@Override
-			public T execute(Context context, ProgressMonitor monitor) throws Exception {
-				List<T> wr = gWork.splitAndExecute(context, monitor);
-				T filtered = filter(context, wr, monitor);
+			public T execute(ProgressMonitor monitor) throws Exception {
+				List<T> wr = gWork.execute(monitor.split("Generating", gWork.size(), gWork));
+				T filtered = filter(context, wr, monitor.split("Filtering", getFilterWorkSize(), FilterImpl.this));
 				return filtered;
 			}
 
