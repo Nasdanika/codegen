@@ -178,9 +178,6 @@
 		<module>tests.models</module>
 		<module>tests.feature</module>
 
-		<module>demo</module>
-		<module>demo.tests</module>
-
 		<module>feature</module>
 		<module>repository</module>
 
