@@ -220,20 +220,7 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			// Redundant.
-			if (getGenerators().isEmpty()) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
-						 new Object [] { this, CodegenPackage.Literals.FILE__GENERATORS }));
-				
-				result = false;
-			}
-			
+		if (diagnostics != null) {			
 			if (ReconcileAction.MERGE == getReconcileAction() && getMerger() == null) {
 				diagnostics.add
 					(new BasicDiagnostic

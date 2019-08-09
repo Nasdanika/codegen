@@ -3,10 +3,10 @@ package org.nasdanika.codegen.util;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 
 /**
@@ -56,31 +56,9 @@ public abstract class ConfigurableValidatingModelGenerator<T,C> extends Validati
 	
 	@Override
 	public Work<List<T>> createWork(Context context) throws Exception {		
-		Diagnostic diagnostic = validateConfiguration(context);
+		Diagnostic diagnostic = validateConfiguration(context);		
 		if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-			return new Work<List<T>>() {
-
-				@Override
-				public long size() {
-					return 1;
-				}
-
-				@Override
-				public String getName() {
-					return "Configuration diagnostic";
-				}
-
-				@Override
-				public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
-					diagnosticToProgress(progressMonitor, size(), diagnostic);
-					throw new IllegalArgumentException("Generator configuration validation failed: "+diagnostic); // TODO - diagnostic exception with attached diagnostic.
-				}
-
-				@Override
-				public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-					return true;
-				}
-			};
+			throw new DiagnosticException(diagnostic);
 		}				
 				
 		return super.createWork(createConfigurationContext(context));

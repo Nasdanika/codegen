@@ -9,7 +9,9 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
@@ -43,7 +45,14 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 			return bundle.getEntry(bp.substring(slashIdx));
 		}
 		
-		// TODO - resolve relative to the model URI.
+		Resource resource = eResource();
+		if (resource != null) {
+			URI resUri = resource.getURI();
+			URI refUri = URI.createURI(ref);
+			URI resolvedUri = refUri.resolve(resUri);
+			return new URL(resolvedUri.toString());			
+		}
+		
 		return new URL(ref);
 	}
 	

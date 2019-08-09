@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
@@ -37,47 +38,21 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 	
 	@Override
 	public Work<List<T>> createWork(Context context) throws Exception {
-		Work<List<T>> gWork = super.createWork(context);
-		
-		return new Work<List<T>>() {
-
-			@Override
-			public long size() {
-				return gWork.size() + 1;
-			}
-
-			@Override
-			public String getName() {
-				return "Validating and executing "+gWork.getName();
-			}
-
-			@Override
-			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
-				Diagnostician diagnostician = new Diagnostician() {
-					
-					public Map<Object,Object> createDefaultContext() {
-						Map<Object, Object> ctx = super.createDefaultContext();
-						ctx.put(Context.class, context);
-						ctx.put(Generator.VALIDATE_JAVA_CONTRIBUTORS, Boolean.TRUE);
-						return ctx;
-					};
-					
-				};				
-				Diagnostic validationResult = diagnostician.validate(generator);
-				diagnosticToProgress(progressMonitor, size(), validationResult);
-				if (validationResult.getSeverity() == Diagnostic.ERROR) {
-					throw new IllegalStateException("Generator model validation failed");
-				}
-				return gWork.execute(progressMonitor.split(gWork.getName(), gWork.size(), gWork));
-			}
-
-			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				return true;
-			}
+		Diagnostician diagnostician = new Diagnostician() {
 			
-		};
-		
+			public Map<Object,Object> createDefaultContext() {
+				Map<Object, Object> ctx = super.createDefaultContext();
+				ctx.put(Context.class, context);
+				ctx.put(Generator.VALIDATE_JAVA_CONTRIBUTORS, Boolean.TRUE);
+				return ctx;
+			};
+			
+		};				
+		Diagnostic validationResult = diagnostician.validate(generator);
+		if (validationResult.getSeverity() == Diagnostic.ERROR) {
+			throw new DiagnosticException(validationResult);
+		}
+		return super.createWork(context);
 	}
 	
 	static void diagnosticToProgress(ProgressMonitor progressMonitor, long worked, Diagnostic diagnostic) {
