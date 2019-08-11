@@ -28,16 +28,16 @@ jobs:
 
       # OSGi build in order to generate documentation
       - run: 
-            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            command: mvn -s .circleci/settings.xml clean package
             no_output_timeout: 120m
 
-      # Executing tests
+      # Executing tests, copying help contents 
       - run: cd repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64;./eclipse
+      - run: mv repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64/target/help/model help/doc
 
       # Another OSGi build with generated Eclipse help
-
       - run: 
-            command: mvn -s .circleci/settings.xml package
+            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
             no_output_timeout: 120m
 
       # Deploying sites

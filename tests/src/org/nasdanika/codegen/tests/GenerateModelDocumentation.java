@@ -52,7 +52,7 @@ public class GenerateModelDocumentation extends TestsBase {
 	public void testEcoreHelp() throws Exception {		
 		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Codegen", "../org.nasdanika.codegen.help/toc.xml#Codegen", "doc/model/");
 		generator.loadGenModel(MODEL_URI);
-		File docDir = new File("../help/doc/model");
+		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
 		Container<InputStream> fsc = new FileSystemContainer(docDir);
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
