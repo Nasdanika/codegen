@@ -25,7 +25,9 @@ public class GenerateModelDocumentation extends TestsBase {
 	public void testEcoreDocumentation() throws Exception {		
 		EcoreDocumentationGenerator generator = new EcoreDocumentationGenerator("Nasdanika Codegen Model", null, null, false);
 		generator.loadGenModel(MODEL_URI);
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/model-doc"));
+		File docDir = new File("target/model-doc");
+		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
+		Container<InputStream> fsc = new FileSystemContainer(docDir);
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
 		Container<Object> container = fsc.adapt(null, encoder, null);
@@ -50,7 +52,9 @@ public class GenerateModelDocumentation extends TestsBase {
 	public void testEcoreHelp() throws Exception {		
 		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Codegen", "../org.nasdanika.codegen.help/toc.xml#Codegen", "doc/model/");
 		generator.loadGenModel(MODEL_URI);
-		Container<InputStream> fsc = new FileSystemContainer(new File("../help/doc/model"));
+		File docDir = new File("../help/doc/model");
+		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
+		Container<InputStream> fsc = new FileSystemContainer(docDir);
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
 		Container<Object> container = fsc.adapt(null, encoder, null);
