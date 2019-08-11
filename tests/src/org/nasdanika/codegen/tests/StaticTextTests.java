@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.nasdanika.codegen.StaticText;
@@ -209,7 +210,7 @@ public class StaticTextTests extends TestsBase {
 	 * Generates a greeting with interpolation and an invalid configuration loaded from a map.
 	 * @throws Exception
 	 */
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = DiagnosticException.class)
 	public void testInterpolationWithInvalidConfiguration() throws Exception {
 		Map<String, Object> config = new HashMap<>();
 		config.put("greetngs", Collections.singletonMap("name", "World"));
