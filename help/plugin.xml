@@ -2,19 +2,16 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension point="org.eclipse.help.toc">
-      <toc file="toc.xml" primary="false"/>
+      <toc file="toc.xml" primary="true"/>
+      <toc
+            file="doc/model/toc.xml"
+            primary="true">
+      </toc>
    </extension>
 	<extension point="org.eclipse.help.contentProducer">
 	   <binding producerId="org.nasdanika.help.MarkdownContentProducer"/>
 	</extension>
 
-   <extension
-         point="org.eclipse.help.toc">
-      <toc
-            file="toc.xml"
-            primary="true">
-      </toc>
-   </extension>
    <extension
          point="org.nasdanika.help.extensions">
       <markdown-pre-processor
