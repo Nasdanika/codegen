@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.provider.TextFileItemProvider;
 
 /**
@@ -98,14 +99,16 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompilationUnit)object).getName();
+		String label = ((CompilationUnit)object).getTitle();
+		if (isBlank(label)) {
+			label = ((CompilationUnit)object).getName();
+		}
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompilationUnit_type") :
-			getString("_UI_CompilationUnit_type") + " " + label;
+			getString("_UI_CompilationUnit_type") : label;
 	}
 
 

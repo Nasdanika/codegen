@@ -5,6 +5,7 @@ package org.nasdanika.codegen.java.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.impl.ContainerImpl;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,8 @@ import org.nasdanika.codegen.java.JavaPackage;
  * @generated
  */
 public class PackageImpl extends ContainerImpl implements org.nasdanika.codegen.java.Package {
+	private static final String PACKAGE_NAME_KEY = "package-name";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,6 +34,15 @@ public class PackageImpl extends ContainerImpl implements org.nasdanika.codegen.
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.PACKAGE;
+	}
+
+	@Override
+	protected Context createContext(Context parent) {
+		Context ctx = super.createContext(parent);
+		String parentPackageName = ctx.getString(PACKAGE_NAME_KEY);
+		String packageName = ctx.interpolate(getName());
+		String fullyQualifiedName = parentPackageName == null ? packageName : parentPackageName+"."+packageName;
+		return Context.singleton(PACKAGE_NAME_KEY, fullyQualifiedName).compose(ctx);
 	}
 	
 	@Override

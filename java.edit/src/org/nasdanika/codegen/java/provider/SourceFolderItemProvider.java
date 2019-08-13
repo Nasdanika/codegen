@@ -71,14 +71,15 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SourceFolder)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SourceFolder_type") :
-			getString("_UI_SourceFolder_type") + " " + label;
+		String label = ((SourceFolder)object).getTitle();
+		if (isBlank(label)) {
+			label = ((SourceFolder)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_SourceFolder_type") : label;
 	}
 
 
@@ -87,11 +88,11 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
