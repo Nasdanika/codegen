@@ -192,11 +192,10 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 			}
 		};
 		
-		MutableContext sc = context.fork();
-		sc.register(org.nasdanika.common.resources.Container.class, container);
+		Context sc = Context.singleton(org.nasdanika.common.resources.Container.class, container).compose(context);
 		
 		for (Generator<Resource<InputStream>> child: getChildren()) {
-			ret.add(child.createWork(context));
+			ret.add(child.createWork(sc));
 		}
 		
 		return ret;
