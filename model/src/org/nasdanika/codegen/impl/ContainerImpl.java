@@ -145,7 +145,7 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 	protected Work<org.nasdanika.common.resources.Container<InputStream>> createWorkItem(Context context) throws Exception {
 		@SuppressWarnings("unchecked")
 		org.nasdanika.common.resources.Container<InputStream> parent = context.get(org.nasdanika.common.resources.Container.class);
-		String name = context.interpolate(ContainerImpl.this.getName());
+		String name = finalName(context.interpolate(ContainerImpl.this.getName()));
 		
 		org.nasdanika.common.resources.Container<InputStream> container = parent.getContainer(name);
 		boolean existedBeforGeneration = container.exists();

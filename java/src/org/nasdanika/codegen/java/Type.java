@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Base class for clas, interface, annotation, and enumeration.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -28,8 +32,10 @@ public interface Type extends Member {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.
-	 * For classes the first supertype goes to the extends clause and the rest to the implements clause. For interfaces all supertypes go to the implements clause.
-	 * For enum everything goes to the implements clause. Not applicable to annotations.
+	 * For classes the first supertype goes to the extends clause and the rest to the implements clause. If the first element in the class supertypes is ``java.lang.Object`` or an empty string then the ``extends`` clause is not generated.
+	 * For interfaces all supertypes go to the implements clause.
+	 * For enum everything goes to the implements clause. 
+	 * Not applicable to annotations.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Super Types</em>' attribute list.
 	 * @see org.nasdanika.codegen.java.JavaPackage#getType_SuperTypes()

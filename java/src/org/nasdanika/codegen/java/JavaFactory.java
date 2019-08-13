@@ -22,31 +22,22 @@ public interface JavaFactory extends EFactory {
 	JavaFactory eINSTANCE = org.nasdanika.codegen.java.impl.JavaFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Nature</em>'.
+	 * Returns a new object of class '<em>Source Folder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Nature</em>'.
+	 * @return a new object of class '<em>Source Folder</em>'.
 	 * @generated
 	 */
-	JavaNature createJavaNature();
+	SourceFolder createSourceFolder();
 
 	/**
-	 * Returns a new object of class '<em>Package Fragment Root</em>'.
+	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Package Fragment Root</em>'.
+	 * @return a new object of class '<em>Package</em>'.
 	 * @generated
 	 */
-	PackageFragmentRoot createPackageFragmentRoot();
-
-	/**
-	 * Returns a new object of class '<em>Package Fragment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Package Fragment</em>'.
-	 * @generated
-	 */
-	PackageFragment createPackageFragment();
+	Package createPackage();
 
 	/**
 	 * Returns a new object of class '<em>Compilation Unit</em>'.
@@ -119,24 +110,6 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	Method createMethod();
-
-	/**
-	 * Returns a new object of class '<em>Plugin Nature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Plugin Nature</em>'.
-	 * @generated
-	 */
-	PluginNature createPluginNature();
-
-	/**
-	 * Returns a new object of class '<em>Feature Nature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature Nature</em>'.
-	 * @generated
-	 */
-	FeatureNature createFeatureNature();
 
 	/**
 	 * Returns the package supported by this factory.

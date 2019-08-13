@@ -5,8 +5,6 @@ package org.nasdanika.codegen.java.impl;
 import java.util.Iterator;
 
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.java.JavaPackage;
@@ -16,12 +14,6 @@ import org.nasdanika.config.Context;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Enum</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.nasdanika.codegen.java.impl.EnumImpl#getSuperInterfaces <em>Super Interfaces</em>}</li>
- * </ul>
  *
  * @generated
  */
@@ -45,16 +37,6 @@ public class EnumImpl extends TypeImpl implements org.nasdanika.codegen.java.Enu
 		return JavaPackage.Literals.ENUM;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<String> getSuperInterfaces() {
-		return (EList<String>)eGet(JavaPackage.Literals.ENUM__SUPER_INTERFACES, true);
-	}
-	
 	@Override
 	protected String generate(Context context, SubMonitor monitor, String comment, String body) throws Exception {
 		StringBuilder ret = new StringBuilder();

@@ -13,7 +13,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.jdt.core.IClasspathEntry;
@@ -23,10 +22,10 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.Work;
-import org.nasdanika.codegen.impl.GeneratorImpl;
+import org.nasdanika.codegen.impl.ContainerImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.PackageFragment;
-import org.nasdanika.codegen.java.PackageFragmentRoot;
+import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.config.Context;
 import org.nasdanika.config.MutableContext;
@@ -35,24 +34,16 @@ import org.nasdanika.config.MutableContext;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Package Fragment Root</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getPackagefragments <em>Packagefragments</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.impl.PackageFragmentRootImpl#getResources <em>Resources</em>}</li>
- * </ul>
  *
  * @generated
  */
-public class SourceFolderImpl extends GeneratorImpl<IPackageFragmentRoot> implements SourceFolder {
+public class SourceFolderImpl extends ContainerImpl implements SourceFolder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PackageFragmentRootImpl() {
+	protected SourceFolderImpl() {
 		super();
 	}
 
@@ -63,45 +54,7 @@ public class SourceFolderImpl extends GeneratorImpl<IPackageFragmentRoot> implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return (String)eGet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__NAME, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		eSet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__NAME, newName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<PackageFragment> getPackagefragments() {
-		return (EList<PackageFragment>)eGet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__PACKAGEFRAGMENTS, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<Resource<IResource>> getResources() {
-		return (EList<Resource<IResource>>)eGet(JavaPackage.Literals.PACKAGE_FRAGMENT_ROOT__RESOURCES, true);
+		return JavaPackage.Literals.SOURCE_FOLDER;
 	}
 
 	@Override

@@ -2,14 +2,9 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
@@ -19,30 +14,22 @@ import org.eclipse.emf.codegen.merge.java.JMerger;
 import org.eclipse.emf.codegen.merge.java.facade.JCompilationUnit;
 import org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.jdt.core.ToolFactory;
 import org.eclipse.jdt.core.formatter.CodeFormatter;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
-import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.Work;
-import org.nasdanika.codegen.impl.GeneratorImpl;
+import org.nasdanika.codegen.Merger;
+import org.nasdanika.codegen.impl.TextFileImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
-import org.nasdanika.codegen.java.ImportManager;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.config.Context;
-import org.nasdanika.config.MutableContext;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.resources.File;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,15 +39,50 @@ import org.nasdanika.config.MutableContext;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isFormat <em>Format</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> implements CompilationUnit {
+public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit {
+	/**
+	 * The default value of the '{@link #isMerge() <em>Merge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMerge()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MERGE_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isMerge() <em>Merge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMerge()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean merge = MERGE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FORMAT_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean format = FORMAT_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,26 +107,9 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return (String)eGet(JavaPackage.Literals.COMPILATION_UNIT__NAME, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		eSet(JavaPackage.Literals.COMPILATION_UNIT__NAME, newName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public boolean isMerge() {
-		return (Boolean)eGet(JavaPackage.Literals.COMPILATION_UNIT__MERGE, true);
+		return merge;
 	}
 
 	/**
@@ -112,8 +117,12 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMerge(boolean newMerge) {
-		eSet(JavaPackage.Literals.COMPILATION_UNIT__MERGE, newMerge);
+		boolean oldMerge = merge;
+		merge = newMerge;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.COMPILATION_UNIT__MERGE, oldMerge, merge));
 	}
 
 	/**
@@ -121,8 +130,9 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFormat() {
-		return (Boolean)eGet(JavaPackage.Literals.COMPILATION_UNIT__FORMAT, true);
+		return format;
 	}
 	
 	private static final String JAVA_EXTENSION = ".java";
@@ -132,8 +142,12 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(boolean newFormat) {
-		eSet(JavaPackage.Literals.COMPILATION_UNIT__FORMAT, newFormat);
+		boolean oldFormat = format;
+		format = newFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.COMPILATION_UNIT__FORMAT, oldFormat, format));
 	}
 	
 	/**
@@ -141,67 +155,133 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<Generator<String>> getGenerators() {
-		return (EList<Generator<String>>)eGet(JavaPackage.Literals.COMPILATION_UNIT__GENERATORS, true);
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case JavaPackage.COMPILATION_UNIT__MERGE:
+				return isMerge();
+			case JavaPackage.COMPILATION_UNIT__FORMAT:
+				return isFormat();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
-	protected ICompilationUnit generateCompilationUnit(Context context, String content, SubMonitor monitor) throws Exception {		
-		String interpolatedName = context.interpolate(getName());
-		if (!interpolatedName.endsWith(JAVA_EXTENSION)) {
-			interpolatedName += JAVA_EXTENSION;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case JavaPackage.COMPILATION_UNIT__MERGE:
+				setMerge((Boolean)newValue);
+				return;
+			case JavaPackage.COMPILATION_UNIT__FORMAT:
+				setFormat((Boolean)newValue);
+				return;
 		}
-		IPackageFragment packageFragment = context.get(IPackageFragment.class);		
-		ICompilationUnit compilationUnit = packageFragment.getCompilationUnit(interpolatedName);
-		if (compilationUnit.exists()) {						
-			ICompilationUnit workingCopy = compilationUnit.getWorkingCopy(monitor.split(1));
-			try {
-				if (isMerge()) {
-				    JControlModel controlModel = new JControlModel();
-			
-				    // Obtaining merge rules URI.
-					// create model
-					GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
-			
-					// create adapter factory
-					GeneratorAdapterFactory adapterFactory = GenModelGeneratorAdapterFactory.DESCRIPTOR.createAdapterFactory();
-					adapterFactory.setGenerator(new org.eclipse.emf.codegen.ecore.generator.Generator());
-					adapterFactory.initialize(genModel);
-			
-					// get merge rules URI
-					String mergeRulesURI = adapterFactory.getGenerator().getOptions().mergeRulesURI;
-				    
-				    controlModel.initialize(CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName()), mergeRulesURI);
-				    
-					JMerger jMerger = new JMerger(controlModel);												
-					
-					JCompilationUnit scu = jMerger.createCompilationUnitForContents(content);
-					jMerger.setSourceCompilationUnit(scu);
-					
-					JCompilationUnit tcu = jMerger.createCompilationUnitForContents(workingCopy.getSource());
-					jMerger.setTargetCompilationUnit(tcu);
-					
-					jMerger.merge();
-					
-					content = jMerger.getTargetCompilationUnitContents();
-				}
-				workingCopy.getBuffer().setContents(formatCompilationUnit(packageFragment.getJavaProject(), content));
-				workingCopy.commitWorkingCopy(false, monitor.split(1));
-			} catch (Exception e) {
-				throw new InvocationTargetException(e, "A problem merging "+compilationUnit.getResource().getProjectRelativePath());
-			} finally {
-				workingCopy.discardWorkingCopy();
-			}				
-		} else {
-			compilationUnit = packageFragment.createCompilationUnit(interpolatedName, formatCompilationUnit(packageFragment.getJavaProject(), content), false, monitor.split(2)); 
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case JavaPackage.COMPILATION_UNIT__MERGE:
+				setMerge(MERGE_EDEFAULT);
+				return;
+			case JavaPackage.COMPILATION_UNIT__FORMAT:
+				setFormat(FORMAT_EDEFAULT);
+				return;
 		}
-		
-		return compilationUnit;		
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case JavaPackage.COMPILATION_UNIT__MERGE:
+				return merge != MERGE_EDEFAULT;
+			case JavaPackage.COMPILATION_UNIT__FORMAT:
+				return format != FORMAT_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (merge: ");
+		result.append(merge);
+		result.append(", format: ");
+		result.append(format);
+		result.append(')');
+		return result.toString();
 	}
 	
-	private String formatCompilationUnit(IJavaProject javaProject, String content) throws BadLocationException {
+	@Override
+	protected Merger<String> getNativeMerger(Context context) {
+		return new Merger<String>() {
+			
+			@Override
+			public String merge(Context context, File<InputStream> file, String oldContent, String newContent, ProgressMonitor progressMonitor) throws Exception {
+			    JControlModel controlModel = new JControlModel();
+				
+			    // Obtaining merge rules URI.
+				// create model
+				GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
+		
+				// create adapter factory
+				GeneratorAdapterFactory adapterFactory = GenModelGeneratorAdapterFactory.DESCRIPTOR.createAdapterFactory();
+				adapterFactory.setGenerator(new org.eclipse.emf.codegen.ecore.generator.Generator());
+				adapterFactory.initialize(genModel);
+		
+				// get merge rules URI
+				String mergeRulesURI = adapterFactory.getGenerator().getOptions().mergeRulesURI;
+			    
+			    controlModel.initialize(CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName()), mergeRulesURI);
+			    
+				JMerger jMerger = new JMerger(controlModel);												
+				
+				JCompilationUnit scu = jMerger.createCompilationUnitForContents(newContent);
+				jMerger.setSourceCompilationUnit(scu);
+				
+				JCompilationUnit tcu = jMerger.createCompilationUnitForContents(oldContent);
+				jMerger.setTargetCompilationUnit(tcu);
+				
+				jMerger.merge();
+				
+				return jMerger.getTargetCompilationUnitContents();
+			}
+		};
+	}
+	
+	@Override
+	protected String join(List<String> content) throws Exception {
+		String joinedContent = super.join(content);
+		return isFormat() ? formatCompilationUnit(joinedContent) : joinedContent;
+	}
+	
+	private String formatCompilationUnit(String content) throws BadLocationException {
 		if (isFormat()) {
-			CodeFormatter formatter = ToolFactory.createCodeFormatter(javaProject.getOptions(true));
+			CodeFormatter formatter = ToolFactory.createCodeFormatter(null); // possibly TODO - options from the configuration.
 			if (formatter != null) {
 				TextEdit formatted = formatter.format(
 						CodeFormatter.K_COMPILATION_UNIT, 
@@ -218,103 +298,17 @@ public class CompilationUnitImpl extends GeneratorImpl<ICompilationUnit> impleme
 		}
 		return content;
 	}
-			
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT 
-	 */
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			if (getName() == null || getName().trim().length() == 0) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Blank name",
-						 new Object [] { this, JavaPackage.Literals.COMPILATION_UNIT__NAME }));
-				
-				result = false;
-			}
-		}
-		return result;
-	}
 	
 	@Override
 	public boolean isFilterable() {
 		return true;
 	}
 	
-	
 	@Override
-	protected Work<ICompilationUnit> createWorkItem() throws Exception {		
-		List<Work<List<String>>> gWorkList = new ArrayList<>();
-		for (Generator<String> g: getGenerators()) {
-			gWorkList.add(g.createWork());
-		}
+	protected String finalName(String name) {
+		return name.endsWith(JAVA_EXTENSION) ? name : name + ".java";
+	}
 		
-		return new Work<ICompilationUnit>() {
-
-			@Override
-			public int size() {
-				int ret = 3; // 3 is generateCompilationUnit work size
-				for (Work<List<String>> w: gWorkList) {
-					ret += w.size();
-				}
-				return ret; 
-			}
-			
-			@Override
-			public ICompilationUnit execute(Context context, SubMonitor monitor) throws Exception {
-				IPackageFragment packageFragment = context.get(IPackageFragment.class);
-				Object pTypesObj = context.get("package-types"); // List of short names of types defined in the containing package.
-				Set<String> implicitImports = new HashSet<>();
-				if (pTypesObj instanceof Iterable) {
-					for (Object pType: (Iterable<?>) pTypesObj) {
-						implicitImports.add(packageFragment.getElementName()+"."+pType);
-					}
-				}
-				ImportManager importManager = new SimpleImportManager(implicitImports);
-				MutableContext gContext = context.createSubContext();
-				gContext.set(ImportManager.class, importManager);
-				gContext.set("import", importManager);
-				
-				StringBuilder bodyBuilder = new StringBuilder();
-				for (Work<List<String>> gWork: gWorkList) {
-					for (String e: gWork.execute(gContext, monitor)) {
-						if (bodyBuilder.length() > 0) {
-							bodyBuilder.append(System.lineSeparator());
-						}
-						bodyBuilder.append(e);
-					}
-				}
-				
-				StringBuilder contentBuilder = new StringBuilder();
-				contentBuilder.append("package ").append(packageFragment.getElementName()).append(";").append(System.lineSeparator()).append(System.lineSeparator());
-				
-				String lastFirstPackageSegment = null;
-				for (String ie: importManager.getImports()) {
-					int dotIdx = ie.indexOf('.');
-					String fps = ie.substring(0, dotIdx);
-					if (lastFirstPackageSegment != null && !lastFirstPackageSegment.equals(fps)) {
-						contentBuilder.append(System.lineSeparator());
-					}
-					contentBuilder.append("import ").append(ie).append(";").append(System.lineSeparator());
-				}
-				contentBuilder.append(System.lineSeparator());
-				contentBuilder.append(bodyBuilder);
-				
-				return generateCompilationUnit(gContext, contentBuilder.toString(), monitor);
-			}
-			
-		};
-	}	
-	
-
-	
 } //CompilationUnitImpl
 
 

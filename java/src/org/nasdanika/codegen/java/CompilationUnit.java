@@ -2,9 +2,7 @@
  */
 package org.nasdanika.codegen.java;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.TextFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,53 +10,22 @@ import org.nasdanika.codegen.Generator;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Compilation unit.
+ * Compilation unit is a specialization of TextFile with support of Java merging and formatting.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isFormat <em>Format</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit()
- * @model superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.java.ICompilationUnit&gt;"
+ * @model
  * @generated
  */
-public interface CompilationUnit extends Generator<ICompilationUnit> {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Compilation unit name without ``.java`` extension. Interpolated.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.java.CompilationUnit#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface CompilationUnit extends TextFile {
 	/**
 	 * Returns the value of the '<em><b>Merge</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
@@ -118,20 +85,5 @@ public interface CompilationUnit extends Generator<ICompilationUnit> {
 	 * @generated
 	 */
 	void setFormat(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.lang.String&gt;</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Generator to produce compilation unit content.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit_Generators()
-	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true"
-	 * @generated
-	 */
-	EList<Generator<String>> getGenerators();
 
 } // CompilationUnit

@@ -8,19 +8,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Package is a container which used a dot as a segment separator. E.g. ``org.nasdanika.codegen`` instead of ``org/nasdanika/codegen`` as in the case of a regular container."/>
+      <details key="documentation" value="Package is a container which uses a dot as a segment separator. E.g. ``org.nasdanika.codegen`` instead of ``org/nasdanika/codegen`` as in the case of a regular container."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//TextFile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Compilation unit is a specialization of TextFile with support of Java merging and formatting."/>
+      <details key="documentation" value="Compilation unit is a specialization of TextFile with support of Java merging and formatting. Java merging is used when reconcile action is ``MERGE`` and the merger is not set. ``.java`` extension is optional for compilation units."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="merge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, new and old compilation unit content gets merged with ``org.eclipse.emf.codegen.merge.java.JMerger``."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

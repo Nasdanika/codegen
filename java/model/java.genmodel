@@ -6,7 +6,8 @@
     usedGenPackages="../../org.nasdanika.codegen/model/codegen.genmodel#//codegen"
     operationReflection="true" importOrganizing="true">
   <foreignModel>java.ecore</foreignModel>
-  <genPackages prefix="Java" disposableProviderFactory="true" ecorePackage="java.ecore#/">
+  <genPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
+      ecorePackage="java.ecore#/">
     <genClasses ecoreClass="java.ecore#//SourceFolder"/>
     <genClasses ecoreClass="java.ecore#//Package"/>
     <genClasses ecoreClass="java.ecore#//CompilationUnit">

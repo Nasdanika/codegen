@@ -178,6 +178,15 @@ public abstract class ResourceImpl<T extends org.nasdanika.common.resources.Reso
 		return true;
 	}
 	
+	/**
+	 * Subclasses may override this method to perform name manipulations. E.g. Java package resource may replace dots with slashes.
+	 * @param name
+	 * @return Final resource name.
+	 */
+	protected String finalName(String name) {
+		return name;
+	}
+	
 	@Override
 	public boolean isFilterable() {
 		return true;

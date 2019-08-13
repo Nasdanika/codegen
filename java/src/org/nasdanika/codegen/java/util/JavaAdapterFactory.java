@@ -2,29 +2,28 @@
  */
 package org.nasdanika.codegen.java.util;
 
+import java.io.InputStream;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.codegen.Container;
+import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.Nature;
+import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
-import org.nasdanika.codegen.java.FeatureNature;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
-import org.nasdanika.codegen.java.JavaNature;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
-import org.nasdanika.codegen.java.PackageFragment;
-import org.nasdanika.codegen.java.PackageFragmentRoot;
-import org.nasdanika.codegen.java.PluginNature;
+import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
-import org.nasdanika.config.Configuration;
+import org.nasdanika.common.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,16 +82,12 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	protected JavaSwitch<Adapter> modelSwitch =
 		new JavaSwitch<Adapter>() {
 			@Override
-			public Adapter caseJavaNature(JavaNature object) {
-				return createJavaNatureAdapter();
+			public Adapter caseSourceFolder(SourceFolder object) {
+				return createSourceFolderAdapter();
 			}
 			@Override
-			public Adapter casePackageFragmentRoot(PackageFragmentRoot object) {
-				return createPackageFragmentRootAdapter();
-			}
-			@Override
-			public Adapter casePackageFragment(PackageFragment object) {
-				return createPackageFragmentAdapter();
+			public Adapter casePackage(org.nasdanika.codegen.java.Package object) {
+				return createPackageAdapter();
 			}
 			@Override
 			public Adapter caseCompilationUnit(CompilationUnit object) {
@@ -139,18 +134,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMethodAdapter();
 			}
 			@Override
-			public Adapter casePluginNature(PluginNature object) {
-				return createPluginNatureAdapter();
-			}
-			@Override
-			public Adapter caseFeatureNature(FeatureNature object) {
-				return createFeatureNatureAdapter();
-			}
-			@Override
-			public Adapter caseConfiguration(Configuration object) {
-				return createConfigurationAdapter();
-			}
-			@Override
 			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
 				return createWorkFactoryAdapter();
 			}
@@ -159,8 +142,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorAdapter();
 			}
 			@Override
-			public Adapter caseNature(Nature object) {
-				return createNatureAdapter();
+			public <T extends Resource<InputStream>> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
+				return createResourceAdapter();
+			}
+			@Override
+			public Adapter caseContainer(Container object) {
+				return createContainerAdapter();
+			}
+			@Override
+			public <C> Adapter caseFile(File<C> object) {
+				return createFileAdapter();
+			}
+			@Override
+			public Adapter caseTextFile(TextFile object) {
+				return createTextFileAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -183,44 +178,30 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.JavaNature <em>Nature</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.SourceFolder <em>Source Folder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.JavaNature
+	 * @see org.nasdanika.codegen.java.SourceFolder
 	 * @generated
 	 */
-	public Adapter createJavaNatureAdapter() {
+	public Adapter createSourceFolderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.PackageFragmentRoot <em>Package Fragment Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.PackageFragmentRoot
+	 * @see org.nasdanika.codegen.java.Package
 	 * @generated
 	 */
-	public Adapter createPackageFragmentRootAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.PackageFragment <em>Package Fragment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.PackageFragment
-	 * @generated
-	 */
-	public Adapter createPackageFragmentAdapter() {
+	public Adapter createPackageAdapter() {
 		return null;
 	}
 
@@ -379,34 +360,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.PluginNature <em>Plugin Nature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.PluginNature
-	 * @generated
-	 */
-	public Adapter createPluginNatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.FeatureNature <em>Feature Nature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.java.FeatureNature
-	 * @generated
-	 */
-	public Adapter createFeatureNatureAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -417,20 +370,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.config.Configuration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.config.Configuration
-	 * @generated
-	 */
-	public Adapter createConfigurationAdapter() {
 		return null;
 	}
 
@@ -449,16 +388,58 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Nature <em>Nature</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Resource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Nature
+	 * @see org.nasdanika.codegen.Resource
 	 * @generated
 	 */
-	public Adapter createNatureAdapter() {
+	public Adapter createResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Container
+	 * @generated
+	 */
+	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.File
+	 * @generated
+	 */
+	public Adapter createFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.TextFile <em>Text File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.TextFile
+	 * @generated
+	 */
+	public Adapter createTextFileAdapter() {
 		return null;
 	}
 

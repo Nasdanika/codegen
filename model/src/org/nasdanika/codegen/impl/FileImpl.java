@@ -236,11 +236,11 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 		return result;
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<org.nasdanika.common.resources.File<InputStream>> createWorkItem(Context context) throws Exception {
-		
+	protected Work<org.nasdanika.common.resources.File<InputStream>> createWorkItem(Context context) throws Exception {		
 		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
-		String name = context.interpolate(FileImpl.this.getName());
+		String name = finalName(context.interpolate(FileImpl.this.getName()));
 		
 		org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
 		MutableContext sc = context.fork();
@@ -272,10 +272,15 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 						break;
 					case MERGE:
 						String mergerClass = getMerger();
+						Merger<C> merger;
 						if (mergerClass == null || mergerClass.trim().length() == 0) {
-							throw new IllegalStateException("Merger is not set");
+							merger = getNativeMerger(context);
+							if (merger == null) {
+								throw new IllegalStateException("Merger is not set");
+							}
+						} else {
+							merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						}
-						@SuppressWarnings("unchecked") Merger<C> merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						C oldContent = load(context, file.getContents(monitor));
 						C mergedContents = merger.merge(context, file, oldContent, contents, monitor);
 						file.setContents(store(context, mergedContents), monitor);
@@ -313,6 +318,15 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 		}
 		
 		return ret;
+	}
+	
+	/**
+	 * Subclasses may override this method to return format-specific merger, e.g. Java merger for Java files.
+	 * @param context
+	 * @return Format-specific merger, e.g. Java merger for Java files.
+	 */
+	protected Merger<C> getNativeMerger(Context context) {
+		return null;
 	}
 	
 	protected abstract InputStream store(Context context, C content) throws Exception;

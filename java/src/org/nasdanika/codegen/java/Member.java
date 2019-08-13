@@ -11,6 +11,10 @@ import org.nasdanika.codegen.Generator;
  * A representation of the model object '<em><b>Member</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Base class for fields, operations, and types.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
