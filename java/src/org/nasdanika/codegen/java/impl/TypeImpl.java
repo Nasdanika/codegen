@@ -3,10 +3,9 @@
 package org.nasdanika.codegen.java.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Type;

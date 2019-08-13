@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen.java.impl;
 
+import static org.nasdanika.codegen.java.JavaPackage.CLASS;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;

@@ -2,10 +2,10 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class ClassImpl extends TypeImpl implements org.nasdanika.codegen.java.Cl
 	}
 
 	@Override
-	protected String generate(Context context, SubMonitor monitor, String comment, String body) throws Exception {
+	protected String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception {
 		StringBuilder ret = new StringBuilder();
 		// Comment
 		ret.append(comment);

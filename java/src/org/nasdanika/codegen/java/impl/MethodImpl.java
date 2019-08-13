@@ -4,14 +4,13 @@ package org.nasdanika.codegen.java.impl;
 
 import java.util.Iterator;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -163,7 +162,7 @@ public class MethodImpl extends OperationImpl implements Method {
 	}
 
 	@Override
-	protected String generate(Context context, SubMonitor monitor, String comment, String body) throws Exception {
+	protected String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception {
 		StringBuilder ret = new StringBuilder();
 		// Comment
 		ret.append(comment);
@@ -211,9 +210,9 @@ public class MethodImpl extends OperationImpl implements Method {
 		ret.append(")");
 		
 		// Thrown exceptions
-		if (!getThrownExceptions().isEmpty()) {
+		if (!getExceptions().isEmpty()) {
 			ret.append(" throws ");
-			Iterator<String> eit = getThrownExceptions().iterator();
+			Iterator<String> eit = getExceptions().iterator();
 			while (eit.hasNext()) {
 				ret.append(context.interpolate(eit.next()));
 				if (eit.hasNext()) {

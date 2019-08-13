@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -19,11 +18,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.Work;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -425,23 +425,33 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 		result.append(')');
 		return result.toString();
 	}
-
+	
 	@Override
-	protected Work<String> createWorkItem() throws Exception {
+	protected Work<String> createWorkItem(Context context) throws Exception {
 		List<Work<List<String>>> commentsWorkList = new ArrayList<>();
 		for (Generator<String> cg: getCommentGenerators()) {
-			commentsWorkList.add(cg.createWork());
+			commentsWorkList.add(cg.createWork(context));
 		}
 		
 		List<Work<List<String>>> bodyWorkList = new ArrayList<>();
 		for (Generator<String> bg: getBodyGenerators()) {
-			bodyWorkList.add(bg.createWork());
+			bodyWorkList.add(bg.createWork(context));
 		}
 		
 		return new Work<String>() {
+			
+			@Override
+			public String getName() {
+				return MemberImpl.this.eClass().getName();
+			}
+			
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
+			}
 
 			@Override
-			public int size() {
+			public long size() {
 				int ret = 1; 
 				for (Work<List<String>> cw: commentsWorkList) {
 					ret += cw.size();
@@ -453,7 +463,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 			}
 			
 			@Override
-			public String execute(Context context, SubMonitor monitor) throws Exception {				
+			public String execute(ProgressMonitor monitor) throws Exception {				
 				// Comments
 				StringBuilder commentBuilder = new StringBuilder("/**").append(System.lineSeparator());
 				if (getComment() != null) {
@@ -465,7 +475,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 				}
 				
 				for (Work<List<String>> cWork: commentsWorkList) {
-					for (String e: cWork.execute(context, monitor)) {
+					for (String e: cWork.execute(monitor.split("Generating comment", cWork.size(), cWork))) {
 						if (e != null) {
 							BufferedReader br = new BufferedReader(new StringReader(e));
 							String line;
@@ -486,7 +496,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 				// Body
 				StringBuilder bodyBuilder = new StringBuilder();
 				for (Work<List<String>> bWork: bodyWorkList) {
-					for (String e: bWork.execute(context, monitor)) {
+					for (String e: bWork.execute(monitor.split("Generating body", bWork.size(), bWork))) {
 						if (e != null) {
 							bodyBuilder.append(e).append(System.lineSeparator());
 						}
@@ -499,6 +509,6 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 		};
 	}
 	
-	protected abstract String generate(Context context, SubMonitor monitor, String comment, String body) throws Exception;
+	protected abstract String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception;
 
 } //MemberImpl

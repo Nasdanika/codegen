@@ -3,6 +3,7 @@
 package org.nasdanika.codegen.java.util;
 
 import java.io.InputStream;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -10,7 +11,6 @@ import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.TextFile;
-import org.nasdanika.codegen.WorkFactory;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
@@ -22,6 +22,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.common.resources.Resource;
 
 /**

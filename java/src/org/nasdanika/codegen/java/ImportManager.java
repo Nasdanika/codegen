@@ -3,11 +3,9 @@ package org.nasdanika.codegen.java;
 import java.util.Collection;
 import java.util.function.Function;
 
-import org.nasdanika.config.TokenSource;
-
 /**
  * Service interface used by generators contributing to a compilation unit.
- * Import manager extends {@link TokenSource} so it can be conveniently used by interpolators, e.g. if it is put under <code>import</code> key, then <code>{{import:java.io.InputStream}}</code>
+ * Import manager is a function so it can be conveniently used by interpolators, e.g. if it is put under <code>import</code> key, then <code>{{import:java.io.InputStream}}</code>
  * will add <code>java.io.InputStream</code> import to the import manager and expand into the return value, e.g. <code>InputStream</code>.
  * @author Pavel
  *

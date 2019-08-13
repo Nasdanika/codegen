@@ -2,13 +2,13 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.config.Context;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -160,7 +160,7 @@ public class FieldImpl extends MemberImpl implements Field {
 	}
 
 	@Override
-	protected String generate(Context context, SubMonitor monitor, String comment, String body) throws Exception {
+	protected String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception {
 		StringBuilder ret = new StringBuilder();
 		// Comment
 		ret.append(comment);
