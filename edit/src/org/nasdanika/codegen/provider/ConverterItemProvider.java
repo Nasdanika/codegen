@@ -8,13 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Converter;
 
@@ -119,121 +115,123 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createTextFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createStaticText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.CONVERTER__GENERATOR,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONVERTER__GENERATOR);
+		
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createBinaryFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createTextFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createContainer()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createResourceGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createStaticText()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createStaticBytes()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createInterpolator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createTextContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createStreamContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createMustache()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createZipArchive()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createTextGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.CONVERTER__GENERATOR,
+//				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 	}
 
 }

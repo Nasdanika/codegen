@@ -8,20 +8,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
-
 import org.nasdanika.codegen.java.CompilationUnit;
-import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
-
 import org.nasdanika.codegen.provider.TextFileItemProvider;
 
 /**
@@ -139,61 +133,63 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createSourceFolder()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createEnum()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILE__GENERATORS,
-				 JavaFactory.eINSTANCE.createMethod()));
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.FILE__GENERATORS);
+		
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createSourceFolder()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createPackage()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createCompilationUnit()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createField()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createClass()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createInterface()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createAnnotation()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createEnum()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createConstructor()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.FILE__GENERATORS,
+//				 JavaFactory.eINSTANCE.createMethod()));
 	}
 
 	/**

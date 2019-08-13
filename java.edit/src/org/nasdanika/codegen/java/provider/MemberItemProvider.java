@@ -8,22 +8,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
-
-import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
-
 import org.nasdanika.codegen.provider.GeneratorItemProvider;
 
 /**
@@ -261,331 +253,334 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createSourceFolder()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createEnum()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 JavaFactory.eINSTANCE.createMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createSourceFolder()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createCompilationUnit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createEnum()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 JavaFactory.eINSTANCE.createMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+		
+		collectEReferenceChildDescriptors(newChildDescriptors, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS);
+		collectEReferenceChildDescriptors(newChildDescriptors, JavaPackage.Literals.MEMBER__BODY_GENERATORS);
+
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createSourceFolder()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createPackage()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createCompilationUnit()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createField()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createClass()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createInterface()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createAnnotation()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createEnum()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createConstructor()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 JavaFactory.eINSTANCE.createMethod()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createBinaryFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createContainer()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createResourceGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStaticText()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStaticBytes()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createInterpolator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStreamContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createMustache()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createZipArchive()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createSourceFolder()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createPackage()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createCompilationUnit()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createField()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createClass()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createInterface()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createAnnotation()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createEnum()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createConstructor()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 JavaFactory.eINSTANCE.createMethod()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createBinaryFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createContainer()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createResourceGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStaticText()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStaticBytes()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createInterpolator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStreamContentReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createMustache()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createZipArchive()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextGroup()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+//				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 	}
 
 	/**

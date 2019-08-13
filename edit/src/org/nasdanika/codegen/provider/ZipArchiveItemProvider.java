@@ -8,13 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipArchive;
 
@@ -130,26 +126,28 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-				 CodegenFactory.eINSTANCE.createTextFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-				 CodegenFactory.eINSTANCE.createContainer()));
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES);
+		
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
+//				 CodegenFactory.eINSTANCE.createBinaryFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
+//				 CodegenFactory.eINSTANCE.createTextFile()));
+//
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
+//				 CodegenFactory.eINSTANCE.createContainer()));
 	}
 
 }
