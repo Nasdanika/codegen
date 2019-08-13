@@ -176,6 +176,9 @@
 
 		<module>help</module>
 
+		<module>java</module>
+		<module>java.edit</module>
+
 		<module>tests</module>
 		<module>tests.models</module>
 		<module>tests.feature</module>
