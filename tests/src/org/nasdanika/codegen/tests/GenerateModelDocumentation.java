@@ -16,6 +16,7 @@ import org.nasdanika.html.ecore.EcoreHelpGenerator;
 public class GenerateModelDocumentation extends TestsBase {
 
 	private static final String MODEL_URI = "urn:org.nasdanika.codegen";
+	private static final String JAVA_MODEL_URI = "urn:org.nasdanika.codegen.java";
 	
 	/**
 	 * Generates Ecore model documentation.
@@ -25,6 +26,7 @@ public class GenerateModelDocumentation extends TestsBase {
 	public void testEcoreDocumentation() throws Exception {		
 		EcoreDocumentationGenerator generator = new EcoreDocumentationGenerator("Nasdanika Codegen Model", null, null, false);
 		generator.loadGenModel(MODEL_URI);
+		generator.loadGenModel(JAVA_MODEL_URI);
 		File docDir = new File("target/model-doc");
 		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
 		Container<InputStream> fsc = new FileSystemContainer(docDir);
@@ -52,6 +54,7 @@ public class GenerateModelDocumentation extends TestsBase {
 	public void testEcoreHelp() throws Exception {		
 		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Codegen", "../org.nasdanika.codegen.help/toc.xml#Codegen", "doc/model/");
 		generator.loadGenModel(MODEL_URI);
+		generator.loadGenModel(JAVA_MODEL_URI);
 		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
 		Container<InputStream> fsc = new FileSystemContainer(docDir);
