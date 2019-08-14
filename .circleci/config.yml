@@ -34,6 +34,7 @@ jobs:
       # Executing tests, copying help contents 
       - run: cd repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64;./eclipse
       - run: mv repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64/target/help/model help/doc
+      - run: mv repository/target/products/org.nasdanika.codegen.tests.product/linux/gtk/x86_64/target/model-doc repository/src/site/resources
 
       # Another OSGi build with generated Eclipse help
       - run: 
