@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.codegen.java/src" creationIcons="false"
     modelPluginID="org.nasdanika.codegen.java" modelName="Java" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    providerRootExtendsClass="org.nasdanika.codegen.provider.ItemProviderAdapterBase"
+    providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
     usedGenPackages="../../org.nasdanika.codegen/model/codegen.genmodel#//codegen"
     operationReflection="true" importOrganizing="true">
   <foreignModel>java.ecore</foreignModel>

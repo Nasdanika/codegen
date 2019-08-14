@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.provider.TextFileItemProvider;
 
 /**

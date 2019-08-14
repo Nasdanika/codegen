@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.NamedGenerator;
+import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.NamedGenerator} object.
@@ -29,7 +30,7 @@ import org.nasdanika.codegen.NamedGenerator;
  * @generated
  */
 public class NamedGeneratorItemProvider 
-	extends ItemProviderAdapterBase
+	extends NasdanikaItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

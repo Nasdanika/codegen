@@ -9,8 +9,8 @@
 
 ## P2 Repository
 
-* ``https://www.nasdanika.org/products/codegen/repository``
-* [Archived](https://www.nasdanika.org/products/codegen/org.nasdanika.codegen.repository-0.1.0-SNAPSHOT.zip)
+* ``https://www.nasdanika.org/home/products/codegen/repository``
+* [Archived](org.nasdanika.codegen.repository-0.2.0-SNAPSHOT.zip)
 
 ## How to contribute
 

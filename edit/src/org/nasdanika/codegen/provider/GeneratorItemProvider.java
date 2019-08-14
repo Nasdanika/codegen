@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.Generator} object.
@@ -30,7 +31,7 @@ import org.nasdanika.codegen.Generator;
  * @generated
  */
 public class GeneratorItemProvider 
-	extends ItemProviderAdapterBase implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+	extends NasdanikaItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
