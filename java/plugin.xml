@@ -11,7 +11,7 @@
       <package
             uri="urn:org.nasdanika.codegen.java"
             class="org.nasdanika.codegen.java.JavaPackage"
-            genModel="model/codegen.genmodel"/>
+            genModel="model/java.genmodel"/>
    </extension>
 
 </plugin>
