@@ -3,9 +3,15 @@
    <feature url="features/org.nasdanika.codegen.feature_0.2.0.qualifier.jar" id="org.nasdanika.codegen.feature" version="0.2.0.qualifier">
       <category name="org.nasdanika.tools"/>
    </feature>
-   <category-def name="org.nasdanika.tools" label="Tools">
+   <category-def name="org.nasdanika" label="Nasdanika">
       <description>
-         Eclipse IDE plug-ins.
+         Products of Nasdanika
+      </description>
+   </category-def>
+   <category-def name="org.nasdanika.tools" label="Tools">
+      <category name="org.nasdanika"/>
+      <description>
+         Eclipse plug-ins.
       </description>
    </category-def>
 </site>
