@@ -114,7 +114,7 @@ public class MemberItemProvider extends GeneratorItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Member_comment_feature", "_UI_Member_type"),
 				 JavaPackage.Literals.MEMBER__COMMENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
