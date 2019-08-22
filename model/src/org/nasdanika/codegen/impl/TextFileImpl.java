@@ -162,7 +162,7 @@ public class TextFileImpl extends FileImpl<String> implements TextFile {
 	}
 
 	@Override
-	protected String join(List<String> content) throws Exception {
+	protected String join(Context context, List<String> content) throws Exception {
 		if (content.size() == 1) {
 			return content.get(0);
 		}

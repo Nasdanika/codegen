@@ -50,7 +50,7 @@ public class BinaryFileImpl extends FileImpl<InputStream> implements BinaryFile 
 	}
 
 	@Override
-	protected InputStream join(List<InputStream> content) throws Exception {
+	protected InputStream join(Context context, List<InputStream> content) throws Exception {
 		if (content.size() == 1) {
 			return content.get(0);
 		}

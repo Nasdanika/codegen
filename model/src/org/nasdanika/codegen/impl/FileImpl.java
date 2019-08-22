@@ -221,7 +221,7 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = super.validate(diagnostics, context);
 		if (diagnostics != null) {			
-			if (ReconcileAction.MERGE == getReconcileAction() && getMerger() == null) {
+			if (ReconcileAction.MERGE == getReconcileAction() && getMerger() == null && !hasNativeMerger()) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
@@ -255,7 +255,7 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 					return i;
 				});
 				
-				C contents = join(all);
+				C contents = join(sc, all);
 				
 				// Delete unmodified resources 
 				// TODO - support of modification tracking - use digests.
@@ -329,10 +329,18 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 		return null;
 	}
 	
+	/**
+	 * This method is used during validation. If it returns false and merger is not set then validation fails.
+	 * @return
+	 */
+	protected boolean hasNativeMerger() {
+		return false;
+	}
+	
 	protected abstract InputStream store(Context context, C content) throws Exception;
 	
 	protected abstract C load(Context context, InputStream content) throws Exception;
 	
-	protected abstract C join(List<C> content) throws Exception;
+	protected abstract C join(Context context, List<C> content) throws Exception;
 	
 } //FileImpl

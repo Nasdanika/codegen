@@ -3,7 +3,9 @@
 package org.nasdanika.codegen.java.impl;
 
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
@@ -26,6 +28,7 @@ import org.eclipse.text.edits.TextEdit;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.impl.TextFileImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.ImportManager;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -274,9 +277,28 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	}
 	
 	@Override
-	protected String join(List<String> content) throws Exception {
-		String joinedContent = super.join(content);
-		return isFormat() ? formatCompilationUnit(joinedContent) : joinedContent;
+	protected boolean hasNativeMerger() {
+		return true;
+	}
+	
+	@Override
+	protected String join(Context context, List<String> content) throws Exception {
+		StringBuilder contentBuilder = new StringBuilder();
+		contentBuilder.append("package ").append(context.getString(PackageImpl.PACKAGE_NAME_KEY)).append(";").append(System.lineSeparator()).append(System.lineSeparator());
+		
+		String lastFirstPackageSegment = null;
+		for (String ie: context.get(ImportManager.class).getImports()) {
+			int dotIdx = ie.indexOf('.');
+			String fps = ie.substring(0, dotIdx);
+			if (lastFirstPackageSegment != null && !lastFirstPackageSegment.equals(fps)) {
+				contentBuilder.append(System.lineSeparator());
+			}
+			contentBuilder.append("import ").append(ie).append(";").append(System.lineSeparator());
+		}
+		contentBuilder.append(System.lineSeparator());
+		contentBuilder.append(super.join(context, content));
+		
+		return formatCompilationUnit(contentBuilder.toString());
 	}
 	
 	private String formatCompilationUnit(String content) throws BadLocationException {
@@ -307,6 +329,22 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	@Override
 	protected String finalName(String name) {
 		return name.endsWith(JAVA_EXTENSION) ? name : name + ".java";
+	}
+	
+	@Override
+	protected Context createContext(Context parent) {
+		Object pTypesObj = parent.get(PackageImpl.PACKAGE_TYPES_KEY); // List of short names of types defined in the containing package. TODO - fill out by types.
+		Set<String> implicitImports = new HashSet<>();
+		if (pTypesObj instanceof Iterable) {
+			for (Object pType: (Iterable<?>) pTypesObj) {
+				implicitImports.add(parent.getString(PackageImpl.PACKAGE_NAME_KEY)+"."+pType);
+			}
+		}
+
+		ImportManager importManager = new SimpleImportManager(implicitImports);
+		return Context.singleton("import", importManager)
+				.compose(Context.singleton(ImportManager.class, importManager))
+				.compose(super.createContext(parent));
 	}
 		
 } //CompilationUnitImpl
