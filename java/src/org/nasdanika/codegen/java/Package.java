@@ -10,7 +10,7 @@ import org.nasdanika.codegen.Container;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Package is a container which used a dot as a segment separator. E.g. ``org.nasdanika.codegen`` instead of ``org/nasdanika/codegen`` as in the case of a regular container.
+ * Package is a container which uses a dot as a segment separator. E.g. ``org.nasdanika.codegen`` instead of ``org/nasdanika/codegen`` as in the case of a regular container.
  * <!-- end-model-doc -->
  *
  *

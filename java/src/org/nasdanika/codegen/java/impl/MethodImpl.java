@@ -3,10 +3,7 @@
 package org.nasdanika.codegen.java.impl;
 
 import java.util.Iterator;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.common.Context;
@@ -36,16 +33,6 @@ public class MethodImpl extends OperationImpl implements Method {
 	 */
 	protected static final String RETURN_TYPE_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String returnType = RETURN_TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -71,7 +58,7 @@ public class MethodImpl extends OperationImpl implements Method {
 	 */
 	@Override
 	public String getReturnType() {
-		return returnType;
+		return (String)eDynamicGet(JavaPackage.METHOD__RETURN_TYPE, JavaPackage.Literals.METHOD__RETURN_TYPE, true, true);
 	}
 
 	/**
@@ -81,10 +68,7 @@ public class MethodImpl extends OperationImpl implements Method {
 	 */
 	@Override
 	public void setReturnType(String newReturnType) {
-		String oldReturnType = returnType;
-		returnType = newReturnType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.METHOD__RETURN_TYPE, oldReturnType, returnType));
+		eDynamicSet(JavaPackage.METHOD__RETURN_TYPE, JavaPackage.Literals.METHOD__RETURN_TYPE, newReturnType);
 	}
 	
 	/**
@@ -140,25 +124,9 @@ public class MethodImpl extends OperationImpl implements Method {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.METHOD__RETURN_TYPE:
-				return RETURN_TYPE_EDEFAULT == null ? returnType != null : !RETURN_TYPE_EDEFAULT.equals(returnType);
+				return RETURN_TYPE_EDEFAULT == null ? getReturnType() != null : !RETURN_TYPE_EDEFAULT.equals(getReturnType());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (returnType: ");
-		result.append(returnType);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

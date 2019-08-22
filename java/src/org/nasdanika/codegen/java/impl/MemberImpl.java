@@ -7,15 +7,10 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.impl.GeneratorImpl;
@@ -55,33 +50,6 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModifiers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> modifiers;
-	/**
-	 * The cached value of the '{@link #getCommentGenerators() <em>Comment Generators</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCommentGenerators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Generator<String>> commentGenerators;
-	/**
 	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,43 +58,6 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 * @ordered
 	 */
 	protected static final String COMMENT_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComment()
-	 * @generated
-	 * @ordered
-	 */
-	protected String comment = COMMENT_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnnotations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> annotations;
-	/**
-	 * The cached value of the '{@link #getBodyGenerators() <em>Body Generators</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBodyGenerators()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Generator<String>> bodyGenerators;
-	/**
-	 * The cached value of the '{@link #getTypeParameters() <em>Type Parameters</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> typeParameters;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,7 +84,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(JavaPackage.MEMBER__NAME, JavaPackage.Literals.MEMBER__NAME, true, true);
 	}
 
 	/**
@@ -163,10 +94,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.MEMBER__NAME, oldName, name));
+		eDynamicSet(JavaPackage.MEMBER__NAME, JavaPackage.Literals.MEMBER__NAME, newName);
 	}
 
 	/**
@@ -177,10 +105,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<String> getModifiers() {
-		if (modifiers == null) {
-			modifiers = new EDataTypeUniqueEList<String>(String.class, this, JavaPackage.MEMBER__MODIFIERS);
-		}
-		return modifiers;
+		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__MODIFIERS, JavaPackage.Literals.MEMBER__MODIFIERS, true, true);
 	}
 
 	/**
@@ -191,10 +116,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<Generator<String>> getCommentGenerators() {
-		if (commentGenerators == null) {
-			commentGenerators = new EObjectContainmentEList<Generator<String>>(Generator.class, this, JavaPackage.MEMBER__COMMENT_GENERATORS);
-		}
-		return commentGenerators;
+		return (EList<Generator<String>>)eDynamicGet(JavaPackage.MEMBER__COMMENT_GENERATORS, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS, true, true);
 	}
 
 	/**
@@ -204,7 +126,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	public String getComment() {
-		return comment;
+		return (String)eDynamicGet(JavaPackage.MEMBER__COMMENT, JavaPackage.Literals.MEMBER__COMMENT, true, true);
 	}
 
 	/**
@@ -214,10 +136,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	public void setComment(String newComment) {
-		String oldComment = comment;
-		comment = newComment;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.MEMBER__COMMENT, oldComment, comment));
+		eDynamicSet(JavaPackage.MEMBER__COMMENT, JavaPackage.Literals.MEMBER__COMMENT, newComment);
 	}
 
 	/**
@@ -228,10 +147,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<String> getAnnotations() {
-		if (annotations == null) {
-			annotations = new EDataTypeUniqueEList<String>(String.class, this, JavaPackage.MEMBER__ANNOTATIONS);
-		}
-		return annotations;
+		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__ANNOTATIONS, JavaPackage.Literals.MEMBER__ANNOTATIONS, true, true);
 	}
 
 	/**
@@ -242,10 +158,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<Generator<String>> getBodyGenerators() {
-		if (bodyGenerators == null) {
-			bodyGenerators = new EObjectContainmentEList<Generator<String>>(Generator.class, this, JavaPackage.MEMBER__BODY_GENERATORS);
-		}
-		return bodyGenerators;
+		return (EList<Generator<String>>)eDynamicGet(JavaPackage.MEMBER__BODY_GENERATORS, JavaPackage.Literals.MEMBER__BODY_GENERATORS, true, true);
 	}
 
 	/**
@@ -256,10 +169,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<String> getTypeParameters() {
-		if (typeParameters == null) {
-			typeParameters = new EDataTypeUniqueEList<String>(String.class, this, JavaPackage.MEMBER__TYPE_PARAMETERS);
-		}
-		return typeParameters;
+		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__TYPE_PARAMETERS, JavaPackage.Literals.MEMBER__TYPE_PARAMETERS, true, true);
 	}
 	
 	/**
@@ -385,47 +295,23 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.MEMBER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case JavaPackage.MEMBER__MODIFIERS:
-				return modifiers != null && !modifiers.isEmpty();
+				return !getModifiers().isEmpty();
 			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				return commentGenerators != null && !commentGenerators.isEmpty();
+				return !getCommentGenerators().isEmpty();
 			case JavaPackage.MEMBER__COMMENT:
-				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
+				return COMMENT_EDEFAULT == null ? getComment() != null : !COMMENT_EDEFAULT.equals(getComment());
 			case JavaPackage.MEMBER__ANNOTATIONS:
-				return annotations != null && !annotations.isEmpty();
+				return !getAnnotations().isEmpty();
 			case JavaPackage.MEMBER__BODY_GENERATORS:
-				return bodyGenerators != null && !bodyGenerators.isEmpty();
+				return !getBodyGenerators().isEmpty();
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
-				return typeParameters != null && !typeParameters.isEmpty();
+				return !getTypeParameters().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", modifiers: ");
-		result.append(modifiers);
-		result.append(", comment: ");
-		result.append(comment);
-		result.append(", annotations: ");
-		result.append(annotations);
-		result.append(", typeParameters: ");
-		result.append(typeParameters);
-		result.append(')');
-		return result.toString();
-	}
-	
 	@Override
 	protected Work<String> createWorkItem(Context context) throws Exception {
 		List<Work<List<String>>> commentsWorkList = new ArrayList<>();

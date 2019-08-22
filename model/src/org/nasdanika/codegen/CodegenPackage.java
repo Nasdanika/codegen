@@ -4887,7 +4887,7 @@ public interface CodegenPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Work Factory</em>'.
 	 * @see org.nasdanika.common.WorkFactory
-	 * @model instanceClass="org.nasdanika.codegen.WorkFactory" typeParameters="T"
+	 * @model instanceClass="org.nasdanika.common.WorkFactory" typeParameters="T"
 	 * @generated
 	 */
 	EClass getWorkFactory();

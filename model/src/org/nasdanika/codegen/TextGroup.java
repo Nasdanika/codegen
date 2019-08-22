@@ -9,7 +9,7 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A group of text generators.
+ * A group of text generators. For example, a field declaration, a getter/accessor, and a setter/mutator.
  * <!-- end-model-doc -->
  *
  *

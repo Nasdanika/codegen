@@ -6,7 +6,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Operation;
 
@@ -25,25 +24,6 @@ import org.nasdanika.codegen.java.Operation;
  * @generated
  */
 public abstract class OperationImpl extends MemberImpl implements Operation {
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> parameters;
-	/**
-	 * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExceptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> exceptions;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,10 +51,7 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	@Override
 	@SuppressWarnings("unchecked")
 	public EList<String> getParameters() {
-		if (parameters == null) {
-			parameters = new EDataTypeUniqueEList<String>(String.class, this, JavaPackage.OPERATION__PARAMETERS);
-		}
-		return parameters;
+		return (EList<String>)eDynamicGet(JavaPackage.OPERATION__PARAMETERS, JavaPackage.Literals.OPERATION__PARAMETERS, true, true);
 	}
 
 	/**
@@ -82,12 +59,10 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<String> getExceptions() {
-		if (exceptions == null) {
-			exceptions = new EDataTypeUniqueEList<String>(String.class, this, JavaPackage.OPERATION__EXCEPTIONS);
-		}
-		return exceptions;
+		return (EList<String>)eDynamicGet(JavaPackage.OPERATION__EXCEPTIONS, JavaPackage.Literals.OPERATION__EXCEPTIONS, true, true);
 	}
 
 	/**
@@ -154,29 +129,11 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
+				return !getParameters().isEmpty();
 			case JavaPackage.OPERATION__EXCEPTIONS:
-				return exceptions != null && !exceptions.isEmpty();
+				return !getExceptions().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (parameters: ");
-		result.append(parameters);
-		result.append(", exceptions: ");
-		result.append(exceptions);
-		result.append(')');
-		return result.toString();
 	}
 
 } //OperationImpl

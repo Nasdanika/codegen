@@ -16,9 +16,7 @@ import org.eclipse.emf.codegen.merge.java.JMerger;
 import org.eclipse.emf.codegen.merge.java.facade.JCompilationUnit;
 import org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.jdt.core.ToolFactory;
 import org.eclipse.jdt.core.formatter.CodeFormatter;
 import org.eclipse.jface.text.BadLocationException;
@@ -42,31 +40,12 @@ import org.nasdanika.common.resources.File;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.CompilationUnitImpl#isFormat <em>Format</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit {
-	/**
-	 * The default value of the '{@link #isMerge() <em>Merge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMerge()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MERGE_EDEFAULT = true;
-	/**
-	 * The cached value of the '{@link #isMerge() <em>Merge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMerge()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean merge = MERGE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,16 +55,6 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	 * @ordered
 	 */
 	protected static final boolean FORMAT_EDEFAULT = true;
-	/**
-	 * The cached value of the '{@link #isFormat() <em>Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean format = FORMAT_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,31 +80,8 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	 * @generated
 	 */
 	@Override
-	public boolean isMerge() {
-		return merge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMerge(boolean newMerge) {
-		boolean oldMerge = merge;
-		merge = newMerge;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.COMPILATION_UNIT__MERGE, oldMerge, merge));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean isFormat() {
-		return format;
+		return (Boolean)eDynamicGet(JavaPackage.COMPILATION_UNIT__FORMAT, JavaPackage.Literals.COMPILATION_UNIT__FORMAT, true, true);
 	}
 	
 	private static final String JAVA_EXTENSION = ".java";
@@ -147,10 +93,7 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	 */
 	@Override
 	public void setFormat(boolean newFormat) {
-		boolean oldFormat = format;
-		format = newFormat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.COMPILATION_UNIT__FORMAT, oldFormat, format));
+		eDynamicSet(JavaPackage.COMPILATION_UNIT__FORMAT, JavaPackage.Literals.COMPILATION_UNIT__FORMAT, newFormat);
 	}
 	
 	/**
@@ -161,8 +104,6 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaPackage.COMPILATION_UNIT__MERGE:
-				return isMerge();
 			case JavaPackage.COMPILATION_UNIT__FORMAT:
 				return isFormat();
 		}
@@ -177,9 +118,6 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaPackage.COMPILATION_UNIT__MERGE:
-				setMerge((Boolean)newValue);
-				return;
 			case JavaPackage.COMPILATION_UNIT__FORMAT:
 				setFormat((Boolean)newValue);
 				return;
@@ -195,9 +133,6 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaPackage.COMPILATION_UNIT__MERGE:
-				setMerge(MERGE_EDEFAULT);
-				return;
 			case JavaPackage.COMPILATION_UNIT__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
@@ -213,32 +148,12 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaPackage.COMPILATION_UNIT__MERGE:
-				return merge != MERGE_EDEFAULT;
 			case JavaPackage.COMPILATION_UNIT__FORMAT:
-				return format != FORMAT_EDEFAULT;
+				return isFormat() != FORMAT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (merge: ");
-		result.append(merge);
-		result.append(", format: ");
-		result.append(format);
-		result.append(')');
-		return result.toString();
-	}
-	
 	@Override
 	protected Merger<String> getNativeMerger(Context context) {
 		return new Merger<String>() {

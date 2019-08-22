@@ -6,12 +6,16 @@ import java.io.InputStream;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.TextFile;
+
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
@@ -23,6 +27,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
+
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.common.resources.Resource;
 
@@ -361,13 +366,13 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.WorkFactory <em>Work Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.WorkFactory
+	 * @see org.nasdanika.common.WorkFactory
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {

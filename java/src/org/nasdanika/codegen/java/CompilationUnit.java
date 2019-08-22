@@ -10,14 +10,13 @@ import org.nasdanika.codegen.TextFile;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Compilation unit is a specialization of TextFile with support of Java merging and formatting.
+ * Compilation unit is a specialization of TextFile with support of Java merging and formatting. Java merging is used when reconcile action is ``MERGE`` and the merger is not set. ``.java`` extension is optional for compilation units.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isMerge <em>Merge</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.CompilationUnit#isFormat <em>Format</em>}</li>
  * </ul>
  *
@@ -26,36 +25,6 @@ import org.nasdanika.codegen.TextFile;
  * @generated
  */
 public interface CompilationUnit extends TextFile {
-	/**
-	 * Returns the value of the '<em><b>Merge</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Merge</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, new and old compilation unit content gets merged with ``org.eclipse.emf.codegen.merge.java.JMerger``.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merge</em>' attribute.
-	 * @see #setMerge(boolean)
-	 * @see org.nasdanika.codegen.java.JavaPackage#getCompilationUnit_Merge()
-	 * @model default="true"
-	 * @generated
-	 */
-	boolean isMerge();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.java.CompilationUnit#isMerge <em>Merge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Merge</em>' attribute.
-	 * @see #isMerge()
-	 * @generated
-	 */
-	void setMerge(boolean value);
-
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

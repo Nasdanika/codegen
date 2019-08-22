@@ -18,7 +18,6 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 import org.nasdanika.common.resources.Resource;

@@ -511,22 +511,13 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__ENCODING = CodegenPackage.TEXT_FILE__ENCODING;
 
 	/**
-	 * The feature id for the '<em><b>Merge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__MERGE = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__FORMAT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 1;
+	int COMPILATION_UNIT__FORMAT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
@@ -535,7 +526,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 2;
+	int COMPILATION_UNIT_FEATURE_COUNT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -2612,17 +2603,6 @@ public interface JavaPackage extends EPackage {
 	EClass getCompilationUnit();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.CompilationUnit#isMerge <em>Merge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Merge</em>'.
-	 * @see org.nasdanika.codegen.java.CompilationUnit#isMerge()
-	 * @see #getCompilationUnit()
-	 * @generated
-	 */
-	EAttribute getCompilationUnit_Merge();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.CompilationUnit#isFormat <em>Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2917,14 +2897,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPILATION_UNIT = eINSTANCE.getCompilationUnit();
-
-		/**
-		 * The meta object literal for the '<em><b>Merge</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPILATION_UNIT__MERGE = eINSTANCE.getCompilationUnit_Merge();
 
 		/**
 		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.

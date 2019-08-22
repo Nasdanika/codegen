@@ -2,9 +2,7 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.common.Context;
@@ -34,16 +32,6 @@ public class FieldImpl extends MemberImpl implements Field {
 	 */
 	protected static final String TYPE_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String type = TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -69,7 +57,7 @@ public class FieldImpl extends MemberImpl implements Field {
 	 */
 	@Override
 	public String getType() {
-		return type;
+		return (String)eDynamicGet(JavaPackage.FIELD__TYPE, JavaPackage.Literals.FIELD__TYPE, true, true);
 	}
 
 	/**
@@ -79,10 +67,7 @@ public class FieldImpl extends MemberImpl implements Field {
 	 */
 	@Override
 	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.FIELD__TYPE, oldType, type));
+		eDynamicSet(JavaPackage.FIELD__TYPE, JavaPackage.Literals.FIELD__TYPE, newType);
 	}
 	
 	/**
@@ -138,25 +123,9 @@ public class FieldImpl extends MemberImpl implements Field {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return TYPE_EDEFAULT == null ? getType() != null : !TYPE_EDEFAULT.equals(getType());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override
