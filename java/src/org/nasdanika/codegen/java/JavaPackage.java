@@ -4,6 +4,7 @@ package org.nasdanika.codegen.java;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.codegen.CodegenPackage;
@@ -176,13 +177,22 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__CHILDREN = CodegenPackage.CONTAINER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Jdk Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__JDK_LEVEL = CodegenPackage.CONTAINER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Source Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FOLDER_FEATURE_COUNT = CodegenPackage.CONTAINER_FEATURE_COUNT + 0;
+	int SOURCE_FOLDER_FEATURE_COUNT = CodegenPackage.CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -2573,6 +2583,16 @@ public interface JavaPackage extends EPackage {
 	int METHOD_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.java.JDKLevel
+	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getJDKLevel()
+	 * @generated
+	 */
+	int JDK_LEVEL = 13;
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.SourceFolder <em>Source Folder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2581,6 +2601,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSourceFolder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.SourceFolder#getJdkLevel <em>Jdk Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jdk Level</em>'.
+	 * @see org.nasdanika.codegen.java.SourceFolder#getJdkLevel()
+	 * @see #getSourceFolder()
+	 * @generated
+	 */
+	EAttribute getSourceFolder_JdkLevel();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.Package <em>Package</em>}'.
@@ -2846,6 +2877,16 @@ public interface JavaPackage extends EPackage {
 	EAttribute getMethod_ReturnType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>JDK Level</em>'.
+	 * @see org.nasdanika.codegen.java.JDKLevel
+	 * @generated
+	 */
+	EEnum getJDKLevel();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2877,6 +2918,14 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCE_FOLDER = eINSTANCE.getSourceFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Jdk Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOURCE_FOLDER__JDK_LEVEL = eINSTANCE.getSourceFolder_JdkLevel();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.java.impl.PackageImpl <em>Package</em>}' class.
@@ -3101,6 +3150,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METHOD__RETURN_TYPE = eINSTANCE.getMethod_ReturnType();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.java.JDKLevel
+		 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getJDKLevel()
+		 * @generated
+		 */
+		EEnum JDK_LEVEL = eINSTANCE.getJDKLevel();
 
 	}
 

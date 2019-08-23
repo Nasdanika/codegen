@@ -13,6 +13,7 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenModelGeneratorAdapterFactory;
 import org.eclipse.emf.codegen.merge.java.JControlModel;
 import org.eclipse.emf.codegen.merge.java.JMerger;
+import org.eclipse.emf.codegen.merge.java.facade.FacadeHelper;
 import org.eclipse.emf.codegen.merge.java.facade.JCompilationUnit;
 import org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
@@ -27,6 +28,7 @@ import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.impl.TextFileImpl;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.ImportManager;
+import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -174,7 +176,9 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 				// get merge rules URI
 				String mergeRulesURI = adapterFactory.getGenerator().getOptions().mergeRulesURI;
 			    
-			    controlModel.initialize(CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName()), mergeRulesURI);
+			    FacadeHelper facadeHelper = CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName());
+			    facadeHelper.setCompilerCompliance(context.get(JDKLevel.class).getLiteral());
+				controlModel.initialize(facadeHelper, mergeRulesURI);
 			    
 				JMerger jMerger = new JMerger(controlModel);												
 				

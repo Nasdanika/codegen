@@ -6,6 +6,7 @@ import static org.nasdanika.codegen.java.JavaPackage.CLASS;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -16,6 +17,7 @@ import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
+import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
@@ -123,6 +125,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	private EClass methodEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum jdkLevelEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -194,6 +203,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getSourceFolder() {
 		return sourceFolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSourceFolder_JdkLevel() {
+		return (EAttribute)sourceFolderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -452,6 +471,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getJDKLevel() {
+		return jdkLevelEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaFactory getJavaFactory() {
 		return (JavaFactory)getEFactoryInstance();
 	}
@@ -476,6 +505,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Create classes and their features
 		sourceFolderEClass = createEClass(SOURCE_FOLDER);
+		createEAttribute(sourceFolderEClass, SOURCE_FOLDER__JDK_LEVEL);
 
 		packageEClass = createEClass(PACKAGE);
 
@@ -513,6 +543,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		methodEClass = createEClass(METHOD);
 		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
+
+		// Create enums
+		jdkLevelEEnum = createEEnum(JDK_LEVEL);
 	}
 
 	/**
@@ -565,6 +598,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sourceFolderEClass, SourceFolder.class, "SourceFolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSourceFolder_JdkLevel(), this.getJDKLevel(), "jdkLevel", "1.8", 0, 1, SourceFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, org.nasdanika.codegen.java.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -608,6 +642,18 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethod_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(jdkLevelEEnum, JDKLevel.class, "JDKLevel");
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_4);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_5);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_6);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_7);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_8);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_9);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_10);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_11);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_12);
 
 		// Create resource
 		createResource(eNS_URI);

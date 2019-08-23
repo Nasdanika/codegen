@@ -9,7 +9,20 @@
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
-    <genClasses ecoreClass="java.ecore#//SourceFolder"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="java.ecore#//JDKLevel">
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_4"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_5"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_6"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_7"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_8"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_9"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_10"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_11"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_12"/>
+    </genEnums>
+    <genClasses ecoreClass="java.ecore#//SourceFolder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//SourceFolder/jdkLevel"/>
+    </genClasses>
     <genClasses ecoreClass="java.ecore#//Package"/>
     <genClasses ecoreClass="java.ecore#//CompilationUnit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//CompilationUnit/format"/>

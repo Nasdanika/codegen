@@ -3,6 +3,7 @@
 package org.nasdanika.codegen.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -12,6 +13,7 @@ import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
+import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
@@ -73,6 +75,36 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.METHOD: return createMethod();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case JavaPackage.JDK_LEVEL:
+				return createJDKLevelFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case JavaPackage.JDK_LEVEL:
+				return convertJDKLevelToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -184,6 +216,26 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JDKLevel createJDKLevelFromString(EDataType eDataType, String initialValue) {
+		JDKLevel result = JDKLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJDKLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
