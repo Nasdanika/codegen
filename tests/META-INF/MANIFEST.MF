@@ -10,6 +10,7 @@ Require-Bundle: org.junit,
  org.nasdanika.html.ecore;bundle-version="2.0.0",
  org.nasdanika.codegen;bundle-version="0.1.0",
  org.nasdanika.codegen.html;bundle-version="0.2.0",
- org.nasdanika.codegen.tests.models;bundle-version="0.2.0"
+ org.nasdanika.codegen.tests.models;bundle-version="0.2.0",
+ org.nasdanika.codegen.java;bundle-version="0.1.0"
 Automatic-Module-Name: org.nasdanika.html.tests
 Export-Package: org.nasdanika.codegen.tests
