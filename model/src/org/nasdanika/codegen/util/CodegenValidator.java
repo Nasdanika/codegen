@@ -50,6 +50,7 @@ import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -213,8 +214,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
 			case CodegenPackage.ICONTAINER:
 				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
-			case CodegenPackage.IFILE:
-				return validateIFile((org.nasdanika.common.resources.Entity<?>)value, diagnostics, context);
+			case CodegenPackage.IENTITY:
+				return validateIEntity((Entity<?>)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -318,8 +319,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
 			case CodegenPackage.ICONTAINER:
 				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
-			case CodegenPackage.IFILE:
-				return validateIFile((org.nasdanika.common.resources.Entity<?>)value, diagnostics, context);
+			case CodegenPackage.IENTITY:
+				return validateIEntity((Entity<?>)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -1026,7 +1027,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIFile(org.nasdanika.common.resources.Entity<?> iFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateIEntity(Entity<?> iEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

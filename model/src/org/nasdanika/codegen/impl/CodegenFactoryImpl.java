@@ -136,8 +136,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createIResourceFromString(eDataType, initialValue);
 			case CodegenPackage.ICONTAINER:
 				return createIContainerFromString(eDataType, initialValue);
-			case CodegenPackage.IFILE:
-				return createIFileFromString(eDataType, initialValue);
+			case CodegenPackage.IENTITY:
+				return createIEntityFromString(eDataType, initialValue);
 			case CodegenPackage.VOID:
 				return createVoidFromString(eDataType, initialValue);
 			case CodegenPackage.LIST:
@@ -171,8 +171,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertIResourceToString(eDataType, instanceValue);
 			case CodegenPackage.ICONTAINER:
 				return convertIContainerToString(eDataType, instanceValue);
-			case CodegenPackage.IFILE:
-				return convertIFileToString(eDataType, instanceValue);
+			case CodegenPackage.IENTITY:
+				return convertIEntityToString(eDataType, instanceValue);
 			case CodegenPackage.VOID:
 				return convertVoidToString(eDataType, instanceValue);
 			case CodegenPackage.LIST:
@@ -536,24 +536,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Entity<?> createIFileFromString(EDataType eDataType, String initialValue) {
-		return (Entity<?>)super.createFromString(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIFileToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Exception createExceptionFromString(EDataType eDataType, String initialValue) {
 		return (Exception)super.createFromString(eDataType, initialValue);
 	}
@@ -636,6 +618,24 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	public String convertIContainerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity<?> createIEntityFromString(EDataType eDataType, String initialValue) {
+		return (Entity<?>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIEntityToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

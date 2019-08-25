@@ -59,6 +59,7 @@ import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -345,13 +346,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType iFileEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType exceptionEDataType = null;
 
 	/**
@@ -381,6 +375,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EDataType iContainerEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iEntityEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1239,16 +1240,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getIFile() {
-		return iFileEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EDataType getException() {
 		return exceptionEDataType;
 	}
@@ -1291,6 +1282,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EDataType getIContainer() {
 		return iContainerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getIEntity() {
+		return iEntityEDataType;
 	}
 
 	/**
@@ -1439,7 +1440,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		contextEDataType = createEDataType(CONTEXT);
 		iResourceEDataType = createEDataType(IRESOURCE);
 		iContainerEDataType = createEDataType(ICONTAINER);
-		iFileEDataType = createEDataType(IFILE);
+		iEntityEDataType = createEDataType(IENTITY);
 		voidEDataType = createEDataType(VOID);
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
@@ -1483,7 +1484,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		ETypeParameter generatorReferenceEClass_T = addETypeParameter(generatorReferenceEClass, "T");
 		addETypeParameter(iResourceEDataType, "T");
 		addETypeParameter(iContainerEDataType, "T");
-		addETypeParameter(iFileEDataType, "T");
+		addETypeParameter(iEntityEDataType, "T");
 		addETypeParameter(listEDataType, "T");
 		addETypeParameter(mergerEDataType, "T");
 
@@ -1509,7 +1510,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		resourceEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIFile());
+		g2 = createEGenericType(this.getIEntity());
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
@@ -1794,7 +1795,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iResourceEDataType, org.nasdanika.common.resources.Resource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iContainerEDataType, org.nasdanika.common.resources.Container.class, "IContainer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iFileEDataType, org.nasdanika.common.resources.Entity.class, "IFile", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iEntityEDataType, Entity.class, "IEntity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(voidEDataType, Void.class, "Void", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

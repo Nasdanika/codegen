@@ -29,6 +29,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +46,7 @@ import org.nasdanika.common.Work;
  *
  * @generated
  */
-public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.resources.Entity<InputStream>> implements File<C> {
+public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> implements File<C> {
 	/**
 	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
 	 * <!-- begin-user-doc -->

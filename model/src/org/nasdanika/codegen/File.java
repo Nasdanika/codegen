@@ -4,6 +4,7 @@ package org.nasdanika.codegen;
 
 import java.io.InputStream;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +25,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IFile&lt;org.nasdanika.codegen.InputStream&gt;&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IEntity&lt;org.nasdanika.codegen.InputStream&gt;&gt;"
  * @generated
  */
-public interface File<C> extends Resource<org.nasdanika.common.resources.Entity<InputStream>> {
+public interface File<C> extends Resource<Entity<InputStream>> {
 
 	/**
 	 * Returns the value of the '<em><b>Merger</b></em>' attribute.

@@ -4818,16 +4818,6 @@ public interface CodegenPackage extends EPackage {
 	int VOID = 42;
 
 	/**
-	 * The meta object id for the '<em>IFile</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.Entity
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
-	 * @generated
-	 */
-	int IFILE = 41;
-
-	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4879,6 +4869,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	int ICONTAINER = 40;
+
+
+	/**
+	 * The meta object id for the '<em>IEntity</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.common.resources.Entity
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIEntity()
+	 * @generated
+	 */
+	int IENTITY = 41;
 
 
 	/**
@@ -5707,17 +5708,6 @@ public interface CodegenPackage extends EPackage {
 	EDataType getVoid();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Entity <em>IFile</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IFile</em>'.
-	 * @see org.nasdanika.common.resources.Entity
-	 * @model instanceClass="org.nasdanika.common.resources.File" typeParameters="T"
-	 * @generated
-	 */
-	EDataType getIFile();
-
-	/**
 	 * Returns the meta object for data type '{@link java.lang.Exception <em>Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5771,6 +5761,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIContainer();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Entity <em>IEntity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IEntity</em>'.
+	 * @see org.nasdanika.common.resources.Entity
+	 * @model instanceClass="org.nasdanika.common.resources.Entity" typeParameters="T"
+	 * @generated
+	 */
+	EDataType getIEntity();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -6498,16 +6499,6 @@ public interface CodegenPackage extends EPackage {
 		EDataType VOID = eINSTANCE.getVoid();
 
 		/**
-		 * The meta object literal for the '<em>IFile</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.Entity
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
-		 * @generated
-		 */
-		EDataType IFILE = eINSTANCE.getIFile();
-
-		/**
 		 * The meta object literal for the '<em>Exception</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6556,6 +6547,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType ICONTAINER = eINSTANCE.getIContainer();
+
+		/**
+		 * The meta object literal for the '<em>IEntity</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.common.resources.Entity
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIEntity()
+		 * @generated
+		 */
+		EDataType IENTITY = eINSTANCE.getIEntity();
 
 	}
 

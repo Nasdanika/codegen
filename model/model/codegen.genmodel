@@ -28,8 +28,8 @@
     <genDataTypes ecoreDataType="codegen.ecore#//IContainer">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//IContainer/T"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="codegen.ecore#//IFile">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//IFile/T"/>
+    <genDataTypes ecoreDataType="codegen.ecore#//IEntity">
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//IEntity/T"/>
     </genDataTypes>
     <genDataTypes ecoreDataType="codegen.ecore#//Void"/>
     <genDataTypes ecoreDataType="codegen.ecore#//List">
