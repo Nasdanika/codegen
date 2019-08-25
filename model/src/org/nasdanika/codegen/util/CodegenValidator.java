@@ -214,7 +214,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.ICONTAINER:
 				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
 			case CodegenPackage.IFILE:
-				return validateIFile((org.nasdanika.common.resources.File<?>)value, diagnostics, context);
+				return validateIFile((org.nasdanika.common.resources.Entity<?>)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -319,7 +319,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.ICONTAINER:
 				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
 			case CodegenPackage.IFILE:
-				return validateIFile((org.nasdanika.common.resources.File<?>)value, diagnostics, context);
+				return validateIFile((org.nasdanika.common.resources.Entity<?>)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -1026,7 +1026,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIFile(org.nasdanika.common.resources.File<?> iFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateIFile(org.nasdanika.common.resources.Entity<?> iFile, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

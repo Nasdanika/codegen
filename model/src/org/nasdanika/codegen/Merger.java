@@ -13,7 +13,7 @@ import org.nasdanika.common.ProgressMonitor;
  */
 public interface Merger<T> {
 	
-	T merge(Context context, org.nasdanika.common.resources.File<InputStream> file, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
+	T merge(Context context, org.nasdanika.common.resources.Entity<InputStream> file, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
 
 //	int getWorkSize();
 	

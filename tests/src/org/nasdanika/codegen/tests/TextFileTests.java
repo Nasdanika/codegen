@@ -43,7 +43,7 @@ public class TextFileTests extends TestsBase {
 		resourceSet.getPackageRegistry().put(CodegenPackage.eNS_URI, CodegenPackage.eINSTANCE);
 		URI modelUri = URI.createPlatformPluginURI(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen", false);
 		Resource modelResource = resourceSet.getResource(modelUri, true);
-		Generator<org.nasdanika.common.resources.File<InputStream>> generator = (Generator<org.nasdanika.common.resources.File<InputStream>>) modelResource.getContents().iterator().next();
+		Generator<org.nasdanika.common.resources.Entity<InputStream>> generator = (Generator<org.nasdanika.common.resources.Entity<InputStream>>) modelResource.getContents().iterator().next();
 		
 		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/text-file/hello-world"));
 		MutableContext mc = new SimpleMutableContext();
@@ -60,7 +60,7 @@ public class TextFileTests extends TestsBase {
 	 */
 	@Test
 	public void testHelloWorldValidatingGeneration() throws Exception {
-		ValidatingModelGenerator<org.nasdanika.common.resources.File<InputStream>> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen");
+		ValidatingModelGenerator<org.nasdanika.common.resources.Entity<InputStream>> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"text-file/hello-world.codegen");
 		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/text-file/hello-world-validated"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);

@@ -39,7 +39,7 @@ import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.resources.File;
+import org.nasdanika.common.resources.Entity;
 import org.nasdanika.common.resources.Resource;
 
 /**
@@ -536,8 +536,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public File<?> createIFileFromString(EDataType eDataType, String initialValue) {
-		return (File<?>)super.createFromString(initialValue);
+	public Entity<?> createIFileFromString(EDataType eDataType, String initialValue) {
+		return (Entity<?>)super.createFromString(initialValue);
 	}
 
 	/**

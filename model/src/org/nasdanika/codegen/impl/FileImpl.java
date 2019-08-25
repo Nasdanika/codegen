@@ -45,7 +45,7 @@ import org.nasdanika.common.Work;
  *
  * @generated
  */
-public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.resources.File<InputStream>> implements File<C> {
+public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.resources.Entity<InputStream>> implements File<C> {
 	/**
 	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -238,18 +238,18 @@ public abstract class FileImpl<C> extends ResourceImpl<org.nasdanika.common.reso
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<org.nasdanika.common.resources.File<InputStream>> createWorkItem(Context context) throws Exception {		
+	protected Work<org.nasdanika.common.resources.Entity<InputStream>> createWorkItem(Context context) throws Exception {		
 		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
 		String name = finalName(context.interpolate(FileImpl.this.getName()));
 		
-		org.nasdanika.common.resources.File<InputStream> file = container.getFile(name);
+		org.nasdanika.common.resources.Entity<InputStream> file = container.getFile(name);
 		MutableContext sc = context.fork();
-		sc.register(org.nasdanika.common.resources.File.class, file);
+		sc.register(org.nasdanika.common.resources.Entity.class, file);
 								
-		CompoundWork<org.nasdanika.common.resources.File<InputStream>, List<C>> ret = new CompoundWork<org.nasdanika.common.resources.File<InputStream>, List<C>>(context.interpolate(getName()), getExecutor(context)) {
+		CompoundWork<org.nasdanika.common.resources.Entity<InputStream>, List<C>> ret = new CompoundWork<org.nasdanika.common.resources.Entity<InputStream>, List<C>>(context.interpolate(getName()), getExecutor(context)) {
 
 			@Override
-			protected org.nasdanika.common.resources.File<InputStream> combine(List<List<C>> results, ProgressMonitor monitor) throws Exception {
+			protected org.nasdanika.common.resources.Entity<InputStream> combine(List<List<C>> results, ProgressMonitor monitor) throws Exception {
 				List<C> all = results.stream().reduce(new ArrayList<C>(), (i, r) -> {
 					i.addAll(r);
 					return i;

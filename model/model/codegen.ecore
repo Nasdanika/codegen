@@ -17,7 +17,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IContainer" instanceClassName="org.nasdanika.common.resources.Container">
     <eTypeParameters name="T"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.nasdanika.common.resources.File">
+  <eClassifiers xsi:type="ecore:EDataType" name="Entity" instanceClassName="org.nasdanika.common.resources.Entity">
     <eTypeParameters name="T"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"/>
@@ -248,7 +248,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
-      <eTypeArguments eClassifier="#//IFile">
+      <eTypeArguments eClassifier="#//Entity">
         <eTypeArguments eClassifier="#//InputStream"/>
       </eTypeArguments>
     </eGenericSuperTypes>

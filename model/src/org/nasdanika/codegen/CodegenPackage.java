@@ -4821,7 +4821,7 @@ public interface CodegenPackage extends EPackage {
 	 * The meta object id for the '<em>IFile</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.File
+	 * @see org.nasdanika.common.resources.Entity
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 	 * @generated
 	 */
@@ -5707,11 +5707,11 @@ public interface CodegenPackage extends EPackage {
 	EDataType getVoid();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.File <em>IFile</em>}'.
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Entity <em>IFile</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>IFile</em>'.
-	 * @see org.nasdanika.common.resources.File
+	 * @see org.nasdanika.common.resources.Entity
 	 * @model instanceClass="org.nasdanika.common.resources.File" typeParameters="T"
 	 * @generated
 	 */
@@ -6501,7 +6501,7 @@ public interface CodegenPackage extends EPackage {
 		 * The meta object literal for the '<em>IFile</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.File
+		 * @see org.nasdanika.common.resources.Entity
 		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIFile()
 		 * @generated
 		 */

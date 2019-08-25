@@ -32,7 +32,7 @@ import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.resources.File;
+import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,7 +161,7 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 		return new Merger<String>() {
 			
 			@Override
-			public String merge(Context context, File<InputStream> file, String oldContent, String newContent, ProgressMonitor progressMonitor) throws Exception {
+			public String merge(Context context, Entity<InputStream> file, String oldContent, String newContent, ProgressMonitor progressMonitor) throws Exception {
 			    JControlModel controlModel = new JControlModel();
 				
 			    // Obtaining merge rules URI.
@@ -192,6 +192,7 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 				
 				return jMerger.getTargetCompilationUnitContents();
 			}
+			
 		};
 	}
 	
