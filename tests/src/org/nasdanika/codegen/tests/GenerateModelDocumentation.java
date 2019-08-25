@@ -34,11 +34,11 @@ public class GenerateModelDocumentation extends TestsBase {
 		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
 		Container<Object> container = fsc.adapt(null, encoder, null);
 		generator.generate(container, progressMonitor.compose(pe));
-		org.nasdanika.common.resources.Entity<Object> progressFile = container.getFile("progress-report.json");
+		org.nasdanika.common.resources.Entity<Object> progressFile = container.getEntity("progress-report.json");
 		if (progressFile == null) {
 			System.out.println(pe);
 		} else {
-			progressFile.setContents(pe.toString(), progressMonitor);
+			progressFile.setState(pe.toString(), progressMonitor);
 		}
 		
 		// HTML report
@@ -62,11 +62,11 @@ public class GenerateModelDocumentation extends TestsBase {
 		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
 		Container<Object> container = fsc.adapt(null, encoder, null);
 		generator.generate(container, progressMonitor.compose(pe));
-		org.nasdanika.common.resources.Entity<Object> progressFile = container.getFile("progress-report.json");
+		org.nasdanika.common.resources.Entity<Object> progressFile = container.getEntity("progress-report.json");
 		if (progressFile == null) {
 			System.out.println(pe);
 		} else {
-			progressFile.setContents(pe.toString(), progressMonitor);
+			progressFile.setState(pe.toString(), progressMonitor);
 		}
 	}
 	

@@ -243,7 +243,7 @@ public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> impl
 		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
 		String name = finalName(context.interpolate(FileImpl.this.getName()));
 		
-		org.nasdanika.common.resources.Entity<InputStream> file = container.getFile(name);
+		org.nasdanika.common.resources.Entity<InputStream> file = container.getEntity(name);
 		MutableContext sc = context.fork();
 		sc.register(org.nasdanika.common.resources.Entity.class, file);
 								
@@ -269,7 +269,7 @@ public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> impl
 				if (file.exists()) {
 					switch (getReconcileAction()) {
 					case APPEND:
-						file.appendContents(store(context, contents), monitor);
+						file.appendState(store(context, contents), monitor);
 						break;
 					case MERGE:
 						String mergerClass = getMerger();
@@ -282,9 +282,9 @@ public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> impl
 						} else {
 							merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						}
-						C oldContent = load(context, file.getContents(monitor));
+						C oldContent = load(context, file.getState(monitor));
 						C mergedContents = merger.merge(context, file, oldContent, contents, monitor);
-						file.setContents(store(context, mergedContents), monitor);
+						file.setState(store(context, mergedContents), monitor);
 						break;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
@@ -292,13 +292,13 @@ public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> impl
 						// Take no action
 						return file;
 					case OVERWRITE:
-						file.setContents(store(context, contents), monitor);
+						file.setState(store(context, contents), monitor);
 						break;
 					default:
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 					}
 				} else {
-					file.setContents(store(context, contents), monitor);					
+					file.setState(store(context, contents), monitor);					
 				}
 				
 				// TODO - modification tracking - compute new digest, perhaps part of store().
