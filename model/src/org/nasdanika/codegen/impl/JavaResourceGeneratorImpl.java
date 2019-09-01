@@ -2,11 +2,11 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JavaResourceGenerator;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.common.resources.BinaryEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.nasdanika.codegen.Resource;
  *
  * @generated
  */
-public class JavaResourceGeneratorImpl extends JavaGeneratorImpl<Resource<InputStream>> implements JavaResourceGenerator {
+public class JavaResourceGeneratorImpl extends JavaGeneratorImpl<Resource<BinaryEntity>> implements JavaResourceGenerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

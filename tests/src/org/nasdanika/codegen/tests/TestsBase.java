@@ -7,7 +7,7 @@ import org.nasdanika.common.DefaultConverter;
 
 public class TestsBase {
 
-	public static BiFunction<org.nasdanika.common.resources.Entity<InputStream>, Object, InputStream> encoder = (file, contents) -> {
+	public static BiFunction<String, Object, InputStream> encoder = (path, contents) -> {
 		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);
 		if (ret == null) {
 			// toString() conversion
@@ -16,6 +16,7 @@ public class TestsBase {
 		return ret;
 	};	
 	
+		
 	public static final String TEST_MODELS_BASE_URI = "org.nasdanika.codegen.tests.models/models/";
 
 }

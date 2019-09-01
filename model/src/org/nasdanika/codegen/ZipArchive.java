@@ -4,6 +4,7 @@ package org.nasdanika.codegen;
 
 import java.io.InputStream;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ZipArchive extends Generator<InputStream> {
 	/**
 	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.nasdanika.common.resources.BinaryResource&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -36,9 +37,9 @@ public interface ZipArchive extends Generator<InputStream> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entries</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getZipArchive_Entries()
-	 * @model type="org.nasdanika.codegen.Resource&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryResource&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Resource<Object>> getEntries();
+	EList<Resource<BinaryResource>> getEntries();
 
 } // ZipArchive

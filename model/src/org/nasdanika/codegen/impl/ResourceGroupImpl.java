@@ -2,13 +2,12 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceGroup;
-import org.nasdanika.common.resources.Resource;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,7 @@ import org.nasdanika.common.resources.Resource;
  *
  * @generated
  */
-public class ResourceGroupImpl extends GroupImpl<org.nasdanika.codegen.Resource<Object>> implements ResourceGroup {
+public class ResourceGroupImpl extends GroupImpl<BinaryResource> implements ResourceGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,7 +40,7 @@ public class ResourceGroupImpl extends GroupImpl<org.nasdanika.codegen.Resource<
 	 * The group result is irrelevant because elements create output in the container passed as a context service.
 	 */
 	@Override
-	protected Resource<InputStream> join(List<Resource<InputStream>> ret) {
+	protected BinaryResource join(List<BinaryResource> elementResults) {
 		return null;
 	}
 

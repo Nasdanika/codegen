@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.*;
 import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -451,7 +452,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseResource(Resource<T> object) {
+	public <T extends BinaryResource> T1 caseResource(Resource<T> object) {
 		return null;
 	}
 

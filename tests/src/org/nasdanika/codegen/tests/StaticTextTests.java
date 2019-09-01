@@ -1,7 +1,6 @@
 package org.nasdanika.codegen.tests;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +21,7 @@ import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SimpleMutableContext;
+import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.html.app.impl.ProgressReportGenerator;
@@ -45,37 +45,41 @@ public class StaticTextTests extends TestsBase {
 	@Test
 	public void testBasicValidatingGeneration() throws Exception {
 		ValidatingModelGenerator<String> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"static-text/basic.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/basic"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/basic"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);
 		mc.put("name", "World");
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating basic text", 0);
-		List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, ${name}!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating basic text", 0);
+			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, ${name}!", result.get(0));
+		}
 	}
 		
 	@Test
 	public void testBasicDocumentationGeneration() throws Exception {
 		CodegenDocumentationGenerator generator = new CodegenDocumentationGenerator("Nasdanika Basic Codegen Model", null);
 		generator.loadModel(TEST_MODELS_BASE_URI+"static-text/basic.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-model-doc/static-text/basic"));
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating static text", 0);
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		generator.generate(container, progressMonitor.compose(pe));
-		
-		// HTML report
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);		
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-model-doc/static-text/basic"));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating static text", 0);
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			generator.generate(container, progressMonitor.compose(pe));
+			
+			// HTML report
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+		}
 	}
 	
 	// TODO - implement proper report generation.
@@ -89,22 +93,24 @@ public class StaticTextTests extends TestsBase {
 	@Test
 	public void testInterpolation() throws Exception {
 		ValidatingModelGenerator<String> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"static-text/interpolation.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);
 		mc.put("greetings/name", "World");
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating interpolated static text", 0);
-		List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, World!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating interpolated static text", 0);
+			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, World!", result.get(0));
+		}
 	}
 	
 	/**
@@ -114,22 +120,24 @@ public class StaticTextTests extends TestsBase {
 	@Test
 	public void testHierarchicalInterpolation() throws Exception {
 		ValidatingModelGenerator<String> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"static-text/interpolation.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-hierarchical"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-hierarchical"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);
 		mc.put("greetings", Collections.singletonMap("name", "World"));
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-		List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, World!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
+			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, World!", result.get(0));
+		}
 	}
 	
 	/**
@@ -142,22 +150,24 @@ public class StaticTextTests extends TestsBase {
 		config.put("greetings", Collections.singletonMap("name", "World"));		
 		
 		ValidatingModelGenerator<String> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+"static-text/interpolation.codegen");
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-hierarchical"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-hierarchical"));
 		MutableContext mc = new SimpleMutableContext();
 		mc.register(Container.class, fsc);
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-		Context context = mc.compose(Context.wrap(config::get));
-		List<String> result = validatingModelGenerator.createWork(context).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, World!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
+			Context context = mc.compose(Context.wrap(config::get));
+			List<String> result = validatingModelGenerator.createWork(context).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, World!", result.get(0));
+		}
 	}
 	
 	class MapConfigurableValidatingModelStringGenerator extends ConfigurableValidatingModelGenerator<String, Map<String,Object>> {
@@ -191,19 +201,21 @@ public class StaticTextTests extends TestsBase {
 		config.put("greetings", Collections.singletonMap("name", "World"));
 		
 		MapConfigurableValidatingModelStringGenerator generator = new MapConfigurableValidatingModelStringGenerator(TEST_MODELS_BASE_URI+"static-text/interpolation.codegen", config);
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-with-configuration"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-with-configuration"));
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-		List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, World!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
+			List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, World!", result.get(0));
+		}
 	}		
 		
 	/**
@@ -216,19 +228,21 @@ public class StaticTextTests extends TestsBase {
 		config.put("greetngs", Collections.singletonMap("name", "World"));
 		
 		MapConfigurableValidatingModelStringGenerator generator = new MapConfigurableValidatingModelStringGenerator(TEST_MODELS_BASE_URI+"static-text/interpolation.codegen", config);
-		Container<InputStream> fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-with-invalid-configuration"));
+		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-tests/static-text/interpolation-with-invalid-configuration"));
 		
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-		List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
-		
-		// HTML report
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);				
-		
-		Assert.assertEquals(1, result.size());
-		Assert.assertEquals("Hello, World!", result.get(0));
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
+			List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
+			
+			// HTML report
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
+			
+			Assert.assertEquals(1, result.size());
+			Assert.assertEquals("Hello, World!", result.get(0));
+		}
 	}		
 
 //	interpolation-configuration-invalid.yml

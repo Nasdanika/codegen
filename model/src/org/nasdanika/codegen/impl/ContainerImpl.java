@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
@@ -14,14 +13,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.ReconcileAction;
+import org.nasdanika.codegen.Resource;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
-import org.nasdanika.common.resources.BinaryContainer;
-import org.nasdanika.common.resources.Resource;
+import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ import org.nasdanika.common.resources.Resource;
  *
  * @generated
  */
-public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.nasdanika.codegen.Container {
+public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implements org.nasdanika.codegen.Container {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,8 +63,8 @@ public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator<org.nasdanika.codegen.Resource<Object>>> getChildren() {
-		return (EList<Generator<org.nasdanika.codegen.Resource<Object>>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
+	public EList<Resource<BinaryResource>> getChildren() {
+		return (EList<Resource<BinaryResource>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.
 		switch (featureID) {
 			case CodegenPackage.CONTAINER__CHILDREN:
 				getChildren().clear();
-				getChildren().addAll((Collection<? extends Generator<org.nasdanika.codegen.Resource<Object>>>)newValue);
+				getChildren().addAll((Collection<? extends Resource<BinaryResource>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,27 +142,37 @@ public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.
 	}
 	
 	@Override
-	protected Work<org.nasdanika.common.resources.Container<InputStream>> createWorkItem(Context context) throws Exception {
-		@SuppressWarnings("unchecked")
-		org.nasdanika.common.resources.Container<InputStream> parent = context.get(org.nasdanika.common.resources.Container.class);
+	protected Work<BinaryEntityContainer> createWorkItem(Context context) throws Exception {
 		String name = finalName(context.interpolate(ContainerImpl.this.getName()));
 		
-		org.nasdanika.common.resources.Container<InputStream> container = parent.getContainer(name);
-		boolean existedBeforGeneration = container.exists();
+		// This context is used by children. Binary container created by the command shall be registered with this context before executing child commands.
+		MutableContext childrenContext = context.fork();
 		
-		CompoundWork<org.nasdanika.common.resources.Container<InputStream>, List<org.nasdanika.common.resources.Resource<InputStream>>> ret = new CompoundWork<org.nasdanika.common.resources.Container<InputStream>, List<org.nasdanika.common.resources.Resource<InputStream>>>(getTitle(), getExecutor(context)) {
+		CompoundWork<BinaryEntityContainer, List<BinaryResource>> ret = new CompoundWork<BinaryEntityContainer, List<BinaryResource>>(getTitle(), getExecutor(context)) {
+			
+			private BinaryEntityContainer container;
+			private boolean existedBeforGeneration; // For undo.
 			
 			@Override
-			public org.nasdanika.common.resources.Container<InputStream> execute(ProgressMonitor progressMonitor) throws Exception {
+			public BinaryEntityContainer execute(ProgressMonitor progressMonitor) throws Exception {
+				BinaryEntityContainer parent = context.get(BinaryEntityContainer.class);
 				
-				if (container.exists()) {
+				if (parent == null) {
+					throw new IllegalArgumentException("Unable to generate container - there is no BinaryEntityContainer service in the context");
+				}
+				
+				container = parent.getContainer(name, progressMonitor.split("Getting container", 1, this));
+				boolean existedBeforGeneration = container.exists(progressMonitor.split("Checking container existence", 1, this));
+				childrenContext.register(BinaryEntityContainer.class, container);
+				
+				if (existedBeforGeneration) {
 					switch (getReconcileAction()) {
 					case APPEND:
 					case MERGE:
 						// Append new things to existing.
 						break;
 					case CANCEL:
-						throw new OperationCanceledException("Operation cancelled - folder already exists: "+name);
+						throw new OperationCanceledException("Operation cancelled - container already exists: "+name);
 					case KEEP:
 						// Take no action
 						return container;
@@ -177,11 +187,11 @@ public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.
 					}
 				}
 				
-				return super.execute(progressMonitor);
+				return super.execute(progressMonitor.split("Generating container children", size(), this));
 			}
 			
 			@Override
-			protected org.nasdanika.common.resources.Container<InputStream> combine(List<List<Resource<InputStream>>> results, ProgressMonitor progressMonitor) throws Exception {
+			protected BinaryEntityContainer combine(List<List<BinaryResource>> results, ProgressMonitor progressMonitor) throws Exception {
 				return container;				
 			}
 			
@@ -192,10 +202,8 @@ public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.
 			}
 		};
 		
-		Context sc = Context.singleton(org.nasdanika.common.resources.Container.class, container).compose(context);
-		
-		for (Generator<Resource<InputStream>> child: getChildren()) {
-			ret.add(child.createWork(sc));
+		for (Resource<BinaryResource> child: getChildren()) {
+			ret.add(child.createWork(childrenContext));
 		}
 		
 		return ret;

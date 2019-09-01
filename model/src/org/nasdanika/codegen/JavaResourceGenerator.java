@@ -2,7 +2,7 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
+import org.nasdanika.common.resources.BinaryEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,8 @@ import java.io.InputStream;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getJavaResourceGenerator()
- * @model superTypes="org.nasdanika.codegen.JavaGenerator&lt;org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.InputStream&gt;&gt;"
+ * @model superTypes="org.nasdanika.codegen.JavaGenerator&lt;org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryEntity&gt;&gt;"
  * @generated
  */
-public interface JavaResourceGenerator extends JavaGenerator<Resource<InputStream>> {
+public interface JavaResourceGenerator extends JavaGenerator<Resource<BinaryEntity>> {
 } // JavaResourceGenerator

@@ -22,7 +22,9 @@
     <genDataTypes ecoreDataType="codegen.ecore#//Exception"/>
     <genDataTypes ecoreDataType="codegen.ecore#//InputStream"/>
     <genDataTypes ecoreDataType="codegen.ecore#//Context"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//BinaryContainer"/>
+    <genDataTypes ecoreDataType="codegen.ecore#//BinaryResource"/>
+    <genDataTypes ecoreDataType="codegen.ecore#//BinaryEntity"/>
+    <genDataTypes ecoreDataType="codegen.ecore#//BinaryEntityContainer"/>
     <genDataTypes ecoreDataType="codegen.ecore#//Void"/>
     <genDataTypes ecoreDataType="codegen.ecore#//List">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//List/T"/>

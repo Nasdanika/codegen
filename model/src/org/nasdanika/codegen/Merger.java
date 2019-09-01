@@ -12,7 +12,7 @@ import org.nasdanika.common.resources.BinaryEntity;
  */
 public interface Merger<T> {
 	
-	T merge(Context context, BinaryEntity<?> entity, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
+	T merge(Context context, BinaryEntity entity, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
 
 //	int getWorkSize();
 	

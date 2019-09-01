@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.*;
 import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,7 +83,7 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
-			public <T> Adapter caseResource(Resource<T> object) {
+			public <T extends BinaryResource> Adapter caseResource(Resource<T> object) {
 				return createResourceAdapter();
 			}
 			@Override

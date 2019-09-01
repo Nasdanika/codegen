@@ -15,6 +15,7 @@ import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +57,8 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Resource<Object>> getEntries() {
-		return (EList<Resource<Object>>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ENTRIES, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES, true, true);
+	public EList<Resource<BinaryResource>> getEntries() {
+		return (EList<Resource<BinaryResource>>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ENTRIES, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES, true, true);
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		switch (featureID) {
 			case CodegenPackage.ZIP_ARCHIVE__ENTRIES:
 				getEntries().clear();
-				getEntries().addAll((Collection<? extends Resource<Object>>)newValue);
+				getEntries().addAll((Collection<? extends Resource<BinaryResource>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

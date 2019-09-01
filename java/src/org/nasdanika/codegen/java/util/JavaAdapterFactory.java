@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen.java.util;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -29,7 +27,7 @@ import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
 
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.common.resources.Resource;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -148,7 +146,7 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorAdapter();
 			}
 			@Override
-			public <T extends Resource<InputStream>> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
+			public <T extends BinaryResource> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
 				return createResourceAdapter();
 			}
 			@Override

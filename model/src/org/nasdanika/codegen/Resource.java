@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.nasdanika.common.resources.BinaryResource;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource</b></em>'.
@@ -20,10 +22,10 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResource()
- * @model abstract="true"
+ * @model abstract="true" TBounds="org.nasdanika.codegen.BinaryResource"
  * @generated
  */
-public interface Resource<T> extends Generator<T> {
+public interface Resource<T extends BinaryResource> extends Generator<T> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

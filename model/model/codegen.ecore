@@ -11,7 +11,9 @@
       <details key="documentation" value="Context provides access to properties and services. Contexts are typically chained&#xA;with a child context &quot;inheriting&quot; properties and services of the parent context."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="BinaryContainer" instanceClassName="org.nasdanika.common.resources.BinaryContainer"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BinaryResource" instanceClassName="org.nasdanika.common.resources.BinaryResource"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BinaryEntity" instanceClassName="org.nasdanika.common.resources.BinaryEntity"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BinaryEntityContainer" instanceClassName="org.nasdanika.common.resources.BinaryEntityContainer"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"/>
   <eClassifiers xsi:type="ecore:EDataType" name="List" instanceClassName="java.util.List">
     <eTypeParameters name="T"/>
@@ -190,7 +192,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="ResourceGenerator generates an InputStream resource - file or container. "/>
     </eAnnotations>
-    <eTypeParameters name="T"/>
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//BinaryResource"/>
+    </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generator name."/>
@@ -236,7 +240,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
-      <eTypeArguments eClassifier="#//InputStream"/>
+      <eTypeArguments eClassifier="#//BinaryEntity"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryFile">
@@ -269,14 +273,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Folder can contain other resource generators."/>
       </eAnnotations>
-      <eGenericType eClassifier="#//Generator">
-        <eTypeArguments eClassifier="#//Resource">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-        </eTypeArguments>
+      <eGenericType eClassifier="#//Resource">
+        <eTypeArguments eClassifier="#//BinaryResource"/>
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
-      <eTypeArguments eClassifier="#//BinaryContainer"/>
+      <eTypeArguments eClassifier="#//BinaryEntityContainer"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceGroup">
@@ -284,9 +286,7 @@
       <details key="documentation" value="A group of resources. "/>
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//Group">
-      <eTypeArguments eClassifier="#//Resource">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eTypeArguments>
+      <eTypeArguments eClassifier="#//BinaryResource"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticText">
@@ -500,7 +500,7 @@
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//JavaGenerator">
       <eTypeArguments eClassifier="#//Resource">
-        <eTypeArguments eClassifier="#//InputStream"/>
+        <eTypeArguments eClassifier="#//BinaryEntity"/>
       </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -543,7 +543,7 @@
         <details key="documentation" value="Folder can contain other resource generators."/>
       </eAnnotations>
       <eGenericType eClassifier="#//Resource">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        <eTypeArguments eClassifier="#//BinaryResource"/>
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
@@ -594,7 +594,7 @@
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//GeneratorReference">
       <eTypeArguments eClassifier="#//Resource">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        <eTypeArguments eClassifier="#//BinaryResource"/>
       </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>

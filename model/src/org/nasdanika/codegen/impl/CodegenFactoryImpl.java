@@ -39,7 +39,9 @@ import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.resources.BinaryContainer;
+import org.nasdanika.common.resources.BinaryEntity;
+import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,8 +133,12 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createInputStreamFromString(eDataType, initialValue);
 			case CodegenPackage.CONTEXT:
 				return createContextFromString(eDataType, initialValue);
-			case CodegenPackage.BINARY_CONTAINER:
-				return createBinaryContainerFromString(eDataType, initialValue);
+			case CodegenPackage.BINARY_RESOURCE:
+				return createBinaryResourceFromString(eDataType, initialValue);
+			case CodegenPackage.BINARY_ENTITY:
+				return createBinaryEntityFromString(eDataType, initialValue);
+			case CodegenPackage.BINARY_ENTITY_CONTAINER:
+				return createBinaryEntityContainerFromString(eDataType, initialValue);
 			case CodegenPackage.VOID:
 				return createVoidFromString(eDataType, initialValue);
 			case CodegenPackage.LIST:
@@ -162,8 +168,12 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertInputStreamToString(eDataType, instanceValue);
 			case CodegenPackage.CONTEXT:
 				return convertContextToString(eDataType, instanceValue);
-			case CodegenPackage.BINARY_CONTAINER:
-				return convertBinaryContainerToString(eDataType, instanceValue);
+			case CodegenPackage.BINARY_RESOURCE:
+				return convertBinaryResourceToString(eDataType, instanceValue);
+			case CodegenPackage.BINARY_ENTITY:
+				return convertBinaryEntityToString(eDataType, instanceValue);
+			case CodegenPackage.BINARY_ENTITY_CONTAINER:
+				return convertBinaryEntityContainerToString(eDataType, instanceValue);
 			case CodegenPackage.VOID:
 				return convertVoidToString(eDataType, instanceValue);
 			case CodegenPackage.LIST:
@@ -491,8 +501,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BinaryContainer createBinaryContainerFromString(EDataType eDataType, String initialValue) {
-		return (BinaryContainer)super.createFromString(eDataType, initialValue);
+	public BinaryResource createBinaryResourceFromString(EDataType eDataType, String initialValue) {
+		return (BinaryResource)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -500,7 +510,43 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertBinaryContainerToString(EDataType eDataType, Object instanceValue) {
+	public String convertBinaryResourceToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryEntity createBinaryEntityFromString(EDataType eDataType, String initialValue) {
+		return (BinaryEntity)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBinaryEntityToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryEntityContainer createBinaryEntityContainerFromString(EDataType eDataType, String initialValue) {
+		return (BinaryEntityContainer)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBinaryEntityContainerToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

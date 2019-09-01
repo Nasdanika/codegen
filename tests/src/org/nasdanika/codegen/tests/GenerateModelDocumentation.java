@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.html.app.impl.ProgressReportGenerator;
@@ -29,21 +30,18 @@ public class GenerateModelDocumentation extends TestsBase {
 		generator.loadGenModel(JAVA_MODEL_URI);
 		File docDir = new File("target/model-doc");
 		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
-		Container<InputStream> fsc = new FileSystemContainer(docDir);
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		generator.generate(container, progressMonitor.compose(pe));
-		org.nasdanika.common.resources.Entity<Object> progressFile = container.getEntity("progress-report.json");
-		if (progressFile == null) {
-			System.out.println(pe);
-		} else {
-			progressFile.setState(pe.toString(), progressMonitor);
+		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			generator.generate(container, progressMonitor.compose(pe));
+			container.put("progress-report.json", pe.toString(), progressMonitor.split("Saving progress report", 1));
+			
+			// HTML report
+			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
 		}
-		
-		// HTML report
-		ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-		prg.generate(container.getContainer("progress-report"), progressMonitor);		
 	}
 
 	/**
@@ -57,16 +55,12 @@ public class GenerateModelDocumentation extends TestsBase {
 		generator.loadGenModel(JAVA_MODEL_URI);
 		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
-		Container<InputStream> fsc = new FileSystemContainer(docDir);
-		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
-		Container<Object> container = fsc.adapt(null, encoder, null);
-		generator.generate(container, progressMonitor.compose(pe));
-		org.nasdanika.common.resources.Entity<Object> progressFile = container.getEntity("progress-report.json");
-		if (progressFile == null) {
-			System.out.println(pe);
-		} else {
-			progressFile.setState(pe.toString(), progressMonitor);
+		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
+			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			generator.generate(container, progressMonitor.compose(pe));
+			container.put("progress-report.json", pe.toString(), progressMonitor.split("Writing progress-report.json", 1));
 		}
 	}
 	

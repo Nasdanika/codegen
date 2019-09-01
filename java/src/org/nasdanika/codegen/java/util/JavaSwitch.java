@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen.java.util;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -26,7 +24,7 @@ import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
 
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.common.resources.Resource;
+import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -451,7 +449,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends Resource<InputStream>> T1 caseResource(org.nasdanika.codegen.Resource<T> object) {
+	public <T extends BinaryResource> T1 caseResource(org.nasdanika.codegen.Resource<T> object) {
 		return null;
 	}
 

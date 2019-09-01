@@ -4798,14 +4798,34 @@ public interface CodegenPackage extends EPackage {
 	int CONTEXT = 38;
 
 	/**
-	 * The meta object id for the '<em>Binary Container</em>' data type.
+	 * The meta object id for the '<em>Binary Resource</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.BinaryContainer
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryContainer()
+	 * @see org.nasdanika.common.resources.BinaryResource
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 	 * @generated
 	 */
-	int BINARY_CONTAINER = 39;
+	int BINARY_RESOURCE = 39;
+
+	/**
+	 * The meta object id for the '<em>Binary Entity</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.common.resources.BinaryEntity
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
+	 * @generated
+	 */
+	int BINARY_ENTITY = 40;
+
+	/**
+	 * The meta object id for the '<em>Binary Entity Container</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.common.resources.BinaryEntityContainer
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
+	 * @generated
+	 */
+	int BINARY_ENTITY_CONTAINER = 41;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -4825,7 +4845,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 40;
+	int VOID = 42;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -4845,7 +4865,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 41;
+	int LIST = 43;
 
 
 	/**
@@ -4856,7 +4876,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 42;
+	int MERGER = 44;
 
 
 	/**
@@ -5663,15 +5683,37 @@ public interface CodegenPackage extends EPackage {
 	EDataType getContext();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.BinaryContainer <em>Binary Container</em>}'.
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.BinaryResource <em>Binary Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Binary Container</em>'.
-	 * @see org.nasdanika.common.resources.BinaryContainer
-	 * @model instanceClass="org.nasdanika.common.resources.BinaryContainer"
+	 * @return the meta object for data type '<em>Binary Resource</em>'.
+	 * @see org.nasdanika.common.resources.BinaryResource
+	 * @model instanceClass="org.nasdanika.common.resources.BinaryResource"
 	 * @generated
 	 */
-	EDataType getBinaryContainer();
+	EDataType getBinaryResource();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.BinaryEntity <em>Binary Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Binary Entity</em>'.
+	 * @see org.nasdanika.common.resources.BinaryEntity
+	 * @model instanceClass="org.nasdanika.common.resources.BinaryEntity"
+	 * @generated
+	 */
+	EDataType getBinaryEntity();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.BinaryEntityContainer <em>Binary Entity Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Binary Entity Container</em>'.
+	 * @see org.nasdanika.common.resources.BinaryEntityContainer
+	 * @model instanceClass="org.nasdanika.common.resources.BinaryEntityContainer"
+	 * @generated
+	 */
+	EDataType getBinaryEntityContainer();
 
 	/**
 	 * Returns the meta object for data type '{@link java.io.InputStream <em>Input Stream</em>}'.
@@ -6434,14 +6476,34 @@ public interface CodegenPackage extends EPackage {
 		EDataType CONTEXT = eINSTANCE.getContext();
 
 		/**
-		 * The meta object literal for the '<em>Binary Container</em>' data type.
+		 * The meta object literal for the '<em>Binary Resource</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.BinaryContainer
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryContainer()
+		 * @see org.nasdanika.common.resources.BinaryResource
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 		 * @generated
 		 */
-		EDataType BINARY_CONTAINER = eINSTANCE.getBinaryContainer();
+		EDataType BINARY_RESOURCE = eINSTANCE.getBinaryResource();
+
+		/**
+		 * The meta object literal for the '<em>Binary Entity</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.common.resources.BinaryEntity
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
+		 * @generated
+		 */
+		EDataType BINARY_ENTITY = eINSTANCE.getBinaryEntity();
+
+		/**
+		 * The meta object literal for the '<em>Binary Entity Container</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.common.resources.BinaryEntityContainer
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
+		 * @generated
+		 */
+		EDataType BINARY_ENTITY_CONTAINER = eINSTANCE.getBinaryEntityContainer();
 
 		/**
 		 * The meta object literal for the '<em>Input Stream</em>' data type.

@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.nasdanika.common.resources.BinaryResource;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource Group</b></em>'.
@@ -13,8 +15,8 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceGroup()
- * @model superTypes="org.nasdanika.codegen.Group&lt;org.nasdanika.codegen.Resource&lt;org.eclipse.emf.ecore.EJavaObject&gt;&gt;"
+ * @model superTypes="org.nasdanika.codegen.Group&lt;org.nasdanika.codegen.BinaryResource&gt;"
  * @generated
  */
-public interface ResourceGroup extends Group<Resource<Object>> {
+public interface ResourceGroup extends Group<BinaryResource> {
 } // ResourceGroup

@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +31,7 @@ import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.resources.Entity;
+import org.nasdanika.common.resources.BinaryEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,7 +160,7 @@ public class CompilationUnitImpl extends TextFileImpl implements CompilationUnit
 		return new Merger<String>() {
 			
 			@Override
-			public String merge(Context context, Entity<InputStream> file, String oldContent, String newContent, ProgressMonitor progressMonitor) throws Exception {
+			public String merge(Context context, BinaryEntity entity, String oldContent, String newContent, ProgressMonitor progressMonitor) throws Exception {
 			    JControlModel controlModel = new JControlModel();
 				
 			    // Obtaining merge rules URI.

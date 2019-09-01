@@ -29,6 +29,8 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.resources.BinaryEntity;
+import org.nasdanika.common.resources.BinaryEntityContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +47,7 @@ import org.nasdanika.common.Work;
  *
  * @generated
  */
-public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements File<C> {
+public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements File<C> {
 	/**
 	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -235,27 +237,42 @@ public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements F
 		}
 		return result;
 	}	
-		
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<InputStream> createWorkItem(Context context) throws Exception {		
-		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
+	protected Work<BinaryEntity> createWorkItem(Context context) throws Exception {		
 		String name = finalName(context.interpolate(FileImpl.this.getName()));
-		
-		org.nasdanika.common.resources.Entity<InputStream> file = container.getEntity(name);
-		MutableContext sc = context.fork();
-		sc.register(org.nasdanika.common.resources.Entity.class, file);
-								
-		CompoundWork<org.nasdanika.common.resources.Entity<InputStream>, List<C>> ret = new CompoundWork<org.nasdanika.common.resources.Entity<InputStream>, List<C>>(context.interpolate(getName()), getExecutor(context)) {
+
+		// This context is used by children. Binary entity created by the command shall be registered with this context before executing child commands.
+		MutableContext subContext = context.fork();
+										
+		CompoundWork<BinaryEntity, List<C>> ret = new CompoundWork<BinaryEntity, List<C>>(context.interpolate(getName()), getExecutor(context)) {
+			
+			@Override
+			public BinaryEntity execute(ProgressMonitor progressMonitor) throws Exception {
+				BinaryEntityContainer container = context.get(BinaryEntityContainer.class);
+				
+				if (container == null) {
+					throw new IllegalArgumentException("Unable to generate file - there is no BinaryEntityContainer service in the context");
+				}
+				
+				// Getting file and registering with the context.
+				BinaryEntity binaryEntity = container.get(name, progressMonitor.split("Getting binary entity", 1, this));
+				subContext.register(BinaryEntity.class, binaryEntity);
+
+				return super.execute(progressMonitor.split("Generating entity contents/state", size(), this));
+			}
 
 			@Override
-			protected org.nasdanika.common.resources.Entity<InputStream> combine(List<List<C>> results, ProgressMonitor monitor) throws Exception {
+			protected BinaryEntity combine(List<List<C>> results, ProgressMonitor monitor) throws Exception {
 				List<C> all = results.stream().reduce(new ArrayList<C>(), (i, r) -> {
 					i.addAll(r);
 					return i;
 				});
 				
-				C contents = join(sc, all);
+				C contents = join(subContext, all);
+				
+				BinaryEntity binaryEntity = subContext.get(BinaryEntity.class);				
 				
 				// Delete unmodified resources 
 				// TODO - support of modification tracking - use digests.
@@ -264,11 +281,10 @@ public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements F
 //					file.delete(true, true, monitor.split(1));
 //				}
 				
-				
-				if (file.exists()) {
+				if (binaryEntity.exists(monitor.split("Checking existence", 1, binaryEntity))) {
 					switch (getReconcileAction()) {
 					case APPEND:
-						file.appendState(store(context, contents), monitor);
+						binaryEntity.appendState(store(context, contents), monitor);
 						break;
 					case MERGE:
 						String mergerClass = getMerger();
@@ -281,28 +297,28 @@ public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements F
 						} else {
 							merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						}
-						C oldContent = load(context, file.getState(monitor));
-						C mergedContents = merger.merge(context, file, oldContent, contents, monitor);
-						file.setState(store(context, mergedContents), monitor);
+						C oldContent = load(context, binaryEntity.getState(monitor));
+						C mergedContents = merger.merge(context, binaryEntity, oldContent, contents, monitor);
+						binaryEntity.setState(store(context, mergedContents), monitor);
 						break;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
 					case KEEP:
 						// Take no action
-						return file;
+						return binaryEntity;
 					case OVERWRITE:
-						file.setState(store(context, contents), monitor);
+						binaryEntity.setState(store(context, contents), monitor);
 						break;
 					default:
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 					}
 				} else {
-					file.setState(store(context, contents), monitor);					
+					binaryEntity.setState(store(context, contents), monitor);					
 				}
 				
 				// TODO - modification tracking - compute new digest, perhaps part of store().
 				
-				return file;
+				return binaryEntity;
 			}
 			
 			@Override
@@ -314,7 +330,7 @@ public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements F
 		};
 		
 		for (Generator<C> g: getGenerators()) {
-			ret.add(g.createWork(sc));
+			ret.add(g.createWork(subContext));
 		}
 		
 		return ret;

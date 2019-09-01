@@ -2,8 +2,8 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.resources.BinaryEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +24,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.InputStream&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryEntity&gt;"
  * @generated
  */
-public interface File<C> extends Resource<InputStream> {
+public interface File<C> extends Resource<BinaryEntity> {
 
 	/**
 	 * Returns the value of the '<em><b>Merger</b></em>' attribute.
