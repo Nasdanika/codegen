@@ -56,8 +56,8 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>> getEntries() {
-		return (EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ENTRIES, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES, true, true);
+	public EList<Resource<Object>> getEntries() {
+		return (EList<Resource<Object>>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ENTRIES, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES, true, true);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		switch (featureID) {
 			case CodegenPackage.ZIP_ARCHIVE__ENTRIES:
 				getEntries().clear();
-				getEntries().addAll((Collection<? extends Resource<org.nasdanika.common.resources.Resource<InputStream>>>)newValue);
+				getEntries().addAll((Collection<? extends Resource<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -50,7 +50,7 @@ import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.common.resources.Entity;
+import org.nasdanika.common.resources.BinaryContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -210,12 +210,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateInputStream((InputStream)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
 				return validateContext((Context)value, diagnostics, context);
-			case CodegenPackage.IRESOURCE:
-				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
-			case CodegenPackage.ICONTAINER:
-				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
-			case CodegenPackage.IENTITY:
-				return validateIEntity((Entity<?>)value, diagnostics, context);
+			case CodegenPackage.BINARY_CONTAINER:
+				return validateBinaryContainer((BinaryContainer)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -315,12 +311,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateInputStream((InputStream)value, diagnostics, context);
 			case CodegenPackage.CONTEXT:
 				return validateContext((Context)value, diagnostics, context);
-			case CodegenPackage.IRESOURCE:
-				return validateIResource((org.nasdanika.common.resources.Resource<?>)value, diagnostics, context);
-			case CodegenPackage.ICONTAINER:
-				return validateIContainer((org.nasdanika.common.resources.Container<?>)value, diagnostics, context);
-			case CodegenPackage.IENTITY:
-				return validateIEntity((Entity<?>)value, diagnostics, context);
+			case CodegenPackage.BINARY_CONTAINER:
+				return validateBinaryContainer((BinaryContainer)value, diagnostics, context);
 			case CodegenPackage.VOID:
 				return validateVoid((Void)value, diagnostics, context);
 			case CodegenPackage.LIST:
@@ -1009,25 +1001,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIResource(org.nasdanika.common.resources.Resource<?> iResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateIContainer(org.nasdanika.common.resources.Container<?> iContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateIEntity(Entity<?> iEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateBinaryContainer(BinaryContainer binaryContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

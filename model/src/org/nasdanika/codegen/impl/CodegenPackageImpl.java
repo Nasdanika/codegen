@@ -59,7 +59,7 @@ import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.common.resources.Entity;
+import org.nasdanika.common.resources.BinaryContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -332,6 +332,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType binaryContainerEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType inputStreamEDataType = null;
 
 	/**
@@ -353,13 +360,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType iResourceEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType listEDataType = null;
 
 	/**
@@ -368,20 +368,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EDataType mergerEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType iContainerEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType iEntityEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1220,6 +1206,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EDataType getBinaryContainer() {
+		return binaryContainerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getInputStream() {
 		return inputStreamEDataType;
 	}
@@ -1250,16 +1246,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getIResource() {
-		return iResourceEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EDataType getList() {
 		return listEDataType;
 	}
@@ -1272,26 +1258,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EDataType getMerger() {
 		return mergerEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EDataType getIContainer() {
-		return iContainerEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EDataType getIEntity() {
-		return iEntityEDataType;
 	}
 
 	/**
@@ -1438,9 +1404,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		exceptionEDataType = createEDataType(EXCEPTION);
 		inputStreamEDataType = createEDataType(INPUT_STREAM);
 		contextEDataType = createEDataType(CONTEXT);
-		iResourceEDataType = createEDataType(IRESOURCE);
-		iContainerEDataType = createEDataType(ICONTAINER);
-		iEntityEDataType = createEDataType(IENTITY);
+		binaryContainerEDataType = createEDataType(BINARY_CONTAINER);
 		voidEDataType = createEDataType(VOID);
 		listEDataType = createEDataType(LIST);
 		mergerEDataType = createEDataType(MERGER);
@@ -1482,21 +1446,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		ETypeParameter javaGeneratorEClass_T = addETypeParameter(javaGeneratorEClass, "T");
 		ETypeParameter javaFilterEClass_T = addETypeParameter(javaFilterEClass, "T");
 		ETypeParameter generatorReferenceEClass_T = addETypeParameter(generatorReferenceEClass, "T");
-		addETypeParameter(iResourceEDataType, "T");
-		addETypeParameter(iContainerEDataType, "T");
-		addETypeParameter(iEntityEDataType, "T");
 		addETypeParameter(listEDataType, "T");
 		addETypeParameter(mergerEDataType, "T");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getIResource());
-		EGenericType g2 = createEGenericType(this.getInputStream());
-		g1.getETypeArguments().add(g2);
-		resourceEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		g1 = createEGenericType(this.getWorkFactory());
-		g2 = createEGenericType(this.getList());
+		EGenericType g1 = createEGenericType(this.getWorkFactory());
+		EGenericType g2 = createEGenericType(this.getList());
 		g1.getETypeArguments().add(g2);
 		EGenericType g3 = createEGenericType(generatorEClass_T);
 		g2.getETypeArguments().add(g3);
@@ -1510,10 +1467,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		resourceEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIEntity());
+		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
-		g2.getETypeArguments().add(g3);
 		fileEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getFile());
 		g2 = createEGenericType(this.getInputStream());
@@ -1524,15 +1479,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		textFileEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIContainer());
+		g2 = createEGenericType(this.getBinaryContainer());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
-		g2.getETypeArguments().add(g3);
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGroup());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(this.getResource());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
+		g3 = createEGenericType(ecorePackage.getEJavaObject());
 		g2.getETypeArguments().add(g3);
 		resourceGroupEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
@@ -1594,7 +1547,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		javaStreamGeneratorEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getJavaGenerator());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(this.getResource());
 		g1.getETypeArguments().add(g2);
 		g3 = createEGenericType(this.getInputStream());
 		g2.getETypeArguments().add(g3);
@@ -1632,9 +1585,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		streamGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGeneratorReference());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(this.getResource());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
+		g3 = createEGenericType(ecorePackage.getEJavaObject());
 		g2.getETypeArguments().add(g3);
 		resourceGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
 
@@ -1696,9 +1649,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(this.getResource());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
+		g3 = createEGenericType(ecorePackage.getEJavaObject());
 		g2.getETypeArguments().add(g3);
 		initEReference(getContainer_Children(), g1, null, "children", null, 0, -1, org.nasdanika.codegen.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1760,10 +1713,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(zipArchiveEClass, ZipArchive.class, "ZipArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getIResource());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(this.getInputStream());
-		g2.getETypeArguments().add(g3);
 		initEReference(getZipArchive_Entries(), g1, null, "entries", null, 0, -1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textGroupEClass, TextGroup.class, "TextGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1793,9 +1744,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(inputStreamEDataType, InputStream.class, "InputStream", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iResourceEDataType, org.nasdanika.common.resources.Resource.class, "IResource", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iContainerEDataType, org.nasdanika.common.resources.Container.class, "IContainer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iEntityEDataType, Entity.class, "IEntity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(binaryContainerEDataType, BinaryContainer.class, "BinaryContainer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(voidEDataType, Void.class, "Void", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(listEDataType, List.class, "List", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(mergerEDataType, Merger.class, "Merger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -4798,6 +4798,16 @@ public interface CodegenPackage extends EPackage {
 	int CONTEXT = 38;
 
 	/**
+	 * The meta object id for the '<em>Binary Container</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.common.resources.BinaryContainer
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryContainer()
+	 * @generated
+	 */
+	int BINARY_CONTAINER = 39;
+
+	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4815,7 +4825,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 42;
+	int VOID = 40;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -4828,17 +4838,6 @@ public interface CodegenPackage extends EPackage {
 	int EXCEPTION = 36;
 
 	/**
-	 * The meta object id for the '<em>IResource</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.Resource
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
-	 * @generated
-	 */
-	int IRESOURCE = 39;
-
-
-	/**
 	 * The meta object id for the '<em>List</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4846,7 +4845,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 43;
+	int LIST = 41;
 
 
 	/**
@@ -4857,29 +4856,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 44;
-
-
-	/**
-	 * The meta object id for the '<em>IContainer</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.Container
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
-	 * @generated
-	 */
-	int ICONTAINER = 40;
-
-
-	/**
-	 * The meta object id for the '<em>IEntity</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.resources.Entity
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIEntity()
-	 * @generated
-	 */
-	int IENTITY = 41;
+	int MERGER = 42;
 
 
 	/**
@@ -5686,6 +5663,17 @@ public interface CodegenPackage extends EPackage {
 	EDataType getContext();
 
 	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.BinaryContainer <em>Binary Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Binary Container</em>'.
+	 * @see org.nasdanika.common.resources.BinaryContainer
+	 * @model instanceClass="org.nasdanika.common.resources.BinaryContainer"
+	 * @generated
+	 */
+	EDataType getBinaryContainer();
+
+	/**
 	 * Returns the meta object for data type '{@link java.io.InputStream <em>Input Stream</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5719,17 +5707,6 @@ public interface CodegenPackage extends EPackage {
 	EDataType getException();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Resource <em>IResource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IResource</em>'.
-	 * @see org.nasdanika.common.resources.Resource
-	 * @model instanceClass="org.nasdanika.common.resources.Resource" typeParameters="T"
-	 * @generated
-	 */
-	EDataType getIResource();
-
-	/**
 	 * Returns the meta object for data type '{@link java.util.List <em>List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5750,28 +5727,6 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getMerger();
-
-	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Container <em>IContainer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IContainer</em>'.
-	 * @see org.nasdanika.common.resources.Container
-	 * @model instanceClass="org.nasdanika.common.resources.Container" typeParameters="T"
-	 * @generated
-	 */
-	EDataType getIContainer();
-
-	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.common.resources.Entity <em>IEntity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IEntity</em>'.
-	 * @see org.nasdanika.common.resources.Entity
-	 * @model instanceClass="org.nasdanika.common.resources.Entity" typeParameters="T"
-	 * @generated
-	 */
-	EDataType getIEntity();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -6479,6 +6434,16 @@ public interface CodegenPackage extends EPackage {
 		EDataType CONTEXT = eINSTANCE.getContext();
 
 		/**
+		 * The meta object literal for the '<em>Binary Container</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.common.resources.BinaryContainer
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryContainer()
+		 * @generated
+		 */
+		EDataType BINARY_CONTAINER = eINSTANCE.getBinaryContainer();
+
+		/**
 		 * The meta object literal for the '<em>Input Stream</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6509,16 +6474,6 @@ public interface CodegenPackage extends EPackage {
 		EDataType EXCEPTION = eINSTANCE.getException();
 
 		/**
-		 * The meta object literal for the '<em>IResource</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.Resource
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIResource()
-		 * @generated
-		 */
-		EDataType IRESOURCE = eINSTANCE.getIResource();
-
-		/**
 		 * The meta object literal for the '<em>List</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6537,26 +6492,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType MERGER = eINSTANCE.getMerger();
-
-		/**
-		 * The meta object literal for the '<em>IContainer</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.Container
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIContainer()
-		 * @generated
-		 */
-		EDataType ICONTAINER = eINSTANCE.getIContainer();
-
-		/**
-		 * The meta object literal for the '<em>IEntity</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.resources.Entity
-		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getIEntity()
-		 * @generated
-		 */
-		EDataType IENTITY = eINSTANCE.getIEntity();
 
 	}
 

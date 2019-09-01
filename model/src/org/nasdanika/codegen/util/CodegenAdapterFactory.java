@@ -2,14 +2,12 @@
  */
 package org.nasdanika.codegen.util;
 
-import java.io.InputStream;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.*;
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.common.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,7 +82,7 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
-			public <T extends Resource<InputStream>> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
+			public <T> Adapter caseResource(Resource<T> object) {
 				return createResourceAdapter();
 			}
 			@Override

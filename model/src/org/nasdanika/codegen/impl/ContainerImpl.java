@@ -20,6 +20,7 @@ import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.resources.BinaryContainer;
 import org.nasdanika.common.resources.Resource;
 
 /**
@@ -35,7 +36,7 @@ import org.nasdanika.common.resources.Resource;
  *
  * @generated
  */
-public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.Container<InputStream>> implements org.nasdanika.codegen.Container {
+public class ContainerImpl extends ResourceImpl<BinaryContainer> implements org.nasdanika.codegen.Container {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,8 +63,8 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator<Resource<InputStream>>> getChildren() {
-		return (EList<Generator<Resource<InputStream>>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
+	public EList<Generator<org.nasdanika.codegen.Resource<Object>>> getChildren() {
+		return (EList<Generator<org.nasdanika.codegen.Resource<Object>>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class ContainerImpl extends ResourceImpl<org.nasdanika.common.resources.C
 		switch (featureID) {
 			case CodegenPackage.CONTAINER__CHILDREN:
 				getChildren().clear();
-				getChildren().addAll((Collection<? extends Generator<Resource<InputStream>>>)newValue);
+				getChildren().addAll((Collection<? extends Generator<org.nasdanika.codegen.Resource<Object>>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

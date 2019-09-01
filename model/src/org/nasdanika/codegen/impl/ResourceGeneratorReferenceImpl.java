@@ -2,12 +2,10 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceGeneratorReference;
-import org.nasdanika.common.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +14,7 @@ import org.nasdanika.common.resources.Resource;
  *
  * @generated
  */
-public class ResourceGeneratorReferenceImpl extends GeneratorReferenceImpl<Resource<InputStream>> implements ResourceGeneratorReference {
+public class ResourceGeneratorReferenceImpl extends GeneratorReferenceImpl<Resource<Object>> implements ResourceGeneratorReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

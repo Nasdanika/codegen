@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource</b></em>'.
@@ -22,10 +20,10 @@ import java.io.InputStream;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResource()
- * @model abstract="true" TBounds="org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface Resource<T extends org.nasdanika.common.resources.Resource<InputStream>> extends Generator<T> {
+public interface Resource<T> extends Generator<T> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

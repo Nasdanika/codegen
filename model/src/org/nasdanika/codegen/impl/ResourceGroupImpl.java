@@ -17,7 +17,7 @@ import org.nasdanika.common.resources.Resource;
  *
  * @generated
  */
-public class ResourceGroupImpl extends GroupImpl<Resource<InputStream>> implements ResourceGroup {
+public class ResourceGroupImpl extends GroupImpl<org.nasdanika.codegen.Resource<Object>> implements ResourceGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

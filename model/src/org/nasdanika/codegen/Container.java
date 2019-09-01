@@ -2,9 +2,8 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.resources.BinaryContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getContainer()
- * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IContainer&lt;org.nasdanika.codegen.InputStream&gt;&gt;"
+ * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryContainer&gt;"
  * @generated
  */
-public interface Container extends Resource<org.nasdanika.common.resources.Container<InputStream>> {
+public interface Container extends Resource<BinaryContainer> {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;org.nasdanika.common.resources.Resource&lt;java.io.InputStream&gt;&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;org.nasdanika.codegen.Resource&lt;java.lang.Object&gt;&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -37,9 +36,9 @@ public interface Container extends Resource<org.nasdanika.common.resources.Conta
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getContainer_Children()
-	 * @model type="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;&gt;" containment="true"
+	 * @model type="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.Resource&lt;org.eclipse.emf.ecore.EJavaObject&gt;&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Generator<org.nasdanika.common.resources.Resource<InputStream>>> getChildren();
+	EList<Generator<Resource<Object>>> getChildren();
 
 } // Container

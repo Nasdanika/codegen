@@ -39,8 +39,7 @@ import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.resources.Entity;
-import org.nasdanika.common.resources.Resource;
+import org.nasdanika.common.resources.BinaryContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -132,12 +131,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createInputStreamFromString(eDataType, initialValue);
 			case CodegenPackage.CONTEXT:
 				return createContextFromString(eDataType, initialValue);
-			case CodegenPackage.IRESOURCE:
-				return createIResourceFromString(eDataType, initialValue);
-			case CodegenPackage.ICONTAINER:
-				return createIContainerFromString(eDataType, initialValue);
-			case CodegenPackage.IENTITY:
-				return createIEntityFromString(eDataType, initialValue);
+			case CodegenPackage.BINARY_CONTAINER:
+				return createBinaryContainerFromString(eDataType, initialValue);
 			case CodegenPackage.VOID:
 				return createVoidFromString(eDataType, initialValue);
 			case CodegenPackage.LIST:
@@ -167,12 +162,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertInputStreamToString(eDataType, instanceValue);
 			case CodegenPackage.CONTEXT:
 				return convertContextToString(eDataType, instanceValue);
-			case CodegenPackage.IRESOURCE:
-				return convertIResourceToString(eDataType, instanceValue);
-			case CodegenPackage.ICONTAINER:
-				return convertIContainerToString(eDataType, instanceValue);
-			case CodegenPackage.IENTITY:
-				return convertIEntityToString(eDataType, instanceValue);
+			case CodegenPackage.BINARY_CONTAINER:
+				return convertBinaryContainerToString(eDataType, instanceValue);
 			case CodegenPackage.VOID:
 				return convertVoidToString(eDataType, instanceValue);
 			case CodegenPackage.LIST:
@@ -500,6 +491,24 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BinaryContainer createBinaryContainerFromString(EDataType eDataType, String initialValue) {
+		return (BinaryContainer)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBinaryContainerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public InputStream createInputStreamFromString(EDataType eDataType, String initialValue) {
 		return (InputStream)super.createFromString(eDataType, initialValue);
 	}
@@ -554,24 +563,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Resource<?> createIResourceFromString(EDataType eDataType, String initialValue) {
-		return (Resource<?>)super.createFromString(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIResourceToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List<?> createListFromString(EDataType eDataType, String initialValue) {
 		return (List<?>)super.createFromString(initialValue);
 	}
@@ -600,42 +591,6 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	public String convertMergerToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.nasdanika.common.resources.Container<?> createIContainerFromString(EDataType eDataType, String initialValue) {
-		return (org.nasdanika.common.resources.Container<?>)super.createFromString(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIContainerToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Entity<?> createIEntityFromString(EDataType eDataType, String initialValue) {
-		return (Entity<?>)super.createFromString(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIEntityToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

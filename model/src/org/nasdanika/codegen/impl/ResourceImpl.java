@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
@@ -23,7 +21,7 @@ import org.nasdanika.codegen.Resource;
  *
  * @generated
  */
-public abstract class ResourceImpl<T extends org.nasdanika.common.resources.Resource<InputStream>> extends GeneratorImpl<T> implements Resource<T> {
+public abstract class ResourceImpl<T> extends GeneratorImpl<T> implements Resource<T> {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

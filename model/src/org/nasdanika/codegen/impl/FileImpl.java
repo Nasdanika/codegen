@@ -29,7 +29,6 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
-import org.nasdanika.common.resources.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +45,7 @@ import org.nasdanika.common.resources.Entity;
  *
  * @generated
  */
-public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> implements File<C> {
+public abstract class FileImpl<C> extends ResourceImpl<InputStream> implements File<C> {
 	/**
 	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -236,10 +235,10 @@ public abstract class FileImpl<C> extends ResourceImpl<Entity<InputStream>> impl
 		}
 		return result;
 	}	
-	
+		
 	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<org.nasdanika.common.resources.Entity<InputStream>> createWorkItem(Context context) throws Exception {		
+	protected Work<InputStream> createWorkItem(Context context) throws Exception {		
 		org.nasdanika.common.resources.Container<InputStream> container = context.get(org.nasdanika.common.resources.Container.class);
 		String name = finalName(context.interpolate(FileImpl.this.getName()));
 		

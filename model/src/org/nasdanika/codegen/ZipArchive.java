@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ZipArchive extends Generator<InputStream> {
 	/**
 	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;org.nasdanika.common.resources.Resource&lt;java.io.InputStream&gt;&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Resource}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -36,9 +36,9 @@ public interface ZipArchive extends Generator<InputStream> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entries</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getZipArchive_Entries()
-	 * @model type="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.IResource&lt;org.nasdanika.codegen.InputStream&gt;&gt;" containment="true"
+	 * @model type="org.nasdanika.codegen.Resource&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Resource<org.nasdanika.common.resources.Resource<InputStream>>> getEntries();
+	EList<Resource<Object>> getEntries();
 
 } // ZipArchive
