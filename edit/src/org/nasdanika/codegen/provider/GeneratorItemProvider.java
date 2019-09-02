@@ -330,6 +330,11 @@ public class GeneratorItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS,
 				 CodegenFactory.eINSTANCE.createNamedGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS,
+				 CodegenFactory.eINSTANCE.createProperty()));
 	}
 
 	/**

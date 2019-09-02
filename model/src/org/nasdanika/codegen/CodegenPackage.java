@@ -218,14 +218,14 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_OPERATION_COUNT = WORK_FACTORY_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.codegen.impl.NamedGeneratorImpl <em>Named Generator</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.AbstractNamedGeneratorImpl <em>Abstract Named Generator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.codegen.impl.NamedGeneratorImpl
-	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedGenerator()
+	 * @see org.nasdanika.codegen.impl.AbstractNamedGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getAbstractNamedGenerator()
 	 * @generated
 	 */
-	int NAMED_GENERATOR = 2;
+	int ABSTRACT_NAMED_GENERATOR = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -234,16 +234,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_GENERATOR__GENERATOR = 1;
+	int ABSTRACT_NAMED_GENERATOR__NAME = WORK_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -252,7 +243,62 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR__DESCRIPTION = 2;
+	int ABSTRACT_NAMED_GENERATOR__DESCRIPTION = WORK_FACTORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Named Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Abstract Named Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_NAMED_GENERATOR_OPERATION_COUNT = WORK_FACTORY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.NamedGeneratorImpl <em>Named Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.NamedGeneratorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getNamedGenerator()
+	 * @generated
+	 */
+	int NAMED_GENERATOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__NAME = ABSTRACT_NAMED_GENERATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__DESCRIPTION = ABSTRACT_NAMED_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GENERATOR__GENERATORS = ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Named Generator</em>' class.
@@ -261,7 +307,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR_FEATURE_COUNT = 3;
+	int NAMED_GENERATOR_FEATURE_COUNT = ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Named Generator</em>' class.
@@ -270,7 +316,71 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GENERATOR_OPERATION_COUNT = 0;
+	int NAMED_GENERATOR_OPERATION_COUNT = ABSTRACT_NAMED_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.PropertyImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = ABSTRACT_NAMED_GENERATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DESCRIPTION = ABSTRACT_NAMED_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VALUE = ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__INTERPOLATE = ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = ABSTRACT_NAMED_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = ABSTRACT_NAMED_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -280,7 +390,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 3;
+	int GROUP = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -416,7 +526,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 4;
+	int RESOURCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -561,7 +671,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 5;
+	int FILE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -733,7 +843,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryFile()
 	 * @generated
 	 */
-	int BINARY_FILE = 6;
+	int BINARY_FILE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -905,7 +1015,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextFile()
 	 * @generated
 	 */
-	int TEXT_FILE = 7;
+	int TEXT_FILE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1086,7 +1196,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 8;
+	int CONTAINER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1240,7 +1350,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
 	 * @generated
 	 */
-	int RESOURCE_GROUP = 9;
+	int RESOURCE_GROUP = 11;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1376,7 +1486,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticText()
 	 * @generated
 	 */
-	int STATIC_TEXT = 10;
+	int STATIC_TEXT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1521,7 +1631,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerGenerator()
 	 * @generated
 	 */
-	int FREE_MARKER_GENERATOR = 12;
+	int FREE_MARKER_GENERATOR = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ECoreModelGeneratorImpl <em>ECore Model Generator</em>}' class.
@@ -1531,7 +1641,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getECoreModelGenerator()
 	 * @generated
 	 */
-	int ECORE_MODEL_GENERATOR = 13;
+	int ECORE_MODEL_GENERATOR = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentReferenceImpl <em>Content Reference</em>}' class.
@@ -1541,7 +1651,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 14;
+	int CONTENT_REFERENCE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ConverterImpl <em>Converter</em>}' class.
@@ -1551,7 +1661,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getConverter()
 	 * @generated
 	 */
-	int CONVERTER = 15;
+	int CONVERTER = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.FilterImpl <em>Filter</em>}' class.
@@ -1561,7 +1671,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 16;
+	int FILTER = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaGeneratorImpl <em>Java Generator</em>}' class.
@@ -1571,7 +1681,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 17;
+	int JAVA_GENERATOR = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.InterpolatorImpl <em>Interpolator</em>}' class.
@@ -1581,7 +1691,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 18;
+	int INTERPOLATOR = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaFilterImpl <em>Java Filter</em>}' class.
@@ -1591,7 +1701,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 19;
+	int JAVA_FILTER = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaTextFilterImpl <em>Java Text Filter</em>}' class.
@@ -1601,7 +1711,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 20;
+	int JAVA_TEXT_FILTER = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaStreamFilterImpl <em>Java Stream Filter</em>}' class.
@@ -1611,7 +1721,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 21;
+	int JAVA_STREAM_FILTER = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaTextGeneratorImpl <em>Java Text Generator</em>}' class.
@@ -1621,7 +1731,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 22;
+	int JAVA_TEXT_GENERATOR = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaStreamGeneratorImpl <em>Java Stream Generator</em>}' class.
@@ -1631,7 +1741,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 23;
+	int JAVA_STREAM_GENERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaResourceGeneratorImpl <em>Java Resource Generator</em>}' class.
@@ -1641,7 +1751,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaResourceGenerator()
 	 * @generated
 	 */
-	int JAVA_RESOURCE_GENERATOR = 24;
+	int JAVA_RESOURCE_GENERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextContentReferenceImpl <em>Text Content Reference</em>}' class.
@@ -1651,7 +1761,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 25;
+	int TEXT_CONTENT_REFERENCE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StreamContentReferenceImpl <em>Stream Content Reference</em>}' class.
@@ -1661,7 +1771,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 26;
+	int STREAM_CONTENT_REFERENCE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ZipArchiveImpl <em>Zip Archive</em>}' class.
@@ -1671,7 +1781,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 28;
+	int ZIP_ARCHIVE = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.
@@ -1681,7 +1791,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMustache()
 	 * @generated
 	 */
-	int MUSTACHE = 27;
+	int MUSTACHE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StaticBytesImpl <em>Static Bytes</em>}' class.
@@ -1691,7 +1801,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStaticBytes()
 	 * @generated
 	 */
-	int STATIC_BYTES = 11;
+	int STATIC_BYTES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4095,7 +4205,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGroup()
 	 * @generated
 	 */
-	int TEXT_GROUP = 29;
+	int TEXT_GROUP = 31;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4231,7 +4341,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorReference()
 	 * @generated
 	 */
-	int GENERATOR_REFERENCE = 30;
+	int GENERATOR_REFERENCE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4367,7 +4477,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGeneratorReference()
 	 * @generated
 	 */
-	int TEXT_GENERATOR_REFERENCE = 31;
+	int TEXT_GENERATOR_REFERENCE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4503,7 +4613,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamGeneratorReference()
 	 * @generated
 	 */
-	int STREAM_GENERATOR_REFERENCE = 32;
+	int STREAM_GENERATOR_REFERENCE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4639,7 +4749,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
 	 * @generated
 	 */
-	int RESOURCE_GENERATOR_REFERENCE = 33;
+	int RESOURCE_GENERATOR_REFERENCE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4775,7 +4885,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 34;
+	int RECONCILE_ACTION = 36;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -4785,7 +4895,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 35;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 37;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -4795,7 +4905,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 38;
+	int CONTEXT = 40;
 
 	/**
 	 * The meta object id for the '<em>Binary Resource</em>' data type.
@@ -4805,7 +4915,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 	 * @generated
 	 */
-	int BINARY_RESOURCE = 39;
+	int BINARY_RESOURCE = 41;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity</em>' data type.
@@ -4815,7 +4925,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
 	 * @generated
 	 */
-	int BINARY_ENTITY = 40;
+	int BINARY_ENTITY = 42;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity Container</em>' data type.
@@ -4825,7 +4935,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
 	 * @generated
 	 */
-	int BINARY_ENTITY_CONTAINER = 41;
+	int BINARY_ENTITY_CONTAINER = 43;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -4835,7 +4945,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 37;
+	int INPUT_STREAM = 39;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -4845,7 +4955,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 42;
+	int VOID = 44;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -4855,7 +4965,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 36;
+	int EXCEPTION = 38;
 
 	/**
 	 * The meta object id for the '<em>List</em>' data type.
@@ -4865,7 +4975,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 43;
+	int LIST = 45;
 
 
 	/**
@@ -4876,7 +4986,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 44;
+	int MERGER = 46;
 
 
 	/**
@@ -5020,6 +5130,38 @@ public interface CodegenPackage extends EPackage {
 	EOperation getGenerator__Validate__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.AbstractNamedGenerator <em>Abstract Named Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Named Generator</em>'.
+	 * @see org.nasdanika.codegen.AbstractNamedGenerator
+	 * @generated
+	 */
+	EClass getAbstractNamedGenerator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.AbstractNamedGenerator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.codegen.AbstractNamedGenerator#getName()
+	 * @see #getAbstractNamedGenerator()
+	 * @generated
+	 */
+	EAttribute getAbstractNamedGenerator_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.AbstractNamedGenerator#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.codegen.AbstractNamedGenerator#getDescription()
+	 * @see #getAbstractNamedGenerator()
+	 * @generated
+	 */
+	EAttribute getAbstractNamedGenerator_Description();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.NamedGenerator <em>Named Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5030,37 +5172,47 @@ public interface CodegenPackage extends EPackage {
 	EClass getNamedGenerator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.NamedGenerator#getGenerators <em>Generators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.codegen.NamedGenerator#getName()
+	 * @return the meta object for the containment reference list '<em>Generators</em>'.
+	 * @see org.nasdanika.codegen.NamedGenerator#getGenerators()
 	 * @see #getNamedGenerator()
 	 * @generated
 	 */
-	EAttribute getNamedGenerator_Name();
+	EReference getNamedGenerator_Generators();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.NamedGenerator#getGenerator <em>Generator</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Generator</em>'.
-	 * @see org.nasdanika.codegen.NamedGenerator#getGenerator()
-	 * @see #getNamedGenerator()
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see org.nasdanika.codegen.Property
 	 * @generated
 	 */
-	EReference getNamedGenerator_Generator();
+	EClass getProperty();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Property#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.codegen.NamedGenerator#getDescription()
-	 * @see #getNamedGenerator()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.nasdanika.codegen.Property#getValue()
+	 * @see #getProperty()
 	 * @generated
 	 */
-	EAttribute getNamedGenerator_Description();
+	EAttribute getProperty_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Property#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.Property#isInterpolate()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Interpolate();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
@@ -5902,6 +6054,32 @@ public interface CodegenPackage extends EPackage {
 		EOperation GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGenerator__Validate__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.AbstractNamedGeneratorImpl <em>Abstract Named Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.AbstractNamedGeneratorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getAbstractNamedGenerator()
+		 * @generated
+		 */
+		EClass ABSTRACT_NAMED_GENERATOR = eINSTANCE.getAbstractNamedGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_NAMED_GENERATOR__NAME = eINSTANCE.getAbstractNamedGenerator_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_NAMED_GENERATOR__DESCRIPTION = eINSTANCE.getAbstractNamedGenerator_Description();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.NamedGeneratorImpl <em>Named Generator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5912,28 +6090,38 @@ public interface CodegenPackage extends EPackage {
 		EClass NAMED_GENERATOR = eINSTANCE.getNamedGenerator();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_GENERATOR__NAME = eINSTANCE.getNamedGenerator_Name();
+		EReference NAMED_GENERATOR__GENERATORS = eINSTANCE.getNamedGenerator_Generators();
 
 		/**
-		 * The meta object literal for the '<em><b>Generator</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.PropertyImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getProperty()
 		 * @generated
 		 */
-		EReference NAMED_GENERATOR__GENERATOR = eINSTANCE.getNamedGenerator_Generator();
+		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_GENERATOR__DESCRIPTION = eINSTANCE.getNamedGenerator_Description();
+		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__INTERPOLATE = eINSTANCE.getProperty_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.

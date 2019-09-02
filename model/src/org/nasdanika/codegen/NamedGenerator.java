@@ -2,7 +2,7 @@
  */
 package org.nasdanika.codegen;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,43 +18,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.NamedGenerator#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.codegen.NamedGenerator#getGenerator <em>Generator</em>}</li>
- *   <li>{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.NamedGenerator#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator()
  * @model
  * @generated
  */
-public interface NamedGenerator extends EObject {
+public interface NamedGenerator extends AbstractNamedGenerator {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Generator name.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.NamedGenerator#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Generator</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.lang.String&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -65,47 +39,11 @@ public interface NamedGenerator extends EObject {
 	 * 	
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generator</em>' containment reference.
-	 * @see #setGenerator(Generator)
-	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Generator()
+	 * @return the value of the '<em>Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Generators()
 	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true" required="true"
 	 * @generated
 	 */
-	Generator<String> getGenerator();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.NamedGenerator#getGenerator <em>Generator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generator</em>' containment reference.
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	void setGenerator(Generator<String> value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Description.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getNamedGenerator_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.NamedGenerator#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
+	EList<Generator<String>> getGenerators();
 
 } // NamedGenerator

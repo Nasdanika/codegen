@@ -75,8 +75,16 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorAdapter();
 			}
 			@Override
+			public Adapter caseAbstractNamedGenerator(AbstractNamedGenerator object) {
+				return createAbstractNamedGeneratorAdapter();
+			}
+			@Override
 			public Adapter caseNamedGenerator(NamedGenerator object) {
 				return createNamedGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseProperty(Property object) {
+				return createPropertyAdapter();
 			}
 			@Override
 			public <T> Adapter caseGroup(Group<T> object) {
@@ -251,6 +259,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.AbstractNamedGenerator <em>Abstract Named Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.AbstractNamedGenerator
+	 * @generated
+	 */
+	public Adapter createAbstractNamedGeneratorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.NamedGenerator <em>Named Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -261,6 +283,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Property
+	 * @generated
+	 */
+	public Adapter createPropertyAdapter() {
 		return null;
 	}
 

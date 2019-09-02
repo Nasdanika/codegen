@@ -79,9 +79,26 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.ABSTRACT_NAMED_GENERATOR: {
+				AbstractNamedGenerator abstractNamedGenerator = (AbstractNamedGenerator)theEObject;
+				T1 result = caseAbstractNamedGenerator(abstractNamedGenerator);
+				if (result == null) result = caseWorkFactory(abstractNamedGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.NAMED_GENERATOR: {
 				NamedGenerator namedGenerator = (NamedGenerator)theEObject;
 				T1 result = caseNamedGenerator(namedGenerator);
+				if (result == null) result = caseAbstractNamedGenerator(namedGenerator);
+				if (result == null) result = caseWorkFactory(namedGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.PROPERTY: {
+				Property property = (Property)theEObject;
+				T1 result = caseProperty(property);
+				if (result == null) result = caseAbstractNamedGenerator(property);
+				if (result == null) result = caseWorkFactory(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -397,6 +414,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Named Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Named Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAbstractNamedGenerator(AbstractNamedGenerator object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Generator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -408,6 +440,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseNamedGenerator(NamedGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseProperty(Property object) {
 		return null;
 	}
 

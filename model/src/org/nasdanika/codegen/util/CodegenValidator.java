@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
@@ -138,8 +139,12 @@ public class CodegenValidator extends EObjectValidator {
 				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
 				return validateGenerator((Generator<?>)value, diagnostics, context);
+			case CodegenPackage.ABSTRACT_NAMED_GENERATOR:
+				return validateAbstractNamedGenerator((AbstractNamedGenerator)value, diagnostics, context);
 			case CodegenPackage.NAMED_GENERATOR:
 				return validateNamedGenerator((NamedGenerator)value, diagnostics, context);
+			case CodegenPackage.PROPERTY:
+				return validateProperty((Property)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
 			case CodegenPackage.RESOURCE:
@@ -243,8 +248,12 @@ public class CodegenValidator extends EObjectValidator {
 				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
 				return validateGenerator((Generator<?>)value, diagnostics, context);
+			case CodegenPackage.ABSTRACT_NAMED_GENERATOR:
+				return validateAbstractNamedGenerator((AbstractNamedGenerator)value, diagnostics, context);
 			case CodegenPackage.NAMED_GENERATOR:
 				return validateNamedGenerator((NamedGenerator)value, diagnostics, context);
+			case CodegenPackage.PROPERTY:
+				return validateProperty((Property)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
 			case CodegenPackage.RESOURCE:
@@ -377,8 +386,26 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAbstractNamedGenerator(AbstractNamedGenerator abstractNamedGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractNamedGenerator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateNamedGenerator(NamedGenerator namedGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(namedGenerator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProperty(Property property, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(property, diagnostics, context);
 	}
 
 	/**

@@ -124,7 +124,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 
 	/**
 	 * Returns the value of the '<em><b>Named Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.NamedGenerator}.
+	 * The list contents are of type {@link org.nasdanika.codegen.AbstractNamedGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Named Generators</em>' containment reference isn't clear,
@@ -141,7 +141,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<NamedGenerator> getNamedGenerators();
+	EList<AbstractNamedGenerator> getNamedGenerators();
 
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.

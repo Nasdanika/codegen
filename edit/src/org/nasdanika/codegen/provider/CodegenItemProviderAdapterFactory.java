@@ -93,6 +93,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Property} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyItemProvider propertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.Property}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyAdapter() {
+		if (propertyItemProvider == null) {
+			propertyItemProvider = new PropertyItemProvider(this);
+		}
+
+		return propertyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,6 +727,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	@Override
 	public void dispose() {
 		if (namedGeneratorItemProvider != null) namedGeneratorItemProvider.dispose();
+		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (binaryFileItemProvider != null) binaryFileItemProvider.dispose();
 		if (textFileItemProvider != null) textFileItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();

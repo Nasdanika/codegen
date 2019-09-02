@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.codegen.AbstractNamedGenerator;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
-import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
@@ -210,8 +210,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<NamedGenerator> getNamedGenerators() {
-		return (EList<NamedGenerator>)eDynamicGet(CodegenPackage.GENERATOR__NAMED_GENERATORS, CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS, true, true);
+	public EList<AbstractNamedGenerator> getNamedGenerators() {
+		return (EList<AbstractNamedGenerator>)eDynamicGet(CodegenPackage.GENERATOR__NAMED_GENERATORS, CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS, true, true);
 	}
 
 	/**
@@ -468,7 +468,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				getNamedGenerators().clear();
-				getNamedGenerators().addAll((Collection<? extends NamedGenerator>)newValue);
+				getNamedGenerators().addAll((Collection<? extends AbstractNamedGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

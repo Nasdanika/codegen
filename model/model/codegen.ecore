@@ -105,7 +105,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="namedGenerators" upperBound="-1"
-        eType="#//NamedGenerator" containment="true">
+        eType="#//AbstractNamedGenerator" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This class allows to mount generators to the parent generator context as property providers&#xD;&#xA;accessible by name. It can be used for conditional invocation of named&#xD;&#xA;generators by the containing generator. context.get(generatorName) returns Work created by contained generator."/>
       </eAnnotations>
@@ -116,17 +116,30 @@
       </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedGenerator">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractNamedGenerator" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This class allows to mount generators to the parent generator context as property computers accessible by name. It can be used for conditional invocation of named&#xA;generators by the containing generator. context.get(generatorName) returns results of executing Work created by the generator."/>
+      <details key="documentation" value="A generator which has a name. Base abstract generic class for named generators. This class does not extend generator so it doesn't get added as a generator child to other elements."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generator name."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generator" lowerBound="1"
-        containment="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//WorkFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedGenerator" eSuperTypes="#//AbstractNamedGenerator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This class allows to mount generators to the parent generator context as property computers accessible by name. It can be used for conditional invocation of named&#xA;generators by the containing generator. context.get(generatorName) returns results of executing Work created by the generator."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generators" lowerBound="1"
+        upperBound="-1" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The generator addressed by name.&#xD;&#xA;&#xD;&#xA;The generator shall be parameterized with EJavaObject, but due to a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=510914 - it is now restricted to String generators.&#xD;&#xA;The generic parameter shall be changed to EObject once the bug is fixed.&#xD;&#xA;&#x9;&#xD;&#xA;"/>
       </eAnnotations>
@@ -134,9 +147,15 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//AbstractNamedGenerator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Property is a named generator with static text value which can be optionally interpolated."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Description."/>
+        <details key="documentation" value="If set to true the contents is interpolated using the context. &#xA;It is a shortcut for having an Interpolator in front of static contents."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

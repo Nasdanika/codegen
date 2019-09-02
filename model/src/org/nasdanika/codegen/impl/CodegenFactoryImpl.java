@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.codegen.*;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -88,6 +89,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CodegenPackage.NAMED_GENERATOR: return createNamedGenerator();
+			case CodegenPackage.PROPERTY: return createProperty();
 			case CodegenPackage.BINARY_FILE: return createBinaryFile();
 			case CodegenPackage.TEXT_FILE: return createTextFile();
 			case CodegenPackage.CONTAINER: return createContainer();
@@ -194,6 +196,17 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public NamedGenerator createNamedGenerator() {
 		NamedGeneratorImpl namedGenerator = new NamedGeneratorImpl();
 		return namedGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
 	}
 
 	/**

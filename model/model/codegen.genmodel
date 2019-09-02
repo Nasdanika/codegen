@@ -52,10 +52,16 @@
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/context"/>
       </genOperations>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//AbstractNamedGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//AbstractNamedGenerator/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//AbstractNamedGenerator/description"/>
+    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//NamedGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//NamedGenerator/generator"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//NamedGenerator/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//NamedGenerator/generators"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//Property">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Property/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Property/interpolate"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>

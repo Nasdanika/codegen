@@ -2,10 +2,12 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.NamedGenerator;
@@ -18,33 +20,12 @@ import org.nasdanika.codegen.NamedGenerator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getGenerator <em>Generator</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.NamedGeneratorImpl#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements NamedGenerator {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
+public class NamedGeneratorImpl extends AbstractNamedGeneratorImpl implements NamedGenerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,79 +50,10 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return (String)eDynamicGet(CodegenPackage.NAMED_GENERATOR__NAME, CodegenPackage.Literals.NAMED_GENERATOR__NAME, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		eDynamicSet(CodegenPackage.NAMED_GENERATOR__NAME, CodegenPackage.Literals.NAMED_GENERATOR__NAME, newName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Generator<String> getGenerator() {
-		return (Generator<String>)eDynamicGet(CodegenPackage.NAMED_GENERATOR__GENERATOR, CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGenerator(Generator<String> newGenerator, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newGenerator, CodegenPackage.NAMED_GENERATOR__GENERATOR, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setGenerator(Generator<String> newGenerator) {
-		eDynamicSet(CodegenPackage.NAMED_GENERATOR__GENERATOR, CodegenPackage.Literals.NAMED_GENERATOR__GENERATOR, newGenerator);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getDescription() {
-		return (String)eDynamicGet(CodegenPackage.NAMED_GENERATOR__DESCRIPTION, CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(String newDescription) {
-		eDynamicSet(CodegenPackage.NAMED_GENERATOR__DESCRIPTION, CodegenPackage.Literals.NAMED_GENERATOR__DESCRIPTION, newDescription);
+	public EList<Generator<String>> getGenerators() {
+		return (EList<Generator<String>>)eDynamicGet(CodegenPackage.NAMED_GENERATOR__GENERATORS, CodegenPackage.Literals.NAMED_GENERATOR__GENERATORS, true, true);
 	}
 
 	/**
@@ -152,8 +64,8 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
-				return basicSetGenerator(null, msgs);
+			case CodegenPackage.NAMED_GENERATOR__GENERATORS:
+				return ((InternalEList<?>)getGenerators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,12 +78,8 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.NAMED_GENERATOR__NAME:
-				return getName();
-			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
-				return getGenerator();
-			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
-				return getDescription();
+			case CodegenPackage.NAMED_GENERATOR__GENERATORS:
+				return getGenerators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,14 +93,9 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.NAMED_GENERATOR__NAME:
-				setName((String)newValue);
-				return;
-			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
-				setGenerator((Generator<String>)newValue);
-				return;
-			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
-				setDescription((String)newValue);
+			case CodegenPackage.NAMED_GENERATOR__GENERATORS:
+				getGenerators().clear();
+				getGenerators().addAll((Collection<? extends Generator<String>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,14 +109,8 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.NAMED_GENERATOR__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
-				setGenerator((Generator<String>)null);
-				return;
-			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
+			case CodegenPackage.NAMED_GENERATOR__GENERATORS:
+				getGenerators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,12 +124,8 @@ public class NamedGeneratorImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.NAMED_GENERATOR__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case CodegenPackage.NAMED_GENERATOR__GENERATOR:
-				return getGenerator() != null;
-			case CodegenPackage.NAMED_GENERATOR__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case CodegenPackage.NAMED_GENERATOR__GENERATORS:
+				return !getGenerators().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

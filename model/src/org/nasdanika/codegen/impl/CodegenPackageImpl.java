@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.nasdanika.codegen.AbstractNamedGenerator;
 import org.nasdanika.codegen.BinaryFile;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
@@ -43,6 +44,7 @@ import org.nasdanika.codegen.JavaTextGenerator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.NamedGenerator;
+import org.nasdanika.codegen.Property;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceGeneratorReference;
@@ -89,7 +91,21 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass abstractNamedGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass namedGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -592,6 +608,36 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAbstractNamedGenerator() {
+		return abstractNamedGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractNamedGenerator_Name() {
+		return (EAttribute)abstractNamedGeneratorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractNamedGenerator_Description() {
+		return (EAttribute)abstractNamedGeneratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedGenerator() {
 		return namedGeneratorEClass;
 	}
@@ -602,8 +648,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedGenerator_Name() {
-		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(0);
+	public EReference getNamedGenerator_Generators() {
+		return (EReference)namedGeneratorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -612,8 +658,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getNamedGenerator_Generator() {
-		return (EReference)namedGeneratorEClass.getEStructuralFeatures().get(1);
+	public EClass getProperty() {
+		return propertyEClass;
 	}
 
 	/**
@@ -622,8 +668,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedGenerator_Description() {
-		return (EAttribute)namedGeneratorEClass.getEStructuralFeatures().get(2);
+	public EAttribute getProperty_Value() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProperty_Interpolate() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1340,10 +1396,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
+		abstractNamedGeneratorEClass = createEClass(ABSTRACT_NAMED_GENERATOR);
+		createEAttribute(abstractNamedGeneratorEClass, ABSTRACT_NAMED_GENERATOR__NAME);
+		createEAttribute(abstractNamedGeneratorEClass, ABSTRACT_NAMED_GENERATOR__DESCRIPTION);
+
 		namedGeneratorEClass = createEClass(NAMED_GENERATOR);
-		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__NAME);
-		createEReference(namedGeneratorEClass, NAMED_GENERATOR__GENERATOR);
-		createEAttribute(namedGeneratorEClass, NAMED_GENERATOR__DESCRIPTION);
+		createEReference(namedGeneratorEClass, NAMED_GENERATOR__GENERATORS);
+
+		propertyEClass = createEClass(PROPERTY);
+		createEAttribute(propertyEClass, PROPERTY__VALUE);
+		createEAttribute(propertyEClass, PROPERTY__INTERPOLATE);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__ELEMENTS);
@@ -1498,6 +1560,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		EGenericType g3 = createEGenericType(generatorEClass_T);
 		g2.getETypeArguments().add(g3);
 		generatorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getWorkFactory());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		abstractNamedGeneratorEClass.getEGenericSuperTypes().add(g1);
+		namedGeneratorEClass.getESuperTypes().add(this.getAbstractNamedGenerator());
+		propertyEClass.getESuperTypes().add(this.getAbstractNamedGenerator());
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(groupEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -1641,7 +1709,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getGenerator_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ControllerArguments(), ecorePackage.getEString(), "controllerArguments", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_NamedGenerators(), this.getNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_NamedGenerators(), this.getAbstractNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1654,13 +1722,19 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(abstractNamedGeneratorEClass, AbstractNamedGenerator.class, "AbstractNamedGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractNamedGenerator_Name(), ecorePackage.getEString(), "name", null, 1, 1, AbstractNamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractNamedGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, AbstractNamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(namedGeneratorEClass, NamedGenerator.class, "NamedGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedGenerator_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getGenerator());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		initEReference(getNamedGenerator_Generator(), g1, null, "generator", null, 1, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamedGenerator_Description(), ecorePackage.getEString(), "description", null, 0, 1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedGenerator_Generators(), g1, null, "generators", null, 1, -1, NamedGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getGenerator());
