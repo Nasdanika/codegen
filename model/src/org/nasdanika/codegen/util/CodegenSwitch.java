@@ -213,6 +213,24 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.TEXT_TO_STREAM_CONVERTER: {
+				TextToStreamConverter textToStreamConverter = (TextToStreamConverter)theEObject;
+				T1 result = caseTextToStreamConverter(textToStreamConverter);
+				if (result == null) result = caseConverter(textToStreamConverter);
+				if (result == null) result = caseGenerator(textToStreamConverter);
+				if (result == null) result = caseWorkFactory(textToStreamConverter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.STREAM_TO_TEXT_CONVERTER: {
+				StreamToTextConverter streamToTextConverter = (StreamToTextConverter)theEObject;
+				T1 result = caseStreamToTextConverter(streamToTextConverter);
+				if (result == null) result = caseConverter(streamToTextConverter);
+				if (result == null) result = caseGenerator(streamToTextConverter);
+				if (result == null) result = caseWorkFactory(streamToTextConverter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.FILTER: {
 				Filter<?> filter = (Filter<?>)theEObject;
 				T1 result = caseFilter(filter);
@@ -376,6 +394,14 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseGeneratorReference(resourceGeneratorReference);
 				if (result == null) result = caseGenerator(resourceGeneratorReference);
 				if (result == null) result = caseWorkFactory(resourceGeneratorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.HTTP_CALL: {
+				HttpCall httpCall = (HttpCall)theEObject;
+				T1 result = caseHttpCall(httpCall);
+				if (result == null) result = caseGenerator(httpCall);
+				if (result == null) result = caseWorkFactory(httpCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -639,6 +665,36 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text To Stream Converter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text To Stream Converter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextToStreamConverter(TextToStreamConverter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stream To Text Converter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stream To Text Converter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStreamToTextConverter(StreamToTextConverter object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Filter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -890,6 +946,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseResourceGeneratorReference(ResourceGeneratorReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Http Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Http Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseHttpCall(HttpCall object) {
 		return null;
 	}
 

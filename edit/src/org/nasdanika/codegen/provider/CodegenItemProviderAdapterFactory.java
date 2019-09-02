@@ -277,6 +277,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.TextToStreamConverter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextToStreamConverterItemProvider textToStreamConverterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.TextToStreamConverter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextToStreamConverterAdapter() {
+		if (textToStreamConverterItemProvider == null) {
+			textToStreamConverterItemProvider = new TextToStreamConverterItemProvider(this);
+		}
+
+		return textToStreamConverterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.StreamToTextConverter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StreamToTextConverterItemProvider streamToTextConverterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.StreamToTextConverter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStreamToTextConverterAdapter() {
+		if (streamToTextConverterItemProvider == null) {
+			streamToTextConverterItemProvider = new StreamToTextConverterItemProvider(this);
+		}
+
+		return streamToTextConverterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Interpolator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,6 +622,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.HttpCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HttpCallItemProvider httpCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.HttpCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHttpCallAdapter() {
+		if (httpCallItemProvider == null) {
+			httpCallItemProvider = new HttpCallItemProvider(this);
+		}
+
+		return httpCallItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Mustache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,6 +805,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (staticBytesItemProvider != null) staticBytesItemProvider.dispose();
 		if (freeMarkerGeneratorItemProvider != null) freeMarkerGeneratorItemProvider.dispose();
 		if (eCoreModelGeneratorItemProvider != null) eCoreModelGeneratorItemProvider.dispose();
+		if (textToStreamConverterItemProvider != null) textToStreamConverterItemProvider.dispose();
+		if (streamToTextConverterItemProvider != null) streamToTextConverterItemProvider.dispose();
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();
 		if (javaTextFilterItemProvider != null) javaTextFilterItemProvider.dispose();
 		if (javaStreamFilterItemProvider != null) javaStreamFilterItemProvider.dispose();
@@ -750,6 +821,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (textGeneratorReferenceItemProvider != null) textGeneratorReferenceItemProvider.dispose();
 		if (streamGeneratorReferenceItemProvider != null) streamGeneratorReferenceItemProvider.dispose();
 		if (resourceGeneratorReferenceItemProvider != null) resourceGeneratorReferenceItemProvider.dispose();
+		if (httpCallItemProvider != null) httpCallItemProvider.dispose();
 	}
 
 }

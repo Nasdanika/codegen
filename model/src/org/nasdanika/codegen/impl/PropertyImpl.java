@@ -3,9 +3,11 @@
 package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Property;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -168,5 +170,34 @@ public class PropertyImpl extends AbstractNamedGeneratorImpl implements Property
 		}
 		return super.eIsSet(featureID);
 	}
+
+	@Override
+	public Work<String> createWork(Context context) throws Exception {
+		
+		return new Work<String>() {
+			
+			@Override
+			public long size() {
+				return 1;
+			}
+			
+			@Override
+			public String execute(ProgressMonitor monitor) throws Exception {
+				return isInterpolate() ? context.interpolate(getValue()) : getValue();
+			}
+	
+			@Override
+			public String getName() {
+				return "Property "+getName();
+			}
+	
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
+			}
+			
+		};
+	}
+	
 
 } //PropertyImpl

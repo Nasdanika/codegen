@@ -46,7 +46,7 @@ public class MustacheImpl extends FilterImpl<String> implements Mustache {
 	}
 
 	@Override
-	protected String filter(Context context, List<String> generationResult, ProgressMonitor subMonitor) throws Exception {
+	protected String convert(Context context, List<String> generationResult, ProgressMonitor subMonitor) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		for (String str: generationResult) {
 			sb.append(str);
@@ -82,7 +82,7 @@ public class MustacheImpl extends FilterImpl<String> implements Mustache {
 	}
 	
 	@Override
-	protected int getFilterWorkSize() {
+	protected int getConverterWorkSize() {
 		return 1;
 	}
 

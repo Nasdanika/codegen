@@ -3,6 +3,9 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -11,6 +14,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.NamedGenerator;
+import org.nasdanika.common.CompoundWork;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,6 +135,20 @@ public class NamedGeneratorImpl extends AbstractNamedGeneratorImpl implements Na
 				return !getGenerators().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Work<String> createWork(Context context) throws Exception {		
+		return new CompoundWork<String, List<String>>(getName(), context.get(Executor.class)) {
+			
+			@Override
+			protected String combine(List<List<String>> results, ProgressMonitor progressMonitor) throws Exception {
+				StringBuilder sb = new StringBuilder();
+				results.forEach(list -> list.forEach(sb::append));
+				return sb.toString();
+			}
+			
+		};
 	}
 
 } //NamedGeneratorImpl

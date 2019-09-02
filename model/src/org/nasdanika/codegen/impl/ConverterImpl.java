@@ -2,6 +2,7 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,6 +16,9 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Converter;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 
 /**
  * <!-- begin-user-doc -->
@@ -172,5 +176,48 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 		}
 		return super.eIsSet(featureID);
 	}
+		
+	@Override
+	protected Work<T> createWorkItem(Context context) throws Exception {
+
+		Work<List<S>> gWork = getGenerator().createWork(context);
+		
+		return new Work<T>() {
+			
+			@Override
+			public long size() {
+				return gWork.size() + getConverterWorkSize();
+			}
+			
+			@Override
+			public T execute(ProgressMonitor monitor) throws Exception {
+				List<S> wr = gWork.execute(monitor.split("Generating", gWork.size(), gWork));
+				T converted = convert(context, wr, monitor.split("Filtering", getConverterWorkSize(), ConverterImpl.this));
+				return converted;
+			}
+
+			@Override
+			public String getName() {
+				return "Filter "+getTitle();
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return gWork.undo(progressMonitor);
+			}
+			
+		};
+	}
+	
+	protected abstract int getConverterWorkSize();
+		
+	/**
+	 * Combines and filters generation results
+	 * @param generatorResult
+	 * @return
+	 * @throws Exception
+	 */
+	protected abstract T convert(Context context, List<S> generationResult, ProgressMonitor subMonitor) throws Exception;
+
 
 } //ConverterImpl

@@ -578,7 +578,29 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	final public Work<List<T>> createWork(Context context) throws Exception {
 		if (!isEnabled()) {
-			return null;
+			return new Work<List<T>>() {
+
+				@Override
+				public long size() {
+					return 0;
+				}
+
+				@Override
+				public String getName() {
+					return "[Disabled] "+getTitle();
+				}
+
+				@Override
+				public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
+					return Collections.emptyList();
+				}
+
+				@Override
+				public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+					return true;
+				}
+				
+			};
 		}
 		
 		if (isFilterable()) {

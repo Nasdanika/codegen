@@ -38,7 +38,7 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 	}
 
 	@Override
-	protected String filter(Context context, List<String> generationResult, ProgressMonitor subMonitor) throws Exception {
+	protected String convert(Context context, List<String> generationResult, ProgressMonitor subMonitor) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		for (String str: generationResult) {
 			sb.append(str);
@@ -47,7 +47,7 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 	}
 	
 	@Override
-	protected int getFilterWorkSize() {
+	protected int getConverterWorkSize() {
 		return 1;
 	}
 

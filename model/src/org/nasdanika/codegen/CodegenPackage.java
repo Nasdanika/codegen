@@ -1671,7 +1671,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 18;
+	int FILTER = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaGeneratorImpl <em>Java Generator</em>}' class.
@@ -1681,7 +1681,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaGenerator()
 	 * @generated
 	 */
-	int JAVA_GENERATOR = 19;
+	int JAVA_GENERATOR = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.InterpolatorImpl <em>Interpolator</em>}' class.
@@ -1691,7 +1691,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 20;
+	int INTERPOLATOR = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaFilterImpl <em>Java Filter</em>}' class.
@@ -1701,7 +1701,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaFilter()
 	 * @generated
 	 */
-	int JAVA_FILTER = 21;
+	int JAVA_FILTER = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaTextFilterImpl <em>Java Text Filter</em>}' class.
@@ -1711,7 +1711,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextFilter()
 	 * @generated
 	 */
-	int JAVA_TEXT_FILTER = 22;
+	int JAVA_TEXT_FILTER = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaStreamFilterImpl <em>Java Stream Filter</em>}' class.
@@ -1721,7 +1721,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamFilter()
 	 * @generated
 	 */
-	int JAVA_STREAM_FILTER = 23;
+	int JAVA_STREAM_FILTER = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaTextGeneratorImpl <em>Java Text Generator</em>}' class.
@@ -1731,7 +1731,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaTextGenerator()
 	 * @generated
 	 */
-	int JAVA_TEXT_GENERATOR = 24;
+	int JAVA_TEXT_GENERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaStreamGeneratorImpl <em>Java Stream Generator</em>}' class.
@@ -1741,7 +1741,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaStreamGenerator()
 	 * @generated
 	 */
-	int JAVA_STREAM_GENERATOR = 25;
+	int JAVA_STREAM_GENERATOR = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.JavaResourceGeneratorImpl <em>Java Resource Generator</em>}' class.
@@ -1751,7 +1751,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getJavaResourceGenerator()
 	 * @generated
 	 */
-	int JAVA_RESOURCE_GENERATOR = 26;
+	int JAVA_RESOURCE_GENERATOR = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextContentReferenceImpl <em>Text Content Reference</em>}' class.
@@ -1761,7 +1761,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextContentReference()
 	 * @generated
 	 */
-	int TEXT_CONTENT_REFERENCE = 27;
+	int TEXT_CONTENT_REFERENCE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StreamContentReferenceImpl <em>Stream Content Reference</em>}' class.
@@ -1771,7 +1771,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamContentReference()
 	 * @generated
 	 */
-	int STREAM_CONTENT_REFERENCE = 28;
+	int STREAM_CONTENT_REFERENCE = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ZipArchiveImpl <em>Zip Archive</em>}' class.
@@ -1781,7 +1781,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 30;
+	int ZIP_ARCHIVE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.
@@ -1791,7 +1791,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMustache()
 	 * @generated
 	 */
-	int MUSTACHE = 29;
+	int MUSTACHE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StaticBytesImpl <em>Static Bytes</em>}' class.
@@ -2459,6 +2459,296 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERTER_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextToStreamConverterImpl <em>Text To Stream Converter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.TextToStreamConverterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextToStreamConverter()
+	 * @generated
+	 */
+	int TEXT_TO_STREAM_CONVERTER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__TITLE = CONVERTER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__ENABLED = CONVERTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__DESCRIPTION = CONVERTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CONFIGURATION = CONVERTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CONFIGURATION_REFERENCE = CONVERTER__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CONTROLLER = CONVERTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CONTROLLER_ARGUMENTS = CONVERTER__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__GENERATOR = CONVERTER__GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Charset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__CHARSET = CONVERTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text To Stream Converter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER_FEATURE_COUNT = CONVERTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER___IS_FILTERABLE = CONVERTER___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER___VALIDATE__DIAGNOSTICCHAIN_MAP = CONVERTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Text To Stream Converter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER_OPERATION_COUNT = CONVERTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.StreamToTextConverterImpl <em>Stream To Text Converter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.StreamToTextConverterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamToTextConverter()
+	 * @generated
+	 */
+	int STREAM_TO_TEXT_CONVERTER = 19;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__TITLE = CONVERTER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__ENABLED = CONVERTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__DESCRIPTION = CONVERTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CONFIGURATION = CONVERTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CONFIGURATION_REFERENCE = CONVERTER__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CONTROLLER = CONVERTER__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CONTROLLER_ARGUMENTS = CONVERTER__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__GENERATOR = CONVERTER__GENERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Charset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__CHARSET = CONVERTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stream To Text Converter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER_FEATURE_COUNT = CONVERTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER___IS_FILTERABLE = CONVERTER___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER___VALIDATE__DIAGNOSTICCHAIN_MAP = CONVERTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Stream To Text Converter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER_OPERATION_COUNT = CONVERTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4205,7 +4495,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGroup()
 	 * @generated
 	 */
-	int TEXT_GROUP = 31;
+	int TEXT_GROUP = 33;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4341,7 +4631,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorReference()
 	 * @generated
 	 */
-	int GENERATOR_REFERENCE = 32;
+	int GENERATOR_REFERENCE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4477,7 +4767,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextGeneratorReference()
 	 * @generated
 	 */
-	int TEXT_GENERATOR_REFERENCE = 33;
+	int TEXT_GENERATOR_REFERENCE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4613,7 +4903,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamGeneratorReference()
 	 * @generated
 	 */
-	int STREAM_GENERATOR_REFERENCE = 34;
+	int STREAM_GENERATOR_REFERENCE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4749,7 +5039,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
 	 * @generated
 	 */
-	int RESOURCE_GENERATOR_REFERENCE = 35;
+	int RESOURCE_GENERATOR_REFERENCE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -4878,6 +5168,196 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.HttpCallImpl <em>Http Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.HttpCallImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpCall()
+	 * @generated
+	 */
+	int HTTP_CALL = 38;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__TITLE = GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__ENABLED = GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONFIGURATION_REFERENCE = GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONTROLLER = GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONTROLLER_ARGUMENTS = GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__URL = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__METHOD = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Body Generator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__BODY_GENERATOR = GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__HEADERS = GENERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Connect Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONNECT_TIMEOUT = GENERATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Read Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__READ_TIMEOUT = GENERATOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Success Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__SUCCESS_CODE = GENERATOR_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Http Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Http Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4885,7 +5365,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 36;
+	int RECONCILE_ACTION = 39;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -4895,7 +5375,17 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 37;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 40;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.HttpMethod <em>Http Method</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.HttpMethod
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpMethod()
+	 * @generated
+	 */
+	int HTTP_METHOD = 41;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -4905,7 +5395,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 40;
+	int CONTEXT = 44;
 
 	/**
 	 * The meta object id for the '<em>Binary Resource</em>' data type.
@@ -4915,7 +5405,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 	 * @generated
 	 */
-	int BINARY_RESOURCE = 41;
+	int BINARY_RESOURCE = 45;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity</em>' data type.
@@ -4925,7 +5415,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
 	 * @generated
 	 */
-	int BINARY_ENTITY = 42;
+	int BINARY_ENTITY = 46;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity Container</em>' data type.
@@ -4935,7 +5425,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
 	 * @generated
 	 */
-	int BINARY_ENTITY_CONTAINER = 43;
+	int BINARY_ENTITY_CONTAINER = 47;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -4945,7 +5435,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 39;
+	int INPUT_STREAM = 43;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -4955,7 +5445,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 44;
+	int VOID = 48;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -4965,7 +5455,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 38;
+	int EXCEPTION = 42;
 
 	/**
 	 * The meta object id for the '<em>List</em>' data type.
@@ -4975,7 +5465,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 45;
+	int LIST = 49;
 
 
 	/**
@@ -4986,7 +5476,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 46;
+	int MERGER = 50;
 
 
 	/**
@@ -5522,6 +6012,48 @@ public interface CodegenPackage extends EPackage {
 	EReference getConverter_Generator();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.TextToStreamConverter <em>Text To Stream Converter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text To Stream Converter</em>'.
+	 * @see org.nasdanika.codegen.TextToStreamConverter
+	 * @generated
+	 */
+	EClass getTextToStreamConverter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.TextToStreamConverter#getCharset <em>Charset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Charset</em>'.
+	 * @see org.nasdanika.codegen.TextToStreamConverter#getCharset()
+	 * @see #getTextToStreamConverter()
+	 * @generated
+	 */
+	EAttribute getTextToStreamConverter_Charset();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.StreamToTextConverter <em>Stream To Text Converter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stream To Text Converter</em>'.
+	 * @see org.nasdanika.codegen.StreamToTextConverter
+	 * @generated
+	 */
+	EClass getStreamToTextConverter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.StreamToTextConverter#getCharset <em>Charset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Charset</em>'.
+	 * @see org.nasdanika.codegen.StreamToTextConverter#getCharset()
+	 * @see #getStreamToTextConverter()
+	 * @generated
+	 */
+	EAttribute getStreamToTextConverter_Charset();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5769,6 +6301,93 @@ public interface CodegenPackage extends EPackage {
 	EClass getResourceGeneratorReference();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.HttpCall <em>Http Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Http Call</em>'.
+	 * @see org.nasdanika.codegen.HttpCall
+	 * @generated
+	 */
+	EClass getHttpCall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getUrl()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_Url();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Method</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getMethod()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_Method();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.HttpCall#getBodyGenerator <em>Body Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body Generator</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getBodyGenerator()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EReference getHttpCall_BodyGenerator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.HttpCall#getHeaders <em>Headers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Headers</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getHeaders()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EReference getHttpCall_Headers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getConnectTimeout <em>Connect Timeout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Connect Timeout</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getConnectTimeout()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_ConnectTimeout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getReadTimeout <em>Read Timeout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Timeout</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getReadTimeout()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_ReadTimeout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getSuccessCode <em>Success Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Success Code</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getSuccessCode()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_SuccessCode();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5818,6 +6437,16 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getFreeMarkerTemplateLoaderType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.codegen.HttpMethod <em>Http Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Http Method</em>'.
+	 * @see org.nasdanika.codegen.HttpMethod
+	 * @generated
+	 */
+	EEnum getHttpMethod();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.common.Context <em>Context</em>}'.
@@ -6380,6 +7009,42 @@ public interface CodegenPackage extends EPackage {
 		EReference CONVERTER__GENERATOR = eINSTANCE.getConverter_Generator();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextToStreamConverterImpl <em>Text To Stream Converter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.TextToStreamConverterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getTextToStreamConverter()
+		 * @generated
+		 */
+		EClass TEXT_TO_STREAM_CONVERTER = eINSTANCE.getTextToStreamConverter();
+
+		/**
+		 * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_STREAM_CONVERTER__CHARSET = eINSTANCE.getTextToStreamConverter_Charset();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.StreamToTextConverterImpl <em>Stream To Text Converter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.StreamToTextConverterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getStreamToTextConverter()
+		 * @generated
+		 */
+		EClass STREAM_TO_TEXT_CONVERTER = eINSTANCE.getStreamToTextConverter();
+
+		/**
+		 * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STREAM_TO_TEXT_CONVERTER__CHARSET = eINSTANCE.getStreamToTextConverter_Charset();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FilterImpl <em>Filter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6606,6 +7271,72 @@ public interface CodegenPackage extends EPackage {
 		EClass RESOURCE_GENERATOR_REFERENCE = eINSTANCE.getResourceGeneratorReference();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.HttpCallImpl <em>Http Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.HttpCallImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpCall()
+		 * @generated
+		 */
+		EClass HTTP_CALL = eINSTANCE.getHttpCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__URL = eINSTANCE.getHttpCall_Url();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__METHOD = eINSTANCE.getHttpCall_Method();
+
+		/**
+		 * The meta object literal for the '<em><b>Body Generator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HTTP_CALL__BODY_GENERATOR = eINSTANCE.getHttpCall_BodyGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Headers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HTTP_CALL__HEADERS = eINSTANCE.getHttpCall_Headers();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect Timeout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__CONNECT_TIMEOUT = eINSTANCE.getHttpCall_ConnectTimeout();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Timeout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__READ_TIMEOUT = eINSTANCE.getHttpCall_ReadTimeout();
+
+		/**
+		 * The meta object literal for the '<em><b>Success Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__SUCCESS_CODE = eINSTANCE.getHttpCall_SuccessCode();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6652,6 +7383,16 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum FREE_MARKER_TEMPLATE_LOADER_TYPE = eINSTANCE.getFreeMarkerTemplateLoaderType();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.HttpMethod <em>Http Method</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.HttpMethod
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpMethod()
+		 * @generated
+		 */
+		EEnum HTTP_METHOD = eINSTANCE.getHttpMethod();
 
 		/**
 		 * The meta object literal for the '<em>Context</em>' data type.

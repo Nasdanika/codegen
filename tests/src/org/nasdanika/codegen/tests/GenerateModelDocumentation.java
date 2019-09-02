@@ -37,10 +37,10 @@ public class GenerateModelDocumentation extends TestsBase {
 			generator.generate(container, progressMonitor.compose(pe));
 			container.put("progress-report.json", pe.toString(), progressMonitor.split("Saving progress report", 1));
 			
-			// HTML report
-			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
-			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
+//			// HTML report
+//			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+//			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+//			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
 		}
 	}
 

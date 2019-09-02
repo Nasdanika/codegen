@@ -103,6 +103,24 @@ public interface CodegenFactory extends EFactory {
 	ECoreModelGenerator createECoreModelGenerator();
 
 	/**
+	 * Returns a new object of class '<em>Text To Stream Converter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text To Stream Converter</em>'.
+	 * @generated
+	 */
+	TextToStreamConverter createTextToStreamConverter();
+
+	/**
+	 * Returns a new object of class '<em>Stream To Text Converter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stream To Text Converter</em>'.
+	 * @generated
+	 */
+	StreamToTextConverter createStreamToTextConverter();
+
+	/**
 	 * Returns a new object of class '<em>Interpolator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +236,15 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceGeneratorReference createResourceGeneratorReference();
+
+	/**
+	 * Returns a new object of class '<em>Http Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Http Call</em>'.
+	 * @generated
+	 */
+	HttpCall createHttpCall();
 
 	/**
 	 * Returns a new object of class '<em>Mustache</em>'.

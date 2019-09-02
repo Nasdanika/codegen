@@ -171,6 +171,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateContentReference((ContentReference<?>)value, diagnostics, context);
 			case CodegenPackage.CONVERTER:
 				return validateConverter((Converter<?, ?>)value, diagnostics, context);
+			case CodegenPackage.TEXT_TO_STREAM_CONVERTER:
+				return validateTextToStreamConverter((TextToStreamConverter)value, diagnostics, context);
+			case CodegenPackage.STREAM_TO_TEXT_CONVERTER:
+				return validateStreamToTextConverter((StreamToTextConverter)value, diagnostics, context);
 			case CodegenPackage.FILTER:
 				return validateFilter((Filter<?>)value, diagnostics, context);
 			case CodegenPackage.JAVA_GENERATOR:
@@ -207,10 +211,14 @@ public class CodegenValidator extends EObjectValidator {
 				return validateStreamGeneratorReference((StreamGeneratorReference)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE:
 				return validateResourceGeneratorReference((ResourceGeneratorReference)value, diagnostics, context);
+			case CodegenPackage.HTTP_CALL:
+				return validateHttpCall((HttpCall)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
 				return validateFreeMarkerTemplateLoaderType((FreeMarkerTemplateLoaderType)value, diagnostics, context);
+			case CodegenPackage.HTTP_METHOD:
+				return validateHttpMethod((HttpMethod)value, diagnostics, context);
 			case CodegenPackage.EXCEPTION:
 				return validateException((Exception)value, diagnostics, context);
 			case CodegenPackage.INPUT_STREAM:
@@ -280,6 +288,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateContentReference((ContentReference<?>)value, diagnostics, context);
 			case CodegenPackage.CONVERTER:
 				return validateConverter((Converter<?, ?>)value, diagnostics, context);
+			case CodegenPackage.TEXT_TO_STREAM_CONVERTER:
+				return validateTextToStreamConverter((TextToStreamConverter)value, diagnostics, context);
+			case CodegenPackage.STREAM_TO_TEXT_CONVERTER:
+				return validateStreamToTextConverter((StreamToTextConverter)value, diagnostics, context);
 			case CodegenPackage.FILTER:
 				return validateFilter((Filter<?>)value, diagnostics, context);
 			case CodegenPackage.JAVA_GENERATOR:
@@ -316,10 +328,14 @@ public class CodegenValidator extends EObjectValidator {
 				return validateStreamGeneratorReference((StreamGeneratorReference)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE:
 				return validateResourceGeneratorReference((ResourceGeneratorReference)value, diagnostics, context);
+			case CodegenPackage.HTTP_CALL:
+				return validateHttpCall((HttpCall)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
 				return validateFreeMarkerTemplateLoaderType((FreeMarkerTemplateLoaderType)value, diagnostics, context);
+			case CodegenPackage.HTTP_METHOD:
+				return validateHttpMethod((HttpMethod)value, diagnostics, context);
 			case CodegenPackage.EXCEPTION:
 				return validateException((Exception)value, diagnostics, context);
 			case CodegenPackage.INPUT_STREAM:
@@ -633,6 +649,44 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(converter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(converter, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(converter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTextToStreamConverter(TextToStreamConverter textToStreamConverter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(textToStreamConverter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textToStreamConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(textToStreamConverter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStreamToTextConverter(StreamToTextConverter streamToTextConverter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(streamToTextConverter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(streamToTextConverter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(streamToTextConverter, diagnostics, context);
 		return result;
 	}
 
@@ -964,6 +1018,25 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateHttpCall(HttpCall httpCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(httpCall, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(httpCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(httpCall, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateMustache(Mustache mustache, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(mustache, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(mustache, diagnostics, context);
@@ -1012,6 +1085,15 @@ public class CodegenValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFreeMarkerTemplateLoaderType(FreeMarkerTemplateLoaderType freeMarkerTemplateLoaderType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateHttpMethod(HttpMethod httpMethod, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

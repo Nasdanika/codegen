@@ -33,6 +33,8 @@ import org.nasdanika.codegen.FreeMarkerTemplateLoaderType;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorReference;
 import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.HttpCall;
+import org.nasdanika.codegen.HttpMethod;
 import org.nasdanika.codegen.Interpolator;
 import org.nasdanika.codegen.JavaFilter;
 import org.nasdanika.codegen.JavaGenerator;
@@ -53,10 +55,12 @@ import org.nasdanika.codegen.StaticBytes;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
 import org.nasdanika.codegen.StreamGeneratorReference;
+import org.nasdanika.codegen.StreamToTextConverter;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
+import org.nasdanika.codegen.TextToStreamConverter;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
@@ -196,6 +200,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass textToStreamConverterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass streamToTextConverterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass filterEClass = null;
 
 	/**
@@ -315,6 +333,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass httpCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass mustacheEClass = null;
 
 	/**
@@ -337,6 +362,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EEnum freeMarkerTemplateLoaderTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum httpMethodEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -978,6 +1010,46 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getTextToStreamConverter() {
+		return textToStreamConverterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToStreamConverter_Charset() {
+		return (EAttribute)textToStreamConverterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStreamToTextConverter() {
+		return streamToTextConverterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStreamToTextConverter_Charset() {
+		return (EAttribute)streamToTextConverterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFilter() {
 		return filterEClass;
 	}
@@ -1218,6 +1290,86 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getHttpCall() {
+		return httpCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_Url() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_Method() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getHttpCall_BodyGenerator() {
+		return (EReference)httpCallEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getHttpCall_Headers() {
+		return (EReference)httpCallEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_ConnectTimeout() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_ReadTimeout() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_SuccessCode() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMustache() {
 		return mustacheEClass;
 	}
@@ -1260,6 +1412,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EEnum getFreeMarkerTemplateLoaderType() {
 		return freeMarkerTemplateLoaderTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getHttpMethod() {
+		return httpMethodEEnum;
 	}
 
 	/**
@@ -1451,6 +1613,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		converterEClass = createEClass(CONVERTER);
 		createEReference(converterEClass, CONVERTER__GENERATOR);
 
+		textToStreamConverterEClass = createEClass(TEXT_TO_STREAM_CONVERTER);
+		createEAttribute(textToStreamConverterEClass, TEXT_TO_STREAM_CONVERTER__CHARSET);
+
+		streamToTextConverterEClass = createEClass(STREAM_TO_TEXT_CONVERTER);
+		createEAttribute(streamToTextConverterEClass, STREAM_TO_TEXT_CONVERTER__CHARSET);
+
 		filterEClass = createEClass(FILTER);
 
 		javaGeneratorEClass = createEClass(JAVA_GENERATOR);
@@ -1494,9 +1662,19 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		resourceGeneratorReferenceEClass = createEClass(RESOURCE_GENERATOR_REFERENCE);
 
+		httpCallEClass = createEClass(HTTP_CALL);
+		createEAttribute(httpCallEClass, HTTP_CALL__URL);
+		createEAttribute(httpCallEClass, HTTP_CALL__METHOD);
+		createEReference(httpCallEClass, HTTP_CALL__BODY_GENERATOR);
+		createEReference(httpCallEClass, HTTP_CALL__HEADERS);
+		createEAttribute(httpCallEClass, HTTP_CALL__CONNECT_TIMEOUT);
+		createEAttribute(httpCallEClass, HTTP_CALL__READ_TIMEOUT);
+		createEAttribute(httpCallEClass, HTTP_CALL__SUCCESS_CODE);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 		freeMarkerTemplateLoaderTypeEEnum = createEEnum(FREE_MARKER_TEMPLATE_LOADER_TYPE);
+		httpMethodEEnum = createEEnum(HTTP_METHOD);
 
 		// Create data types
 		exceptionEDataType = createEDataType(EXCEPTION);
@@ -1619,6 +1797,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		converterEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getConverter());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		textToStreamConverterEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getConverter());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		streamToTextConverterEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getConverter());
 		g2 = createEGenericType(filterEClass_T);
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(filterEClass_T);
@@ -1696,6 +1886,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g3 = createEGenericType(this.getBinaryResource());
 		g2.getETypeArguments().add(g3);
 		resourceGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		httpCallEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1792,6 +1986,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getConverter_Generator(), g1, null, "generator", null, 1, 1, Converter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(textToStreamConverterEClass, TextToStreamConverter.class, "TextToStreamConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextToStreamConverter_Charset(), ecorePackage.getEString(), "charset", "", 0, 1, TextToStreamConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(streamToTextConverterEClass, StreamToTextConverter.class, "StreamToTextConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStreamToTextConverter_Charset(), ecorePackage.getEString(), "charset", "", 0, 1, StreamToTextConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(javaGeneratorEClass, JavaGenerator.class, "JavaGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1838,6 +2038,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(resourceGeneratorReferenceEClass, ResourceGeneratorReference.class, "ResourceGeneratorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(httpCallEClass, HttpCall.class, "HttpCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHttpCall_Url(), ecorePackage.getEString(), "url", null, 1, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_Method(), this.getHttpMethod(), "method", "GET", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(this.getInputStream());
+		g1.getETypeArguments().add(g2);
+		initEReference(getHttpCall_BodyGenerator(), g1, null, "bodyGenerator", null, 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHttpCall_Headers(), this.getAbstractNamedGenerator(), null, "headers", null, 0, -1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_ConnectTimeout(), ecorePackage.getEInt(), "connectTimeout", "60", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_ReadTimeout(), ecorePackage.getEInt(), "readTimeout", "60", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_SuccessCode(), ecorePackage.getEInt(), "successCode", "200", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
 		addEEnumLiteral(reconcileActionEEnum, ReconcileAction.KEEP);
@@ -1849,6 +2061,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEEnum(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.class, "FreeMarkerTemplateLoaderType");
 		addEEnumLiteral(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.URL);
 		addEEnumLiteral(freeMarkerTemplateLoaderTypeEEnum, FreeMarkerTemplateLoaderType.BUNDLE);
+
+		initEEnum(httpMethodEEnum, HttpMethod.class, "HttpMethod");
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.GET);
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.POST);
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.PUT);
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.DELETE);
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.PATCH);
 
 		// Initialize data types
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

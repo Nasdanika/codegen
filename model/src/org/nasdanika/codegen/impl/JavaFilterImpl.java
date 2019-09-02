@@ -184,12 +184,12 @@ public abstract class JavaFilterImpl<T> extends FilterImpl<T> implements JavaFil
 	}	
 	
 	@Override
-	protected int getFilterWorkSize() {
+	protected int getConverterWorkSize() {
 		return 1;
 	}
 	
 	@Override
-	protected T filter(Context context, List<T> generationResult, ProgressMonitor monitor) throws Exception {
+	protected T convert(Context context, List<T> generationResult, ProgressMonitor monitor) throws Exception {
 		@SuppressWarnings("unchecked")
 		IFilter<T> filter = (IFilter<T>) instantiate(context, getClassName(), getArguments());
 		return filter.filter(context, join(generationResult), monitor);

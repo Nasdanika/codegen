@@ -98,6 +98,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.STATIC_BYTES: return createStaticBytes();
 			case CodegenPackage.FREE_MARKER_GENERATOR: return createFreeMarkerGenerator();
 			case CodegenPackage.ECORE_MODEL_GENERATOR: return createECoreModelGenerator();
+			case CodegenPackage.TEXT_TO_STREAM_CONVERTER: return createTextToStreamConverter();
+			case CodegenPackage.STREAM_TO_TEXT_CONVERTER: return createStreamToTextConverter();
 			case CodegenPackage.INTERPOLATOR: return createInterpolator();
 			case CodegenPackage.JAVA_TEXT_FILTER: return createJavaTextFilter();
 			case CodegenPackage.JAVA_STREAM_FILTER: return createJavaStreamFilter();
@@ -112,6 +114,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.TEXT_GENERATOR_REFERENCE: return createTextGeneratorReference();
 			case CodegenPackage.STREAM_GENERATOR_REFERENCE: return createStreamGeneratorReference();
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: return createResourceGeneratorReference();
+			case CodegenPackage.HTTP_CALL: return createHttpCall();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -129,6 +132,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return createReconcileActionFromString(eDataType, initialValue);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
 				return createFreeMarkerTemplateLoaderTypeFromString(eDataType, initialValue);
+			case CodegenPackage.HTTP_METHOD:
+				return createHttpMethodFromString(eDataType, initialValue);
 			case CodegenPackage.EXCEPTION:
 				return createExceptionFromString(eDataType, initialValue);
 			case CodegenPackage.INPUT_STREAM:
@@ -164,6 +169,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 				return convertReconcileActionToString(eDataType, instanceValue);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
 				return convertFreeMarkerTemplateLoaderTypeToString(eDataType, instanceValue);
+			case CodegenPackage.HTTP_METHOD:
+				return convertHttpMethodToString(eDataType, instanceValue);
 			case CodegenPackage.EXCEPTION:
 				return convertExceptionToString(eDataType, instanceValue);
 			case CodegenPackage.INPUT_STREAM:
@@ -284,6 +291,28 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ECoreModelGenerator createECoreModelGenerator() {
 		ECoreModelGeneratorImpl eCoreModelGenerator = new ECoreModelGeneratorImpl();
 		return eCoreModelGenerator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextToStreamConverter createTextToStreamConverter() {
+		TextToStreamConverterImpl textToStreamConverter = new TextToStreamConverterImpl();
+		return textToStreamConverter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StreamToTextConverter createStreamToTextConverter() {
+		StreamToTextConverterImpl streamToTextConverter = new StreamToTextConverterImpl();
+		return streamToTextConverter;
 	}
 
 	/**
@@ -435,6 +464,17 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	@Override
+	public HttpCall createHttpCall() {
+		HttpCallImpl httpCall = new HttpCallImpl();
+		return httpCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Mustache createMustache() {
 		MustacheImpl mustache = new MustacheImpl();
 		return mustache;
@@ -488,6 +528,26 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	public String convertFreeMarkerTemplateLoaderTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HttpMethod createHttpMethodFromString(EDataType eDataType, String initialValue) {
+		HttpMethod result = HttpMethod.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHttpMethodToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

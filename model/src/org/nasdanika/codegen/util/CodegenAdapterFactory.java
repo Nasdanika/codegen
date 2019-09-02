@@ -139,6 +139,14 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createConverterAdapter();
 			}
 			@Override
+			public Adapter caseTextToStreamConverter(TextToStreamConverter object) {
+				return createTextToStreamConverterAdapter();
+			}
+			@Override
+			public Adapter caseStreamToTextConverter(StreamToTextConverter object) {
+				return createStreamToTextConverterAdapter();
+			}
+			@Override
 			public <T> Adapter caseFilter(Filter<T> object) {
 				return createFilterAdapter();
 			}
@@ -209,6 +217,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResourceGeneratorReference(ResourceGeneratorReference object) {
 				return createResourceGeneratorReferenceAdapter();
+			}
+			@Override
+			public Adapter caseHttpCall(HttpCall object) {
+				return createHttpCallAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -469,6 +481,34 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.TextToStreamConverter <em>Text To Stream Converter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.TextToStreamConverter
+	 * @generated
+	 */
+	public Adapter createTextToStreamConverterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.StreamToTextConverter <em>Stream To Text Converter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.StreamToTextConverter
+	 * @generated
+	 */
+	public Adapter createStreamToTextConverterAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -703,6 +743,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceGeneratorReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.HttpCall <em>Http Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.HttpCall
+	 * @generated
+	 */
+	public Adapter createHttpCallAdapter() {
 		return null;
 	}
 
