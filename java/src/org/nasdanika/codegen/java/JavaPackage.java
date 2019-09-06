@@ -168,13 +168,13 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__RECONCILE_ACTION = CodegenPackage.CONTAINER__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FOLDER__CHILDREN = CodegenPackage.CONTAINER__CHILDREN;
+	int SOURCE_FOLDER__ELEMENTS = CodegenPackage.CONTAINER__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Jdk Level</b></em>' attribute.
@@ -331,13 +331,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__RECONCILE_ACTION = CodegenPackage.CONTAINER__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CHILDREN = CodegenPackage.CONTAINER__CHILDREN;
+	int PACKAGE__ELEMENTS = CodegenPackage.CONTAINER__ELEMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.

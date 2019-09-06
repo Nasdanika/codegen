@@ -58,7 +58,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES);
+			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -101,14 +101,12 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ZipArchive)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ZipArchive_type") :
-			getString("_UI_ZipArchive_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ZipArchive_type") : label;
 	}
 	
 
@@ -124,7 +122,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ZipArchive.class)) {
-			case CodegenPackage.ZIP_ARCHIVE__ENTRIES:
+			case CodegenPackage.ZIP_ARCHIVE__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -142,7 +140,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES);
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

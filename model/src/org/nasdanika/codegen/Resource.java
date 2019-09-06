@@ -25,7 +25,7 @@ import org.nasdanika.common.resources.BinaryResource;
  * @model abstract="true" TBounds="org.nasdanika.codegen.BinaryResource"
  * @generated
  */
-public interface Resource<T extends BinaryResource> extends Generator<T> {
+public interface Resource<T extends BinaryResource> extends ResourceGenerator<T> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

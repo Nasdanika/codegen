@@ -207,6 +207,31 @@
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceGenerator" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base interface for resources and resource group"/>
+    </eAnnotations>
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//BinaryResource"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//Generator">
+      <eTypeArguments eTypeParameter="#//ResourceGenerator/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Something which can contain resources."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Folder can contain other resource generators."/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//ResourceGenerator">
+        <eTypeArguments eClassifier="#//BinaryResource"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="ResourceGenerator generates an InputStream resource - file or container. "/>
@@ -225,7 +250,7 @@
         <details key="documentation" value="Action to take if resource with given name already exists."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="#//Generator">
+    <eGenericSuperTypes eClassifier="#//ResourceGenerator">
       <eTypeArguments eTypeParameter="#//Resource/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -287,24 +312,19 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Container of resources."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Folder can contain other resource generators."/>
-      </eAnnotations>
-      <eGenericType eClassifier="#//Resource">
-        <eTypeArguments eClassifier="#//BinaryResource"/>
-      </eGenericType>
-    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Resource">
       <eTypeArguments eClassifier="#//BinaryEntityContainer"/>
     </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//ResourceContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceGroup">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of resources. "/>
     </eAnnotations>
     <eGenericSuperTypes eClassifier="#//Group">
+      <eTypeArguments eClassifier="#//BinaryResource"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//ResourceGenerator">
       <eTypeArguments eClassifier="#//BinaryResource"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -572,18 +592,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Creates a zip archive from the contained resources."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-        containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Folder can contain other resource generators."/>
-      </eAnnotations>
-      <eGenericType eClassifier="#//Resource">
-        <eTypeArguments eClassifier="#//BinaryResource"/>
-      </eGenericType>
-    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Generator">
       <eTypeArguments eClassifier="#//InputStream"/>
     </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//ResourceContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TextGroup">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

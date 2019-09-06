@@ -49,6 +49,8 @@ import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Property;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceContainer;
+import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.StaticBytes;
@@ -117,6 +119,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass groupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -740,6 +756,36 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getResourceGenerator() {
+		return resourceGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceContainer() {
+		return resourceContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResourceContainer_Elements() {
+		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFile() {
 		return fileEClass;
 	}
@@ -842,16 +888,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EClass getContainer() {
 		return containerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getContainer_Children() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1220,16 +1256,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getZipArchive_Entries() {
-		return (EReference)zipArchiveEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTextGroup() {
 		return textGroupEClass;
 	}
@@ -1572,6 +1598,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__ELEMENTS);
 
+		resourceGeneratorEClass = createEClass(RESOURCE_GENERATOR);
+
+		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
+		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ELEMENTS);
+
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__NAME);
 		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
@@ -1587,7 +1618,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(textFileEClass, TEXT_FILE__ENCODING);
 
 		containerEClass = createEClass(CONTAINER);
-		createEReference(containerEClass, CONTAINER__CHILDREN);
 
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
@@ -1649,7 +1679,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		mustacheEClass = createEClass(MUSTACHE);
 
 		zipArchiveEClass = createEClass(ZIP_ARCHIVE);
-		createEReference(zipArchiveEClass, ZIP_ARCHIVE__ENTRIES);
 
 		textGroupEClass = createEClass(TEXT_GROUP);
 
@@ -1715,6 +1744,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		addETypeParameter(workFactoryEClass, "T");
 		ETypeParameter generatorEClass_T = addETypeParameter(generatorEClass, "T");
 		ETypeParameter groupEClass_T = addETypeParameter(groupEClass, "T");
+		ETypeParameter resourceGeneratorEClass_T = addETypeParameter(resourceGeneratorEClass, "T");
 		ETypeParameter resourceEClass_T = addETypeParameter(resourceEClass, "T");
 		ETypeParameter fileEClass_C = addETypeParameter(fileEClass, "C");
 		ETypeParameter contentReferenceEClass_T = addETypeParameter(contentReferenceEClass, "T");
@@ -1729,6 +1759,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getBinaryResource());
+		resourceGeneratorEClass_T.getEBounds().add(g1);
+		g1 = createEGenericType(this.getBinaryResource());
 		resourceEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
@@ -1749,6 +1781,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		groupEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGenerator());
+		g2 = createEGenericType(resourceGeneratorEClass_T);
+		g1.getETypeArguments().add(g2);
+		resourceGeneratorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceGenerator());
 		g2 = createEGenericType(resourceEClass_T);
 		g1.getETypeArguments().add(g2);
 		resourceEClass.getEGenericSuperTypes().add(g1);
@@ -1768,7 +1804,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getBinaryEntityContainer());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceContainer());
+		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGroup());
+		g2 = createEGenericType(this.getBinaryResource());
+		g1.getETypeArguments().add(g2);
+		resourceGroupEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceGenerator());
 		g2 = createEGenericType(this.getBinaryResource());
 		g1.getETypeArguments().add(g2);
 		resourceGroupEClass.getEGenericSuperTypes().add(g1);
@@ -1864,6 +1906,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		zipArchiveEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceContainer());
+		zipArchiveEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getGroup());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
@@ -1936,6 +1980,14 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getGroup_Elements(), g1, null, "elements", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(resourceGeneratorEClass, ResourceGenerator.class, "ResourceGenerator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getResourceGenerator());
+		g2 = createEGenericType(this.getBinaryResource());
+		g1.getETypeArguments().add(g2);
+		initEReference(getResourceContainer_Elements(), g1, null, "elements", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1954,10 +2006,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getTextFile_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, TextFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getBinaryResource());
-		g1.getETypeArguments().add(g2);
-		initEReference(getContainer_Children(), g1, null, "children", null, 0, -1, org.nasdanika.codegen.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2022,10 +2070,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(mustacheEClass, Mustache.class, "Mustache", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(zipArchiveEClass, ZipArchive.class, "ZipArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getResource());
-		g2 = createEGenericType(this.getBinaryResource());
-		g1.getETypeArguments().add(g2);
-		initEReference(getZipArchive_Entries(), g1, null, "entries", null, 0, -1, ZipArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textGroupEClass, TextGroup.class, "TextGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

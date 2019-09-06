@@ -147,6 +147,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateProperty((Property)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GENERATOR:
+				return validateResourceGenerator((ResourceGenerator<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_CONTAINER:
+				return validateResourceContainer((ResourceContainer)value, diagnostics, context);
 			case CodegenPackage.RESOURCE:
 				return validateResource((Resource<?>)value, diagnostics, context);
 			case CodegenPackage.FILE:
@@ -264,6 +268,10 @@ public class CodegenValidator extends EObjectValidator {
 				return validateProperty((Property)value, diagnostics, context);
 			case CodegenPackage.GROUP:
 				return validateGroup((Group<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GENERATOR:
+				return validateResourceGenerator((ResourceGenerator<?>)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_CONTAINER:
+				return validateResourceContainer((ResourceContainer)value, diagnostics, context);
 			case CodegenPackage.RESOURCE:
 				return validateResource((Resource<?>)value, diagnostics, context);
 			case CodegenPackage.FILE:
@@ -441,6 +449,34 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(group, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(group, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceGenerator(ResourceGenerator<?> resourceGenerator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceGenerator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceGenerator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(resourceGenerator, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceContainer(ResourceContainer resourceContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(resourceContainer, diagnostics, context);
 	}
 
 	/**

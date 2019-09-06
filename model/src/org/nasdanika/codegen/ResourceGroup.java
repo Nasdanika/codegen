@@ -15,8 +15,8 @@ import org.nasdanika.common.resources.BinaryResource;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceGroup()
- * @model superTypes="org.nasdanika.codegen.Group&lt;org.nasdanika.codegen.BinaryResource&gt;"
+ * @model superTypes="org.nasdanika.codegen.Group&lt;org.nasdanika.codegen.BinaryResource&gt; org.nasdanika.codegen.ResourceGenerator&lt;org.nasdanika.codegen.BinaryResource&gt;"
  * @generated
  */
-public interface ResourceGroup extends Group<BinaryResource> {
+public interface ResourceGroup extends Group<BinaryResource>, ResourceGenerator<BinaryResource> {
 } // ResourceGroup

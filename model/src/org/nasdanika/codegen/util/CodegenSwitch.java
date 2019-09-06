@@ -110,9 +110,24 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.RESOURCE_GENERATOR: {
+				ResourceGenerator<?> resourceGenerator = (ResourceGenerator<?>)theEObject;
+				T1 result = caseResourceGenerator(resourceGenerator);
+				if (result == null) result = caseGenerator(resourceGenerator);
+				if (result == null) result = caseWorkFactory(resourceGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.RESOURCE_CONTAINER: {
+				ResourceContainer resourceContainer = (ResourceContainer)theEObject;
+				T1 result = caseResourceContainer(resourceContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.RESOURCE: {
 				Resource<?> resource = (Resource<?>)theEObject;
 				T1 result = caseResource(resource);
+				if (result == null) result = caseResourceGenerator(resource);
 				if (result == null) result = caseGenerator(resource);
 				if (result == null) result = caseWorkFactory(resource);
 				if (result == null) result = defaultCase(theEObject);
@@ -122,6 +137,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				File<?> file = (File<?>)theEObject;
 				T1 result = caseFile(file);
 				if (result == null) result = caseResource(file);
+				if (result == null) result = caseResourceGenerator(file);
 				if (result == null) result = caseGenerator(file);
 				if (result == null) result = caseWorkFactory(file);
 				if (result == null) result = defaultCase(theEObject);
@@ -132,6 +148,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseBinaryFile(binaryFile);
 				if (result == null) result = caseFile(binaryFile);
 				if (result == null) result = caseResource(binaryFile);
+				if (result == null) result = caseResourceGenerator(binaryFile);
 				if (result == null) result = caseGenerator(binaryFile);
 				if (result == null) result = caseWorkFactory(binaryFile);
 				if (result == null) result = defaultCase(theEObject);
@@ -142,6 +159,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				T1 result = caseTextFile(textFile);
 				if (result == null) result = caseFile(textFile);
 				if (result == null) result = caseResource(textFile);
+				if (result == null) result = caseResourceGenerator(textFile);
 				if (result == null) result = caseGenerator(textFile);
 				if (result == null) result = caseWorkFactory(textFile);
 				if (result == null) result = defaultCase(theEObject);
@@ -151,6 +169,8 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				Container container = (Container)theEObject;
 				T1 result = caseContainer(container);
 				if (result == null) result = caseResource(container);
+				if (result == null) result = caseResourceContainer(container);
+				if (result == null) result = caseResourceGenerator(container);
 				if (result == null) result = caseGenerator(container);
 				if (result == null) result = caseWorkFactory(container);
 				if (result == null) result = defaultCase(theEObject);
@@ -160,6 +180,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				ResourceGroup resourceGroup = (ResourceGroup)theEObject;
 				T1 result = caseResourceGroup(resourceGroup);
 				if (result == null) result = caseGroup(resourceGroup);
+				if (result == null) result = caseResourceGenerator(resourceGroup);
 				if (result == null) result = caseGenerator(resourceGroup);
 				if (result == null) result = caseWorkFactory(resourceGroup);
 				if (result == null) result = defaultCase(theEObject);
@@ -349,6 +370,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				ZipArchive zipArchive = (ZipArchive)theEObject;
 				T1 result = caseZipArchive(zipArchive);
 				if (result == null) result = caseGenerator(zipArchive);
+				if (result == null) result = caseResourceContainer(zipArchive);
 				if (result == null) result = caseWorkFactory(zipArchive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -496,6 +518,36 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseGroup(Group<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends BinaryResource> T1 caseResourceGenerator(ResourceGenerator<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseResourceContainer(ResourceContainer object) {
 		return null;
 	}
 

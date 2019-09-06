@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceContainer;
+import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.TextFile;
 
 import org.nasdanika.codegen.java.Annotation;
@@ -146,8 +149,16 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorAdapter();
 			}
 			@Override
-			public <T extends BinaryResource> Adapter caseResource(org.nasdanika.codegen.Resource<T> object) {
+			public <T extends BinaryResource> Adapter caseResourceGenerator(ResourceGenerator<T> object) {
+				return createResourceGeneratorAdapter();
+			}
+			@Override
+			public <T extends BinaryResource> Adapter caseResource(Resource<T> object) {
 				return createResourceAdapter();
+			}
+			@Override
+			public Adapter caseResourceContainer(ResourceContainer object) {
+				return createResourceContainerAdapter();
 			}
 			@Override
 			public Adapter caseContainer(Container object) {
@@ -392,6 +403,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceGenerator <em>Resource Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceGenerator
+	 * @generated
+	 */
+	public Adapter createResourceGeneratorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Resource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -402,6 +427,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceContainer <em>Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceContainer
+	 * @generated
+	 */
+	public Adapter createResourceContainerAdapter() {
 		return null;
 	}
 

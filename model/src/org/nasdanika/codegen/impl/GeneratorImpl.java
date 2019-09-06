@@ -4,6 +4,7 @@ package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -542,12 +543,47 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * This method delegates to createWorkItem. Override if the generator produces multiple results.
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
+	protected Work<List<T>> createMultiWorkItem(Context context) throws Exception {
+		Work<T> workItem = createWorkItem(context);
+		return new Work<List<T>>() {
+
+			@Override
+			public long size() {
+				return workItem.size();
+			}
+
+			@Override
+			public String getName() {
+				return workItem.getName();
+			}
+
+			@Override
+			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
+				return Collections.singletonList(workItem.execute(progressMonitor));
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return workItem.undo(progressMonitor);
+			}
+			
+		};
+	}
 
 	/**
 	 * Creates a work item for this generator for each context entry returned by the iterator. 
 	 * @throws Exception
 	 */
-	protected abstract Work<T> createWorkItem(Context context) throws Exception;
+	protected Work<T> createWorkItem(Context context) throws Exception {
+		throw new UnsupportedOperationException("Override in suclass");
+	}
 	
 	@SuppressWarnings("unchecked")
 	protected Collection<Context> iterate(Context thisContext) throws Exception {
@@ -618,22 +654,22 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		
 		GeneratorController<T, Generator<T>> controller = createController(thisContext);
 				
-		CompoundWork<List<T>, T> ret = new CompoundWork<List<T>, T>(getTitle(), getExecutor(thisContext)) { 
+		CompoundWork<List<T>, List<T>> ret = new CompoundWork<List<T>, List<T>>(getTitle(), getExecutor(thisContext)) { 
 			
 			@Override
-			protected List<T> combine(List<T> results, ProgressMonitor monitor) {
-				return results;
+			protected List<T> combine(List<List<T>> results, ProgressMonitor monitor) {
+				return results.stream().reduce(new ArrayList<T>(), (a,r) -> { a.addAll(r); return a; });
 			}
 			
 		};
 
 		if (controller == null) {
-			ret.add(createWorkItem(thisContext));
+			ret.add(createMultiWorkItem(thisContext));
 		} else {
 			Collection<Context> iContexts = iterate(createContext(thisContext));
 			for (Context itemContext: iContexts) {
 				// TODO - namedGenerators
-				ret.add(createWorkItem(itemContext));
+				ret.add(createMultiWorkItem(itemContext));
 				// TODO - explicit configure - sub-work item?
 			}
 		}

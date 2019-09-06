@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
-import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceContainer;
+import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
@@ -31,7 +32,7 @@ import org.nasdanika.common.resources.BinaryResource;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.ContainerImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ContainerImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,8 +64,8 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Resource<BinaryResource>> getChildren() {
-		return (EList<Resource<BinaryResource>>)eDynamicGet(CodegenPackage.CONTAINER__CHILDREN, CodegenPackage.Literals.CONTAINER__CHILDREN, true, true);
+	public EList<ResourceGenerator<BinaryResource>> getElements() {
+		return (EList<ResourceGenerator<BinaryResource>>)eDynamicGet(CodegenPackage.CONTAINER__ELEMENTS, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -75,8 +76,8 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CodegenPackage.CONTAINER__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case CodegenPackage.CONTAINER__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -89,8 +90,8 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.CONTAINER__CHILDREN:
-				return getChildren();
+			case CodegenPackage.CONTAINER__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -104,9 +105,9 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.CONTAINER__CHILDREN:
-				getChildren().clear();
-				getChildren().addAll((Collection<? extends Resource<BinaryResource>>)newValue);
+			case CodegenPackage.CONTAINER__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends ResourceGenerator<BinaryResource>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -120,8 +121,8 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.CONTAINER__CHILDREN:
-				getChildren().clear();
+			case CodegenPackage.CONTAINER__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -135,12 +136,44 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.CONTAINER__CHILDREN:
-				return !getChildren().isEmpty();
+			case CodegenPackage.CONTAINER__ELEMENTS:
+				return !getElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ResourceContainer.class) {
+			switch (derivedFeatureID) {
+				case CodegenPackage.CONTAINER__ELEMENTS: return CodegenPackage.RESOURCE_CONTAINER__ELEMENTS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ResourceContainer.class) {
+			switch (baseFeatureID) {
+				case CodegenPackage.RESOURCE_CONTAINER__ELEMENTS: return CodegenPackage.CONTAINER__ELEMENTS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
 	@Override
 	protected Work<BinaryEntityContainer> createWorkItem(Context context) throws Exception {
 		String name = finalName(context.interpolate(ContainerImpl.this.getName()));
@@ -202,7 +235,7 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 			}
 		};
 		
-		for (Resource<BinaryResource> child: getChildren()) {
+		for (ResourceGenerator<BinaryResource> child: getElements()) {
 			ret.add(child.createWork(childrenContext));
 		}
 		

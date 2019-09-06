@@ -132,7 +132,7 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONTAINER__CHILDREN);
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

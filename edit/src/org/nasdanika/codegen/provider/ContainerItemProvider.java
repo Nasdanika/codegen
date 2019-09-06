@@ -58,7 +58,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.CONTAINER__CHILDREN);
+			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -125,7 +125,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Container.class)) {
-			case CodegenPackage.CONTAINER__CHILDREN:
+			case CodegenPackage.CONTAINER__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,7 +143,7 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 		
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONTAINER__CHILDREN);
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 
 //		newChildDescriptors.add
 //			(createChildParameter

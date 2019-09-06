@@ -10,6 +10,9 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Resource;
+import org.nasdanika.codegen.ResourceContainer;
+import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
@@ -88,6 +91,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseSourceFolder(sourceFolder);
 				if (result == null) result = caseContainer(sourceFolder);
 				if (result == null) result = caseResource(sourceFolder);
+				if (result == null) result = caseResourceContainer(sourceFolder);
+				if (result == null) result = caseResourceGenerator(sourceFolder);
 				if (result == null) result = caseGenerator(sourceFolder);
 				if (result == null) result = caseWorkFactory(sourceFolder);
 				if (result == null) result = defaultCase(theEObject);
@@ -98,6 +103,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = casePackage(package_);
 				if (result == null) result = caseContainer(package_);
 				if (result == null) result = caseResource(package_);
+				if (result == null) result = caseResourceContainer(package_);
+				if (result == null) result = caseResourceGenerator(package_);
 				if (result == null) result = caseGenerator(package_);
 				if (result == null) result = caseWorkFactory(package_);
 				if (result == null) result = defaultCase(theEObject);
@@ -109,6 +116,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTextFile(compilationUnit);
 				if (result == null) result = caseFile(compilationUnit);
 				if (result == null) result = caseResource(compilationUnit);
+				if (result == null) result = caseResourceGenerator(compilationUnit);
 				if (result == null) result = caseGenerator(compilationUnit);
 				if (result == null) result = caseWorkFactory(compilationUnit);
 				if (result == null) result = defaultCase(theEObject);
@@ -439,6 +447,21 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends BinaryResource> T1 caseResourceGenerator(ResourceGenerator<T> object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -449,7 +472,22 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends BinaryResource> T1 caseResource(org.nasdanika.codegen.Resource<T> object) {
+	public <T extends BinaryResource> T1 caseResource(Resource<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseResourceContainer(ResourceContainer object) {
 		return null;
 	}
 
