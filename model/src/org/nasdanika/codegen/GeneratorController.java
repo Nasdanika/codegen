@@ -1,7 +1,6 @@
 package org.nasdanika.codegen;
 
 import java.util.Collection;
-import java.util.Collections;
 
 import org.nasdanika.common.Context;
 
@@ -17,8 +16,6 @@ public interface GeneratorController<T, G extends Generator<T>> extends Generati
 	 * @param context
 	 * @return
 	 */
-	default Collection<Context> iterate(Context context, G generator) throws Exception {
-		return Collections.singleton(context);
-	};
+	Collection<Context> iterate(Context context, G generator) throws Exception;
 
 }
