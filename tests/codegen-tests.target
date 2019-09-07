@@ -25,6 +25,7 @@
 			<unit id="org.jsoup" version="1.12.1"/>
 			<unit id="org.yaml.snakeyaml" version="1.25.0"/>
 			<unit id="com.github.spullara.mustache.java.compiler" version="0.9.6"/>
+			<unit id="io.github.azagniotov.ant-style-path-matcher" version="1.0.0"/>
 		</location>
 	</locations>
 </target>
