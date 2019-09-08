@@ -89,6 +89,22 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>copy-java-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/apidocs/org.nasdanika.codegen.java</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../java/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-edit-javadoc</id>
 						<phase>pre-site</phase>
 						<goals>

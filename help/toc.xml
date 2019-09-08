@@ -4,5 +4,11 @@
 <toc label="Nasdanika" link_to="../org.nasdanika.help/toc.xml#Nasdanika">
    <topic href="doc/overview.md.html" label="Codegen">
       <anchor id="Codegen"/>
+      <topic label="Javadoc">
+         <topic href="doc/api/org.nasdanika.codegen/index.html" label="Codegen">
+         </topic>
+         <topic href="doc/api/org.nasdanika.codegen.java/index.html" label="Java">
+         </topic>
+      </topic>
    </topic>
 </toc>
