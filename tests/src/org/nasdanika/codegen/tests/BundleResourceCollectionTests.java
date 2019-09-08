@@ -27,7 +27,7 @@ public class BundleResourceCollectionTests extends TestsBase {
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			BinaryEntity entity = result.output.get("test.txt", progressMonitor.split("Getting test.txt", 1));
 			assertNotNull(entity);
-			assertTrue(entity.exists(progressMonitor.split("Checking existens", 1, entity)));
+			assertTrue(entity.exists(progressMonitor.split("Checking existence", 1, entity)));
 			assertEquals("Hello ${name}!!!", DefaultConverter.INSTANCE.convert(entity.getState(progressMonitor.split("Getting state", 1, entity)), String.class));
 		}
 		
@@ -41,7 +41,7 @@ public class BundleResourceCollectionTests extends TestsBase {
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			BinaryEntity entity = result.output.get("test.txt", progressMonitor.split("Getting test.txt", 1));
 			assertNotNull(entity);
-			assertTrue(entity.exists(progressMonitor.split("Checking existens", 1, entity)));
+			assertTrue(entity.exists(progressMonitor.split("Checking existence", 1, entity)));
 			assertEquals("Hello World!!!", DefaultConverter.INSTANCE.convert(entity.getState(progressMonitor.split("Getting state", 1, entity)), String.class));
 		}
 		
