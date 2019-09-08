@@ -247,6 +247,24 @@ public interface CodegenFactory extends EFactory {
 	HttpCall createHttpCall();
 
 	/**
+	 * Returns a new object of class '<em>Bundle Resource Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bundle Resource Collection</em>'.
+	 * @generated
+	 */
+	BundleResourceCollection createBundleResourceCollection();
+
+	/**
+	 * Returns a new object of class '<em>Zip Resource Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Zip Resource Collection</em>'.
+	 * @generated
+	 */
+	ZipResourceCollection createZipResourceCollection();
+
+	/**
 	 * Returns a new object of class '<em>Mustache</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

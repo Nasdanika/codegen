@@ -2,20 +2,19 @@
  */
 package org.nasdanika.codegen.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Converter;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.util.CodegenValidator;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
@@ -28,7 +27,7 @@ import org.nasdanika.common.Work;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.ConverterImpl#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ConverterImpl#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,50 +57,10 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public Generator<S> getGenerator() {
-		return (Generator<S>)eDynamicGet(CodegenPackage.CONVERTER__GENERATOR, CodegenPackage.Literals.CONVERTER__GENERATOR, true, true);
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGenerator(Generator<S> newGenerator, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newGenerator, CodegenPackage.CONVERTER__GENERATOR, msgs);
-		return msgs;
-	}
-
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			if (getGenerator() == null) {
-				diagnostics.add
-				(new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 CodegenValidator.DIAGNOSTIC_SOURCE,
-					 CodegenValidator.GENERATOR__VALIDATE,
-					 "["+EObjectValidator.getObjectLabel(this, context)+"] Generator is not set",
-					 new Object [] { this, CodegenPackage.Literals.CONVERTER__GENERATOR }));
-			
-				result = false;						
-			}
-			
-		}
-		return result;
-	}
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setGenerator(Generator<S> newGenerator) {
-		eDynamicSet(CodegenPackage.CONVERTER__GENERATOR, CodegenPackage.Literals.CONVERTER__GENERATOR, newGenerator);
+	public EList<Generator<S>> getGenerators() {
+		return (EList<Generator<S>>)eDynamicGet(CodegenPackage.CONVERTER__GENERATORS, CodegenPackage.Literals.CONVERTER__GENERATORS, true, true);
 	}
 
 	/**
@@ -112,8 +71,8 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CodegenPackage.CONVERTER__GENERATOR:
-				return basicSetGenerator(null, msgs);
+			case CodegenPackage.CONVERTER__GENERATORS:
+				return ((InternalEList<?>)getGenerators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,8 +85,8 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.CONVERTER__GENERATOR:
-				return getGenerator();
+			case CodegenPackage.CONVERTER__GENERATORS:
+				return getGenerators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,8 +100,9 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.CONVERTER__GENERATOR:
-				setGenerator((Generator<S>)newValue);
+			case CodegenPackage.CONVERTER__GENERATORS:
+				getGenerators().clear();
+				getGenerators().addAll((Collection<? extends Generator<S>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -156,8 +116,8 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.CONVERTER__GENERATOR:
-				setGenerator((Generator<S>)null);
+			case CodegenPackage.CONVERTER__GENERATORS:
+				getGenerators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -171,42 +131,32 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.CONVERTER__GENERATOR:
-				return getGenerator() != null;
+			case CodegenPackage.CONVERTER__GENERATORS:
+				return !getGenerators().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 		
 	@Override
 	protected Work<T> createWorkItem(Context context) throws Exception {
-
-		Work<List<S>> gWork = getGenerator().createWork(context);
 		
-		return new Work<T>() {
-			
+		CompoundWork<T, List<S>> ret = new CompoundWork<T, List<S>>("Converter "+getTitle(), getExecutor(context)) {
+
 			@Override
-			public long size() {
-				return gWork.size() + getConverterWorkSize();
-			}
-			
-			@Override
-			public T execute(ProgressMonitor monitor) throws Exception {
-				List<S> wr = gWork.execute(monitor.split("Generating", gWork.size(), gWork));
-				T converted = convert(context, wr, monitor.split("Filtering", getConverterWorkSize(), ConverterImpl.this));
+			protected T combine(List<List<S>> results, ProgressMonitor progressMonitor) throws Exception {
+				List<S> wr = results.stream().reduce(new ArrayList<S>(), (a, c) -> {a.addAll(c); return a; });
+				T converted = convert(context, wr, progressMonitor.split("Combining", getConverterWorkSize(), ConverterImpl.this));
 				return converted;
-			}
-
-			@Override
-			public String getName() {
-				return "Filter "+getTitle();
-			}
-
-			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				return gWork.undo(progressMonitor);
 			}
 			
 		};
+
+		for (Generator<S> g: getGenerators()) {
+			ret.add(g.createWork(context));
+		}
+		
+		return ret;
+		
 	}
 	
 	protected abstract int getConverterWorkSize();

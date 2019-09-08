@@ -1,5 +1,7 @@
 package org.nasdanika.codegen.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.util.Collections;
 import java.util.HashMap;
@@ -243,7 +245,51 @@ public class StaticTextTests extends TestsBase {
 			Assert.assertEquals(1, result.size());
 			Assert.assertEquals("Hello, World!", result.get(0));
 		}
-	}		
+	}
+		
+	@Test
+	public void testController() throws Exception {
+		Context context = Context.EMPTY_CONTEXT;
+		GenerationResult result = validateAndGenerate("static-text/controller", context);
+		
+		@SuppressWarnings("unchecked")
+		List<String> results = (List<String>) result.result; 
+		assertEquals(3, results.size());
+		assertEquals("Hello, Mr. Element-0!", results.get(0));		
+	}
+	
+	@Test
+	public void testControllerWithArguments() throws Exception {
+		Context context = Context.singleton("argument-property", "XYZ");
+		GenerationResult result = validateAndGenerate("static-text/controller-with-arguments", context);
+		
+		@SuppressWarnings("unchecked")
+		List<String> results = (List<String>) result.result; 
+		assertEquals(3, results.size());
+		assertEquals("Hello, Mr. E-XYZ-0!", results.get(0));
+	}
+		
+	@Test
+	public void testControllerWithStaticMethoReference() throws Exception {
+		Context context = Context.EMPTY_CONTEXT;
+		GenerationResult result = validateAndGenerate("static-text/controller-static-method-reference", context);
+		
+		@SuppressWarnings("unchecked")
+		List<String> results = (List<String>) result.result; 
+		assertEquals(3, results.size());
+		assertEquals("Hello, Mr. Static-1!", results.get(1));
+	}
+		
+	@Test
+	public void testControllerWithInstanceMethoReference() throws Exception {
+		Context context = Context.singleton("argument-property", "ABC");
+		GenerationResult result = validateAndGenerate("static-text/controller-method-reference-with-arguments", context);
+		
+		@SuppressWarnings("unchecked")
+		List<String> results = (List<String>) result.result; 
+		assertEquals(3, results.size());
+		assertEquals("Hello, Mr. E-ABC-2!", results.get(2));
+	}
 
 //	interpolation-configuration-invalid.yml
 //	interpolation-configuration.yml
@@ -263,8 +309,6 @@ public class StaticTextTests extends TestsBase {
 //	configuration-reference.yml
 //	configuration.codegen
 //	context-path.codegen
-//	controller-with-arguments.codegen
-//	controller.codegen
 //	disabled.codegen
 //	wrong-controller-class.codegen
 //	wrong-number-of-controller-arguments.codegen	

@@ -19,7 +19,6 @@ public class TextGroupTests extends TestsBase {
 	public void testPredicateRussianLocale() throws Exception {
 		Context context = Context.singleton("locale", "ru");
 		GenerationResult result = validateAndGenerate("text-group/predicate", context);
-		System.out.println(result.result);
 		assertEquals(Collections.singletonList("Всем привет!"), result.result);		
 	}
 	
@@ -27,7 +26,6 @@ public class TextGroupTests extends TestsBase {
 	public void testPredicateEnglishLocale() throws Exception {
 		Context context = Context.singleton("locale", "en");
 		GenerationResult result = validateAndGenerate("text-group/predicate", context);
-		System.out.println(result.result);
 		assertEquals(Collections.singletonList("Hello everybody!"), result.result);		
 	}
 	
@@ -36,7 +34,6 @@ public class TextGroupTests extends TestsBase {
 	public void testPredicateNoLocale() throws Exception {
 		Context context = Context.EMPTY_CONTEXT;
 		GenerationResult result = validateAndGenerate("text-group/predicate", context);
-		System.out.println(result.result);
 		assertEquals(Collections.singletonList("Hello everybody!"), result.result);		
 	}
 	

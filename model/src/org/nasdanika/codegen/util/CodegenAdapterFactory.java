@@ -231,6 +231,18 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createHttpCallAdapter();
 			}
 			@Override
+			public Adapter caseResourceCollection(ResourceCollection object) {
+				return createResourceCollectionAdapter();
+			}
+			@Override
+			public Adapter caseBundleResourceCollection(BundleResourceCollection object) {
+				return createBundleResourceCollectionAdapter();
+			}
+			@Override
+			public Adapter caseZipResourceCollection(ZipResourceCollection object) {
+				return createZipResourceCollectionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -793,6 +805,48 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHttpCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceCollection <em>Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceCollection
+	 * @generated
+	 */
+	public Adapter createResourceCollectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.BundleResourceCollection <em>Bundle Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.BundleResourceCollection
+	 * @generated
+	 */
+	public Adapter createBundleResourceCollectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ZipResourceCollection <em>Zip Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ZipResourceCollection
+	 * @generated
+	 */
+	public Adapter createZipResourceCollectionAdapter() {
 		return null;
 	}
 

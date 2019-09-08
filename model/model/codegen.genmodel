@@ -121,7 +121,7 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//Converter">
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/S"/>
       <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/T"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Converter/generator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Converter/generators"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//TextToStreamConverter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextToStreamConverter/charset"/>
@@ -170,6 +170,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/connectTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/readTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/successCode"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//ResourceCollection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/includes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/excludes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationIncludes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationExcludes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationCharset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/reconcileAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/merger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/mergerArguments"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//BundleResourceCollection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResourceCollection/bundle"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ZipResourceCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipResourceCollection/generators"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

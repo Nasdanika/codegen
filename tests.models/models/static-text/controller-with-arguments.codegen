@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Controller with arguments test" description="Test of a controller with arguments." configuration="name: Mr. ${surname}" controller="org.nasdanika.codegen.tests.models.StaticTextControllerWithArguments" contents="Hello, ${name}!" interpolate="true">
-  <controllerArguments>33</controllerArguments>
-  <controllerArguments>value-two ${argument-property}</controllerArguments>
+<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Controller with arguments test" description="Test of a controller with arguments." configuration="name: Mr. ${surname}" controller="org.nasdanika.codegen.tests.models.StaticTextController" contents="Hello, ${name}!" interpolate="true">
+  <controllerArguments>E-${argument-property}</controllerArguments>
 </org.nasdanika.codegen:StaticText>

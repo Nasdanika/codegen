@@ -427,6 +427,35 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.RESOURCE_COLLECTION: {
+				ResourceCollection resourceCollection = (ResourceCollection)theEObject;
+				T1 result = caseResourceCollection(resourceCollection);
+				if (result == null) result = caseResourceGenerator(resourceCollection);
+				if (result == null) result = caseGenerator(resourceCollection);
+				if (result == null) result = caseWorkFactory(resourceCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.BUNDLE_RESOURCE_COLLECTION: {
+				BundleResourceCollection bundleResourceCollection = (BundleResourceCollection)theEObject;
+				T1 result = caseBundleResourceCollection(bundleResourceCollection);
+				if (result == null) result = caseResourceCollection(bundleResourceCollection);
+				if (result == null) result = caseResourceGenerator(bundleResourceCollection);
+				if (result == null) result = caseGenerator(bundleResourceCollection);
+				if (result == null) result = caseWorkFactory(bundleResourceCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION: {
+				ZipResourceCollection zipResourceCollection = (ZipResourceCollection)theEObject;
+				T1 result = caseZipResourceCollection(zipResourceCollection);
+				if (result == null) result = caseResourceCollection(zipResourceCollection);
+				if (result == null) result = caseResourceGenerator(zipResourceCollection);
+				if (result == null) result = caseGenerator(zipResourceCollection);
+				if (result == null) result = caseWorkFactory(zipResourceCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1013,6 +1042,51 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseHttpCall(HttpCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Collection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseResourceCollection(ResourceCollection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bundle Resource Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bundle Resource Collection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBundleResourceCollection(BundleResourceCollection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Zip Resource Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Zip Resource Collection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseZipResourceCollection(ZipResourceCollection object) {
 		return null;
 	}
 

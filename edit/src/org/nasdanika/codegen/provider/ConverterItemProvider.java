@@ -58,7 +58,7 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.CONVERTER__GENERATOR);
+			childrenFeatures.add(CodegenPackage.Literals.CONVERTER__GENERATORS);
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +113,7 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Converter.class)) {
-			case CodegenPackage.CONVERTER__GENERATOR:
+			case CodegenPackage.CONVERTER__GENERATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -131,7 +131,7 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONVERTER__GENERATOR);
+		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONVERTER__GENERATORS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

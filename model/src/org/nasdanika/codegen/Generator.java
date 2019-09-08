@@ -83,9 +83,11 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * Generator controller class. Must implement org.nasdanika.codegen.GeneratorController
 	 * for generators and org.nasdanika.codegen.GroupController for groups.
 	 * 
-	 * It is also to pass method reference using ``::`` notation, e.g. ``com.mycompany.MyUtil::codeGenerationController``. 
+	 * It is also possible to pass method reference using ``::`` notation, e.g. ``com.mycompany.MyUtil::codeGenerationController``. 
 	 * The referenced method shall take the same paramters as ``GeneratorController::iterate`` - context and generator.
 	 * The method can be static. In this case the list of controller arguments must be empty.
+	 * 
+	 * Note that controller classes can validate the generator, but controller methods can only iterate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Controller</em>' attribute.
 	 * @see #setController(String)

@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +18,7 @@ package org.nasdanika.codegen;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.Converter#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Converter#getGenerators <em>Generators</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getConverter()
@@ -25,28 +27,18 @@ package org.nasdanika.codegen;
  */
 public interface Converter<S, T> extends Generator<T> {
 	/**
-	 * Returns the value of the '<em><b>Generator</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;S&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Generator producing converter input.
+	 * Generators producing converter input.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generator</em>' containment reference.
-	 * @see #setGenerator(Generator)
-	 * @see org.nasdanika.codegen.CodegenPackage#getConverter_Generator()
+	 * @return the value of the '<em>Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getConverter_Generators()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Generator<S> getGenerator();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.Converter#getGenerator <em>Generator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generator</em>' containment reference.
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	void setGenerator(Generator<S> value);
+	EList<Generator<S>> getGenerators();
 
 } // Converter

@@ -115,6 +115,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.STREAM_GENERATOR_REFERENCE: return createStreamGeneratorReference();
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: return createResourceGeneratorReference();
 			case CodegenPackage.HTTP_CALL: return createHttpCall();
+			case CodegenPackage.BUNDLE_RESOURCE_COLLECTION: return createBundleResourceCollection();
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION: return createZipResourceCollection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -467,6 +469,28 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public HttpCall createHttpCall() {
 		HttpCallImpl httpCall = new HttpCallImpl();
 		return httpCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BundleResourceCollection createBundleResourceCollection() {
+		BundleResourceCollectionImpl bundleResourceCollection = new BundleResourceCollectionImpl();
+		return bundleResourceCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ZipResourceCollection createZipResourceCollection() {
+		ZipResourceCollectionImpl zipResourceCollection = new ZipResourceCollectionImpl();
+		return zipResourceCollection;
 	}
 
 	/**

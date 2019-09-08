@@ -393,16 +393,16 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		
 		String controllerClassName = controllerName.substring(0, idx);
 		String controllerMethodName = controllerName.substring(idx + 2).trim();
-		Class<?> controllerClass = loadClass(controllerClassName);
+		Class<?> controllerClass = loadClass(context, controllerClassName);
 		Optional<Method> controllerMethodOptional = Arrays.stream(controllerClass.getMethods())
 			.filter(m -> m.getName().equals(controllerMethodName))
 			.filter(m -> m.getParameterCount() == 2)			
-			.filter(m -> Context.class.equals(m.getParameterTypes()[0]) && Generator.class.equals(m.getParameterTypes()[1]))
+			.filter(m -> Context.class.equals(m.getParameterTypes()[0]) && m.getParameterTypes()[1].isInstance(this))
 			.filter(m -> Collection.class.isAssignableFrom(m.getReturnType()))
 			.findFirst();
 		
 		if (controllerMethodOptional.isEmpty()) {
-			throw new IllegalArgumentException("Cannot find method Collection<Context>"+controllerMethodName+"(Context,Generator) in "+controllerClassName);
+			throw new IllegalArgumentException("Cannot find method Collection<Context> "+controllerMethodName+"(Context,Generator) in "+controllerClassName);
 		}
 		
 		Method controllerMethod = controllerMethodOptional.get();
@@ -671,17 +671,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		throw new UnsupportedOperationException("Override in suclass");
 	}
 	
-	@SuppressWarnings("unchecked")
-	protected Collection<Context> iterate(Context thisContext) throws Exception {
-		
-		if (getController() == null || getController().trim().length() == 0) {
-			return Collections.singleton(thisContext);
-		}
-					
-		GeneratorController<T, Generator<T>> controller = (GeneratorController<T, Generator<T>>) instantiate(thisContext, getController(), getControllerArguments());
-		return controller.iterate(thisContext, this);
-	}
-	
 	/**
 	 * @return {@link Executor} provided in the context (if any) if elements of the compound work created by this generator can be executed in parallel, null otherwise. 
 	 * This implementation returns executor service from the context. Override to return null for sequential execution in the caller thread.
@@ -730,7 +719,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		String predicate = context.interpolate(getPredicate());
 		if (predicate != null && predicate.trim().length() > 0) {
 			ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator();
-			ClassLoader classLoader = getClassLoader();
+			ClassLoader classLoader = getClassLoader(context);
 			expressionEvaluator.setParentClassLoader(classLoader);
 			expressionEvaluator.setExpressionType(Boolean.class);
 			expressionEvaluator.setParameters(new String[] { "context" }, new Class[] { Context.class });
@@ -762,8 +751,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			throw new UnsupportedOperationException("Not implemented yet - see the comment above");
 		}
 		
-		GeneratorController<T, Generator<T>> controller = createController(thisContext);
-				
 		CompoundWork<List<T>, List<T>> ret = new CompoundWork<List<T>, List<T>>(getTitle(), getExecutor(thisContext)) { 
 			
 			@Override
@@ -773,10 +760,12 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			
 		};
 
+		GeneratorController<T, Generator<T>> controller = createController(thisContext);
+		
 		if (controller == null) {
 			ret.add(createMultiWorkItem(thisContext));
 		} else {
-			Collection<Context> iContexts = iterate(createContext(thisContext));
+			Collection<Context> iContexts = controller.iterate(createContext(thisContext), this);
 			for (Context itemContext: iContexts) {
 				// TODO - namedGenerators
 				ret.add(createMultiWorkItem(itemContext));
@@ -816,6 +805,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		
 		return Context.wrap(new InterpolatingSource(configMap::get)).compose(parent);
 	}
+	
+	/**
+	 * @return {@link Bundle} containing the model.
+	 */
+	protected Bundle getModelBundle() {
+		URI uri = eResource().getURI();
+		if (uri.isPlatformPlugin() && uri.segmentCount() > 2 && "plugin".equals(uri.segment(0))) {
+			return getBundle(uri.segment(1));
+		}		
+		return null;
+	}
+	
+	protected Bundle getBundle(String symbolicName) {
+		for (Bundle bundle: FrameworkUtil.getBundle(GeneratorImpl.class).getBundleContext().getBundles()) {
+			if (bundle.getSymbolicName().equals(symbolicName)) {					
+				return bundle;
+			}
+		}			
+		return null;
+	}
 
 	/**
 	 * Class loading - bundle symbolic name from uri (authority?), then iterate over bundles adapt them to {@link BundleWiring} to get {@link ClassLoader}.
@@ -824,15 +833,14 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @return
 	 * @throws ClassNotFoundException 
 	 */
-	protected ClassLoader getClassLoader()  {
-		URI uri = eResource().getURI();
-		if (uri.isPlatformPlugin() && uri.segmentCount() > 2 && "plugin".equals(uri.segment(0))) {
-			String pluginName = uri.segment(1);
-			for (Bundle bundle: FrameworkUtil.getBundle(GeneratorImpl.class).getBundleContext().getBundles()) {
-				if (bundle.getSymbolicName().equals(pluginName)) {					
-					return bundle.adapt(BundleWiring.class).getClassLoader();
-				}
-			}			
+	protected ClassLoader getClassLoader(Context context)  {
+		ClassLoader classLoader = context.get(ClassLoader.class);
+		if (classLoader != null) {
+			return classLoader;
+		}
+		Bundle modelBundle = getModelBundle();
+		if (modelBundle != null) {
+			return modelBundle.adapt(BundleWiring.class).getClassLoader();
 		}
 		return getClass().getClassLoader();
 	}
@@ -844,8 +852,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @return
 	 * @throws ClassNotFoundException 
 	 */
-	protected Class<?> loadClass(String className) throws ClassNotFoundException {
-		return getClassLoader().loadClass(className);
+	protected Class<?> loadClass(Context context, String className) throws ClassNotFoundException {
+		return getClassLoader(context).loadClass(className);
 	}
 	
 	protected Object instantiate(Context context, String className) throws Exception {
@@ -859,7 +867,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		if (arguments == null) {
 			arguments = Collections.emptyList();
 		}
-		Class<?> clazz = loadClass(className.trim());
+		Class<?> clazz = loadClass(context, className.trim());
 		for (Constructor<?> constructor: clazz.getConstructors()) {
 			if (constructor.getParameterCount() == arguments.size()) {
 				Class<?>[] pt = constructor.getParameterTypes();

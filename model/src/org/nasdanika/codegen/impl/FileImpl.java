@@ -284,7 +284,7 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 				if (binaryEntity.exists(monitor.split("Checking existence", 1, binaryEntity))) {
 					switch (getReconcileAction()) {
 					case APPEND:
-						binaryEntity.appendState(store(context, contents), monitor);
+						binaryEntity.appendState(store(context, contents), monitor.split("Appending state", 1, binaryEntity));
 						break;
 					case MERGE:
 						String mergerClass = getMerger();
@@ -297,9 +297,9 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 						} else {
 							merger = (Merger<C>) instantiate(context, mergerClass, getMergerArguments());
 						}
-						C oldContent = load(context, binaryEntity.getState(monitor));
-						C mergedContents = merger.merge(context, binaryEntity, oldContent, contents, monitor);
-						binaryEntity.setState(store(context, mergedContents), monitor);
+						C oldContent = load(context, binaryEntity.getState(monitor.split("Getting state", 1, binaryEntity)));
+						C mergedContents = merger.merge(context, binaryEntity, oldContent, contents, monitor.split("Merging", 1, binaryEntity));
+						binaryEntity.setState(store(context, mergedContents), monitor.split("Setting state", 1, binaryEntity));
 						break;
 					case CANCEL:
 						throw new OperationCanceledException("Operation cancelled - file already exists: "+name);
@@ -307,13 +307,13 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 						// Take no action
 						return binaryEntity;
 					case OVERWRITE:
-						binaryEntity.setState(store(context, contents), monitor);
+						binaryEntity.setState(store(context, contents), monitor.split("Setting state", 1, binaryEntity));
 						break;
 					default:
 						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 					}
 				} else {
-					binaryEntity.setState(store(context, contents), monitor);					
+					binaryEntity.setState(store(context, contents), monitor.split("Setting state", 1, binaryEntity));					
 				}
 				
 				// TODO - modification tracking - compute new digest, perhaps part of store().

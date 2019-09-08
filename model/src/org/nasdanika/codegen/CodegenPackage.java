@@ -2715,13 +2715,13 @@ public interface CodegenPackage extends EPackage {
 	int CONVERTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONVERTER__GENERATOR = GENERATOR_FEATURE_COUNT + 0;
+	int CONVERTER__GENERATORS = GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Converter</em>' class.
@@ -2860,13 +2860,13 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_TO_STREAM_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_STREAM_CONVERTER__GENERATOR = CONVERTER__GENERATOR;
+	int TEXT_TO_STREAM_CONVERTER__GENERATORS = CONVERTER__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Charset</b></em>' attribute.
@@ -3014,13 +3014,13 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_TO_TEXT_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STREAM_TO_TEXT_CONVERTER__GENERATOR = CONVERTER__GENERATOR;
+	int STREAM_TO_TEXT_CONVERTER__GENERATORS = CONVERTER__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Charset</b></em>' attribute.
@@ -3158,13 +3158,13 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__GENERATOR = CONVERTER__GENERATOR;
+	int FILTER__GENERATORS = CONVERTER__GENERATORS;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -3437,13 +3437,13 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPOLATOR__GENERATOR = FILTER__GENERATOR;
+	int INTERPOLATOR__GENERATORS = FILTER__GENERATORS;
 
 	/**
 	 * The number of structural features of the '<em>Interpolator</em>' class.
@@ -3572,13 +3572,13 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER__GENERATOR = FILTER__GENERATOR;
+	int JAVA_FILTER__GENERATORS = FILTER__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3725,13 +3725,13 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_TEXT_FILTER__GENERATOR = JAVA_FILTER__GENERATOR;
+	int JAVA_TEXT_FILTER__GENERATORS = JAVA_FILTER__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3878,13 +3878,13 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_STREAM_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_STREAM_FILTER__GENERATOR = JAVA_FILTER__GENERATOR;
+	int JAVA_STREAM_FILTER__GENERATORS = JAVA_FILTER__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -4742,13 +4742,13 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' containment reference.
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MUSTACHE__GENERATOR = FILTER__GENERATOR;
+	int MUSTACHE__GENERATORS = FILTER__GENERATORS;
 
 	/**
 	 * The number of structural features of the '<em>Mustache</em>' class.
@@ -5846,6 +5846,702 @@ public interface CodegenPackage extends EPackage {
 	int HTTP_CALL_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceCollectionImpl <em>Resource Collection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceCollectionImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceCollection()
+	 * @generated
+	 */
+	int RESOURCE_COLLECTION = 41;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__TITLE = RESOURCE_GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__ENABLED = RESOURCE_GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__DESCRIPTION = RESOURCE_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONFIGURATION = RESOURCE_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONFIGURATION_REFERENCE = RESOURCE_GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__PREDICATE = RESOURCE_GENERATOR__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONTROLLER = RESOURCE_GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONTROLLER_ARGUMENTS = RESOURCE_GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__PATH = RESOURCE_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__PREFIX = RESOURCE_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__INCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__EXCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_GENERATOR_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_GENERATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__MERGER = RESOURCE_GENERATOR_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_GENERATOR_FEATURE_COUNT + 9;
+
+	/**
+	 * The number of structural features of the '<em>Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION_OPERATION_COUNT = RESOURCE_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.BundleResourceCollectionImpl <em>Bundle Resource Collection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.BundleResourceCollectionImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBundleResourceCollection()
+	 * @generated
+	 */
+	int BUNDLE_RESOURCE_COLLECTION = 42;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__TITLE = RESOURCE_COLLECTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__ENABLED = RESOURCE_COLLECTION__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__DESCRIPTION = RESOURCE_COLLECTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONFIGURATION = RESOURCE_COLLECTION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONFIGURATION_REFERENCE = RESOURCE_COLLECTION__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_COLLECTION__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__PREDICATE = RESOURCE_COLLECTION__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONTROLLER = RESOURCE_COLLECTION__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONTROLLER_ARGUMENTS = RESOURCE_COLLECTION__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_COLLECTION__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__PATH = RESOURCE_COLLECTION__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__PREFIX = RESOURCE_COLLECTION__PREFIX;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__INCLUDES = RESOURCE_COLLECTION__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__EXCLUDES = RESOURCE_COLLECTION__EXCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_COLLECTION__INTERPOLATION_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_COLLECTION__INTERPOLATION_CHARSET;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_COLLECTION__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__MERGER = RESOURCE_COLLECTION__MERGER;
+
+	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_COLLECTION__MERGER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Bundle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__BUNDLE = RESOURCE_COLLECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bundle Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_COLLECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_COLLECTION___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE_COLLECTION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Bundle Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION_OPERATION_COUNT = RESOURCE_COLLECTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ZipResourceCollectionImpl <em>Zip Resource Collection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ZipResourceCollectionImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipResourceCollection()
+	 * @generated
+	 */
+	int ZIP_RESOURCE_COLLECTION = 43;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__TITLE = RESOURCE_COLLECTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__ENABLED = RESOURCE_COLLECTION__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__DESCRIPTION = RESOURCE_COLLECTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONFIGURATION = RESOURCE_COLLECTION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONFIGURATION_REFERENCE = RESOURCE_COLLECTION__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_COLLECTION__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__PREDICATE = RESOURCE_COLLECTION__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONTROLLER = RESOURCE_COLLECTION__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONTROLLER_ARGUMENTS = RESOURCE_COLLECTION__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_COLLECTION__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__PATH = RESOURCE_COLLECTION__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__PREFIX = RESOURCE_COLLECTION__PREFIX;
+
+	/**
+	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__INCLUDES = RESOURCE_COLLECTION__INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__EXCLUDES = RESOURCE_COLLECTION__EXCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_COLLECTION__INTERPOLATION_INCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES;
+
+	/**
+	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_COLLECTION__INTERPOLATION_CHARSET;
+
+	/**
+	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_COLLECTION__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__MERGER = RESOURCE_COLLECTION__MERGER;
+
+	/**
+	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_COLLECTION__MERGER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__GENERATORS = RESOURCE_COLLECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Zip Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_COLLECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_COLLECTION___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION___VALIDATE__DIAGNOSTICCHAIN_MAP = RESOURCE_COLLECTION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Zip Resource Collection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION_OPERATION_COUNT = RESOURCE_COLLECTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5853,7 +6549,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 41;
+	int RECONCILE_ACTION = 44;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -5863,7 +6559,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 42;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 45;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.HttpMethod <em>Http Method</em>}' enum.
@@ -5873,7 +6569,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpMethod()
 	 * @generated
 	 */
-	int HTTP_METHOD = 43;
+	int HTTP_METHOD = 46;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -5883,7 +6579,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 46;
+	int CONTEXT = 49;
 
 	/**
 	 * The meta object id for the '<em>Binary Resource</em>' data type.
@@ -5893,7 +6589,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 	 * @generated
 	 */
-	int BINARY_RESOURCE = 47;
+	int BINARY_RESOURCE = 50;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity</em>' data type.
@@ -5903,7 +6599,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
 	 * @generated
 	 */
-	int BINARY_ENTITY = 48;
+	int BINARY_ENTITY = 51;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity Container</em>' data type.
@@ -5913,7 +6609,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
 	 * @generated
 	 */
-	int BINARY_ENTITY_CONTAINER = 49;
+	int BINARY_ENTITY_CONTAINER = 52;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -5923,7 +6619,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 45;
+	int INPUT_STREAM = 48;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -5933,7 +6629,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 50;
+	int VOID = 53;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -5943,7 +6639,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 44;
+	int EXCEPTION = 47;
 
 	/**
 	 * The meta object id for the '<em>List</em>' data type.
@@ -5953,7 +6649,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 51;
+	int LIST = 54;
 
 
 	/**
@@ -5964,7 +6660,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 52;
+	int MERGER = 55;
 
 
 	/**
@@ -6520,15 +7216,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getConverter();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.codegen.Converter#getGenerator <em>Generator</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Converter#getGenerators <em>Generators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Generator</em>'.
-	 * @see org.nasdanika.codegen.Converter#getGenerator()
+	 * @return the meta object for the containment reference list '<em>Generators</em>'.
+	 * @see org.nasdanika.codegen.Converter#getGenerators()
 	 * @see #getConverter()
 	 * @generated
 	 */
-	EReference getConverter_Generator();
+	EReference getConverter_Generators();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.TextToStreamConverter <em>Text To Stream Converter</em>}'.
@@ -6894,6 +7590,168 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHttpCall_SuccessCode();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceCollection <em>Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Collection</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection
+	 * @generated
+	 */
+	EClass getResourceCollection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getPath()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getPrefix()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_Prefix();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getIncludes <em>Includes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Includes</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getIncludes()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_Includes();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getExcludes <em>Excludes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Excludes</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getExcludes()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_Excludes();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes <em>Interpolation Includes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Interpolation Includes</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_InterpolationIncludes();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Interpolation Excludes</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_InterpolationExcludes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationCharset <em>Interpolation Charset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolation Charset</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationCharset()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_InterpolationCharset();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getReconcileAction <em>Reconcile Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reconcile Action</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getReconcileAction()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_ReconcileAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getMerger <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merger</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getMerger()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_Merger();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getMergerArguments <em>Merger Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Merger Arguments</em>'.
+	 * @see org.nasdanika.codegen.ResourceCollection#getMergerArguments()
+	 * @see #getResourceCollection()
+	 * @generated
+	 */
+	EAttribute getResourceCollection_MergerArguments();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.BundleResourceCollection <em>Bundle Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bundle Resource Collection</em>'.
+	 * @see org.nasdanika.codegen.BundleResourceCollection
+	 * @generated
+	 */
+	EClass getBundleResourceCollection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.BundleResourceCollection#getBundle <em>Bundle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bundle</em>'.
+	 * @see org.nasdanika.codegen.BundleResourceCollection#getBundle()
+	 * @see #getBundleResourceCollection()
+	 * @generated
+	 */
+	EAttribute getBundleResourceCollection_Bundle();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ZipResourceCollection <em>Zip Resource Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Zip Resource Collection</em>'.
+	 * @see org.nasdanika.codegen.ZipResourceCollection
+	 * @generated
+	 */
+	EClass getZipResourceCollection();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.ZipResourceCollection#getGenerators <em>Generators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Generators</em>'.
+	 * @see org.nasdanika.codegen.ZipResourceCollection#getGenerators()
+	 * @see #getZipResourceCollection()
+	 * @generated
+	 */
+	EReference getZipResourceCollection_Generators();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
@@ -7537,12 +8395,12 @@ public interface CodegenPackage extends EPackage {
 		EClass CONVERTER = eINSTANCE.getConverter();
 
 		/**
-		 * The meta object literal for the '<em><b>Generator</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONVERTER__GENERATOR = eINSTANCE.getConverter_Generator();
+		EReference CONVERTER__GENERATORS = eINSTANCE.getConverter_Generators();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextToStreamConverterImpl <em>Text To Stream Converter</em>}' class.
@@ -7863,6 +8721,132 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HTTP_CALL__SUCCESS_CODE = eINSTANCE.getHttpCall_SuccessCode();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceCollectionImpl <em>Resource Collection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceCollectionImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceCollection()
+		 * @generated
+		 */
+		EClass RESOURCE_COLLECTION = eINSTANCE.getResourceCollection();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__PATH = eINSTANCE.getResourceCollection_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__PREFIX = eINSTANCE.getResourceCollection_Prefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Includes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__INCLUDES = eINSTANCE.getResourceCollection_Includes();
+
+		/**
+		 * The meta object literal for the '<em><b>Excludes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__EXCLUDES = eINSTANCE.getResourceCollection_Excludes();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolation Includes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = eINSTANCE.getResourceCollection_InterpolationIncludes();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolation Excludes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = eINSTANCE.getResourceCollection_InterpolationExcludes();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolation Charset</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__INTERPOLATION_CHARSET = eINSTANCE.getResourceCollection_InterpolationCharset();
+
+		/**
+		 * The meta object literal for the '<em><b>Reconcile Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__RECONCILE_ACTION = eINSTANCE.getResourceCollection_ReconcileAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__MERGER = eINSTANCE.getResourceCollection_Merger();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_COLLECTION__MERGER_ARGUMENTS = eINSTANCE.getResourceCollection_MergerArguments();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.BundleResourceCollectionImpl <em>Bundle Resource Collection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.BundleResourceCollectionImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBundleResourceCollection()
+		 * @generated
+		 */
+		EClass BUNDLE_RESOURCE_COLLECTION = eINSTANCE.getBundleResourceCollection();
+
+		/**
+		 * The meta object literal for the '<em><b>Bundle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUNDLE_RESOURCE_COLLECTION__BUNDLE = eINSTANCE.getBundleResourceCollection_Bundle();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ZipResourceCollectionImpl <em>Zip Resource Collection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ZipResourceCollectionImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipResourceCollection()
+		 * @generated
+		 */
+		EClass ZIP_RESOURCE_COLLECTION = eINSTANCE.getZipResourceCollection();
+
+		/**
+		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZIP_RESOURCE_COLLECTION__GENERATORS = eINSTANCE.getZipResourceCollection_Generators();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.

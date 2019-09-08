@@ -397,6 +397,16 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CodegenPackage.Literals.HTTP_CALL__BODY_GENERATOR,
+				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.HTTP_CALL__BODY_GENERATOR,
+				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CodegenPackage.Literals.HTTP_CALL__HEADERS,
 				 CodegenFactory.eINSTANCE.createNamedGenerator()));
 

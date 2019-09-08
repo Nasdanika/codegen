@@ -645,6 +645,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.BundleResourceCollection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BundleResourceCollectionItemProvider bundleResourceCollectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.BundleResourceCollection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBundleResourceCollectionAdapter() {
+		if (bundleResourceCollectionItemProvider == null) {
+			bundleResourceCollectionItemProvider = new BundleResourceCollectionItemProvider(this);
+		}
+
+		return bundleResourceCollectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ZipResourceCollection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ZipResourceCollectionItemProvider zipResourceCollectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ZipResourceCollection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createZipResourceCollectionAdapter() {
+		if (zipResourceCollectionItemProvider == null) {
+			zipResourceCollectionItemProvider = new ZipResourceCollectionItemProvider(this);
+		}
+
+		return zipResourceCollectionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Mustache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -822,6 +868,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (streamGeneratorReferenceItemProvider != null) streamGeneratorReferenceItemProvider.dispose();
 		if (resourceGeneratorReferenceItemProvider != null) resourceGeneratorReferenceItemProvider.dispose();
 		if (httpCallItemProvider != null) httpCallItemProvider.dispose();
+		if (bundleResourceCollectionItemProvider != null) bundleResourceCollectionItemProvider.dispose();
+		if (zipResourceCollectionItemProvider != null) zipResourceCollectionItemProvider.dispose();
 	}
 
 }
