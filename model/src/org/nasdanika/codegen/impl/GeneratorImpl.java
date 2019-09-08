@@ -401,7 +401,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			.filter(m -> Collection.class.isAssignableFrom(m.getReturnType()))
 			.findFirst();
 		
-		if (controllerMethodOptional.isEmpty()) {
+		if (!controllerMethodOptional.isPresent()) {
 			throw new IllegalArgumentException("Cannot find method Collection<Context> "+controllerMethodName+"(Context,Generator) in "+controllerClassName);
 		}
 		
