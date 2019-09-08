@@ -180,7 +180,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 							if (entity.exists(progressMonitor.split("Checking existence of "+targetPath, 1))) {
 								switch (getReconcileAction()) {
 								case APPEND:
-									entity.appendState(interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Appending state", 1, entity));
+									entity.appendState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Appending state", 1, entity));
 									break;
 								case MERGE:
 									String mergerClass = getMerger();
@@ -191,7 +191,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 										merger = (Merger<InputStream>) instantiate(context, mergerClass, getMergerArguments());
 									}
 									InputStream oldContent = entity.getState(progressMonitor.split("Getting state", 1, entity));
-									InputStream mergedContents = merger.merge(context, entity, oldContent, interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Merging", 1, entity));
+									InputStream mergedContents = merger.merge(context, entity, oldContent, interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Merging", 1, entity));
 									entity.setState(mergedContents, progressMonitor.split("Setting state", 1, entity));
 									break;
 								case CANCEL:
@@ -200,7 +200,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 									// Take no action
 									break;
 								case OVERWRITE:
-									entity.setState(interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Setting state", 1, entity));
+									entity.setState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Setting state", 1, entity));
 									break;
 								default:
 									throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
