@@ -25,6 +25,7 @@ import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.ResourceCollection;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.BinaryResource;
 
 import io.github.azagniotov.matcher.AntPathMatcher;
@@ -485,6 +486,7 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 	 * @return true if the resource shall be interpolated.
 	 */
 	protected boolean shouldInterpolate(String path) {
+		System.out.println("*** Debugging, should interpolate: " + path+" "+getInterpolationIncludes()+", "+getInterpolationExcludes());
 		AntPathMatcher.Builder builder = new AntPathMatcher.Builder();
 		AntPathMatcher matcher = builder.build();
 		boolean interpolate = false; 
@@ -511,7 +513,7 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 	 * @param contents
 	 * @return
 	 */
-	protected InputStream interpolate(Context context, String path, InputStream in) throws Exception {
+	protected InputStream interpolate(Context context, String path, InputStream in, ProgressMonitor progressMonitor) throws Exception {
 		if (shouldInterpolate(path)) {
 			StringWriter sw = new StringWriter();
 			String charset = getInterpolationCharset();
@@ -524,7 +526,10 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 			sw.close();
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			try (Writer writer = charset==null || charset.trim().length()==0 ? new OutputStreamWriter(baos) : new OutputStreamWriter(baos, charset)) {
-				writer.write(context.interpolate(sw.toString()));
+				String str = sw.toString();
+				String interpolatedStr = context.interpolate(str);
+				progressMonitor.worked(1, "Interpolated", str, interpolatedStr);
+				writer.write(interpolatedStr);
 			}
 			baos.close();
 			return new ByteArrayInputStream(baos.toByteArray());						
