@@ -166,11 +166,12 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 				Enumeration<String> entryPaths = bundle.getEntryPaths(path);
 				while (entryPaths.hasMoreElements()) {
 					String entryPath = entryPaths.nextElement();
-					if (include(entryPath)) {
+					String entryRelativePath = path == null || path.trim().length() == 0 ? entryPath : entryPath.substring(path.trim().length());					
+					if (include(entryRelativePath)) {
 						URL entry = bundle.getEntry(entryPath);
 						if (entry != null) {
 							String prefix = getPrefix();
-							String targetPath = prefix == null || prefix.trim().length() == 0 ? entryPath : prefix.trim() + entryPath;
+							String targetPath = prefix == null || prefix.trim().length() == 0 ? entryRelativePath : prefix.trim()+entryRelativePath;
 							BinaryEntity entity = container.get(targetPath, progressMonitor.split("Getting target entity "+targetPath, 1));
 							if (entity == null) {
 								throw new IllegalArgumentException("Cannot obtain entity at "+targetPath);
@@ -179,7 +180,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 							if (entity.exists(progressMonitor.split("Checking existence of "+targetPath, 1))) {
 								switch (getReconcileAction()) {
 								case APPEND:
-									entity.appendState(interpolate(entryPath, entry.openStream()), progressMonitor.split("Appending state", 1, entity));
+									entity.appendState(interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Appending state", 1, entity));
 									break;
 								case MERGE:
 									String mergerClass = getMerger();
@@ -190,7 +191,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 										merger = (Merger<InputStream>) instantiate(context, mergerClass, getMergerArguments());
 									}
 									InputStream oldContent = entity.getState(progressMonitor.split("Getting state", 1, entity));
-									InputStream mergedContents = merger.merge(context, entity, oldContent, interpolate(entryPath, entry.openStream()), progressMonitor.split("Merging", 1, entity));
+									InputStream mergedContents = merger.merge(context, entity, oldContent, interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Merging", 1, entity));
 									entity.setState(mergedContents, progressMonitor.split("Setting state", 1, entity));
 									break;
 								case CANCEL:
@@ -199,7 +200,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 									// Take no action
 									break;
 								case OVERWRITE:
-									entity.setState(interpolate(entryPath, entry.openStream()), progressMonitor.split("Setting state", 1, entity));
+									entity.setState(interpolate(context, entryRelativePath, entry.openStream()), progressMonitor.split("Setting state", 1, entity));
 									break;
 								default:
 									throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());

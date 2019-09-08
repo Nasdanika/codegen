@@ -7,6 +7,7 @@ import org.nasdanika.codegen.TextGroup;
 
 @RunWith(Suite.class)
 @SuiteClasses({
+	BundleResourceCollectionTests.class,
 	GenerateModelDocumentation.class,
 	HttpCallTests.class,
 	StaticTextTests.class,
