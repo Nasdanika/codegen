@@ -155,13 +155,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__CONTEXT_PATH = WORK_FACTORY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__PREDICATE = WORK_FACTORY_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 6;
+	int GENERATOR__CONTROLLER = WORK_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
@@ -170,7 +179,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTROLLER_ARGUMENTS = WORK_FACTORY_FEATURE_COUNT + 7;
+	int GENERATOR__CONTROLLER_ARGUMENTS = WORK_FACTORY_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
@@ -179,7 +188,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 8;
+	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -188,7 +197,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 9;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -447,6 +456,15 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__PREDICATE = GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +599,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -747,6 +774,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__CONTEXT_PATH = RESOURCE_GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__PREDICATE = RESOURCE_GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,6 +926,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__PREDICATE = RESOURCE__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1064,6 +1109,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__CONTEXT_PATH = FILE__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__PREDICATE = FILE__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,6 +1288,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__CONTEXT_PATH = FILE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__PREDICATE = FILE__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -1417,6 +1480,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__PREDICATE = RESOURCE__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1571,6 +1643,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__CONTEXT_PATH = GROUP__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__PREDICATE = GROUP__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1705,6 +1786,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2022,6 +2112,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__PREDICATE = GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2146,6 +2245,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2301,6 +2409,15 @@ public interface CodegenPackage extends EPackage {
 	int ECORE_MODEL_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__PREDICATE = GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2427,6 +2544,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__PREDICATE = GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2551,6 +2677,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERTER__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2687,6 +2822,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_TO_STREAM_CONVERTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__PREDICATE = CONVERTER__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -2834,6 +2978,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_TO_TEXT_CONVERTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__PREDICATE = CONVERTER__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2969,6 +3122,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__CONTEXT_PATH = CONVERTER__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__PREDICATE = CONVERTER__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3093,6 +3255,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -3230,6 +3401,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__CONTEXT_PATH = FILTER__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__PREDICATE = FILTER__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3354,6 +3534,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__CONTEXT_PATH = FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__PREDICATE = FILTER__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -3500,6 +3689,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__CONTEXT_PATH = JAVA_FILTER__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__PREDICATE = JAVA_FILTER__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3642,6 +3840,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__CONTEXT_PATH = JAVA_FILTER__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__PREDICATE = JAVA_FILTER__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -3788,6 +3995,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__PREDICATE = JAVA_GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3921,6 +4137,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__PREDICATE = JAVA_GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -4058,6 +4283,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_RESOURCE_GENERATOR__CONTEXT_PATH = JAVA_GENERATOR__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__PREDICATE = JAVA_GENERATOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4191,6 +4425,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__CONTEXT_PATH = CONTENT_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__PREDICATE = CONTENT_REFERENCE__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -4328,6 +4571,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__CONTEXT_PATH = CONTENT_REFERENCE__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__PREDICATE = CONTENT_REFERENCE__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4454,6 +4706,15 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__CONTEXT_PATH = FILTER__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__PREDICATE = FILTER__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4578,6 +4839,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -4716,6 +4986,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GROUP__CONTEXT_PATH = GROUP__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__PREDICATE = GROUP__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4850,6 +5129,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -4988,6 +5276,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__PREDICATE = GENERATOR_REFERENCE__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5122,6 +5419,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__PREDICATE = GENERATOR_REFERENCE__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -5260,6 +5566,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR_REFERENCE__CONTEXT_PATH;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__PREDICATE = GENERATOR_REFERENCE__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5394,6 +5709,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int HTTP_CALL__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__PREDICATE = GENERATOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Controller</b></em>' attribute.
@@ -5762,6 +6086,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_ContextPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getPredicate <em>Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Predicate</em>'.
+	 * @see org.nasdanika.codegen.Generator#getPredicate()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_Predicate();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#isFilterable() <em>Is Filterable</em>}' operation.
@@ -6838,6 +7173,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__CONTEXT_PATH = eINSTANCE.getGenerator_ContextPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__PREDICATE = eINSTANCE.getGenerator_Predicate();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Filterable</b></em>' operation.

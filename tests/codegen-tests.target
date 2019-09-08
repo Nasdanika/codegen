@@ -3,9 +3,9 @@
 <target name="org.nasdanika.codegen.tests.target">
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<unit id="org.nasdanika.equinox.feature.feature.group" version="1.0.0.201909071011"/>
+			<unit id="org.nasdanika.equinox.feature.feature.group" version="1.0.0.201909071324"/>
 			<repository location="https://www.nasdanika.org/home/products/third-party/repository"/>
-			<unit id="org.nasdanika.third-party.feature.feature.group" version="2.2019.4.201909071011"/>
+			<unit id="org.nasdanika.third-party.feature.feature.group" version="2.2019.9.201909071324"/>
 		</location>
 		<location path="${eclipse_home}" type="Profile"/>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">

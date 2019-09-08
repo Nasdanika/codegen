@@ -557,16 +557,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	@Override
 	public EAttribute getGenerator_Controller() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getGenerator_ControllerArguments() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -576,8 +566,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGenerator_ControllerArguments() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getGenerator_NamedGenerators() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(8);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -628,6 +628,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EAttribute getGenerator_ContextPath() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGenerator_Predicate() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1578,6 +1588,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATION);
 		createEAttribute(generatorEClass, GENERATOR__CONFIGURATION_REFERENCE);
 		createEAttribute(generatorEClass, GENERATOR__CONTEXT_PATH);
+		createEAttribute(generatorEClass, GENERATOR__PREDICATE);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER_ARGUMENTS);
 		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
@@ -1945,6 +1956,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getGenerator_Configuration(), ecorePackage.getEString(), "configuration", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ConfigurationReference(), ecorePackage.getEString(), "configurationReference", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_Predicate(), ecorePackage.getEString(), "predicate", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ControllerArguments(), ecorePackage.getEString(), "controllerArguments", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_NamedGenerators(), this.getAbstractNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

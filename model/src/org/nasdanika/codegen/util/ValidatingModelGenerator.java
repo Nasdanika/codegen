@@ -14,7 +14,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 
 /**
- * This class loads a generator model, validates it and then executes generation. 
+ * This class loads a generator model, validates it and then returns work for executing generation. 
  * @author Pavel
  *
  */

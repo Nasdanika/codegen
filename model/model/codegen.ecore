@@ -89,9 +89,14 @@
         <details key="documentation" value="If contextPath is not null and not empty/blank then the given path used as a prefix &#xA;prepended to the propety names when getting property values from the context. &#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If not blank the predicate shall be a Java expression evaluating to boolean. &#xA;If it evaluates to true then generation work gets executed. &#xA;The predicate expression has access to ``context`` variable. Use ``context.get()`` for retrieval of values from the context.&#xA;&#xA;The predicate expression is interpolated with the context, so another way to access context properties is to use tokens. &#xA;For example ``context.get(&quot;my-property&quot;) > 0`` and ``${my-property} > 0`` are equivalent. &#xA;To safely handle the case ``my-property`` not being set  a property default value may be used in the second option ``${my-property|0} > 0``.&#xA;&#xA;For more advanced control over execution use controller."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="controller" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Generator controller class. Must implement org.nasdanika.codegen.GeneratorController&#xA;for generators and org.nasdanika.codegen.GroupController for groups."/>
+        <details key="documentation" value="Generator controller class. Must implement org.nasdanika.codegen.GeneratorController&#xA;for generators and org.nasdanika.codegen.GroupController for groups.&#xA;&#xA;It is also possible to pass method reference using ``::`` notation, e.g. ``com.mycompany.MyUtil::codeGenerationController``. &#xA;The referenced method shall take the same paramters as ``GeneratorController::iterate`` - context and generator.&#xA;The method can be static. In this case the list of controller arguments must be empty.&#xA;&#xA;Note that controller classes can validate the generator, but controller methods can only iterate."/>
       </eAnnotations>
       <eAnnotations source="org.nasdanika.ui.java-class">
         <details key="root-type" value="org.nasdanika.codegen.GeneratorController"/>

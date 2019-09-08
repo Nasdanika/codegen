@@ -59,6 +59,7 @@ public class GeneratorItemProvider
 			addConfigurationPropertyDescriptor(object);
 			addConfigurationReferencePropertyDescriptor(object);
 			addContextPathPropertyDescriptor(object);
+			addPredicatePropertyDescriptor(object);
 			addControllerPropertyDescriptor(object);
 			addControllerArgumentsPropertyDescriptor(object);
 		}
@@ -242,6 +243,28 @@ public class GeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Predicate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_predicate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_predicate_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__PREDICATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -314,6 +337,7 @@ public class GeneratorItemProvider
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
+			case CodegenPackage.GENERATOR__PREDICATE:
 			case CodegenPackage.GENERATOR__CONTROLLER:
 			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

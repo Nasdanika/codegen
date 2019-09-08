@@ -30,6 +30,7 @@ import org.nasdanika.common.WorkFactory;
  *   <li>{@link org.nasdanika.codegen.Generator#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getConfigurationReference <em>Configuration Reference</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getPredicate <em>Predicate</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
@@ -81,6 +82,10 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- begin-model-doc -->
 	 * Generator controller class. Must implement org.nasdanika.codegen.GeneratorController
 	 * for generators and org.nasdanika.codegen.GroupController for groups.
+	 * 
+	 * It is also to pass method reference using ``::`` notation, e.g. ``com.mycompany.MyUtil::codeGenerationController``. 
+	 * The referenced method shall take the same paramters as ``GeneratorController::iterate`` - context and generator.
+	 * The method can be static. In this case the list of controller arguments must be empty.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Controller</em>' attribute.
 	 * @see #setController(String)
@@ -280,6 +285,39 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	void setContextPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If not blank the predicate shall be a Java expression evaluating to boolean. 
+	 * If it evaluates to true then generation work gets executed. 
+	 * The predicate expression has access to ``context`` variable. Use ``context.get()`` for retrieval of values from the context.
+	 * 
+	 * The predicate expression is interpolated with the context, so another way to access context properties is to use tokens. 
+	 * For example ``context.get("my-property") > 0`` and ``${my-property} > 0`` are equivalent. 
+	 * To safely handle the case ``my-property`` not being set  a property default value may be used in the second option ``${my-property|0} > 0``.
+	 * 
+	 * For more advanced control over execution use controller.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Predicate</em>' attribute.
+	 * @see #setPredicate(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Predicate()
+	 * @model
+	 * @generated
+	 */
+	String getPredicate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getPredicate <em>Predicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Predicate</em>' attribute.
+	 * @see #getPredicate()
+	 * @generated
+	 */
+	void setPredicate(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

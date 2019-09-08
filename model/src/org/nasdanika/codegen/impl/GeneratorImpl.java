@@ -4,13 +4,19 @@ package org.nasdanika.codegen.impl;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.Executor;
 
+import org.codehaus.commons.compiler.CompileException;
+import org.codehaus.janino.ExpressionEvaluator;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -31,11 +37,13 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.InterpolatingSource;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.wiring.BundleWiring;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +59,7 @@ import org.osgi.framework.FrameworkUtil;
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfigurationReference <em>Configuration Reference</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextPath <em>Context Path</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getPredicate <em>Predicate</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
@@ -114,6 +123,15 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected static final String CONTEXT_PATH_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPredicate() <em>Predicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPredicate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREDICATE_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getController() <em>Controller</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -318,6 +336,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPredicate() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__PREDICATE, CodegenPackage.Literals.GENERATOR__PREDICATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPredicate(String newPredicate) {
+		eDynamicSet(CodegenPackage.GENERATOR__PREDICATE, CodegenPackage.Literals.GENERATOR__PREDICATE, newPredicate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isFilterable() {
@@ -343,11 +381,49 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	
 	@SuppressWarnings("unchecked")
 	protected GeneratorController<T, Generator<T>> createController(Context context) throws Exception {
-		if (getController() == null || getController().trim().length() == 0) {
+		String controllerName = getController();
+		if (controllerName == null || controllerName.trim().length() == 0) {
 			return null;
 		}
 		
-		return (GeneratorController<T, Generator<T>>) instantiate(context, getController(), getControllerArguments());
+		int idx = controllerName.indexOf("::");
+		if (idx == -1) {
+			return (GeneratorController<T, Generator<T>>) instantiate(context, controllerName, getControllerArguments());
+		}
+		
+		String controllerClassName = controllerName.substring(0, idx);
+		String controllerMethodName = controllerName.substring(idx + 2).trim();
+		Class<?> controllerClass = loadClass(controllerClassName);
+		Optional<Method> controllerMethodOptional = Arrays.stream(controllerClass.getMethods())
+			.filter(m -> m.getName().equals(controllerMethodName))
+			.filter(m -> m.getParameterCount() == 2)			
+			.filter(m -> Context.class.equals(m.getParameterTypes()[0]) && Generator.class.equals(m.getParameterTypes()[1]))
+			.filter(m -> Collection.class.isAssignableFrom(m.getReturnType()))
+			.findFirst();
+		
+		if (controllerMethodOptional.isEmpty()) {
+			throw new IllegalArgumentException("Cannot find method Collection<Context>"+controllerMethodName+"(Context,Generator) in "+controllerClassName);
+		}
+		
+		Method controllerMethod = controllerMethodOptional.get();
+		Object controller;
+		if (Modifier.isStatic(controllerMethod.getModifiers())) {
+			if (!getControllerArguments().isEmpty()) {
+				throw new IllegalStateException("Controller method "+controllerMethodName+" is static and controller arguments list is not empty");
+			}
+			controller = null;
+		} else {
+			controller = instantiate(context, controllerClassName, getControllerArguments());
+		}
+		return new GeneratorController<T,Generator<T>>() {
+
+			@Override
+			public Collection<Context> iterate(Context context, Generator<T> generator) throws Exception {
+				return (Collection<Context>) controllerMethod.invoke(controller, context, generator);
+			}
+			
+		};
+		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -363,7 +439,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			} else if (context != null && Boolean.TRUE.equals(context.get(Generator.VALIDATE_JAVA_CONTRIBUTORS))) {
 				try {
 					Context nCtx = (Context) context.get(Context.class);
-					Object controller = instantiate(nCtx, getController(), getControllerArguments());
+					Object controller = createController(nCtx);
 					if (controller instanceof GeneratorController) {
 						result = ((GeneratorController<T, Generator<T>>) controller).validate(this, diagnostics, nCtx) && result;
 					} else {
@@ -423,6 +499,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return getConfigurationReference();
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				return getContextPath();
+			case CodegenPackage.GENERATOR__PREDICATE:
+				return getPredicate();
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return getController();
 			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
@@ -459,6 +537,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return;
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				setContextPath((String)newValue);
+				return;
+			case CodegenPackage.GENERATOR__PREDICATE:
+				setPredicate((String)newValue);
 				return;
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController((String)newValue);
@@ -501,6 +582,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				setContextPath(CONTEXT_PATH_EDEFAULT);
 				return;
+			case CodegenPackage.GENERATOR__PREDICATE:
+				setPredicate(PREDICATE_EDEFAULT);
+				return;
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				setController(CONTROLLER_EDEFAULT);
 				return;
@@ -534,6 +618,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return CONFIGURATION_REFERENCE_EDEFAULT == null ? getConfigurationReference() != null : !CONFIGURATION_REFERENCE_EDEFAULT.equals(getConfigurationReference());
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
 				return CONTEXT_PATH_EDEFAULT == null ? getContextPath() != null : !CONTEXT_PATH_EDEFAULT.equals(getContextPath());
+			case CodegenPackage.GENERATOR__PREDICATE:
+				return PREDICATE_EDEFAULT == null ? getPredicate() != null : !PREDICATE_EDEFAULT.equals(getPredicate());
 			case CodegenPackage.GENERATOR__CONTROLLER:
 				return CONTROLLER_EDEFAULT == null ? getController() != null : !CONTROLLER_EDEFAULT.equals(getController());
 			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
@@ -613,30 +699,54 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 */
 	@Override
 	final public Work<List<T>> createWork(Context context) throws Exception {
+		Work<List<T>> noWork = new Work<List<T>>() {
+
+			@Override
+			public long size() {
+				return 0;
+			}
+
+			@Override
+			public String getName() {
+				return "[Disabled] "+getTitle();
+			}
+
+			@Override
+			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
+				return Collections.emptyList();
+			}
+
+			@Override
+			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+				return true;
+			}
+			
+		};
+		
 		if (!isEnabled()) {
-			return new Work<List<T>>() {
-
-				@Override
-				public long size() {
-					return 0;
-				}
-
-				@Override
-				public String getName() {
-					return "[Disabled] "+getTitle();
-				}
-
-				@Override
-				public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
-					return Collections.emptyList();
-				}
-
-				@Override
-				public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-					return true;
-				}
-				
-			};
+			return noWork;
+		}
+		
+		String predicate = context.interpolate(getPredicate());
+		if (predicate != null && predicate.trim().length() > 0) {
+			ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator();
+			ClassLoader classLoader = getClassLoader();
+			expressionEvaluator.setParentClassLoader(classLoader);
+			expressionEvaluator.setExpressionType(Boolean.class);
+			expressionEvaluator.setParameters(new String[] { "context" }, new Class[] { Context.class });
+			try {
+				expressionEvaluator.cook(predicate);
+			} catch (CompileException e) {
+				throw new NasdanikaException("Cannot compile predicate: "+predicate, e);
+			}
+			
+			try {
+				if (!Boolean.TRUE.equals((Boolean) expressionEvaluator.evaluate(new Object[] { context }))) {
+					return noWork;
+				};
+			} catch (InvocationTargetException e) {
+				throw new NasdanikaException("Cannot evaluate predicate: "+predicate, e);
+			}
 		}
 		
 		if (isFilterable()) {
@@ -706,6 +816,26 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		
 		return Context.wrap(new InterpolatingSource(configMap::get)).compose(parent);
 	}
+
+	/**
+	 * Class loading - bundle symbolic name from uri (authority?), then iterate over bundles adapt them to {@link BundleWiring} to get {@link ClassLoader}.
+	 * otherwise use the thread context classloader, context classloader, and this class classloader.
+	 * @param className
+	 * @return
+	 * @throws ClassNotFoundException 
+	 */
+	protected ClassLoader getClassLoader()  {
+		URI uri = eResource().getURI();
+		if (uri.isPlatformPlugin() && uri.segmentCount() > 2 && "plugin".equals(uri.segment(0))) {
+			String pluginName = uri.segment(1);
+			for (Bundle bundle: FrameworkUtil.getBundle(GeneratorImpl.class).getBundleContext().getBundles()) {
+				if (bundle.getSymbolicName().equals(pluginName)) {					
+					return bundle.adapt(BundleWiring.class).getClassLoader();
+				}
+			}			
+		}
+		return getClass().getClassLoader();
+	}
 	
 	/**
 	 * Class loading - bundle symbolic name from uri (authority?), then iterate over bundles and use bundle's loadClass() if found
@@ -715,19 +845,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @throws ClassNotFoundException 
 	 */
 	protected Class<?> loadClass(String className) throws ClassNotFoundException {
-		URI uri = eResource().getURI();
-		if (uri.isPlatformPlugin()) {
-			for (Bundle bundle: FrameworkUtil.getBundle(GeneratorImpl.class).getBundleContext().getBundles()) {
-				if (bundle.getSymbolicName().equals(uri.authority())) {
-					return bundle.loadClass(className);
-				}
-			}			
-		}
-		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		if (cl == null) {
-			cl = getClass().getClassLoader();
-		}
-		return cl.loadClass(className);
+		return getClassLoader().loadClass(className);
 	}
 	
 	protected Object instantiate(Context context, String className) throws Exception {
