@@ -489,6 +489,7 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 		AntPathMatcher matcher = builder.build();
 		boolean interpolate = false; 
 		for (String pattern: getInterpolationIncludes()) {
+			System.out.println("*** Debugging, matching: "+pattern+" --- "+ path);
 			if (matcher.isMatch(pattern, path)) {
 				interpolate = true;
 				break;
