@@ -162,7 +162,8 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 				}
 				
 				List<BinaryResource> ret = new ArrayList<>();
-				String path = getPath();
+				String path = context.interpolate(getPath());
+				String prefix = context.interpolate(getPrefix());
 				Enumeration<String> entryPaths = bundle.getEntryPaths(path);
 				while (entryPaths.hasMoreElements()) {
 					String entryPath = entryPaths.nextElement();
@@ -170,7 +171,6 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 					if (include(entryRelativePath)) {
 						URL entry = bundle.getEntry(entryPath);
 						if (entry != null) {
-							String prefix = getPrefix();
 							String targetPath = prefix == null || prefix.trim().length() == 0 ? entryRelativePath : prefix.trim()+entryRelativePath;
 							BinaryEntity entity = container.get(targetPath, progressMonitor.split("Getting target entity "+targetPath, 1));
 							if (entity == null) {
@@ -206,7 +206,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 									throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
 								}
 							} else {
-								entity.setState(entry.openStream(), progressMonitor.split("Setting state", 1, entity));					
+								entity.setState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Setting state", 1, entity));					
 							}
 							
 							ret.add(entity);
