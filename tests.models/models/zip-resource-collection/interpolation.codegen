@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:ResourceGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen">
+  <elements xsi:type="org.nasdanika.codegen:ZipResourceCollection" path="templates/" prefix="resources/">
+    <interpolationIncludes>*.txt</interpolationIncludes>
+    <generators xsi:type="org.nasdanika.codegen:HttpCall" url="https://www.nasdanika.org/zip-resource-collection-test.zip"/>
+  </elements>
+</org.nasdanika.codegen:ResourceGroup>

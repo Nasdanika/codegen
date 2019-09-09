@@ -12,7 +12,8 @@ import org.nasdanika.codegen.TextGroup;
 	HttpCallTests.class,
 	StaticTextTests.class,
 	TextFileTests.class,
-	TextGroupTests.class
+	TextGroupTests.class,
+	ZipResourceCollectionTests.class
 })
 public class CodegenTests {
 	
