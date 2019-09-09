@@ -486,12 +486,10 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 	 * @return true if the resource shall be interpolated.
 	 */
 	protected boolean shouldInterpolate(String path) {
-		System.out.println("*** Debugging, should interpolate: " + path+" "+getInterpolationIncludes()+", "+getInterpolationExcludes());
 		AntPathMatcher.Builder builder = new AntPathMatcher.Builder();
 		AntPathMatcher matcher = builder.build();
 		boolean interpolate = false; 
 		for (String pattern: getInterpolationIncludes()) {
-			System.out.println("*** Debugging, matching: "+pattern+" --- "+ path);
 			if (matcher.isMatch(pattern, path)) {
 				interpolate = true;
 				break;
