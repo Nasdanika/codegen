@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.nasdanika.codegen.BundleResourceCollection;
 import org.nasdanika.common.Context;
@@ -36,19 +35,15 @@ public class BundleResourceCollectionTests extends TestsBase {
 	
 	@Test
 	public void testInterpolation() throws Exception {
-		String os = System.getProperty("os.name");
-		if (os.contains("Windows")) { // Fails on Circle CI for some reason which needs to be investigated.
-			System.out.println(os);
-			Context context = Context.singleton("name", "World");
-			GenerationResult result = validateAndGenerate("bundle-resource-collection/interpolation", context);
-			
-			try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
-				BinaryEntity entity = result.output.get("test.txt", progressMonitor.split("Getting test.txt", 1));
-				assertNotNull(entity);
-				assertTrue(entity.exists(progressMonitor.split("Checking existence", 1, entity)));
-				assertEquals("Hello World!!!", DefaultConverter.INSTANCE.convert(entity.getState(progressMonitor.split("Getting state", 1, entity)), String.class));
-			}
-		}		
+		Context context = Context.singleton("name", "World");
+		GenerationResult result = validateAndGenerate("bundle-resource-collection/interpolation", context);
+		
+		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+			BinaryEntity entity = result.output.get("test.txt", progressMonitor.split("Getting test.txt", 1));
+			assertNotNull(entity);
+			assertTrue(entity.exists(progressMonitor.split("Checking existence", 1, entity)));
+			assertEquals("Hello World!!!", DefaultConverter.INSTANCE.convert(entity.getState(progressMonitor.split("Getting state", 1, entity)), String.class));
+		}
 	}
 	
 }
