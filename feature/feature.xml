@@ -104,7 +104,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <url>
       <update label="Nasdanika Codegen" url="https://www.nasdanika.org/products/codegen/repository"/>
-      <discovery label="Nasdanika Config" url="https://www.nasdanika.org/products/config/repository"/>
    </url>
 
    <requires>
