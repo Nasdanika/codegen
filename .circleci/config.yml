@@ -24,6 +24,7 @@ jobs:
       - checkout
 
       # Install Graphviz for diagram generation
+      - run: sudo apt-get update
       - run: sudo apt-get install graphviz
 
       # OSGi build in order to generate documentation
