@@ -16,6 +16,7 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.DescriptorSet;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 
@@ -149,6 +150,12 @@ public class NamedGeneratorImpl extends AbstractNamedGeneratorImpl implements Na
 			}
 			
 		};
+	}
+
+	@Override
+	public DescriptorSet getDescriptor(Context dataSource) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //NamedGeneratorImpl

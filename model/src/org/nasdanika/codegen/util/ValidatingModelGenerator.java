@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
 import org.nasdanika.common.Work;
 
 /**
@@ -56,23 +57,23 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 	}
 	
 	static void diagnosticToProgress(ProgressMonitor progressMonitor, long worked, Diagnostic diagnostic) {
-		ProgressMonitor.Status status;
+		Status status;
 		switch (diagnostic.getSeverity()) {
 		case Diagnostic.CANCEL:
-			status = ProgressMonitor.Status.CANCEL;
+			status = Status.CANCEL;
 			break;
 		case Diagnostic.ERROR:
-			status = ProgressMonitor.Status.ERROR;
+			status = Status.ERROR;
 			break;
 		case Diagnostic.WARNING:
-			status = ProgressMonitor.Status.WARNING;
+			status = Status.WARNING;
 			break;
 		case Diagnostic.INFO:
-			status = ProgressMonitor.Status.INFO;
+			status = Status.INFO;
 			break;
 		case Diagnostic.OK:
 		default:
-			status = ProgressMonitor.Status.SUCCESS;
+			status = Status.SUCCESS;
 			break;
 		}
 		progressMonitor.worked(status, worked, diagnostic.getMessage());

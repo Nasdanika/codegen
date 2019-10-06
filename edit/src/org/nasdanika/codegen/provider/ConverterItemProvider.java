@@ -131,7 +131,7 @@ public class ConverterItemProvider extends GeneratorItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.CONVERTER__GENERATORS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.CONVERTER__GENERATORS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

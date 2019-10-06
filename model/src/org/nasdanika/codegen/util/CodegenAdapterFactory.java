@@ -243,6 +243,26 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createZipResourceCollectionAdapter();
 			}
 			@Override
+			public Adapter caseDescriptor(Descriptor object) {
+				return createDescriptorAdapter();
+			}
+			@Override
+			public Adapter caseValueDescriptor(ValueDescriptor object) {
+				return createValueDescriptorAdapter();
+			}
+			@Override
+			public Adapter casePropertyDescriptor(PropertyDescriptor object) {
+				return createPropertyDescriptorAdapter();
+			}
+			@Override
+			public Adapter caseServiceDescriptor(ServiceDescriptor object) {
+				return createServiceDescriptorAdapter();
+			}
+			@Override
+			public Adapter caseDescriptorSet(DescriptorSet object) {
+				return createDescriptorSetAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -847,6 +867,76 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createZipResourceCollectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Descriptor <em>Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Descriptor
+	 * @generated
+	 */
+	public Adapter createDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ValueDescriptor <em>Value Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ValueDescriptor
+	 * @generated
+	 */
+	public Adapter createValueDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.PropertyDescriptor <em>Property Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.PropertyDescriptor
+	 * @generated
+	 */
+	public Adapter createPropertyDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ServiceDescriptor <em>Service Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ServiceDescriptor
+	 * @generated
+	 */
+	public Adapter createServiceDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.DescriptorSet <em>Descriptor Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.DescriptorSet
+	 * @generated
+	 */
+	public Adapter createDescriptorSetAdapter() {
 		return null;
 	}
 

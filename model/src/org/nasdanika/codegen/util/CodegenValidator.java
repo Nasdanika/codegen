@@ -223,6 +223,16 @@ public class CodegenValidator extends EObjectValidator {
 				return validateBundleResourceCollection((BundleResourceCollection)value, diagnostics, context);
 			case CodegenPackage.ZIP_RESOURCE_COLLECTION:
 				return validateZipResourceCollection((ZipResourceCollection)value, diagnostics, context);
+			case CodegenPackage.DESCRIPTOR:
+				return validateDescriptor((org.nasdanika.codegen.Descriptor)value, diagnostics, context);
+			case CodegenPackage.VALUE_DESCRIPTOR:
+				return validateValueDescriptor((ValueDescriptor)value, diagnostics, context);
+			case CodegenPackage.PROPERTY_DESCRIPTOR:
+				return validatePropertyDescriptor((PropertyDescriptor)value, diagnostics, context);
+			case CodegenPackage.SERVICE_DESCRIPTOR:
+				return validateServiceDescriptor((ServiceDescriptor)value, diagnostics, context);
+			case CodegenPackage.DESCRIPTOR_SET:
+				return validateDescriptorSet((DescriptorSet)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
@@ -350,6 +360,16 @@ public class CodegenValidator extends EObjectValidator {
 				return validateBundleResourceCollection((BundleResourceCollection)value, diagnostics, context);
 			case CodegenPackage.ZIP_RESOURCE_COLLECTION:
 				return validateZipResourceCollection((ZipResourceCollection)value, diagnostics, context);
+			case CodegenPackage.DESCRIPTOR:
+				return validateDescriptor((org.nasdanika.codegen.Descriptor)value, diagnostics, context);
+			case CodegenPackage.VALUE_DESCRIPTOR:
+				return validateValueDescriptor((ValueDescriptor)value, diagnostics, context);
+			case CodegenPackage.PROPERTY_DESCRIPTOR:
+				return validatePropertyDescriptor((PropertyDescriptor)value, diagnostics, context);
+			case CodegenPackage.SERVICE_DESCRIPTOR:
+				return validateServiceDescriptor((ServiceDescriptor)value, diagnostics, context);
+			case CodegenPackage.DESCRIPTOR_SET:
+				return validateDescriptorSet((DescriptorSet)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_TEMPLATE_LOADER_TYPE:
@@ -1135,6 +1155,51 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(zipResourceCollection, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(zipResourceCollection, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDescriptor(org.nasdanika.codegen.Descriptor descriptor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(descriptor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateValueDescriptor(ValueDescriptor valueDescriptor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(valueDescriptor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePropertyDescriptor(PropertyDescriptor propertyDescriptor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(propertyDescriptor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateServiceDescriptor(ServiceDescriptor serviceDescriptor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(serviceDescriptor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDescriptorSet(DescriptorSet descriptorSet, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(descriptorSet, diagnostics, context);
 	}
 
 	/**

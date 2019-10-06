@@ -276,7 +276,7 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 		return new Work<String>() {
 			
 			@Override
-			public long size() {
+			public double size() {
 				return 1;
 			}
 			
@@ -286,7 +286,7 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return false;
 			}
 			

@@ -691,6 +691,75 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.PropertyDescriptor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyDescriptorItemProvider propertyDescriptorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.PropertyDescriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyDescriptorAdapter() {
+		if (propertyDescriptorItemProvider == null) {
+			propertyDescriptorItemProvider = new PropertyDescriptorItemProvider(this);
+		}
+
+		return propertyDescriptorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ServiceDescriptor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceDescriptorItemProvider serviceDescriptorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ServiceDescriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceDescriptorAdapter() {
+		if (serviceDescriptorItemProvider == null) {
+			serviceDescriptorItemProvider = new ServiceDescriptorItemProvider(this);
+		}
+
+		return serviceDescriptorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.DescriptorSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DescriptorSetItemProvider descriptorSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.DescriptorSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDescriptorSetAdapter() {
+		if (descriptorSetItemProvider == null) {
+			descriptorSetItemProvider = new DescriptorSetItemProvider(this);
+		}
+
+		return descriptorSetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Mustache} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -870,6 +939,9 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (httpCallItemProvider != null) httpCallItemProvider.dispose();
 		if (bundleResourceCollectionItemProvider != null) bundleResourceCollectionItemProvider.dispose();
 		if (zipResourceCollectionItemProvider != null) zipResourceCollectionItemProvider.dispose();
+		if (propertyDescriptorItemProvider != null) propertyDescriptorItemProvider.dispose();
+		if (serviceDescriptorItemProvider != null) serviceDescriptorItemProvider.dispose();
+		if (descriptorSetItemProvider != null) descriptorSetItemProvider.dispose();
 	}
 
 }

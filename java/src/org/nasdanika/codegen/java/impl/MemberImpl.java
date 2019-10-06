@@ -332,12 +332,12 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true;
 			}
 
 			@Override
-			public long size() {
+			public double size() {
 				int ret = 1; 
 				for (Work<List<String>> cw: commentsWorkList) {
 					ret += cw.size();

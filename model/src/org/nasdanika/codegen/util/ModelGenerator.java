@@ -12,6 +12,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GenerationParticipant;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.DescriptorSet;
 import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
 
@@ -82,6 +83,12 @@ public class ModelGenerator<T> implements WorkFactory<List<T>>, GenerationPartic
 	@Override
 	public Work<List<T>> createWork(Context context) throws Exception {
 		return generator.createWork(context);
+	}
+
+	@Override
+	public DescriptorSet getDescriptor(Context context) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

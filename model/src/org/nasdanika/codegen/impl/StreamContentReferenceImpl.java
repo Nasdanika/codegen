@@ -44,12 +44,12 @@ public class StreamContentReferenceImpl extends ContentReferenceImpl<InputStream
 		return new Work<InputStream>() {
 			
 			@Override
-			public long size() {
+			public double size() {
 				return 1;
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true;
 			}
 			

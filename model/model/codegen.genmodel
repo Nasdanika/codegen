@@ -54,6 +54,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controllerArguments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/descriptors"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
@@ -188,6 +189,23 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ZipResourceCollection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipResourceCollection/generators"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//Descriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/icon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codegen.ecore#//ValueDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/choices"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//PropertyDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//PropertyDescriptor/name"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ServiceDescriptor"/>
+    <genClasses ecoreClass="codegen.ecore#//DescriptorSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//DescriptorSet/descriptors"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

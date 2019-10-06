@@ -26,6 +26,7 @@ import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.Converter;
+import org.nasdanika.codegen.DescriptorSet;
 import org.nasdanika.codegen.ECoreModelGenerator;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
@@ -48,6 +49,7 @@ import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.NamedGenerator;
 import org.nasdanika.codegen.Property;
+import org.nasdanika.codegen.PropertyDescriptor;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceCollection;
@@ -55,6 +57,7 @@ import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.ServiceDescriptor;
 import org.nasdanika.codegen.StaticBytes;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.codegen.StreamContentReference;
@@ -65,6 +68,7 @@ import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.TextToStreamConverter;
+import org.nasdanika.codegen.ValueDescriptor;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.ZipResourceCollection;
 import org.nasdanika.codegen.util.CodegenValidator;
@@ -380,6 +384,41 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass descriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueDescriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyDescriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceDescriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass descriptorSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass mustacheEClass = null;
 
 	/**
@@ -602,6 +641,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EReference getGenerator_NamedGenerators() {
 		return (EReference)generatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getGenerator_Descriptors() {
+		return (EReference)generatorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1580,6 +1629,136 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getDescriptor() {
+		return descriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDescriptor_Label() {
+		return (EAttribute)descriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDescriptor_Icon() {
+		return (EAttribute)descriptorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDescriptor_Description() {
+		return (EAttribute)descriptorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getValueDescriptor() {
+		return valueDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueDescriptor_Type() {
+		return (EAttribute)valueDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueDescriptor_Required() {
+		return (EAttribute)valueDescriptorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueDescriptor_Choices() {
+		return (EAttribute)valueDescriptorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPropertyDescriptor() {
+		return propertyDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPropertyDescriptor_Name() {
+		return (EAttribute)propertyDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getServiceDescriptor() {
+		return serviceDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDescriptorSet() {
+		return descriptorSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDescriptorSet_Descriptors() {
+		return (EReference)descriptorSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMustache() {
 		return mustacheEClass;
 	}
@@ -1766,6 +1945,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER);
 		createEAttribute(generatorEClass, GENERATOR__CONTROLLER_ARGUMENTS);
 		createEReference(generatorEClass, GENERATOR__NAMED_GENERATORS);
+		createEReference(generatorEClass, GENERATOR__DESCRIPTORS);
 		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
@@ -1902,6 +2082,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		zipResourceCollectionEClass = createEClass(ZIP_RESOURCE_COLLECTION);
 		createEReference(zipResourceCollectionEClass, ZIP_RESOURCE_COLLECTION__GENERATORS);
+
+		descriptorEClass = createEClass(DESCRIPTOR);
+		createEAttribute(descriptorEClass, DESCRIPTOR__LABEL);
+		createEAttribute(descriptorEClass, DESCRIPTOR__ICON);
+		createEAttribute(descriptorEClass, DESCRIPTOR__DESCRIPTION);
+
+		valueDescriptorEClass = createEClass(VALUE_DESCRIPTOR);
+		createEAttribute(valueDescriptorEClass, VALUE_DESCRIPTOR__TYPE);
+		createEAttribute(valueDescriptorEClass, VALUE_DESCRIPTOR__REQUIRED);
+		createEAttribute(valueDescriptorEClass, VALUE_DESCRIPTOR__CHOICES);
+
+		propertyDescriptorEClass = createEClass(PROPERTY_DESCRIPTOR);
+		createEAttribute(propertyDescriptorEClass, PROPERTY_DESCRIPTOR__NAME);
+
+		serviceDescriptorEClass = createEClass(SERVICE_DESCRIPTOR);
+
+		descriptorSetEClass = createEClass(DESCRIPTOR_SET);
+		createEReference(descriptorSetEClass, DESCRIPTOR_SET__DESCRIPTORS);
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
@@ -2143,6 +2341,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceCollectionEClass.getEGenericSuperTypes().add(g1);
 		bundleResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
 		zipResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
+		valueDescriptorEClass.getESuperTypes().add(this.getDescriptor());
+		propertyDescriptorEClass.getESuperTypes().add(this.getValueDescriptor());
+		serviceDescriptorEClass.getESuperTypes().add(this.getValueDescriptor());
+		descriptorSetEClass.getESuperTypes().add(this.getDescriptor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -2158,6 +2360,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getGenerator_Controller(), ecorePackage.getEString(), "controller", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_ControllerArguments(), ecorePackage.getEString(), "controllerArguments", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_NamedGenerators(), this.getAbstractNamedGenerator(), null, "namedGenerators", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_Descriptors(), this.getDescriptor(), null, "descriptors", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2324,6 +2527,24 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		g2 = createEGenericType(this.getInputStream());
 		g1.getETypeArguments().add(g2);
 		initEReference(getZipResourceCollection_Generators(), g1, null, "generators", null, 1, -1, ZipResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(descriptorEClass, org.nasdanika.codegen.Descriptor.class, "Descriptor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDescriptor_Label(), ecorePackage.getEString(), "label", null, 1, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDescriptor_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDescriptor_Description(), ecorePackage.getEString(), "description", null, 0, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueDescriptorEClass, ValueDescriptor.class, "ValueDescriptor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValueDescriptor_Type(), ecorePackage.getEString(), "type", null, 0, 1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueDescriptor_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueDescriptor_Choices(), ecorePackage.getEString(), "choices", null, 0, -1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyDescriptorEClass, PropertyDescriptor.class, "PropertyDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertyDescriptor_Name(), ecorePackage.getEString(), "name", null, 1, 1, PropertyDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceDescriptorEClass, ServiceDescriptor.class, "ServiceDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(descriptorSetEClass, DescriptorSet.class, "DescriptorSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDescriptorSet_Descriptors(), this.getDescriptor(), null, "descriptors", null, 0, -1, DescriptorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");

@@ -142,7 +142,7 @@ public class GroupItemProvider extends GeneratorItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.GROUP__ELEMENTS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.GROUP__ELEMENTS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

@@ -322,9 +322,9 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				// TODO Implement - copy the original content somewhere, e.g. in-memory, restore. Split progress monitor.
-				return super.undo(progressMonitor);
+				return super.rollback(progressMonitor);
 			}
 			
 		};

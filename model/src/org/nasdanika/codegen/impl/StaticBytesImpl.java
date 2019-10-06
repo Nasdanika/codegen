@@ -138,7 +138,7 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 		return new Work<InputStream>() {
 			
 			@Override
-			public long size() {
+			public double size() {
 				return 1;
 			}
 			
@@ -154,7 +154,7 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 			}
 
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true;
 			}
 			

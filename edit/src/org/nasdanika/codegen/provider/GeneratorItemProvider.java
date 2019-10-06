@@ -277,6 +277,7 @@ public class GeneratorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS);
+			childrenFeatures.add(CodegenPackage.Literals.GENERATOR__DESCRIPTORS);
 		}
 		return childrenFeatures;
 	}
@@ -343,6 +344,7 @@ public class GeneratorItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -369,6 +371,21 @@ public class GeneratorItemProvider
 			(createChildParameter
 				(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS,
 				 CodegenFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
+				 CodegenFactory.eINSTANCE.createPropertyDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
+				 CodegenFactory.eINSTANCE.createServiceDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
+				 CodegenFactory.eINSTANCE.createDescriptorSet()));
 	}
 
 	/**

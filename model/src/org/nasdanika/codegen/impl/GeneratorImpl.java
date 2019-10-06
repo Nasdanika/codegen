@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.AbstractNamedGenerator;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.Descriptor;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
@@ -36,6 +37,8 @@ import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
+import org.nasdanika.common.DescriptorSet;
+import org.nasdanika.common.Diagnostic;
 import org.nasdanika.common.InterpolatingSource;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
@@ -63,6 +66,7 @@ import org.osgi.framework.wiring.BundleWiring;
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getNamedGenerators <em>Named Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getDescriptors <em>Descriptors</em>}</li>
  * </ul>
  *
  * @generated
@@ -231,6 +235,17 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	@Override
 	public EList<AbstractNamedGenerator> getNamedGenerators() {
 		return (EList<AbstractNamedGenerator>)eDynamicGet(CodegenPackage.GENERATOR__NAMED_GENERATORS, CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Descriptor> getDescriptors() {
+		return (EList<Descriptor>)eDynamicGet(CodegenPackage.GENERATOR__DESCRIPTORS, CodegenPackage.Literals.GENERATOR__DESCRIPTORS, true, true);
 	}
 
 	/**
@@ -475,6 +490,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				return ((InternalEList<?>)getNamedGenerators()).basicRemove(otherEnd, msgs);
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
+				return ((InternalEList<?>)getDescriptors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -507,6 +524,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return getControllerArguments();
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				return getNamedGenerators();
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
+				return getDescriptors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -552,6 +571,10 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				getNamedGenerators().clear();
 				getNamedGenerators().addAll((Collection<? extends AbstractNamedGenerator>)newValue);
 				return;
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
+				getDescriptors().clear();
+				getDescriptors().addAll((Collection<? extends Descriptor>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -594,6 +617,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				getNamedGenerators().clear();
 				return;
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
+				getDescriptors().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -626,6 +652,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return !getControllerArguments().isEmpty();
 			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
 				return !getNamedGenerators().isEmpty();
+			case CodegenPackage.GENERATOR__DESCRIPTORS:
+				return !getDescriptors().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -641,7 +669,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		return new Work<List<T>>() {
 
 			@Override
-			public long size() {
+			public double size() {
 				return workItem.size();
 			}
 
@@ -656,8 +684,28 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			}
 
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				return workItem.undo(progressMonitor);
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
+				return workItem.rollback(progressMonitor);
+			}
+			
+			@Override
+			public void commit(ProgressMonitor progressMonitor) throws Exception {
+				workItem.commit(progressMonitor);
+			}
+			
+			@Override
+			public void close() throws Exception {
+				workItem.close();
+			}
+			
+			@Override
+			public Diagnostic diagnose(ProgressMonitor progressMonitor) {
+				return workItem.diagnose(progressMonitor);
+			}
+			
+			@Override
+			public org.nasdanika.common.Descriptor getDescriptor() {
+				return GeneratorImpl.this.getDescriptor(context);
 			}
 			
 		};
@@ -691,7 +739,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		Work<List<T>> noWork = new Work<List<T>>() {
 
 			@Override
-			public long size() {
+			public double size() {
 				return 0;
 			}
 
@@ -704,10 +752,10 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
 				return Collections.emptyList();
 			}
-
+			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
-				return true;
+			public org.nasdanika.common.Descriptor getDescriptor() {
+				return GeneratorImpl.this.getDescriptor(context);
 			}
 			
 		};
@@ -888,5 +936,12 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		}
 		throw new InstantiationException("Could not find a constructor with "+arguments.size()+" parameters in "+className);
 	}
+	
+	@Override
+	public DescriptorSet getDescriptor(Context dataSource) {
+		// TODO - Get full descriptor set from a protected method, map with context path, filter based on configuration - bound properties. 
+		return null;
+	}
+	
 		
 } //GeneratorImpl

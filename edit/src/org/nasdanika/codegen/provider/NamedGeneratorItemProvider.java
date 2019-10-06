@@ -143,7 +143,7 @@ public class NamedGeneratorItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.NAMED_GENERATOR__GENERATORS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.NAMED_GENERATOR__GENERATORS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

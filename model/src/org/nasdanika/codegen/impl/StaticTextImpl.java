@@ -175,7 +175,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 		return new Work<String>() {
 			
 			@Override
-			public long size() {
+			public double size() {
 				return 1;
 			}
 			
@@ -190,7 +190,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 			}
 
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true;
 			}
 			

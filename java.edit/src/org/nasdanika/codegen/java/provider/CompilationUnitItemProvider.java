@@ -141,7 +141,7 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(newChildDescriptors, CodegenPackage.Literals.FILE__GENERATORS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.FILE__GENERATORS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter

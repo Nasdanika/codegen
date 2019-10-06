@@ -117,6 +117,9 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.HTTP_CALL: return createHttpCall();
 			case CodegenPackage.BUNDLE_RESOURCE_COLLECTION: return createBundleResourceCollection();
 			case CodegenPackage.ZIP_RESOURCE_COLLECTION: return createZipResourceCollection();
+			case CodegenPackage.PROPERTY_DESCRIPTOR: return createPropertyDescriptor();
+			case CodegenPackage.SERVICE_DESCRIPTOR: return createServiceDescriptor();
+			case CodegenPackage.DESCRIPTOR_SET: return createDescriptorSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -491,6 +494,39 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ZipResourceCollection createZipResourceCollection() {
 		ZipResourceCollectionImpl zipResourceCollection = new ZipResourceCollectionImpl();
 		return zipResourceCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PropertyDescriptor createPropertyDescriptor() {
+		PropertyDescriptorImpl propertyDescriptor = new PropertyDescriptorImpl();
+		return propertyDescriptor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ServiceDescriptor createServiceDescriptor() {
+		ServiceDescriptorImpl serviceDescriptor = new ServiceDescriptorImpl();
+		return serviceDescriptor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DescriptorSet createDescriptorSet() {
+		DescriptorSetImpl descriptorSet = new DescriptorSetImpl();
+		return descriptorSet;
 	}
 
 	/**

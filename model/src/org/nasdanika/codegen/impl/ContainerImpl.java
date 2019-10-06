@@ -229,9 +229,9 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				// TODO - delete the container if it did not exist.
-				return super.undo(progressMonitor);
+				return super.rollback(progressMonitor);
 			}
 		};
 		

@@ -218,7 +218,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 			}
 
 			@Override
-			public long size() {
+			public double size() {
 				return 1;
 			}
 
@@ -228,7 +228,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 			}
 
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true;
 			}
 			

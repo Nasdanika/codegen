@@ -265,6 +265,33 @@ public interface CodegenFactory extends EFactory {
 	ZipResourceCollection createZipResourceCollection();
 
 	/**
+	 * Returns a new object of class '<em>Property Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Descriptor</em>'.
+	 * @generated
+	 */
+	PropertyDescriptor createPropertyDescriptor();
+
+	/**
+	 * Returns a new object of class '<em>Service Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Descriptor</em>'.
+	 * @generated
+	 */
+	ServiceDescriptor createServiceDescriptor();
+
+	/**
+	 * Returns a new object of class '<em>Descriptor Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Descriptor Set</em>'.
+	 * @generated
+	 */
+	DescriptorSet createDescriptorSet();
+
+	/**
 	 * Returns a new object of class '<em>Mustache</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

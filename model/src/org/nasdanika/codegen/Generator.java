@@ -34,6 +34,7 @@ import org.nasdanika.common.WorkFactory;
  *   <li>{@link org.nasdanika.codegen.Generator#getController <em>Controller</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getControllerArguments <em>Controller Arguments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getNamedGenerators <em>Named Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getDescriptors <em>Descriptors</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -149,6 +150,18 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * @generated
 	 */
 	EList<AbstractNamedGenerator> getNamedGenerators();
+
+	/**
+	 * Returns the value of the '<em><b>Descriptors</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Descriptor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Descriptors</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Descriptors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Descriptor> getDescriptors();
 
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.

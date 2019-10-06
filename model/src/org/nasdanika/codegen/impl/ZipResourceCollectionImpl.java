@@ -241,9 +241,9 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 			}
 			
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				// TODO - record original state in execute, restore. Delete any created entities and containers.
-				return super.undo(progressMonitor);
+				return super.rollback(progressMonitor);
 			}
 			
 		};

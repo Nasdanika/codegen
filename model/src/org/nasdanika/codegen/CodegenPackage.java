@@ -191,13 +191,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__NAMED_GENERATORS = WORK_FACTORY_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__DESCRIPTORS = WORK_FACTORY_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 10;
+	int GENERATOR_FEATURE_COUNT = WORK_FACTORY_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -492,6 +501,15 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DESCRIPTORS = GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,6 +653,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The number of structural features of the '<em>Resource Generator</em>' class.
@@ -810,6 +837,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DESCRIPTORS = RESOURCE_GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,6 +998,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__DESCRIPTORS = RESOURCE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1145,6 +1190,15 @@ public interface CodegenPackage extends EPackage {
 	int BINARY_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_FILE__DESCRIPTORS = FILE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1324,6 +1378,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FILE__NAMED_GENERATORS = FILE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FILE__DESCRIPTORS = FILE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1516,6 +1579,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__NAMED_GENERATORS = RESOURCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__DESCRIPTORS = RESOURCE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1679,6 +1751,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__DESCRIPTORS = GROUP__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1822,6 +1903,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TEXT__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' attribute.
@@ -2148,6 +2238,15 @@ public interface CodegenPackage extends EPackage {
 	int STATIC_BYTES__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_BYTES__DESCRIPTORS = GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2281,6 +2380,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Template Loader Type</b></em>' attribute.
@@ -2445,6 +2553,15 @@ public interface CodegenPackage extends EPackage {
 	int ECORE_MODEL_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECORE_MODEL_GENERATOR__DESCRIPTORS = GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2580,6 +2697,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__DESCRIPTORS = GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2713,6 +2839,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERTER__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERTER__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -2858,6 +2993,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_TO_STREAM_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_STREAM_CONVERTER__DESCRIPTORS = CONVERTER__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -3014,6 +3158,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_TO_TEXT_CONVERTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_TO_TEXT_CONVERTER__DESCRIPTORS = CONVERTER__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3158,6 +3311,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__NAMED_GENERATORS = CONVERTER__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DESCRIPTORS = CONVERTER__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3291,6 +3453,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_GENERATOR__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_GENERATOR__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3437,6 +3608,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__DESCRIPTORS = FILTER__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3570,6 +3750,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_FILTER__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__DESCRIPTORS = FILTER__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -3725,6 +3914,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_FILTER__DESCRIPTORS = JAVA_FILTER__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3876,6 +4074,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_FILTER__NAMED_GENERATORS = JAVA_FILTER__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_FILTER__DESCRIPTORS = JAVA_FILTER__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -4031,6 +4238,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_TEXT_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_TEXT_GENERATOR__DESCRIPTORS = JAVA_GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4173,6 +4389,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_STREAM_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_STREAM_GENERATOR__DESCRIPTORS = JAVA_GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -4319,6 +4544,15 @@ public interface CodegenPackage extends EPackage {
 	int JAVA_RESOURCE_GENERATOR__NAMED_GENERATORS = JAVA_GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_RESOURCE_GENERATOR__DESCRIPTORS = JAVA_GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4461,6 +4695,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_CONTENT_REFERENCE__DESCRIPTORS = CONTENT_REFERENCE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -4607,6 +4850,15 @@ public interface CodegenPackage extends EPackage {
 	int STREAM_CONTENT_REFERENCE__NAMED_GENERATORS = CONTENT_REFERENCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_CONTENT_REFERENCE__DESCRIPTORS = CONTENT_REFERENCE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4742,6 +4994,15 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__NAMED_GENERATORS = FILTER__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__DESCRIPTORS = FILTER__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4875,6 +5136,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -5022,6 +5292,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GROUP__NAMED_GENERATORS = GROUP__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GROUP__DESCRIPTORS = GROUP__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5165,6 +5444,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
@@ -5312,6 +5600,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_GENERATOR_REFERENCE__DESCRIPTORS = GENERATOR_REFERENCE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5455,6 +5752,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int STREAM_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STREAM_GENERATOR_REFERENCE__DESCRIPTORS = GENERATOR_REFERENCE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
@@ -5602,6 +5908,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_REFERENCE__NAMED_GENERATORS = GENERATOR_REFERENCE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__DESCRIPTORS = GENERATOR_REFERENCE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5745,6 +6060,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int HTTP_CALL__NAMED_GENERATORS = GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__DESCRIPTORS = GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -5944,6 +6268,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__DESCRIPTORS = RESOURCE_GENERATOR__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -6170,6 +6503,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUNDLE_RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_COLLECTION__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__DESCRIPTORS = RESOURCE_COLLECTION__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -6407,6 +6749,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__NAMED_GENERATORS = RESOURCE_COLLECTION__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__DESCRIPTORS = RESOURCE_COLLECTION__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6542,6 +6893,380 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION_OPERATION_COUNT = RESOURCE_COLLECTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.DescriptorImpl <em>Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.DescriptorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getDescriptor()
+	 * @generated
+	 */
+	int DESCRIPTOR = 44;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR__LABEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR__ICON = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR__DESCRIPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ValueDescriptorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getValueDescriptor()
+	 * @generated
+	 */
+	int VALUE_DESCRIPTOR = 45;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__LABEL = DESCRIPTOR__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__ICON = DESCRIPTOR__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__TYPE = DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__REQUIRED = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Choices</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__CHOICES = DESCRIPTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Value Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Value Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.PropertyDescriptorImpl <em>Property Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.PropertyDescriptorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getPropertyDescriptor()
+	 * @generated
+	 */
+	int PROPERTY_DESCRIPTOR = 46;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__LABEL = VALUE_DESCRIPTOR__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__ICON = VALUE_DESCRIPTOR__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__DESCRIPTION = VALUE_DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__TYPE = VALUE_DESCRIPTOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__REQUIRED = VALUE_DESCRIPTOR__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Choices</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__CHOICES = VALUE_DESCRIPTOR__CHOICES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__NAME = VALUE_DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Property Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR_FEATURE_COUNT = VALUE_DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Property Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR_OPERATION_COUNT = VALUE_DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ServiceDescriptorImpl <em>Service Descriptor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ServiceDescriptorImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getServiceDescriptor()
+	 * @generated
+	 */
+	int SERVICE_DESCRIPTOR = 47;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__LABEL = VALUE_DESCRIPTOR__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__ICON = VALUE_DESCRIPTOR__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__DESCRIPTION = VALUE_DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__TYPE = VALUE_DESCRIPTOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__REQUIRED = VALUE_DESCRIPTOR__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Choices</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__CHOICES = VALUE_DESCRIPTOR__CHOICES;
+
+	/**
+	 * The number of structural features of the '<em>Service Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR_FEATURE_COUNT = VALUE_DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Service Descriptor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR_OPERATION_COUNT = VALUE_DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.DescriptorSetImpl <em>Descriptor Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.DescriptorSetImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getDescriptorSet()
+	 * @generated
+	 */
+	int DESCRIPTOR_SET = 48;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET__LABEL = DESCRIPTOR__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET__ICON = DESCRIPTOR__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET__DESCRIPTORS = DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Descriptor Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Descriptor Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6549,7 +7274,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 44;
+	int RECONCILE_ACTION = 49;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType <em>Free Marker Template Loader Type</em>}' enum.
@@ -6559,7 +7284,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerTemplateLoaderType()
 	 * @generated
 	 */
-	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 45;
+	int FREE_MARKER_TEMPLATE_LOADER_TYPE = 50;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.HttpMethod <em>Http Method</em>}' enum.
@@ -6569,7 +7294,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpMethod()
 	 * @generated
 	 */
-	int HTTP_METHOD = 46;
+	int HTTP_METHOD = 51;
 
 	/**
 	 * The meta object id for the '<em>Context</em>' data type.
@@ -6579,7 +7304,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 49;
+	int CONTEXT = 54;
 
 	/**
 	 * The meta object id for the '<em>Binary Resource</em>' data type.
@@ -6589,7 +7314,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryResource()
 	 * @generated
 	 */
-	int BINARY_RESOURCE = 50;
+	int BINARY_RESOURCE = 55;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity</em>' data type.
@@ -6599,7 +7324,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntity()
 	 * @generated
 	 */
-	int BINARY_ENTITY = 51;
+	int BINARY_ENTITY = 56;
 
 	/**
 	 * The meta object id for the '<em>Binary Entity Container</em>' data type.
@@ -6609,7 +7334,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBinaryEntityContainer()
 	 * @generated
 	 */
-	int BINARY_ENTITY_CONTAINER = 52;
+	int BINARY_ENTITY_CONTAINER = 57;
 
 	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
@@ -6619,7 +7344,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 48;
+	int INPUT_STREAM = 53;
 
 	/**
 	 * The meta object id for the '<em>Void</em>' data type.
@@ -6629,7 +7354,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 53;
+	int VOID = 58;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -6639,7 +7364,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 47;
+	int EXCEPTION = 52;
 
 	/**
 	 * The meta object id for the '<em>List</em>' data type.
@@ -6649,7 +7374,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 54;
+	int LIST = 59;
 
 
 	/**
@@ -6660,7 +7385,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMerger()
 	 * @generated
 	 */
-	int MERGER = 55;
+	int MERGER = 60;
 
 
 	/**
@@ -6727,6 +7452,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGenerator_NamedGenerators();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.Generator#getDescriptors <em>Descriptors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Descriptors</em>'.
+	 * @see org.nasdanika.codegen.Generator#getDescriptors()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EReference getGenerator_Descriptors();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}'.
@@ -7754,6 +8490,144 @@ public interface CodegenPackage extends EPackage {
 	EReference getZipResourceCollection_Generators();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.Descriptor <em>Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Descriptor</em>'.
+	 * @see org.nasdanika.codegen.Descriptor
+	 * @generated
+	 */
+	EClass getDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Descriptor#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see org.nasdanika.codegen.Descriptor#getLabel()
+	 * @see #getDescriptor()
+	 * @generated
+	 */
+	EAttribute getDescriptor_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Descriptor#getIcon <em>Icon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon</em>'.
+	 * @see org.nasdanika.codegen.Descriptor#getIcon()
+	 * @see #getDescriptor()
+	 * @generated
+	 */
+	EAttribute getDescriptor_Icon();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Descriptor#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.codegen.Descriptor#getDescription()
+	 * @see #getDescriptor()
+	 * @generated
+	 */
+	EAttribute getDescriptor_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ValueDescriptor <em>Value Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value Descriptor</em>'.
+	 * @see org.nasdanika.codegen.ValueDescriptor
+	 * @generated
+	 */
+	EClass getValueDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueDescriptor#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.nasdanika.codegen.ValueDescriptor#getType()
+	 * @see #getValueDescriptor()
+	 * @generated
+	 */
+	EAttribute getValueDescriptor_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ValueDescriptor#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see org.nasdanika.codegen.ValueDescriptor#isRequired()
+	 * @see #getValueDescriptor()
+	 * @generated
+	 */
+	EAttribute getValueDescriptor_Required();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ValueDescriptor#getChoices <em>Choices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Choices</em>'.
+	 * @see org.nasdanika.codegen.ValueDescriptor#getChoices()
+	 * @see #getValueDescriptor()
+	 * @generated
+	 */
+	EAttribute getValueDescriptor_Choices();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.PropertyDescriptor <em>Property Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Descriptor</em>'.
+	 * @see org.nasdanika.codegen.PropertyDescriptor
+	 * @generated
+	 */
+	EClass getPropertyDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.PropertyDescriptor#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.codegen.PropertyDescriptor#getName()
+	 * @see #getPropertyDescriptor()
+	 * @generated
+	 */
+	EAttribute getPropertyDescriptor_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ServiceDescriptor <em>Service Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Descriptor</em>'.
+	 * @see org.nasdanika.codegen.ServiceDescriptor
+	 * @generated
+	 */
+	EClass getServiceDescriptor();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.DescriptorSet <em>Descriptor Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Descriptor Set</em>'.
+	 * @see org.nasdanika.codegen.DescriptorSet
+	 * @generated
+	 */
+	EClass getDescriptorSet();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.codegen.DescriptorSet#getDescriptors <em>Descriptors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Descriptors</em>'.
+	 * @see org.nasdanika.codegen.DescriptorSet#getDescriptors()
+	 * @see #getDescriptorSet()
+	 * @generated
+	 */
+	EReference getDescriptorSet_Descriptors();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Mustache <em>Mustache</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7991,6 +8865,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERATOR__NAMED_GENERATORS = eINSTANCE.getGenerator_NamedGenerators();
+
+		/**
+		 * The meta object literal for the '<em><b>Descriptors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR__DESCRIPTORS = eINSTANCE.getGenerator_Descriptors();
 
 		/**
 		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
@@ -8847,6 +9729,120 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ZIP_RESOURCE_COLLECTION__GENERATORS = eINSTANCE.getZipResourceCollection_Generators();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.DescriptorImpl <em>Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.DescriptorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getDescriptor()
+		 * @generated
+		 */
+		EClass DESCRIPTOR = eINSTANCE.getDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIPTOR__LABEL = eINSTANCE.getDescriptor_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIPTOR__ICON = eINSTANCE.getDescriptor_Icon();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIPTOR__DESCRIPTION = eINSTANCE.getDescriptor_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ValueDescriptorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getValueDescriptor()
+		 * @generated
+		 */
+		EClass VALUE_DESCRIPTOR = eINSTANCE.getValueDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_DESCRIPTOR__TYPE = eINSTANCE.getValueDescriptor_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_DESCRIPTOR__REQUIRED = eINSTANCE.getValueDescriptor_Required();
+
+		/**
+		 * The meta object literal for the '<em><b>Choices</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_DESCRIPTOR__CHOICES = eINSTANCE.getValueDescriptor_Choices();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.PropertyDescriptorImpl <em>Property Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.PropertyDescriptorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getPropertyDescriptor()
+		 * @generated
+		 */
+		EClass PROPERTY_DESCRIPTOR = eINSTANCE.getPropertyDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_DESCRIPTOR__NAME = eINSTANCE.getPropertyDescriptor_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ServiceDescriptorImpl <em>Service Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ServiceDescriptorImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getServiceDescriptor()
+		 * @generated
+		 */
+		EClass SERVICE_DESCRIPTOR = eINSTANCE.getServiceDescriptor();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.DescriptorSetImpl <em>Descriptor Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.DescriptorSetImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getDescriptorSet()
+		 * @generated
+		 */
+		EClass DESCRIPTOR_SET = eINSTANCE.getDescriptorSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Descriptors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESCRIPTOR_SET__DESCRIPTORS = eINSTANCE.getDescriptorSet_Descriptors();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.MustacheImpl <em>Mustache</em>}' class.

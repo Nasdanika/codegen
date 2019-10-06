@@ -259,8 +259,8 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 		
-		collectEReferenceChildDescriptors(newChildDescriptors, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS);
-		collectEReferenceChildDescriptors(newChildDescriptors, JavaPackage.Literals.MEMBER__BODY_GENERATORS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS);
+		collectEReferenceChildDescriptors(object, newChildDescriptors, JavaPackage.Literals.MEMBER__BODY_GENERATORS);
 
 //		newChildDescriptors.add
 //			(createChildParameter

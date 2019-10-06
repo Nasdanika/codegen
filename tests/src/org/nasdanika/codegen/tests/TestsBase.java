@@ -11,11 +11,11 @@ import org.nasdanika.codegen.util.ValidatingModelGenerator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.ProgressRecorder;
+import org.nasdanika.common.Status;
 import org.nasdanika.common.Work;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -59,9 +59,11 @@ public class TestsBase {
 			Work<List<BinaryEntity>> work = validatingModelGenerator.createWork(mc);
 			
 			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
-				if (!work.canExecute(workDiagnostic)) {
+				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
+				if (diagnostic.getStatus() == Status.ERROR) {
+					dumpDiagnostic(diagnostic, 0);
 					System.out.println(workDiagnostic.toJSON().toString(4));
-					throw new NasdanikaException("Cannot execute generator work", workDiagnostic);
+					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator work", diagnostic);
 				}
 			}
 			
@@ -135,5 +137,33 @@ public class TestsBase {
 		return result.toString();
 	}	
 	
+	static void dumpDiagnostic(org.nasdanika.common.Diagnostic d, int indent) {
+		for (int i=0; i < indent; ++i) {
+			System.out.print("    ");
+		}
+		System.out.println(toString(d));
+	    if (d.getChildren() != null) {
+	    	d.getChildren().forEach(c -> dumpDiagnostic(c, indent + 1));
+	    }
+		
+	}
+	
+	static String toString(org.nasdanika.common.Diagnostic d) {
+		StringBuilder result = new StringBuilder();
+		Status status = d.getStatus();
+		if (status != null) {
+			result.append(status.name());
+		}
+
+		result.append(' ');
+		result.append(d.getMessage());
+
+		if (d.getData() != null) {
+			result.append(" data=");
+			result.append(d.getData());
+		}
+
+		return result.toString();
+	}	
 		
 }

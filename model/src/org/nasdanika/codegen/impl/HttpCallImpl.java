@@ -410,8 +410,8 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 		return new Work<InputStream>() {
 
 			@Override
-			public long size() {
-				long size = 1 + headersWork.values().stream().mapToLong(Work::size).sum();
+			public double size() {
+				double size = 1 + headersWork.values().stream().mapToDouble(Work::size).sum();
 				if (bodyWork != null) {
 					size += bodyWork.size();
 				}
@@ -462,7 +462,7 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 			}
 
 			@Override
-			public boolean undo(ProgressMonitor progressMonitor) throws Exception {
+			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
 				return true; // Assuming no side effects.
 			}
 			
