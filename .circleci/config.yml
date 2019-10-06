@@ -23,13 +23,18 @@ jobs:
     steps:
       - checkout
 
+      # Maven 3.6.0
+      - run: wget https://nasdanika.org/downloads/apache-maven-3.6.0-bin.zip
+      - run: unzip apache-maven-3.6.0-bin.zip
+      - run: chmod u+x apache-maven-3.6.0/bin/mvn
+
       # Install Graphviz for diagram generation
       - run: sudo apt-get update
       - run: sudo apt-get install graphviz
 
       # OSGi build in order to generate documentation
       - run: 
-            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            command: apache-maven-3.6.0/bin/mvn -s .circleci/settings.xml clean javadoc:javadoc package
             no_output_timeout: 120m
 
       # Executing tests, copying help contents and javadoc
@@ -43,10 +48,10 @@ jobs:
 
       # Another OSGi build with generated Eclipse help
       - run: 
-            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            command: apache-maven-3.6.0/bin/mvn -s .circleci/settings.xml clean javadoc:javadoc package
             no_output_timeout: 120m
 
       # Deploying sites
-      - run: cd repository;mvn -f site-pom.xml -s ../.circleci/settings.xml site-deploy
+      - run: cd repository;../apache-maven-3.6.0/bin/mvn -f site-pom.xml -s ../.circleci/settings.xml site-deploy
             
 
