@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -140,8 +142,6 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.FILE__GENERATORS);
 		
 //		newChildDescriptors.add
 //			(createChildParameter
@@ -203,6 +203,11 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return JavaEditPlugin.INSTANCE;
+	}
+	
+	@Override
+	public boolean accept(EObject source, EReference eReference, EObject target) {
+		return source instanceof org.nasdanika.codegen.java.Package && eReference == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
 	}
 
 }

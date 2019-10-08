@@ -23,13 +23,15 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      
+      <!-- @generated codegen -->
       <editor
-            id="org.nasdanika.codegen.presentation.CodegenFormsEditorID"
-            name="%_UI_CodegenFormsEditor_label"
+            id="org.nasdanika.codegen.presentation.CodegenEditorID"
+            name="%_UI_CodegenEditor_label"
             icon="icons/full/obj16/CodegenModelFile.gif"
             extensions="codegen"
             default="true"
-            class="org.nasdanika.codegen.presentation.CodegenFormsEditor"
+            class="org.nasdanika.codegen.presentation.CodegenEditor"
             contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
       
@@ -43,13 +45,13 @@
             contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
       
-      <!-- @generated codegen -->
       <editor
-            id="org.nasdanika.codegen.presentation.CodegenEditorID"
-            name="%_UI_CodegenEditor_label"
+            id="org.nasdanika.codegen.presentation.CodegenFormsEditorID"
+            name="%_UI_CodegenFormsEditor_label"
             icon="icons/full/obj16/CodegenModelFile.gif"
             extensions="codegen"
-            class="org.nasdanika.codegen.presentation.CodegenEditor"
+            default="false"
+            class="org.nasdanika.codegen.presentation.CodegenFormsEditor"
             contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
    </extension>
