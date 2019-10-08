@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import org.nasdanika.codegen.java.util.JavaAdapterFactory;
+import org.nasdanika.emf.edit.EReferencePredicate;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -61,7 +62,7 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public JavaItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +70,7 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(EReferencePredicate.class);
 	}
 
 	/**

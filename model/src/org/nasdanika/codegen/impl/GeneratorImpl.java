@@ -37,7 +37,6 @@ import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.common.DescriptorSet;
 import org.nasdanika.common.Diagnostic;
 import org.nasdanika.common.InterpolatingSource;
 import org.nasdanika.common.NasdanikaException;
@@ -703,11 +702,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 				return workItem.diagnose(progressMonitor);
 			}
 			
-			@Override
-			public org.nasdanika.common.Descriptor getDescriptor() {
-				return GeneratorImpl.this.getDescriptor(context);
-			}
-			
 		};
 	}
 
@@ -751,11 +745,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			@Override
 			public List<T> execute(ProgressMonitor progressMonitor) throws Exception {
 				return Collections.emptyList();
-			}
-			
-			@Override
-			public org.nasdanika.common.Descriptor getDescriptor() {
-				return GeneratorImpl.this.getDescriptor(context);
 			}
 			
 		};
@@ -935,13 +924,6 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			}
 		}
 		throw new InstantiationException("Could not find a constructor with "+arguments.size()+" parameters in "+className);
-	}
-	
-	@Override
-	public DescriptorSet getDescriptor(Context dataSource) {
-		// TODO - Get full descriptor set from a protected method, map with context path, filter based on configuration - bound properties. 
-		return null;
-	}
-	
+	}	
 		
 } //GeneratorImpl

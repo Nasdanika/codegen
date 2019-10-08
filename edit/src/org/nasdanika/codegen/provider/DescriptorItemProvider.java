@@ -64,6 +64,7 @@ public class DescriptorItemProvider
 			addLabelPropertyDescriptor(object);
 			addIconPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addPredicatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -127,6 +128,28 @@ public class DescriptorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Descriptor_description_feature", "_UI_Descriptor_type"),
 				 CodegenPackage.Literals.DESCRIPTOR__DESCRIPTION,
 				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Descriptor_predicate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Descriptor_predicate_feature", "_UI_Descriptor_type"),
+				 CodegenPackage.Literals.DESCRIPTOR__PREDICATE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -174,6 +197,7 @@ public class DescriptorItemProvider
 			case CodegenPackage.DESCRIPTOR__LABEL:
 			case CodegenPackage.DESCRIPTOR__ICON:
 			case CodegenPackage.DESCRIPTOR__DESCRIPTION:
+			case CodegenPackage.DESCRIPTOR__PREDICATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

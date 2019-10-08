@@ -193,7 +193,8 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//Descriptor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/icon"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/description"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/predicate"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//ValueDescriptor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/type"/>

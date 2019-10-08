@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Property;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.DescriptorSet;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
 
@@ -198,12 +197,6 @@ public class PropertyImpl extends AbstractNamedGeneratorImpl implements Property
 			}
 			
 		};
-	}
-
-	@Override
-	public DescriptorSet getDescriptor(Context dataSource) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 

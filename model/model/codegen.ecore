@@ -795,6 +795,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If not blank the predicate shall be a Java expression evaluating to boolean. &#xA;If it evaluates to false then not input is needed from this descriptor. &#xA;&#xA;The predicate expression has access to ``context`` variable. Use ``context.get()`` for retrieval of values from the context.&#xA;&#xA;The predicate expression is interpolated with the context, so another way to access context properties is to use tokens. &#xA;For example ``context.get(&quot;my-property&quot;) > 0`` and ``${my-property} > 0`` are equivalent. &#xA;To safely handle the case ``my-property`` not being set  a property default value may be used in the second option ``${my-property|0} > 0``.&#xA;&#xA;For more advanced control over execution use controller.&#xA;&#xA;Descriptor predicate is logically AND-ed with the containing generator predicate. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueDescriptor" abstract="true" eSuperTypes="#//Descriptor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

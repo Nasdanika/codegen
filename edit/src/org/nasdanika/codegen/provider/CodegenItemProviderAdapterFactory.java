@@ -20,6 +20,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.nasdanika.codegen.util.CodegenAdapterFactory;
+import org.nasdanika.emf.edit.EReferencePredicate;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -59,7 +60,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public CodegenItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -67,6 +68,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(EReferencePredicate.class);
 	}
 
 	/**

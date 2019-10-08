@@ -6930,13 +6930,22 @@ public interface CodegenPackage extends EPackage {
 	int DESCRIPTOR__DESCRIPTION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR__PREDICATE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Descriptor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTOR_FEATURE_COUNT = 3;
+	int DESCRIPTOR_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Descriptor</em>' class.
@@ -6983,6 +6992,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_DESCRIPTOR__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_DESCRIPTOR__PREDICATE = DESCRIPTOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -7065,6 +7083,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_DESCRIPTOR__DESCRIPTION = VALUE_DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_DESCRIPTOR__PREDICATE = VALUE_DESCRIPTOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -7158,6 +7185,15 @@ public interface CodegenPackage extends EPackage {
 	int SERVICE_DESCRIPTOR__DESCRIPTION = VALUE_DESCRIPTOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_DESCRIPTOR__PREDICATE = VALUE_DESCRIPTOR__PREDICATE;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7238,6 +7274,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int DESCRIPTOR_SET__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_SET__PREDICATE = DESCRIPTOR__PREDICATE;
 
 	/**
 	 * The feature id for the '<em><b>Descriptors</b></em>' reference list.
@@ -8533,6 +8578,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getDescriptor_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Descriptor#getPredicate <em>Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Predicate</em>'.
+	 * @see org.nasdanika.codegen.Descriptor#getPredicate()
+	 * @see #getDescriptor()
+	 * @generated
+	 */
+	EAttribute getDescriptor_Predicate();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ValueDescriptor <em>Value Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9763,6 +9819,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DESCRIPTOR__DESCRIPTION = eINSTANCE.getDescriptor_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIPTOR__PREDICATE = eINSTANCE.getDescriptor_Predicate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.

@@ -29,7 +29,18 @@
             icon="icons/full/obj16/CodegenModelFile.gif"
             extensions="codegen"
             default="true"
-            class="org.nasdanika.codegen.presentation.CodegenFormsEditor">
+            class="org.nasdanika.codegen.presentation.CodegenFormsEditor"
+            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
+      </editor>
+      
+      <editor
+            id="org.nasdanika.codegen.presentation.CodegenSiriusEditorID"
+            name="%_UI_CodegenSiriusEditor_label"
+            icon="icons/full/obj16/CodegenModelFile.gif"
+            extensions="codegen"
+            default="false"
+            class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
+            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
       
       <!-- @generated codegen -->
@@ -39,7 +50,7 @@
             icon="icons/full/obj16/CodegenModelFile.gif"
             extensions="codegen"
             class="org.nasdanika.codegen.presentation.CodegenEditor"
-            contributorClass="org.nasdanika.codegen.presentation.CodegenActionBarContributor">
+            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
    </extension>
 

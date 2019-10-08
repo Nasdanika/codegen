@@ -20,6 +20,7 @@ import org.nasdanika.codegen.Descriptor;
  *   <li>{@link org.nasdanika.codegen.impl.DescriptorImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.DescriptorImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.DescriptorImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.DescriptorImpl#getPredicate <em>Predicate</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +55,16 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPredicate() <em>Predicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPredicate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREDICATE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +161,26 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
+	public String getPredicate() {
+		return (String)eDynamicGet(CodegenPackage.DESCRIPTOR__PREDICATE, CodegenPackage.Literals.DESCRIPTOR__PREDICATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPredicate(String newPredicate) {
+		eDynamicSet(CodegenPackage.DESCRIPTOR__PREDICATE, CodegenPackage.Literals.DESCRIPTOR__PREDICATE, newPredicate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodegenPackage.DESCRIPTOR__LABEL:
@@ -158,6 +189,8 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 				return getIcon();
 			case CodegenPackage.DESCRIPTOR__DESCRIPTION:
 				return getDescription();
+			case CodegenPackage.DESCRIPTOR__PREDICATE:
+				return getPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +211,9 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 				return;
 			case CodegenPackage.DESCRIPTOR__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case CodegenPackage.DESCRIPTOR__PREDICATE:
+				setPredicate((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,6 +236,9 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 			case CodegenPackage.DESCRIPTOR__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case CodegenPackage.DESCRIPTOR__PREDICATE:
+				setPredicate(PREDICATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,6 +257,8 @@ public abstract class DescriptorImpl extends MinimalEObjectImpl.Container implem
 				return ICON_EDEFAULT == null ? getIcon() != null : !ICON_EDEFAULT.equals(getIcon());
 			case CodegenPackage.DESCRIPTOR__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case CodegenPackage.DESCRIPTOR__PREDICATE:
+				return PREDICATE_EDEFAULT == null ? getPredicate() != null : !PREDICATE_EDEFAULT.equals(getPredicate());
 		}
 		return super.eIsSet(featureID);
 	}

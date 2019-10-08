@@ -1669,6 +1669,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDescriptor_Predicate() {
+		return (EAttribute)descriptorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getValueDescriptor() {
 		return valueDescriptorEClass;
 	}
@@ -2087,6 +2097,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(descriptorEClass, DESCRIPTOR__LABEL);
 		createEAttribute(descriptorEClass, DESCRIPTOR__ICON);
 		createEAttribute(descriptorEClass, DESCRIPTOR__DESCRIPTION);
+		createEAttribute(descriptorEClass, DESCRIPTOR__PREDICATE);
 
 		valueDescriptorEClass = createEClass(VALUE_DESCRIPTOR);
 		createEAttribute(valueDescriptorEClass, VALUE_DESCRIPTOR__TYPE);
@@ -2532,6 +2543,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getDescriptor_Label(), ecorePackage.getEString(), "label", null, 1, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDescriptor_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDescriptor_Description(), ecorePackage.getEString(), "description", null, 0, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDescriptor_Predicate(), ecorePackage.getEString(), "predicate", null, 0, 1, org.nasdanika.codegen.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueDescriptorEClass, ValueDescriptor.class, "ValueDescriptor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValueDescriptor_Type(), ecorePackage.getEString(), "type", null, 0, 1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
