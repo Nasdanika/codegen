@@ -80,8 +80,8 @@ public class ModelGenerator<T> implements WorkFactory<List<T>>, GenerationPartic
 	}
 	
 	@Override
-	public Work<List<T>> createWork(Context context) throws Exception {
-		return generator.createWork(context);
+	public Work<List<T>> create(Context context) throws Exception {
+		return generator.create(context);
 	}
 
 }

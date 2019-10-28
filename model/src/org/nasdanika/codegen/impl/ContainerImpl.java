@@ -236,7 +236,7 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 		};
 		
 		for (ResourceGenerator<BinaryResource> child: getElements()) {
-			ret.add(child.createWork(childrenContext));
+			ret.add(child.create(childrenContext));
 		}
 		
 		return ret;

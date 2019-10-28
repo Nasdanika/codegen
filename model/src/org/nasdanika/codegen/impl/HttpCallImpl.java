@@ -401,11 +401,11 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 		
 		Map<String,Work<String>> headersWork = new HashMap<>();
 		for (AbstractNamedGenerator h: getHeaders()) {
-			headersWork.put(h.getName(), h.createWork(context));
+			headersWork.put(h.getName(), h.create(context));
 		}
 		
 		Generator<InputStream> bodyGenerator = getBodyGenerator();
-		Work<List<InputStream>> bodyWork = bodyGenerator == null ? null : bodyGenerator.createWork(context);
+		Work<List<InputStream>> bodyWork = bodyGenerator == null ? null : bodyGenerator.create(context);
 		
 		return new Work<InputStream>() {
 

@@ -54,10 +54,10 @@ public class StaticTextTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating basic text", 0);
-			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			List<String> result = validatingModelGenerator.create(mc).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
@@ -74,7 +74,7 @@ public class StaticTextTests extends TestsBase {
 		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-model-doc/static-text/basic"));
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating static text", 0);
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			generator.generate(container, progressMonitor.compose(pe));
 			
 			// HTML report
@@ -102,10 +102,10 @@ public class StaticTextTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating interpolated static text", 0);
-			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			List<String> result = validatingModelGenerator.create(mc).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
@@ -129,10 +129,10 @@ public class StaticTextTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-			List<String> result = validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe));	
+			List<String> result = validatingModelGenerator.create(mc).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
@@ -159,10 +159,10 @@ public class StaticTextTests extends TestsBase {
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
 			Context context = mc.compose(Context.wrap(config::get));
-			List<String> result = validatingModelGenerator.createWork(context).execute(progressMonitor.compose(pe));	
+			List<String> result = validatingModelGenerator.create(context).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
@@ -207,10 +207,10 @@ public class StaticTextTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-			List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
+			List<String> result = generator.create(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
@@ -234,10 +234,10 @@ public class StaticTextTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating interpolated text", 0);
-			List<String> result = generator.createWork(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
+			List<String> result = generator.create(Context.EMPTY_CONTEXT).execute(progressMonitor.compose(pe));	
 			
 			// HTML report
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			ProgressReportGenerator prg = new ProgressReportGenerator("Generation", pe);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				

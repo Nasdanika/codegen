@@ -316,12 +316,12 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	protected Work<String> createWorkItem(Context context) throws Exception {
 		List<Work<List<String>>> commentsWorkList = new ArrayList<>();
 		for (Generator<String> cg: getCommentGenerators()) {
-			commentsWorkList.add(cg.createWork(context));
+			commentsWorkList.add(cg.create(context));
 		}
 		
 		List<Work<List<String>>> bodyWorkList = new ArrayList<>();
 		for (Generator<String> bg: getBodyGenerators()) {
-			bodyWorkList.add(bg.createWork(context));
+			bodyWorkList.add(bg.create(context));
 		}
 		
 		return new Work<String>() {

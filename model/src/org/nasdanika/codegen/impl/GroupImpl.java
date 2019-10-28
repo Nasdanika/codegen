@@ -161,7 +161,7 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 		for (Generator<T> e: getElements()) {
 			Context elementContext = controller == null ? context : controller.select(GroupImpl.this, e, context);
 			if (elementContext != null) {
-				ret.add(e.createWork(elementContext));
+				ret.add(e.create(elementContext));
 			}
 		}
 

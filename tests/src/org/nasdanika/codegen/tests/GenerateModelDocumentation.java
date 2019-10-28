@@ -33,7 +33,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			generator.generate(container, progressMonitor.compose(pe));
 			container.put("progress-report.json", pe.toString(), progressMonitor.split("Saving progress report", 1));
 			
@@ -58,7 +58,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			generator.generate(container, progressMonitor.compose(pe));
 			container.put("progress-report.json", pe.toString(), progressMonitor.split("Writing progress-report.json", 1));
 		}

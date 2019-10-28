@@ -446,6 +446,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 		DiagnosticHelper helper = new DiagnosticHelper(diagnostics, CodegenValidator.DIAGNOSTIC_SOURCE, CodegenValidator.GENERATOR__VALIDATE, this);
 		boolean result = true;
 		if (diagnostics != null && isEnabled()) {
+			helper.error("Test", CodegenPackage.Literals.GENERATOR__CONTROLLER);
 			if (getController() == null || getController().trim().length() == 0) {
 				if (!getControllerArguments().isEmpty()) {
 					helper.warning("Arguments without a controller", CodegenPackage.Literals.GENERATOR__CONTROLLER_ARGUMENTS);
@@ -729,7 +730,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * TODO - refine 
 	 */
 	@Override
-	final public Work<List<T>> createWork(Context context) throws Exception {
+	final public Work<List<T>> create(Context context) throws Exception {
 		Work<List<T>> noWork = new Work<List<T>>() {
 
 			@Override

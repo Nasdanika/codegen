@@ -23,7 +23,7 @@ import org.nasdanika.common.resources.FileSystemContainer;
 
 public class TestsBase {
 
-	public static BiFunction<String, Object, InputStream> encoder = (path, contents) -> {
+	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
 		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);
 		if (ret == null) {
 			// toString() conversion
@@ -56,7 +56,7 @@ public class TestsBase {
 			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
 			mc.register(BinaryEntityContainer.class, result.output);
 			
-			Work<List<BinaryEntity>> work = validatingModelGenerator.createWork(mc);
+			Work<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
 			
 			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
 				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);

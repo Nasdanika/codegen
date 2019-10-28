@@ -55,13 +55,13 @@ public abstract class ConfigurableValidatingModelGenerator<T,C> extends Validati
 	protected abstract Context createConfigurationContext(Context chain);
 	
 	@Override
-	public Work<List<T>> createWork(Context context) throws Exception {		
+	public Work<List<T>> create(Context context) throws Exception {		
 		Diagnostic diagnostic = validateConfiguration(context);		
 		if (diagnostic.getSeverity() == Diagnostic.ERROR) {
 			throw new DiagnosticException(diagnostic);
 		}				
 				
-		return super.createWork(createConfigurationContext(context));
+		return super.create(createConfigurationContext(context));
 	}
 
 }

@@ -330,7 +330,7 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 		};
 		
 		for (Generator<C> g: getGenerators()) {
-			ret.add(g.createWork(subContext));
+			ret.add(g.create(subContext));
 		}
 		
 		return ret;

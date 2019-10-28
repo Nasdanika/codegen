@@ -249,7 +249,7 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 		};
 		
 		for (Generator<InputStream> g: getGenerators()) {
-			work.add(g.createWork(context));
+			work.add(g.create(context));
 		}
 		
 		return work;

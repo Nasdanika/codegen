@@ -196,7 +196,7 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		};
 		
 		for (ResourceGenerator<BinaryResource> e: getElements()) {
-			ret.add(e.createWork(sc));
+			ret.add(e.create(sc));
 		}
 		
 		return ret;

@@ -38,7 +38,7 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 	}
 	
 	@Override
-	public Work<List<T>> createWork(Context context) throws Exception {
+	public Work<List<T>> create(Context context) throws Exception {
 		Diagnostician diagnostician = new Diagnostician() {
 			
 			public Map<Object,Object> createDefaultContext() {
@@ -53,7 +53,7 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 		if (validationResult.getSeverity() == Diagnostic.ERROR) {
 			throw new DiagnosticException(validationResult);
 		}
-		return super.createWork(context);
+		return super.create(context);
 	}
 	
 	static void diagnosticToProgress(ProgressMonitor progressMonitor, long worked, Diagnostic diagnostic) {

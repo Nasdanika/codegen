@@ -52,7 +52,7 @@ public class TextFileTests extends TestsBase {
 		mc.put("name", "World");
 		
 		ProgressMonitor pm = new PrintStreamProgressMonitor();
-		generator.createWork(mc).execute(pm);		
+		generator.create(mc).execute(pm);		
 	}
 	
 	/**
@@ -69,11 +69,11 @@ public class TextFileTests extends TestsBase {
 		
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
-			validatingModelGenerator.createWork(mc).execute(progressMonitor.compose(pe.split("Model doc", 1)));	
+			validatingModelGenerator.create(mc).execute(progressMonitor.compose(pe.split("Model doc", 1)));	
 			
 			// HTML report
 			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
 			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));				
 		}
@@ -86,7 +86,7 @@ public class TextFileTests extends TestsBase {
 		BinaryEntityContainer fsc = new FileSystemContainer(new File("target/generator-model-doc/text-file/hello-world"));
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
 			ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0);
-			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+			Container<Object> container = fsc.stateAdapter().adapt(null, ENCODER);
 			generator.generate(container, progressMonitor.compose(pe));
 			
 			// HTML report

@@ -152,7 +152,7 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 		};
 
 		for (Generator<S> g: getGenerators()) {
-			ret.add(g.createWork(context));
+			ret.add(g.create(context));
 		}
 		
 		return ret;
