@@ -206,7 +206,7 @@ public class CompilationUnitItemProvider extends TextFileItemProvider {
 	}
 	
 	@Override
-	public boolean accept(EObject source, EReference eReference, EObject target) {
+	public boolean accept(EObject source, EReference eReference, EObject target, boolean direct) {
 		return source instanceof org.nasdanika.codegen.java.Package && eReference == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
 	}
 
