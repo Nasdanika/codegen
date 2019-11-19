@@ -24,11 +24,11 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 
@@ -240,13 +240,13 @@ public abstract class FileImpl<C> extends ResourceImpl<BinaryEntity> implements 
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<BinaryEntity> createWorkItem(Context context) throws Exception {		
+	protected Supplier<BinaryEntity> createWorkItem(Context context) throws Exception {		
 		String name = finalName(context.interpolate(FileImpl.this.getName()));
 
-		// This context is used by children. Binary entity created by the command shall be registered with this context before executing child commands.
+		// This context is used by children. Binary entity created by the _LegacyCommandToRemove shall be registered with this context before executing child commands.
 		MutableContext subContext = context.fork();
 										
-		CompoundWork<BinaryEntity, List<C>> ret = new CompoundWork<BinaryEntity, List<C>>(context.interpolate(getName()), getExecutor(context)) {
+		CompoundSupplier<BinaryEntity, List<C>> ret = new CompoundSupplier<BinaryEntity, List<C>>(context.interpolate(getName()), getExecutor(context)) {
 			
 			@Override
 			public BinaryEntity execute(ProgressMonitor progressMonitor) throws Exception {

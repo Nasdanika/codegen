@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * Generator which is constructed with a configuration object. As part of its ``execute()`` method this class validates its configuration, creates a context from the configuration and executes generation.
@@ -55,7 +55,7 @@ public abstract class ConfigurableValidatingModelGenerator<T,C> extends Validati
 	protected abstract Context createConfigurationContext(Context chain);
 	
 	@Override
-	public Work<List<T>> create(Context context) throws Exception {		
+	public Supplier<List<T>> create(Context context) throws Exception {		
 		Diagnostic diagnostic = validateConfiguration(context);		
 		if (diagnostic.getSeverity() == Diagnostic.ERROR) {
 			throw new DiagnosticException(diagnostic);

@@ -21,10 +21,10 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.codegen.ZipResourceCollection;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
@@ -149,9 +149,9 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	
 	
 	@Override
-	protected Work<List<BinaryResource>> createMultiWorkItem(Context context) throws Exception {
+	protected Supplier<List<BinaryResource>> createMultiWorkItem(Context context) throws Exception {
 		
-		CompoundWork<List<BinaryResource>, List<InputStream>> work = new CompoundWork<List<BinaryResource>, List<InputStream>>(getTitle(), getExecutor(context)) {
+		CompoundSupplier<List<BinaryResource>, List<InputStream>> work = new CompoundSupplier<List<BinaryResource>, List<InputStream>>(getTitle(), getExecutor(context)) {
 			
 			@SuppressWarnings({ "unchecked", "resource" })
 			@Override

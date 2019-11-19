@@ -18,7 +18,7 @@ import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -313,21 +313,21 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	}
 
 	@Override
-	protected Work<String> createWorkItem(Context context) throws Exception {
-		List<Work<List<String>>> commentsWorkList = new ArrayList<>();
+	protected Supplier<String> createWorkItem(Context context) throws Exception {
+		List<Supplier<List<String>>> commentsWorkList = new ArrayList<>();
 		for (Generator<String> cg: getCommentGenerators()) {
 			commentsWorkList.add(cg.create(context));
 		}
 		
-		List<Work<List<String>>> bodyWorkList = new ArrayList<>();
+		List<Supplier<List<String>>> bodyWorkList = new ArrayList<>();
 		for (Generator<String> bg: getBodyGenerators()) {
 			bodyWorkList.add(bg.create(context));
 		}
 		
-		return new Work<String>() {
+		return new Supplier<String>() {
 			
 			@Override
-			public String getName() {
+			public String name() {
 				return MemberImpl.this.eClass().getName();
 			}
 			
@@ -339,10 +339,10 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 			@Override
 			public double size() {
 				int ret = 1; 
-				for (Work<List<String>> cw: commentsWorkList) {
+				for (Supplier<List<String>> cw: commentsWorkList) {
 					ret += cw.size();
 				}
-				for (Work<List<String>> bw: bodyWorkList) {
+				for (Supplier<List<String>> bw: bodyWorkList) {
 					ret += bw.size();
 				}
 				return ret; 
@@ -360,7 +360,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 					}
 				}
 				
-				for (Work<List<String>> cWork: commentsWorkList) {
+				for (Supplier<List<String>> cWork: commentsWorkList) {
 					for (String e: cWork.execute(monitor.split("Generating comment", cWork.size(), cWork))) {
 						if (e != null) {
 							BufferedReader br = new BufferedReader(new StringReader(e));
@@ -381,7 +381,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 				
 				// Body
 				StringBuilder bodyBuilder = new StringBuilder();
-				for (Work<List<String>> bWork: bodyWorkList) {
+				for (Supplier<List<String>> bWork: bodyWorkList) {
 					for (String e: bWork.execute(monitor.split("Generating body", bWork.size(), bWork))) {
 						if (e != null) {
 							bodyBuilder.append(e).append(System.lineSeparator());

@@ -12,7 +12,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.TextContentReference;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,9 +137,9 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 	}
 
 	@Override
-	protected Work<String> createWorkItem(Context context) throws Exception {
+	protected Supplier<String> createWorkItem(Context context) throws Exception {
 
-		return new Work<String>() {
+		return new Supplier<String>() {
 
 			@Override
 			public double size() {
@@ -152,7 +152,7 @@ public class TextContentReferenceImpl extends ContentReferenceImpl<String> imple
 			}
 			
 			@Override
-			public String getName() {
+			public String name() {
 				return "Loading text from "+getRef();
 			}
 

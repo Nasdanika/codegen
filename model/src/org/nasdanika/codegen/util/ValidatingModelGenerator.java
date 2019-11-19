@@ -12,10 +12,10 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
- * This class loads a generator model, validates it and then returns work for executing generation. 
+ * This class loads a generator model, validates it and then returns supplier for executing generation. 
  * @author Pavel
  *
  */
@@ -38,7 +38,7 @@ public class ValidatingModelGenerator<T> extends ModelGenerator<T> {
 	}
 	
 	@Override
-	public Work<List<T>> create(Context context) throws Exception {
+	public Supplier<List<T>> create(Context context) throws Exception {
 		Diagnostician diagnostician = new Diagnostician() {
 			
 			public Map<Object,Object> createDefaultContext() {

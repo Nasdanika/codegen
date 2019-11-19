@@ -215,7 +215,7 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Do the work after everything is specified.
+	 * Do the supplier after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -227,7 +227,7 @@ public class CodegenModelWizard extends Wizard implements INewWizard {
 			//
 			final IFile modelFile = getModelFile();
 
-			// Do the work within an operation.
+			// Do the supplier within an operation.
 			//
 			WorkspaceModifyOperation operation =
 				new WorkspaceModifyOperation() {

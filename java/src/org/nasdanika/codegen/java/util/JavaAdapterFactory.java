@@ -29,7 +29,7 @@ import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
 
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryResource;
 
 /**
@@ -141,7 +141,7 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMethodAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
+			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
 				return createWorkFactoryAdapter();
 			}
 			@Override
@@ -375,13 +375,13 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.common.WorkFactory
+	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {

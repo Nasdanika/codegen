@@ -12,18 +12,18 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GenerationParticipant;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 
 /**
  * This class loads a generator model and delegates its generation methods to it. 
  * @author Pavel
  *
  */
-public class ModelGenerator<T> implements WorkFactory<List<T>>, GenerationParticipant<T, Generator<T>> { 
+public class ModelGenerator<T> implements SupplierFactory<List<T>>, GenerationParticipant<T, Generator<T>> { 
 
 	protected Generator<T> generator;
-	protected Work<List<T>> work;
+	protected Supplier<List<T>> supplier;
 
 	/**
 	 * Creates a generator by loading a generator model specified by the platform URI, e.g. ``org.nasdanika.codegen.tests.models/models/static-text/basic.codegen``, into a new {@link ResourceSet}. 
@@ -80,7 +80,7 @@ public class ModelGenerator<T> implements WorkFactory<List<T>>, GenerationPartic
 	}
 	
 	@Override
-	public Work<List<T>> create(Context context) throws Exception {
+	public Supplier<List<T>> create(Context context) throws Exception {
 		return generator.create(context);
 	}
 

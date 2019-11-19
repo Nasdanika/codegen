@@ -7,7 +7,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Property;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -172,9 +172,9 @@ public class PropertyImpl extends AbstractNamedGeneratorImpl implements Property
 	}
 
 	@Override
-	public Work<String> createWork(Context context) throws Exception {
+	public Supplier<String> createWork(Context context) throws Exception {
 		
-		return new Work<String>() {
+		return new Supplier<String>() {
 			
 			@Override
 			public double size() {
@@ -187,8 +187,8 @@ public class PropertyImpl extends AbstractNamedGeneratorImpl implements Property
 			}
 	
 			@Override
-			public String getName() {
-				return "Property "+getName();
+			public String name() {
+				return "Property "+name();
 			}
 	
 			@Override

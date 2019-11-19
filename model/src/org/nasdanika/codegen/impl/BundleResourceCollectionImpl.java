@@ -15,7 +15,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Merger;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
@@ -143,9 +143,9 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 	}
 	
 	@Override
-	protected Work<List<BinaryResource>> createMultiWorkItem(Context context) throws Exception {
+	protected Supplier<List<BinaryResource>> createMultiWorkItem(Context context) throws Exception {
 		
-		return new Work<List<BinaryResource>>() {
+		return new Supplier<List<BinaryResource>>() {
 			
 			@SuppressWarnings("unchecked")
 			@Override
@@ -223,7 +223,7 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 			}
 
 			@Override
-			public String getName() {
+			public String name() {
 				return getTitle();
 			}
 

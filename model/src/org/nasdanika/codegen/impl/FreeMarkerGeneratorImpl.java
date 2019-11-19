@@ -15,7 +15,7 @@ import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.FreeMarkerTemplateLoaderType;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 import org.osgi.framework.Bundle;
 
 import freemarker.cache.URLTemplateLoader;
@@ -271,9 +271,9 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 	}
 	
 	@Override
-	protected Work<String> createWorkItem(Context context) throws Exception {
+	protected Supplier<String> createWorkItem(Context context) throws Exception {
 		
-		return new Work<String>() {
+		return new Supplier<String>() {
 			
 			@Override
 			public double size() {
@@ -281,7 +281,7 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 			}
 			
 			@Override
-			public String getName() {
+			public String name() {
 				return getTitle();
 			}
 			
@@ -301,7 +301,7 @@ public class FreeMarkerGeneratorImpl extends GeneratorImpl<String> implements Fr
 						@Override
 						protected URL getURL(String name) {
 							try {
-								// Resolving relative to the resource URI, will it work?
+								// Resolving relative to the resource URI, will it supplier?
 								return new URL(new URL(eResource().getURI().toString()), name);
 							} catch (MalformedURLException e) {
 								throw new IllegalArgumentException("Malformed name", e);

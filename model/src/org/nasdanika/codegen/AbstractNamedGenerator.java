@@ -4,7 +4,7 @@ package org.nasdanika.codegen;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +27,7 @@ import org.nasdanika.common.WorkFactory;
  * @model abstract="true" superTypes="org.nasdanika.codegen.WorkFactory&lt;org.eclipse.emf.ecore.EString&gt;"
  * @generated
  */
-public interface AbstractNamedGenerator extends EObject, WorkFactory<String> {
+public interface AbstractNamedGenerator extends EObject, SupplierFactory<String> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -7,7 +7,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.StaticText;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -170,9 +170,9 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 	}
 
 	@Override
-	protected Work<String> createWorkItem(Context context) throws Exception {
+	protected Supplier<String> createWorkItem(Context context) throws Exception {
 		
-		return new Work<String>() {
+		return new Supplier<String>() {
 			
 			@Override
 			public double size() {
@@ -185,7 +185,7 @@ public class StaticTextImpl extends GeneratorImpl<String> implements StaticText 
 			}
 
 			@Override
-			public String getName() {
+			public String name() {
 				return getTitle();
 			}
 

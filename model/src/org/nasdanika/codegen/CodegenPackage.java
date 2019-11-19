@@ -63,17 +63,17 @@ public interface CodegenPackage extends EPackage {
 	CodegenPackage eINSTANCE = org.nasdanika.codegen.impl.CodegenPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.common.WorkFactory
+	 * @see org.nasdanika.common.SupplierFactory
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkFactory()
 	 * @generated
 	 */
 	int WORK_FACTORY = 0;
 
 	/**
-	 * The number of structural features of the '<em>Work Factory</em>' class.
+	 * The number of structural features of the '<em>Supplier Factory</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -82,7 +82,7 @@ public interface CodegenPackage extends EPackage {
 	int WORK_FACTORY_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Work Factory</em>' class.
+	 * The number of operations of the '<em>Supplier Factory</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7434,12 +7434,12 @@ public interface CodegenPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Work Factory</em>'.
-	 * @see org.nasdanika.common.WorkFactory
-	 * @model instanceClass="org.nasdanika.common.WorkFactory" typeParameters="T"
+	 * @return the meta object for class '<em>Supplier Factory</em>'.
+	 * @see org.nasdanika.common.SupplierFactory
+	 * @model instanceClass="org.nasdanika.common.SupplierFactory" typeParameters="T"
 	 * @generated
 	 */
 	EClass getWorkFactory();
@@ -8871,10 +8871,10 @@ public interface CodegenPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.common.WorkFactory
+		 * @see org.nasdanika.common.SupplierFactory
 		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getWorkFactory()
 		 * @generated
 		 */

@@ -15,7 +15,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.JavaGenerator;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -183,8 +183,8 @@ public abstract class JavaGeneratorImpl<T> extends GeneratorImpl<T> implements J
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	protected Work<T> createWorkItem(Context context) throws Exception {
-		return (Work<T>) instantiate(context, getClassName(), getArguments());
+	protected Supplier<T> createWorkItem(Context context) throws Exception {
+		return (Supplier<T>) instantiate(context, getClassName(), getArguments());
 	}
 
 	

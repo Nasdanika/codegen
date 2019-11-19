@@ -15,10 +15,10 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.GroupController;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,9 +139,9 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 	}
 	
 	@Override
-	protected Work<T> createWorkItem(Context context) throws Exception {
+	protected Supplier<T> createWorkItem(Context context) throws Exception {
 		
-		CompoundWork<T, List<T>> ret = new CompoundWork<T, List<T>>(getTitle(), getExecutor(context)) {
+		CompoundSupplier<T, List<T>> ret = new CompoundSupplier<T, List<T>>(getTitle(), getExecutor(context)) {
 			
 			@Override
 			protected T combine(List<List<T>> results, ProgressMonitor monitor) {

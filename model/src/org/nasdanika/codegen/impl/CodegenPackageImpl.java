@@ -73,7 +73,7 @@ import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.ZipResourceCollection;
 import org.nasdanika.codegen.util.CodegenValidator;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
@@ -2358,7 +2358,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		descriptorSetEClass.getESuperTypes().add(this.getDescriptor());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(workFactoryEClass, WorkFactory.class, "WorkFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(workFactoryEClass, SupplierFactory.class, "SupplierFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Title(), ecorePackage.getEString(), "title", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

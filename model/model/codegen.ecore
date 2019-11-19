@@ -21,7 +21,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Merger" instanceClassName="org.nasdanika.codegen.Merger">
     <eTypeParameters name="T"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkFactory" instanceClassName="org.nasdanika.common.WorkFactory"
+  <eClassifiers xsi:type="ecore:EClass" name="WorkFactory" instanceClassName="org.nasdanika.common.SupplierFactory"
       abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Work factory creates work to be executed during generation."/>
@@ -470,7 +470,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaGenerator" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This generator instantiates and invokes Java class to generate output. &#xA;The generator Java class shall implement ``org.nasdanika.common.Work&lt;Context, T>`` where ``T`` is the generator/work return type.&#xA;"/>
+      <details key="documentation" value="This generator instantiates and invokes Java class to generate output. &#xA;The generator Java class shall implement ``org.nasdanika.common.Supplier&lt;Context, T>`` where ``T`` is the generator/work return type.&#xA;"/>
     </eAnnotations>
     <eTypeParameters name="T"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

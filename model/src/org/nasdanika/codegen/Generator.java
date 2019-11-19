@@ -8,7 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 
 
 /**
@@ -41,7 +41,7 @@ import org.nasdanika.common.WorkFactory;
  * @model abstract="true" superTypes="org.nasdanika.codegen.WorkFactory&lt;org.nasdanika.codegen.List&lt;T&gt;&gt;"
  * @generated
  */
-public interface Generator<T> extends EObject, WorkFactory<List<T>> {
+public interface Generator<T> extends EObject, SupplierFactory<List<T>> {
 	
 	/**
 	 * If diagnostic context with has this key with value ``true`` then java contributors such as controllers, mergers, java generators
@@ -142,7 +142,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- begin-model-doc -->
 	 * This class allows to mount generators to the parent generator context as property providers
 	 * accessible by name. It can be used for conditional invocation of named
-	 * generators by the containing generator. context.get(generatorName) returns Work created by contained generator.
+	 * generators by the containing generator. context.get(generatorName) returns Supplier created by contained generator.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Named Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_NamedGenerators()
@@ -169,9 +169,9 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Generator creates work  only if this attribute is true. 
+	 * Generator creates supplier  only if this attribute is true. 
 	 * The purpose of this attribute is to help with generator model development 
-	 * by disabling model parts which are still work in progress and would fail the generation
+	 * by disabling model parts which are still supplier in progress and would fail the generation
 	 * process, or, on the opposite, already working parts which would create delay and distraction
 	 * in testing and troubleshooting. 
 	 * <!-- end-model-doc -->
@@ -224,7 +224,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Custom generator configuration in YAML format.
-	 * Configuration is merged into a context passed to the work created by the generator.
+	 * Configuration is merged into a context passed to the supplier created by the generator.
 	 * Configuration values may contain interpolation tokens referencing other properties.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Configuration</em>' attribute.
@@ -253,7 +253,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * An interpolated URL of generator configuration in YAML, JSON, or properties formats. Format is determined by extension - ``.yml``, ``.json``, or ``.properties``.
 	 * The URL is resolved relative to the model. If both inline configuration and configurationReference are defined the configuration reference entries shadow the configuration entries.
 	 * 
-	 * As with the inline configuration, referenced configuration is merged into a context passed to the work created by the generator.
+	 * As with the inline configuration, referenced configuration is merged into a context passed to the supplier created by the generator.
 	 * Configuration values may contain interpolation tokens referencing other properties.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Configuration Reference</em>' attribute.
@@ -307,7 +307,7 @@ public interface Generator<T> extends EObject, WorkFactory<List<T>> {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * If not blank the predicate shall be a Java expression evaluating to boolean. 
-	 * If it evaluates to true then generation work gets executed. 
+	 * If it evaluates to true then generation supplier gets executed. 
 	 * The predicate expression has access to ``context`` variable. Use ``context.get()`` for retrieval of values from the context.
 	 * 
 	 * The predicate expression is interpolated with the context, so another way to access context properties is to use tokens. 

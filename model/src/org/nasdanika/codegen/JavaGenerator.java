@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * This generator instantiates and invokes Java class to generate output. 
- * The generator Java class shall implement ``org.nasdanika.common.Work<Context, T>`` where ``T`` is the generator/work return type.
+ * The generator Java class shall implement ``org.nasdanika.common.Supplier<Context, T>`` where ``T`` is the generator/supplier return type.
  * 
  * <!-- end-model-doc -->
  *

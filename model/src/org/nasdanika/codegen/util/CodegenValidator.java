@@ -50,7 +50,7 @@ import org.nasdanika.codegen.TextGeneratorReference;
 import org.nasdanika.codegen.TextGroup;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
@@ -136,7 +136,7 @@ public class CodegenValidator extends EObjectValidator {
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
 			case CodegenPackage.WORK_FACTORY:
-				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
+				return validateWorkFactory((SupplierFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
 				return validateGenerator((Generator<?>)value, diagnostics, context);
 			case CodegenPackage.ABSTRACT_NAMED_GENERATOR:
@@ -273,7 +273,7 @@ public class CodegenValidator extends EObjectValidator {
 	private boolean validateGen(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
 			case CodegenPackage.WORK_FACTORY:
-				return validateWorkFactory((WorkFactory<?>)value, diagnostics, context);
+				return validateWorkFactory((SupplierFactory<?>)value, diagnostics, context);
 			case CodegenPackage.GENERATOR:
 				return validateGenerator((Generator<?>)value, diagnostics, context);
 			case CodegenPackage.ABSTRACT_NAMED_GENERATOR:
@@ -404,7 +404,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateWorkFactory(WorkFactory<?> workFactory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateWorkFactory(SupplierFactory<?> workFactory, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint((EObject)workFactory, diagnostics, context);
 	}
 

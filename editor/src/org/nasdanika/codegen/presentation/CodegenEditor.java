@@ -181,7 +181,7 @@ public class CodegenEditor
 
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
-	 * The parent relation must be correctly defined for this to work.
+	 * The parent relation must be correctly defined for this to supplier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -677,11 +677,11 @@ public class CodegenEditor
 		adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		// Create the command stack that will notify this editor as commands are executed.
+		// Create the _LegacyCommandToRemove stack that will notify this editor as commands are executed.
 		//
 		BasicCommandStack commandStack = new BasicCommandStack();
 
-		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
+		// Add a listener to set the most recent _LegacyCommandToRemove's affected objects to be the selection of the viewer with focus.
 		//
 		commandStack.addCommandStackListener
 			(new CommandStackListener() {
@@ -713,7 +713,7 @@ public class CodegenEditor
 				 }
 			 });
 
-		// Create the editing domain with a special command stack.
+		// Create the editing domain with a special _LegacyCommandToRemove stack.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
@@ -1332,7 +1332,7 @@ public class CodegenEditor
 					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
-					// Make sure our popups work.
+					// Make sure our popups supplier.
 					//
 					createContextMenuFor(contentOutlineViewer);
 
@@ -1441,7 +1441,7 @@ public class CodegenEditor
 	}
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
+	 * This is for implementing {@link IEditorPart} and simply tests the _LegacyCommandToRemove stack.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1465,7 +1465,7 @@ public class CodegenEditor
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
 
-		// Do the work within an operation because this is a long running activity that modifies the workbench.
+		// Do the supplier within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation =
 			new WorkspaceModifyOperation() {

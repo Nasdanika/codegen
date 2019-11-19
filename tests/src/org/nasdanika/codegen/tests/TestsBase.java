@@ -16,7 +16,7 @@ import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.ProgressRecorder;
 import org.nasdanika.common.Status;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.FileSystemContainer;
@@ -56,14 +56,14 @@ public class TestsBase {
 			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
 			mc.register(BinaryEntityContainer.class, result.output);
 			
-			Work<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
+			Supplier<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
 			
 			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
 				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
 				if (diagnostic.getStatus() == Status.ERROR) {
 					dumpDiagnostic(diagnostic, 0);
 					System.out.println(workDiagnostic.toJSON().toString(4));
-					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator work", diagnostic);
+					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator supplier", diagnostic);
 				}
 			}
 			

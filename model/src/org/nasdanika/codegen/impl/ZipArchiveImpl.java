@@ -18,10 +18,10 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.ZipArchive;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
 import org.nasdanika.common.resources.EphemeralBinaryEntityContainer;
@@ -177,12 +177,12 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 	}
 
 	@Override
-	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+	protected Supplier<InputStream> createWorkItem(Context context) throws Exception {
 		
 		EphemeralBinaryEntityContainer container = new EphemeralBinaryEntityContainer();
 		Context sc = Context.singleton(BinaryEntityContainer.class, container).compose(context);
 		
-		CompoundWork<InputStream, List<BinaryResource>> ret = new CompoundWork<InputStream, List<BinaryResource>>(getTitle(), getExecutor(context)) {
+		CompoundSupplier<InputStream, List<BinaryResource>> ret = new CompoundSupplier<InputStream, List<BinaryResource>>(getTitle(), getExecutor(context)) {
 			
 			@Override
 			protected InputStream combine(List<List<BinaryResource>> results, ProgressMonitor progressMonitor) throws Exception {

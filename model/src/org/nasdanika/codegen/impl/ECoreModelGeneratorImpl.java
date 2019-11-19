@@ -17,7 +17,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ECoreModelGenerator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -143,9 +143,9 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 	}
 	
 	@Override
-	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+	protected Supplier<InputStream> createWorkItem(Context context) throws Exception {
 
-		return new Work<InputStream>() {
+		return new Supplier<InputStream>() {
 			
 			@Override
 			public double size() {
@@ -158,7 +158,7 @@ public class ECoreModelGeneratorImpl extends GeneratorImpl<InputStream> implemen
 			}
 			
 			@Override
-			public String getName() {
+			public String name() {
 				return "Ecore model generator "+getTitle();
 			}
 			

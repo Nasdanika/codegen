@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.NamedGenerator;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,8 +138,8 @@ public class NamedGeneratorImpl extends AbstractNamedGeneratorImpl implements Na
 	}
 
 	@Override
-	public Work<String> createWork(Context context) throws Exception {		
-		return new CompoundWork<String, List<String>>(getName(), context.get(Executor.class)) {
+	public Supplier<String> createWork(Context context) throws Exception {		
+		return new CompoundSupplier<String, List<String>>(getName(), context.get(Executor.class)) {
 			
 			@Override
 			protected String combine(List<List<String>> results, ProgressMonitor progressMonitor) throws Exception {

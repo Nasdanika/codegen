@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * This class allows to mount generators to the parent generator context as property computers accessible by name. It can be used for conditional invocation of named
- * generators by the containing generator. context.get(generatorName) returns results of executing Work created by the generator.
+ * generators by the containing generator. context.get(generatorName) returns results of executing Supplier created by the generator.
  * <!-- end-model-doc -->
  *
  * <p>

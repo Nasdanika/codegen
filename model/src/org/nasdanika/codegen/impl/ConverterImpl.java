@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Converter;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,9 +138,9 @@ public abstract class ConverterImpl<S, T> extends GeneratorImpl<T> implements Co
 	}
 		
 	@Override
-	protected Work<T> createWorkItem(Context context) throws Exception {
+	protected Supplier<T> createWorkItem(Context context) throws Exception {
 		
-		CompoundWork<T, List<S>> ret = new CompoundWork<T, List<S>>("Converter "+getTitle(), getExecutor(context)) {
+		CompoundSupplier<T, List<S>> ret = new CompoundSupplier<T, List<S>>("Converter "+getTitle(), getExecutor(context)) {
 
 			@Override
 			protected T combine(List<List<S>> results, ProgressMonitor progressMonitor) throws Exception {

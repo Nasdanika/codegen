@@ -10,7 +10,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.StaticBytes;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,9 +133,9 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 	}
 	
 	@Override
-	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+	protected Supplier<InputStream> createWorkItem(Context context) throws Exception {
 		
-		return new Work<InputStream>() {
+		return new Supplier<InputStream>() {
 			
 			@Override
 			public double size() {
@@ -149,7 +149,7 @@ public class StaticBytesImpl extends GeneratorImpl<InputStream> implements Stati
 			}
 
 			@Override
-			public String getName() {
+			public String name() {
 				return getTitle();
 			}
 

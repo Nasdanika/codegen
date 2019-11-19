@@ -33,7 +33,6 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorController;
 import org.nasdanika.codegen.GeneratorFilter;
 import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
@@ -41,7 +40,8 @@ import org.nasdanika.common.Diagnostic;
 import org.nasdanika.common.InterpolatingSource;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
@@ -664,9 +664,9 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * @return
 	 * @throws Exception
 	 */
-	protected Work<List<T>> createMultiWorkItem(Context context) throws Exception {
-		Work<T> workItem = createWorkItem(context);
-		return new Work<List<T>>() {
+	protected Supplier<List<T>> createMultiWorkItem(Context context) throws Exception {
+		Supplier<T> workItem = createWorkItem(context);
+		return new Supplier<List<T>>() {
 
 			@Override
 			public double size() {
@@ -674,8 +674,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			}
 
 			@Override
-			public String getName() {
-				return workItem.getName();
+			public String name() {
+				return workItem.name();
 			}
 
 			@Override
@@ -707,15 +707,15 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * Creates a work item for this generator for each context entry returned by the iterator. 
+	 * Creates a supplier item for this generator for each context entry returned by the iterator. 
 	 * @throws Exception
 	 */
-	protected Work<T> createWorkItem(Context context) throws Exception {
+	protected Supplier<T> createWorkItem(Context context) throws Exception {
 		throw new UnsupportedOperationException("Override in suclass");
 	}
 	
 	/**
-	 * @return {@link Executor} provided in the context (if any) if elements of the compound work created by this generator can be executed in parallel, null otherwise. 
+	 * @return {@link Executor} provided in the context (if any) if elements of the compound supplier created by this generator can be executed in parallel, null otherwise. 
 	 * This implementation returns executor service from the context. Override to return null for sequential execution in the caller thread.
 	 */
 	protected Executor getExecutor(Context context) {
@@ -730,8 +730,8 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 	 * TODO - refine 
 	 */
 	@Override
-	final public Work<List<T>> create(Context context) throws Exception {
-		Work<List<T>> noWork = new Work<List<T>>() {
+	final public Supplier<List<T>> create(Context context) throws Exception {
+		Supplier<List<T>> noWork = new Supplier<List<T>>() {
 
 			@Override
 			public double size() {
@@ -739,7 +739,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			}
 
 			@Override
-			public String getName() {
+			public String name() {
 				return "[Disabled] "+getTitle();
 			}
 
@@ -789,7 +789,7 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			throw new UnsupportedOperationException("Not implemented yet - see the comment above");
 		}
 		
-		CompoundWork<List<T>, List<T>> ret = new CompoundWork<List<T>, List<T>>(getTitle(), getExecutor(thisContext)) { 
+		CompoundSupplier<List<T>, List<T>> ret = new CompoundSupplier<List<T>, List<T>>(getTitle(), getExecutor(thisContext)) { 
 			
 			@Override
 			protected List<T> combine(List<List<T>> results, ProgressMonitor monitor) {
@@ -807,11 +807,11 @@ public abstract class GeneratorImpl<T> extends MinimalEObjectImpl.Container impl
 			for (Context itemContext: iContexts) {
 				// TODO - namedGenerators
 				ret.add(createMultiWorkItem(itemContext));
-				// TODO - explicit configure - sub-work item?
+				// TODO - explicit configure - sub-supplier item?
 			}
 		}
 		
-//		List<Work<?>> namedGenerators = new ArrayList<>();
+//		List<Supplier<?>> namedGenerators = new ArrayList<>();
 		
 
 		// TODO named generators here?

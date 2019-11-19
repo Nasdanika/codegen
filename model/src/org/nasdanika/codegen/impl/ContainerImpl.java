@@ -16,11 +16,11 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.BinaryResource;
 
@@ -175,13 +175,13 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	}
 
 	@Override
-	protected Work<BinaryEntityContainer> createWorkItem(Context context) throws Exception {
+	protected Supplier<BinaryEntityContainer> createWorkItem(Context context) throws Exception {
 		String name = finalName(context.interpolate(ContainerImpl.this.getName()));
 		
-		// This context is used by children. Binary container created by the command shall be registered with this context before executing child commands.
+		// This context is used by children. Binary container created by the _LegacyCommandToRemove shall be registered with this context before executing child commands.
 		MutableContext childrenContext = context.fork();
 		
-		CompoundWork<BinaryEntityContainer, List<BinaryResource>> ret = new CompoundWork<BinaryEntityContainer, List<BinaryResource>>(getTitle(), getExecutor(context)) {
+		CompoundSupplier<BinaryEntityContainer, List<BinaryResource>> ret = new CompoundSupplier<BinaryEntityContainer, List<BinaryResource>>(getTitle(), getExecutor(context)) {
 			
 			private BinaryEntityContainer container;
 			private boolean existedBeforGeneration; // For undo.

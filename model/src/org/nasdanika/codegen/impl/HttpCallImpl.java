@@ -28,7 +28,7 @@ import org.nasdanika.codegen.HttpMethod;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -397,21 +397,21 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 	}
 
 	@Override
-	protected Work<InputStream> createWorkItem(Context context) throws Exception {
+	protected Supplier<InputStream> createWorkItem(Context context) throws Exception {
 		
-		Map<String,Work<String>> headersWork = new HashMap<>();
+		Map<String,Supplier<String>> headersWork = new HashMap<>();
 		for (AbstractNamedGenerator h: getHeaders()) {
 			headersWork.put(h.getName(), h.create(context));
 		}
 		
 		Generator<InputStream> bodyGenerator = getBodyGenerator();
-		Work<List<InputStream>> bodyWork = bodyGenerator == null ? null : bodyGenerator.create(context);
+		Supplier<List<InputStream>> bodyWork = bodyGenerator == null ? null : bodyGenerator.create(context);
 		
-		return new Work<InputStream>() {
+		return new Supplier<InputStream>() {
 
 			@Override
 			public double size() {
-				double size = 1 + headersWork.values().stream().mapToDouble(Work::size).sum();
+				double size = 1 + headersWork.values().stream().mapToDouble(Supplier::size).sum();
 				if (bodyWork != null) {
 					size += bodyWork.size();
 				}
@@ -419,7 +419,7 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 			}
 
 			@Override
-			public String getName() {
+			public String name() {
 				return getTitle();
 			}
 
@@ -434,7 +434,7 @@ public class HttpCallImpl extends GeneratorImpl<InputStream> implements HttpCall
 				HttpURLConnection httpConnection = (HttpURLConnection) connection;
 				httpConnection.setRequestMethod(getMethod().getLiteral());
 				httpConnection.setDoOutput(bodyWork != null);
-				for (Entry<String, Work<String>> hwe: headersWork.entrySet()) {
+				for (Entry<String, Supplier<String>> hwe: headersWork.entrySet()) {
 					httpConnection.setRequestProperty(context.interpolate(hwe.getKey()), hwe.getValue().execute(progressMonitor.split("Generating header "+hwe.getKey(), hwe.getValue().size(), this)));
 				}
 				httpConnection.setConnectTimeout(getConnectTimeout() * 1000); 
