@@ -8,11 +8,17 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipArchive;
+
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.ZipArchive} object.
@@ -101,14 +107,16 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ZipArchive)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_ZipArchive_type") : label;
+		String label = ((ZipArchive)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ZipArchive_type") :
+			getString("_UI_ZipArchive_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -134,28 +142,59 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		collectEReferenceChildDescriptors(object, newChildDescriptors, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
-		
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-//				 CodegenFactory.eINSTANCE.createBinaryFile()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-//				 CodegenFactory.eINSTANCE.createTextFile()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.ZIP_ARCHIVE__ENTRIES,
-//				 CodegenFactory.eINSTANCE.createContainer()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
+			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

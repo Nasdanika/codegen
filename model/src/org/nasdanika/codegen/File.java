@@ -3,7 +3,6 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.resources.BinaryEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,21 +20,33 @@ import org.nasdanika.common.resources.BinaryEntity;
  *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
  *   <li>{@link org.nasdanika.codegen.File#getMergerArguments <em>Merger Arguments</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getEncoding <em>Encoding</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryEntity&gt;"
+ * @model
  * @generated
  */
-public interface File<C> extends Resource<BinaryEntity> {
+public interface File extends Resource {
+	/**
+	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * File content generators. 
+	 * Content produced by each generator is appended to the file content.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Generators</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Generators()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Generator> getGenerators();
 
 	/**
 	 * Returns the value of the '<em><b>Merger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Merger</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new
@@ -83,18 +94,28 @@ public interface File<C> extends Resource<BinaryEntity> {
 	EList<String> getMergerArguments();
 
 	/**
-	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;C&gt;</code>.
+	 * Returns the value of the '<em><b>Encoding</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * File content generators. 
-	 * Content produced by each generator is appended to the file content.
+	 * Optional character encoding for text files.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Generators()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Encoding</em>' attribute.
+	 * @see #setEncoding(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Encoding()
+	 * @model
 	 * @generated
 	 */
-	EList<Generator<C>> getGenerators();
+	String getEncoding();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.File#getEncoding <em>Encoding</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encoding</em>' attribute.
+	 * @see #getEncoding()
+	 * @generated
+	 */
+	void setEncoding(String value);
+
 } // File

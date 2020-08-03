@@ -16,54 +16,23 @@ package org.nasdanika.codegen;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.FreeMarkerGenerator#getTemplateLoaderType <em>Template Loader Type</em>}</li>
  *   <li>{@link org.nasdanika.codegen.FreeMarkerGenerator#getBase <em>Base</em>}</li>
  *   <li>{@link org.nasdanika.codegen.FreeMarkerGenerator#getTemplate <em>Template</em>}</li>
  *   <li>{@link org.nasdanika.codegen.FreeMarkerGenerator#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFreeMarkerGenerator()
- * @model superTypes="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;"
+ * @model
  * @generated
  */
-public interface FreeMarkerGenerator extends Generator<String> {
-	/**
-	 * Returns the value of the '<em><b>Template Loader Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.nasdanika.codegen.FreeMarkerTemplateLoaderType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Template Loader Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Template Loader Type</em>' attribute.
-	 * @see org.nasdanika.codegen.FreeMarkerTemplateLoaderType
-	 * @see #setTemplateLoaderType(FreeMarkerTemplateLoaderType)
-	 * @see org.nasdanika.codegen.CodegenPackage#getFreeMarkerGenerator_TemplateLoaderType()
-	 * @model required="true"
-	 * @generated
-	 */
-	FreeMarkerTemplateLoaderType getTemplateLoaderType();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.FreeMarkerGenerator#getTemplateLoaderType <em>Template Loader Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Template Loader Type</em>' attribute.
-	 * @see org.nasdanika.codegen.FreeMarkerTemplateLoaderType
-	 * @see #getTemplateLoaderType()
-	 * @generated
-	 */
-	void setTemplateLoaderType(FreeMarkerTemplateLoaderType value);
-
+public interface FreeMarkerGenerator extends Generator {
 	/**
 	 * Returns the value of the '<em><b>Base</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Base URL, bundle path, or package for resolving templates. 
-	 * If empty, then templates are resolved relative to the 
-	 * context base URL, which typically would be the generator model location.
+	 * Base URL for resolving templates. The URL is resolved relative to the model location.
+	 * If empty, then templates are resolved relative to the generator model location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' attribute.
 	 * @see #setBase(String)
@@ -113,7 +82,7 @@ public interface FreeMarkerGenerator extends Generator<String> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of a property which value is used as the model for the template.
+	 * The name of a property which value is used as a model for the template.
 	 * If blank, the generation context is used as the model.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Model</em>' attribute.

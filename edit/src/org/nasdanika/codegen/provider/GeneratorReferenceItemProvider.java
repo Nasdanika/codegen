@@ -8,10 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GeneratorReference;
 
@@ -43,25 +45,25 @@ public class GeneratorReferenceItemProvider extends GeneratorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addModelPropertyDescriptor(object);
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Model feature.
+	 * This adds a property descriptor for the Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addModelPropertyDescriptor(Object object) {
+	protected void addRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratorReference_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorReference_model_feature", "_UI_GeneratorReference_type"),
-				 CodegenPackage.Literals.GENERATOR_REFERENCE__MODEL,
+				 getString("_UI_GeneratorReference_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorReference_ref_feature", "_UI_GeneratorReference_type"),
+				 CodegenPackage.Literals.GENERATOR_REFERENCE__REF,
 				 true,
 				 false,
 				 false,
@@ -88,7 +90,7 @@ public class GeneratorReferenceItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorReference<?>)object).getTitle();
+		String label = ((GeneratorReference)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorReference_type") :
 			getString("_UI_GeneratorReference_type") + " " + label;
@@ -107,7 +109,7 @@ public class GeneratorReferenceItemProvider extends GeneratorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeneratorReference.class)) {
-			case CodegenPackage.GENERATOR_REFERENCE__MODEL:
+			case CodegenPackage.GENERATOR_REFERENCE__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

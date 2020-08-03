@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,7 +9,7 @@ import org.nasdanika.common.resources.BinaryResource;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * ResourceGenerator generates an InputStream resource - file or container. 
+ * ResourceGenerator generates a resource - file or container. 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -22,17 +21,13 @@ import org.nasdanika.common.resources.BinaryResource;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResource()
- * @model abstract="true" TBounds="org.nasdanika.codegen.BinaryResource"
+ * @model abstract="true"
  * @generated
  */
-public interface Resource<T extends BinaryResource> extends ResourceGenerator<T> {
+public interface Resource extends ResourceGenerator {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Generator name.
@@ -60,10 +55,6 @@ public interface Resource<T extends BinaryResource> extends ResourceGenerator<T>
 	 * The default value is <code>"Overwrite"</code>.
 	 * The literals are from the enumeration {@link org.nasdanika.codegen.ReconcileAction}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reconcile Action</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Action to take if resource with given name already exists.

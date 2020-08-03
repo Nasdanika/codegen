@@ -5,8 +5,6 @@ package org.nasdanika.codegen.java.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -126,26 +124,6 @@ public class FieldImpl extends MemberImpl implements Field {
 				return TYPE_EDEFAULT == null ? getType() != null : !TYPE_EDEFAULT.equals(getType());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	protected String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception {
-		StringBuilder ret = new StringBuilder();
-		// Comment
-		ret.append(comment);
-		// Annotations
-		for (String ann: getAnnotations()) {
-			ret.append("@").append(context.interpolate(ann)).append(System.lineSeparator());
-		}
-		for (String modifier: getModifiers()) {
-			ret.append(context.interpolate(modifier)).append(" ");
-		}
-		ret.append(context.interpolate(getType())).append(" ").append(context.interpolate(getName()));
-		if (body.trim().length() > 0) {
-			ret.append(" = ").append(body);
-		}
-		ret.append(";");
-		return ret.toString();
 	}
 	
 

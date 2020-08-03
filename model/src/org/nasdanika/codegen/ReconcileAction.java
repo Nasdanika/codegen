@@ -46,7 +46,9 @@ public enum ReconcileAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APPEND(1, "Append", "Append"), /**
+	APPEND(1, "Append", "Append"),
+
+	/**
 	 * The '<em><b>Merge</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,19 +90,10 @@ public enum ReconcileAction implements Enumerator {
 	 * @ordered
 	 */
 	CANCEL(4, "Cancel", "Cancel");
-	
-	/**
-	 * Context property which holds overwrite predicate.
-	 */	
-	public static final String OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME = "overwrite-predicate"; 
 
 	/**
 	 * The '<em><b>Keep</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Keep</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Discard the generated content and keep the original or skip the generation step altogether.
@@ -115,10 +108,6 @@ public enum ReconcileAction implements Enumerator {
 	/**
 	 * The '<em><b>Append</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Append</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Append the new content to the existing. For project and directories it means
@@ -134,10 +123,6 @@ public enum ReconcileAction implements Enumerator {
 	/**
 	 * The '<em><b>Merge</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Merge</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Merge new and existing content, typically using a merger service for files. 
@@ -153,10 +138,6 @@ public enum ReconcileAction implements Enumerator {
 	/**
 	 * The '<em><b>Overwrite</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Overwrite</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Replace existing content with the new one. 
@@ -174,10 +155,6 @@ public enum ReconcileAction implements Enumerator {
 	/**
 	 * The '<em><b>Cancel</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Cancel</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Throw ``OperationCancelledException`` if resource/project already exists.
@@ -340,5 +317,5 @@ public enum ReconcileAction implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-		
+	
 } //ReconcileAction

@@ -28,10 +28,10 @@ import org.nasdanika.codegen.Generator;
  * </ul>
  *
  * @see org.nasdanika.codegen.java.JavaPackage#getMember()
- * @model abstract="true" superTypes="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface Member extends Generator<String> {
+public interface Member extends Generator {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface Member extends Generator<String> {
 
 	/**
 	 * Returns the value of the '<em><b>Comment Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.lang.String&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -82,10 +82,10 @@ public interface Member extends Generator<String> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comment Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_CommentGenerators()
-	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator<String>> getCommentGenerators();
+	EList<Generator> getCommentGenerators();
 
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
@@ -129,7 +129,7 @@ public interface Member extends Generator<String> {
 
 	/**
 	 * Returns the value of the '<em><b>Body Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.lang.String&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -138,10 +138,10 @@ public interface Member extends Generator<String> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_BodyGenerators()
-	 * @model type="org.nasdanika.codegen.Generator&lt;org.eclipse.emf.ecore.EString&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator<String>> getBodyGenerators();
+	EList<Generator> getBodyGenerators();
 
 	/**
 	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute list.

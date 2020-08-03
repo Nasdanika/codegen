@@ -7,7 +7,6 @@ import static org.nasdanika.codegen.java.JavaPackage.CLASS;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -25,6 +24,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -180,6 +180,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Initialize simple dependencies
 		CodegenPackage.eINSTANCE.eClass();
+		NcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJavaPackage.createPackageContents();
@@ -581,11 +582,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Add supertypes to classes
 		sourceFolderEClass.getESuperTypes().add(theCodegenPackage.getContainer());
 		packageEClass.getESuperTypes().add(theCodegenPackage.getContainer());
-		compilationUnitEClass.getESuperTypes().add(theCodegenPackage.getTextFile());
-		EGenericType g1 = createEGenericType(theCodegenPackage.getGenerator());
-		EGenericType g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		memberEClass.getEGenericSuperTypes().add(g1);
+		compilationUnitEClass.getESuperTypes().add(theCodegenPackage.getFile());
+		memberEClass.getESuperTypes().add(theCodegenPackage.getGenerator());
 		typeEClass.getESuperTypes().add(this.getMember());
 		fieldEClass.getESuperTypes().add(this.getMember());
 		operationEClass.getESuperTypes().add(this.getMember());
@@ -608,16 +606,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theCodegenPackage.getGenerator());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		initEReference(getMember_CommentGenerators(), g1, null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMember_CommentGenerators(), theCodegenPackage.getGenerator(), null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Annotations(), ecorePackage.getEString(), "annotations", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theCodegenPackage.getGenerator());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		initEReference(getMember_BodyGenerators(), g1, null, "bodyGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMember_BodyGenerators(), theCodegenPackage.getGenerator(), null, "bodyGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_TypeParameters(), ecorePackage.getEString(), "typeParameters", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -654,6 +646,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_10);
 		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_11);
 		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_12);
+		addEEnumLiteral(jdkLevelEEnum, JDKLevel.JDK_13);
 
 		// Create resource
 		createResource(eNS_URI);

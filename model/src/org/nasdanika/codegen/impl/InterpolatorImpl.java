@@ -2,13 +2,10 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.List;
-
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Interpolator;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +14,7 @@ import org.nasdanika.common.ProgressMonitor;
  *
  * @generated
  */
-public class InterpolatorImpl extends FilterImpl<String> implements Interpolator {
+public class InterpolatorImpl extends FilterImpl implements Interpolator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,20 +32,6 @@ public class InterpolatorImpl extends FilterImpl<String> implements Interpolator
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.INTERPOLATOR;
-	}
-
-	@Override
-	protected String convert(Context context, List<String> generationResult, ProgressMonitor subMonitor) throws Exception {
-		StringBuilder sb = new StringBuilder();
-		for (String str: generationResult) {
-			sb.append(str);
-		}
-		return context.interpolate(sb.toString());
-	}
-	
-	@Override
-	protected int getConverterWorkSize() {
-		return 1;
 	}
 
 } //InterpolatorImpl

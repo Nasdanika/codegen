@@ -78,15 +78,6 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__TITLE = CodegenPackage.CONTAINER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_FOLDER__ENABLED = CodegenPackage.CONTAINER__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,7 +87,16 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__DESCRIPTION = CodegenPackage.CONTAINER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__ID = CodegenPackage.CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,13 +105,13 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__CONFIGURATION = CodegenPackage.CONTAINER__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FOLDER__CONFIGURATION_REFERENCE = CodegenPackage.CONTAINER__CONFIGURATION_REFERENCE;
+	int SOURCE_FOLDER__ENABLED = CodegenPackage.CONTAINER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -123,31 +123,13 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__CONTEXT_PATH = CodegenPackage.CONTAINER__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FOLDER__CONTROLLER = CodegenPackage.CONTAINER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_FOLDER__CONTROLLER_ARGUMENTS = CodegenPackage.CONTAINER__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_FOLDER__NAMED_GENERATORS = CodegenPackage.CONTAINER__NAMED_GENERATORS;
+	int SOURCE_FOLDER__CONDITION = CodegenPackage.CONTAINER__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -241,15 +223,6 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__TITLE = CodegenPackage.CONTAINER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__ENABLED = CodegenPackage.CONTAINER__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,7 +232,16 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__DESCRIPTION = CodegenPackage.CONTAINER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ID = CodegenPackage.CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -268,13 +250,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__CONFIGURATION = CodegenPackage.CONTAINER__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONFIGURATION_REFERENCE = CodegenPackage.CONTAINER__CONFIGURATION_REFERENCE;
+	int PACKAGE__ENABLED = CodegenPackage.CONTAINER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -286,31 +268,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__CONTEXT_PATH = CodegenPackage.CONTAINER__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONTROLLER = CodegenPackage.CONTAINER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__CONTROLLER_ARGUMENTS = CodegenPackage.CONTAINER__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__NAMED_GENERATORS = CodegenPackage.CONTAINER__NAMED_GENERATORS;
+	int PACKAGE__CONDITION = CodegenPackage.CONTAINER__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -392,16 +356,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__TITLE = CodegenPackage.TEXT_FILE__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__ENABLED = CodegenPackage.TEXT_FILE__ENABLED;
+	int COMPILATION_UNIT__TITLE = CodegenPackage.FILE__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -410,25 +365,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__DESCRIPTION = CodegenPackage.TEXT_FILE__DESCRIPTION;
+	int COMPILATION_UNIT__DESCRIPTION = CodegenPackage.FILE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__CONFIGURATION = CodegenPackage.TEXT_FILE__CONFIGURATION;
+	int COMPILATION_UNIT__ID = CodegenPackage.FILE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__CONFIGURATION_REFERENCE = CodegenPackage.TEXT_FILE__CONFIGURATION_REFERENCE;
+	int COMPILATION_UNIT__CONFIGURATION = CodegenPackage.FILE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__ENABLED = CodegenPackage.FILE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -437,34 +401,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__CONTEXT_PATH = CodegenPackage.TEXT_FILE__CONTEXT_PATH;
+	int COMPILATION_UNIT__CONTEXT_PATH = CodegenPackage.FILE__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__CONTROLLER = CodegenPackage.TEXT_FILE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CONTROLLER_ARGUMENTS = CodegenPackage.TEXT_FILE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__NAMED_GENERATORS = CodegenPackage.TEXT_FILE__NAMED_GENERATORS;
+	int COMPILATION_UNIT__CONDITION = CodegenPackage.FILE__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -473,7 +419,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__NAME = CodegenPackage.TEXT_FILE__NAME;
+	int COMPILATION_UNIT__NAME = CodegenPackage.FILE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
@@ -482,7 +428,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__RECONCILE_ACTION = CodegenPackage.TEXT_FILE__RECONCILE_ACTION;
+	int COMPILATION_UNIT__RECONCILE_ACTION = CodegenPackage.FILE__RECONCILE_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -491,7 +437,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__GENERATORS = CodegenPackage.TEXT_FILE__GENERATORS;
+	int COMPILATION_UNIT__GENERATORS = CodegenPackage.FILE__GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Merger</b></em>' attribute.
@@ -500,7 +446,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__MERGER = CodegenPackage.TEXT_FILE__MERGER;
+	int COMPILATION_UNIT__MERGER = CodegenPackage.FILE__MERGER;
 
 	/**
 	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
@@ -509,7 +455,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__MERGER_ARGUMENTS = CodegenPackage.TEXT_FILE__MERGER_ARGUMENTS;
+	int COMPILATION_UNIT__MERGER_ARGUMENTS = CodegenPackage.FILE__MERGER_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
@@ -518,7 +464,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__ENCODING = CodegenPackage.TEXT_FILE__ENCODING;
+	int COMPILATION_UNIT__ENCODING = CodegenPackage.FILE__ENCODING;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -527,7 +473,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__FORMAT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT__FORMAT = CodegenPackage.FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
@@ -536,7 +482,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = CodegenPackage.TEXT_FILE_FEATURE_COUNT + 1;
+	int COMPILATION_UNIT_FEATURE_COUNT = CodegenPackage.FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -545,7 +491,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT___IS_FILTERABLE = CodegenPackage.TEXT_FILE___IS_FILTERABLE;
+	int COMPILATION_UNIT___IS_FILTERABLE = CodegenPackage.FILE___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -554,7 +500,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.TEXT_FILE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COMPILATION_UNIT___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.FILE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
@@ -563,7 +509,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_OPERATION_COUNT = CodegenPackage.TEXT_FILE_OPERATION_COUNT + 0;
+	int COMPILATION_UNIT_OPERATION_COUNT = CodegenPackage.FILE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.java.impl.MemberImpl <em>Member</em>}' class.
@@ -585,15 +531,6 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__TITLE = CodegenPackage.GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__ENABLED = CodegenPackage.GENERATOR__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -603,7 +540,16 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ID = CodegenPackage.GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -612,13 +558,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__CONFIGURATION_REFERENCE = CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE;
+	int MEMBER__ENABLED = CodegenPackage.GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -630,31 +576,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__CONTEXT_PATH = CodegenPackage.GENERATOR__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__CONTROLLER_ARGUMENTS = CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
+	int MEMBER__CONDITION = CodegenPackage.GENERATOR__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -775,15 +703,6 @@ public interface JavaPackage extends EPackage {
 	int TYPE__TITLE = MEMBER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__ENABLED = MEMBER__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -793,7 +712,16 @@ public interface JavaPackage extends EPackage {
 	int TYPE__DESCRIPTION = MEMBER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ID = MEMBER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -802,13 +730,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE__CONFIGURATION = MEMBER__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__CONFIGURATION_REFERENCE = MEMBER__CONFIGURATION_REFERENCE;
+	int TYPE__ENABLED = MEMBER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -820,31 +748,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE__CONTEXT_PATH = MEMBER__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__CONTROLLER = MEMBER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__CONTROLLER_ARGUMENTS = MEMBER__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__NAMED_GENERATORS = MEMBER__NAMED_GENERATORS;
+	int TYPE__CONDITION = MEMBER__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -974,15 +884,6 @@ public interface JavaPackage extends EPackage {
 	int FIELD__TITLE = MEMBER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__ENABLED = MEMBER__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,7 +893,16 @@ public interface JavaPackage extends EPackage {
 	int FIELD__DESCRIPTION = MEMBER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ID = MEMBER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1001,13 +911,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__CONFIGURATION = MEMBER__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__CONFIGURATION_REFERENCE = MEMBER__CONFIGURATION_REFERENCE;
+	int FIELD__ENABLED = MEMBER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1019,31 +929,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__CONTEXT_PATH = MEMBER__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__CONTROLLER = MEMBER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__CONTROLLER_ARGUMENTS = MEMBER__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__NAMED_GENERATORS = MEMBER__NAMED_GENERATORS;
+	int FIELD__CONDITION = MEMBER__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1173,15 +1065,6 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__TITLE = MEMBER__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__ENABLED = MEMBER__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1191,7 +1074,16 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__DESCRIPTION = MEMBER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ID = MEMBER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1200,13 +1092,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__CONFIGURATION = MEMBER__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__CONFIGURATION_REFERENCE = MEMBER__CONFIGURATION_REFERENCE;
+	int OPERATION__ENABLED = MEMBER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1218,31 +1110,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__CONTEXT_PATH = MEMBER__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__CONTROLLER = MEMBER__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__CONTROLLER_ARGUMENTS = MEMBER__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__NAMED_GENERATORS = MEMBER__NAMED_GENERATORS;
+	int OPERATION__CONDITION = MEMBER__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1381,15 +1255,6 @@ public interface JavaPackage extends EPackage {
 	int CLASS__TITLE = TYPE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__ENABLED = TYPE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1399,7 +1264,16 @@ public interface JavaPackage extends EPackage {
 	int CLASS__DESCRIPTION = TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ID = TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1408,13 +1282,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__CONFIGURATION_REFERENCE = TYPE__CONFIGURATION_REFERENCE;
+	int CLASS__ENABLED = TYPE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1426,31 +1300,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS__CONTEXT_PATH = TYPE__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__CONTROLLER = TYPE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__CONTROLLER_ARGUMENTS = TYPE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__NAMED_GENERATORS = TYPE__NAMED_GENERATORS;
+	int CLASS__CONDITION = TYPE__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1580,15 +1436,6 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__TITLE = TYPE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__ENABLED = TYPE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1598,7 +1445,16 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__DESCRIPTION = TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__ID = TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1607,13 +1463,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__CONFIGURATION_REFERENCE = TYPE__CONFIGURATION_REFERENCE;
+	int INTERFACE__ENABLED = TYPE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1625,31 +1481,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__CONTEXT_PATH = TYPE__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__CONTROLLER = TYPE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__CONTROLLER_ARGUMENTS = TYPE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__NAMED_GENERATORS = TYPE__NAMED_GENERATORS;
+	int INTERFACE__CONDITION = TYPE__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1779,15 +1617,6 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__TITLE = TYPE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION__ENABLED = TYPE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1797,7 +1626,16 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__DESCRIPTION = TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ID = TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1806,13 +1644,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__CONFIGURATION_REFERENCE = TYPE__CONFIGURATION_REFERENCE;
+	int ANNOTATION__ENABLED = TYPE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -1824,31 +1662,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__CONTEXT_PATH = TYPE__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__CONTROLLER = TYPE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION__CONTROLLER_ARGUMENTS = TYPE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION__NAMED_GENERATORS = TYPE__NAMED_GENERATORS;
+	int ANNOTATION__CONDITION = TYPE__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1978,15 +1798,6 @@ public interface JavaPackage extends EPackage {
 	int ENUM__TITLE = TYPE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__ENABLED = TYPE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1996,7 +1807,16 @@ public interface JavaPackage extends EPackage {
 	int ENUM__DESCRIPTION = TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ID = TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2005,13 +1825,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM__CONFIGURATION_REFERENCE = TYPE__CONFIGURATION_REFERENCE;
+	int ENUM__ENABLED = TYPE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2023,31 +1843,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM__CONTEXT_PATH = TYPE__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM__CONTROLLER = TYPE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__CONTROLLER_ARGUMENTS = TYPE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__NAMED_GENERATORS = TYPE__NAMED_GENERATORS;
+	int ENUM__CONDITION = TYPE__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2177,15 +1979,6 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__TITLE = OPERATION__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__ENABLED = OPERATION__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2195,7 +1988,16 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__DESCRIPTION = OPERATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__ID = OPERATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2204,13 +2006,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__CONFIGURATION = OPERATION__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR__CONFIGURATION_REFERENCE = OPERATION__CONFIGURATION_REFERENCE;
+	int CONSTRUCTOR__ENABLED = OPERATION__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2222,31 +2024,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__CONTEXT_PATH = OPERATION__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR__CONTROLLER = OPERATION__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__CONTROLLER_ARGUMENTS = OPERATION__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__NAMED_GENERATORS = OPERATION__NAMED_GENERATORS;
+	int CONSTRUCTOR__CONDITION = OPERATION__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2385,15 +2169,6 @@ public interface JavaPackage extends EPackage {
 	int METHOD__TITLE = OPERATION__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__ENABLED = OPERATION__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2403,7 +2178,16 @@ public interface JavaPackage extends EPackage {
 	int METHOD__DESCRIPTION = OPERATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__ID = OPERATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2412,13 +2196,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD__CONFIGURATION = OPERATION__CONFIGURATION;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__CONFIGURATION_REFERENCE = OPERATION__CONFIGURATION_REFERENCE;
+	int METHOD__ENABLED = OPERATION__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
@@ -2430,31 +2214,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD__CONTEXT_PATH = OPERATION__CONTEXT_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__CONTROLLER = OPERATION__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__CONTROLLER_ARGUMENTS = OPERATION__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__NAMED_GENERATORS = OPERATION__NAMED_GENERATORS;
+	int METHOD__CONDITION = OPERATION__CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

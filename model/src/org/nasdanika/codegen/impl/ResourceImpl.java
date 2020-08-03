@@ -3,10 +3,10 @@
 package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
-import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.nasdanika.common.resources.BinaryResource;
  *
  * @generated
  */
-public abstract class ResourceImpl<T extends BinaryResource> extends GeneratorImpl<T> implements Resource<T> {
+public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,6 +32,7 @@ public abstract class ResourceImpl<T extends BinaryResource> extends GeneratorIm
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getReconcileAction() <em>Reconcile Action</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,7 +101,7 @@ public abstract class ResourceImpl<T extends BinaryResource> extends GeneratorIm
 	public void setReconcileAction(ReconcileAction newReconcileAction) {
 		eDynamicSet(CodegenPackage.RESOURCE__RECONCILE_ACTION, CodegenPackage.Literals.RESOURCE__RECONCILE_ACTION, newReconcileAction);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,28 +168,6 @@ public abstract class ResourceImpl<T extends BinaryResource> extends GeneratorIm
 				return getReconcileAction() != RECONCILE_ACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	/**
-	 * 
-	 * @return true if name cannot be blank.
-	 */
-	protected boolean isNonBlankName() {
-		return true;
-	}
-	
-	/**
-	 * Subclasses may override this method to perform name manipulations. E.g. Java package resource may replace dots with slashes.
-	 * @param name
-	 * @return Final resource name.
-	 */
-	protected String finalName(String name) {
-		return name;
-	}
-	
-	@Override
-	public boolean isFilterable() {
-		return true;
 	}
 
 } //ResourceImpl

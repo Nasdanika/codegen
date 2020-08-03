@@ -21,21 +21,16 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getContentReference()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface ContentReference<T> extends Generator<T> {
-	
+public interface ContentReference extends Generator {
 	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ref</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Content location (URL).
+	 * Content location (URL) resolved relative to the model location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)

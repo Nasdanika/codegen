@@ -97,12 +97,14 @@ public class BundleResourceCollectionItemProvider extends ResourceCollectionItem
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BundleResourceCollection)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_BundleResourceCollection_type") : label;
+		String label = ((BundleResourceCollection)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BundleResourceCollection_type") :
+			getString("_UI_BundleResourceCollection_type") + " " + label;
 	}
 
 

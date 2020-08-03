@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -29,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ZipResourceCollection extends ResourceCollection {
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;java.io.InputStream&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -37,9 +35,9 @@ public interface ZipResourceCollection extends ResourceCollection {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getZipResourceCollection_Generators()
-	 * @model type="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.InputStream&gt;" containment="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Generator<InputStream>> getGenerators();
+	EList<Generator> getGenerators();
 
 } // ZipResourceCollection

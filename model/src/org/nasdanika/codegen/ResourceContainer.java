@@ -5,7 +5,6 @@ package org.nasdanika.codegen;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +29,7 @@ import org.nasdanika.common.resources.BinaryResource;
 public interface ResourceContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.ResourceGenerator}<code>&lt;org.nasdanika.common.resources.BinaryResource&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.ResourceGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,9 +37,9 @@ public interface ResourceContainer extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceContainer_Elements()
-	 * @model type="org.nasdanika.codegen.ResourceGenerator&lt;org.nasdanika.codegen.BinaryResource&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ResourceGenerator<BinaryResource>> getElements();
+	EList<ResourceGenerator> getElements();
 
 } // ResourceContainer

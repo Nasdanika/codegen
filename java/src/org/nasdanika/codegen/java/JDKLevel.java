@@ -106,7 +106,15 @@ public enum JDKLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JDK_12(12, "JDK_12", "12");
+	JDK_12(12, "JDK_12", "12"), /**
+	 * The '<em><b>JDK 13</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #JDK_13_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	JDK_13(13, "JDK_13", "13");
 
 	/**
 	 * The '<em><b>JDK 4</b></em>' literal value.
@@ -208,6 +216,17 @@ public enum JDKLevel implements Enumerator {
 	public static final int JDK_12_VALUE = 12;
 
 	/**
+	 * The '<em><b>JDK 13</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #JDK_13
+	 * @model literal="13"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int JDK_13_VALUE = 13;
+
+	/**
 	 * An array of all the '<em><b>JDK Level</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +243,7 @@ public enum JDKLevel implements Enumerator {
 			JDK_10,
 			JDK_11,
 			JDK_12,
+			JDK_13,
 		};
 
 	/**
@@ -289,6 +309,7 @@ public enum JDKLevel implements Enumerator {
 			case JDK_10_VALUE: return JDK_10;
 			case JDK_11_VALUE: return JDK_11;
 			case JDK_12_VALUE: return JDK_12;
+			case JDK_13_VALUE: return JDK_13;
 		}
 		return null;
 	}

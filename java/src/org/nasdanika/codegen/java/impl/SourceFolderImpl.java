@@ -7,7 +7,6 @@ import org.nasdanika.codegen.impl.ContainerImpl;
 import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.SourceFolder;
-import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,11 +132,6 @@ public class SourceFolderImpl extends ContainerImpl implements SourceFolder {
 	@Override
 	public boolean isFilterable() {
 		return true;
-	}
-	
-	@Override
-	protected Context createContext(Context parent) {
-		return Context.singleton(JDKLevel.class, getJdkLevel()).compose(super.createContext(parent));
 	}
 
 } //PackageFragmentRootImpl

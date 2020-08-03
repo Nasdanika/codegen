@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +14,8 @@ import org.nasdanika.common.resources.BinaryResource;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceGenerator()
- * @model interface="true" abstract="true" TBounds="org.nasdanika.codegen.BinaryResource"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface ResourceGenerator<T extends BinaryResource> extends Generator<T> {
+public interface ResourceGenerator extends Generator {
 } // ResourceGenerator

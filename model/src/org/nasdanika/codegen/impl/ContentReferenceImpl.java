@@ -2,22 +2,10 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.net.URL;
-import java.util.Map;
-
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
-import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.common.Context;
-import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,30 +20,7 @@ import org.osgi.framework.Bundle;
  *
  * @generated
  */
-public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implements ContentReference<T> {
-
-	protected static final String BUNDLE_PROTOCOL = "bundle://";
-	
-	protected URL resolveRef(Context context) throws Exception {
-		String ref = context.interpolate(getRef());
-		if (ref.startsWith(BUNDLE_PROTOCOL)) {
-			String bp = getRef().substring(BUNDLE_PROTOCOL.length());
-			int slashIdx = bp.indexOf("/");
-			Bundle bundle = Platform.getBundle(bp.substring(0, slashIdx));
-			return bundle.getEntry(bp.substring(slashIdx));
-		}
-		
-		Resource resource = eResource();
-		if (resource != null) {
-			URI resUri = resource.getURI();
-			URI refUri = URI.createURI(ref);
-			URI resolvedUri = refUri.resolve(resUri);
-			return new URL(resolvedUri.toString());			
-		}
-		
-		return new URL(ref);
-	}
-	
+public class ContentReferenceImpl extends GeneratorImpl implements ContentReference {
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,7 +69,7 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 	public void setRef(String newRef) {
 		eDynamicSet(CodegenPackage.CONTENT_REFERENCE__REF, CodegenPackage.Literals.CONTENT_REFERENCE__REF, newRef);
 	}
-		
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,28 +128,4 @@ public abstract class ContentReferenceImpl<T> extends GeneratorImpl<T> implement
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT 
-	 */
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {
-			if (getRef() == null || getRef().trim().length() == 0) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Content reference is not set",
-						 new Object [] { this, CodegenPackage.Literals.CONTENT_REFERENCE__REF }));
-				
-				result = false;
-			}
-		}
-		return result;
-	}	
-	
 } //ContentReferenceImpl

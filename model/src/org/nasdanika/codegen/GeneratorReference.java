@@ -16,37 +16,37 @@ package org.nasdanika.codegen;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.GeneratorReference#getModel <em>Model</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.GeneratorReference#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface GeneratorReference<T> extends Generator<T> {
+public interface GeneratorReference extends Generator {
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Model URL resolved relative to this model.
+	 * Model URL resolved relative to this model. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Model</em>' attribute.
-	 * @see #setModel(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference_Model()
+	 * @return the value of the '<em>Ref</em>' attribute.
+	 * @see #setRef(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference_Ref()
 	 * @model
 	 * @generated
 	 */
-	String getModel();
+	String getRef();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.GeneratorReference#getModel <em>Model</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.codegen.GeneratorReference#getRef <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' attribute.
-	 * @see #getModel()
+	 * @param value the new value of the '<em>Ref</em>' attribute.
+	 * @see #getRef()
 	 * @generated
 	 */
-	void setModel(String value);
+	void setRef(String value);
 
 } // GeneratorReference

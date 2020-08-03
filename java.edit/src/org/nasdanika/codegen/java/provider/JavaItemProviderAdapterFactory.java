@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import org.nasdanika.codegen.java.util.JavaAdapterFactory;
-import org.nasdanika.emf.edit.EReferencePredicate;
+import org.nasdanika.emf.EReferencePredicate;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

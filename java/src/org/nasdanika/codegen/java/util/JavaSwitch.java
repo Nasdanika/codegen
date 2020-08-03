@@ -13,7 +13,6 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
-import org.nasdanika.codegen.TextFile;
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
@@ -25,9 +24,9 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
-
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.resources.BinaryResource;
+import org.nasdanika.ncore.Configurable;
+import org.nasdanika.ncore.Entity;
+import org.nasdanika.ncore.ModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +41,7 @@ import org.nasdanika.common.resources.BinaryResource;
  * @see org.nasdanika.codegen.java.JavaPackage
  * @generated
  */
-public class JavaSwitch<T1> extends Switch<T1> {
+public class JavaSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -84,136 +83,161 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case JavaPackage.SOURCE_FOLDER: {
 				SourceFolder sourceFolder = (SourceFolder)theEObject;
-				T1 result = caseSourceFolder(sourceFolder);
+				T result = caseSourceFolder(sourceFolder);
 				if (result == null) result = caseContainer(sourceFolder);
 				if (result == null) result = caseResource(sourceFolder);
 				if (result == null) result = caseResourceContainer(sourceFolder);
 				if (result == null) result = caseResourceGenerator(sourceFolder);
 				if (result == null) result = caseGenerator(sourceFolder);
-				if (result == null) result = caseWorkFactory(sourceFolder);
+				if (result == null) result = caseEntity(sourceFolder);
+				if (result == null) result = caseConfigurable(sourceFolder);
+				if (result == null) result = caseModelElement(sourceFolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.PACKAGE: {
 				org.nasdanika.codegen.java.Package package_ = (org.nasdanika.codegen.java.Package)theEObject;
-				T1 result = casePackage(package_);
+				T result = casePackage(package_);
 				if (result == null) result = caseContainer(package_);
 				if (result == null) result = caseResource(package_);
 				if (result == null) result = caseResourceContainer(package_);
 				if (result == null) result = caseResourceGenerator(package_);
 				if (result == null) result = caseGenerator(package_);
-				if (result == null) result = caseWorkFactory(package_);
+				if (result == null) result = caseEntity(package_);
+				if (result == null) result = caseConfigurable(package_);
+				if (result == null) result = caseModelElement(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.COMPILATION_UNIT: {
 				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
-				T1 result = caseCompilationUnit(compilationUnit);
-				if (result == null) result = caseTextFile(compilationUnit);
+				T result = caseCompilationUnit(compilationUnit);
 				if (result == null) result = caseFile(compilationUnit);
 				if (result == null) result = caseResource(compilationUnit);
 				if (result == null) result = caseResourceGenerator(compilationUnit);
 				if (result == null) result = caseGenerator(compilationUnit);
-				if (result == null) result = caseWorkFactory(compilationUnit);
+				if (result == null) result = caseEntity(compilationUnit);
+				if (result == null) result = caseConfigurable(compilationUnit);
+				if (result == null) result = caseModelElement(compilationUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.MEMBER: {
 				Member member = (Member)theEObject;
-				T1 result = caseMember(member);
+				T result = caseMember(member);
 				if (result == null) result = caseGenerator(member);
-				if (result == null) result = caseWorkFactory(member);
+				if (result == null) result = caseEntity(member);
+				if (result == null) result = caseConfigurable(member);
+				if (result == null) result = caseModelElement(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.TYPE: {
 				Type type = (Type)theEObject;
-				T1 result = caseType(type);
+				T result = caseType(type);
 				if (result == null) result = caseMember(type);
 				if (result == null) result = caseGenerator(type);
-				if (result == null) result = caseWorkFactory(type);
+				if (result == null) result = caseEntity(type);
+				if (result == null) result = caseConfigurable(type);
+				if (result == null) result = caseModelElement(type);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.FIELD: {
 				Field field = (Field)theEObject;
-				T1 result = caseField(field);
+				T result = caseField(field);
 				if (result == null) result = caseMember(field);
 				if (result == null) result = caseGenerator(field);
-				if (result == null) result = caseWorkFactory(field);
+				if (result == null) result = caseEntity(field);
+				if (result == null) result = caseConfigurable(field);
+				if (result == null) result = caseModelElement(field);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.OPERATION: {
 				Operation operation = (Operation)theEObject;
-				T1 result = caseOperation(operation);
+				T result = caseOperation(operation);
 				if (result == null) result = caseMember(operation);
 				if (result == null) result = caseGenerator(operation);
-				if (result == null) result = caseWorkFactory(operation);
+				if (result == null) result = caseEntity(operation);
+				if (result == null) result = caseConfigurable(operation);
+				if (result == null) result = caseModelElement(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.CLASS: {
 				org.nasdanika.codegen.java.Class class_ = (org.nasdanika.codegen.java.Class)theEObject;
-				T1 result = caseClass(class_);
+				T result = caseClass(class_);
 				if (result == null) result = caseType(class_);
 				if (result == null) result = caseMember(class_);
 				if (result == null) result = caseGenerator(class_);
-				if (result == null) result = caseWorkFactory(class_);
+				if (result == null) result = caseEntity(class_);
+				if (result == null) result = caseConfigurable(class_);
+				if (result == null) result = caseModelElement(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.INTERFACE: {
 				Interface interface_ = (Interface)theEObject;
-				T1 result = caseInterface(interface_);
+				T result = caseInterface(interface_);
 				if (result == null) result = caseType(interface_);
 				if (result == null) result = caseMember(interface_);
 				if (result == null) result = caseGenerator(interface_);
-				if (result == null) result = caseWorkFactory(interface_);
+				if (result == null) result = caseEntity(interface_);
+				if (result == null) result = caseConfigurable(interface_);
+				if (result == null) result = caseModelElement(interface_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.ANNOTATION: {
 				Annotation annotation = (Annotation)theEObject;
-				T1 result = caseAnnotation(annotation);
+				T result = caseAnnotation(annotation);
 				if (result == null) result = caseType(annotation);
 				if (result == null) result = caseMember(annotation);
 				if (result == null) result = caseGenerator(annotation);
-				if (result == null) result = caseWorkFactory(annotation);
+				if (result == null) result = caseEntity(annotation);
+				if (result == null) result = caseConfigurable(annotation);
+				if (result == null) result = caseModelElement(annotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.ENUM: {
 				org.nasdanika.codegen.java.Enum enum_ = (org.nasdanika.codegen.java.Enum)theEObject;
-				T1 result = caseEnum(enum_);
+				T result = caseEnum(enum_);
 				if (result == null) result = caseType(enum_);
 				if (result == null) result = caseMember(enum_);
 				if (result == null) result = caseGenerator(enum_);
-				if (result == null) result = caseWorkFactory(enum_);
+				if (result == null) result = caseEntity(enum_);
+				if (result == null) result = caseConfigurable(enum_);
+				if (result == null) result = caseModelElement(enum_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.CONSTRUCTOR: {
 				Constructor constructor = (Constructor)theEObject;
-				T1 result = caseConstructor(constructor);
+				T result = caseConstructor(constructor);
 				if (result == null) result = caseOperation(constructor);
 				if (result == null) result = caseMember(constructor);
 				if (result == null) result = caseGenerator(constructor);
-				if (result == null) result = caseWorkFactory(constructor);
+				if (result == null) result = caseEntity(constructor);
+				if (result == null) result = caseConfigurable(constructor);
+				if (result == null) result = caseModelElement(constructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.METHOD: {
 				Method method = (Method)theEObject;
-				T1 result = caseMethod(method);
+				T result = caseMethod(method);
 				if (result == null) result = caseOperation(method);
 				if (result == null) result = caseMember(method);
 				if (result == null) result = caseGenerator(method);
-				if (result == null) result = caseWorkFactory(method);
+				if (result == null) result = caseEntity(method);
+				if (result == null) result = caseConfigurable(method);
+				if (result == null) result = caseModelElement(method);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,7 +256,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseSourceFolder(SourceFolder object) {
+	public T caseSourceFolder(SourceFolder object) {
 		return null;
 	}
 
@@ -247,7 +271,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 casePackage(org.nasdanika.codegen.java.Package object) {
+	public T casePackage(org.nasdanika.codegen.java.Package object) {
 		return null;
 	}
 
@@ -262,7 +286,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseCompilationUnit(CompilationUnit object) {
+	public T caseCompilationUnit(CompilationUnit object) {
 		return null;
 	}
 
@@ -277,7 +301,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMember(Member object) {
+	public T caseMember(Member object) {
 		return null;
 	}
 
@@ -292,7 +316,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseType(Type object) {
+	public T caseType(Type object) {
 		return null;
 	}
 
@@ -307,7 +331,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseField(Field object) {
+	public T caseField(Field object) {
 		return null;
 	}
 
@@ -322,7 +346,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseOperation(Operation object) {
+	public T caseOperation(Operation object) {
 		return null;
 	}
 
@@ -337,7 +361,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseClass(org.nasdanika.codegen.java.Class object) {
+	public T caseClass(org.nasdanika.codegen.java.Class object) {
 		return null;
 	}
 
@@ -352,7 +376,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInterface(Interface object) {
+	public T caseInterface(Interface object) {
 		return null;
 	}
 
@@ -367,7 +391,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAnnotation(Annotation object) {
+	public T caseAnnotation(Annotation object) {
 		return null;
 	}
 
@@ -382,7 +406,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseEnum(org.nasdanika.codegen.java.Enum object) {
+	public T caseEnum(org.nasdanika.codegen.java.Enum object) {
 		return null;
 	}
 
@@ -397,7 +421,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseConstructor(Constructor object) {
+	public T caseConstructor(Constructor object) {
 		return null;
 	}
 
@@ -412,22 +436,52 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMethod(Method object) {
+	public T caseMethod(Method object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseWorkFactory(SupplierFactory<T> object) {
+	public T caseModelElement(ModelElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Configurable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Configurable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigurable(Configurable object) {
 		return null;
 	}
 
@@ -442,7 +496,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseGenerator(Generator<T> object) {
+	public T caseGenerator(Generator object) {
 		return null;
 	}
 
@@ -457,7 +511,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends BinaryResource> T1 caseResourceGenerator(ResourceGenerator<T> object) {
+	public T caseResourceGenerator(ResourceGenerator object) {
 		return null;
 	}
 
@@ -472,7 +526,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends BinaryResource> T1 caseResource(Resource<T> object) {
+	public T caseResource(Resource object) {
 		return null;
 	}
 
@@ -487,7 +541,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseResourceContainer(ResourceContainer object) {
+	public T caseResourceContainer(ResourceContainer object) {
 		return null;
 	}
 
@@ -502,7 +556,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContainer(Container object) {
+	public T caseContainer(Container object) {
 		return null;
 	}
 
@@ -517,22 +571,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <C> T1 caseFile(File<C> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text File</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text File</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseTextFile(TextFile object) {
+	public T caseFile(File object) {
 		return null;
 	}
 
@@ -548,7 +587,7 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

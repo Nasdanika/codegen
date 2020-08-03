@@ -2,29 +2,21 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.Collection;
-import java.util.List;
-import java.util.zip.ZipOutputStream;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.ZipArchive;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common._legacy.CompoundSupplier;
-import org.nasdanika.common.resources.BinaryEntityContainer;
-import org.nasdanika.common.resources.BinaryResource;
-import org.nasdanika.common.resources.EphemeralBinaryEntityContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +31,7 @@ import org.nasdanika.common.resources.EphemeralBinaryEntityContainer;
  *
  * @generated
  */
-public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArchive {
+public class ZipArchiveImpl extends GeneratorImpl implements ZipArchive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,8 +58,8 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ResourceGenerator<BinaryResource>> getElements() {
-		return (EList<ResourceGenerator<BinaryResource>>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ELEMENTS, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, true, true);
+	public EList<ResourceGenerator> getElements() {
+		return (EList<ResourceGenerator>)eDynamicGet(CodegenPackage.ZIP_ARCHIVE__ELEMENTS, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -109,7 +101,7 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		switch (featureID) {
 			case CodegenPackage.ZIP_ARCHIVE__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends ResourceGenerator<BinaryResource>>)newValue);
+				getElements().addAll((Collection<? extends ResourceGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,7 +135,7 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,32 +167,5 @@ public class ZipArchiveImpl extends GeneratorImpl<InputStream> implements ZipArc
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
-	@Override
-	protected Supplier<InputStream> createWorkItem(Context context) throws Exception {
-		
-		EphemeralBinaryEntityContainer container = new EphemeralBinaryEntityContainer();
-		Context sc = Context.singleton(BinaryEntityContainer.class, container).compose(context);
-		
-		CompoundSupplier<InputStream, List<BinaryResource>> ret = new CompoundSupplier<InputStream, List<BinaryResource>>(getTitle(), getExecutor(context)) {
-			
-			@Override
-			protected InputStream combine(List<List<BinaryResource>> results, ProgressMonitor progressMonitor) throws Exception {
-				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				try (ZipOutputStream zos = new ZipOutputStream(baos)) {
-					container.store(zos, null, progressMonitor);
-				}
-				baos.close();
-				return new ByteArrayInputStream(baos.toByteArray());
-			}
-		};
-		
-		for (ResourceGenerator<BinaryResource> e: getElements()) {
-			ret.add(e.create(sc));
-		}
-		
-		return ret;
-	}
-	
 
 } //ZipArchiveImpl

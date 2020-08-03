@@ -3,10 +3,9 @@
 package org.nasdanika.codegen.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GeneratorReference;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,21 +15,21 @@ import org.nasdanika.common.Supplier;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> implements GeneratorReference<T> {
+public class GeneratorReferenceImpl extends GeneratorImpl implements GeneratorReference {
 	/**
-	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute.
+	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MODEL_EDEFAULT = null;
+	protected static final String REF_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,8 +56,8 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	 * @generated
 	 */
 	@Override
-	public String getModel() {
-		return (String)eDynamicGet(CodegenPackage.GENERATOR_REFERENCE__MODEL, CodegenPackage.Literals.GENERATOR_REFERENCE__MODEL, true, true);
+	public String getRef() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR_REFERENCE__REF, CodegenPackage.Literals.GENERATOR_REFERENCE__REF, true, true);
 	}
 
 	/**
@@ -67,8 +66,8 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	 * @generated
 	 */
 	@Override
-	public void setModel(String newModel) {
-		eDynamicSet(CodegenPackage.GENERATOR_REFERENCE__MODEL, CodegenPackage.Literals.GENERATOR_REFERENCE__MODEL, newModel);
+	public void setRef(String newRef) {
+		eDynamicSet(CodegenPackage.GENERATOR_REFERENCE__REF, CodegenPackage.Literals.GENERATOR_REFERENCE__REF, newRef);
 	}
 
 	/**
@@ -79,8 +78,8 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__MODEL:
-				return getModel();
+			case CodegenPackage.GENERATOR_REFERENCE__REF:
+				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,8 +92,8 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__MODEL:
-				setModel((String)newValue);
+			case CodegenPackage.GENERATOR_REFERENCE__REF:
+				setRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -108,8 +107,8 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__MODEL:
-				setModel(MODEL_EDEFAULT);
+			case CodegenPackage.GENERATOR_REFERENCE__REF:
+				setRef(REF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -123,15 +122,10 @@ public abstract class GeneratorReferenceImpl<T> extends GeneratorImpl<T> impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__MODEL:
-				return MODEL_EDEFAULT == null ? getModel() != null : !MODEL_EDEFAULT.equals(getModel());
+			case CodegenPackage.GENERATOR_REFERENCE__REF:
+				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected Supplier<T> createWorkItem(Context context) throws Exception {
-		throw new UnsupportedOperationException("TODO - interpolate the reference, load. The same for validation");
 	}
 
 } //GeneratorReferenceImpl

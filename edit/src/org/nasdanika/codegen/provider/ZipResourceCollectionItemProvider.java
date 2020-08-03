@@ -18,6 +18,8 @@ import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipResourceCollection;
 
+import org.nasdanika.ncore.NcorePackage;
+
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.ZipResourceCollection} object.
  * <!-- begin-user-doc -->
@@ -84,11 +86,11 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	 * This returns ZipResourceCollection.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ZipResourceCollection.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ZipResourceCollection"));
 	}
 
 	/**
@@ -105,12 +107,14 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ZipResourceCollection)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_ZipResourceCollection_type") :	label;
+		String label = ((ZipResourceCollection)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ZipResourceCollection_type") :
+			getString("_UI_ZipResourceCollection_type") + " " + label;
 	}
 
 
@@ -147,12 +151,7 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextFile()));
+				 CodegenFactory.eINSTANCE.createFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -167,72 +166,17 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
 				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextToStreamConverter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamToTextConverter()));
+				 CodegenFactory.eINSTANCE.createContentReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -247,27 +191,7 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createHttpCall()));
+				 CodegenFactory.eINSTANCE.createGeneratorReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -278,6 +202,29 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 			(createChildParameter
 				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
 				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
+			childFeature == CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

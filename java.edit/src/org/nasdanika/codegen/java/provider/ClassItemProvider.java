@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.java.Class} object.
@@ -112,6 +113,7 @@ public class ClassItemProvider extends TypeItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == JavaPackage.Literals.MEMBER__COMMENT_GENERATORS ||
 			childFeature == JavaPackage.Literals.MEMBER__BODY_GENERATORS;
 

@@ -15,8 +15,8 @@ package org.nasdanika.codegen;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getInterpolator()
- * @model superTypes="org.nasdanika.codegen.Filter&lt;org.eclipse.emf.ecore.EString&gt;"
+ * @model
  * @generated
  */
-public interface Interpolator extends Filter<String> {
+public interface Interpolator extends Filter {
 } // Interpolator

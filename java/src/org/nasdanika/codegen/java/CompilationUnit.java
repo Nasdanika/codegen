@@ -2,7 +2,7 @@
  */
 package org.nasdanika.codegen.java;
 
-import org.nasdanika.codegen.TextFile;
+import org.nasdanika.codegen.File;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.nasdanika.codegen.TextFile;
  * @model
  * @generated
  */
-public interface CompilationUnit extends TextFile {
+public interface CompilationUnit extends File {
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

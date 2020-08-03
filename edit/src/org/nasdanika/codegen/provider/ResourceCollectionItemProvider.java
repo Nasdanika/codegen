@@ -297,7 +297,7 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceCollection)object).getTitle();
+		String label = ((ResourceCollection)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ResourceCollection_type") :
 			getString("_UI_ResourceCollection_type") + " " + label;

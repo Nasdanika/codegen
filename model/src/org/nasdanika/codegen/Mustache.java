@@ -9,15 +9,15 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Evaluates template using Mustache for Java (https://github.com/spullara/mustache.java) with contexts bridged to Map scope.
+ * Evaluates template using [Mustache for Java](https://github.com/spullara/mustache.java) with contexts bridged to Map scope.
  * 
  * Propertes which values are functions can be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}.
  * <!-- end-model-doc -->
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getMustache()
- * @model superTypes="org.nasdanika.codegen.Filter&lt;org.eclipse.emf.ecore.EString&gt;"
+ * @model
  * @generated
  */
-public interface Mustache extends Filter<String> {
+public interface Mustache extends Filter {
 } // Mustache

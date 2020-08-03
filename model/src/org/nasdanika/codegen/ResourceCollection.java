@@ -4,8 +4,6 @@ package org.nasdanika.codegen;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.nasdanika.common.resources.BinaryResource;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource Collection</b></em>'.
@@ -32,10 +30,10 @@ import org.nasdanika.common.resources.BinaryResource;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection()
- * @model abstract="true" superTypes="org.nasdanika.codegen.ResourceGenerator&lt;org.nasdanika.codegen.BinaryResource&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface ResourceCollection extends ResourceGenerator<BinaryResource> {
+public interface ResourceCollection extends ResourceGenerator {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->

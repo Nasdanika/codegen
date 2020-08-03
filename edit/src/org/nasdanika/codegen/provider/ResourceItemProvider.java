@@ -8,10 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Resource;
 
@@ -21,8 +23,7 @@ import org.nasdanika.codegen.Resource;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceItemProvider 
-	extends GeneratorItemProvider {
+public class ResourceItemProvider extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -112,12 +113,12 @@ public class ResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Resource<?>)object).getName();
+		String label = ((Resource)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Resource_type") :
 			getString("_UI_Resource_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

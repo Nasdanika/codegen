@@ -24,10 +24,10 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Group<T> extends Generator<T> {
+public interface Group extends Generator {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}<code>&lt;T&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface Group<T> extends Generator<T> {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator<T>> getElements();
+	EList<Generator> getElements();
 
 } // Group

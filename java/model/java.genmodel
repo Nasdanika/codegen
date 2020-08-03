@@ -4,7 +4,7 @@
     modelPluginID="org.nasdanika.codegen.java" modelName="Java" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="8.0"
     copyrightFields="false" providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
-    usedGenPackages="../../org.nasdanika.codegen/model/codegen.genmodel#//codegen"
+    usedGenPackages="../../org.nasdanika.codegen/model/codegen.genmodel#//codegen ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
     operationReflection="true" importOrganizing="true">
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.codegen" disposableProviderFactory="true"
@@ -19,6 +19,7 @@
       <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_10"/>
       <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_11"/>
       <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_12"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//JDKLevel/JDK_13"/>
     </genEnums>
     <genClasses ecoreClass="java.ecore#//SourceFolder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//SourceFolder/jdkLevel"/>

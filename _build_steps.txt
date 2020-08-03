@@ -54,4 +54,3 @@ jobs:
       # Deploying sites
       - run: cd repository;../apache-maven-3.6.0/bin/mvn -f site-pom.xml -s ../.circleci/settings.xml site-deploy
             
-

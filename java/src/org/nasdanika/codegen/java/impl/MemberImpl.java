@@ -2,11 +2,8 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.io.BufferedReader;
-import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -16,9 +13,6 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +33,7 @@ import org.nasdanika.common.Supplier;
  *
  * @generated
  */
-public abstract class MemberImpl extends GeneratorImpl<String> implements Member {
+public abstract class MemberImpl extends GeneratorImpl implements Member {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,8 +109,8 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<Generator<String>> getCommentGenerators() {
-		return (EList<Generator<String>>)eDynamicGet(JavaPackage.MEMBER__COMMENT_GENERATORS, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS, true, true);
+	public EList<Generator> getCommentGenerators() {
+		return (EList<Generator>)eDynamicGet(JavaPackage.MEMBER__COMMENT_GENERATORS, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS, true, true);
 	}
 
 	/**
@@ -157,8 +151,8 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<Generator<String>> getBodyGenerators() {
-		return (EList<Generator<String>>)eDynamicGet(JavaPackage.MEMBER__BODY_GENERATORS, JavaPackage.Literals.MEMBER__BODY_GENERATORS, true, true);
+	public EList<Generator> getBodyGenerators() {
+		return (EList<Generator>)eDynamicGet(JavaPackage.MEMBER__BODY_GENERATORS, JavaPackage.Literals.MEMBER__BODY_GENERATORS, true, true);
 	}
 
 	/**
@@ -232,7 +226,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 				return;
 			case JavaPackage.MEMBER__COMMENT_GENERATORS:
 				getCommentGenerators().clear();
-				getCommentGenerators().addAll((Collection<? extends Generator<String>>)newValue);
+				getCommentGenerators().addAll((Collection<? extends Generator>)newValue);
 				return;
 			case JavaPackage.MEMBER__COMMENT:
 				setComment((String)newValue);
@@ -243,7 +237,7 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 				return;
 			case JavaPackage.MEMBER__BODY_GENERATORS:
 				getBodyGenerators().clear();
-				getBodyGenerators().addAll((Collection<? extends Generator<String>>)newValue);
+				getBodyGenerators().addAll((Collection<? extends Generator>)newValue);
 				return;
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				getTypeParameters().clear();
@@ -311,90 +305,5 @@ public abstract class MemberImpl extends GeneratorImpl<String> implements Member
 		}
 		return super.eIsSet(featureID);
 	}
-
-	@Override
-	protected Supplier<String> createWorkItem(Context context) throws Exception {
-		List<Supplier<List<String>>> commentsWorkList = new ArrayList<>();
-		for (Generator<String> cg: getCommentGenerators()) {
-			commentsWorkList.add(cg.create(context));
-		}
-		
-		List<Supplier<List<String>>> bodyWorkList = new ArrayList<>();
-		for (Generator<String> bg: getBodyGenerators()) {
-			bodyWorkList.add(bg.create(context));
-		}
-		
-		return new Supplier<String>() {
-			
-			@Override
-			public String name() {
-				return MemberImpl.this.eClass().getName();
-			}
-			
-			@Override
-			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
-				return true;
-			}
-
-			@Override
-			public double size() {
-				int ret = 1; 
-				for (Supplier<List<String>> cw: commentsWorkList) {
-					ret += cw.size();
-				}
-				for (Supplier<List<String>> bw: bodyWorkList) {
-					ret += bw.size();
-				}
-				return ret; 
-			}
-			
-			@Override
-			public String execute(ProgressMonitor monitor) throws Exception {				
-				// Comments
-				StringBuilder commentBuilder = new StringBuilder("/**").append(System.lineSeparator());
-				if (getComment() != null) {
-					BufferedReader br = new BufferedReader(new StringReader(getComment()));
-					String line;
-					while ((line = br.readLine()) != null) {
-						commentBuilder.append(" * ").append(line).append(System.lineSeparator());						
-					}
-				}
-				
-				for (Supplier<List<String>> cWork: commentsWorkList) {
-					for (String e: cWork.execute(monitor.split("Generating comment", cWork.size(), cWork))) {
-						if (e != null) {
-							BufferedReader br = new BufferedReader(new StringReader(e));
-							String line;
-							while ((line = br.readLine()) != null) {
-								commentBuilder.append(" * ").append(line).append(System.lineSeparator());						
-							}
-						}
-					}
-				}				
-				
-				commentBuilder.append(" * @generated").append(System.lineSeparator());
-				commentBuilder.append(" */").append(System.lineSeparator());
-								
-				// Annotations
-				
-				// Header
-				
-				// Body
-				StringBuilder bodyBuilder = new StringBuilder();
-				for (Supplier<List<String>> bWork: bodyWorkList) {
-					for (String e: bWork.execute(monitor.split("Generating body", bWork.size(), bWork))) {
-						if (e != null) {
-							bodyBuilder.append(e).append(System.lineSeparator());
-						}
-					}
-				}								
-				
-				return generate(context, monitor, commentBuilder.toString(), bodyBuilder.toString());
-			}
-			
-		};
-	}
-	
-	protected abstract String generate(Context context, ProgressMonitor monitor, String comment, String body) throws Exception;
 
 } //MemberImpl

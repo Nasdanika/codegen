@@ -2,23 +2,20 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Group;
-import org.nasdanika.codegen.GroupController;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common._legacy.CompoundSupplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,7 @@ import org.nasdanika.common._legacy.CompoundSupplier;
  *
  * @generated
  */
-public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> {
+public abstract class GroupImpl extends GeneratorImpl implements Group {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,10 +57,10 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator<T>> getElements() {
-		return (EList<Generator<T>>)eDynamicGet(CodegenPackage.GROUP__ELEMENTS, CodegenPackage.Literals.GROUP__ELEMENTS, true, true);
+	public EList<Generator> getElements() {
+		return (EList<Generator>)eDynamicGet(CodegenPackage.GROUP__ELEMENTS, CodegenPackage.Literals.GROUP__ELEMENTS, true, true);
 	}
-		
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +100,7 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 		switch (featureID) {
 			case CodegenPackage.GROUP__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends Generator<T>>)newValue);
+				getElements().addAll((Collection<? extends Generator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,52 +133,6 @@ public abstract class GroupImpl<T> extends GeneratorImpl<T> implements Group<T> 
 				return !getElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected Supplier<T> createWorkItem(Context context) throws Exception {
-		
-		CompoundSupplier<T, List<T>> ret = new CompoundSupplier<T, List<T>>(getTitle(), getExecutor(context)) {
-			
-			@Override
-			protected T combine(List<List<T>> results, ProgressMonitor monitor) {
-				List<T> all = results.stream().reduce(new ArrayList<T>(), (i, r) -> {
-					i.addAll(r);
-					return i;
-				});
-				
-				return GroupImpl.this.join(all);
-			}
-			
-		};
-		
-		@SuppressWarnings("unchecked")
-		GroupController<T, Group<T>> controller = (GroupController<T, Group<T>>) instantiate(context, getController());
-		
-		for (Generator<T> e: getElements()) {
-			Context elementContext = controller == null ? context : controller.select(GroupImpl.this, e, context);
-			if (elementContext != null) {
-				ret.add(e.create(elementContext));
-			}
-		}
-
-		return ret;
-	}
-
-	/**
-	 * Joins content producing elements.
-	 * @param ret
-	 * @return
-	 */
-	protected abstract T join(List<T> elementResults);
-
-	/**
-	 * Subclasses can override to customize elements context.
-	 * @param elementContext
-	 * @return
-	 */
-	protected Context configureElementContext(Context elementContext) {
-		return elementContext;
 	}
 
 } //GroupImpl

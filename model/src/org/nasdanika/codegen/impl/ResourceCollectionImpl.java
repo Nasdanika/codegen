@@ -2,33 +2,15 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.util.Collection;
-import java.util.Map;
 
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.ResourceCollection;
-import org.nasdanika.codegen.util.CodegenValidator;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.resources.BinaryResource;
-
-import io.github.azagniotov.matcher.AntPathMatcher;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +34,7 @@ import io.github.azagniotov.matcher.AntPathMatcher;
  *
  * @generated
  */
-public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResource> implements ResourceCollection {
+public abstract class ResourceCollectionImpl extends GeneratorImpl implements ResourceCollection {
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -430,109 +412,5 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl<BinaryResourc
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	/**
-	 * @param path
-	 * @return true if this path shall be included into the resource collection.
-	 */
-	protected boolean include(String path) {
-		AntPathMatcher.Builder builder = new AntPathMatcher.Builder();
-		AntPathMatcher matcher = builder.build();
-		EList<String> includes = getIncludes();
-		boolean included = includes.isEmpty(); 
-		for (String pattern: includes) {
-			if (matcher.isMatch(pattern, path)) {
-				included = true;
-				break;
-			}
-		}
-		if (included) {
-			for (String pattern: getExcludes()) {
-				if (matcher.isMatch(pattern, path)) {
-					included = false;
-					break;
-				}
-			}
-		}
-		return included;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT 
-	 */
-	@Override
-	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = super.validate(diagnostics, context);
-		if (diagnostics != null) {			
-			if (ReconcileAction.MERGE == getReconcileAction() && getMerger() == null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CodegenValidator.DIAGNOSTIC_SOURCE,
-						 CodegenValidator.GENERATOR__VALIDATE,
-						 "["+EObjectValidator.getObjectLabel(this, context)+"] Reconcile action is 'Merge' and merger is not set",
-						 new Object [] { this, CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER }));
-				
-				result = false;
-			}
-		}
-		return result;
-	}	
-	
-	/**
-	 * @param path
-	 * @return true if the resource shall be interpolated.
-	 */
-	protected boolean shouldInterpolate(String path) {
-		AntPathMatcher.Builder builder = new AntPathMatcher.Builder();
-		AntPathMatcher matcher = builder.build();
-		boolean interpolate = false; 
-		for (String pattern: getInterpolationIncludes()) {
-			if (matcher.isMatch(pattern, path)) {
-				interpolate = true;
-				break;
-			}
-		}
-		if (interpolate) {
-			for (String pattern: getInterpolationExcludes()) {
-				if (matcher.isMatch(pattern, path)) {
-					return false;
-				}
-			}
-		}
-		return interpolate;		
-	}
-	
-	/**
-	 * Interpolates input stream if path matches interpolation includes and does not match interpolation exculdes.
-	 * @param path
-	 * @param contents
-	 * @return
-	 */
-	protected InputStream interpolate(Context context, String path, InputStream in, ProgressMonitor progressMonitor) throws Exception {
-		if (shouldInterpolate(path)) {
-			StringWriter sw = new StringWriter();
-			String charset = getInterpolationCharset();
-			try (Reader reader = new BufferedReader(charset==null || charset.trim().length()==0 ? new InputStreamReader(in) : new InputStreamReader(in, charset))) {
-				int ch;
-				while ((ch = reader.read()) != -1) {
-					sw.write(ch);
-				}
-			}
-			sw.close();
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			try (Writer writer = charset==null || charset.trim().length()==0 ? new OutputStreamWriter(baos) : new OutputStreamWriter(baos, charset)) {
-				String str = sw.toString();
-				String interpolatedStr = context.interpolate(str);
-				progressMonitor.worked(1, "Interpolated", str, interpolatedStr);
-				writer.write(interpolatedStr);
-			}
-			baos.close();
-			return new ByteArrayInputStream(baos.toByteArray());						
-		}
-		return in;
-	}
-	
+
 } //ResourceCollectionImpl

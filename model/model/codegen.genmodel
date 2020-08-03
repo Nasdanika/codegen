@@ -4,7 +4,8 @@
     creationSubmenus="true" modelPluginID="org.nasdanika.codegen" modelName="Codegen"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="8.0" copyrightFields="false" providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../org.nasdanika.ncore/model/ncore.genmodel#//ncore" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>codegen.ecore</foreignModel>
   <genPackages prefix="Codegen" basePackage="org.nasdanika" disposableProviderFactory="true"
       ecorePackage="codegen.ecore#/">
@@ -15,162 +16,51 @@
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Overwrite"/>
       <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//ReconcileAction/Cancel"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codegen.ecore#//FreeMarkerTemplateLoaderType">
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/URL"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//FreeMarkerTemplateLoaderType/Bundle"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codegen.ecore#//HttpMethod">
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//HttpMethod/GET"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//HttpMethod/POST"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//HttpMethod/PUT"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//HttpMethod/DELETE"/>
-      <genEnumLiterals ecoreEnumLiteral="codegen.ecore#//HttpMethod/PATCH"/>
-    </genEnums>
-    <genDataTypes ecoreDataType="codegen.ecore#//Exception"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//InputStream"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//Context"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//BinaryResource"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//BinaryEntity"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//BinaryEntityContainer"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//Void"/>
-    <genDataTypes ecoreDataType="codegen.ecore#//List">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//List/T"/>
-    </genDataTypes>
-    <genDataTypes ecoreDataType="codegen.ecore#//Merger">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Merger/T"/>
-    </genDataTypes>
-    <genClasses image="false" ecoreClass="codegen.ecore#//WorkFactory">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//WorkFactory/T"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Generator">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Generator/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/description"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configuration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/configurationReference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextPath"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/predicate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controller"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/controllerArguments"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/namedGenerators"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Generator/descriptors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/condition"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/context"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//AbstractNamedGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//AbstractNamedGenerator/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//AbstractNamedGenerator/description"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//NamedGenerator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//NamedGenerator/generators"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//Property">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Property/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Property/interpolate"/>
-    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Group">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Group/T"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Group/elements"/>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//ResourceGenerator">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//ResourceGenerator/T"/>
-    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ResourceGenerator"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//ResourceContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ResourceContainer/elements"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Resource">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Resource/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//File">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//File/C"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/merger"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//File/mergerArguments"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//BinaryFile"/>
-    <genClasses ecoreClass="codegen.ecore#//TextFile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextFile/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/encoding"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container"/>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
-    <genClasses ecoreClass="codegen.ecore#//StaticText">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/contents"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticText/interpolate"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//StaticBytes">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StaticBytes/contents"/>
-    </genClasses>
     <genClasses ecoreClass="codegen.ecore#//FreeMarkerGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/templateLoaderType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/base"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/template"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/model"/>
     </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//ECoreModelGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ECoreModelGenerator/model"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//ContentReference">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//ContentReference/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ContentReference/ref"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="codegen.ecore#//Converter">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/S"/>
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Converter/T"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Converter/generators"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//TextToStreamConverter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextToStreamConverter/charset"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//StreamToTextConverter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//StreamToTextConverter/charset"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Filter">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//Filter/T"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="codegen.ecore#//JavaGenerator">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//JavaGenerator/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaGenerator/className"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaGenerator/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Filter/generators"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Interpolator"/>
-    <genClasses image="false" ecoreClass="codegen.ecore#//JavaFilter">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//JavaFilter/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaFilter/className"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//JavaFilter/arguments"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//JavaTextFilter"/>
-    <genClasses ecoreClass="codegen.ecore#//JavaStreamFilter"/>
-    <genClasses ecoreClass="codegen.ecore#//JavaTextGenerator"/>
-    <genClasses ecoreClass="codegen.ecore#//JavaStreamGenerator"/>
-    <genClasses ecoreClass="codegen.ecore#//JavaResourceGenerator"/>
-    <genClasses ecoreClass="codegen.ecore#//TextContentReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//TextContentReference/interpolate"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//StreamContentReference"/>
     <genClasses ecoreClass="codegen.ecore#//Mustache"/>
     <genClasses ecoreClass="codegen.ecore#//ZipArchive"/>
-    <genClasses ecoreClass="codegen.ecore#//TextGroup"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//GeneratorReference">
-      <genTypeParameters ecoreTypeParameter="codegen.ecore#//GeneratorReference/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorReference/model"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//TextGeneratorReference"/>
-    <genClasses ecoreClass="codegen.ecore#//StreamGeneratorReference"/>
-    <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorReference"/>
-    <genClasses ecoreClass="codegen.ecore#//HttpCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/method"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//HttpCall/bodyGenerator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//HttpCall/headers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/connectTimeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/readTimeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/successCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorReference/ref"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//ResourceCollection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/path"/>
@@ -189,24 +79,6 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ZipResourceCollection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipResourceCollection/generators"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="codegen.ecore#//Descriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/icon"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Descriptor/predicate"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="codegen.ecore#//ValueDescriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/required"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ValueDescriptor/choices"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//PropertyDescriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//PropertyDescriptor/name"/>
-    </genClasses>
-    <genClasses ecoreClass="codegen.ecore#//ServiceDescriptor"/>
-    <genClasses ecoreClass="codegen.ecore#//DescriptorSet">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//DescriptorSet/descriptors"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

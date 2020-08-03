@@ -3,26 +3,19 @@
 package org.nasdanika.codegen.impl;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.function.Predicate;
 
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common._legacy.CompoundSupplier;
-import org.nasdanika.common.resources.BinaryEntityContainer;
-import org.nasdanika.common.resources.BinaryResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +30,7 @@ import org.nasdanika.common.resources.BinaryResource;
  *
  * @generated
  */
-public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implements org.nasdanika.codegen.Container {
+public class ContainerImpl extends ResourceImpl implements org.nasdanika.codegen.Container {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +57,8 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ResourceGenerator<BinaryResource>> getElements() {
-		return (EList<ResourceGenerator<BinaryResource>>)eDynamicGet(CodegenPackage.CONTAINER__ELEMENTS, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, true, true);
+	public EList<ResourceGenerator> getElements() {
+		return (EList<ResourceGenerator>)eDynamicGet(CodegenPackage.CONTAINER__ELEMENTS, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -107,7 +100,7 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 		switch (featureID) {
 			case CodegenPackage.CONTAINER__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends ResourceGenerator<BinaryResource>>)newValue);
+				getElements().addAll((Collection<? extends ResourceGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,7 +134,7 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,74 +165,6 @@ public class ContainerImpl extends ResourceImpl<BinaryEntityContainer> implement
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@Override
-	protected Supplier<BinaryEntityContainer> createWorkItem(Context context) throws Exception {
-		String name = finalName(context.interpolate(ContainerImpl.this.getName()));
-		
-		// This context is used by children. Binary container created by the _LegacyCommandToRemove shall be registered with this context before executing child commands.
-		MutableContext childrenContext = context.fork();
-		
-		CompoundSupplier<BinaryEntityContainer, List<BinaryResource>> ret = new CompoundSupplier<BinaryEntityContainer, List<BinaryResource>>(getTitle(), getExecutor(context)) {
-			
-			private BinaryEntityContainer container;
-			private boolean existedBeforGeneration; // For undo.
-			
-			@Override
-			public BinaryEntityContainer execute(ProgressMonitor progressMonitor) throws Exception {
-				BinaryEntityContainer parent = context.get(BinaryEntityContainer.class);
-				
-				if (parent == null) {
-					throw new IllegalArgumentException("Unable to generate container - there is no BinaryEntityContainer service in the context");
-				}
-				
-				container = parent.getContainer(name, progressMonitor.split("Getting container", 1, this));
-				boolean existedBeforGeneration = container.exists(progressMonitor.split("Checking container existence", 1, this));
-				childrenContext.register(BinaryEntityContainer.class, container);
-				
-				if (existedBeforGeneration) {
-					switch (getReconcileAction()) {
-					case APPEND:
-					case MERGE:
-						// Append new things to existing.
-						break;
-					case CANCEL:
-						throw new OperationCanceledException("Operation cancelled - container already exists: "+name);
-					case KEEP:
-						// Take no action
-						return container;
-					case OVERWRITE:
-						@SuppressWarnings("unchecked") Predicate<Object> overwritePredicate = (Predicate<Object>) context.get(ReconcileAction.OVERWRITE_PREDICATE_CONTEXT_PROPERTY_NAME);
-						if (overwritePredicate == null || overwritePredicate.test(container)) {
-							container.delete(progressMonitor);
-						}
-						break;
-					default:
-						throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
-					}
-				}
-				
-				return super.execute(progressMonitor.split("Generating container children", size(), this));
-			}
-			
-			@Override
-			protected BinaryEntityContainer combine(List<List<BinaryResource>> results, ProgressMonitor progressMonitor) throws Exception {
-				return container;				
-			}
-			
-			@Override
-			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
-				// TODO - delete the container if it did not exist.
-				return super.rollback(progressMonitor);
-			}
-		};
-		
-		for (ResourceGenerator<BinaryResource> child: getElements()) {
-			ret.add(child.create(childrenContext));
-		}
-		
-		return ret;
 	}
 
 } //ContainerImpl

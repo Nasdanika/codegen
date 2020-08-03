@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import org.nasdanika.common.resources.BinaryEntityContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,9 +14,8 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getContainer()
- * @model superTypes="org.nasdanika.codegen.Resource&lt;org.nasdanika.codegen.BinaryEntityContainer&gt; org.nasdanika.codegen.ResourceContainer"
+ * @model
  * @generated
  */
-public interface Container extends Resource<BinaryEntityContainer>, ResourceContainer {
-
+public interface Container extends Resource, ResourceContainer {
 } // Container

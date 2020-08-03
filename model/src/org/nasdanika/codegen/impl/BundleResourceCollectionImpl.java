@@ -2,24 +2,10 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.ecore.EClass;
+
 import org.nasdanika.codegen.BundleResourceCollection;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Merger;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.resources.BinaryEntity;
-import org.nasdanika.common.resources.BinaryEntityContainer;
-import org.nasdanika.common.resources.BinaryResource;
-import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -140,99 +126,6 @@ public class BundleResourceCollectionImpl extends ResourceCollectionImpl impleme
 				return BUNDLE_EDEFAULT == null ? getBundle() != null : !BUNDLE_EDEFAULT.equals(getBundle());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected Supplier<List<BinaryResource>> createMultiWorkItem(Context context) throws Exception {
-		
-		return new Supplier<List<BinaryResource>>() {
-			
-			@SuppressWarnings("unchecked")
-			@Override
-			public List<BinaryResource> execute(ProgressMonitor progressMonitor) throws Exception {
-				String bundleName = context.interpolate(getBundle());
-				Bundle bundle = bundleName == null || bundleName.trim().length() == 0 ? getModelBundle() : getBundle(bundleName);
-				if (bundle == null) {
-					throw new IllegalArgumentException("Bundle not found: "+bundleName);
-				}
-				
-				BinaryEntityContainer container = context.get(BinaryEntityContainer.class);
-				if (container == null) {
-					throw new IllegalStateException("BinaryEntityContainer service is not found in context");
-				}
-				
-				List<BinaryResource> ret = new ArrayList<>();
-				String path = context.interpolate(getPath());
-				String prefix = context.interpolate(getPrefix());
-				Enumeration<String> entryPaths = bundle.getEntryPaths(path);
-				while (entryPaths.hasMoreElements()) {
-					String entryPath = entryPaths.nextElement();
-					String entryRelativePath = path == null || path.trim().length() == 0 ? entryPath : entryPath.substring(path.trim().length());					
-					if (include(entryRelativePath)) {
-						URL entry = bundle.getEntry(entryPath);
-						if (entry != null) {
-							String targetPath = prefix == null || prefix.trim().length() == 0 ? entryRelativePath : prefix.trim()+entryRelativePath;
-							BinaryEntity entity = container.get(targetPath, progressMonitor.split("Getting target entity "+targetPath, 1));
-							if (entity == null) {
-								throw new IllegalArgumentException("Cannot obtain entity at "+targetPath);
-							}
-
-							if (entity.exists(progressMonitor.split("Checking existence of "+targetPath, 1))) {
-								switch (getReconcileAction()) {
-								case APPEND:
-									entity.appendState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Appending state", 1, entity));
-									break;
-								case MERGE:
-									String mergerClass = getMerger();
-									Merger<InputStream> merger;
-									if (mergerClass == null || mergerClass.trim().length() == 0) {
-										throw new IllegalStateException("Merger is not set");
-									} else {
-										merger = (Merger<InputStream>) instantiate(context, mergerClass, getMergerArguments());
-									}
-									InputStream oldContent = entity.getState(progressMonitor.split("Getting state", 1, entity));
-									InputStream mergedContents = merger.merge(context, entity, oldContent, interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Merging", 1, entity));
-									entity.setState(mergedContents, progressMonitor.split("Setting state", 1, entity));
-									break;
-								case CANCEL:
-									throw new OperationCanceledException("Operation cancelled - entity already exists: "+targetPath);
-								case KEEP:
-									// Take no action
-									break;
-								case OVERWRITE:
-									entity.setState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Setting state", 1, entity));
-									break;
-								default:
-									throw new IllegalStateException("Unsupported reconcile action: "+getReconcileAction());
-								}
-							} else {
-								entity.setState(interpolate(context, entryRelativePath, entry.openStream(), progressMonitor), progressMonitor.split("Setting state", 1, entity));					
-							}
-							
-							ret.add(entity);
-						}
-					}
-					
-				}
-				return ret;
-			}
-
-			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return getTitle();
-			}
-
-			@Override
-			public boolean rollback(ProgressMonitor progressMonitor) throws Exception {
-				return true;
-			}
-			
-		};
 	}
 
 } //BundleResourceCollectionImpl

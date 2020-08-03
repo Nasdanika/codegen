@@ -15,8 +15,6 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
-import org.nasdanika.codegen.TextFile;
-
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.Constructor;
@@ -28,9 +26,9 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
-
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.resources.BinaryResource;
+import org.nasdanika.ncore.Configurable;
+import org.nasdanika.ncore.Entity;
+import org.nasdanika.ncore.ModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,19 +139,27 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMethodAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
-				return createWorkFactoryAdapter();
+			public Adapter caseModelElement(ModelElement object) {
+				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseGenerator(Generator<T> object) {
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseConfigurable(Configurable object) {
+				return createConfigurableAdapter();
+			}
+			@Override
+			public Adapter caseGenerator(Generator object) {
 				return createGeneratorAdapter();
 			}
 			@Override
-			public <T extends BinaryResource> Adapter caseResourceGenerator(ResourceGenerator<T> object) {
+			public Adapter caseResourceGenerator(ResourceGenerator object) {
 				return createResourceGeneratorAdapter();
 			}
 			@Override
-			public <T extends BinaryResource> Adapter caseResource(Resource<T> object) {
+			public Adapter caseResource(Resource object) {
 				return createResourceAdapter();
 			}
 			@Override
@@ -165,12 +171,8 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createContainerAdapter();
 			}
 			@Override
-			public <C> Adapter caseFile(File<C> object) {
+			public Adapter caseFile(File object) {
 				return createFileAdapter();
-			}
-			@Override
-			public Adapter caseTextFile(TextFile object) {
-				return createTextFileAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -375,16 +377,44 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.common.SupplierFactory
+	 * @see org.nasdanika.ncore.ModelElement
 	 * @generated
 	 */
-	public Adapter createWorkFactoryAdapter() {
+	public Adapter createModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.Configurable <em>Configurable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.Configurable
+	 * @generated
+	 */
+	public Adapter createConfigurableAdapter() {
 		return null;
 	}
 
@@ -469,20 +499,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.TextFile <em>Text File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.TextFile
-	 * @generated
-	 */
-	public Adapter createTextFileAdapter() {
 		return null;
 	}
 

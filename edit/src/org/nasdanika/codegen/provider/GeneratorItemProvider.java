@@ -8,21 +8,24 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.NcorePackage;
+
+import org.nasdanika.ncore.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.Generator} object.
@@ -30,8 +33,7 @@ import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeneratorItemProvider 
-	extends NasdanikaItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class GeneratorItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,83 +55,11 @@ public class GeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTitlePropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addConfigurationPropertyDescriptor(object);
-			addConfigurationReferencePropertyDescriptor(object);
 			addContextPathPropertyDescriptor(object);
-			addPredicatePropertyDescriptor(object);
-			addControllerPropertyDescriptor(object);
-			addControllerArgumentsPropertyDescriptor(object);
+			addConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_title_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__TITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Controller feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addControllerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_controller_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_controller_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONTROLLER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Controller Arguments feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addControllerArgumentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_controllerArguments_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_controllerArguments_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONTROLLER_ARGUMENTS,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -150,72 +80,6 @@ public class GeneratorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_description_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Configuration feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfigurationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_configuration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configuration_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONFIGURATION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Configuration Reference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfigurationReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_configurationReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_configurationReference_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONFIGURATION_REFERENCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -243,19 +107,19 @@ public class GeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Predicate feature.
+	 * This adds a property descriptor for the Condition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPredicatePropertyDescriptor(Object object) {
+	protected void addConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Generator_predicate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_predicate_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__PREDICATE,
+				 getString("_UI_Generator_condition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_condition_feature", "_UI_Generator_type"),
+				 CodegenPackage.Literals.GENERATOR__CONDITION,
 				 true,
 				 false,
 				 false,
@@ -276,8 +140,7 @@ public class GeneratorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS);
-			childrenFeatures.add(CodegenPackage.Literals.GENERATOR__DESCRIPTORS);
+			childrenFeatures.add(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION);
 		}
 		return childrenFeatures;
 	}
@@ -313,12 +176,12 @@ public class GeneratorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Generator<?>)object).getTitle();
+		String label = ((Generator)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Generator_type") :
 			getString("_UI_Generator_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -332,19 +195,12 @@ public class GeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Generator.class)) {
-			case CodegenPackage.GENERATOR__TITLE:
 			case CodegenPackage.GENERATOR__ENABLED:
-			case CodegenPackage.GENERATOR__DESCRIPTION:
-			case CodegenPackage.GENERATOR__CONFIGURATION:
-			case CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE:
 			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-			case CodegenPackage.GENERATOR__PREDICATE:
-			case CodegenPackage.GENERATOR__CONTROLLER:
-			case CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS:
+			case CodegenPackage.GENERATOR__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CodegenPackage.GENERATOR__NAMED_GENERATORS:
-			case CodegenPackage.GENERATOR__DESCRIPTORS:
+			case CodegenPackage.GENERATOR__CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -364,28 +220,153 @@ public class GeneratorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS,
-				 CodegenFactory.eINSTANCE.createNamedGenerator()));
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createFile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS,
-				 CodegenFactory.eINSTANCE.createProperty()));
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createContainer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
-				 CodegenFactory.eINSTANCE.createPropertyDescriptor()));
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
-				 CodegenFactory.eINSTANCE.createServiceDescriptor()));
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.GENERATOR__DESCRIPTORS,
-				 CodegenFactory.eINSTANCE.createDescriptorSet()));
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createInterpolator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createTypedElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createSupplier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createNull()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createArray()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createTypedEntry()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createSupplierEntry()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createMap()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createObject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createHttpCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createRestOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createRestFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
+				 NcoreFactory.eINSTANCE.createHtml()));
 	}
 
 	/**

@@ -2,12 +2,9 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.util.ArrayList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.impl.ContainerImpl;
 import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.common.Context;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,22 +40,6 @@ public class PackageImpl extends ContainerImpl implements org.nasdanika.codegen.
 		return JavaPackage.Literals.PACKAGE;
 	}
 
-	@Override
-	protected Context createContext(Context parent) {
-		Context ctx = super.createContext(parent);
-		String parentPackageName = ctx.getString(PACKAGE_NAME_KEY);
-		String packageName = ctx.interpolate(getName());
-		String fullyQualifiedName = parentPackageName == null ? packageName : parentPackageName+"."+packageName;
-		return Context.singleton(PACKAGE_NAME_KEY, fullyQualifiedName)
-				.compose(Context.singleton(PACKAGE_TYPES_KEY, new ArrayList<>()))
-				.compose(ctx);
-	}
-	
-	@Override
-	protected String finalName(String name) {
-		return name.replace('.',  '/');
-	}
-	
 	@Override
 	public boolean isFilterable() {
 		return true;

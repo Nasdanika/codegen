@@ -2,7 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import java.io.InputStream;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,14 +9,13 @@ import java.io.InputStream;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Creates a zip archive from the contained resources.
+ * Creates a zip archive (binary stream) from the contained resources.
  * <!-- end-model-doc -->
  *
  *
  * @see org.nasdanika.codegen.CodegenPackage#getZipArchive()
- * @model superTypes="org.nasdanika.codegen.Generator&lt;org.nasdanika.codegen.InputStream&gt; org.nasdanika.codegen.ResourceContainer"
+ * @model
  * @generated
  */
-public interface ZipArchive extends Generator<InputStream>, ResourceContainer {
-
+public interface ZipArchive extends Generator, ResourceContainer {
 } // ZipArchive

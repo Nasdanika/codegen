@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.java.Method} object.
@@ -151,6 +152,7 @@ public class MethodItemProvider extends OperationItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == JavaPackage.Literals.MEMBER__COMMENT_GENERATORS ||
 			childFeature == JavaPackage.Literals.MEMBER__BODY_GENERATORS;
 
