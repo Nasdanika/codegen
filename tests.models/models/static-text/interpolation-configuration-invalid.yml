@@ -1,3 +1,0 @@
-# A typo in the key - greetngs instead of greetings. It shall be caught by configuraiton validation.
-greetngs:
-    name: Universe	

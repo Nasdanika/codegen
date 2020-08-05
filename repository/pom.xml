@@ -13,33 +13,160 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-p2-director-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<executions> 
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<skipAssembly>false</skipAssembly>
+					<outputDirectory>${project.build.directory}/site</outputDirectory>
+					<formats>zip</formats>
+					<finalName>source</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/assembly/workspace.xml</descriptor>
+					</descriptors>
+				</configuration>
+			        <executions>
+			          <execution>
+			            <id>create-archive</id>
+			            <phase>pre-site</phase>
+			            <goals>
+			              <goal>single</goal>
+			            </goals>
+			          </execution>
+			        </executions>
+			</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-site-plugin</artifactId>
+			    <version>3.9.0</version>
+			    <configuration>
+			        <skip>false</skip>
+			        <skipDeploy>false</skipDeploy>
+			        <chmod>false</chmod>
+			    </configuration>
+			</plugin>		
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
 					<execution>
-						<id>build-distributions</id>
+						<id>copy-repository</id>
+						<phase>pre-site</phase>
 						<goals>
-							<!-- install the product using the p2 director -->
-							<goal>materialize-products</goal>
-							<!-- create zip file with the installed product -->
-							<goal>archive-products</goal>
+							<goal>copy-resources</goal>
 						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/target</directory>
+									<includes>
+										<include>repository/**</include>
+										<include>org.nasdanika.codegen.repository-*.zip</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>					
+					<execution>
+						<id>copy-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../model/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-editor-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.editor/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../editor/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-design-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.design/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../design/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-java-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.java/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../java/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-java-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.java.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../java.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<products>
-						
-						<product>
-							<id>org.nasdanika.codegen.tests.product</id>
-						</product>
-						
-					</products>
-					<!-- global optional parameters (with default values) -->
-					<installFeatures>true</installFeatures>
-					<profile>DefaultProfile</profile>
-				</configuration>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
@@ -50,5 +177,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<url>https://www.nasdanika.org/products/codegen/</url>
+	<url>https://www.nasdanika.org</url>
 </project>

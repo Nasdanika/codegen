@@ -1,3 +1,0 @@
-# Nasdanika Codegen
-
-...

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:TextGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen">
-  <elements xsi:type="org.nasdanika.codegen:StaticText" title="Руссский текст если locale = ru" predicate="&quot;ru&quot;.equals(&quot;${locale}&quot;)" contents="Всем привет"/>
-  <elements xsi:type="org.nasdanika.codegen:StaticText" title="English if locale is &quot;en&quot; or empty" predicate="&quot;en&quot;.equals(&quot;${locale|en}&quot;)" contents="Hello everybody"/>
-  <elements xsi:type="org.nasdanika.codegen:StaticText" title="Unconditional exclamation mark" contents="!"/>
-</org.nasdanika.codegen:TextGroup>

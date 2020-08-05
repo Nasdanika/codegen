@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Test of a wrong controller class name" description="Test of YAML configuration. Shall compute ``name`` as ``Mr. ${surname}`` expanding ``${surname}`` to its value." configuration="name: Mr. ${surname}" controller="org.nasdanika.codegen.tests.models.StaticTextNonExistentController" contents="Hello, ${name}!" interpolate="true"/>

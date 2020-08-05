@@ -7,7 +7,6 @@ import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticException;
-import org.nasdanika.codegen.util.ValidatingModelGenerator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
@@ -49,41 +48,42 @@ public class TestsBase {
 	 * @throws Exception
 	 */
 	public GenerationResult validateAndGenerate(String path, Context context) throws Exception {
-		try {
-			ValidatingModelGenerator<BinaryEntity> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+path+".codegen");
-			GenerationResult result = new GenerationResult();
-			result.output = new FileSystemContainer(new File(TEST_OUTPUT_BASE+path));
-			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
-			mc.register(BinaryEntityContainer.class, result.output);
-			
-			Supplier<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
-			
-			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
-				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
-				if (diagnostic.getStatus() == Status.ERROR) {
-					dumpDiagnostic(diagnostic, 0);
-					System.out.println(workDiagnostic.toJSON().toString(4));
-					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator supplier", diagnostic);
-				}
-			}
-			
-			try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
-				try (ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0)) {
-					 result.result = work.execute(progressMonitor.split("Generating "+path, work.size()).compose(pe.split("Doc", 1)));	
-				
-		//			// HTML report
-		//			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-		//			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
-		//			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
-		//			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
-				}
-			}
-			
-			return result;
-		} catch (DiagnosticException e) {
-			dumpDiagnostic(e.getDiagnostic(), 0);
-			throw e;
-		}
+		throw new UnsupportedOperationException();
+//		try {
+//			ValidatingModelGenerator<BinaryEntity> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+path+".codegen");
+//			GenerationResult result = new GenerationResult();
+//			result.output = new FileSystemContainer(new File(TEST_OUTPUT_BASE+path));
+//			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
+//			mc.register(BinaryEntityContainer.class, result.output);
+//			
+//			Supplier<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
+//			
+//			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
+//				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
+//				if (diagnostic.getStatus() == Status.ERROR) {
+//					dumpDiagnostic(diagnostic, 0);
+//					System.out.println(workDiagnostic.toJSON().toString(4));
+//					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator supplier", diagnostic);
+//				}
+//			}
+//			
+//			try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
+//				try (ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0)) {
+//					 result.result = work.execute(progressMonitor.split("Generating "+path, work.size()).compose(pe.split("Doc", 1)));	
+//				
+//		//			// HTML report
+//		//			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
+//		//			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
+//		//			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
+//		//			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
+//				}
+//			}
+//			
+//			return result;
+//		} catch (DiagnosticException e) {
+//			dumpDiagnostic(e.getDiagnostic(), 0);
+//			throw e;
+//		}
 	}			
 	
 	static void dumpDiagnostic(Diagnostic d, int indent) {

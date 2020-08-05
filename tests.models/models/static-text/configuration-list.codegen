@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:StaticText xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Wrong configuration format test" description="Tests a case when configuration is not a map, but a list." configuration="- Mr. ${surname}&#xD;&#xA;- Hello" contents="Hello, ${name}!" interpolate="true"/>

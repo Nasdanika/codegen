@@ -46,14 +46,13 @@
       </editor>
       
       <editor
-            id="org.nasdanika.codegen.presentation.CodegenFormsEditorID"
-            name="%_UI_CodegenFormsEditor_label"
-            icon="icons/full/obj16/CodegenModelFile.gif"
-            extensions="codegen"
-            default="false"
-            class="org.nasdanika.codegen.presentation.CodegenFormsEditor"
+            id="org.nasdanika.codegen.presentation.CodegenAdapterFactoryTreeEditor.ID"
+            name="Codegen Adapter Factory Tree Editor"
+            icon="icons/full/obj16/AdapterFactoryTree.png"
+            class="org.nasdanika.emf.presentation.AdapterFactoryTreeEditor"
             contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
+      
    </extension>
 
 </plugin>

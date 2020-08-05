@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:TextFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" description="A very simple test of text file generation with interpolation" name="greeting.txt">
-  <generators xsi:type="org.nasdanika.codegen:StaticText" contents="Hello, ${name}!" interpolate="true">
-    <controllerArguments>a,dgagasg.as</controllerArguments>
-  </generators>
-</org.nasdanika.codegen:TextFile>

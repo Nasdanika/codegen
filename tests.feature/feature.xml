@@ -18,7 +18,6 @@
 
    <requires>
       <import feature="org.nasdanika.codegen.feature" version="0.2.0.qualifier"/>
-      <import feature="org.nasdanika.equinox.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
@@ -85,13 +84,6 @@
 
    <plugin
          id="org.yaml.snakeyaml"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.nasdanika.codegen.html"
          download-size="0"
          install-size="0"
          version="0.0.0"

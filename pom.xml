@@ -14,101 +14,97 @@
 	</prerequisites>
 
 	<properties>
-		<tycho-version>1.4.0</tycho-version>
+		<tycho-version>1.7.0</tycho-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<repositories>
 		<repository>
 			<id>foundation</id>
-			<url>https://www.nasdanika.org/home/foundation-repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>third-party</id>
-			<url>https://www.nasdanika.org/home/products/third-party/repository</url>
+			<url>https://www.nasdanika.org/builds/${env.RELEASE}/repositories/composite</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>core</id>
-			<url>https://www.nasdanika.org/home/products/core/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>html</id>
-			<url>https://www.nasdanika.org/home/products/html/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>maven-osgi</id>
-			<url>https://www.nasdanika.org/home/products/maven-osgi/repository</url>
+			<url>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/repository</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		<!-- 
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-document-bundle-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<javadocOptions>
-							<ignoreError>true</ignoreError>
-							
-				        	<doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
-				        	<docletArtifacts>
-					        	<docletArtifact>
-					         		<groupId>ch.raffael.pegdown-doclet</groupId>
-					         		<artifactId>pegdown-doclet</artifactId>
-					        		<version>1.1</version>
-					        	</docletArtifact>
-				        	</docletArtifacts>
-						    <includes>
-						       <include>org.nasdanika.*</include>
-						    </includes>				        	
-						</javadocOptions>					
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		-->
 		<plugins>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>4.0.0</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.properties</generateGitPropertiesFilename>
+					<includeOnlyProperties>    
+						<includeOnlyProperty>git.commit.id</includeOnlyProperty>
+						<includeOnlyProperty>git.commit.id.abbrev</includeOnlyProperty>
+						<includeOnlyProperty>git.branch</includeOnlyProperty>
+						<includeOnlyProperty>git.commit.time</includeOnlyProperty>
+						<includeOnlyProperty>git.total.commit.count</includeOnlyProperty>
+					</includeOnlyProperties>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-site-plugin</artifactId>
-			    <version>3.7.1</version>
+			    <version>3.9.0</version>
 			    <configuration>
 			        <skip>true</skip>
 			        <skipDeploy>true</skipDeploy>
 			    </configuration>
-			</plugin>		
+			</plugin>	
+			  <plugin>
+			    <artifactId>maven-clean-plugin</artifactId>
+			    <version>3.1.0</version>
+			    <configuration>
+			      <filesets>
+			        <fileset>
+			          <directory>help/doc/model</directory>
+			          <directory>help/doc/api</directory>
+			        </fileset>
+			      </filesets>
+			    </configuration>
+			  </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.2.0</version>
 				<configuration>
 					<linksource>true</linksource>
-					<failOnError>false</failOnError>
-					
-			        	<doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
-			        	<docletArtifact>
-			         		<groupId>ch.raffael.pegdown-doclet</groupId>
-			         		<artifactId>pegdown-doclet</artifactId>
-			        		<version>1.1</version>
-			        	</docletArtifact>
+					<failOnError>false</failOnError>					
 			        	<useStandardDocletOptions>true</useStandardDocletOptions>
-					
 					<links>
-						<link>http://download.eclipse.org/modeling/emf/emf/javadoc/2.11</link>
-						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.emf.cdo.doc/javadoc</link>		
-						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.platform.doc.isv/reference/api</link>
-						<link>http://stleary.github.io/JSON-java</link>			
-						<link>https://osgi.org/javadoc/r4v42/</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/model</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/edit</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/editor</link>
+						<!-- Third party -->
+						<link>https://download.eclipse.org/modeling/emf/emf/javadoc/2.9.0/</link>
+						<link>https://picocli.info/apidocs/</link>
+
+						<!-- Core -->
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.cli/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.common/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.edit/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.presentation/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree.edit/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.eclipse/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore.edit/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ui/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.help/apidocs</link>
+						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.texttospeech/apidocs</link>
 					</links>
 				</configuration>				
 			</plugin>
@@ -162,12 +158,10 @@
 		</plugins>
 	</build>
 	<modules>
-
 		<module>model</module>
 		<module>edit</module>
 		<module>editor</module>
-
-		<module>help</module>
+		<module>design</module>
 
 		<module>java</module>
 		<module>java.edit</module>
