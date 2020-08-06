@@ -3,12 +3,14 @@
 package org.nasdanika.codegen.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -16,6 +18,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.ncore.provider.EntityItemProvider;
@@ -102,15 +105,38 @@ public class GeneratorItemProvider extends EntityItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION);
+//			childrenFeatures.add(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * Adds {@link EReferenceItemProvider} children.
+	 * @param children
+	 */
+	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
+		children.add(new EReferenceItemProvider(this, (EObject) object, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION)); 		
+	}	
+	
+	/**
+	 * Adds {@link EReferenceItemProvider}s.
+	 */
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+		}
+		Collection<Object> ret = new ArrayList<>(children);
+		ret.addAll(super.getChildren(object));
+		return ret;
 	}
 
 	/**

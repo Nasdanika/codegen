@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -17,6 +18,7 @@ import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
 import org.nasdanika.codegen.provider.GeneratorItemProvider;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -167,17 +169,28 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS);
-			childrenFeatures.add(JavaPackage.Literals.MEMBER__BODY_GENERATORS);
+//			childrenFeatures.add(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS);
+//			childrenFeatures.add(JavaPackage.Literals.MEMBER__BODY_GENERATORS);
 		}
 		return childrenFeatures;
 	}
+	
+	/**
+	 * Adds {@link EReferenceItemProvider} children.
+	 * @param children
+	 */
+	@Override
+	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
+		super.addEReferenceItemProviders(object, children);
+		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS)); 		
+		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__BODY_GENERATORS)); 		
+	}			
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -18,6 +18,7 @@ import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -58,16 +59,26 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
+//			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
+	
+	/**
+	 * Adds {@link EReferenceItemProvider} children.
+	 * @param children
+	 */
+	@Override
+	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
+		super.addEReferenceItemProviders(object, children);
+		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS)); 		
+	}		
 
 	/**
 	 * <!-- begin-user-doc -->

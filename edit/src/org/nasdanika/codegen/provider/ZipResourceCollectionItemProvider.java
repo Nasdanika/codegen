@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipResourceCollection;
-
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -64,10 +64,20 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS);
+//			childrenFeatures.add(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS);
 		}
 		return childrenFeatures;
 	}
+	
+	/**
+	 * Adds {@link EReferenceItemProvider} children.
+	 * @param children
+	 */
+	@Override
+	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
+		super.addEReferenceItemProviders(object, children);
+		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS)); 		
+	}			
 
 	/**
 	 * <!-- begin-user-doc -->
