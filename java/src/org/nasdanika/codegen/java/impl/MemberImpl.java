@@ -13,6 +13,8 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
+import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,7 +80,7 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	@Override
 	public String getName() {
-		return (String)eDynamicGet(JavaPackage.MEMBER__NAME, JavaPackage.Literals.MEMBER__NAME, true, true);
+		return (String)eDynamicGet(JavaPackage.MEMBER__NAME, NcorePackage.Literals.NAMED_ELEMENT__NAME, true, true);
 	}
 
 	/**
@@ -88,7 +90,7 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	@Override
 	public void setName(String newName) {
-		eDynamicSet(JavaPackage.MEMBER__NAME, JavaPackage.Literals.MEMBER__NAME, newName);
+		eDynamicSet(JavaPackage.MEMBER__NAME, NcorePackage.Literals.NAMED_ELEMENT__NAME, newName);
 	}
 
 	/**
@@ -304,6 +306,38 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				return !getTypeParameters().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+				case JavaPackage.MEMBER__NAME: return NcorePackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.NAMED_ELEMENT__NAME: return JavaPackage.MEMBER__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //MemberImpl

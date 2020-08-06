@@ -10,13 +10,13 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
 import org.nasdanika.codegen.provider.GeneratorItemProvider;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -60,20 +60,19 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_Member_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Member_name_feature", "_UI_Member_type"),
-				 JavaPackage.Literals.MEMBER__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 NcorePackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -82,20 +81,19 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Modifiers feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addModifiersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Member_modifiers_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Member_modifiers_feature", "_UI_Member_type"),
 				 JavaPackage.Literals.MEMBER__MODIFIERS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -104,20 +102,19 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Comment feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCommentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Member_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Member_comment_feature", "_UI_Member_type"),
 				 JavaPackage.Literals.MEMBER__COMMENT,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -126,20 +123,19 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Annotations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addAnnotationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Member_annotations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Member_annotations_feature", "_UI_Member_type"),
 				 JavaPackage.Literals.MEMBER__ANNOTATIONS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -148,20 +144,19 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Type Parameters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTypeParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Member_typeParameters_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Member_typeParameters_feature", "_UI_Member_type"),
 				 JavaPackage.Literals.MEMBER__TYPE_PARAMETERS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -211,14 +206,15 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Member)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Member_type") :
-			getString("_UI_Member_type") + " " + label;
+		String label = ((Member)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Member)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Member_type") : getString("_UI_Member_type") + " " + label;
 	}
 
 

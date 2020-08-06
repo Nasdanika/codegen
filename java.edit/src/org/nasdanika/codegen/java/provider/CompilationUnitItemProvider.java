@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -58,20 +57,19 @@ public class CompilationUnitItemProvider extends FileItemProvider {
 	 * This adds a property descriptor for the Format feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFormatPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_CompilationUnit_format_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompilationUnit_format_feature", "_UI_CompilationUnit_type"),
 				 JavaPackage.Literals.COMPILATION_UNIT__FORMAT,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -109,8 +107,7 @@ public class CompilationUnitItemProvider extends FileItemProvider {
 		if (isBlank(label)) {
 			label = ((CompilationUnit)object).getName();
 		}
-		return label == null || label.length() == 0 ?
-			getString("_UI_CompilationUnit_type") : label;
+		return label == null || label.length() == 0 ? getString("_UI_CompilationUnit_type") : label;
 	}
 
 

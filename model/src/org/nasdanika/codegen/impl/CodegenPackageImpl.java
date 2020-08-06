@@ -278,7 +278,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGenerator_ContextPath() {
+	public EAttribute getGenerator_Iterator() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -288,28 +288,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGenerator_Condition() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getGenerator__IsFilterable() {
-		return generatorEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getGenerator__Validate__DiagnosticChain_Map() {
-		return generatorEClass.getEOperations().get(1);
+		return generatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -378,18 +358,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResource_Name() {
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getResource_ReconcileAction() {
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -418,28 +388,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFile_Merger() {
+	public EAttribute getFile_Charset() {
 		return (EAttribute)fileEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFile_MergerArguments() {
-		return (EAttribute)fileEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFile_Encoding() {
-		return (EAttribute)fileEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -688,26 +638,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResourceCollection_Merger() {
-		return (EAttribute)resourceCollectionEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getResourceCollection_MergerArguments() {
-		return (EAttribute)resourceCollectionEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getBundleResourceCollection() {
 		return bundleResourceCollectionEClass;
 	}
@@ -783,9 +713,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Create classes and their features
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__ENABLED);
-		createEAttribute(generatorEClass, GENERATOR__CONTEXT_PATH);
-		createEAttribute(generatorEClass, GENERATOR__CONDITION);
-		createEOperation(generatorEClass, GENERATOR___IS_FILTERABLE);
+		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		groupEClass = createEClass(GROUP);
@@ -797,14 +725,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ELEMENTS);
 
 		resourceEClass = createEClass(RESOURCE);
-		createEAttribute(resourceEClass, RESOURCE__NAME);
 		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
 
 		fileEClass = createEClass(FILE);
 		createEReference(fileEClass, FILE__GENERATORS);
-		createEAttribute(fileEClass, FILE__MERGER);
-		createEAttribute(fileEClass, FILE__MERGER_ARGUMENTS);
-		createEAttribute(fileEClass, FILE__ENCODING);
+		createEAttribute(fileEClass, FILE__CHARSET);
 
 		containerEClass = createEClass(CONTAINER);
 
@@ -839,8 +764,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__INTERPOLATION_CHARSET);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__RECONCILE_ACTION);
-		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__MERGER);
-		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__MERGER_ARGUMENTS);
 
 		bundleResourceCollectionEClass = createEClass(BUNDLE_RESOURCE_COLLECTION);
 		createEAttribute(bundleResourceCollectionEClass, BUNDLE_RESOURCE_COLLECTION__BUNDLE);
@@ -888,6 +811,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		groupEClass.getESuperTypes().add(this.getGenerator());
 		resourceGeneratorEClass.getESuperTypes().add(this.getGenerator());
 		resourceEClass.getESuperTypes().add(this.getResourceGenerator());
+		resourceEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
 		fileEClass.getESuperTypes().add(this.getResource());
 		containerEClass.getESuperTypes().add(this.getResource());
 		containerEClass.getESuperTypes().add(this.getResourceContainer());
@@ -908,10 +832,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getGenerator__IsFilterable(), ecorePackage.getEBoolean(), "isFilterable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getGenerator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -931,14 +852,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getResourceContainer_Elements(), this.getResourceGenerator(), null, "elements", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFile_Generators(), this.getGenerator(), null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFile_Merger(), ecorePackage.getEString(), "merger", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFile_MergerArguments(), ecorePackage.getEString(), "mergerArguments", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFile_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFile_Charset(), ecorePackage.getEString(), "charset", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -973,8 +891,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getResourceCollection_InterpolationExcludes(), ecorePackage.getEString(), "interpolationExcludes", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceCollection_InterpolationCharset(), ecorePackage.getEString(), "interpolationCharset", "", 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceCollection_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_Merger(), ecorePackage.getEString(), "merger", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_MergerArguments(), ecorePackage.getEString(), "mergerArguments", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bundleResourceCollectionEClass, BundleResourceCollection.class, "BundleResourceCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBundleResourceCollection_Bundle(), ecorePackage.getEString(), "bundle", null, 0, 1, BundleResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -992,34 +908,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// org.nasdanika.ui.java-class
-		createOrgAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>org.nasdanika.ui.java-class</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrgAnnotations() {
-		String source = "org.nasdanika.ui.java-class";
-		addAnnotation
-		  (getFile_Merger(),
-		   source,
-		   new String[] {
-			   "root-type", "org.nasdanika.codegen.Merger",
-			   "super-interfaces", "org.nasdanika.codegen.Merger"
-		   });
-		addAnnotation
-		  (getResourceCollection_Merger(),
-		   source,
-		   new String[] {
-			   "root-type", "org.nasdanika.codegen.Merger",
-			   "super-interfaces", "org.nasdanika.codegen.Merger"
-		   });
 	}
 
 } //CodegenPackageImpl

@@ -24,7 +24,11 @@ import org.nasdanika.ncore.NcorePackage;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * Code generation model.
+ * Code generation model is a hierarchy of resource generators and resource content generators.
+ * 
+ * 
+ * 
+ * 
  * <!-- end-model-doc -->
  * @see org.nasdanika.codegen.CodegenFactory
  * @model kind="package"
@@ -119,22 +123,13 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__ENABLED = NcorePackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTEXT_PATH = NcorePackage.ENTITY_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CONDITION = NcorePackage.ENTITY_FEATURE_COUNT + 3;
+	int GENERATOR__ITERATOR = NcorePackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -143,16 +138,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR___IS_FILTERABLE = NcorePackage.ENTITY_OPERATION_COUNT + 0;
+	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -161,7 +147,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = NcorePackage.ENTITY_OPERATION_COUNT + 1;
+	int GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = NcorePackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -170,7 +156,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = NcorePackage.ENTITY_OPERATION_COUNT + 2;
+	int GENERATOR_OPERATION_COUNT = NcorePackage.ENTITY_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GroupImpl <em>Group</em>}' class.
@@ -228,22 +214,13 @@ public interface CodegenPackage extends EPackage {
 	int GROUP__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__CONDITION = GENERATOR__CONDITION;
+	int GROUP__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -262,15 +239,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -346,22 +314,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR__CONDITION = GENERATOR__CONDITION;
+	int RESOURCE_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The number of structural features of the '<em>Resource Generator</em>' class.
@@ -371,15 +330,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -492,22 +442,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__ENABLED = RESOURCE_GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__CONTEXT_PATH = RESOURCE_GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__CONDITION = RESOURCE_GENERATOR__CONDITION;
+	int RESOURCE__ITERATOR = RESOURCE_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -535,15 +476,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE___IS_FILTERABLE = RESOURCE_GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -619,22 +551,13 @@ public interface CodegenPackage extends EPackage {
 	int FILE__ENABLED = RESOURCE__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__CONDITION = RESOURCE__CONDITION;
+	int FILE__ITERATOR = RESOURCE__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -664,31 +587,13 @@ public interface CodegenPackage extends EPackage {
 	int FILE__GENERATORS = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * The feature id for the '<em><b>Charset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__MERGER = RESOURCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__MERGER_ARGUMENTS = RESOURCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__ENCODING = RESOURCE_FEATURE_COUNT + 3;
+	int FILE__CHARSET = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>File</em>' class.
@@ -697,16 +602,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
+	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -782,22 +678,13 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__ENABLED = RESOURCE__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__CONTEXT_PATH = RESOURCE__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__CONDITION = RESOURCE__CONDITION;
+	int CONTAINER__ITERATOR = RESOURCE__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -834,15 +721,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINER_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER___IS_FILTERABLE = RESOURCE___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -918,22 +796,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__ENABLED = GROUP__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GROUP__CONTEXT_PATH = GROUP__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP__CONDITION = GROUP__CONDITION;
+	int RESOURCE_GROUP__ITERATOR = GROUP__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -952,15 +821,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GROUP_FEATURE_COUNT = GROUP_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_GROUP___IS_FILTERABLE = GROUP___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1036,22 +896,13 @@ public interface CodegenPackage extends EPackage {
 	int FREE_MARKER_GENERATOR__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FREE_MARKER_GENERATOR__CONDITION = GENERATOR__CONDITION;
+	int FREE_MARKER_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -1088,15 +939,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FREE_MARKER_GENERATOR___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1172,22 +1014,13 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE__CONDITION = GENERATOR__CONDITION;
+	int CONTENT_REFERENCE__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1206,15 +1039,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_REFERENCE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1290,22 +1114,13 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__CONDITION = GENERATOR__CONDITION;
+	int FILTER__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1324,15 +1139,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1408,22 +1214,13 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__ENABLED = FILTER__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPOLATOR__CONTEXT_PATH = FILTER__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR__CONDITION = FILTER__CONDITION;
+	int INTERPOLATOR__ITERATOR = FILTER__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1442,15 +1239,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR_FEATURE_COUNT = FILTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERPOLATOR___IS_FILTERABLE = FILTER___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1526,22 +1314,13 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__ENABLED = FILTER__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MUSTACHE__CONTEXT_PATH = FILTER__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MUSTACHE__CONDITION = FILTER__CONDITION;
+	int MUSTACHE__ITERATOR = FILTER__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1560,15 +1339,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MUSTACHE_FEATURE_COUNT = FILTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MUSTACHE___IS_FILTERABLE = FILTER___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1644,22 +1414,13 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE__CONDITION = GENERATOR__CONDITION;
+	int ZIP_ARCHIVE__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1678,15 +1439,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_ARCHIVE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1762,22 +1514,13 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_REFERENCE__ENABLED = GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_REFERENCE__CONTEXT_PATH = GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_REFERENCE__CONDITION = GENERATOR__CONDITION;
+	int GENERATOR_REFERENCE__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1796,15 +1539,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_REFERENCE___IS_FILTERABLE = GENERATOR___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1880,22 +1614,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__ENABLED = RESOURCE_GENERATOR__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_COLLECTION__CONDITION = RESOURCE_GENERATOR__CONDITION;
+	int RESOURCE_COLLECTION__ITERATOR = RESOURCE_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -1970,40 +1695,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_GENERATOR_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Merger</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_COLLECTION__MERGER = RESOURCE_GENERATOR_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_GENERATOR_FEATURE_COUNT + 9;
-
-	/**
 	 * The number of structural features of the '<em>Resource Collection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_GENERATOR___IS_FILTERABLE;
+	int RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2079,22 +1777,13 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__ENABLED = RESOURCE_COLLECTION__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_COLLECTION__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_RESOURCE_COLLECTION__CONDITION = RESOURCE_COLLECTION__CONDITION;
+	int BUNDLE_RESOURCE_COLLECTION__ITERATOR = RESOURCE_COLLECTION__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2169,24 +1858,6 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_COLLECTION__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Merger</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_RESOURCE_COLLECTION__MERGER = RESOURCE_COLLECTION__MERGER;
-
-	/**
-	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_COLLECTION__MERGER_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Bundle</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2203,15 +1874,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUNDLE_RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_COLLECTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_COLLECTION___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2287,22 +1949,13 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__ENABLED = RESOURCE_COLLECTION__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_RESOURCE_COLLECTION__CONTEXT_PATH = RESOURCE_COLLECTION__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_RESOURCE_COLLECTION__CONDITION = RESOURCE_COLLECTION__CONDITION;
+	int ZIP_RESOURCE_COLLECTION__ITERATOR = RESOURCE_COLLECTION__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2377,24 +2030,6 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_COLLECTION__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Merger</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_RESOURCE_COLLECTION__MERGER = RESOURCE_COLLECTION__MERGER;
-
-	/**
-	 * The feature id for the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_RESOURCE_COLLECTION__MERGER_ARGUMENTS = RESOURCE_COLLECTION__MERGER_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2411,15 +2046,6 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_COLLECTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_RESOURCE_COLLECTION___IS_FILTERABLE = RESOURCE_COLLECTION___IS_FILTERABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2472,36 +2098,15 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getGenerator_Enabled();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getIterator <em>Iterator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Context Path</em>'.
-	 * @see org.nasdanika.codegen.Generator#getContextPath()
+	 * @return the meta object for the attribute '<em>Iterator</em>'.
+	 * @see org.nasdanika.codegen.Generator#getIterator()
 	 * @see #getGenerator()
 	 * @generated
 	 */
-	EAttribute getGenerator_ContextPath();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Condition</em>'.
-	 * @see org.nasdanika.codegen.Generator#getCondition()
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	EAttribute getGenerator_Condition();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#isFilterable() <em>Is Filterable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Filterable</em>' operation.
-	 * @see org.nasdanika.codegen.Generator#isFilterable()
-	 * @generated
-	 */
-	EOperation getGenerator__IsFilterable();
+	EAttribute getGenerator_Iterator();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
@@ -2576,17 +2181,6 @@ public interface CodegenPackage extends EPackage {
 	EClass getResource();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Resource#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.codegen.Resource#getName()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Resource#getReconcileAction <em>Reconcile Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2619,37 +2213,15 @@ public interface CodegenPackage extends EPackage {
 	EReference getFile_Generators();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Merger</em>'.
-	 * @see org.nasdanika.codegen.File#getMerger()
+	 * @return the meta object for the attribute '<em>Charset</em>'.
+	 * @see org.nasdanika.codegen.File#getCharset()
 	 * @see #getFile()
 	 * @generated
 	 */
-	EAttribute getFile_Merger();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.File#getMergerArguments <em>Merger Arguments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Merger Arguments</em>'.
-	 * @see org.nasdanika.codegen.File#getMergerArguments()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_MergerArguments();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.File#getEncoding <em>Encoding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Encoding</em>'.
-	 * @see org.nasdanika.codegen.File#getEncoding()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Encoding();
+	EAttribute getFile_Charset();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Container <em>Container</em>}'.
@@ -2906,28 +2478,6 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getResourceCollection_ReconcileAction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getMerger <em>Merger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Merger</em>'.
-	 * @see org.nasdanika.codegen.ResourceCollection#getMerger()
-	 * @see #getResourceCollection()
-	 * @generated
-	 */
-	EAttribute getResourceCollection_Merger();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getMergerArguments <em>Merger Arguments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Merger Arguments</em>'.
-	 * @see org.nasdanika.codegen.ResourceCollection#getMergerArguments()
-	 * @see #getResourceCollection()
-	 * @generated
-	 */
-	EAttribute getResourceCollection_MergerArguments();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.BundleResourceCollection <em>Bundle Resource Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3021,28 +2571,12 @@ public interface CodegenPackage extends EPackage {
 		EAttribute GENERATOR__ENABLED = eINSTANCE.getGenerator_Enabled();
 
 		/**
-		 * The meta object literal for the '<em><b>Context Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Iterator</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR__CONTEXT_PATH = eINSTANCE.getGenerator_ContextPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR__CONDITION = eINSTANCE.getGenerator_Condition();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Filterable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR___IS_FILTERABLE = eINSTANCE.getGenerator__IsFilterable();
+		EAttribute GENERATOR__ITERATOR = eINSTANCE.getGenerator_Iterator();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
@@ -3109,14 +2643,6 @@ public interface CodegenPackage extends EPackage {
 		EClass RESOURCE = eINSTANCE.getResource();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Reconcile Action</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3143,28 +2669,12 @@ public interface CodegenPackage extends EPackage {
 		EReference FILE__GENERATORS = eINSTANCE.getFile_Generators();
 
 		/**
-		 * The meta object literal for the '<em><b>Merger</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FILE__MERGER = eINSTANCE.getFile_Merger();
-
-		/**
-		 * The meta object literal for the '<em><b>Merger Arguments</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__MERGER_ARGUMENTS = eINSTANCE.getFile_MergerArguments();
-
-		/**
-		 * The meta object literal for the '<em><b>Encoding</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__ENCODING = eINSTANCE.getFile_Encoding();
+		EAttribute FILE__CHARSET = eINSTANCE.getFile_Charset();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContainerImpl <em>Container</em>}' class.
@@ -3377,22 +2887,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE_COLLECTION__RECONCILE_ACTION = eINSTANCE.getResourceCollection_ReconcileAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Merger</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_COLLECTION__MERGER = eINSTANCE.getResourceCollection_Merger();
-
-		/**
-		 * The meta object literal for the '<em><b>Merger Arguments</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_COLLECTION__MERGER_ARGUMENTS = eINSTANCE.getResourceCollection_MergerArguments();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.BundleResourceCollectionImpl <em>Bundle Resource Collection</em>}' class.

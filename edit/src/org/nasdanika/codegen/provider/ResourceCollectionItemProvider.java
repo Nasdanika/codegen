@@ -8,12 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ResourceCollection;
 
@@ -53,8 +50,6 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 			addInterpolationExcludesPropertyDescriptor(object);
 			addInterpolationCharsetPropertyDescriptor(object);
 			addReconcileActionPropertyDescriptor(object);
-			addMergerPropertyDescriptor(object);
-			addMergerArgumentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,20 +58,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_path_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_path_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__PATH,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -85,20 +79,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Prefix feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPrefixPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_prefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_prefix_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__PREFIX,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -107,20 +100,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Includes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addIncludesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_includes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_includes_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INCLUDES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -129,20 +121,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Excludes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addExcludesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_excludes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_excludes_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__EXCLUDES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -151,20 +142,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Interpolation Includes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addInterpolationIncludesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_interpolationIncludes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_interpolationIncludes_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -173,20 +163,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Interpolation Excludes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addInterpolationExcludesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_interpolationExcludes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_interpolationExcludes_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -195,20 +184,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Interpolation Charset feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addInterpolationCharsetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_interpolationCharset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_interpolationCharset_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_CHARSET,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -217,64 +205,19 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Reconcile Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addReconcileActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ResourceCollection_reconcileAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_reconcileAction_feature", "_UI_ResourceCollection_type"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__RECONCILE_ACTION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Merger feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMergerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ResourceCollection_merger_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_merger_feature", "_UI_ResourceCollection_type"),
-				 CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Merger Arguments feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMergerArgumentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ResourceCollection_mergerArguments_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCollection_mergerArguments_feature", "_UI_ResourceCollection_type"),
-				 CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER_ARGUMENTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -293,16 +236,13 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceCollection)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceCollection_type") :
-			getString("_UI_ResourceCollection_type") + " " + label;
+		String label = ((ResourceCollection)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_ResourceCollection_type") : getString("_UI_ResourceCollection_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -324,8 +264,6 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER:
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

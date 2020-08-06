@@ -8,12 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 
@@ -56,20 +53,19 @@ public class FreeMarkerGeneratorItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Base feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBasePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_FreeMarkerGenerator_base_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FreeMarkerGenerator_base_feature", "_UI_FreeMarkerGenerator_type"),
 				 CodegenPackage.Literals.FREE_MARKER_GENERATOR__BASE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -78,20 +74,19 @@ public class FreeMarkerGeneratorItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Template feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTemplatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_FreeMarkerGenerator_template_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FreeMarkerGenerator_template_feature", "_UI_FreeMarkerGenerator_type"),
 				 CodegenPackage.Literals.FREE_MARKER_GENERATOR__TEMPLATE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -100,20 +95,19 @@ public class FreeMarkerGeneratorItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Model feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addModelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_FreeMarkerGenerator_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FreeMarkerGenerator_model_feature", "_UI_FreeMarkerGenerator_type"),
 				 CodegenPackage.Literals.FREE_MARKER_GENERATOR__MODEL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -143,14 +137,12 @@ public class FreeMarkerGeneratorItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FreeMarkerGenerator)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_FreeMarkerGenerator_type") :
-			getString("_UI_FreeMarkerGenerator_type") + " " + label;
+		String label = ((FreeMarkerGenerator)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_FreeMarkerGenerator_type") : label;
 	}
 
 

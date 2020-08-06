@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Something which can contain resources.
+ * Something which can contain resources, a grouping construct.
  * <!-- end-model-doc -->
  *
  * <p>

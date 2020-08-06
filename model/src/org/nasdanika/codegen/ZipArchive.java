@@ -9,7 +9,7 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Creates a zip archive (binary stream) from the contained resources.
+ * Creates a zip archive (binary stream) from contained resources.
  * <!-- end-model-doc -->
  *
  *

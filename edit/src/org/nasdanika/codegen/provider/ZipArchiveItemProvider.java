@@ -8,16 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipArchive;
-
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -107,14 +103,12 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ZipArchive)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ZipArchive_type") :
-			getString("_UI_ZipArchive_type") + " " + label;
+		String label = ((ZipArchive)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_ZipArchive_type") : label;
 	}
 
 

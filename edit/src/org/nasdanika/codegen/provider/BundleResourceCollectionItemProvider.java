@@ -8,12 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.BundleResourceCollection;
 import org.nasdanika.codegen.CodegenPackage;
 
@@ -54,20 +51,19 @@ public class BundleResourceCollectionItemProvider extends ResourceCollectionItem
 	 * This adds a property descriptor for the Bundle feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBundlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_BundleResourceCollection_bundle_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BundleResourceCollection_bundle_feature", "_UI_BundleResourceCollection_type"),
 				 CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION__BUNDLE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -97,14 +93,12 @@ public class BundleResourceCollectionItemProvider extends ResourceCollectionItem
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BundleResourceCollection)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BundleResourceCollection_type") :
-			getString("_UI_BundleResourceCollection_type") + " " + label;
+		String label = ((BundleResourceCollection)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_BundleResourceCollection_type") : label;
 	}
 
 

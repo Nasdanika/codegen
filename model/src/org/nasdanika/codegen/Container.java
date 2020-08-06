@@ -9,7 +9,7 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Container of resources.
+ * Nameed container of resources, e.g. a folder/directory.
  * <!-- end-model-doc -->
  *
  *

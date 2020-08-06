@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.nasdanika.codegen.CodegenPackage;
@@ -55,20 +54,19 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	 * This adds a property descriptor for the Jdk Level feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addJdkLevelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_SourceFolder_jdkLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SourceFolder_jdkLevel_feature", "_UI_SourceFolder_type"),
 				 JavaPackage.Literals.SOURCE_FOLDER__JDK_LEVEL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}

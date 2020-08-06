@@ -8,23 +8,16 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
-
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.NcorePackage;
-
 import org.nasdanika.ncore.provider.EntityItemProvider;
 
 /**
@@ -56,8 +49,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
-			addContextPathPropertyDescriptor(object);
-			addConditionPropertyDescriptor(object);
+			addIteratorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,64 +58,40 @@ public class GeneratorItemProvider extends EntityItemProvider {
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Generator_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_enabled_feature", "_UI_Generator_type"),
 				 CodegenPackage.Literals.GENERATOR__ENABLED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Context Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_contextPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_contextPath_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONTEXT_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Condition feature.
+	 * This adds a property descriptor for the Iterator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected void addConditionPropertyDescriptor(Object object) {
+	protected void addIteratorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_Generator_condition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_condition_feature", "_UI_Generator_type"),
-				 CodegenPackage.Literals.GENERATOR__CONDITION,
+				 getString("_UI_Generator_iterator_feature"),
+				 CodegenPackage.Literals.GENERATOR__ITERATOR,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -172,14 +140,12 @@ public class GeneratorItemProvider extends EntityItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Generator)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Generator_type") :
-			getString("_UI_Generator_type") + " " + label;
+		String label = ((Generator)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_Generator_type") : getString("_UI_Generator_type") + " " + label;
 	}
 
 
@@ -196,8 +162,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 
 		switch (notification.getFeatureID(Generator.class)) {
 			case CodegenPackage.GENERATOR__ENABLED:
-			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-			case CodegenPackage.GENERATOR__CONDITION:
+			case CodegenPackage.GENERATOR__ITERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:

@@ -18,9 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
- *   <li>{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.File#getMergerArguments <em>Merger Arguments</em>}</li>
- *   <li>{@link org.nasdanika.codegen.File#getEncoding <em>Encoding</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
@@ -45,77 +43,28 @@ public interface File extends Resource {
 	EList<Generator> getGenerators();
 
 	/**
-	 * Returns the value of the '<em><b>Merger</b></em>' attribute.
+	 * Returns the value of the '<em><b>Charset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new
-	 * content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` 
-	 * where ``T`` is ``String`` for text files and ``InputStream`` for binary files.
+	 * Optional character set for text files.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merger</em>' attribute.
-	 * @see #setMerger(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Merger()
-	 * @model annotation="org.nasdanika.ui.java-class root-type='org.nasdanika.codegen.Merger' super-interfaces='org.nasdanika.codegen.Merger'"
-	 * @generated
-	 */
-	String getMerger();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.File#getMerger <em>Merger</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Merger</em>' attribute.
-	 * @see #getMerger()
-	 * @generated
-	 */
-	void setMerger(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Merger constructor arguments. Codegen uses the first constructor with the matching number of parameters.
-	 * 
-	 * String argument values are interpolated by the context and then are converted to 
-	 * the constructor parameter types using ``Converter`` service obtained from the context
-	 * or ``DefaultConverter.INSTANCE`` if there is no converter service. 
-	 * 
-	 * 
-	 * 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merger Arguments</em>' attribute list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_MergerArguments()
+	 * @return the value of the '<em>Charset</em>' attribute.
+	 * @see #setCharset(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Charset()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getMergerArguments();
+	String getCharset();
 
 	/**
-	 * Returns the value of the '<em><b>Encoding</b></em>' attribute.
+	 * Sets the value of the '{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Optional character encoding for text files.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encoding</em>' attribute.
-	 * @see #setEncoding(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Encoding()
-	 * @model
+	 * @param value the new value of the '<em>Charset</em>' attribute.
+	 * @see #getCharset()
 	 * @generated
 	 */
-	String getEncoding();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.File#getEncoding <em>Encoding</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encoding</em>' attribute.
-	 * @see #getEncoding()
-	 * @generated
-	 */
-	void setEncoding(String value);
+	void setCharset(String value);
 
 } // File

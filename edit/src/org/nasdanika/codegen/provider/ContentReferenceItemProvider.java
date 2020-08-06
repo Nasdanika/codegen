@@ -8,14 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentReference;
+import org.nasdanika.common.Util;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.ContentReference} object.
@@ -54,20 +52,19 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ContentReference_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentReference_ref_feature", "_UI_ContentReference_type"),
 				 CodegenPackage.Literals.CONTENT_REFERENCE__REF,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -86,14 +83,16 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ContentReference)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ContentReference_type") :
-			getString("_UI_ContentReference_type") + " " + label;
+		String label = ((ContentReference)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((ContentReference)object).getRef();
+		}
+
+		return label == null || label.length() == 0 ? getString("_UI_ContentReference_type") : label;
 	}
 
 

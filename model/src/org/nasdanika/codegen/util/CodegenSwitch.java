@@ -9,6 +9,7 @@ import org.nasdanika.codegen.*;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,6 +107,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
 				if (result == null) result = caseResourceGenerator(resource);
+				if (result == null) result = caseNamedElement(resource);
 				if (result == null) result = caseGenerator(resource);
 				if (result == null) result = caseEntity(resource);
 				if (result == null) result = caseConfigurable(resource);
@@ -118,6 +120,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 				T result = caseFile(file);
 				if (result == null) result = caseResource(file);
 				if (result == null) result = caseResourceGenerator(file);
+				if (result == null) result = caseNamedElement(file);
 				if (result == null) result = caseGenerator(file);
 				if (result == null) result = caseEntity(file);
 				if (result == null) result = caseConfigurable(file);
@@ -131,6 +134,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = caseResource(container);
 				if (result == null) result = caseResourceContainer(container);
 				if (result == null) result = caseResourceGenerator(container);
+				if (result == null) result = caseNamedElement(container);
 				if (result == null) result = caseGenerator(container);
 				if (result == null) result = caseEntity(container);
 				if (result == null) result = caseConfigurable(container);
@@ -559,6 +563,21 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConfigurable(Configurable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 

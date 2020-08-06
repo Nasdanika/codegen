@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ReconcileAction;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,7 +71,7 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 	 */
 	@Override
 	public String getName() {
-		return (String)eDynamicGet(CodegenPackage.RESOURCE__NAME, CodegenPackage.Literals.RESOURCE__NAME, true, true);
+		return (String)eDynamicGet(CodegenPackage.RESOURCE__NAME, NcorePackage.Literals.NAMED_ELEMENT__NAME, true, true);
 	}
 
 	/**
@@ -79,7 +81,7 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 	 */
 	@Override
 	public void setName(String newName) {
-		eDynamicSet(CodegenPackage.RESOURCE__NAME, CodegenPackage.Literals.RESOURCE__NAME, newName);
+		eDynamicSet(CodegenPackage.RESOURCE__NAME, NcorePackage.Literals.NAMED_ELEMENT__NAME, newName);
 	}
 
 	/**
@@ -168,6 +170,38 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 				return getReconcileAction() != RECONCILE_ACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+				case CodegenPackage.RESOURCE__NAME: return NcorePackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.NAMED_ELEMENT__NAME: return CodegenPackage.RESOURCE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ResourceImpl

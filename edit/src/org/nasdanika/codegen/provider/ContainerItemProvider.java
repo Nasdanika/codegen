@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
-
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -107,14 +107,15 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Container)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Container_type") :
-			getString("_UI_Container_type") + " " + label;
+		String label = ((Container)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Container)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Container_type") :	label;
 	}
 
 

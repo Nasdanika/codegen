@@ -4,11 +4,8 @@ package org.nasdanika.codegen.java.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
@@ -29,6 +26,7 @@ import org.nasdanika.codegen.java.Type;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,6 +155,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResourceGenerator(ResourceGenerator object) {
 				return createResourceGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			@Override
 			public Adapter caseResource(Resource object) {
@@ -443,6 +445,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

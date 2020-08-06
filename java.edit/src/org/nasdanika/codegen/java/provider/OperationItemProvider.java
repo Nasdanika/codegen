@@ -8,14 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Operation;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -56,20 +54,19 @@ public class OperationItemProvider extends MemberItemProvider {
 	 * This adds a property descriptor for the Parameters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Operation_parameters_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_parameters_feature", "_UI_Operation_type"),
 				 JavaPackage.Literals.OPERATION__PARAMETERS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -78,20 +75,19 @@ public class OperationItemProvider extends MemberItemProvider {
 	 * This adds a property descriptor for the Exceptions feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addExceptionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Operation_exceptions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_exceptions_feature", "_UI_Operation_type"),
 				 JavaPackage.Literals.OPERATION__EXCEPTIONS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -110,14 +106,15 @@ public class OperationItemProvider extends MemberItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Operation)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Operation_type") :
-			getString("_UI_Operation_type") + " " + label;
+		String label = ((Operation)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Operation)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Operation_type") :	label;
 	}
 
 

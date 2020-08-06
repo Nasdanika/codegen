@@ -96,14 +96,13 @@ public class FilterItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Filter)object).getId();
+		String label = ((Filter)object).getTitle();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Filter_type") :
-			getString("_UI_Filter_type") + " " + label;
+			getString("_UI_Filter_type") : getString("_UI_Filter_type") + " " + label;
 	}
 
 

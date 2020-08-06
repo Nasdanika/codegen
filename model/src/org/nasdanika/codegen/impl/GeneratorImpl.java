@@ -43,8 +43,7 @@ import org.nasdanika.ncore.impl.EntityImpl;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextPath <em>Context Path</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getIterator <em>Iterator</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,24 +60,14 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	protected static final boolean ENABLED_EDEFAULT = true;
 
 	/**
-	 * The default value of the '{@link #getContextPath() <em>Context Path</em>}' attribute.
+	 * The default value of the '{@link #getIterator() <em>Iterator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContextPath()
+	 * @see #getIterator()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTEXT_PATH_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CONDITION_EDEFAULT = null;
+	protected static final String ITERATOR_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,8 +125,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	 * @generated
 	 */
 	@Override
-	public String getContextPath() {
-		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONTEXT_PATH, CodegenPackage.Literals.GENERATOR__CONTEXT_PATH, true, true);
+	public String getIterator() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__ITERATOR, CodegenPackage.Literals.GENERATOR__ITERATOR, true, true);
 	}
 
 	/**
@@ -146,40 +135,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	 * @generated
 	 */
 	@Override
-	public void setContextPath(String newContextPath) {
-		eDynamicSet(CodegenPackage.GENERATOR__CONTEXT_PATH, CodegenPackage.Literals.GENERATOR__CONTEXT_PATH, newContextPath);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCondition() {
-		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONDITION, CodegenPackage.Literals.GENERATOR__CONDITION, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCondition(String newCondition) {
-		eDynamicSet(CodegenPackage.GENERATOR__CONDITION, CodegenPackage.Literals.GENERATOR__CONDITION, newCondition);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isFilterable() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setIterator(String newIterator) {
+		eDynamicSet(CodegenPackage.GENERATOR__ITERATOR, CodegenPackage.Literals.GENERATOR__ITERATOR, newIterator);
 	}
 
 	/**
@@ -234,10 +191,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				return getConfiguration();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled();
-			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-				return getContextPath();
-			case CodegenPackage.GENERATOR__CONDITION:
-				return getCondition();
+			case CodegenPackage.GENERATOR__ITERATOR:
+				return getIterator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -258,11 +213,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-				setContextPath((String)newValue);
-				return;
-			case CodegenPackage.GENERATOR__CONDITION:
-				setCondition((String)newValue);
+			case CodegenPackage.GENERATOR__ITERATOR:
+				setIterator((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,11 +234,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-				setContextPath(CONTEXT_PATH_EDEFAULT);
-				return;
-			case CodegenPackage.GENERATOR__CONDITION:
-				setCondition(CONDITION_EDEFAULT);
+			case CodegenPackage.GENERATOR__ITERATOR:
+				setIterator(ITERATOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -304,10 +253,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				return !getConfiguration().isEmpty();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled() != ENABLED_EDEFAULT;
-			case CodegenPackage.GENERATOR__CONTEXT_PATH:
-				return CONTEXT_PATH_EDEFAULT == null ? getContextPath() != null : !CONTEXT_PATH_EDEFAULT.equals(getContextPath());
-			case CodegenPackage.GENERATOR__CONDITION:
-				return CONDITION_EDEFAULT == null ? getCondition() != null : !CONDITION_EDEFAULT.equals(getCondition());
+			case CodegenPackage.GENERATOR__ITERATOR:
+				return ITERATOR_EDEFAULT == null ? getIterator() != null : !ITERATOR_EDEFAULT.equals(getIterator());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,8 +300,6 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case CodegenPackage.GENERATOR___IS_FILTERABLE:
-				return isFilterable();
 			case CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}

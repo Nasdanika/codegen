@@ -25,8 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getInterpolationCharset <em>Interpolation Charset</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getReconcileAction <em>Reconcile Action</em>}</li>
- *   <li>{@link org.nasdanika.codegen.ResourceCollection#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.ResourceCollection#getMergerArguments <em>Merger Arguments</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection()
@@ -90,8 +88,8 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of Ant path patterns specifying resources to include into the collection.
-	 * All resources are includes if the includes list is empty.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to include into the collection.
+	 * All resources are included if the includes list is empty.
 	 * 
 	 * ## Matching rules
 	 * 
@@ -113,7 +111,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of Ant path patterns specifying resources to exclude from the collection. Nothing is excluded if this list is empty.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. Nothing is excluded if this list is empty.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Excludes</em>' attribute list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_Excludes()
@@ -128,7 +126,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of Ant patterns specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interpolation Includes</em>' attribute list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_InterpolationIncludes()
@@ -143,7 +141,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of Ant path patterns specifying which resources shall be excluded from interpolation.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interpolation Excludes</em>' attribute list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_InterpolationExcludes()
@@ -206,54 +204,5 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * @generated
 	 */
 	void setReconcileAction(ReconcileAction value);
-
-	/**
-	 * Returns the value of the '<em><b>Merger</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If reconcile action is ``Merge`` then merger gets instantiated to merge existing and new
-	 * content of the file. The merger class shall implement ``org.nasdanika.codegen.Merger<T>`` 
-	 * where ``T`` is ``String`` for text files and ``InputStream`` for binary files.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merger</em>' attribute.
-	 * @see #setMerger(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_Merger()
-	 * @model annotation="org.nasdanika.ui.java-class root-type='org.nasdanika.codegen.Merger' super-interfaces='org.nasdanika.codegen.Merger'"
-	 * @generated
-	 */
-	String getMerger();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getMerger <em>Merger</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Merger</em>' attribute.
-	 * @see #getMerger()
-	 * @generated
-	 */
-	void setMerger(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Merger Arguments</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Merger constructor arguments. Codegen uses the first constructor with the matching number of parameters.
-	 * 
-	 * String argument values are interpolated by the context and then are converted to 
-	 * the constructor parameter types using ``Converter`` service obtained from the context
-	 * or ``DefaultConverter.INSTANCE`` if there is no converter service. 
-	 * 
-	 * 
-	 * 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Merger Arguments</em>' attribute list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_MergerArguments()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getMergerArguments();
 
 } // ResourceCollection

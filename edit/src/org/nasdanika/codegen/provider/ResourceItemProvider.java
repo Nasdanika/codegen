@@ -8,14 +8,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Resource;
+import org.nasdanika.common.Util;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.Resource} object.
@@ -55,20 +54,19 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_Resource_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_name_feature", "_UI_Resource_type"),
-				 CodegenPackage.Literals.RESOURCE__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 NcorePackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -77,20 +75,19 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 	 * This adds a property descriptor for the Reconcile Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addReconcileActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Resource_reconcileAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_reconcileAction_feature", "_UI_Resource_type"),
 				 CodegenPackage.Literals.RESOURCE__RECONCILE_ACTION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -109,14 +106,15 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Resource)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Resource_type") :
-			getString("_UI_Resource_type") + " " + label;
+		String label = ((Resource)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Resource)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Resource_type") : getString("_UI_Resource_type") + " " + label;
 	}
 
 

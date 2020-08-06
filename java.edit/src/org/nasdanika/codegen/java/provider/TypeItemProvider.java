@@ -8,14 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Type;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -55,20 +53,19 @@ public class TypeItemProvider extends MemberItemProvider {
 	 * This adds a property descriptor for the Super Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSuperTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Type_superTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_superTypes_feature", "_UI_Type_type"),
 				 JavaPackage.Literals.TYPE__SUPER_TYPES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -87,14 +84,15 @@ public class TypeItemProvider extends MemberItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Type)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Type_type") :
-			getString("_UI_Type_type") + " " + label;
+		String label = ((Type)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Type)object).getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Type_type") : label;
 	}
 
 

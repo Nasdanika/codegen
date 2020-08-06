@@ -8,11 +8,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.nasdanika.codegen.java.Annotation;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -72,14 +71,15 @@ public class AnnotationItemProvider extends TypeItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Annotation)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Annotation_type") :
-			getString("_UI_Annotation_type") + " " + label;
+		String label = ((Annotation)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((Annotation)object).getName();
+		}		
+		return label == null || label.length() == 0 ? getString("_UI_Annotation_type") : label;
 	}
 
 	/**

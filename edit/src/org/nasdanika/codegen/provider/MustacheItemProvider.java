@@ -52,11 +52,11 @@ public class MustacheItemProvider extends FilterItemProvider {
 	 * This returns Mustache.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Mustache"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/mustache.png"));
 	}
 
 	/**
@@ -73,14 +73,12 @@ public class MustacheItemProvider extends FilterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Mustache)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Mustache_type") :
-			getString("_UI_Mustache_type") + " " + label;
+		String label = ((Mustache)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_Mustache_type") : label;
 	}
 
 

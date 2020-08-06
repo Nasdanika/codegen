@@ -26,33 +26,21 @@ import org.nasdanika.codegen.Generator;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerators <em>Generators</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getMergerArguments <em>Merger Arguments</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getEncoding <em>Encoding</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getCharset <em>Charset</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FileImpl extends ResourceImpl implements File {
 	/**
-	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
+	 * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMerger()
+	 * @see #getCharset()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MERGER_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEncoding()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ENCODING_EDEFAULT = null;
+	protected static final String CHARSET_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,8 +78,8 @@ public class FileImpl extends ResourceImpl implements File {
 	 * @generated
 	 */
 	@Override
-	public String getMerger() {
-		return (String)eDynamicGet(CodegenPackage.FILE__MERGER, CodegenPackage.Literals.FILE__MERGER, true, true);
+	public String getCharset() {
+		return (String)eDynamicGet(CodegenPackage.FILE__CHARSET, CodegenPackage.Literals.FILE__CHARSET, true, true);
 	}
 
 	/**
@@ -100,39 +88,8 @@ public class FileImpl extends ResourceImpl implements File {
 	 * @generated
 	 */
 	@Override
-	public void setMerger(String newMerger) {
-		eDynamicSet(CodegenPackage.FILE__MERGER, CodegenPackage.Literals.FILE__MERGER, newMerger);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<String> getMergerArguments() {
-		return (EList<String>)eDynamicGet(CodegenPackage.FILE__MERGER_ARGUMENTS, CodegenPackage.Literals.FILE__MERGER_ARGUMENTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getEncoding() {
-		return (String)eDynamicGet(CodegenPackage.FILE__ENCODING, CodegenPackage.Literals.FILE__ENCODING, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEncoding(String newEncoding) {
-		eDynamicSet(CodegenPackage.FILE__ENCODING, CodegenPackage.Literals.FILE__ENCODING, newEncoding);
+	public void setCharset(String newCharset) {
+		eDynamicSet(CodegenPackage.FILE__CHARSET, CodegenPackage.Literals.FILE__CHARSET, newCharset);
 	}
 
 	/**
@@ -159,12 +116,8 @@ public class FileImpl extends ResourceImpl implements File {
 		switch (featureID) {
 			case CodegenPackage.FILE__GENERATORS:
 				return getGenerators();
-			case CodegenPackage.FILE__MERGER:
-				return getMerger();
-			case CodegenPackage.FILE__MERGER_ARGUMENTS:
-				return getMergerArguments();
-			case CodegenPackage.FILE__ENCODING:
-				return getEncoding();
+			case CodegenPackage.FILE__CHARSET:
+				return getCharset();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,15 +135,8 @@ public class FileImpl extends ResourceImpl implements File {
 				getGenerators().clear();
 				getGenerators().addAll((Collection<? extends Generator>)newValue);
 				return;
-			case CodegenPackage.FILE__MERGER:
-				setMerger((String)newValue);
-				return;
-			case CodegenPackage.FILE__MERGER_ARGUMENTS:
-				getMergerArguments().clear();
-				getMergerArguments().addAll((Collection<? extends String>)newValue);
-				return;
-			case CodegenPackage.FILE__ENCODING:
-				setEncoding((String)newValue);
+			case CodegenPackage.FILE__CHARSET:
+				setCharset((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,14 +153,8 @@ public class FileImpl extends ResourceImpl implements File {
 			case CodegenPackage.FILE__GENERATORS:
 				getGenerators().clear();
 				return;
-			case CodegenPackage.FILE__MERGER:
-				setMerger(MERGER_EDEFAULT);
-				return;
-			case CodegenPackage.FILE__MERGER_ARGUMENTS:
-				getMergerArguments().clear();
-				return;
-			case CodegenPackage.FILE__ENCODING:
-				setEncoding(ENCODING_EDEFAULT);
+			case CodegenPackage.FILE__CHARSET:
+				setCharset(CHARSET_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -230,12 +170,8 @@ public class FileImpl extends ResourceImpl implements File {
 		switch (featureID) {
 			case CodegenPackage.FILE__GENERATORS:
 				return !getGenerators().isEmpty();
-			case CodegenPackage.FILE__MERGER:
-				return MERGER_EDEFAULT == null ? getMerger() != null : !MERGER_EDEFAULT.equals(getMerger());
-			case CodegenPackage.FILE__MERGER_ARGUMENTS:
-				return !getMergerArguments().isEmpty();
-			case CodegenPackage.FILE__ENCODING:
-				return ENCODING_EDEFAULT == null ? getEncoding() != null : !ENCODING_EDEFAULT.equals(getEncoding());
+			case CodegenPackage.FILE__CHARSET:
+				return CHARSET_EDEFAULT == null ? getCharset() != null : !CHARSET_EDEFAULT.equals(getCharset());
 		}
 		return super.eIsSet(featureID);
 	}

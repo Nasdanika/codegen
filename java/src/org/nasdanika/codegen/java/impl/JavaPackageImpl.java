@@ -262,7 +262,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMember_Name() {
+	public EAttribute getMember_Modifiers() {
 		return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -272,18 +272,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMember_Modifiers() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getMember_CommentGenerators() {
-		return (EReference)memberEClass.getEStructuralFeatures().get(2);
+		return (EReference)memberEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -293,7 +283,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EAttribute getMember_Comment() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -303,7 +293,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EAttribute getMember_Annotations() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -313,7 +303,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EReference getMember_BodyGenerators() {
-		return (EReference)memberEClass.getEStructuralFeatures().get(5);
+		return (EReference)memberEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -323,7 +313,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EAttribute getMember_TypeParameters() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -514,7 +504,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__FORMAT);
 
 		memberEClass = createEClass(MEMBER);
-		createEAttribute(memberEClass, MEMBER__NAME);
 		createEAttribute(memberEClass, MEMBER__MODIFIERS);
 		createEReference(memberEClass, MEMBER__COMMENT_GENERATORS);
 		createEAttribute(memberEClass, MEMBER__COMMENT);
@@ -574,6 +563,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Obtain other dependent packages
 		CodegenPackage theCodegenPackage = (CodegenPackage)EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
+		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -584,6 +574,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		packageEClass.getESuperTypes().add(theCodegenPackage.getContainer());
 		compilationUnitEClass.getESuperTypes().add(theCodegenPackage.getFile());
 		memberEClass.getESuperTypes().add(theCodegenPackage.getGenerator());
+		memberEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
 		typeEClass.getESuperTypes().add(this.getMember());
 		fieldEClass.getESuperTypes().add(this.getMember());
 		operationEClass.getESuperTypes().add(this.getMember());
@@ -604,7 +595,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getCompilationUnit_Format(), ecorePackage.getEBoolean(), "format", "true", 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_CommentGenerators(), theCodegenPackage.getGenerator(), null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

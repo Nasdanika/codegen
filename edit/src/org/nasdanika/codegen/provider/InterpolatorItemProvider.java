@@ -73,14 +73,12 @@ public class InterpolatorItemProvider extends FilterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Interpolator)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Interpolator_type") :
-			getString("_UI_Interpolator_type") + " " + label;
+		String label = ((Interpolator)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_Interpolator_type") : label;
 	}
 
 

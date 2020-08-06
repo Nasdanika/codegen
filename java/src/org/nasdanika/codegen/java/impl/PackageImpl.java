@@ -40,9 +40,4 @@ public class PackageImpl extends ContainerImpl implements org.nasdanika.codegen.
 		return JavaPackage.Literals.PACKAGE;
 	}
 
-	@Override
-	public boolean isFilterable() {
-		return true;
-	}
-
 } //PackageFragmentImpl

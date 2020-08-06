@@ -129,9 +129,4 @@ public class SourceFolderImpl extends ContainerImpl implements SourceFolder {
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public boolean isFilterable() {
-		return true;
-	}
-
 } //PackageFragmentRootImpl

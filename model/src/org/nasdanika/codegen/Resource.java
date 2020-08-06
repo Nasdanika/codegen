@@ -2,6 +2,8 @@
  */
 package org.nasdanika.codegen;
 
+import org.nasdanika.ncore.NamedElement;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -9,14 +11,13 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * ResourceGenerator generates a resource - file or container. 
+ * Generates a resource - file or container. 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.Resource#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Resource#getReconcileAction <em>Reconcile Action</em>}</li>
  * </ul>
  *
@@ -24,32 +25,7 @@ package org.nasdanika.codegen;
  * @model abstract="true"
  * @generated
  */
-public interface Resource extends ResourceGenerator {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Generator name.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getResource_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.Resource#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Resource extends ResourceGenerator, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Reconcile Action</b></em>' attribute.
 	 * The default value is <code>"Overwrite"</code>.

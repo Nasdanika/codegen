@@ -28,8 +28,6 @@ import org.nasdanika.codegen.ResourceCollection;
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getInterpolationExcludes <em>Interpolation Excludes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getInterpolationCharset <em>Interpolation Charset</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getReconcileAction <em>Reconcile Action</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getMerger <em>Merger</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getMergerArguments <em>Merger Arguments</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,16 +72,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 * @ordered
 	 */
 	protected static final ReconcileAction RECONCILE_ACTION_EDEFAULT = ReconcileAction.OVERWRITE;
-
-	/**
-	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMerger()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MERGER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,37 +222,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 * @generated
 	 */
 	@Override
-	public String getMerger() {
-		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__MERGER, CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMerger(String newMerger) {
-		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__MERGER, CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER, newMerger);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<String> getMergerArguments() {
-		return (EList<String>)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS, CodegenPackage.Literals.RESOURCE_COLLECTION__MERGER_ARGUMENTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodegenPackage.RESOURCE_COLLECTION__PATH:
@@ -283,10 +240,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 				return getInterpolationCharset();
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				return getReconcileAction();
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER:
-				return getMerger();
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS:
-				return getMergerArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,13 +281,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				setReconcileAction((ReconcileAction)newValue);
 				return;
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER:
-				setMerger((String)newValue);
-				return;
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS:
-				getMergerArguments().clear();
-				getMergerArguments().addAll((Collection<? extends String>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -371,12 +317,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				setReconcileAction(RECONCILE_ACTION_EDEFAULT);
 				return;
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER:
-				setMerger(MERGER_EDEFAULT);
-				return;
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS:
-				getMergerArguments().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -405,10 +345,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 				return INTERPOLATION_CHARSET_EDEFAULT == null ? getInterpolationCharset() != null : !INTERPOLATION_CHARSET_EDEFAULT.equals(getInterpolationCharset());
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				return getReconcileAction() != RECONCILE_ACTION_EDEFAULT;
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER:
-				return MERGER_EDEFAULT == null ? getMerger() != null : !MERGER_EDEFAULT.equals(getMerger());
-			case CodegenPackage.RESOURCE_COLLECTION__MERGER_ARGUMENTS:
-				return !getMergerArguments().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

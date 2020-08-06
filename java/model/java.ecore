@@ -36,15 +36,10 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//Generator">
+  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//Generator ../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for fields, operations, and types."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Member name, not applicable to constructors."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

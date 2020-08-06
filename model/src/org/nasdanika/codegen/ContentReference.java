@@ -9,7 +9,7 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Reference (URL) to a content residing elsewhere, e.g. a template in a version control
+ * Reference (URL) to content residing elsewhere, e.g. a template in a version control
  * system available for download over HTTP.
  * <!-- end-model-doc -->
  *

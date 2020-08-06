@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Filter</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Filter generates its output by processing and combining outputs of contained generators.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -26,6 +30,9 @@ public interface Filter extends Generator {
 	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Filter inputs.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Generators</em>' containment reference list.
 	 * @see org.nasdanika.codegen.CodegenPackage#getFilter_Generators()
 	 * @model containment="true"

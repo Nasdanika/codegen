@@ -18,9 +18,7 @@
     </genEnums>
     <genClasses image="false" ecoreClass="codegen.ecore#//Generator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextPath"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/condition"/>
-      <genOperations ecoreOperation="codegen.ecore#//Generator/isFilterable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/iterator"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/context"/>
@@ -34,14 +32,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ResourceContainer/elements"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Resource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//File">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/merger"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//File/mergerArguments"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/charset"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container"/>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
@@ -71,8 +66,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationExcludes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationCharset"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/reconcileAction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/merger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/mergerArguments"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//BundleResourceCollection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResourceCollection/bundle"/>

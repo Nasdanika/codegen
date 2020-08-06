@@ -23,8 +23,7 @@ import org.nasdanika.ncore.Entity;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}</li>
- *   <li>{@link org.nasdanika.codegen.Generator#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getIterator <em>Iterator</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -38,11 +37,11 @@ public interface Generator extends Entity, Configurable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Generator creates work  only if this attribute is true. 
+	 * Generator creates work only if this attribute is true. 
 	 * The purpose of this attribute is to help with generator model development 
 	 * by disabling model parts which are still work in progress and would fail the generation
 	 * process, or, on the opposite, already working parts which would create delay and distraction
-	 * in testing and troubleshooting. 
+	 * in testing and troubleshooting. Use ``Iterator`` for conditional generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #setEnabled(boolean)
@@ -63,84 +62,39 @@ public interface Generator extends Entity, Configurable {
 	void setEnabled(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Context Path</b></em>' attribute.
+	 * Returns the value of the '<em><b>Iterator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If contextPath is not null and not empty/blank then the given path used as a prefix 
-	 * prepended to the propety names when getting property values from the context. 
+	 * Iterator contains context property name and allows to execute generator zero or more times depending on the property type.
+	 * 
+	 * * If iterator is blank then generator is executed once using the current generation context.
+	 * * If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:
+	 *     * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.
+	 *     * boolean ``false`` - generator is not executed.
+	 *     * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.
+	 *     * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.
+	 *     * list - generator is executed once for each list element with element value being processed as explained here.
+	 *     * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context Path</em>' attribute.
-	 * @see #setContextPath(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_ContextPath()
+	 * @return the value of the '<em>Iterator</em>' attribute.
+	 * @see #setIterator(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Iterator()
 	 * @model
 	 * @generated
 	 */
-	String getContextPath();
+	String getIterator();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getContextPath <em>Context Path</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getIterator <em>Iterator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context Path</em>' attribute.
-	 * @see #getContextPath()
+	 * @param value the new value of the '<em>Iterator</em>' attribute.
+	 * @see #getIterator()
 	 * @generated
 	 */
-	void setContextPath(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If not blank the predicate shall be a Java expression evaluating to boolean. 
-	 * If it evaluates to true then generation work gets executed. 
-	 * The predicate expression has access to ``context`` variable. Use ``context.get()`` for retrieval of values from the context.
-	 * 
-	 * The predicate expression is interpolated with the context, so another way to access context properties is to use tokens. 
-	 * For example ``context.get("my-property") > 0`` and ``${my-property} > 0`` are equivalent. 
-	 * To safely handle the case ``my-property`` not being set  a property default value may be used in the second option ``${my-property|0} > 0``.
-	 * 
-	 * For more advanced control over execution use controller.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Condition</em>' attribute.
-	 * @see #setCondition(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_Condition()
-	 * @model
-	 * @generated
-	 */
-	String getCondition();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getCondition <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition</em>' attribute.
-	 * @see #getCondition()
-	 * @generated
-	 */
-	void setCondition(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Resource generators shall return true from this method, e.g.:
-	 * 
-	 * * Project, 
-	 * * File, 
-	 * * Folder, 
-	 * * Package fragment (root)
-	 * * Compilation unit.
-	 * * Zip Archive
-	 * 
-	 * Generators which do not create resources but rather contribute to their creation shall return false.
-	 * <!-- end-model-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isFilterable();
+	void setIterator(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

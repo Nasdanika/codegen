@@ -39,7 +39,7 @@ public enum ReconcileAction implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Append the new content to the existing. For project and directories it means
+	 * Append the new content to the existing. For containers (directories) it means
 	 * adding new resources next to the existing, which is semantically equivalent to merging.
 	 * <!-- end-model-doc -->
 	 * @see #APPEND_VALUE
@@ -68,8 +68,7 @@ public enum ReconcileAction implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Replace existing content with the new one. 
-	 * For directories and projects it means deleting the project/directory
-	 * and re-creating with the new content.
+	 * For containers (directories) it means deleting container elements before generation.
 	 * 
 	 * <!-- end-model-doc -->
 	 * @see #OVERWRITE_VALUE
@@ -110,7 +109,7 @@ public enum ReconcileAction implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Append the new content to the existing. For project and directories it means
+	 * Append the new content to the existing. For containers (directories) it means
 	 * adding new resources next to the existing, which is semantically equivalent to merging.
 	 * <!-- end-model-doc -->
 	 * @see #APPEND
@@ -141,8 +140,7 @@ public enum ReconcileAction implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Replace existing content with the new one. 
-	 * For directories and projects it means deleting the project/directory
-	 * and re-creating with the new content.
+	 * For containers (directories) it means deleting container elements before generation.
 	 * 
 	 * <!-- end-model-doc -->
 	 * @see #OVERWRITE

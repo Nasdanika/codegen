@@ -4,6 +4,7 @@ package org.nasdanika.codegen.java;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.ncore.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +19,6 @@ import org.nasdanika.codegen.Generator;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.java.Member#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getCommentGenerators <em>Comment Generators</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getComment <em>Comment</em>}</li>
@@ -31,32 +31,7 @@ import org.nasdanika.codegen.Generator;
  * @model abstract="true"
  * @generated
  */
-public interface Member extends Generator {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Member name, not applicable to constructors.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.java.Member#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Member extends Generator, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Modifiers</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
