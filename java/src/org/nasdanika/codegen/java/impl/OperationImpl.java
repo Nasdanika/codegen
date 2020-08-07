@@ -2,9 +2,6 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Operation;
@@ -24,6 +21,25 @@ import org.nasdanika.codegen.java.Operation;
  * @generated
  */
 public abstract class OperationImpl extends MemberImpl implements Operation {
+	/**
+	 * The default value of the '{@link #getParameters() <em>Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PARAMETERS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getExceptions() <em>Exceptions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExceptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXCEPTIONS_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,8 +66,18 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<String> getParameters() {
-		return (EList<String>)eDynamicGet(JavaPackage.OPERATION__PARAMETERS, JavaPackage.Literals.OPERATION__PARAMETERS, true, true);
+	public String getParameters() {
+		return (String)eDynamicGet(JavaPackage.OPERATION__PARAMETERS, JavaPackage.Literals.OPERATION__PARAMETERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParameters(String newParameters) {
+		eDynamicSet(JavaPackage.OPERATION__PARAMETERS, JavaPackage.Literals.OPERATION__PARAMETERS, newParameters);
 	}
 
 	/**
@@ -61,8 +87,18 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<String> getExceptions() {
-		return (EList<String>)eDynamicGet(JavaPackage.OPERATION__EXCEPTIONS, JavaPackage.Literals.OPERATION__EXCEPTIONS, true, true);
+	public String getExceptions() {
+		return (String)eDynamicGet(JavaPackage.OPERATION__EXCEPTIONS, JavaPackage.Literals.OPERATION__EXCEPTIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExceptions(String newExceptions) {
+		eDynamicSet(JavaPackage.OPERATION__EXCEPTIONS, JavaPackage.Literals.OPERATION__EXCEPTIONS, newExceptions);
 	}
 
 	/**
@@ -91,12 +127,10 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends String>)newValue);
+				setParameters((String)newValue);
 				return;
 			case JavaPackage.OPERATION__EXCEPTIONS:
-				getExceptions().clear();
-				getExceptions().addAll((Collection<? extends String>)newValue);
+				setExceptions((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,10 +145,10 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__PARAMETERS:
-				getParameters().clear();
+				setParameters(PARAMETERS_EDEFAULT);
 				return;
 			case JavaPackage.OPERATION__EXCEPTIONS:
-				getExceptions().clear();
+				setExceptions(EXCEPTIONS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -129,9 +163,9 @@ public abstract class OperationImpl extends MemberImpl implements Operation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__PARAMETERS:
-				return !getParameters().isEmpty();
+				return PARAMETERS_EDEFAULT == null ? getParameters() != null : !PARAMETERS_EDEFAULT.equals(getParameters());
 			case JavaPackage.OPERATION__EXCEPTIONS:
-				return !getExceptions().isEmpty();
+				return EXCEPTIONS_EDEFAULT == null ? getExceptions() != null : !EXCEPTIONS_EDEFAULT.equals(getExceptions());
 		}
 		return super.eIsSet(featureID);
 	}

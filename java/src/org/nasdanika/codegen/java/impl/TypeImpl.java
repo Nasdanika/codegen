@@ -2,9 +2,6 @@
  */
 package org.nasdanika.codegen.java.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Type;
@@ -23,6 +20,16 @@ import org.nasdanika.codegen.java.Type;
  * @generated
  */
 public abstract class TypeImpl extends MemberImpl implements Type {
+	/**
+	 * The default value of the '{@link #getSuperTypes() <em>Super Types</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSuperTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUPER_TYPES_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,8 +56,18 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<String> getSuperTypes() {
-		return (EList<String>)eDynamicGet(JavaPackage.TYPE__SUPER_TYPES, JavaPackage.Literals.TYPE__SUPER_TYPES, true, true);
+	public String getSuperTypes() {
+		return (String)eDynamicGet(JavaPackage.TYPE__SUPER_TYPES, JavaPackage.Literals.TYPE__SUPER_TYPES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSuperTypes(String newSuperTypes) {
+		eDynamicSet(JavaPackage.TYPE__SUPER_TYPES, JavaPackage.Literals.TYPE__SUPER_TYPES, newSuperTypes);
 	}
 
 	/**
@@ -77,8 +94,7 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaPackage.TYPE__SUPER_TYPES:
-				getSuperTypes().clear();
-				getSuperTypes().addAll((Collection<? extends String>)newValue);
+				setSuperTypes((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -93,7 +109,7 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaPackage.TYPE__SUPER_TYPES:
-				getSuperTypes().clear();
+				setSuperTypes(SUPER_TYPES_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -108,7 +124,7 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaPackage.TYPE__SUPER_TYPES:
-				return !getSuperTypes().isEmpty();
+				return SUPER_TYPES_EDEFAULT == null ? getSuperTypes() != null : !SUPER_TYPES_EDEFAULT.equals(getSuperTypes());
 		}
 		return super.eIsSet(featureID);
 	}

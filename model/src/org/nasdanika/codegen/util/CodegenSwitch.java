@@ -179,6 +179,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 			case CodegenPackage.FREE_MARKER_GENERATOR: {
 				FreeMarkerGenerator freeMarkerGenerator = (FreeMarkerGenerator)theEObject;
 				T result = caseFreeMarkerGenerator(freeMarkerGenerator);
+				if (result == null) result = caseContentGenerator(freeMarkerGenerator);
 				if (result == null) result = caseGenerator(freeMarkerGenerator);
 				if (result == null) result = caseEntity(freeMarkerGenerator);
 				if (result == null) result = caseConfigurable(freeMarkerGenerator);

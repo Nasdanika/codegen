@@ -1048,7 +1048,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__TITLE = GENERATOR__TITLE;
+	int FREE_MARKER_GENERATOR__TITLE = CONTENT_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1057,7 +1057,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+	int FREE_MARKER_GENERATOR__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1066,7 +1066,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__ID = GENERATOR__ID;
+	int FREE_MARKER_GENERATOR__ID = CONTENT_GENERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1075,7 +1075,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+	int FREE_MARKER_GENERATOR__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1084,7 +1084,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__ENABLED = GENERATOR__ENABLED;
+	int FREE_MARKER_GENERATOR__ENABLED = CONTENT_GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1093,7 +1093,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
+	int FREE_MARKER_GENERATOR__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -1102,7 +1102,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__BASE = GENERATOR_FEATURE_COUNT + 0;
+	int FREE_MARKER_GENERATOR__BASE = CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Template</b></em>' attribute.
@@ -1111,7 +1111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__TEMPLATE = GENERATOR_FEATURE_COUNT + 1;
+	int FREE_MARKER_GENERATOR__TEMPLATE = CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute.
@@ -1120,7 +1120,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR__MODEL = GENERATOR_FEATURE_COUNT + 2;
+	int FREE_MARKER_GENERATOR__MODEL = CONTENT_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Free Marker Generator</em>' class.
@@ -1129,7 +1129,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 3;
+	int FREE_MARKER_GENERATOR_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1138,7 +1138,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int FREE_MARKER_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Free Marker Generator</em>' class.
@@ -1147,7 +1147,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FREE_MARKER_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+	int FREE_MARKER_GENERATOR_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentReferenceImpl <em>Content Reference</em>}' class.

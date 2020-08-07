@@ -46,6 +46,15 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	protected static final String NAME_EDEFAULT = null;
 	/**
+	 * The default value of the '{@link #getModifiers() <em>Modifiers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModifiers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODIFIERS_EDEFAULT = null;
+	/**
 	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,6 +63,24 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 * @ordered
 	 */
 	protected static final String COMMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getAnnotations() <em>Annotations</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotations()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATIONS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTypeParameters() <em>Type Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_PARAMETERS_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,8 +127,18 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<String> getModifiers() {
-		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__MODIFIERS, JavaPackage.Literals.MEMBER__MODIFIERS, true, true);
+	public String getModifiers() {
+		return (String)eDynamicGet(JavaPackage.MEMBER__MODIFIERS, JavaPackage.Literals.MEMBER__MODIFIERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setModifiers(String newModifiers) {
+		eDynamicSet(JavaPackage.MEMBER__MODIFIERS, JavaPackage.Literals.MEMBER__MODIFIERS, newModifiers);
 	}
 
 	/**
@@ -142,8 +179,18 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<String> getAnnotations() {
-		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__ANNOTATIONS, JavaPackage.Literals.MEMBER__ANNOTATIONS, true, true);
+	public String getAnnotations() {
+		return (String)eDynamicGet(JavaPackage.MEMBER__ANNOTATIONS, JavaPackage.Literals.MEMBER__ANNOTATIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAnnotations(String newAnnotations) {
+		eDynamicSet(JavaPackage.MEMBER__ANNOTATIONS, JavaPackage.Literals.MEMBER__ANNOTATIONS, newAnnotations);
 	}
 
 	/**
@@ -164,10 +211,20 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public EList<String> getTypeParameters() {
-		return (EList<String>)eDynamicGet(JavaPackage.MEMBER__TYPE_PARAMETERS, JavaPackage.Literals.MEMBER__TYPE_PARAMETERS, true, true);
+	public String getTypeParameters() {
+		return (String)eDynamicGet(JavaPackage.MEMBER__TYPE_PARAMETERS, JavaPackage.Literals.MEMBER__TYPE_PARAMETERS, true, true);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTypeParameters(String newTypeParameters) {
+		eDynamicSet(JavaPackage.MEMBER__TYPE_PARAMETERS, JavaPackage.Literals.MEMBER__TYPE_PARAMETERS, newTypeParameters);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,8 +280,7 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				setName((String)newValue);
 				return;
 			case JavaPackage.MEMBER__MODIFIERS:
-				getModifiers().clear();
-				getModifiers().addAll((Collection<? extends String>)newValue);
+				setModifiers((String)newValue);
 				return;
 			case JavaPackage.MEMBER__COMMENT_GENERATORS:
 				getCommentGenerators().clear();
@@ -234,16 +290,14 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				setComment((String)newValue);
 				return;
 			case JavaPackage.MEMBER__ANNOTATIONS:
-				getAnnotations().clear();
-				getAnnotations().addAll((Collection<? extends String>)newValue);
+				setAnnotations((String)newValue);
 				return;
 			case JavaPackage.MEMBER__BODY_GENERATORS:
 				getBodyGenerators().clear();
 				getBodyGenerators().addAll((Collection<? extends Generator>)newValue);
 				return;
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
-				getTypeParameters().clear();
-				getTypeParameters().addAll((Collection<? extends String>)newValue);
+				setTypeParameters((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -261,7 +315,7 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				setName(NAME_EDEFAULT);
 				return;
 			case JavaPackage.MEMBER__MODIFIERS:
-				getModifiers().clear();
+				setModifiers(MODIFIERS_EDEFAULT);
 				return;
 			case JavaPackage.MEMBER__COMMENT_GENERATORS:
 				getCommentGenerators().clear();
@@ -270,13 +324,13 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				setComment(COMMENT_EDEFAULT);
 				return;
 			case JavaPackage.MEMBER__ANNOTATIONS:
-				getAnnotations().clear();
+				setAnnotations(ANNOTATIONS_EDEFAULT);
 				return;
 			case JavaPackage.MEMBER__BODY_GENERATORS:
 				getBodyGenerators().clear();
 				return;
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
-				getTypeParameters().clear();
+				setTypeParameters(TYPE_PARAMETERS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -293,17 +347,17 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 			case JavaPackage.MEMBER__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case JavaPackage.MEMBER__MODIFIERS:
-				return !getModifiers().isEmpty();
+				return MODIFIERS_EDEFAULT == null ? getModifiers() != null : !MODIFIERS_EDEFAULT.equals(getModifiers());
 			case JavaPackage.MEMBER__COMMENT_GENERATORS:
 				return !getCommentGenerators().isEmpty();
 			case JavaPackage.MEMBER__COMMENT:
 				return COMMENT_EDEFAULT == null ? getComment() != null : !COMMENT_EDEFAULT.equals(getComment());
 			case JavaPackage.MEMBER__ANNOTATIONS:
-				return !getAnnotations().isEmpty();
+				return ANNOTATIONS_EDEFAULT == null ? getAnnotations() != null : !ANNOTATIONS_EDEFAULT.equals(getAnnotations());
 			case JavaPackage.MEMBER__BODY_GENERATORS:
 				return !getBodyGenerators().isEmpty();
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
-				return !getTypeParameters().isEmpty();
+				return TYPE_PARAMETERS_EDEFAULT == null ? getTypeParameters() != null : !TYPE_PARAMETERS_EDEFAULT.equals(getTypeParameters());
 		}
 		return super.eIsSet(featureID);
 	}

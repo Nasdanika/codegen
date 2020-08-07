@@ -40,8 +40,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for fields, operations, and types."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Modifiers, e.g. public final. Interpolated."/>
       </eAnnotations>
@@ -58,8 +57,7 @@
         <details key="documentation" value="Comment. Interpolated. "/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotations" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."/>
       </eAnnotations>
@@ -71,10 +69,9 @@
         <details key="documentation" value="Generators which generate member body. For Field field initializer is considered as body.&#xD;&#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Type parameters, interpolated."/>
+        <details key="documentation" value="Type parameters, interpolated. Can be separated with either commas or new lines."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -82,10 +79,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for clas, interface, annotation, and enumeration."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="superTypes" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="superTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Supertypes. Elements are interpolated and each element can be a comma-separated list of supertypes.&#xA;For classes the first supertype goes to the extends clause and the rest to the implements clause. If the first element in the class supertypes is ``java.lang.Object`` or an empty string then the ``extends`` clause is not generated.&#xA;For interfaces all supertypes go to the implements clause.&#xA;For enum everything goes to the implements clause. &#xA;Not applicable to annotations."/>
+        <details key="documentation" value="Supertypes. Interpolated. New line characters are replaced with commas.&#xA;For classes the first supertype goes to the extends clause and the rest to the implements clause. If the first element in the class supertypes is ``java.lang.Object`` or an empty string then the ``extends`` clause is not generated.&#xA;For interfaces all supertypes go to the implements clause.&#xA;For enum everything goes to the implements clause. &#xA;Not applicable to annotations."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -96,16 +92,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for constructor and method."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Parameter declarations, interpolated."/>
+        <details key="documentation" value="Parameter declarations, interpolated. Can be separated by commas or new line characters."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptions" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Exceptions thrown by this operation, interpolated."/>
+        <details key="documentation" value="Exceptions thrown by this operation, interpolated. Can be separated by commas or new line characters."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -595,22 +595,22 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getCompilationUnit_Format(), ecorePackage.getEBoolean(), "format", "true", 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_CommentGenerators(), theCodegenPackage.getGenerator(), null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMember_Annotations(), ecorePackage.getEString(), "annotations", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Annotations(), ecorePackage.getEString(), "annotations", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_BodyGenerators(), theCodegenPackage.getGenerator(), null, "bodyGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMember_TypeParameters(), ecorePackage.getEString(), "typeParameters", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_TypeParameters(), ecorePackage.getEString(), "typeParameters", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getType_SuperTypes(), ecorePackage.getEString(), "superTypes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getType_SuperTypes(), ecorePackage.getEString(), "superTypes", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getField_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOperation_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOperation_Exceptions(), ecorePackage.getEString(), "exceptions", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Parameters(), ecorePackage.getEString(), "parameters", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Exceptions(), ecorePackage.getEString(), "exceptions", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classEClass, org.nasdanika.codegen.java.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -640,6 +640,116 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (sourceFolderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Source folder contains packages."
+		   });
+		addAnnotation
+		  (packageEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Package is a container which uses a dot as a segment separator. E.g. ``org.nasdanika.codegen`` instead of ``org/nasdanika/codegen`` as in the case of a regular container."
+		   });
+		addAnnotation
+		  (compilationUnitEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Compilation unit is a specialization of TextFile with support of Java merging and formatting. Java merging is used when reconcile action is ``MERGE`` and the merger is not set. ``.java`` extension is optional for compilation units."
+		   });
+		addAnnotation
+		  (getCompilationUnit_Format(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, generated/merged source is automatically formatted."
+		   });
+		addAnnotation
+		  (memberEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for fields, operations, and types."
+		   });
+		addAnnotation
+		  (getMember_Modifiers(),
+		   source,
+		   new String[] {
+			   "documentation", "Modifiers, e.g. public final. Interpolated."
+		   });
+		addAnnotation
+		  (getMember_CommentGenerators(),
+		   source,
+		   new String[] {
+			   "documentation", "Comment generators in addition to comment attribute content."
+		   });
+		addAnnotation
+		  (getMember_Comment(),
+		   source,
+		   new String[] {
+			   "documentation", "Comment. Interpolated. "
+		   });
+		addAnnotation
+		  (getMember_Annotations(),
+		   source,
+		   new String[] {
+			   "documentation", "Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."
+		   });
+		addAnnotation
+		  (getMember_BodyGenerators(),
+		   source,
+		   new String[] {
+			   "documentation", "Generators which generate member body. For Field field initializer is considered as body.\r\n"
+		   });
+		addAnnotation
+		  (getMember_TypeParameters(),
+		   source,
+		   new String[] {
+			   "documentation", "Type parameters, interpolated. Can be separated with either commas or new lines."
+		   });
+		addAnnotation
+		  (typeEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for clas, interface, annotation, and enumeration."
+		   });
+		addAnnotation
+		  (getType_SuperTypes(),
+		   source,
+		   new String[] {
+			   "documentation", "Supertypes. Interpolated. New line characters are replaced with commas.\nFor classes the first supertype goes to the extends clause and the rest to the implements clause. If the first element in the class supertypes is ``java.lang.Object`` or an empty string then the ``extends`` clause is not generated.\nFor interfaces all supertypes go to the implements clause.\nFor enum everything goes to the implements clause. \nNot applicable to annotations."
+		   });
+		addAnnotation
+		  (operationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for constructor and method."
+		   });
+		addAnnotation
+		  (getOperation_Parameters(),
+		   source,
+		   new String[] {
+			   "documentation", "Parameter declarations, interpolated. Can be separated by commas or new line characters."
+		   });
+		addAnnotation
+		  (getOperation_Exceptions(),
+		   source,
+		   new String[] {
+			   "documentation", "Exceptions thrown by this operation, interpolated. Can be separated by commas or new line characters."
+		   });
 	}
 
 } //JavaPackageImpl

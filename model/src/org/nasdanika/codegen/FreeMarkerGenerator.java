@@ -25,7 +25,7 @@ package org.nasdanika.codegen;
  * @model
  * @generated
  */
-public interface FreeMarkerGenerator extends Generator {
+public interface FreeMarkerGenerator extends ContentGenerator {
 	/**
 	 * Returns the value of the '<em><b>Base</b></em>' attribute.
 	 * <!-- begin-user-doc -->

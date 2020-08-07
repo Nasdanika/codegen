@@ -513,7 +513,7 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__NAME = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -540,7 +540,7 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__COMMENT = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -558,7 +558,7 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__BODY_GENERATORS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -667,7 +667,7 @@ public interface JavaPackage extends EPackage {
 	int TYPE__NAME = MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -694,7 +694,7 @@ public interface JavaPackage extends EPackage {
 	int TYPE__COMMENT = MEMBER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -712,7 +712,7 @@ public interface JavaPackage extends EPackage {
 	int TYPE__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -721,7 +721,7 @@ public interface JavaPackage extends EPackage {
 	int TYPE__TYPE_PARAMETERS = MEMBER__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Super Types</b></em>' attribute list.
+	 * The feature id for the '<em><b>Super Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -830,7 +830,7 @@ public interface JavaPackage extends EPackage {
 	int FIELD__NAME = MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -857,7 +857,7 @@ public interface JavaPackage extends EPackage {
 	int FIELD__COMMENT = MEMBER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -875,7 +875,7 @@ public interface JavaPackage extends EPackage {
 	int FIELD__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -993,7 +993,7 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__NAME = MEMBER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1020,7 +1020,7 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__COMMENT = MEMBER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1038,7 +1038,7 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1047,7 +1047,7 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__TYPE_PARAMETERS = MEMBER__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1056,7 +1056,7 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__PARAMETERS = MEMBER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' attribute list.
+	 * The feature id for the '<em><b>Exceptions</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1165,7 +1165,7 @@ public interface JavaPackage extends EPackage {
 	int CLASS__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1192,7 +1192,7 @@ public interface JavaPackage extends EPackage {
 	int CLASS__COMMENT = TYPE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1210,7 +1210,7 @@ public interface JavaPackage extends EPackage {
 	int CLASS__BODY_GENERATORS = TYPE__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1219,7 +1219,7 @@ public interface JavaPackage extends EPackage {
 	int CLASS__TYPE_PARAMETERS = TYPE__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Super Types</b></em>' attribute list.
+	 * The feature id for the '<em><b>Super Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1328,7 +1328,7 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1355,7 +1355,7 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__COMMENT = TYPE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1373,7 +1373,7 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__BODY_GENERATORS = TYPE__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1382,7 +1382,7 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__TYPE_PARAMETERS = TYPE__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Super Types</b></em>' attribute list.
+	 * The feature id for the '<em><b>Super Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1491,7 +1491,7 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1518,7 +1518,7 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__COMMENT = TYPE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1536,7 +1536,7 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__BODY_GENERATORS = TYPE__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1545,7 +1545,7 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__TYPE_PARAMETERS = TYPE__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Super Types</b></em>' attribute list.
+	 * The feature id for the '<em><b>Super Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1654,7 +1654,7 @@ public interface JavaPackage extends EPackage {
 	int ENUM__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1681,7 +1681,7 @@ public interface JavaPackage extends EPackage {
 	int ENUM__COMMENT = TYPE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1699,7 +1699,7 @@ public interface JavaPackage extends EPackage {
 	int ENUM__BODY_GENERATORS = TYPE__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1708,7 +1708,7 @@ public interface JavaPackage extends EPackage {
 	int ENUM__TYPE_PARAMETERS = TYPE__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Super Types</b></em>' attribute list.
+	 * The feature id for the '<em><b>Super Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1817,7 +1817,7 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__NAME = OPERATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1844,7 +1844,7 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__COMMENT = OPERATION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1862,7 +1862,7 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__BODY_GENERATORS = OPERATION__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1871,7 +1871,7 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__TYPE_PARAMETERS = OPERATION__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1880,7 +1880,7 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__PARAMETERS = OPERATION__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' attribute list.
+	 * The feature id for the '<em><b>Exceptions</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1989,7 +1989,7 @@ public interface JavaPackage extends EPackage {
 	int METHOD__NAME = OPERATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2016,7 +2016,7 @@ public interface JavaPackage extends EPackage {
 	int METHOD__COMMENT = OPERATION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
+	 * The feature id for the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2034,7 +2034,7 @@ public interface JavaPackage extends EPackage {
 	int METHOD__BODY_GENERATORS = OPERATION__BODY_GENERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2043,7 +2043,7 @@ public interface JavaPackage extends EPackage {
 	int METHOD__TYPE_PARAMETERS = OPERATION__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2052,7 +2052,7 @@ public interface JavaPackage extends EPackage {
 	int METHOD__PARAMETERS = OPERATION__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' attribute list.
+	 * The feature id for the '<em><b>Exceptions</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2169,10 +2169,10 @@ public interface JavaPackage extends EPackage {
 	EClass getMember();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Member#getModifiers <em>Modifiers</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Member#getModifiers <em>Modifiers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Modifiers</em>'.
+	 * @return the meta object for the attribute '<em>Modifiers</em>'.
 	 * @see org.nasdanika.codegen.java.Member#getModifiers()
 	 * @see #getMember()
 	 * @generated
@@ -2202,10 +2202,10 @@ public interface JavaPackage extends EPackage {
 	EAttribute getMember_Comment();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Member#getAnnotations <em>Annotations</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Member#getAnnotations <em>Annotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Annotations</em>'.
+	 * @return the meta object for the attribute '<em>Annotations</em>'.
 	 * @see org.nasdanika.codegen.java.Member#getAnnotations()
 	 * @see #getMember()
 	 * @generated
@@ -2224,10 +2224,10 @@ public interface JavaPackage extends EPackage {
 	EReference getMember_BodyGenerators();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Member#getTypeParameters <em>Type Parameters</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Member#getTypeParameters <em>Type Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Type Parameters</em>'.
+	 * @return the meta object for the attribute '<em>Type Parameters</em>'.
 	 * @see org.nasdanika.codegen.java.Member#getTypeParameters()
 	 * @see #getMember()
 	 * @generated
@@ -2245,10 +2245,10 @@ public interface JavaPackage extends EPackage {
 	EClass getType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Type#getSuperTypes <em>Super Types</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Type#getSuperTypes <em>Super Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Super Types</em>'.
+	 * @return the meta object for the attribute '<em>Super Types</em>'.
 	 * @see org.nasdanika.codegen.java.Type#getSuperTypes()
 	 * @see #getType()
 	 * @generated
@@ -2287,10 +2287,10 @@ public interface JavaPackage extends EPackage {
 	EClass getOperation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Operation#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Operation#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Parameters</em>'.
+	 * @return the meta object for the attribute '<em>Parameters</em>'.
 	 * @see org.nasdanika.codegen.java.Operation#getParameters()
 	 * @see #getOperation()
 	 * @generated
@@ -2298,10 +2298,10 @@ public interface JavaPackage extends EPackage {
 	EAttribute getOperation_Parameters();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.java.Operation#getExceptions <em>Exceptions</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Operation#getExceptions <em>Exceptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Exceptions</em>'.
+	 * @return the meta object for the attribute '<em>Exceptions</em>'.
 	 * @see org.nasdanika.codegen.java.Operation#getExceptions()
 	 * @see #getOperation()
 	 * @generated
@@ -2469,7 +2469,7 @@ public interface JavaPackage extends EPackage {
 		EClass MEMBER = eINSTANCE.getMember();
 
 		/**
-		 * The meta object literal for the '<em><b>Modifiers</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Modifiers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2493,7 +2493,7 @@ public interface JavaPackage extends EPackage {
 		EAttribute MEMBER__COMMENT = eINSTANCE.getMember_Comment();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotations</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Annotations</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2509,7 +2509,7 @@ public interface JavaPackage extends EPackage {
 		EReference MEMBER__BODY_GENERATORS = eINSTANCE.getMember_BodyGenerators();
 
 		/**
-		 * The meta object literal for the '<em><b>Type Parameters</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Type Parameters</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2527,7 +2527,7 @@ public interface JavaPackage extends EPackage {
 		EClass TYPE = eINSTANCE.getType();
 
 		/**
-		 * The meta object literal for the '<em><b>Super Types</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Super Types</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2563,7 +2563,7 @@ public interface JavaPackage extends EPackage {
 		EClass OPERATION = eINSTANCE.getOperation();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Parameters</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2571,7 +2571,7 @@ public interface JavaPackage extends EPackage {
 		EAttribute OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Exceptions</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Exceptions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

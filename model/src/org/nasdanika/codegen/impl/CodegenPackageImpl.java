@@ -1039,7 +1039,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceGroupEClass.getESuperTypes().add(this.getResourceGenerator());
 		contentGroupEClass.getESuperTypes().add(this.getGroup());
 		contentGroupEClass.getESuperTypes().add(this.getContentGenerator());
-		freeMarkerGeneratorEClass.getESuperTypes().add(this.getGenerator());
+		freeMarkerGeneratorEClass.getESuperTypes().add(this.getContentGenerator());
 		contentReferenceEClass.getESuperTypes().add(this.getContentGenerator());
 		filterEClass.getESuperTypes().add(this.getContentGenerator());
 		interpolatorEClass.getESuperTypes().add(this.getFilter());
@@ -1159,8 +1159,386 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
 		// urn:org.nasdanika
 		createUrnorgAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "Code generation model is a hierarchy of resource generators and resource content generators.\n\n\n\n"
+		   });
+		addAnnotation
+		  (generatorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generator is the base class for model element performing code generation."
+		   });
+		addAnnotation
+		  (getGenerator__Validate__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "documentation", "Validates element."
+		   });
+		addAnnotation
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Diagnostics to add validation messages to."
+		   });
+		addAnnotation
+		  ((getGenerator__Validate__DiagnosticChain_Map()).getEParameters().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "Validation context."
+		   });
+		addAnnotation
+		  (getGenerator_Enabled(),
+		   source,
+		   new String[] {
+			   "documentation", "Generator creates work only if this attribute is true. \nThe purpose of this attribute is to help with generator model development \nby disabling model parts which are still work in progress and would fail the generation\nprocess, or, on the opposite, already working parts which would create delay and distraction\nin testing and troubleshooting. Use ``Iterator`` for conditional generation."
+		   });
+		addAnnotation
+		  (getGenerator_Iterator(),
+		   source,
+		   new String[] {
+			   "documentation", "Iterator contains context property name and allows to execute generator zero or more times depending on the property type.\n\n* If iterator is blank then generator is executed once using the current generation context.\n* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:\n    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.\n    * boolean ``false`` - generator is not executed.\n    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.\n    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.\n    * list - generator is executed once for each list element with element value being processed as explained here.\n    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.\n"
+		   });
+		addAnnotation
+		  (groupEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of generators. The group itself doesn\'t generate anything - it is an aggregation and conditional invocation (iteration) construct."
+		   });
+		addAnnotation
+		  (getGroup_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "Group elements."
+		   });
+		addAnnotation
+		  (reconcileActionEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "Defines an action to take if project/resource with a given name already exists in the workspace."
+		   });
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Discard the generated content and keep the original or skip the generation step altogether."
+		   });
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "Append the new content to the existing. For containers (directories) it means\nadding new resources next to the existing, which is semantically equivalent to merging."
+		   });
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "Merge new and existing content, typically using a merger service for files. \r\nFor projects and directories merge is equivalent to append."
+		   });
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "Replace existing content with the new one. \nFor containers (directories) it means deleting container elements before generation.\n"
+		   });
+		addAnnotation
+		  (reconcileActionEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "Throw ``OperationCancelledException`` if resource/project already exists."
+		   });
+		addAnnotation
+		  (resourceGeneratorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base interface for resources and resource group"
+		   });
+		addAnnotation
+		  (contentGeneratorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base interface for generators of file content."
+		   });
+		addAnnotation
+		  (resourceContainerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Something which can contain resources, a grouping construct."
+		   });
+		addAnnotation
+		  (getResourceContainer_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "Folder can contain other resource generators."
+		   });
+		addAnnotation
+		  (resourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates a resource - file or container. "
+		   });
+		addAnnotation
+		  (getResource_ReconcileAction(),
+		   source,
+		   new String[] {
+			   "documentation", "Action to take if resource with given name already exists."
+		   });
+		addAnnotation
+		  (fileEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates File for a given content."
+		   });
+		addAnnotation
+		  (getFile_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "File content generators. \r\nContent produced by each generator is appended to the file content."
+		   });
+		addAnnotation
+		  (getFile_Charset(),
+		   source,
+		   new String[] {
+			   "documentation", "Optional character set for text files."
+		   });
+		addAnnotation
+		  (containerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Nameed container of resources, e.g. a folder/directory."
+		   });
+		addAnnotation
+		  (resourceGroupEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of resources. "
+		   });
+		addAnnotation
+		  (contentGroupEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of resources. "
+		   });
+		addAnnotation
+		  (freeMarkerGeneratorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates text from template and model using [FreeMarker](http://freemarker.org/)."
+		   });
+		addAnnotation
+		  (getFreeMarkerGenerator_Base(),
+		   source,
+		   new String[] {
+			   "documentation", "Base URL for resolving templates. The URL is resolved relative to the model location.\nIf empty, then templates are resolved relative to the generator model location."
+		   });
+		addAnnotation
+		  (getFreeMarkerGenerator_Template(),
+		   source,
+		   new String[] {
+			   "documentation", "Template name."
+		   });
+		addAnnotation
+		  (getFreeMarkerGenerator_Model(),
+		   source,
+		   new String[] {
+			   "documentation", "The name of a property which value is used as a model for the template.\r\nIf blank, the generation context is used as the model."
+		   });
+		addAnnotation
+		  (contentReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference (URL) to content residing elsewhere, e.g. a template in a version control\nsystem available for download over HTTP."
+		   });
+		addAnnotation
+		  (getContentReference_Ref(),
+		   source,
+		   new String[] {
+			   "documentation", "Content location (URL) resolved relative to the model location."
+		   });
+		addAnnotation
+		  (filterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Filter generates its output by processing and combining outputs of contained generators."
+		   });
+		addAnnotation
+		  (getFilter_Generators(),
+		   source,
+		   new String[] {
+			   "documentation", "Filter inputs."
+		   });
+		addAnnotation
+		  (interpolatorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Interpolator produces output by expanding tokens ``${token}`` in the \ninput using context properties."
+		   });
+		addAnnotation
+		  (mustacheEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Evaluates template using [Mustache for Java](https://github.com/spullara/mustache.java) with contexts bridged to Map scope.\n\nPropertes which values are functions can be invoked using {{#func}}...{{/func}} syntax, e.g. {{#import}}java.io.InputStream{{/import}}."
+		   });
+		addAnnotation
+		  (zipArchiveEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Creates a zip archive (binary stream) from contained resources."
+		   });
+		addAnnotation
+		  (generatorReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to a generator model."
+		   });
+		addAnnotation
+		  (getGeneratorReference_Ref(),
+		   source,
+		   new String[] {
+			   "documentation", "Model URL resolved relative to this model. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used."
+		   });
+		addAnnotation
+		  (resourceCollectionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Resource collection adds zero or more resources to the containing resource container."
+		   });
+		addAnnotation
+		  (getResourceCollection_Path(),
+		   source,
+		   new String[] {
+			   "documentation", "Path in the underlying container to use as a source of collection elements. Path prefix is removed from element name. E.g. if path is ``images`` and there is a resource named ``images/logo.png`` then there will be a collection element ``logo.png``."
+		   });
+		addAnnotation
+		  (getResourceCollection_Prefix(),
+		   source,
+		   new String[] {
+			   "documentation", "Prefix to add to resource paths. E.g. if the prefix is ``gen_`` then ``logo.png`` will be added to the resource container as ``gen_logo.png``."
+		   });
+		addAnnotation
+		  (getResourceCollection_Includes(),
+		   source,
+		   new String[] {
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to include into the collection.\nAll resources are included if the includes list is empty.\n\n## Matching rules\n\n* `?` matches one character\n* `*` matches zero or more characters\n* `**` matches zero or more **directories** in a path\n"
+		   });
+		addAnnotation
+		  (getResourceCollection_Excludes(),
+		   source,
+		   new String[] {
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. Nothing is excluded if this list is empty."
+		   });
+		addAnnotation
+		  (getResourceCollection_InterpolationIncludes(),
+		   source,
+		   new String[] {
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated."
+		   });
+		addAnnotation
+		  (getResourceCollection_InterpolationExcludes(),
+		   source,
+		   new String[] {
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation."
+		   });
+		addAnnotation
+		  (getResourceCollection_InterpolationCharset(),
+		   source,
+		   new String[] {
+			   "documentation", "Charset to use when reading/writing resources for interpolation."
+		   });
+		addAnnotation
+		  (getResourceCollection_ReconcileAction(),
+		   source,
+		   new String[] {
+			   "documentation", "Action to take if resources (entities) contributed by the collection already exist in the container."
+		   });
+		addAnnotation
+		  (bundleResourceCollectionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A coolection of resources from an OSGi bundle (Eclipse plug-in)."
+		   });
+		addAnnotation
+		  (getBundleResourceCollection_Bundle(),
+		   source,
+		   new String[] {
+			   "documentation", "Bundle symbolic name. Defaults to the bundle containing the model."
+		   });
+		addAnnotation
+		  (zipResourceCollectionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A coolection of resources from Zip input streams."
+		   });
+		addAnnotation
+		  (getZipResourceCollection_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "Generators of zip input streams providing collection elements."
+		   });
+		addAnnotation
+		  (httpCallEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Makes an HTTP Call. Converts result to Map/List for ``application/json`` content type, to text for ``text/...`` content types. Returns a byte array otherwise."
+		   });
+		addAnnotation
+		  (getHttpCall_Url(),
+		   source,
+		   new String[] {
+			   "documentation", "URL resolved relative to the model."
+		   });
+		addAnnotation
+		  (getHttpCall_ConnectTimeout(),
+		   source,
+		   new String[] {
+			   "documentation", "Connect timeout in seconds"
+		   });
+		addAnnotation
+		  (getHttpCall_ReadTimeout(),
+		   source,
+		   new String[] {
+			   "documentation", "Read timeout in seconds"
+		   });
+		addAnnotation
+		  (getHttpCall_SuccessCode(),
+		   source,
+		   new String[] {
+			   "documentation", "HTTP response code indicating success."
+		   });
+		addAnnotation
+		  (textEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Value computes its result from text. \n\nValue implementation can be defined as follows:\n\n* Fully qualified class name, e.g. ``java.lang.Integer``. An instance of the implementation class is constructed using a contructor which takes ``org.nasdanika.common.Context`` and ``java.lang.String``, just ``java.lang.String``.\n* Method reference using ``::`` as a separator between the fully qualified class name and the method name. This definition can be used if the type is a functional interface with a single method. If the method is not static then an instance of the implementation class is constructed using a contructor which takes ``org.nasdanika.common.Context`` and ``java.lang.String``, or just ``java.lang.String``.\n* Provider reference using ``->`` as a separator between the fully qualified class name and the provider method. If the method is static then it shall take Context and String or just String. Otherwise an instance of the implementation class is constructed using a contructor which takes ``org.nasdanika.common.Context`` and ``java.lang.String``, or just ``java.lang.String``.\n\nWhen implementation is specified, value is equivalent to an operation with a single String argument."
+		   });
+		addAnnotation
+		  (getText_Text(),
+		   source,
+		   new String[] {
+			   "documentation", "Textual representation of the value. If interpolate is ``true`` then the value is interpolated in the context. If type and implementation are empty value is returned as is. \nIf type is specified and the result is not of that type, then the result is converted to the type using the context converter service.\n"
+		   });
+		addAnnotation
+		  (getText_Interpolate(),
+		   source,
+		   new String[] {
+			   "documentation", "If ``true`` (default) the value is interpolated."
+		   });
 	}
 
 	/**

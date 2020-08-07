@@ -55,13 +55,13 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
+//			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		}
 		return childrenFeatures;
 	}

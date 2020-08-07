@@ -115,14 +115,12 @@ public class TextItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Text)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Text_type") :
-			getString("_UI_Text_type") + " " + label;
+		String label = ((Text)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_Text_type") : label;
 	}
 
 

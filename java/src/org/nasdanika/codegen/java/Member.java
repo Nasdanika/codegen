@@ -34,19 +34,29 @@ import org.nasdanika.ncore.NamedElement;
  */
 public interface Member extends ContentGenerator, NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Modifiers</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Modifiers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Modifiers, e.g. public final. Interpolated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Modifiers</em>' attribute list.
+	 * @return the value of the '<em>Modifiers</em>' attribute.
+	 * @see #setModifiers(String)
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_Modifiers()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getModifiers();
+	String getModifiers();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.java.Member#getModifiers <em>Modifiers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Modifiers</em>' attribute.
+	 * @see #getModifiers()
+	 * @generated
+	 */
+	void setModifiers(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Comment Generators</b></em>' containment reference list.
@@ -89,19 +99,29 @@ public interface Member extends ContentGenerator, NamedElement {
 	void setComment(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Annotations</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Annotations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Annotations</em>' attribute list.
+	 * @return the value of the '<em>Annotations</em>' attribute.
+	 * @see #setAnnotations(String)
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_Annotations()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getAnnotations();
+	String getAnnotations();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.java.Member#getAnnotations <em>Annotations</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotations</em>' attribute.
+	 * @see #getAnnotations()
+	 * @generated
+	 */
+	void setAnnotations(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Body Generators</b></em>' containment reference list.
@@ -120,18 +140,28 @@ public interface Member extends ContentGenerator, NamedElement {
 	EList<Generator> getBodyGenerators();
 
 	/**
-	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type parameters, interpolated.
+	 * Type parameters, interpolated. Can be separated with either commas or new lines.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type Parameters</em>' attribute list.
+	 * @return the value of the '<em>Type Parameters</em>' attribute.
+	 * @see #setTypeParameters(String)
 	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_TypeParameters()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getTypeParameters();
+	String getTypeParameters();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.java.Member#getTypeParameters <em>Type Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Parameters</em>' attribute.
+	 * @see #getTypeParameters()
+	 * @generated
+	 */
+	void setTypeParameters(String value);
 
 } // Member

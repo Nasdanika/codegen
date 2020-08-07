@@ -63,7 +63,7 @@ public class TypeItemProvider extends MemberItemProvider {
 				 getString("_UI_Type_superTypes_feature"),
 				 JavaPackage.Literals.TYPE__SUPER_TYPES,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

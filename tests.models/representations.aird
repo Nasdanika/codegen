@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description">
-  <viewpoint:DAnalysis uid="__WjHYNccEeqgt94BeQ_qRA" selectedViews="_C0t3YNcdEeqgt94BeQ_qRA" version="14.3.0.201909031200">
+  <viewpoint:DAnalysis uid="_HgRP8NhvEeq0joukoQ2zCg" selectedViews="_JPHXYNhvEeq0joukoQ2zCg" version="14.3.0.201909031200">
     <semanticResources>models/basic.codegen</semanticResources>
-    <ownedViews xmi:type="viewpoint:DView" uid="_C0t3YNcdEeqgt94BeQ_qRA">
+    <ownedViews xmi:type="viewpoint:DView" uid="_JPHXYNhvEeq0joukoQ2zCg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Ee79gNcdEeqgt94BeQ_qRA" name="new Codegen Adapter Factory Tree" repPath="#_Ee1P0NcdEeqgt94BeQ_qRA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_LK02INhvEeq0joukoQ2zCg" name="new Codegen Adapter Factory Tree" repPath="#_LKuIcNhvEeq0joukoQ2zCg">
         <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
         <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/basic.codegen#8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_Ee1P0NcdEeqgt94BeQ_qRA">
+  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_LKuIcNhvEeq0joukoQ2zCg">
     <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/basic.codegen#8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98"/>
     <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
   </org.nasdanika.sirius.tree:AdapterFactoryTree>
