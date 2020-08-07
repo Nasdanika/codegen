@@ -62,7 +62,7 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-//			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
+			childrenFeatures.add(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -168,6 +168,11 @@ public class ZipArchiveItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createResourceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

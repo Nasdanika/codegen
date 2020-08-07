@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.File#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}</li>
  * </ul>
  *
@@ -27,20 +27,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface File extends Resource {
 	/**
-	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.ContentGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * File content generators. 
 	 * Content produced by each generator is appended to the file content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Generators()
+	 * @return the value of the '<em>Content</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Content()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Generator> getGenerators();
+	EList<ContentGenerator> getContent();
 
 	/**
 	 * Returns the value of the '<em><b>Charset</b></em>' attribute.

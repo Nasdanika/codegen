@@ -205,7 +205,7 @@ public class CompilationUnitItemProvider extends FileItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.FILE__GENERATORS;
+			childFeature == CodegenPackage.Literals.FILE__CONTENT;
 
 		if (qualify) {
 			return getString

@@ -3,6 +3,7 @@
 package org.nasdanika.codegen.java;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.ncore.NamedElement;
 
@@ -31,7 +32,7 @@ import org.nasdanika.ncore.NamedElement;
  * @model abstract="true"
  * @generated
  */
-public interface Member extends Generator, NamedElement {
+public interface Member extends ContentGenerator, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Modifiers</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

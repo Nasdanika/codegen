@@ -64,7 +64,7 @@ public class GroupItemProvider extends GeneratorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-//			childrenFeatures.add(CodegenPackage.Literals.GROUP__ELEMENTS);
+			childrenFeatures.add(CodegenPackage.Literals.GROUP__ELEMENTS);
 		}
 		return childrenFeatures;
 	}	
@@ -152,7 +152,7 @@ public class GroupItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -201,7 +201,12 @@ public class GroupItemProvider extends GeneratorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createGeneratorReference()));
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createContentGeneratorReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -212,6 +217,16 @@ public class GroupItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createHttpCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createText()));
 	}
 
 	/**

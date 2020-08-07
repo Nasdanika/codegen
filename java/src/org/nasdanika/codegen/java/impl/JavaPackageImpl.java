@@ -573,7 +573,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		sourceFolderEClass.getESuperTypes().add(theCodegenPackage.getContainer());
 		packageEClass.getESuperTypes().add(theCodegenPackage.getContainer());
 		compilationUnitEClass.getESuperTypes().add(theCodegenPackage.getFile());
-		memberEClass.getESuperTypes().add(theCodegenPackage.getGenerator());
+		memberEClass.getESuperTypes().add(theCodegenPackage.getContentGenerator());
 		memberEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
 		typeEClass.getESuperTypes().add(this.getMember());
 		fieldEClass.getESuperTypes().add(this.getMember());

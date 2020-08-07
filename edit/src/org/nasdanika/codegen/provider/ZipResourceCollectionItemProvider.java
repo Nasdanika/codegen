@@ -58,13 +58,13 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-//			childrenFeatures.add(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS);
+//			childrenFeatures.add(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT);
 		}
 		return childrenFeatures;
 	}
@@ -76,7 +76,7 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	@Override
 	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
 		super.addEReferenceItemProviders(object, children);
-		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS)); 		
+		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT)); 		
 	}			
 
 	/**
@@ -139,7 +139,7 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ZipResourceCollection.class)) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,58 +159,38 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createContentReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createInterpolator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createMustache()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createZipArchive()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createGeneratorReference()));
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createContentGeneratorReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createHttpCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createText()));
 	}
 
 	/**
@@ -226,7 +206,7 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS;
+			childFeature == CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT;
 
 		if (qualify) {
 			return getString

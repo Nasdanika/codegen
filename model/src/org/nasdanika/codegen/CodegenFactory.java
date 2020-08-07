@@ -94,13 +94,22 @@ public interface CodegenFactory extends EFactory {
 	ZipArchive createZipArchive();
 
 	/**
-	 * Returns a new object of class '<em>Generator Reference</em>'.
+	 * Returns a new object of class '<em>Resource Generator Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Reference</em>'.
+	 * @return a new object of class '<em>Resource Generator Reference</em>'.
 	 * @generated
 	 */
-	GeneratorReference createGeneratorReference();
+	ResourceGeneratorReference createResourceGeneratorReference();
+
+	/**
+	 * Returns a new object of class '<em>Content Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Generator Reference</em>'.
+	 * @generated
+	 */
+	ContentGeneratorReference createContentGeneratorReference();
 
 	/**
 	 * Returns a new object of class '<em>Bundle Resource Collection</em>'.
@@ -119,6 +128,24 @@ public interface CodegenFactory extends EFactory {
 	 * @generated
 	 */
 	ZipResourceCollection createZipResourceCollection();
+
+	/**
+	 * Returns a new object of class '<em>Http Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Http Call</em>'.
+	 * @generated
+	 */
+	HttpCall createHttpCall();
+
+	/**
+	 * Returns a new object of class '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text</em>'.
+	 * @generated
+	 */
+	Text createText();
 
 	/**
 	 * Returns the package supported by this factory.

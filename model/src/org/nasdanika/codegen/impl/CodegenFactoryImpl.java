@@ -65,9 +65,12 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.INTERPOLATOR: return createInterpolator();
 			case CodegenPackage.MUSTACHE: return createMustache();
 			case CodegenPackage.ZIP_ARCHIVE: return createZipArchive();
-			case CodegenPackage.GENERATOR_REFERENCE: return createGeneratorReference();
+			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: return createResourceGeneratorReference();
+			case CodegenPackage.CONTENT_GENERATOR_REFERENCE: return createContentGeneratorReference();
 			case CodegenPackage.BUNDLE_RESOURCE_COLLECTION: return createBundleResourceCollection();
 			case CodegenPackage.ZIP_RESOURCE_COLLECTION: return createZipResourceCollection();
+			case CodegenPackage.HTTP_CALL: return createHttpCall();
+			case CodegenPackage.TEXT: return createText();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -197,9 +200,20 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	 * @generated
 	 */
 	@Override
-	public GeneratorReference createGeneratorReference() {
-		GeneratorReferenceImpl generatorReference = new GeneratorReferenceImpl();
-		return generatorReference;
+	public ResourceGeneratorReference createResourceGeneratorReference() {
+		ResourceGeneratorReferenceImpl resourceGeneratorReference = new ResourceGeneratorReferenceImpl();
+		return resourceGeneratorReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentGeneratorReference createContentGeneratorReference() {
+		ContentGeneratorReferenceImpl contentGeneratorReference = new ContentGeneratorReferenceImpl();
+		return contentGeneratorReference;
 	}
 
 	/**
@@ -222,6 +236,28 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ZipResourceCollection createZipResourceCollection() {
 		ZipResourceCollectionImpl zipResourceCollection = new ZipResourceCollectionImpl();
 		return zipResourceCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public HttpCall createHttpCall() {
+		HttpCallImpl httpCall = new HttpCallImpl();
+		return httpCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Text createText() {
+		TextImpl text = new TextImpl();
+		return text;
 	}
 
 	/**

@@ -258,26 +258,49 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.GeneratorReference} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGeneratorReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeneratorReferenceItemProvider generatorReferenceItemProvider;
+	protected ResourceGeneratorReferenceItemProvider resourceGeneratorReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.codegen.GeneratorReference}.
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceGeneratorReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGeneratorReferenceAdapter() {
-		if (generatorReferenceItemProvider == null) {
-			generatorReferenceItemProvider = new GeneratorReferenceItemProvider(this);
+	public Adapter createResourceGeneratorReferenceAdapter() {
+		if (resourceGeneratorReferenceItemProvider == null) {
+			resourceGeneratorReferenceItemProvider = new ResourceGeneratorReferenceItemProvider(this);
 		}
 
-		return generatorReferenceItemProvider;
+		return resourceGeneratorReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ContentGeneratorReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentGeneratorReferenceItemProvider contentGeneratorReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ContentGeneratorReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentGeneratorReferenceAdapter() {
+		if (contentGeneratorReferenceItemProvider == null) {
+			contentGeneratorReferenceItemProvider = new ContentGeneratorReferenceItemProvider(this);
+		}
+
+		return contentGeneratorReferenceItemProvider;
 	}
 
 	/**
@@ -324,6 +347,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		}
 
 		return zipResourceCollectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.HttpCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HttpCallItemProvider httpCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.HttpCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHttpCallAdapter() {
+		if (httpCallItemProvider == null) {
+			httpCallItemProvider = new HttpCallItemProvider(this);
+		}
+
+		return httpCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.Text} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextItemProvider textItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.Text}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextAdapter() {
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
+		}
+
+		return textItemProvider;
 	}
 
 	/**
@@ -439,9 +508,12 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();
 		if (mustacheItemProvider != null) mustacheItemProvider.dispose();
 		if (zipArchiveItemProvider != null) zipArchiveItemProvider.dispose();
-		if (generatorReferenceItemProvider != null) generatorReferenceItemProvider.dispose();
+		if (resourceGeneratorReferenceItemProvider != null) resourceGeneratorReferenceItemProvider.dispose();
+		if (contentGeneratorReferenceItemProvider != null) contentGeneratorReferenceItemProvider.dispose();
 		if (bundleResourceCollectionItemProvider != null) bundleResourceCollectionItemProvider.dispose();
 		if (zipResourceCollectionItemProvider != null) zipResourceCollectionItemProvider.dispose();
+		if (httpCallItemProvider != null) httpCallItemProvider.dispose();
+		if (textItemProvider != null) textItemProvider.dispose();
 	}
 
 }

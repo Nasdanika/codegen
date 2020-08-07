@@ -36,7 +36,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//Generator ../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//ContentGenerator ../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for fields, operations, and types."/>
     </eAnnotations>

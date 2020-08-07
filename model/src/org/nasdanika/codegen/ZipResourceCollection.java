@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.ZipResourceCollection#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.ZipResourceCollection#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getZipResourceCollection()
@@ -26,18 +26,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ZipResourceCollection extends ResourceCollection {
 	/**
-	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.ContentGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Generators of zip input streams providing collection elements.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.CodegenPackage#getZipResourceCollection_Generators()
+	 * @return the value of the '<em>Content</em>' containment reference list.
+	 * @see org.nasdanika.codegen.CodegenPackage#getZipResourceCollection_Content()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Generator> getGenerators();
+	EList<ContentGenerator> getContent();
 
 } // ZipResourceCollection

@@ -20,7 +20,7 @@ import org.nasdanika.codegen.GeneratorReference;
  *
  * @generated
  */
-public class GeneratorReferenceImpl extends GeneratorImpl implements GeneratorReference {
+public abstract class GeneratorReferenceImpl extends GeneratorImpl implements GeneratorReference {
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.File;
-import org.nasdanika.codegen.Generator;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.nasdanika.codegen.Generator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getCharset <em>Charset</em>}</li>
  * </ul>
  *
@@ -68,8 +68,8 @@ public class FileImpl extends ResourceImpl implements File {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator> getGenerators() {
-		return (EList<Generator>)eDynamicGet(CodegenPackage.FILE__GENERATORS, CodegenPackage.Literals.FILE__GENERATORS, true, true);
+	public EList<ContentGenerator> getContent() {
+		return (EList<ContentGenerator>)eDynamicGet(CodegenPackage.FILE__CONTENT, CodegenPackage.Literals.FILE__CONTENT, true, true);
 	}
 
 	/**
@@ -100,8 +100,8 @@ public class FileImpl extends ResourceImpl implements File {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CodegenPackage.FILE__GENERATORS:
-				return ((InternalEList<?>)getGenerators()).basicRemove(otherEnd, msgs);
+			case CodegenPackage.FILE__CONTENT:
+				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -114,8 +114,8 @@ public class FileImpl extends ResourceImpl implements File {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.FILE__GENERATORS:
-				return getGenerators();
+			case CodegenPackage.FILE__CONTENT:
+				return getContent();
 			case CodegenPackage.FILE__CHARSET:
 				return getCharset();
 		}
@@ -131,9 +131,9 @@ public class FileImpl extends ResourceImpl implements File {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.FILE__GENERATORS:
-				getGenerators().clear();
-				getGenerators().addAll((Collection<? extends Generator>)newValue);
+			case CodegenPackage.FILE__CONTENT:
+				getContent().clear();
+				getContent().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
 			case CodegenPackage.FILE__CHARSET:
 				setCharset((String)newValue);
@@ -150,8 +150,8 @@ public class FileImpl extends ResourceImpl implements File {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.FILE__GENERATORS:
-				getGenerators().clear();
+			case CodegenPackage.FILE__CONTENT:
+				getContent().clear();
 				return;
 			case CodegenPackage.FILE__CHARSET:
 				setCharset(CHARSET_EDEFAULT);
@@ -168,8 +168,8 @@ public class FileImpl extends ResourceImpl implements File {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.FILE__GENERATORS:
-				return !getGenerators().isEmpty();
+			case CodegenPackage.FILE__CONTENT:
+				return !getContent().isEmpty();
 			case CodegenPackage.FILE__CHARSET:
 				return CHARSET_EDEFAULT == null ? getCharset() != null : !CHARSET_EDEFAULT.equals(getCharset());
 		}

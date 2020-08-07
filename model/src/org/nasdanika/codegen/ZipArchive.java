@@ -17,5 +17,5 @@ package org.nasdanika.codegen;
  * @model
  * @generated
  */
-public interface ZipArchive extends Generator, ResourceContainer {
+public interface ZipArchive extends ContentGenerator, ResourceContainer {
 } // ZipArchive

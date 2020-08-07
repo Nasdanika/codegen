@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.ZipResourceCollection;
 
 /**
@@ -25,7 +25,7 @@ import org.nasdanika.codegen.ZipResourceCollection;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.ZipResourceCollectionImpl#getGenerators <em>Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ZipResourceCollectionImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,8 +57,8 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator> getGenerators() {
-		return (EList<Generator>)eDynamicGet(CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS, CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__GENERATORS, true, true);
+	public EList<ContentGenerator> getContent() {
+		return (EList<ContentGenerator>)eDynamicGet(CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT, CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT, true, true);
 	}
 
 	/**
@@ -69,8 +69,8 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
-				return ((InternalEList<?>)getGenerators()).basicRemove(otherEnd, msgs);
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
+				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -83,8 +83,8 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
-				return getGenerators();
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
+				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,9 +98,9 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
-				getGenerators().clear();
-				getGenerators().addAll((Collection<? extends Generator>)newValue);
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
+				getContent().clear();
+				getContent().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -114,8 +114,8 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
-				getGenerators().clear();
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
+				getContent().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -129,8 +129,8 @@ public class ZipResourceCollectionImpl extends ResourceCollectionImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.ZIP_RESOURCE_COLLECTION__GENERATORS:
-				return !getGenerators().isEmpty();
+			case CodegenPackage.ZIP_RESOURCE_COLLECTION__CONTENT:
+				return !getContent().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

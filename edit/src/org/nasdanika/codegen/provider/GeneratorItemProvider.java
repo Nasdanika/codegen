@@ -15,11 +15,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
-import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.ncore.provider.EntityItemProvider;
 
@@ -133,6 +131,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 		if (children == null) {
 			children = new ArrayList<>();
 			eReferenceItemProviders.put(object, children);
+			addEReferenceItemProviders(object, children);
 		}
 		Collection<Object> ret = new ArrayList<>(children);
 		ret.addAll(super.getChildren(object));
@@ -203,161 +202,16 @@ public class GeneratorItemProvider extends EntityItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createSupplier()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createSupplierEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION,
-				 NcoreFactory.eINSTANCE.createHtml()));
+		// --- Configuration ---		
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, expr));						
+		}		
 	}
 
 	/**

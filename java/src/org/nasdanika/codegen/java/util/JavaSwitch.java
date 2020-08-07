@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Container;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Resource;
@@ -131,8 +132,9 @@ public class JavaSwitch<T> extends Switch<T> {
 			case JavaPackage.MEMBER: {
 				Member member = (Member)theEObject;
 				T result = caseMember(member);
-				if (result == null) result = caseGenerator(member);
+				if (result == null) result = caseContentGenerator(member);
 				if (result == null) result = caseNamedElement(member);
+				if (result == null) result = caseGenerator(member);
 				if (result == null) result = caseEntity(member);
 				if (result == null) result = caseConfigurable(member);
 				if (result == null) result = caseModelElement(member);
@@ -143,8 +145,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				Type type = (Type)theEObject;
 				T result = caseType(type);
 				if (result == null) result = caseMember(type);
-				if (result == null) result = caseGenerator(type);
+				if (result == null) result = caseContentGenerator(type);
 				if (result == null) result = caseNamedElement(type);
+				if (result == null) result = caseGenerator(type);
 				if (result == null) result = caseEntity(type);
 				if (result == null) result = caseConfigurable(type);
 				if (result == null) result = caseModelElement(type);
@@ -155,8 +158,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
 				if (result == null) result = caseMember(field);
-				if (result == null) result = caseGenerator(field);
+				if (result == null) result = caseContentGenerator(field);
 				if (result == null) result = caseNamedElement(field);
+				if (result == null) result = caseGenerator(field);
 				if (result == null) result = caseEntity(field);
 				if (result == null) result = caseConfigurable(field);
 				if (result == null) result = caseModelElement(field);
@@ -167,8 +171,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseMember(operation);
-				if (result == null) result = caseGenerator(operation);
+				if (result == null) result = caseContentGenerator(operation);
 				if (result == null) result = caseNamedElement(operation);
+				if (result == null) result = caseGenerator(operation);
 				if (result == null) result = caseEntity(operation);
 				if (result == null) result = caseConfigurable(operation);
 				if (result == null) result = caseModelElement(operation);
@@ -180,8 +185,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseClass(class_);
 				if (result == null) result = caseType(class_);
 				if (result == null) result = caseMember(class_);
-				if (result == null) result = caseGenerator(class_);
+				if (result == null) result = caseContentGenerator(class_);
 				if (result == null) result = caseNamedElement(class_);
+				if (result == null) result = caseGenerator(class_);
 				if (result == null) result = caseEntity(class_);
 				if (result == null) result = caseConfigurable(class_);
 				if (result == null) result = caseModelElement(class_);
@@ -193,8 +199,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseInterface(interface_);
 				if (result == null) result = caseType(interface_);
 				if (result == null) result = caseMember(interface_);
-				if (result == null) result = caseGenerator(interface_);
+				if (result == null) result = caseContentGenerator(interface_);
 				if (result == null) result = caseNamedElement(interface_);
+				if (result == null) result = caseGenerator(interface_);
 				if (result == null) result = caseEntity(interface_);
 				if (result == null) result = caseConfigurable(interface_);
 				if (result == null) result = caseModelElement(interface_);
@@ -206,8 +213,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseAnnotation(annotation);
 				if (result == null) result = caseType(annotation);
 				if (result == null) result = caseMember(annotation);
-				if (result == null) result = caseGenerator(annotation);
+				if (result == null) result = caseContentGenerator(annotation);
 				if (result == null) result = caseNamedElement(annotation);
+				if (result == null) result = caseGenerator(annotation);
 				if (result == null) result = caseEntity(annotation);
 				if (result == null) result = caseConfigurable(annotation);
 				if (result == null) result = caseModelElement(annotation);
@@ -219,8 +227,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseEnum(enum_);
 				if (result == null) result = caseType(enum_);
 				if (result == null) result = caseMember(enum_);
-				if (result == null) result = caseGenerator(enum_);
+				if (result == null) result = caseContentGenerator(enum_);
 				if (result == null) result = caseNamedElement(enum_);
+				if (result == null) result = caseGenerator(enum_);
 				if (result == null) result = caseEntity(enum_);
 				if (result == null) result = caseConfigurable(enum_);
 				if (result == null) result = caseModelElement(enum_);
@@ -232,8 +241,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseConstructor(constructor);
 				if (result == null) result = caseOperation(constructor);
 				if (result == null) result = caseMember(constructor);
-				if (result == null) result = caseGenerator(constructor);
+				if (result == null) result = caseContentGenerator(constructor);
 				if (result == null) result = caseNamedElement(constructor);
+				if (result == null) result = caseGenerator(constructor);
 				if (result == null) result = caseEntity(constructor);
 				if (result == null) result = caseConfigurable(constructor);
 				if (result == null) result = caseModelElement(constructor);
@@ -245,8 +255,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseMethod(method);
 				if (result == null) result = caseOperation(method);
 				if (result == null) result = caseMember(method);
-				if (result == null) result = caseGenerator(method);
+				if (result == null) result = caseContentGenerator(method);
 				if (result == null) result = caseNamedElement(method);
+				if (result == null) result = caseGenerator(method);
 				if (result == null) result = caseEntity(method);
 				if (result == null) result = caseConfigurable(method);
 				if (result == null) result = caseModelElement(method);
@@ -599,6 +610,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFile(File object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGenerator(ContentGenerator object) {
 		return null;
 	}
 

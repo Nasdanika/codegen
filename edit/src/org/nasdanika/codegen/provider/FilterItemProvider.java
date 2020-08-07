@@ -140,66 +140,16 @@ public class FilterItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.FILTER__GENERATORS,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+		
+		// --- Generators ---		
+		for (EObject expr: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.FILTER__GENERATORS, expr));						
+		}		
 	}
 
 	/**

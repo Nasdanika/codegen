@@ -178,6 +178,11 @@ public class ContainerItemProvider extends ResourceItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
 
 		newChildDescriptors.add

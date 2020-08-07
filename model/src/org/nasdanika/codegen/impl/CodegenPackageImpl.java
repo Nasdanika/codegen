@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.codegen.BundleResourceCollection;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentGenerator;
+import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
@@ -23,6 +25,7 @@ import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorReference;
 import org.nasdanika.codegen.Group;
+import org.nasdanika.codegen.HttpCall;
 import org.nasdanika.codegen.Interpolator;
 import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.ReconcileAction;
@@ -30,7 +33,9 @@ import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceCollection;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
+import org.nasdanika.codegen.Text;
 import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.codegen.ZipResourceCollection;
 
@@ -65,6 +70,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass resourceGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentGeneratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +167,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass resourceGeneratorReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentGeneratorReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass resourceCollectionEClass = null;
 
 	/**
@@ -170,6 +196,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass zipResourceCollectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass httpCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -328,6 +368,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getContentGenerator() {
+		return contentGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getResourceContainer() {
 		return resourceContainerEClass;
 	}
@@ -378,7 +428,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getFile_Generators() {
+	public EReference getFile_Content() {
 		return (EReference)fileEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -548,6 +598,26 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getResourceGeneratorReference() {
+		return resourceGeneratorReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContentGeneratorReference() {
+		return contentGeneratorReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getResourceCollection() {
 		return resourceCollectionEClass;
 	}
@@ -668,8 +738,118 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getZipResourceCollection_Generators() {
+	public EReference getZipResourceCollection_Content() {
 		return (EReference)zipResourceCollectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getHttpCall() {
+		return httpCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_Url() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_Method() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getHttpCall_Headers() {
+		return (EReference)httpCallEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_ConnectTimeout() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_ReadTimeout() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHttpCall_SuccessCode() {
+		return (EAttribute)httpCallEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getHttpCall_Body() {
+		return (EReference)httpCallEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getText() {
+		return textEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getText_Text() {
+		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getText_Interpolate() {
+		return (EAttribute)textEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -721,6 +901,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		resourceGeneratorEClass = createEClass(RESOURCE_GENERATOR);
 
+		contentGeneratorEClass = createEClass(CONTENT_GENERATOR);
+
 		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ELEMENTS);
 
@@ -728,7 +910,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
 
 		fileEClass = createEClass(FILE);
-		createEReference(fileEClass, FILE__GENERATORS);
+		createEReference(fileEClass, FILE__CONTENT);
 		createEAttribute(fileEClass, FILE__CHARSET);
 
 		containerEClass = createEClass(CONTAINER);
@@ -755,6 +937,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		generatorReferenceEClass = createEClass(GENERATOR_REFERENCE);
 		createEAttribute(generatorReferenceEClass, GENERATOR_REFERENCE__REF);
 
+		resourceGeneratorReferenceEClass = createEClass(RESOURCE_GENERATOR_REFERENCE);
+
+		contentGeneratorReferenceEClass = createEClass(CONTENT_GENERATOR_REFERENCE);
+
 		resourceCollectionEClass = createEClass(RESOURCE_COLLECTION);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__PATH);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__PREFIX);
@@ -769,7 +955,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(bundleResourceCollectionEClass, BUNDLE_RESOURCE_COLLECTION__BUNDLE);
 
 		zipResourceCollectionEClass = createEClass(ZIP_RESOURCE_COLLECTION);
-		createEReference(zipResourceCollectionEClass, ZIP_RESOURCE_COLLECTION__GENERATORS);
+		createEReference(zipResourceCollectionEClass, ZIP_RESOURCE_COLLECTION__CONTENT);
+
+		httpCallEClass = createEClass(HTTP_CALL);
+		createEAttribute(httpCallEClass, HTTP_CALL__URL);
+		createEAttribute(httpCallEClass, HTTP_CALL__METHOD);
+		createEReference(httpCallEClass, HTTP_CALL__HEADERS);
+		createEAttribute(httpCallEClass, HTTP_CALL__CONNECT_TIMEOUT);
+		createEAttribute(httpCallEClass, HTTP_CALL__READ_TIMEOUT);
+		createEAttribute(httpCallEClass, HTTP_CALL__SUCCESS_CODE);
+		createEReference(httpCallEClass, HTTP_CALL__BODY);
+
+		textEClass = createEClass(TEXT);
+		createEAttribute(textEClass, TEXT__TEXT);
+		createEAttribute(textEClass, TEXT__INTERPOLATE);
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
@@ -810,6 +1009,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		generatorEClass.getESuperTypes().add(theNcorePackage.getConfigurable());
 		groupEClass.getESuperTypes().add(this.getGenerator());
 		resourceGeneratorEClass.getESuperTypes().add(this.getGenerator());
+		contentGeneratorEClass.getESuperTypes().add(this.getGenerator());
 		resourceEClass.getESuperTypes().add(this.getResourceGenerator());
 		resourceEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
 		fileEClass.getESuperTypes().add(this.getResource());
@@ -818,16 +1018,22 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceGroupEClass.getESuperTypes().add(this.getGroup());
 		resourceGroupEClass.getESuperTypes().add(this.getResourceGenerator());
 		freeMarkerGeneratorEClass.getESuperTypes().add(this.getGenerator());
-		contentReferenceEClass.getESuperTypes().add(this.getGenerator());
-		filterEClass.getESuperTypes().add(this.getGenerator());
+		contentReferenceEClass.getESuperTypes().add(this.getContentGenerator());
+		filterEClass.getESuperTypes().add(this.getContentGenerator());
 		interpolatorEClass.getESuperTypes().add(this.getFilter());
 		mustacheEClass.getESuperTypes().add(this.getFilter());
-		zipArchiveEClass.getESuperTypes().add(this.getGenerator());
+		zipArchiveEClass.getESuperTypes().add(this.getContentGenerator());
 		zipArchiveEClass.getESuperTypes().add(this.getResourceContainer());
 		generatorReferenceEClass.getESuperTypes().add(this.getGenerator());
+		resourceGeneratorReferenceEClass.getESuperTypes().add(this.getGeneratorReference());
+		resourceGeneratorReferenceEClass.getESuperTypes().add(this.getResourceGenerator());
+		contentGeneratorReferenceEClass.getESuperTypes().add(this.getGeneratorReference());
+		contentGeneratorReferenceEClass.getESuperTypes().add(this.getContentGenerator());
 		resourceCollectionEClass.getESuperTypes().add(this.getResourceGenerator());
 		bundleResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
 		zipResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
+		httpCallEClass.getESuperTypes().add(this.getContentGenerator());
+		textEClass.getESuperTypes().add(this.getContentGenerator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -848,6 +1054,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(resourceGeneratorEClass, ResourceGenerator.class, "ResourceGenerator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(contentGeneratorEClass, ContentGenerator.class, "ContentGenerator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceContainer_Elements(), this.getResourceGenerator(), null, "elements", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -855,7 +1063,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFile_Generators(), this.getGenerator(), null, "generators", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFile_Content(), this.getContentGenerator(), null, "content", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFile_Charset(), ecorePackage.getEString(), "charset", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -879,8 +1087,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(zipArchiveEClass, ZipArchive.class, "ZipArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(generatorReferenceEClass, GeneratorReference.class, "GeneratorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(generatorReferenceEClass, GeneratorReference.class, "GeneratorReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, GeneratorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceGeneratorReferenceEClass, ResourceGeneratorReference.class, "ResourceGeneratorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentGeneratorReferenceEClass, ContentGeneratorReference.class, "ContentGeneratorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceCollectionEClass, ResourceCollection.class, "ResourceCollection", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResourceCollection_Path(), ecorePackage.getEString(), "path", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -896,7 +1108,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getBundleResourceCollection_Bundle(), ecorePackage.getEString(), "bundle", null, 0, 1, BundleResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(zipResourceCollectionEClass, ZipResourceCollection.class, "ZipResourceCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getZipResourceCollection_Generators(), this.getGenerator(), null, "generators", null, 1, -1, ZipResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZipResourceCollection_Content(), this.getContentGenerator(), null, "content", null, 1, -1, ZipResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(httpCallEClass, HttpCall.class, "HttpCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHttpCall_Url(), ecorePackage.getEString(), "url", null, 1, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_Method(), theNcorePackage.getHttpMethod(), "method", "GET", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHttpCall_Headers(), theNcorePackage.getEntry(), null, "headers", null, 0, -1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_ConnectTimeout(), ecorePackage.getEInt(), "connectTimeout", "60", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_ReadTimeout(), ecorePackage.getEInt(), "readTimeout", "60", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHttpCall_SuccessCode(), ecorePackage.getEInt(), "successCode", "200", 0, 1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHttpCall_Body(), this.getContentGenerator(), null, "body", null, 0, -1, HttpCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Interpolate(), ecorePackage.getEBoolean(), "interpolate", "true", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -908,6 +1133,26 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// urn:org.nasdanika
+		createUrnorgAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>urn:org.nasdanika</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createUrnorgAnnotations() {
+		String source = "urn:org.nasdanika";
+		addAnnotation
+		  (getText_Text(),
+		   source,
+		   new String[] {
+			   "content-type", "text/code"
+		   });
 	}
 
 } //CodegenPackageImpl

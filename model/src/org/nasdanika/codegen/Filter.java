@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Filter extends Generator {
+public interface Filter extends ContentGenerator {
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.

@@ -14,25 +14,25 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.HttpCall;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.File} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.HttpCall} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FileItemProvider extends ResourceItemProvider {
+public class HttpCallItemProvider extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FileItemProvider(AdapterFactory adapterFactory) {
+	public HttpCallItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,35 +47,115 @@ public class FileItemProvider extends ResourceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCharsetPropertyDescriptor(object);
+			addUrlPropertyDescriptor(object);
+			addMethodPropertyDescriptor(object);
+			addConnectTimeoutPropertyDescriptor(object);
+			addReadTimeoutPropertyDescriptor(object);
+			addSuccessCodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
-	
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/File"));
-	}
 
 	/**
-	 * This adds a property descriptor for the Charset feature.
+	 * This adds a property descriptor for the Url feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addCharsetPropertyDescriptor(Object object) {
+	protected void addUrlPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_File_charset_feature"),
-				 CodegenPackage.Literals.FILE__CHARSET,
+				 getString("_UI_HttpCall_url_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__URL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Method feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_HttpCall_method_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__METHOD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Connect Timeout feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addConnectTimeoutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_HttpCall_connectTimeout_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__CONNECT_TIMEOUT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Read Timeout feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addReadTimeoutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_HttpCall_readTimeout_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__READ_TIMEOUT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Success Code feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSuccessCodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_HttpCall_successCode_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__SUCCESS_CODE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null,
 				 null));
@@ -93,20 +173,18 @@ public class FileItemProvider extends ResourceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-//			childrenFeatures.add(CodegenPackage.Literals.FILE__CONTENT);
+//			childrenFeatures.add(CodegenPackage.Literals.HTTP_CALL__HEADERS);
+//			childrenFeatures.add(CodegenPackage.Literals.HTTP_CALL__BODY);
 		}
 		return childrenFeatures;
 	}
-		
-	/**
-	 * Adds {@link EReferenceItemProvider} children.
-	 * @param children
-	 */
+	
 	@Override
 	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
 		super.addEReferenceItemProviders(object, children);
-		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.FILE__CONTENT)); 		
-	}			
+		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.HTTP_CALL__HEADERS)); 		
+		children.add(new EReferenceItemProvider(this, (EObject) object, CodegenPackage.Literals.HTTP_CALL__BODY)); 		
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +197,17 @@ public class FileItemProvider extends ResourceItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns HttpCall.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HttpCall.png"));
 	}
 
 	/**
@@ -139,11 +228,11 @@ public class FileItemProvider extends ResourceItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((File)object).getTitle();
+		String label = ((HttpCall)object).getTitle();
 		if (Util.isBlank(label)) {
-			label = ((File)object).getName();
+			label = ((HttpCall)object).getUrl();
 		}
-		return label == null || label.length() == 0 ? getString("_UI_File_type") : label;
+		return label == null || label.length() == 0 ? getString("_UI_HttpCall_type") : label;
 	}
 
 
@@ -158,11 +247,16 @@ public class FileItemProvider extends ResourceItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(File.class)) {
-			case CodegenPackage.FILE__CHARSET:
+		switch (notification.getFeatureID(HttpCall.class)) {
+			case CodegenPackage.HTTP_CALL__URL:
+			case CodegenPackage.HTTP_CALL__METHOD:
+			case CodegenPackage.HTTP_CALL__CONNECT_TIMEOUT:
+			case CodegenPackage.HTTP_CALL__READ_TIMEOUT:
+			case CodegenPackage.HTTP_CALL__SUCCESS_CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CodegenPackage.FILE__CONTENT:
+			case CodegenPackage.HTTP_CALL__HEADERS:
+			case CodegenPackage.HTTP_CALL__BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,10 +274,16 @@ public class FileItemProvider extends ResourceItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		// --- Content ---		
-		for (EObject expr: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
-			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.FILE__CONTENT, expr));						
-		}		
+		// --- Headers ---		
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.HTTP_CALL__HEADERS, expr));						
+		}
+		
+		// --- Body ---		
+		for (EObject content: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.HTTP_CALL__BODY, content));						
+		}
+		
 	}
 
 	/**
@@ -199,7 +299,8 @@ public class FileItemProvider extends ResourceItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.FILE__CONTENT;
+			childFeature == CodegenPackage.Literals.HTTP_CALL__BODY ||
+			childFeature == CodegenPackage.Literals.HTTP_CALL__HEADERS;
 
 		if (qualify) {
 			return getString

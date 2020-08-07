@@ -386,13 +386,13 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__RECONCILE_ACTION = CodegenPackage.FILE__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__GENERATORS = CodegenPackage.FILE__GENERATORS;
+	int COMPILATION_UNIT__CONTENT = CodegenPackage.FILE__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Charset</b></em>' attribute.
@@ -456,7 +456,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__TITLE = CodegenPackage.GENERATOR__TITLE;
+	int MEMBER__TITLE = CodegenPackage.CONTENT_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -465,7 +465,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
+	int MEMBER__DESCRIPTION = CodegenPackage.CONTENT_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -474,7 +474,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__ID = CodegenPackage.GENERATOR__ID;
+	int MEMBER__ID = CodegenPackage.CONTENT_GENERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -483,7 +483,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
+	int MEMBER__CONFIGURATION = CodegenPackage.CONTENT_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -492,7 +492,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__ENABLED = CodegenPackage.GENERATOR__ENABLED;
+	int MEMBER__ENABLED = CodegenPackage.CONTENT_GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -501,7 +501,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__ITERATOR = CodegenPackage.GENERATOR__ITERATOR;
+	int MEMBER__ITERATOR = CodegenPackage.CONTENT_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -510,7 +510,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__NAME = CodegenPackage.GENERATOR_FEATURE_COUNT + 0;
+	int MEMBER__NAME = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
@@ -519,7 +519,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__MODIFIERS = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
+	int MEMBER__MODIFIERS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
@@ -528,7 +528,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__COMMENT_GENERATORS = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+	int MEMBER__COMMENT_GENERATORS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -537,7 +537,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__COMMENT = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
+	int MEMBER__COMMENT = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' attribute list.
@@ -546,7 +546,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__ANNOTATIONS = CodegenPackage.GENERATOR_FEATURE_COUNT + 4;
+	int MEMBER__ANNOTATIONS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
@@ -555,7 +555,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__BODY_GENERATORS = CodegenPackage.GENERATOR_FEATURE_COUNT + 5;
+	int MEMBER__BODY_GENERATORS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute list.
@@ -564,7 +564,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__TYPE_PARAMETERS = CodegenPackage.GENERATOR_FEATURE_COUNT + 6;
+	int MEMBER__TYPE_PARAMETERS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Member</em>' class.
@@ -573,7 +573,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 7;
+	int MEMBER_FEATURE_COUNT = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -582,7 +582,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int MEMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Member</em>' class.
@@ -591,7 +591,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER_OPERATION_COUNT = CodegenPackage.GENERATOR_OPERATION_COUNT + 0;
+	int MEMBER_OPERATION_COUNT = CodegenPackage.CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.java.impl.TypeImpl <em>Type</em>}' class.

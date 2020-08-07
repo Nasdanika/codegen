@@ -350,6 +350,97 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.ContentGenerator <em>Content Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.ContentGenerator
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGenerator()
+	 * @generated
+	 */
+	int CONTENT_GENERATOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__TITLE = GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__ID = GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__ENABLED = GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The number of structural features of the '<em>Content Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Content Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ResourceContainer <em>Resource Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -357,7 +448,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceContainer()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER = 3;
+	int RESOURCE_CONTAINER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -394,7 +485,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 4;
+	int RESOURCE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -503,7 +594,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 5;
+	int FILE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -578,13 +669,13 @@ public interface CodegenPackage extends EPackage {
 	int FILE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__GENERATORS = RESOURCE_FEATURE_COUNT + 0;
+	int FILE__CONTENT = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Charset</b></em>' attribute.
@@ -630,7 +721,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 6;
+	int CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -748,7 +839,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGroup()
 	 * @generated
 	 */
-	int RESOURCE_GROUP = 7;
+	int RESOURCE_GROUP = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -848,7 +939,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFreeMarkerGenerator()
 	 * @generated
 	 */
-	int FREE_MARKER_GENERATOR = 8;
+	int FREE_MARKER_GENERATOR = 9;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -966,7 +1057,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 9;
+	int CONTENT_REFERENCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -975,7 +1066,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__TITLE = GENERATOR__TITLE;
+	int CONTENT_REFERENCE__TITLE = CONTENT_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -984,7 +1075,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__DESCRIPTION = GENERATOR__DESCRIPTION;
+	int CONTENT_REFERENCE__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -993,7 +1084,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__ID = GENERATOR__ID;
+	int CONTENT_REFERENCE__ID = CONTENT_GENERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1002,7 +1093,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__CONFIGURATION = GENERATOR__CONFIGURATION;
+	int CONTENT_REFERENCE__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1011,7 +1102,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__ENABLED = GENERATOR__ENABLED;
+	int CONTENT_REFERENCE__ENABLED = CONTENT_GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1020,7 +1111,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__ITERATOR = GENERATOR__ITERATOR;
+	int CONTENT_REFERENCE__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1029,7 +1120,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE__REF = GENERATOR_FEATURE_COUNT + 0;
+	int CONTENT_REFERENCE__REF = CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Content Reference</em>' class.
@@ -1038,7 +1129,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+	int CONTENT_REFERENCE_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1047,7 +1138,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int CONTENT_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Content Reference</em>' class.
@@ -1056,7 +1147,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+	int CONTENT_REFERENCE_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.FilterImpl <em>Filter</em>}' class.
@@ -1066,7 +1157,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 10;
+	int FILTER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1075,7 +1166,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__TITLE = GENERATOR__TITLE;
+	int FILTER__TITLE = CONTENT_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1084,7 +1175,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+	int FILTER__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1093,7 +1184,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__ID = GENERATOR__ID;
+	int FILTER__ID = CONTENT_GENERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1102,7 +1193,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__CONFIGURATION = GENERATOR__CONFIGURATION;
+	int FILTER__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1111,7 +1202,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__ENABLED = GENERATOR__ENABLED;
+	int FILTER__ENABLED = CONTENT_GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1120,7 +1211,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__ITERATOR = GENERATOR__ITERATOR;
+	int FILTER__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1129,7 +1220,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__GENERATORS = GENERATOR_FEATURE_COUNT + 0;
+	int FILTER__GENERATORS = CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -1138,7 +1229,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+	int FILTER_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1147,7 +1238,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int FILTER___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Filter</em>' class.
@@ -1156,7 +1247,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+	int FILTER_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.InterpolatorImpl <em>Interpolator</em>}' class.
@@ -1166,7 +1257,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getInterpolator()
 	 * @generated
 	 */
-	int INTERPOLATOR = 11;
+	int INTERPOLATOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1266,7 +1357,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getMustache()
 	 * @generated
 	 */
-	int MUSTACHE = 12;
+	int MUSTACHE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1366,7 +1457,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipArchive()
 	 * @generated
 	 */
-	int ZIP_ARCHIVE = 13;
+	int ZIP_ARCHIVE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1375,7 +1466,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__TITLE = GENERATOR__TITLE;
+	int ZIP_ARCHIVE__TITLE = CONTENT_GENERATOR__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1384,7 +1475,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__DESCRIPTION = GENERATOR__DESCRIPTION;
+	int ZIP_ARCHIVE__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1393,7 +1484,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__ID = GENERATOR__ID;
+	int ZIP_ARCHIVE__ID = CONTENT_GENERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1402,7 +1493,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__CONFIGURATION = GENERATOR__CONFIGURATION;
+	int ZIP_ARCHIVE__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1411,7 +1502,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__ENABLED = GENERATOR__ENABLED;
+	int ZIP_ARCHIVE__ENABLED = CONTENT_GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -1420,7 +1511,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__ITERATOR = GENERATOR__ITERATOR;
+	int ZIP_ARCHIVE__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1429,7 +1520,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE__ELEMENTS = GENERATOR_FEATURE_COUNT + 0;
+	int ZIP_ARCHIVE__ELEMENTS = CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Zip Archive</em>' class.
@@ -1438,7 +1529,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+	int ZIP_ARCHIVE_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1447,7 +1538,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int ZIP_ARCHIVE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Zip Archive</em>' class.
@@ -1456,7 +1547,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_ARCHIVE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+	int ZIP_ARCHIVE_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl <em>Generator Reference</em>}' class.
@@ -1466,7 +1557,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorReference()
 	 * @generated
 	 */
-	int GENERATOR_REFERENCE = 14;
+	int GENERATOR_REFERENCE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1559,6 +1650,206 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl <em>Resource Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
+	 * @generated
+	 */
+	int RESOURCE_GENERATOR_REFERENCE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__TITLE = GENERATOR_REFERENCE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__DESCRIPTION = GENERATOR_REFERENCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__ID = GENERATOR_REFERENCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONFIGURATION = GENERATOR_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__ENABLED = GENERATOR_REFERENCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__ITERATOR = GENERATOR_REFERENCE__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__REF = GENERATOR_REFERENCE__REF;
+
+	/**
+	 * The number of structural features of the '<em>Resource Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentGeneratorReferenceImpl <em>Content Generator Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ContentGeneratorReferenceImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorReference()
+	 * @generated
+	 */
+	int CONTENT_GENERATOR_REFERENCE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__TITLE = GENERATOR_REFERENCE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__DESCRIPTION = GENERATOR_REFERENCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__ID = GENERATOR_REFERENCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__CONFIGURATION = GENERATOR_REFERENCE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__ENABLED = GENERATOR_REFERENCE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__ITERATOR = GENERATOR_REFERENCE__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__REF = GENERATOR_REFERENCE__REF;
+
+	/**
+	 * The number of structural features of the '<em>Content Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE_FEATURE_COUNT = GENERATOR_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Content Generator Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE_OPERATION_COUNT = GENERATOR_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceCollectionImpl <em>Resource Collection</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1566,7 +1857,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceCollection()
 	 * @generated
 	 */
-	int RESOURCE_COLLECTION = 15;
+	int RESOURCE_COLLECTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1729,7 +2020,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getBundleResourceCollection()
 	 * @generated
 	 */
-	int BUNDLE_RESOURCE_COLLECTION = 16;
+	int BUNDLE_RESOURCE_COLLECTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1901,7 +2192,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getZipResourceCollection()
 	 * @generated
 	 */
-	int ZIP_RESOURCE_COLLECTION = 17;
+	int ZIP_RESOURCE_COLLECTION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2030,13 +2321,13 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_COLLECTION__RECONCILE_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZIP_RESOURCE_COLLECTION__GENERATORS = RESOURCE_COLLECTION_FEATURE_COUNT + 0;
+	int ZIP_RESOURCE_COLLECTION__CONTENT = RESOURCE_COLLECTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Zip Resource Collection</em>' class.
@@ -2066,6 +2357,269 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION_OPERATION_COUNT = RESOURCE_COLLECTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.HttpCallImpl <em>Http Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.HttpCallImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpCall()
+	 * @generated
+	 */
+	int HTTP_CALL = 21;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__TITLE = CONTENT_GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__ID = CONTENT_GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__ENABLED = CONTENT_GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__ITERATOR = CONTENT_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__URL = CONTENT_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__METHOD = CONTENT_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__HEADERS = CONTENT_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Connect Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONNECT_TIMEOUT = CONTENT_GENERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Read Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__READ_TIMEOUT = CONTENT_GENERATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Success Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__SUCCESS_CODE = CONTENT_GENERATOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__BODY = CONTENT_GENERATOR_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Http Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Http Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.TextImpl <em>Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.TextImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getText()
+	 * @generated
+	 */
+	int TEXT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__TITLE = CONTENT_GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__DESCRIPTION = CONTENT_GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ID = CONTENT_GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__CONFIGURATION = CONTENT_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ENABLED = CONTENT_GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ITERATOR = CONTENT_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__TEXT = CONTENT_GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__INTERPOLATE = CONTENT_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONTENT_GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2073,7 +2627,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 18;
+	int RECONCILE_ACTION = 23;
 
 
 	/**
@@ -2150,6 +2704,16 @@ public interface CodegenPackage extends EPackage {
 	EClass getResourceGenerator();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ContentGenerator <em>Content Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Generator</em>'.
+	 * @see org.nasdanika.codegen.ContentGenerator
+	 * @generated
+	 */
+	EClass getContentGenerator();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceContainer <em>Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2202,15 +2766,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getFile();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.File#getGenerators <em>Generators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.File#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Generators</em>'.
-	 * @see org.nasdanika.codegen.File#getGenerators()
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.codegen.File#getContent()
 	 * @see #getFile()
 	 * @generated
 	 */
-	EReference getFile_Generators();
+	EReference getFile_Content();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}'.
@@ -2380,6 +2944,26 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getGeneratorReference_Ref();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGeneratorReference <em>Resource Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.ResourceGeneratorReference
+	 * @generated
+	 */
+	EClass getResourceGeneratorReference();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ContentGeneratorReference <em>Content Generator Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Generator Reference</em>'.
+	 * @see org.nasdanika.codegen.ContentGeneratorReference
+	 * @generated
+	 */
+	EClass getContentGeneratorReference();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceCollection <em>Resource Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2509,15 +3093,134 @@ public interface CodegenPackage extends EPackage {
 	EClass getZipResourceCollection();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.ZipResourceCollection#getGenerators <em>Generators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.ZipResourceCollection#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Generators</em>'.
-	 * @see org.nasdanika.codegen.ZipResourceCollection#getGenerators()
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.codegen.ZipResourceCollection#getContent()
 	 * @see #getZipResourceCollection()
 	 * @generated
 	 */
-	EReference getZipResourceCollection_Generators();
+	EReference getZipResourceCollection_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.HttpCall <em>Http Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Http Call</em>'.
+	 * @see org.nasdanika.codegen.HttpCall
+	 * @generated
+	 */
+	EClass getHttpCall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getUrl()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_Url();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Method</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getMethod()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_Method();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.HttpCall#getHeaders <em>Headers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Headers</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getHeaders()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EReference getHttpCall_Headers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getConnectTimeout <em>Connect Timeout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Connect Timeout</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getConnectTimeout()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_ConnectTimeout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getReadTimeout <em>Read Timeout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Timeout</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getReadTimeout()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_ReadTimeout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#getSuccessCode <em>Success Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Success Code</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getSuccessCode()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_SuccessCode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.HttpCall#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Body</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#getBody()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EReference getHttpCall_Body();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text</em>'.
+	 * @see org.nasdanika.codegen.Text
+	 * @generated
+	 */
+	EClass getText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Text#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see org.nasdanika.codegen.Text#getText()
+	 * @see #getText()
+	 * @generated
+	 */
+	EAttribute getText_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Text#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.Text#isInterpolate()
+	 * @see #getText()
+	 * @generated
+	 */
+	EAttribute getText_Interpolate();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
@@ -2615,6 +3318,16 @@ public interface CodegenPackage extends EPackage {
 		EClass RESOURCE_GENERATOR = eINSTANCE.getResourceGenerator();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.ContentGenerator <em>Content Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.ContentGenerator
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGenerator()
+		 * @generated
+		 */
+		EClass CONTENT_GENERATOR = eINSTANCE.getContentGenerator();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ResourceContainer <em>Resource Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2661,12 +3374,12 @@ public interface CodegenPackage extends EPackage {
 		EClass FILE = eINSTANCE.getFile();
 
 		/**
-		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FILE__GENERATORS = eINSTANCE.getFile_Generators();
+		EReference FILE__CONTENT = eINSTANCE.getFile_Content();
 
 		/**
 		 * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
@@ -2815,6 +3528,26 @@ public interface CodegenPackage extends EPackage {
 		EAttribute GENERATOR_REFERENCE__REF = eINSTANCE.getGeneratorReference_Ref();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl <em>Resource Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorReference()
+		 * @generated
+		 */
+		EClass RESOURCE_GENERATOR_REFERENCE = eINSTANCE.getResourceGeneratorReference();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContentGeneratorReferenceImpl <em>Content Generator Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ContentGeneratorReferenceImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorReference()
+		 * @generated
+		 */
+		EClass CONTENT_GENERATOR_REFERENCE = eINSTANCE.getContentGeneratorReference();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceCollectionImpl <em>Resource Collection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2917,12 +3650,104 @@ public interface CodegenPackage extends EPackage {
 		EClass ZIP_RESOURCE_COLLECTION = eINSTANCE.getZipResourceCollection();
 
 		/**
-		 * The meta object literal for the '<em><b>Generators</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ZIP_RESOURCE_COLLECTION__GENERATORS = eINSTANCE.getZipResourceCollection_Generators();
+		EReference ZIP_RESOURCE_COLLECTION__CONTENT = eINSTANCE.getZipResourceCollection_Content();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.HttpCallImpl <em>Http Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.HttpCallImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getHttpCall()
+		 * @generated
+		 */
+		EClass HTTP_CALL = eINSTANCE.getHttpCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__URL = eINSTANCE.getHttpCall_Url();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__METHOD = eINSTANCE.getHttpCall_Method();
+
+		/**
+		 * The meta object literal for the '<em><b>Headers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HTTP_CALL__HEADERS = eINSTANCE.getHttpCall_Headers();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect Timeout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__CONNECT_TIMEOUT = eINSTANCE.getHttpCall_ConnectTimeout();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Timeout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__READ_TIMEOUT = eINSTANCE.getHttpCall_ReadTimeout();
+
+		/**
+		 * The meta object literal for the '<em><b>Success Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__SUCCESS_CODE = eINSTANCE.getHttpCall_SuccessCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HTTP_CALL__BODY = eINSTANCE.getHttpCall_Body();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextImpl <em>Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.TextImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getText()
+		 * @generated
+		 */
+		EClass TEXT = eINSTANCE.getText();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT__INTERPOLATE = eINSTANCE.getText_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.

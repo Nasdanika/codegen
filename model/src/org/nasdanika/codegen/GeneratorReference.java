@@ -20,7 +20,7 @@ package org.nasdanika.codegen;
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface GeneratorReference extends Generator {

@@ -28,6 +28,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Group/elements"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGenerator"/>
+    <genClasses image="false" ecoreClass="codegen.ecore#//ContentGenerator"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//ResourceContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ResourceContainer/elements"/>
     </genClasses>
@@ -35,7 +36,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Resource/reconcileAction"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//File">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/generators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/charset"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container"/>
@@ -57,6 +58,8 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//GeneratorReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorReference/ref"/>
     </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorReference"/>
+    <genClasses ecoreClass="codegen.ecore#//ContentGeneratorReference"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//ResourceCollection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/prefix"/>
@@ -71,7 +74,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//BundleResourceCollection/bundle"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ZipResourceCollection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipResourceCollection/generators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//ZipResourceCollection/content"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//HttpCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//HttpCall/headers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/connectTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/readTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/successCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//HttpCall/body"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//Text">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Text/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Text/interpolate"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

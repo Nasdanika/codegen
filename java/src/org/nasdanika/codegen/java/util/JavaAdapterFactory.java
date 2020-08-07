@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Container;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.Resource;
@@ -175,6 +176,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseFile(File object) {
 				return createFileAdapter();
+			}
+			@Override
+			public Adapter caseContentGenerator(ContentGenerator object) {
+				return createContentGeneratorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -515,6 +520,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ContentGenerator <em>Content Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ContentGenerator
+	 * @generated
+	 */
+	public Adapter createContentGeneratorAdapter() {
 		return null;
 	}
 

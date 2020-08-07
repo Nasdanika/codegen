@@ -97,6 +97,16 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.CONTENT_GENERATOR: {
+				ContentGenerator contentGenerator = (ContentGenerator)theEObject;
+				T result = caseContentGenerator(contentGenerator);
+				if (result == null) result = caseGenerator(contentGenerator);
+				if (result == null) result = caseEntity(contentGenerator);
+				if (result == null) result = caseConfigurable(contentGenerator);
+				if (result == null) result = caseModelElement(contentGenerator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.RESOURCE_CONTAINER: {
 				ResourceContainer resourceContainer = (ResourceContainer)theEObject;
 				T result = caseResourceContainer(resourceContainer);
@@ -167,6 +177,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 			case CodegenPackage.CONTENT_REFERENCE: {
 				ContentReference contentReference = (ContentReference)theEObject;
 				T result = caseContentReference(contentReference);
+				if (result == null) result = caseContentGenerator(contentReference);
 				if (result == null) result = caseGenerator(contentReference);
 				if (result == null) result = caseEntity(contentReference);
 				if (result == null) result = caseConfigurable(contentReference);
@@ -177,6 +188,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 			case CodegenPackage.FILTER: {
 				Filter filter = (Filter)theEObject;
 				T result = caseFilter(filter);
+				if (result == null) result = caseContentGenerator(filter);
 				if (result == null) result = caseGenerator(filter);
 				if (result == null) result = caseEntity(filter);
 				if (result == null) result = caseConfigurable(filter);
@@ -188,6 +200,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 				Interpolator interpolator = (Interpolator)theEObject;
 				T result = caseInterpolator(interpolator);
 				if (result == null) result = caseFilter(interpolator);
+				if (result == null) result = caseContentGenerator(interpolator);
 				if (result == null) result = caseGenerator(interpolator);
 				if (result == null) result = caseEntity(interpolator);
 				if (result == null) result = caseConfigurable(interpolator);
@@ -199,6 +212,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 				Mustache mustache = (Mustache)theEObject;
 				T result = caseMustache(mustache);
 				if (result == null) result = caseFilter(mustache);
+				if (result == null) result = caseContentGenerator(mustache);
 				if (result == null) result = caseGenerator(mustache);
 				if (result == null) result = caseEntity(mustache);
 				if (result == null) result = caseConfigurable(mustache);
@@ -209,8 +223,9 @@ public class CodegenSwitch<T> extends Switch<T> {
 			case CodegenPackage.ZIP_ARCHIVE: {
 				ZipArchive zipArchive = (ZipArchive)theEObject;
 				T result = caseZipArchive(zipArchive);
-				if (result == null) result = caseGenerator(zipArchive);
+				if (result == null) result = caseContentGenerator(zipArchive);
 				if (result == null) result = caseResourceContainer(zipArchive);
+				if (result == null) result = caseGenerator(zipArchive);
 				if (result == null) result = caseEntity(zipArchive);
 				if (result == null) result = caseConfigurable(zipArchive);
 				if (result == null) result = caseModelElement(zipArchive);
@@ -224,6 +239,30 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEntity(generatorReference);
 				if (result == null) result = caseConfigurable(generatorReference);
 				if (result == null) result = caseModelElement(generatorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE: {
+				ResourceGeneratorReference resourceGeneratorReference = (ResourceGeneratorReference)theEObject;
+				T result = caseResourceGeneratorReference(resourceGeneratorReference);
+				if (result == null) result = caseGeneratorReference(resourceGeneratorReference);
+				if (result == null) result = caseResourceGenerator(resourceGeneratorReference);
+				if (result == null) result = caseGenerator(resourceGeneratorReference);
+				if (result == null) result = caseEntity(resourceGeneratorReference);
+				if (result == null) result = caseConfigurable(resourceGeneratorReference);
+				if (result == null) result = caseModelElement(resourceGeneratorReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.CONTENT_GENERATOR_REFERENCE: {
+				ContentGeneratorReference contentGeneratorReference = (ContentGeneratorReference)theEObject;
+				T result = caseContentGeneratorReference(contentGeneratorReference);
+				if (result == null) result = caseGeneratorReference(contentGeneratorReference);
+				if (result == null) result = caseContentGenerator(contentGeneratorReference);
+				if (result == null) result = caseGenerator(contentGeneratorReference);
+				if (result == null) result = caseEntity(contentGeneratorReference);
+				if (result == null) result = caseConfigurable(contentGeneratorReference);
+				if (result == null) result = caseModelElement(contentGeneratorReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -259,6 +298,28 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEntity(zipResourceCollection);
 				if (result == null) result = caseConfigurable(zipResourceCollection);
 				if (result == null) result = caseModelElement(zipResourceCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.HTTP_CALL: {
+				HttpCall httpCall = (HttpCall)theEObject;
+				T result = caseHttpCall(httpCall);
+				if (result == null) result = caseContentGenerator(httpCall);
+				if (result == null) result = caseGenerator(httpCall);
+				if (result == null) result = caseEntity(httpCall);
+				if (result == null) result = caseConfigurable(httpCall);
+				if (result == null) result = caseModelElement(httpCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.TEXT: {
+				Text text = (Text)theEObject;
+				T result = caseText(text);
+				if (result == null) result = caseContentGenerator(text);
+				if (result == null) result = caseGenerator(text);
+				if (result == null) result = caseEntity(text);
+				if (result == null) result = caseConfigurable(text);
+				if (result == null) result = caseModelElement(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,6 +369,21 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseResourceGenerator(ResourceGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGenerator(ContentGenerator object) {
 		return null;
 	}
 
@@ -477,6 +553,36 @@ public class CodegenSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceGeneratorReference(ResourceGeneratorReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Generator Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Generator Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGeneratorReference(ContentGeneratorReference object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource Collection</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -518,6 +624,36 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseZipResourceCollection(ZipResourceCollection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Http Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Http Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHttpCall(HttpCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseText(Text object) {
 		return null;
 	}
 
