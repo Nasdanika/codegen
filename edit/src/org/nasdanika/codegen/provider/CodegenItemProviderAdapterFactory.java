@@ -143,6 +143,29 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ContentGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentGroupItemProvider contentGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ContentGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentGroupAdapter() {
+		if (contentGroupItemProvider == null) {
+			contentGroupItemProvider = new ContentGroupItemProvider(this);
+		}
+
+		return contentGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.FreeMarkerGenerator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,6 +526,7 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (fileItemProvider != null) fileItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (resourceGroupItemProvider != null) resourceGroupItemProvider.dispose();
+		if (contentGroupItemProvider != null) contentGroupItemProvider.dispose();
 		if (freeMarkerGeneratorItemProvider != null) freeMarkerGeneratorItemProvider.dispose();
 		if (contentReferenceItemProvider != null) contentReferenceItemProvider.dispose();
 		if (interpolatorItemProvider != null) interpolatorItemProvider.dispose();

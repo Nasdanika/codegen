@@ -10,11 +10,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
@@ -157,76 +154,6 @@ public class GroupItemProvider extends GeneratorItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createContentGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.GROUP__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createText()));
 	}
 
 	/**

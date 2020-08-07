@@ -60,6 +60,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.FILE: return createFile();
 			case CodegenPackage.CONTAINER: return createContainer();
 			case CodegenPackage.RESOURCE_GROUP: return createResourceGroup();
+			case CodegenPackage.CONTENT_GROUP: return createContentGroup();
 			case CodegenPackage.FREE_MARKER_GENERATOR: return createFreeMarkerGenerator();
 			case CodegenPackage.CONTENT_REFERENCE: return createContentReference();
 			case CodegenPackage.INTERPOLATOR: return createInterpolator();
@@ -137,6 +138,17 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ResourceGroup createResourceGroup() {
 		ResourceGroupImpl resourceGroup = new ResourceGroupImpl();
 		return resourceGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentGroup createContentGroup() {
+		ContentGroupImpl contentGroup = new ContentGroupImpl();
+		return contentGroup;
 	}
 
 	/**

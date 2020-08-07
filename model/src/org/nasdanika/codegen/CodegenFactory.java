@@ -49,6 +49,15 @@ public interface CodegenFactory extends EFactory {
 	ResourceGroup createResourceGroup();
 
 	/**
+	 * Returns a new object of class '<em>Content Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Group</em>'.
+	 * @generated
+	 */
+	ContentGroup createContentGroup();
+
+	/**
 	 * Returns a new object of class '<em>Free Marker Generator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

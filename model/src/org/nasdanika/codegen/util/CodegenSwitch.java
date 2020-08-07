@@ -164,6 +164,18 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.CONTENT_GROUP: {
+				ContentGroup contentGroup = (ContentGroup)theEObject;
+				T result = caseContentGroup(contentGroup);
+				if (result == null) result = caseGroup(contentGroup);
+				if (result == null) result = caseContentGenerator(contentGroup);
+				if (result == null) result = caseGenerator(contentGroup);
+				if (result == null) result = caseEntity(contentGroup);
+				if (result == null) result = caseConfigurable(contentGroup);
+				if (result == null) result = caseModelElement(contentGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CodegenPackage.FREE_MARKER_GENERATOR: {
 				FreeMarkerGenerator freeMarkerGenerator = (FreeMarkerGenerator)theEObject;
 				T result = caseFreeMarkerGenerator(freeMarkerGenerator);
@@ -459,6 +471,21 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseResourceGroup(ResourceGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGroup(ContentGroup object) {
 		return null;
 	}
 

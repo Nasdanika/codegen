@@ -140,6 +140,11 @@
       <details key="documentation" value="A group of resources. "/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentGroup" eSuperTypes="#//Group #//ContentGenerator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A group of resources. "/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FreeMarkerGenerator" eSuperTypes="#//Generator">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generates text from template and model using [FreeMarker](http://freemarker.org/)."/>

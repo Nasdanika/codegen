@@ -41,6 +41,7 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container"/>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>
+    <genClasses ecoreClass="codegen.ecore#//ContentGroup"/>
     <genClasses ecoreClass="codegen.ecore#//FreeMarkerGenerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/base"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//FreeMarkerGenerator/template"/>

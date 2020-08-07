@@ -108,6 +108,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateContainer((Container)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GROUP:
 				return validateResourceGroup((ResourceGroup)value, diagnostics, context);
+			case CodegenPackage.CONTENT_GROUP:
+				return validateContentGroup((ContentGroup)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_GENERATOR:
 				return validateFreeMarkerGenerator((FreeMarkerGenerator)value, diagnostics, context);
 			case CodegenPackage.CONTENT_REFERENCE:
@@ -171,6 +173,8 @@ public class CodegenValidator extends EObjectValidator {
 				return validateContainer((Container)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GROUP:
 				return validateResourceGroup((ResourceGroup)value, diagnostics, context);
+			case CodegenPackage.CONTENT_GROUP:
+				return validateContentGroup((ContentGroup)value, diagnostics, context);
 			case CodegenPackage.FREE_MARKER_GENERATOR:
 				return validateFreeMarkerGenerator((FreeMarkerGenerator)value, diagnostics, context);
 			case CodegenPackage.CONTENT_REFERENCE:
@@ -374,6 +378,25 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(resourceGroup, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContentGroup(ContentGroup contentGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(contentGroup, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contentGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(contentGroup, diagnostics, context);
 		return result;
 	}
 

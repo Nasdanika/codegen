@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.java.CompilationUnit;
+import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.provider.FileItemProvider;
 import org.nasdanika.ncore.NcorePackage;
@@ -141,55 +142,25 @@ public class CompilationUnitItemProvider extends FileItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 		
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createSourceFolder()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createPackage()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createCompilationUnit()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createField()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createClass()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createInterface()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createAnnotation()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createEnum()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createConstructor()));
-//
-//		newChildDescriptors.add
-//			(createChildParameter
-//				(CodegenPackage.Literals.FILE__GENERATORS,
-//				 JavaFactory.eINSTANCE.createMethod()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__CONTENT,
+				 JavaFactory.eINSTANCE.createAnnotation()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__CONTENT,
+				 JavaFactory.eINSTANCE.createInterface()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__CONTENT,
+				 JavaFactory.eINSTANCE.createClass()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(CodegenPackage.Literals.FILE__CONTENT,
+				 JavaFactory.eINSTANCE.createEnum()));
 	}
 
 	/**

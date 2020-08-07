@@ -40,6 +40,7 @@ public class Activator implements BundleActivator {
 				CodegenPackage.Literals.FILE);	
 		
 		CONTENT_GENERATORS_PALETTE.add(
+				CodegenPackage.Literals.CONTENT_GROUP,
 				CodegenPackage.Literals.INTERPOLATOR,
 				CodegenPackage.Literals.MUSTACHE,
 				CodegenPackage.Literals.FREE_MARKER_GENERATOR,

@@ -1,6 +1,6 @@
 /**
  */
-package org.nasdanika.codegen.java.provider;
+package org.nasdanika.codegen.provider;
 
 
 import java.util.Collection;
@@ -8,30 +8,28 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.java.JavaFactory;
-import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.codegen.java.SourceFolder;
-import org.nasdanika.codegen.provider.ContainerItemProvider;
+import org.nasdanika.codegen.ContentGroup;
+
 import org.nasdanika.ncore.NcorePackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.java.SourceFolder} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.ContentGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SourceFolderItemProvider extends ContainerItemProvider {
+public class ContentGroupItemProvider extends GroupItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SourceFolderItemProvider(AdapterFactory adapterFactory) {
+	public ContentGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,41 +44,19 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addJdkLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Jdk Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addJdkLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_SourceFolder_jdkLevel_feature"),
-				 JavaPackage.Literals.SOURCE_FOLDER__JDK_LEVEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns SourceFolder.gif.
+	 * This returns ContentGroup.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SourceFolder"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentGroup"));
 	}
 
 	/**
@@ -97,15 +73,14 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SourceFolder)object).getTitle();
-		if (isBlank(label)) {
-			label = ((SourceFolder)object).getName();
-		}
-		return label == null || label.length() == 0 ? getString("_UI_SourceFolder_type") : label;
+		String label = ((ContentGroup)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ContentGroup_type") :
+			getString("_UI_ContentGroup_type") + " " + label;
 	}
 
 
@@ -114,10 +89,11 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
 
@@ -131,11 +107,11 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 JavaFactory.eINSTANCE.createPackage()));
+		
+		for (EObject e: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.GROUP__ELEMENTS, e));						
+		}		
+		
 	}
 
 	/**
@@ -151,7 +127,7 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
+			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS;
 
 		if (qualify) {
 			return getString
@@ -160,16 +136,7 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return JavaEditPlugin.INSTANCE;
-	}
+	
+	
 
 }

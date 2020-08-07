@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Type;
 import org.nasdanika.common.Util;
@@ -120,11 +121,47 @@ public class TypeItemProvider extends MemberItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createAnnotation()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createClass()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createEnum()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createInterface()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createField()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createConstructor()));
+		
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.MEMBER__BODY_GENERATORS,
+				 JavaFactory.eINSTANCE.createMethod()));
+		
 	}
 
 	/**

@@ -105,6 +105,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createResourceGroupAdapter();
 			}
 			@Override
+			public Adapter caseContentGroup(ContentGroup object) {
+				return createContentGroupAdapter();
+			}
+			@Override
 			public Adapter caseFreeMarkerGenerator(FreeMarkerGenerator object) {
 				return createFreeMarkerGeneratorAdapter();
 			}
@@ -319,6 +323,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ContentGroup <em>Content Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ContentGroup
+	 * @generated
+	 */
+	public Adapter createContentGroupAdapter() {
 		return null;
 	}
 

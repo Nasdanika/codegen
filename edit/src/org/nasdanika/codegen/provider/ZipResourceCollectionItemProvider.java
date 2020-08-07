@@ -10,11 +10,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ZipResourceCollection;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
@@ -151,46 +148,15 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createContentGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT,
-				 CodegenFactory.eINSTANCE.createText()));
+		
+		for (EObject e: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT, e));						
+		}		
 	}
 
 	/**

@@ -10,11 +10,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.common.Util;
@@ -154,41 +151,15 @@ public class ContainerItemProvider extends ResourceItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+		for (EObject e: org.nasdanika.codegen.util.Activator.RESOURCES_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS, e));						
+		}		
 	}
 
 	/**

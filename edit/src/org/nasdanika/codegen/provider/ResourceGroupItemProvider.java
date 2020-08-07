@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.nasdanika.codegen.CodegenPackage;
@@ -100,11 +100,15 @@ public class ResourceGroupItemProvider extends GroupItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+		
+		for (EObject e: org.nasdanika.codegen.util.Activator.RESOURCES_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.GROUP__ELEMENTS, e));						
+		}		
 	}
 
 	/**

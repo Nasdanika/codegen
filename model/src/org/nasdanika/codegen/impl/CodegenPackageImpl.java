@@ -18,6 +18,7 @@ import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.ContentGeneratorReference;
+import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
@@ -112,6 +113,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass resourceGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +468,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EClass getResourceGroup() {
 		return resourceGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContentGroup() {
+		return contentGroupEClass;
 	}
 
 	/**
@@ -917,6 +935,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		resourceGroupEClass = createEClass(RESOURCE_GROUP);
 
+		contentGroupEClass = createEClass(CONTENT_GROUP);
+
 		freeMarkerGeneratorEClass = createEClass(FREE_MARKER_GENERATOR);
 		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__BASE);
 		createEAttribute(freeMarkerGeneratorEClass, FREE_MARKER_GENERATOR__TEMPLATE);
@@ -1017,6 +1037,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		containerEClass.getESuperTypes().add(this.getResourceContainer());
 		resourceGroupEClass.getESuperTypes().add(this.getGroup());
 		resourceGroupEClass.getESuperTypes().add(this.getResourceGenerator());
+		contentGroupEClass.getESuperTypes().add(this.getGroup());
+		contentGroupEClass.getESuperTypes().add(this.getContentGenerator());
 		freeMarkerGeneratorEClass.getESuperTypes().add(this.getGenerator());
 		contentReferenceEClass.getESuperTypes().add(this.getContentGenerator());
 		filterEClass.getESuperTypes().add(this.getContentGenerator());
@@ -1069,6 +1091,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(containerEClass, org.nasdanika.codegen.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceGroupEClass, ResourceGroup.class, "ResourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentGroupEClass, ContentGroup.class, "ContentGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(freeMarkerGeneratorEClass, FreeMarkerGenerator.class, "FreeMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFreeMarkerGenerator_Base(), ecorePackage.getEString(), "base", null, 0, 1, FreeMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
