@@ -10,6 +10,7 @@
     <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.bootstrap/model/bootstrap.ecore</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.ecore</semanticResources>
+    <semanticResources>platform:/resource/org.nasdanika.vinci.app/model/app.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_lgFzAKx0EeaPl_WgzlktwA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_k96FkJ-JEeimafuxAAQRfw" name="codegen" repPath="#_loYMUKx0EeaPl_WgzlktwA">
