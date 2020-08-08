@@ -4,7 +4,7 @@ package org.nasdanika.codegen;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.ncore.HttpMethod;
 
 /**
@@ -87,7 +87,7 @@ public interface HttpCall extends ContentGenerator {
 
 	/**
 	 * Returns the value of the '<em><b>Headers</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
+	 * The list contents are of type {@link org.nasdanika.ncore.AbstractEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Headers</em>' containment reference list.
@@ -95,7 +95,7 @@ public interface HttpCall extends ContentGenerator {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry> getHeaders();
+	EList<AbstractEntry> getHeaders();
 
 	/**
 	 * Returns the value of the '<em><b>Connect Timeout</b></em>' attribute.
