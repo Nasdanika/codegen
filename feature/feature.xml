@@ -313,6 +313,13 @@ version(s), and exceptions or additional permissions here}.&quot;
          unpack="false"/>
 
    <plugin
+         id="org.nasdanika.codegen.gen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.nasdanika.codegen.editor"
          download-size="0"
          install-size="0"
@@ -342,6 +349,13 @@ version(s), and exceptions or additional permissions here}.&quot;
 
    <plugin
          id="org.nasdanika.codegen.java.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.nasdanika.codegen.java.gen"
          download-size="0"
          install-size="0"
          version="0.0.0"

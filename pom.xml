@@ -162,9 +162,11 @@
 		<module>edit</module>
 		<module>editor</module>
 		<module>design</module>
+		<module>gen</module>
 
 		<module>java</module>
 		<module>java.edit</module>
+		<module>java.gen</module>
 
 		<module>tests</module>
 		<module>tests.models</module>

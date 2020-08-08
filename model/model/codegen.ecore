@@ -113,6 +113,11 @@
         <details key="documentation" value="Action to take if resource with given name already exists."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="merger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Context property for a merger if reconcile action is Merge. &#xA;The property shall be either of type ${javadoc/org.nasdanika.codegen.gen.Merger} or ${javadoc/org.eclipse.emf.common.notify.AdapterFactory}. &#xA;In the latter case the factory shall be for ${javadoc/org.nasdanika.codegen.gen.Merger$Factory} type.&#xA;Some resource types may have a default merger. E.g. ${ecore-doc/codegen-java/CompilationUnit} or [Container](Container.html). &#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="File" eSuperTypes="#//Resource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

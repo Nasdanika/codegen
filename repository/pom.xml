@@ -102,6 +102,22 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>copy-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../gen/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-editor-javadoc</id>
 						<phase>pre-site</phase>
 						<goals>
@@ -160,6 +176,22 @@
 							<resources>
 								<resource>
 									<directory>${basedir}/../java.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-java-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.java.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../java.gen/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
