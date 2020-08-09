@@ -17,6 +17,7 @@ import org.nasdanika.codegen.BundleResourceCollection;
 import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGenerator;
+import org.nasdanika.codegen.ContentGeneratorAdapter;
 import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.ContentReference;
@@ -24,6 +25,7 @@ import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.GeneratorAdapter;
 import org.nasdanika.codegen.GeneratorReference;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.HttpCall;
@@ -34,6 +36,7 @@ import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceCollection;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
+import org.nasdanika.codegen.ResourceGeneratorAdapter;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.Text;
@@ -218,6 +221,27 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass textEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generatorAdapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceGeneratorAdapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentGeneratorAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -418,6 +442,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	@Override
 	public EAttribute getResource_ReconcileAction() {
 		return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getResource_Merger() {
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -876,6 +910,46 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getGeneratorAdapter() {
+		return generatorAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGeneratorAdapter_Factory() {
+		return (EAttribute)generatorAdapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceGeneratorAdapter() {
+		return resourceGeneratorAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContentGeneratorAdapter() {
+		return contentGeneratorAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -926,6 +1000,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__RECONCILE_ACTION);
+		createEAttribute(resourceEClass, RESOURCE__MERGER);
 
 		fileEClass = createEClass(FILE);
 		createEReference(fileEClass, FILE__CONTENT);
@@ -989,6 +1064,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
 		createEAttribute(textEClass, TEXT__INTERPOLATE);
+
+		generatorAdapterEClass = createEClass(GENERATOR_ADAPTER);
+		createEAttribute(generatorAdapterEClass, GENERATOR_ADAPTER__FACTORY);
+
+		resourceGeneratorAdapterEClass = createEClass(RESOURCE_GENERATOR_ADAPTER);
+
+		contentGeneratorAdapterEClass = createEClass(CONTENT_GENERATOR_ADAPTER);
 
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
@@ -1056,6 +1138,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		zipResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
 		httpCallEClass.getESuperTypes().add(this.getContentGenerator());
 		textEClass.getESuperTypes().add(this.getContentGenerator());
+		generatorAdapterEClass.getESuperTypes().add(this.getGenerator());
+		resourceGeneratorAdapterEClass.getESuperTypes().add(this.getGeneratorAdapter());
+		resourceGeneratorAdapterEClass.getESuperTypes().add(this.getResourceGenerator());
+		contentGeneratorAdapterEClass.getESuperTypes().add(this.getGeneratorAdapter());
+		contentGeneratorAdapterEClass.getESuperTypes().add(this.getContentGenerator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1083,6 +1170,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResource_Merger(), ecorePackage.getEString(), "merger", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFile_Content(), this.getContentGenerator(), null, "content", null, 1, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1146,6 +1234,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Interpolate(), ecorePackage.getEBoolean(), "interpolate", "true", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(generatorAdapterEClass, GeneratorAdapter.class, "GeneratorAdapter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeneratorAdapter_Factory(), ecorePackage.getEString(), "factory", null, 1, 1, GeneratorAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceGeneratorAdapterEClass, ResourceGeneratorAdapter.class, "ResourceGeneratorAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentGeneratorAdapterEClass, ContentGeneratorAdapter.class, "ContentGeneratorAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -1213,7 +1308,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getGenerator_Iterator(),
 		   source,
 		   new String[] {
-			   "documentation", "Iterator contains context property name and allows to execute generator zero or more times depending on the property type.\n\n* If iterator is blank then generator is executed once using the current generation context.\n* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:\n    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.\n    * boolean ``false`` - generator is not executed.\n    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.\n    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.\n    * list - generator is executed once for each list element with element value being processed as explained here.\n    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.\n"
+			   "documentation", "Iterator contains context property name and allows to execute generator zero or more times depending on the property type.\n\n* If iterator is blank then generator is executed once using the current generation context.\n* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:\n    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.\n    * boolean ``false`` - generator is not executed.\n    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.\n    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.\n    * list - generator is executed once for each list element with element value being processed as explained here.\n    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.\n    * ${javadoc/org.eclipse.emf.common.notify.AdapterFactory} - the factory shall be for ${javadoc/org.nasdanika.common.ContextIterator$Supplier$Factory}. A context iterator is created by the factory and is used to iterate over the element.\n\n"
 		   });
 		addAnnotation
 		  (groupEClass,
@@ -1298,6 +1393,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Action to take if resource with given name already exists."
+		   });
+		addAnnotation
+		  (getResource_Merger(),
+		   source,
+		   new String[] {
+			   "documentation", "Context property for a merger if reconcile action is Merge. \nThe property shall be either of type ${javadoc/org.nasdanika.codegen.gen.Merger} or ${javadoc/org.eclipse.emf.common.notify.AdapterFactory}. \nIn the latter case the factory shall be for ${javadoc/org.nasdanika.codegen.gen.Merger} type.\nSome resource types may have a default merger. E.g. ${ecore-doc/codegen-java/CompilationUnit} or [Container](Container.html). \n"
 		   });
 		addAnnotation
 		  (fileEClass,
@@ -1538,6 +1639,30 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If ``true`` (default) the value is interpolated."
+		   });
+		addAnnotation
+		  (generatorAdapterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for resource and content adapters."
+		   });
+		addAnnotation
+		  (getGeneratorAdapter_Factory(),
+		   source,
+		   new String[] {
+			   "documentation", "Id of a named factory. The factory shall be for ${javadoc/org.nasdanika.common.SupplierFactory} type for content generators and of ${javadoc/org.nasdanika.common.ConsumerFactory} for resource generators. \nIn the resource adapter consumer is passed in instance of ${javadoc/org.nasdanika.common.resources.Container} for manipulation with container resources."
+		   });
+		addAnnotation
+		  (resourceGeneratorAdapterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Adapter generating resources."
+		   });
+		addAnnotation
+		  (contentGeneratorAdapterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Adapter generating file content."
 		   });
 	}
 

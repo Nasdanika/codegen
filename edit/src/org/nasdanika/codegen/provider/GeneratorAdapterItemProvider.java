@@ -8,29 +8,26 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Resource;
-import org.nasdanika.common.Util;
-import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.codegen.GeneratorAdapter;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.Resource} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.GeneratorAdapter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceItemProvider extends GeneratorItemProvider {
+public class GeneratorAdapterItemProvider extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceItemProvider(AdapterFactory adapterFactory) {
+	public GeneratorAdapterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,73 +42,28 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addReconcileActionPropertyDescriptor(object);
-			addMergerPropertyDescriptor(object);
+			addFactoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Factory feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addFactoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_NamedElement_name_feature"),
-				 NcorePackage.Literals.NAMED_ELEMENT__NAME,
+				 getString("_UI_GeneratorAdapter_factory_feature"),
+				 CodegenPackage.Literals.GENERATOR_ADAPTER__FACTORY,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Reconcile Action feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addReconcileActionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Resource_reconcileAction_feature"),
-				 CodegenPackage.Literals.RESOURCE__RECONCILE_ACTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Merger feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMergerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Resource_merger_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_merger_feature", "_UI_Resource_type"),
-				 CodegenPackage.Literals.RESOURCE__MERGER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -130,15 +82,14 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Resource)object).getTitle();
-		if (Util.isBlank(label)) {
-			label = ((Resource)object).getName();
-		}
-		return label == null || label.length() == 0 ? getString("_UI_Resource_type") : getString("_UI_Resource_type") + " " + label;
+		String label = ((GeneratorAdapter)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GeneratorAdapter_type") :
+			getString("_UI_GeneratorAdapter_type") + " " + label;
 	}
 
 
@@ -153,10 +104,8 @@ public class ResourceItemProvider extends GeneratorItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Resource.class)) {
-			case CodegenPackage.RESOURCE__NAME:
-			case CodegenPackage.RESOURCE__RECONCILE_ACTION:
-			case CodegenPackage.RESOURCE__MERGER:
+		switch (notification.getFeatureID(GeneratorAdapter.class)) {
+			case CodegenPackage.GENERATOR_ADAPTER__FACTORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

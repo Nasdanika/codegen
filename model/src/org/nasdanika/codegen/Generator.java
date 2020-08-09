@@ -76,6 +76,8 @@ public interface Generator extends Entity, Configurable {
 	 *     * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.
 	 *     * list - generator is executed once for each list element with element value being processed as explained here.
 	 *     * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.
+	 *     * ${javadoc/org.eclipse.emf.common.notify.AdapterFactory} - the factory shall be for ${javadoc/org.nasdanika.common.ContextIterator$Supplier$Factory}. A context iterator is created by the factory and is used to iterate over the element.
+	 * 
 	 * 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Iterator</em>' attribute.

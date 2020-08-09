@@ -72,6 +72,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.ZIP_RESOURCE_COLLECTION: return createZipResourceCollection();
 			case CodegenPackage.HTTP_CALL: return createHttpCall();
 			case CodegenPackage.TEXT: return createText();
+			case CodegenPackage.RESOURCE_GENERATOR_ADAPTER: return createResourceGeneratorAdapter();
+			case CodegenPackage.CONTENT_GENERATOR_ADAPTER: return createContentGeneratorAdapter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -270,6 +272,28 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public Text createText() {
 		TextImpl text = new TextImpl();
 		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceGeneratorAdapter createResourceGeneratorAdapter() {
+		ResourceGeneratorAdapterImpl resourceGeneratorAdapter = new ResourceGeneratorAdapterImpl();
+		return resourceGeneratorAdapter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentGeneratorAdapter createContentGeneratorAdapter() {
+		ContentGeneratorAdapterImpl contentGeneratorAdapter = new ContentGeneratorAdapterImpl();
+		return contentGeneratorAdapter;
 	}
 
 	/**

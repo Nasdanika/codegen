@@ -560,13 +560,22 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__RECONCILE_ACTION = RESOURCE_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__MERGER = RESOURCE_GENERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 2;
+	int RESOURCE_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -667,6 +676,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__MERGER = RESOURCE__MERGER;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -794,6 +812,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINER__RECONCILE_ACTION = RESOURCE__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__MERGER = RESOURCE__MERGER;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -2720,6 +2747,306 @@ public interface CodegenPackage extends EPackage {
 	int TEXT_OPERATION_COUNT = CONTENT_GENERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GeneratorAdapterImpl <em>Generator Adapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.GeneratorAdapterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorAdapter()
+	 * @generated
+	 */
+	int GENERATOR_ADAPTER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__TITLE = GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__ID = GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__ENABLED = GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Factory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__FACTORY = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorAdapterImpl <em>Resource Generator Adapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGeneratorAdapterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorAdapter()
+	 * @generated
+	 */
+	int RESOURCE_GENERATOR_ADAPTER = 25;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__TITLE = GENERATOR_ADAPTER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__DESCRIPTION = GENERATOR_ADAPTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__ID = GENERATOR_ADAPTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__CONFIGURATION = GENERATOR_ADAPTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__ENABLED = GENERATOR_ADAPTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__ITERATOR = GENERATOR_ADAPTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Factory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__FACTORY = GENERATOR_ADAPTER__FACTORY;
+
+	/**
+	 * The number of structural features of the '<em>Resource Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER_FEATURE_COUNT = GENERATOR_ADAPTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_ADAPTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER_OPERATION_COUNT = GENERATOR_ADAPTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentGeneratorAdapterImpl <em>Content Generator Adapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ContentGeneratorAdapterImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorAdapter()
+	 * @generated
+	 */
+	int CONTENT_GENERATOR_ADAPTER = 26;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__TITLE = GENERATOR_ADAPTER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__DESCRIPTION = GENERATOR_ADAPTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__ID = GENERATOR_ADAPTER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__CONFIGURATION = GENERATOR_ADAPTER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__ENABLED = GENERATOR_ADAPTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__ITERATOR = GENERATOR_ADAPTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Factory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__FACTORY = GENERATOR_ADAPTER__FACTORY;
+
+	/**
+	 * The number of structural features of the '<em>Content Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER_FEATURE_COUNT = GENERATOR_ADAPTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_ADAPTER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Content Generator Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER_OPERATION_COUNT = GENERATOR_ADAPTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2727,7 +3054,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 24;
+	int RECONCILE_ACTION = 27;
 
 
 	/**
@@ -2854,6 +3181,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_ReconcileAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Resource#getMerger <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merger</em>'.
+	 * @see org.nasdanika.codegen.Resource#getMerger()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Merger();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.File <em>File</em>}'.
@@ -3333,6 +3671,47 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getText_Interpolate();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.GeneratorAdapter <em>Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generator Adapter</em>'.
+	 * @see org.nasdanika.codegen.GeneratorAdapter
+	 * @generated
+	 */
+	EClass getGeneratorAdapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.GeneratorAdapter#getFactory <em>Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Factory</em>'.
+	 * @see org.nasdanika.codegen.GeneratorAdapter#getFactory()
+	 * @see #getGeneratorAdapter()
+	 * @generated
+	 */
+	EAttribute getGeneratorAdapter_Factory();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGeneratorAdapter <em>Resource Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Generator Adapter</em>'.
+	 * @see org.nasdanika.codegen.ResourceGeneratorAdapter
+	 * @generated
+	 */
+	EClass getResourceGeneratorAdapter();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ContentGeneratorAdapter <em>Content Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Generator Adapter</em>'.
+	 * @see org.nasdanika.codegen.ContentGeneratorAdapter
+	 * @generated
+	 */
+	EClass getContentGeneratorAdapter();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3472,6 +3851,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__RECONCILE_ACTION = eINSTANCE.getResource_ReconcileAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Merger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__MERGER = eINSTANCE.getResource_Merger();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FileImpl <em>File</em>}' class.
@@ -3868,6 +4255,44 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT__INTERPOLATE = eINSTANCE.getText_Interpolate();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GeneratorAdapterImpl <em>Generator Adapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.GeneratorAdapterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorAdapter()
+		 * @generated
+		 */
+		EClass GENERATOR_ADAPTER = eINSTANCE.getGeneratorAdapter();
+
+		/**
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_ADAPTER__FACTORY = eINSTANCE.getGeneratorAdapter_Factory();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorAdapterImpl <em>Resource Generator Adapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGeneratorAdapterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorAdapter()
+		 * @generated
+		 */
+		EClass RESOURCE_GENERATOR_ADAPTER = eINSTANCE.getResourceGeneratorAdapter();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContentGeneratorAdapterImpl <em>Content Generator Adapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ContentGeneratorAdapterImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorAdapter()
+		 * @generated
+		 */
+		EClass CONTENT_GENERATOR_ADAPTER = eINSTANCE.getContentGeneratorAdapter();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.

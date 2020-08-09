@@ -35,7 +35,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Iterator contains context property name and allows to execute generator zero or more times depending on the property type.&#xA;&#xA;* If iterator is blank then generator is executed once using the current generation context.&#xA;* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:&#xA;    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.&#xA;    * boolean ``false`` - generator is not executed.&#xA;    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.&#xA;    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.&#xA;    * list - generator is executed once for each list element with element value being processed as explained here.&#xA;    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.&#xA;"/>
+        <details key="documentation" value="Iterator contains context property name and allows to execute generator zero or more times depending on the property type.&#xA;&#xA;* If iterator is blank then generator is executed once using the current generation context.&#xA;* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:&#xA;    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.&#xA;    * boolean ``false`` - generator is not executed.&#xA;    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.&#xA;    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.&#xA;    * list - generator is executed once for each list element with element value being processed as explained here.&#xA;    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.&#xA;    * ${javadoc/org.eclipse.emf.common.notify.AdapterFactory} - the factory shall be for ${javadoc/org.nasdanika.common.ContextIterator$Supplier$Factory}. A context iterator is created by the factory and is used to iterate over the element.&#xA;&#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -115,7 +115,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="merger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Context property for a merger if reconcile action is Merge. &#xA;The property shall be either of type ${javadoc/org.nasdanika.codegen.gen.Merger} or ${javadoc/org.eclipse.emf.common.notify.AdapterFactory}. &#xA;In the latter case the factory shall be for ${javadoc/org.nasdanika.codegen.gen.Merger$Factory} type.&#xA;Some resource types may have a default merger. E.g. ${ecore-doc/codegen-java/CompilationUnit} or [Container](Container.html). &#xA;"/>
+        <details key="documentation" value="Context property for a merger if reconcile action is Merge. &#xA;The property shall be either of type ${javadoc/org.nasdanika.codegen.gen.Merger} or ${javadoc/org.eclipse.emf.common.notify.AdapterFactory}. &#xA;In the latter case the factory shall be for ${javadoc/org.nasdanika.codegen.gen.Merger} type.&#xA;Some resource types may have a default merger. E.g. ${ecore-doc/codegen-java/CompilationUnit} or [Container](Container.html). &#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -345,5 +345,26 @@
         <details key="documentation" value="If ``true`` (default) the value is interpolated."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorAdapter" abstract="true" eSuperTypes="#//Generator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for resource and content adapters."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of a named factory. The factory shall be for ${javadoc/org.nasdanika.common.SupplierFactory} type for content generators and of ${javadoc/org.nasdanika.common.ConsumerFactory} for resource generators. &#xA;In the resource adapter consumer is passed in instance of ${javadoc/org.nasdanika.common.resources.Container} for manipulation with container resources."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceGeneratorAdapter" eSuperTypes="#//GeneratorAdapter #//ResourceGenerator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Adapter generating resources."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentGeneratorAdapter" eSuperTypes="#//GeneratorAdapter #//ContentGenerator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Adapter generating file content."/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

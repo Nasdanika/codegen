@@ -419,6 +419,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGeneratorAdapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceGeneratorAdapterItemProvider resourceGeneratorAdapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceGeneratorAdapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceGeneratorAdapterAdapter() {
+		if (resourceGeneratorAdapterItemProvider == null) {
+			resourceGeneratorAdapterItemProvider = new ResourceGeneratorAdapterItemProvider(this);
+		}
+
+		return resourceGeneratorAdapterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ContentGeneratorAdapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentGeneratorAdapterItemProvider contentGeneratorAdapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ContentGeneratorAdapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentGeneratorAdapterAdapter() {
+		if (contentGeneratorAdapterItemProvider == null) {
+			contentGeneratorAdapterItemProvider = new ContentGeneratorAdapterItemProvider(this);
+		}
+
+		return contentGeneratorAdapterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -538,6 +584,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (zipResourceCollectionItemProvider != null) zipResourceCollectionItemProvider.dispose();
 		if (httpCallItemProvider != null) httpCallItemProvider.dispose();
 		if (textItemProvider != null) textItemProvider.dispose();
+		if (resourceGeneratorAdapterItemProvider != null) resourceGeneratorAdapterItemProvider.dispose();
+		if (contentGeneratorAdapterItemProvider != null) contentGeneratorAdapterItemProvider.dispose();
 	}
 
 }

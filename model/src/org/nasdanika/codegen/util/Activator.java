@@ -37,6 +37,7 @@ public class Activator implements BundleActivator {
 				CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_REFERENCE,
 				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
+				CodegenPackage.Literals.RESOURCE_GENERATOR_ADAPTER,
 				CodegenPackage.Literals.FILE);	
 		
 		CONTENT_GENERATORS_PALETTE.add(
@@ -50,7 +51,8 @@ public class Activator implements BundleActivator {
 				CodegenPackage.Literals.INTERPOLATOR,
 				CodegenPackage.Literals.CONTENT_REFERENCE,
 				CodegenPackage.Literals.TEXT,
-				CodegenPackage.Literals.HTTP_CALL
+				CodegenPackage.Literals.HTTP_CALL,
+				CodegenPackage.Literals.CONTENT_GENERATOR_ADAPTER				
 		); 	
 		
 	}

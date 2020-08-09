@@ -336,6 +336,40 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.GENERATOR_ADAPTER: {
+				GeneratorAdapter generatorAdapter = (GeneratorAdapter)theEObject;
+				T result = caseGeneratorAdapter(generatorAdapter);
+				if (result == null) result = caseGenerator(generatorAdapter);
+				if (result == null) result = caseEntity(generatorAdapter);
+				if (result == null) result = caseConfigurable(generatorAdapter);
+				if (result == null) result = caseModelElement(generatorAdapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.RESOURCE_GENERATOR_ADAPTER: {
+				ResourceGeneratorAdapter resourceGeneratorAdapter = (ResourceGeneratorAdapter)theEObject;
+				T result = caseResourceGeneratorAdapter(resourceGeneratorAdapter);
+				if (result == null) result = caseGeneratorAdapter(resourceGeneratorAdapter);
+				if (result == null) result = caseResourceGenerator(resourceGeneratorAdapter);
+				if (result == null) result = caseGenerator(resourceGeneratorAdapter);
+				if (result == null) result = caseEntity(resourceGeneratorAdapter);
+				if (result == null) result = caseConfigurable(resourceGeneratorAdapter);
+				if (result == null) result = caseModelElement(resourceGeneratorAdapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.CONTENT_GENERATOR_ADAPTER: {
+				ContentGeneratorAdapter contentGeneratorAdapter = (ContentGeneratorAdapter)theEObject;
+				T result = caseContentGeneratorAdapter(contentGeneratorAdapter);
+				if (result == null) result = caseGeneratorAdapter(contentGeneratorAdapter);
+				if (result == null) result = caseContentGenerator(contentGeneratorAdapter);
+				if (result == null) result = caseGenerator(contentGeneratorAdapter);
+				if (result == null) result = caseEntity(contentGeneratorAdapter);
+				if (result == null) result = caseConfigurable(contentGeneratorAdapter);
+				if (result == null) result = caseModelElement(contentGeneratorAdapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -682,6 +716,51 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseText(Text object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorAdapter(GeneratorAdapter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Generator Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Generator Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceGeneratorAdapter(ResourceGeneratorAdapter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Generator Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Generator Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGeneratorAdapter(ContentGeneratorAdapter object) {
 		return null;
 	}
 

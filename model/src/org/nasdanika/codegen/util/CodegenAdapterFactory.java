@@ -165,6 +165,18 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createTextAdapter();
 			}
 			@Override
+			public Adapter caseGeneratorAdapter(GeneratorAdapter object) {
+				return createGeneratorAdapterAdapter();
+			}
+			@Override
+			public Adapter caseResourceGeneratorAdapter(ResourceGeneratorAdapter object) {
+				return createResourceGeneratorAdapterAdapter();
+			}
+			@Override
+			public Adapter caseContentGeneratorAdapter(ContentGeneratorAdapter object) {
+				return createContentGeneratorAdapterAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -519,6 +531,48 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.GeneratorAdapter <em>Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.GeneratorAdapter
+	 * @generated
+	 */
+	public Adapter createGeneratorAdapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ResourceGeneratorAdapter <em>Resource Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ResourceGeneratorAdapter
+	 * @generated
+	 */
+	public Adapter createResourceGeneratorAdapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ContentGeneratorAdapter <em>Content Generator Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ContentGeneratorAdapter
+	 * @generated
+	 */
+	public Adapter createContentGeneratorAdapterAdapter() {
 		return null;
 	}
 

@@ -16,8 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.HttpCall;
-
-import org.nasdanika.ncore.AbstractEntry;
+import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.HttpMethod;
 
 /**
@@ -156,8 +155,8 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<AbstractEntry> getHeaders() {
-		return (EList<AbstractEntry>)eDynamicGet(CodegenPackage.HTTP_CALL__HEADERS, CodegenPackage.Literals.HTTP_CALL__HEADERS, true, true);
+	public EList<Entry> getHeaders() {
+		return (EList<Entry>)eDynamicGet(CodegenPackage.HTTP_CALL__HEADERS, CodegenPackage.Literals.HTTP_CALL__HEADERS, true, true);
 	}
 
 	/**
@@ -290,7 +289,7 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 				return;
 			case CodegenPackage.HTTP_CALL__HEADERS:
 				getHeaders().clear();
-				getHeaders().addAll((Collection<? extends AbstractEntry>)newValue);
+				getHeaders().addAll((Collection<? extends Entry>)newValue);
 				return;
 			case CodegenPackage.HTTP_CALL__CONNECT_TIMEOUT:
 				setConnectTimeout((Integer)newValue);

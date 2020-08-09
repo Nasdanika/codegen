@@ -20,6 +20,7 @@ import org.nasdanika.ncore.NcorePackage;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceImpl#getReconcileAction <em>Reconcile Action</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ResourceImpl#getMerger <em>Merger</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +45,16 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 	 * @ordered
 	 */
 	protected static final ReconcileAction RECONCILE_ACTION_EDEFAULT = ReconcileAction.OVERWRITE;
+
+	/**
+	 * The default value of the '{@link #getMerger() <em>Merger</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMerger()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MERGER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,12 +121,34 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 	 * @generated
 	 */
 	@Override
+	public String getMerger() {
+		return (String)eDynamicGet(CodegenPackage.RESOURCE__MERGER, CodegenPackage.Literals.RESOURCE__MERGER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMerger(String newMerger) {
+		eDynamicSet(CodegenPackage.RESOURCE__MERGER, CodegenPackage.Literals.RESOURCE__MERGER, newMerger);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodegenPackage.RESOURCE__NAME:
 				return getName();
 			case CodegenPackage.RESOURCE__RECONCILE_ACTION:
 				return getReconcileAction();
+			case CodegenPackage.RESOURCE__MERGER:
+				return getMerger();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -133,6 +166,9 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 				return;
 			case CodegenPackage.RESOURCE__RECONCILE_ACTION:
 				setReconcileAction((ReconcileAction)newValue);
+				return;
+			case CodegenPackage.RESOURCE__MERGER:
+				setMerger((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,6 +188,9 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 			case CodegenPackage.RESOURCE__RECONCILE_ACTION:
 				setReconcileAction(RECONCILE_ACTION_EDEFAULT);
 				return;
+			case CodegenPackage.RESOURCE__MERGER:
+				setMerger(MERGER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -168,6 +207,8 @@ public abstract class ResourceImpl extends GeneratorImpl implements Resource {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case CodegenPackage.RESOURCE__RECONCILE_ACTION:
 				return getReconcileAction() != RECONCILE_ACTION_EDEFAULT;
+			case CodegenPackage.RESOURCE__MERGER:
+				return MERGER_EDEFAULT == null ? getMerger() != null : !MERGER_EDEFAULT.equals(getMerger());
 		}
 		return super.eIsSet(featureID);
 	}

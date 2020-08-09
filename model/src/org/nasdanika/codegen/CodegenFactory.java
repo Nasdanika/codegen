@@ -157,6 +157,24 @@ public interface CodegenFactory extends EFactory {
 	Text createText();
 
 	/**
+	 * Returns a new object of class '<em>Resource Generator Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Generator Adapter</em>'.
+	 * @generated
+	 */
+	ResourceGeneratorAdapter createResourceGeneratorAdapter();
+
+	/**
+	 * Returns a new object of class '<em>Content Generator Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Generator Adapter</em>'.
+	 * @generated
+	 */
+	ContentGeneratorAdapter createContentGeneratorAdapter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
