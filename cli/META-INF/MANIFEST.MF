@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nasdanika Codegen CLI contributions.
+Bundle-SymbolicName: org.nasdanika.codegen.cli;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Nasdanika
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.fusesource.jansi;bundle-version="1.18.0",
+ org.nasdanika.emf;bundle-version="1.0.0",
+ org.nasdanika.codegen;bundle-version="0.2.0",
+ org.nasdanika.codegen.java;bundle-version="0.1.0"
+Export-Package: org.nasdanika.codegen.cli
+Automatic-Module-Name: org.nasdanika.codegen.cli

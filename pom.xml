@@ -163,6 +163,7 @@
 		<module>editor</module>
 		<module>design</module>
 		<module>gen</module>
+		<module>cli</module>
 
 		<module>java</module>
 		<module>java.edit</module>
