@@ -5,29 +5,38 @@ package org.nasdanika.codegen.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.codegen.Generator;
-import org.nasdanika.codegen.GeneratorReference;
+import org.nasdanika.codegen.GeneratorLink;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Generator Reference</b></em>'.
+ * An implementation of the model object '<em><b>Generator Link</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.impl.GeneratorReferenceImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorLinkImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class GeneratorReferenceImpl<T extends Generator> extends GeneratorImpl implements GeneratorReference<T> {
+public abstract class GeneratorLinkImpl extends GeneratorImpl implements GeneratorLink {
+	/**
+	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REF_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeneratorReferenceImpl() {
+	protected GeneratorLinkImpl() {
 		super();
 	}
 
@@ -38,27 +47,7 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CodegenPackage.Literals.GENERATOR_REFERENCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public T getTarget() {
-		return (T)eDynamicGet(CodegenPackage.GENERATOR_REFERENCE__TARGET, CodegenPackage.Literals.GENERATOR_REFERENCE__TARGET, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public T basicGetTarget() {
-		return (T)eDynamicGet(CodegenPackage.GENERATOR_REFERENCE__TARGET, CodegenPackage.Literals.GENERATOR_REFERENCE__TARGET, false, true);
+		return CodegenPackage.Literals.GENERATOR_LINK;
 	}
 
 	/**
@@ -67,8 +56,18 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	 * @generated
 	 */
 	@Override
-	public void setTarget(T newTarget) {
-		eDynamicSet(CodegenPackage.GENERATOR_REFERENCE__TARGET, CodegenPackage.Literals.GENERATOR_REFERENCE__TARGET, newTarget);
+	public String getRef() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR_LINK__REF, CodegenPackage.Literals.GENERATOR_LINK__REF, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRef(String newRef) {
+		eDynamicSet(CodegenPackage.GENERATOR_LINK__REF, CodegenPackage.Literals.GENERATOR_LINK__REF, newRef);
 	}
 
 	/**
@@ -79,9 +78,8 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__TARGET:
-				if (resolve) return getTarget();
-				return basicGetTarget();
+			case CodegenPackage.GENERATOR_LINK__REF:
+				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -91,12 +89,11 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__TARGET:
-				setTarget((T)newValue);
+			case CodegenPackage.GENERATOR_LINK__REF:
+				setRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,8 +107,8 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__TARGET:
-				setTarget((T)null);
+			case CodegenPackage.GENERATOR_LINK__REF:
+				setRef(REF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -125,10 +122,10 @@ public abstract class GeneratorReferenceImpl<T extends Generator> extends Genera
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.GENERATOR_REFERENCE__TARGET:
-				return basicGetTarget() != null;
+			case CodegenPackage.GENERATOR_LINK__REF:
+				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //GeneratorReferenceImpl
+} //GeneratorLinkImpl

@@ -123,7 +123,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.ZIP_ARCHIVE:
 				return validateZipArchive((ZipArchive)value, diagnostics, context);
 			case CodegenPackage.GENERATOR_REFERENCE:
-				return validateGeneratorReference((GeneratorReference)value, diagnostics, context);
+				return validateGeneratorReference((GeneratorReference<?>)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE:
 				return validateResourceGeneratorReference((ResourceGeneratorReference)value, diagnostics, context);
 			case CodegenPackage.CONTENT_GENERATOR_REFERENCE:
@@ -144,6 +144,12 @@ public class CodegenValidator extends EObjectValidator {
 				return validateResourceGeneratorAdapter((ResourceGeneratorAdapter)value, diagnostics, context);
 			case CodegenPackage.CONTENT_GENERATOR_ADAPTER:
 				return validateContentGeneratorAdapter((ContentGeneratorAdapter)value, diagnostics, context);
+			case CodegenPackage.GENERATOR_LINK:
+				return validateGeneratorLink((GeneratorLink)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GENERATOR_LINK:
+				return validateResourceGeneratorLink((ResourceGeneratorLink)value, diagnostics, context);
+			case CodegenPackage.CONTENT_GENERATOR_LINK:
+				return validateContentGeneratorLink((ContentGeneratorLink)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			default:
@@ -194,7 +200,7 @@ public class CodegenValidator extends EObjectValidator {
 			case CodegenPackage.ZIP_ARCHIVE:
 				return validateZipArchive((ZipArchive)value, diagnostics, context);
 			case CodegenPackage.GENERATOR_REFERENCE:
-				return validateGeneratorReference((GeneratorReference)value, diagnostics, context);
+				return validateGeneratorReference((GeneratorReference<?>)value, diagnostics, context);
 			case CodegenPackage.RESOURCE_GENERATOR_REFERENCE:
 				return validateResourceGeneratorReference((ResourceGeneratorReference)value, diagnostics, context);
 			case CodegenPackage.CONTENT_GENERATOR_REFERENCE:
@@ -215,6 +221,12 @@ public class CodegenValidator extends EObjectValidator {
 				return validateResourceGeneratorAdapter((ResourceGeneratorAdapter)value, diagnostics, context);
 			case CodegenPackage.CONTENT_GENERATOR_ADAPTER:
 				return validateContentGeneratorAdapter((ContentGeneratorAdapter)value, diagnostics, context);
+			case CodegenPackage.GENERATOR_LINK:
+				return validateGeneratorLink((GeneratorLink)value, diagnostics, context);
+			case CodegenPackage.RESOURCE_GENERATOR_LINK:
+				return validateResourceGeneratorLink((ResourceGeneratorLink)value, diagnostics, context);
+			case CodegenPackage.CONTENT_GENERATOR_LINK:
+				return validateContentGeneratorLink((ContentGeneratorLink)value, diagnostics, context);
 			case CodegenPackage.RECONCILE_ACTION:
 				return validateReconcileAction((ReconcileAction)value, diagnostics, context);
 			default:
@@ -512,7 +524,7 @@ public class CodegenValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGeneratorReference(GeneratorReference generatorReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateGeneratorReference(GeneratorReference<?> generatorReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(generatorReference, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(generatorReference, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(generatorReference, diagnostics, context);
@@ -713,6 +725,63 @@ public class CodegenValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contentGeneratorAdapter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contentGeneratorAdapter, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGenerator_validate(contentGeneratorAdapter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGeneratorLink(GeneratorLink generatorLink, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(generatorLink, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(generatorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(generatorLink, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceGeneratorLink(ResourceGeneratorLink resourceGeneratorLink, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceGeneratorLink, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(resourceGeneratorLink, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContentGeneratorLink(ContentGeneratorLink contentGeneratorLink, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(contentGeneratorLink, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contentGeneratorLink, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGenerator_validate(contentGeneratorLink, diagnostics, context);
 		return result;
 	}
 

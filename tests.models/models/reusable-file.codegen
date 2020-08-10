@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" id="1276cbcb-ad41-4fd8-b6b8-c65981775e5c" name="info.txt">
+  <content xsi:type="org.nasdanika.codegen:Text" id="ad66600a-8f26-471a-b865-183883060653" text="Important info. Data: ${data}"/>
+</org.nasdanika.codegen:File>

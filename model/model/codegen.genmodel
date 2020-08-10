@@ -60,7 +60,8 @@
     <genClasses ecoreClass="codegen.ecore#//Mustache"/>
     <genClasses ecoreClass="codegen.ecore#//ZipArchive"/>
     <genClasses image="false" ecoreClass="codegen.ecore#//GeneratorReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorReference/ref"/>
+      <genTypeParameters ecoreTypeParameter="codegen.ecore#//GeneratorReference/T"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codegen.ecore#//GeneratorReference/target"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorReference"/>
     <genClasses ecoreClass="codegen.ecore#//ContentGeneratorReference"/>
@@ -98,5 +99,10 @@
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorAdapter"/>
     <genClasses ecoreClass="codegen.ecore#//ContentGeneratorAdapter"/>
+    <genClasses image="false" ecoreClass="codegen.ecore#//GeneratorLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//GeneratorLink/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="codegen.ecore#//ResourceGeneratorLink"/>
+    <genClasses ecoreClass="codegen.ecore#//ContentGeneratorLink"/>
   </genPackages>
 </genmodel:GenModel>

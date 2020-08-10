@@ -8,23 +8,26 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.nasdanika.codegen.ResourceGeneratorReference;
+import org.nasdanika.codegen.GeneratorLink;
+import org.nasdanika.codegen.ResourceGeneratorLink;
+import org.nasdanika.common.Util;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.ResourceGeneratorReference} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.ResourceGeneratorLink} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceItemProvider {
+public class ResourceGeneratorLinkItemProvider extends GeneratorLinkItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceGeneratorReferenceItemProvider(AdapterFactory adapterFactory) {
+	public ResourceGeneratorLinkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +47,14 @@ public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceIt
 	}
 
 	/**
-	 * This returns ResourceGeneratorReference.gif.
+	 * This returns ResourceGeneratorLink.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceGeneratorReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceGeneratorLink"));
 	}
 
 	/**
@@ -72,10 +75,13 @@ public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceIt
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceGeneratorReference)object).getTitle();
+		String label = ((ResourceGeneratorLink)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((GeneratorLink)object).getRef();
+		}
 		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceGeneratorReference_type") :
-			getString("_UI_ResourceGeneratorReference_type") + " " + label;
+			getString("_UI_ResourceGeneratorLink_type") :
+			getString("_UI_ResourceGeneratorLink_type") + " " + label;
 	}
 
 

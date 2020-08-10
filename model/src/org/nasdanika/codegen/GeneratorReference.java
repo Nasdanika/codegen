@@ -9,44 +9,51 @@ package org.nasdanika.codegen;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Reference to a generator model.
+ * Reference to a generator. Generator references can be used to create multi-resource federated generation models. 
+ * Federated generation models can be used to keep reusable logic in shared models referenced by multiple other models.
+ * Model federation can also be used to keep the models of manageable size, simplify testing, and to facilitate team modeling by assigning different models to different team members.
+ * 
+ * Generator references would typically be used to reference generators defined in models in the same project or in generator models reacheable at both the modeling time and generation time.
+ * 
+ * See also [GeneratorLink](GeneratorLink.html) for another approach to referencing generators.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.codegen.GeneratorReference#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.GeneratorReference#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference()
  * @model abstract="true"
  * @generated
  */
-public interface GeneratorReference extends Generator {
+public interface GeneratorReference<T extends Generator> extends Generator {
 	/**
-	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Model URL resolved relative to this model. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used.
+	 * The target generator is invoked to perform actual generation with context(s) iterated, mapped, and configured.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ref</em>' attribute.
-	 * @see #setRef(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference_Ref()
-	 * @model
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Generator)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGeneratorReference_Target()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getRef();
+	T getTarget();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.GeneratorReference#getRef <em>Ref</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.codegen.GeneratorReference#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ref</em>' attribute.
-	 * @see #getRef()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setRef(String value);
+	void setTarget(T value);
 
 } // GeneratorReference

@@ -2,8 +2,10 @@ package org.nasdanika.codegen.gen;
 
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
+import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.Text;
 import org.nasdanika.common.ConsumerFactory;
@@ -20,10 +22,6 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 	
 	@SuppressWarnings("rawtypes")
 	public CodegenGenerationAdapterFactory() {
-		
-		// ResourceColleciton - abstract
-		// BundleResourceCollection
-		// ZipResourceCollection
 		
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ConsumerFactory, ResourceGroup>(
@@ -46,6 +44,13 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 				this.getClass().getClassLoader(),
 				FileAdapter::new));
 		
+		registerAdapterFactory(
+			new FunctionAdapterFactory<ConsumerFactory, ResourceGeneratorReference>(
+				CodegenPackage.Literals.RESOURCE_GENERATOR_REFERENCE, 
+				ConsumerFactory.class, 
+				this.getClass().getClassLoader(),
+				ResourceGeneratorReferenceAdapter::new));
+		
 		// --- Content ---
 		
 		registerAdapterFactory(
@@ -62,14 +67,19 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					this.getClass().getClassLoader(),
 					TextAdapter::new));
 		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ContentGeneratorReference>(
+					CodegenPackage.Literals.CONTENT_GENERATOR_REFERENCE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ContentGeneratorReferenceAdapter::new));
+		
 //		BundleResourceCollection.java
 //		ContentGeneratorAdapter.java
-//		ContentGeneratorReference.java
 //		ContentReference.java
 //		Filter.java
 //		FreeMarkerGenerator.java
 //		GeneratorAdapter.java
-//		GeneratorReference.java
 //		HttpCall.java
 //		Interpolator.java
 //		Mustache.java
@@ -77,9 +87,9 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 //		ResourceCollection.java
 //		ResourceContainer.java
 //		ResourceGeneratorAdapter.java
-//		ResourceGeneratorReference.java
 //		ZipArchive.java
 //		ZipResourceCollection.java		
+// link, res link, cont link		
 		
 	}
 

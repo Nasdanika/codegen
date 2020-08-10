@@ -74,6 +74,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.TEXT: return createText();
 			case CodegenPackage.RESOURCE_GENERATOR_ADAPTER: return createResourceGeneratorAdapter();
 			case CodegenPackage.CONTENT_GENERATOR_ADAPTER: return createContentGeneratorAdapter();
+			case CodegenPackage.RESOURCE_GENERATOR_LINK: return createResourceGeneratorLink();
+			case CodegenPackage.CONTENT_GENERATOR_LINK: return createContentGeneratorLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -294,6 +296,28 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ContentGeneratorAdapter createContentGeneratorAdapter() {
 		ContentGeneratorAdapterImpl contentGeneratorAdapter = new ContentGeneratorAdapterImpl();
 		return contentGeneratorAdapter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceGeneratorLink createResourceGeneratorLink() {
+		ResourceGeneratorLinkImpl resourceGeneratorLink = new ResourceGeneratorLinkImpl();
+		return resourceGeneratorLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentGeneratorLink createContentGeneratorLink() {
+		ContentGeneratorLinkImpl contentGeneratorLink = new ContentGeneratorLinkImpl();
+		return contentGeneratorLink;
 	}
 
 	/**

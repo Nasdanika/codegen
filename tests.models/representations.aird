@@ -2,6 +2,8 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description">
   <viewpoint:DAnalysis uid="_HgRP8NhvEeq0joukoQ2zCg" selectedViews="_JPHXYNhvEeq0joukoQ2zCg" version="14.3.0.201909031200">
     <semanticResources>models/basic.codegen</semanticResources>
+    <semanticResources>models/external-content.codegen</semanticResources>
+    <semanticResources>models/reusable-file.codegen</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_JPHXYNhvEeq0joukoQ2zCg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_LK02INhvEeq0joukoQ2zCg" name="new Codegen Adapter Factory Tree" repPath="#_LKuIcNhvEeq0joukoQ2zCg">

@@ -1885,13 +1885,13 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_REFERENCE__REF = GENERATOR_FEATURE_COUNT + 0;
+	int GENERATOR_REFERENCE__TARGET = GENERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Generator Reference</em>' class.
@@ -1994,13 +1994,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR_REFERENCE__CONTEXT_MAP;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_GENERATOR_REFERENCE__REF = GENERATOR_REFERENCE__REF;
+	int RESOURCE_GENERATOR_REFERENCE__TARGET = GENERATOR_REFERENCE__TARGET;
 
 	/**
 	 * The number of structural features of the '<em>Resource Generator Reference</em>' class.
@@ -2103,13 +2103,13 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR_REFERENCE__CONTEXT_MAP;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_GENERATOR_REFERENCE__REF = GENERATOR_REFERENCE__REF;
+	int CONTENT_GENERATOR_REFERENCE__TARGET = GENERATOR_REFERENCE__TARGET;
 
 	/**
 	 * The number of structural features of the '<em>Content Generator Reference</em>' class.
@@ -3281,6 +3281,333 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_ADAPTER_OPERATION_COUNT = GENERATOR_ADAPTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.GeneratorLinkImpl <em>Generator Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.GeneratorLinkImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorLink()
+	 * @generated
+	 */
+	int GENERATOR_LINK = 27;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__TITLE = GENERATOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__DESCRIPTION = GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__ID = GENERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__CONFIGURATION = GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__ENABLED = GENERATOR__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__REF = GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK_FEATURE_COUNT = GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK_OPERATION_COUNT = GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorLinkImpl <em>Resource Generator Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ResourceGeneratorLinkImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorLink()
+	 * @generated
+	 */
+	int RESOURCE_GENERATOR_LINK = 28;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__TITLE = GENERATOR_LINK__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__DESCRIPTION = GENERATOR_LINK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__ID = GENERATOR_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__CONFIGURATION = GENERATOR_LINK__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__ENABLED = GENERATOR_LINK__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__ITERATOR = GENERATOR_LINK__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__CONTEXT_MAP = GENERATOR_LINK__CONTEXT_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__REF = GENERATOR_LINK__REF;
+
+	/**
+	 * The number of structural features of the '<em>Resource Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK_FEATURE_COUNT = GENERATOR_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_LINK___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Resource Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK_OPERATION_COUNT = GENERATOR_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.impl.ContentGeneratorLinkImpl <em>Content Generator Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.impl.ContentGeneratorLinkImpl
+	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorLink()
+	 * @generated
+	 */
+	int CONTENT_GENERATOR_LINK = 29;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__TITLE = GENERATOR_LINK__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__DESCRIPTION = GENERATOR_LINK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__ID = GENERATOR_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__CONFIGURATION = GENERATOR_LINK__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__ENABLED = GENERATOR_LINK__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__ITERATOR = GENERATOR_LINK__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__CONTEXT_MAP = GENERATOR_LINK__CONTEXT_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__REF = GENERATOR_LINK__REF;
+
+	/**
+	 * The number of structural features of the '<em>Content Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK_FEATURE_COUNT = GENERATOR_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK___VALIDATE__DIAGNOSTICCHAIN_MAP = GENERATOR_LINK___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Content Generator Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK_OPERATION_COUNT = GENERATOR_LINK_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3288,7 +3615,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getReconcileAction()
 	 * @generated
 	 */
-	int RECONCILE_ACTION = 27;
+	int RECONCILE_ACTION = 30;
 
 
 	/**
@@ -3626,15 +3953,15 @@ public interface CodegenPackage extends EPackage {
 	EClass getGeneratorReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.GeneratorReference#getRef <em>Ref</em>}'.
+	 * Returns the meta object for the reference '{@link org.nasdanika.codegen.GeneratorReference#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see org.nasdanika.codegen.GeneratorReference#getRef()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.nasdanika.codegen.GeneratorReference#getTarget()
 	 * @see #getGeneratorReference()
 	 * @generated
 	 */
-	EAttribute getGeneratorReference_Ref();
+	EReference getGeneratorReference_Target();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGeneratorReference <em>Resource Generator Reference</em>}'.
@@ -3955,6 +4282,47 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContentGeneratorAdapter();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.GeneratorLink <em>Generator Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generator Link</em>'.
+	 * @see org.nasdanika.codegen.GeneratorLink
+	 * @generated
+	 */
+	EClass getGeneratorLink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.GeneratorLink#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ref</em>'.
+	 * @see org.nasdanika.codegen.GeneratorLink#getRef()
+	 * @see #getGeneratorLink()
+	 * @generated
+	 */
+	EAttribute getGeneratorLink_Ref();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ResourceGeneratorLink <em>Resource Generator Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Generator Link</em>'.
+	 * @see org.nasdanika.codegen.ResourceGeneratorLink
+	 * @generated
+	 */
+	EClass getResourceGeneratorLink();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.ContentGeneratorLink <em>Content Generator Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Generator Link</em>'.
+	 * @see org.nasdanika.codegen.ContentGeneratorLink
+	 * @generated
+	 */
+	EClass getContentGeneratorLink();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}'.
@@ -4280,12 +4648,12 @@ public interface CodegenPackage extends EPackage {
 		EClass GENERATOR_REFERENCE = eINSTANCE.getGeneratorReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_REFERENCE__REF = eINSTANCE.getGeneratorReference_Ref();
+		EReference GENERATOR_REFERENCE__TARGET = eINSTANCE.getGeneratorReference_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorReferenceImpl <em>Resource Generator Reference</em>}' class.
@@ -4546,6 +4914,44 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT_GENERATOR_ADAPTER = eINSTANCE.getContentGeneratorAdapter();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.GeneratorLinkImpl <em>Generator Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.GeneratorLinkImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getGeneratorLink()
+		 * @generated
+		 */
+		EClass GENERATOR_LINK = eINSTANCE.getGeneratorLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LINK__REF = eINSTANCE.getGeneratorLink_Ref();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ResourceGeneratorLinkImpl <em>Resource Generator Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ResourceGeneratorLinkImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getResourceGeneratorLink()
+		 * @generated
+		 */
+		EClass RESOURCE_GENERATOR_LINK = eINSTANCE.getResourceGeneratorLink();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContentGeneratorLinkImpl <em>Content Generator Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.impl.ContentGeneratorLinkImpl
+		 * @see org.nasdanika.codegen.impl.CodegenPackageImpl#getContentGeneratorLink()
+		 * @generated
+		 */
+		EClass CONTENT_GENERATOR_LINK = eINSTANCE.getContentGeneratorLink();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.ReconcileAction <em>Reconcile Action</em>}' enum.

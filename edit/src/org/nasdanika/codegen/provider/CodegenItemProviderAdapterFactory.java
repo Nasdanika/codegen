@@ -465,6 +465,52 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ResourceGeneratorLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceGeneratorLinkItemProvider resourceGeneratorLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ResourceGeneratorLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceGeneratorLinkAdapter() {
+		if (resourceGeneratorLinkItemProvider == null) {
+			resourceGeneratorLinkItemProvider = new ResourceGeneratorLinkItemProvider(this);
+		}
+
+		return resourceGeneratorLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.ContentGeneratorLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentGeneratorLinkItemProvider contentGeneratorLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.ContentGeneratorLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentGeneratorLinkAdapter() {
+		if (contentGeneratorLinkItemProvider == null) {
+			contentGeneratorLinkItemProvider = new ContentGeneratorLinkItemProvider(this);
+		}
+
+		return contentGeneratorLinkItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -586,6 +632,8 @@ public class CodegenItemProviderAdapterFactory extends CodegenAdapterFactory imp
 		if (textItemProvider != null) textItemProvider.dispose();
 		if (resourceGeneratorAdapterItemProvider != null) resourceGeneratorAdapterItemProvider.dispose();
 		if (contentGeneratorAdapterItemProvider != null) contentGeneratorAdapterItemProvider.dispose();
+		if (resourceGeneratorLinkItemProvider != null) resourceGeneratorLinkItemProvider.dispose();
+		if (contentGeneratorLinkItemProvider != null) contentGeneratorLinkItemProvider.dispose();
 	}
 
 }

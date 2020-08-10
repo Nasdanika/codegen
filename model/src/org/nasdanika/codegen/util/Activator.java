@@ -36,6 +36,7 @@ public class Activator implements BundleActivator {
 				CodegenPackage.Literals.CONTAINER,
 				CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_REFERENCE,
+				CodegenPackage.Literals.RESOURCE_GENERATOR_LINK,
 				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_ADAPTER,
 				CodegenPackage.Literals.FILE);	
@@ -48,6 +49,7 @@ public class Activator implements BundleActivator {
 				CodegenPackage.Literals.INTERPOLATOR,
 				CodegenPackage.Literals.ZIP_ARCHIVE,
 				CodegenPackage.Literals.CONTENT_GENERATOR_REFERENCE,
+				CodegenPackage.Literals.CONTENT_GENERATOR_LINK,
 				CodegenPackage.Literals.INTERPOLATOR,
 				CodegenPackage.Literals.CONTENT_REFERENCE,
 				CodegenPackage.Literals.TEXT,

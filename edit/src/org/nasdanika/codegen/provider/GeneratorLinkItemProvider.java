@@ -9,22 +9,26 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.nasdanika.codegen.ResourceGeneratorReference;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.GeneratorLink;
+import org.nasdanika.common.Util;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.ResourceGeneratorReference} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.GeneratorLink} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceItemProvider {
+public class GeneratorLinkItemProvider extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceGeneratorReferenceItemProvider(AdapterFactory adapterFactory) {
+	public GeneratorLinkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -39,19 +43,30 @@ public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceIt
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns ResourceGeneratorReference.gif.
+	 * This adds a property descriptor for the Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceGeneratorReference"));
+	protected void addRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLink_ref_feature"),
+				 CodegenPackage.Literals.GENERATOR_LINK__REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -72,10 +87,13 @@ public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceIt
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceGeneratorReference)object).getTitle();
+		String label = ((GeneratorLink)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((GeneratorLink)object).getRef();
+		}
 		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceGeneratorReference_type") :
-			getString("_UI_ResourceGeneratorReference_type") + " " + label;
+			getString("_UI_GeneratorLink_type") :
+			getString("_UI_GeneratorLink_type") + " " + label;
 	}
 
 
@@ -89,6 +107,12 @@ public class ResourceGeneratorReferenceItemProvider extends GeneratorReferenceIt
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(GeneratorLink.class)) {
+			case CodegenPackage.GENERATOR_LINK__REF:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

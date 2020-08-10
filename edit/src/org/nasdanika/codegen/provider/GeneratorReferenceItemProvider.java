@@ -9,8 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.GeneratorReference;
 
@@ -42,27 +40,27 @@ public class GeneratorReferenceItemProvider extends GeneratorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefPropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Ref feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addRefPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_GeneratorReference_ref_feature"),
-				 CodegenPackage.Literals.GENERATOR_REFERENCE__REF,
+				 getString("_UI_GeneratorReference_target_feature"),
+				 CodegenPackage.Literals.GENERATOR_REFERENCE__TARGET,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null,
 				 null));
@@ -101,12 +99,6 @@ public class GeneratorReferenceItemProvider extends GeneratorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(GeneratorReference.class)) {
-			case CodegenPackage.GENERATOR_REFERENCE__REF:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -8,12 +8,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.nasdanika.codegen.ContentGeneratorReference;
-import org.nasdanika.codegen.GeneratorReference;
-import org.nasdanika.common.Util;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.codegen.ContentGeneratorReference} object.
@@ -77,9 +73,6 @@ public class ContentGeneratorReferenceItemProvider extends GeneratorReferenceIte
 	@Override
 	public String getText(Object object) {
 		String label = ((ContentGeneratorReference)object).getTitle();
-		if (Util.isBlank(label)) {
-			label = ((GeneratorReference)object).getRef();
-		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_ContentGeneratorReference_type") :
 			getString("_UI_ContentGeneratorReference_type") + " " + label;

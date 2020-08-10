@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -18,6 +19,7 @@ import org.nasdanika.codegen.CodegenFactory;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.ContentGeneratorAdapter;
+import org.nasdanika.codegen.ContentGeneratorLink;
 import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.ContentReference;
@@ -26,6 +28,7 @@ import org.nasdanika.codegen.Filter;
 import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.GeneratorAdapter;
+import org.nasdanika.codegen.GeneratorLink;
 import org.nasdanika.codegen.GeneratorReference;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.HttpCall;
@@ -37,6 +40,7 @@ import org.nasdanika.codegen.ResourceCollection;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
 import org.nasdanika.codegen.ResourceGeneratorAdapter;
+import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.Text;
@@ -242,6 +246,27 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass contentGeneratorAdapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generatorLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceGeneratorLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentGeneratorLinkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -650,8 +675,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGeneratorReference_Ref() {
-		return (EAttribute)generatorReferenceEClass.getEStructuralFeatures().get(0);
+	public EReference getGeneratorReference_Target() {
+		return (EReference)generatorReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -960,6 +985,46 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getGeneratorLink() {
+		return generatorLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGeneratorLink_Ref() {
+		return (EAttribute)generatorLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getResourceGeneratorLink() {
+		return resourceGeneratorLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContentGeneratorLink() {
+		return contentGeneratorLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getReconcileAction() {
 		return reconcileActionEEnum;
 	}
@@ -1041,7 +1106,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		zipArchiveEClass = createEClass(ZIP_ARCHIVE);
 
 		generatorReferenceEClass = createEClass(GENERATOR_REFERENCE);
-		createEAttribute(generatorReferenceEClass, GENERATOR_REFERENCE__REF);
+		createEReference(generatorReferenceEClass, GENERATOR_REFERENCE__TARGET);
 
 		resourceGeneratorReferenceEClass = createEClass(RESOURCE_GENERATOR_REFERENCE);
 
@@ -1083,6 +1148,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		contentGeneratorAdapterEClass = createEClass(CONTENT_GENERATOR_ADAPTER);
 
+		generatorLinkEClass = createEClass(GENERATOR_LINK);
+		createEAttribute(generatorLinkEClass, GENERATOR_LINK__REF);
+
+		resourceGeneratorLinkEClass = createEClass(RESOURCE_GENERATOR_LINK);
+
+		contentGeneratorLinkEClass = createEClass(CONTENT_GENERATOR_LINK);
+
 		// Create enums
 		reconcileActionEEnum = createEEnum(RECONCILE_ACTION);
 	}
@@ -1114,8 +1186,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter generatorReferenceEClass_T = addETypeParameter(generatorReferenceEClass, "T");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getGenerator());
+		generatorReferenceEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		generatorEClass.getESuperTypes().add(theNcorePackage.getEntity());
@@ -1140,10 +1215,18 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		zipArchiveEClass.getESuperTypes().add(this.getContentGenerator());
 		zipArchiveEClass.getESuperTypes().add(this.getResourceContainer());
 		generatorReferenceEClass.getESuperTypes().add(this.getGenerator());
-		resourceGeneratorReferenceEClass.getESuperTypes().add(this.getGeneratorReference());
-		resourceGeneratorReferenceEClass.getESuperTypes().add(this.getResourceGenerator());
-		contentGeneratorReferenceEClass.getESuperTypes().add(this.getGeneratorReference());
-		contentGeneratorReferenceEClass.getESuperTypes().add(this.getContentGenerator());
+		g1 = createEGenericType(this.getGeneratorReference());
+		EGenericType g2 = createEGenericType(this.getResourceGenerator());
+		g1.getETypeArguments().add(g2);
+		resourceGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getResourceGenerator());
+		resourceGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGeneratorReference());
+		g2 = createEGenericType(this.getContentGenerator());
+		g1.getETypeArguments().add(g2);
+		contentGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getContentGenerator());
+		contentGeneratorReferenceEClass.getEGenericSuperTypes().add(g1);
 		resourceCollectionEClass.getESuperTypes().add(this.getResourceGenerator());
 		bundleResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
 		zipResourceCollectionEClass.getESuperTypes().add(this.getResourceCollection());
@@ -1154,6 +1237,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		resourceGeneratorAdapterEClass.getESuperTypes().add(this.getResourceGenerator());
 		contentGeneratorAdapterEClass.getESuperTypes().add(this.getGeneratorAdapter());
 		contentGeneratorAdapterEClass.getESuperTypes().add(this.getContentGenerator());
+		generatorLinkEClass.getESuperTypes().add(this.getGenerator());
+		resourceGeneratorLinkEClass.getESuperTypes().add(this.getGeneratorLink());
+		resourceGeneratorLinkEClass.getESuperTypes().add(this.getResourceGenerator());
+		contentGeneratorLinkEClass.getESuperTypes().add(this.getGeneratorLink());
+		contentGeneratorLinkEClass.getESuperTypes().add(this.getContentGenerator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1163,8 +1251,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		EOperation op = initEOperation(getGenerator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1212,7 +1300,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(zipArchiveEClass, ZipArchive.class, "ZipArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generatorReferenceEClass, GeneratorReference.class, "GeneratorReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeneratorReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, GeneratorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(generatorReferenceEClass_T);
+		initEReference(getGeneratorReference_Target(), g1, null, "target", null, 1, 1, GeneratorReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceGeneratorReferenceEClass, ResourceGeneratorReference.class, "ResourceGeneratorReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1253,6 +1342,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(resourceGeneratorAdapterEClass, ResourceGeneratorAdapter.class, "ResourceGeneratorAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(contentGeneratorAdapterEClass, ContentGeneratorAdapter.class, "ContentGeneratorAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(generatorLinkEClass, GeneratorLink.class, "GeneratorLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeneratorLink_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, GeneratorLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceGeneratorLinkEClass, ResourceGeneratorLink.class, "ResourceGeneratorLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentGeneratorLinkEClass, ContentGeneratorLink.class, "ContentGeneratorLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(reconcileActionEEnum, ReconcileAction.class, "ReconcileAction");
@@ -1524,13 +1620,25 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (generatorReferenceEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Reference to a generator model."
+			   "documentation", "Reference to a generator. Generator references can be used to create multi-resource federated generation models. \nFederated generation models can be used to keep reusable logic in shared models referenced by multiple other models.\nModel federation can also be used to keep the models of manageable size, simplify testing, and to facilitate team modeling by assigning different models to different team members.\n\nGenerator references would typically be used to reference generators defined in models in the same project or in generator models reacheable at both the modeling time and generation time.\n\nSee also [GeneratorLink](GeneratorLink.html) for another approach to referencing generators.\n"
 		   });
 		addAnnotation
-		  (getGeneratorReference_Ref(),
+		  (getGeneratorReference_Target(),
 		   source,
 		   new String[] {
-			   "documentation", "Model URL resolved relative to this model. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used."
+			   "documentation", "The target generator is invoked to perform actual generation with context(s) iterated, mapped, and configured."
+		   });
+		addAnnotation
+		  (resourceGeneratorReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to a resource generator."
+		   });
+		addAnnotation
+		  (contentGeneratorReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to a content generator."
 		   });
 		addAnnotation
 		  (resourceCollectionEClass,
@@ -1681,6 +1789,30 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Adapter generating file content."
+		   });
+		addAnnotation
+		  (generatorLinkEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to a generator using a URI resolved relatively to the link\'s resource URI. \nSimilarly to [GeneratorRefernce](GeneratorReference.html) generator links can be used to create multi-resource federated generation models. \nLinks do not require referenced models to be reacheable at the modeling time. Also ``ref`` is interpolated and as such can point to different generators depending on context properties.\nLinked models/elements are loaded at generation time, diagnosed and then executed.\n\n"
+		   });
+		addAnnotation
+		  (getGeneratorLink_Ref(),
+		   source,
+		   new String[] {
+			   "documentation", "Generato URI resolved relative to the generator link resource. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used."
+		   });
+		addAnnotation
+		  (resourceGeneratorLinkEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Link to a resource generator."
+		   });
+		addAnnotation
+		  (contentGeneratorLinkEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to a content generator."
 		   });
 	}
 
