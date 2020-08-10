@@ -12,6 +12,7 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -55,13 +56,61 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 					@Override
 					public BinaryEntityContainer execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
 						String name = context.interpolateToString(target.getName());
-						return Objects.requireNonNull(container.getContainer(name, progressMonitor), "Cannot create container " + name + " in " + container);
+						BinaryEntityContainer ret = Objects.requireNonNull(container.getContainer(name, progressMonitor), "Cannot create container " + name + " in " + container);
+						switch (target.getReconcileAction()) {
+						case OVERWRITE:
+							if (ret.exists(progressMonitor)) {
+								ret.delete(progressMonitor);
+							}
+						case MERGE:
+						case APPEND:
+							return ret;
+						case CANCEL:
+							if (ret.exists(progressMonitor)) {
+								throw new NasdanikaException("Cancelling generation - container '" + name + "' already exists in " + container);
+							}
+							return ret;
+						case KEEP:
+							if (ret.exists(progressMonitor)) {
+								return null; // Indicates that elements factory shall not do anything.
+							}
+							return ret;
+						}
+						return ret;
 					}
 					
 				};
 			}
 		};
-		return containerFactory.then(elementsFactory).create(iContext);
+		
+		ConsumerFactory<BinaryEntityContainer> conditionalFactory = new ConsumerFactory<BinaryEntityContainer>() {
+
+			@Override
+			public Consumer<BinaryEntityContainer> create(Context context) throws Exception {
+				Consumer<BinaryEntityContainer> elementsConsumer = elementsFactory.create(context);
+				return new Consumer<BinaryEntityContainer>() {
+					
+					@Override
+					public double size() {
+						return elementsConsumer.size();
+					}
+					
+					@Override
+					public String name() {
+						return elementsConsumer.name();
+					}
+					
+					@Override
+					public void execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
+						if (container != null) {
+							elementsConsumer.execute(container, progressMonitor);
+						}						
+					}
+				};
+			}
+			
+		};
+		return containerFactory.then(conditionalFactory).create(iContext);
 	}
 
 }

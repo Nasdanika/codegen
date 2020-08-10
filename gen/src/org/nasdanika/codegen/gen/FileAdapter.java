@@ -13,6 +13,7 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplierFactory;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntity;
@@ -59,9 +60,45 @@ public class FileAdapter extends ResourceAdapter<File> {
 					@Override
 					public void execute(BiSupplier<BinaryEntityContainer, InputStream> input, ProgressMonitor progressMonitor) throws Exception {
 						String name = context.interpolateToString(target.getName());
-						BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
-						if (input.getSecond() != null) {
-							file.setState(input.getSecond(), progressMonitor);
+						switch (target.getReconcileAction()) {
+						case CANCEL:
+							if (input.getFirst().find(name, progressMonitor) != null) {
+								throw new NasdanikaException("Cancelling generation - resource '" + name + "' already exists in " + input.getFirst());
+							}
+						case OVERWRITE: {
+							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
+							if (input.getSecond() != null) {
+								file.setState(input.getSecond(), progressMonitor);
+							}
+							break;
+						}
+						case KEEP: {
+							if (input.getFirst().find(name, progressMonitor) == null) {
+								BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
+								if (input.getSecond() != null) {
+									file.setState(input.getSecond(), progressMonitor);
+								}
+							}
+							break;
+						}
+						case APPEND: {
+							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
+							if (input.getSecond() != null) {
+								file.setState(file.exists(progressMonitor) ? ContentGeneratorAdapter.join(file.getState(progressMonitor), input.getSecond()) : input.getSecond(), progressMonitor);
+							}
+							break;
+						}							
+						case MERGE: {
+							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
+							if (input.getSecond() != null) {
+								if (file.exists(progressMonitor)) {
+									file.setState(merge(iContext, file, file.getState(progressMonitor), input.getSecond(), progressMonitor), progressMonitor);
+								} else {
+									file.setState(input.getSecond(), progressMonitor);
+								}
+							}
+							break;
+						}							
 						}
 					}
 					
@@ -71,6 +108,10 @@ public class FileAdapter extends ResourceAdapter<File> {
 		
 		FunctionFactory<BinaryEntityContainer, BiSupplier<BinaryEntityContainer, InputStream>> contentFunctionFactory = contentFactory.asFunctionFactory();
 		return contentFunctionFactory.then(fileFactory).create(iContext);
+	}
+	
+	protected InputStream merge(Context context, BinaryEntity entity, InputStream oldContent, InputStream newContent, ProgressMonitor progressMonitor) throws Exception {
+		throw new UnsupportedOperationException("Merging is not supported yet");
 	}
 
 }

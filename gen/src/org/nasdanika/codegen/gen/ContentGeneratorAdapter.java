@@ -3,6 +3,7 @@ package org.nasdanika.codegen.gen;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +18,25 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 
 public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extends GeneratorAdapter<T> implements SupplierFactory<InputStream> {
+	
+	public static InputStream join(InputStream... streams) throws IOException {
+		if (streams.length == 1) {
+			return streams[0];
+		}
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		for (InputStream in: streams) {
+			if (in != null) {
+				try (BufferedInputStream bin = new BufferedInputStream(in)) {
+					int b;
+					while ((b = bin.read()) != -1) {
+						baos.write(b);
+					}						
+				}
+			}
+		}
+		baos.close();
+		return new ByteArrayInputStream(baos.toByteArray());
+	}
 	
 	public static Function<List<InputStream>, InputStream> JOIN_STREAMS = new Function<List<InputStream>, InputStream>() {
 
@@ -40,11 +60,13 @@ public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extend
 			}
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			for (InputStream in: content) {
-				try (BufferedInputStream bin = new BufferedInputStream(in)) {
-					int b;
-					while ((b = bin.read()) != -1) {
-						baos.write(b);
-					}						
+				if (in != null) {
+					try (BufferedInputStream bin = new BufferedInputStream(in)) {
+						int b;
+						while ((b = bin.read()) != -1) {
+							baos.write(b);
+						}						
+					}
 				}
 			}
 			baos.close();
