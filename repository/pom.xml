@@ -70,6 +70,22 @@
 						</configuration>
 					</execution>					
 					<execution>
+						<id>copy-cli-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.codegen.cli/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../cli/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-model-javadoc</id>
 						<phase>pre-site</phase>
 						<goals>
