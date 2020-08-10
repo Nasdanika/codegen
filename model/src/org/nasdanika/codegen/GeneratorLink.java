@@ -39,7 +39,7 @@ public interface GeneratorLink extends Generator {
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getGeneratorLink_Ref()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getRef();

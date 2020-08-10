@@ -2,9 +2,11 @@ package org.nasdanika.codegen.gen;
 
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
+import org.nasdanika.codegen.ContentGeneratorLink;
 import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.Text;
@@ -51,6 +53,13 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 				this.getClass().getClassLoader(),
 				ResourceGeneratorReferenceAdapter::new));
 		
+		registerAdapterFactory(
+			new FunctionAdapterFactory<ConsumerFactory, ResourceGeneratorLink>(
+				CodegenPackage.Literals.RESOURCE_GENERATOR_LINK, 
+				ConsumerFactory.class, 
+				this.getClass().getClassLoader(),
+				ResourceGeneratorLinkAdapter::new));
+		
 		// --- Content ---
 		
 		registerAdapterFactory(
@@ -74,6 +83,13 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					this.getClass().getClassLoader(),
 					ContentGeneratorReferenceAdapter::new));
 		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ContentGeneratorLink>(
+					CodegenPackage.Literals.CONTENT_GENERATOR_LINK, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ContentGeneratorLinkAdapter::new));
+		
 //		BundleResourceCollection.java
 //		ContentGeneratorAdapter.java
 //		ContentReference.java
@@ -89,7 +105,6 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 //		ResourceGeneratorAdapter.java
 //		ZipArchive.java
 //		ZipResourceCollection.java		
-// link, res link, cont link		
 		
 	}
 

@@ -11,5 +11,8 @@
     <elements xsi:type="org.nasdanika.codegen:ResourceGeneratorReference" title="Info" id="a56a1e61-bad6-4cde-ad93-fde930038467">
       <target xsi:type="org.nasdanika.codegen:File" href="reusable-file.codegen#1276cbcb-ad41-4fd8-b6b8-c65981775e5c"/>
     </elements>
+    <elements xsi:type="org.nasdanika.codegen:Container" id="e1382f87-2e18-41c6-859d-c81f83011eb9" name="meta">
+      <elements xsi:type="org.nasdanika.codegen:ResourceGeneratorLink" id="ab398bc2-751b-4b7c-b318-0841c0cea305" ref="reusable-file.codegen"/>
+    </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

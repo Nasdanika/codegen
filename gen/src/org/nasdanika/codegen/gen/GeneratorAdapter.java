@@ -8,7 +8,14 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ContextIterator;
@@ -209,6 +216,49 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		};
 		
 		return entriesFactory.then(contextFactory);
+	}
+	
+	/**
+	 * Resolves reference relative to the target's resource location, loads and diagnoses linked object.
+	 * @param ref
+	 * @return
+	 * @throws DiagnosticException 
+	 */
+	protected EObject loadLink(Context context, String ref) throws DiagnosticException {
+		URI refUri = URI.createURI(context.interpolateToString(ref));
+		Resource resource = target.eResource();
+		if (resource != null) {
+			URI resUri = resource.getURI();
+			refUri = refUri.resolve(resUri);
+		}
+				
+		java.util.function.Function<Class<ResourceSet>,ResourceSet> factory = type -> {
+			if (ResourceSet.class.isAssignableFrom(type)) {
+				return new ResourceSetImpl();
+			}
+			throw new UnsupportedOperationException("Unsupported type: " + type + ", expected "+ResourceSet.class);
+		};
+		
+		ResourceSet resourceSet = context.get(ResourceSet.class, factory);
+		Resource refResource = resourceSet.getResource(refUri, true);
+		String fragment = refUri.fragment();				
+		EObject ret = fragment == null ? refResource.getContents().get(0) : refResource.getEObject(fragment);
+		
+		Diagnostician diagnostician = new Diagnostician() {
+			
+			public Map<Object,Object> createDefaultContext() {
+				Map<Object, Object> ctx = super.createDefaultContext();
+				ctx.put(Context.class, context);
+				return ctx;
+			};
+			
+		};				
+		Diagnostic validationResult = diagnostician.validate(ret);
+		if (validationResult.getSeverity() == Diagnostic.ERROR) {
+			throw new DiagnosticException(validationResult);
+		}
+		
+		return ret;		
 	}
 	
 }

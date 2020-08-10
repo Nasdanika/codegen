@@ -399,7 +399,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Reference to a generator using a URI resolved relatively to the link's resource URI. &#xA;Similarly to [GeneratorRefernce](GeneratorReference.html) generator links can be used to create multi-resource federated generation models. &#xA;Links do not require referenced models to be reacheable at the modeling time. Also ``ref`` is interpolated and as such can point to different generators depending on context properties.&#xA;Linked models/elements are loaded at generation time, diagnosed and then executed.&#xA;&#xA;"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generato URI resolved relative to the generator link resource. If there is no fragment then the root model element is used. Otherwise the model element identified by the fragment part is used."/>
       </eAnnotations>

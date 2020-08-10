@@ -1344,7 +1344,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(contentGeneratorAdapterEClass, ContentGeneratorAdapter.class, "ContentGeneratorAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generatorLinkEClass, GeneratorLink.class, "GeneratorLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeneratorLink_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, GeneratorLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorLink_Ref(), ecorePackage.getEString(), "ref", null, 1, 1, GeneratorLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceGeneratorLinkEClass, ResourceGeneratorLink.class, "ResourceGeneratorLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
