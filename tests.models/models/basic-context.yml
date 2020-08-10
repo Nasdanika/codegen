@@ -1,0 +1,23 @@
+my-token: xyz
+data: root data
+iterators:
+    scalar: my-scalar ${my-token}
+    list-of-scalars:
+        - scalar-one ${my-token}
+        - scalar-two ${my-token}
+        - scalar-three ${my-token}
+    list-of-maps:
+        - data: list-of-maps-one-data ${my-token}
+          info: info about list of maps one entry
+        - data: list-of-maps-two-data ${my-token}
+          info: info about list of maps two entry          
+        - data: list-of-maps-three-data ${my-token}
+          info: info about list of maps three entry          
+        - data: list-of-maps-four-data ${my-token}
+          info: info about list of maps four entry
+    map:
+        data: map data ${my-token}
+        info: map info
+    sub-context:
+        data: sub-context data
+        info: sub-context info                     
