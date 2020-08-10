@@ -615,6 +615,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContentReference_Interpolate() {
+		return (EAttribute)contentReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFilter() {
 		return filterEClass;
 	}
@@ -1095,6 +1105,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		contentReferenceEClass = createEClass(CONTENT_REFERENCE);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__REF);
+		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__INTERPOLATE);
 
 		filterEClass = createEClass(FILTER);
 		createEReference(filterEClass, FILTER__GENERATORS);
@@ -1289,6 +1300,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentReference_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContentReference_Interpolate(), ecorePackage.getEBoolean(), "interpolate", "false", 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFilter_Generators(), this.getGenerator(), null, "generators", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1585,6 +1597,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Content location (URL) resolved relative to the model location."
+		   });
+		addAnnotation
+		  (getContentReference_Interpolate(),
+		   source,
+		   new String[] {
+			   "documentation", "If ``true`` content is converted to String using the context charset (defaults to UTF-8), interpolated, and then converted to input stream using the same charset."
 		   });
 		addAnnotation
 		  (filterEClass,

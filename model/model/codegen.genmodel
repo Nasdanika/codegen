@@ -52,6 +52,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//ContentReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ContentReference/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ContentReference/interpolate"/>
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//Filter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//Filter/generators"/>

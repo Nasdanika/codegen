@@ -5,6 +5,7 @@ import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.ContentGeneratorLink;
 import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
+import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
@@ -60,6 +61,13 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 				this.getClass().getClassLoader(),
 				ResourceGeneratorLinkAdapter::new));
 		
+		registerAdapterFactory(
+			new FunctionAdapterFactory<ConsumerFactory, org.nasdanika.codegen.ResourceGeneratorAdapter>(
+				CodegenPackage.Literals.RESOURCE_GENERATOR_ADAPTER, 
+				ConsumerFactory.class, 
+				this.getClass().getClassLoader(),
+				ResourceGeneratorAdapterAdapter::new));
+		
 		// --- Content ---
 		
 		registerAdapterFactory(
@@ -90,19 +98,29 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					this.getClass().getClassLoader(),
 					ContentGeneratorLinkAdapter::new));
 		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, org.nasdanika.codegen.ContentGeneratorAdapter>(
+					CodegenPackage.Literals.CONTENT_GENERATOR_ADAPTER, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ContentGeneratorAdapterAdapter::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ContentReference>(
+					CodegenPackage.Literals.CONTENT_REFERENCE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ContentReferenceAdapter::new));
+		
 //		BundleResourceCollection.java
-//		ContentGeneratorAdapter.java
-//		ContentReference.java
 //		Filter.java
 //		FreeMarkerGenerator.java
-//		GeneratorAdapter.java
 //		HttpCall.java
 //		Interpolator.java
 //		Mustache.java
 //		ReconcileAction.java
 //		ResourceCollection.java
 //		ResourceContainer.java
-//		ResourceGeneratorAdapter.java
 //		ZipArchive.java
 //		ZipResourceCollection.java		
 		

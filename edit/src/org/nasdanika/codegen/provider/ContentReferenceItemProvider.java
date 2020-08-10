@@ -44,6 +44,7 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addRefPropertyDescriptor(object);
+			addInterpolatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,6 +65,27 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Interpolate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInterpolatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ContentReference_interpolate_feature"),
+				 CodegenPackage.Literals.CONTENT_REFERENCE__INTERPOLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null,
 				 null));
@@ -109,6 +131,7 @@ public class ContentReferenceItemProvider extends GeneratorItemProvider {
 
 		switch (notification.getFeatureID(ContentReference.class)) {
 			case CodegenPackage.CONTENT_REFERENCE__REF:
+			case CodegenPackage.CONTENT_REFERENCE__INTERPOLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

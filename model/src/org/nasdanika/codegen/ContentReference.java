@@ -18,6 +18,7 @@ package org.nasdanika.codegen;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.ContentReference#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.ContentReference#isInterpolate <em>Interpolate</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getContentReference()
@@ -49,5 +50,31 @@ public interface ContentReference extends ContentGenerator {
 	 * @generated
 	 */
 	void setRef(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Interpolate</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If ``true`` content is converted to String using the context charset (defaults to UTF-8), interpolated, and then converted to input stream using the same charset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Interpolate</em>' attribute.
+	 * @see #setInterpolate(boolean)
+	 * @see org.nasdanika.codegen.CodegenPackage#getContentReference_Interpolate()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isInterpolate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.ContentReference#isInterpolate <em>Interpolate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interpolate</em>' attribute.
+	 * @see #isInterpolate()
+	 * @generated
+	 */
+	void setInterpolate(boolean value);
 
 } // ContentReference

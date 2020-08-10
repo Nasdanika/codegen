@@ -1349,13 +1349,22 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__REF = CONTENT_GENERATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__INTERPOLATE = CONTENT_GENERATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Content Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_REFERENCE_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 1;
+	int CONTENT_REFERENCE_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3892,6 +3901,17 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getContentReference_Ref();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ContentReference#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.ContentReference#isInterpolate()
+	 * @see #getContentReference()
+	 * @generated
+	 */
+	EAttribute getContentReference_Interpolate();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4588,6 +4608,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTENT_REFERENCE__REF = eINSTANCE.getContentReference_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT_REFERENCE__INTERPOLATE = eINSTANCE.getContentReference_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.FilterImpl <em>Filter</em>}' class.

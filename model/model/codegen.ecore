@@ -188,6 +188,12 @@
         <details key="documentation" value="Content location (URL) resolved relative to the model location."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If ``true`` content is converted to String using the context charset (defaults to UTF-8), interpolated, and then converted to input stream using the same charset."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true" eSuperTypes="#//ContentGenerator">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

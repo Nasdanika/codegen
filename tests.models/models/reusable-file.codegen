@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" id="1276cbcb-ad41-4fd8-b6b8-c65981775e5c" name="info.txt">
-  <content xsi:type="org.nasdanika.codegen:Text" id="ad66600a-8f26-471a-b865-183883060653" text="Important info. Data: ${data}"/>
+<org.nasdanika.codegen:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" id="1276cbcb-ad41-4fd8-b6b8-c65981775e5c" name="info.txt">
+  <content xsi:type="org.nasdanika.codegen:Text" id="ad66600a-8f26-471a-b865-183883060653" text="Important info. Data: ${data}&#xD;&#xA;"/>
   <content xsi:type="org.nasdanika.codegen:ContentGeneratorLink" id="c5c409ea-a383-4f6f-81b7-67a0d1073df2" ref="external-content.codegen"/>
+  <content xsi:type="org.nasdanika.codegen:ContentReference" id="47f7af1e-f9cc-4202-b0e0-01b94792c0ed" ref="../resources/test.txt" interpolate="true">
+    <configuration xsi:type="org.nasdanika.ncore:Property" value="Mr. ${data}" name="name"/>
+  </content>
 </org.nasdanika.codegen:File>

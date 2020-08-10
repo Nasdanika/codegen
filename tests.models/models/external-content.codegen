@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:Text xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" id="45b887c2-5a67-439c-8573-a88e68170fea" text="I'm an external text content. Context data - ${data}"/>
+<org.nasdanika.codegen:Text xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" id="45b887c2-5a67-439c-8573-a88e68170fea" text="I'm an external text content. Context data - ${data}&#xD;&#xA;"/>

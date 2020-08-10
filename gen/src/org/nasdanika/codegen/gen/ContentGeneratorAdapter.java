@@ -5,6 +5,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,6 +43,24 @@ public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extend
 		baos.close();
 		return new ByteArrayInputStream(baos.toByteArray());
 	}
+		
+	public static InputStream interpolate(Context context, InputStream in) throws IOException {
+		StringWriter sw = new StringWriter();
+		Charset charset = context.get(Charset.class, StandardCharsets.UTF_8);
+		try (Reader reader = new InputStreamReader(new BufferedInputStream(in), charset)) {
+			int ch;
+			while ((ch = reader.read()) != -1) {
+				sw.write(ch);
+			}
+		}
+		sw.close();
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try (OutputStreamWriter writer = new OutputStreamWriter(baos, charset)) {
+			writer.write(context.interpolateToString(sw.toString()));
+		}
+		baos.close();
+		return new ByteArrayInputStream(baos.toByteArray());
+	}	
 	
 	public static Function<List<InputStream>, InputStream> JOIN_STREAMS = new Function<List<InputStream>, InputStream>() {
 

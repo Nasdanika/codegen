@@ -16,6 +16,7 @@ import org.nasdanika.codegen.ContentReference;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.ContentReferenceImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.ContentReferenceImpl#isInterpolate <em>Interpolate</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,6 +31,16 @@ public class ContentReferenceImpl extends GeneratorImpl implements ContentRefere
 	 * @ordered
 	 */
 	protected static final String REF_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isInterpolate() <em>Interpolate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInterpolate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INTERPOLATE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,10 +87,32 @@ public class ContentReferenceImpl extends GeneratorImpl implements ContentRefere
 	 * @generated
 	 */
 	@Override
+	public boolean isInterpolate() {
+		return (Boolean)eDynamicGet(CodegenPackage.CONTENT_REFERENCE__INTERPOLATE, CodegenPackage.Literals.CONTENT_REFERENCE__INTERPOLATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInterpolate(boolean newInterpolate) {
+		eDynamicSet(CodegenPackage.CONTENT_REFERENCE__INTERPOLATE, CodegenPackage.Literals.CONTENT_REFERENCE__INTERPOLATE, newInterpolate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodegenPackage.CONTENT_REFERENCE__REF:
 				return getRef();
+			case CodegenPackage.CONTENT_REFERENCE__INTERPOLATE:
+				return isInterpolate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -94,6 +127,9 @@ public class ContentReferenceImpl extends GeneratorImpl implements ContentRefere
 		switch (featureID) {
 			case CodegenPackage.CONTENT_REFERENCE__REF:
 				setRef((String)newValue);
+				return;
+			case CodegenPackage.CONTENT_REFERENCE__INTERPOLATE:
+				setInterpolate((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,6 +146,9 @@ public class ContentReferenceImpl extends GeneratorImpl implements ContentRefere
 			case CodegenPackage.CONTENT_REFERENCE__REF:
 				setRef(REF_EDEFAULT);
 				return;
+			case CodegenPackage.CONTENT_REFERENCE__INTERPOLATE:
+				setInterpolate(INTERPOLATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -124,6 +163,8 @@ public class ContentReferenceImpl extends GeneratorImpl implements ContentRefere
 		switch (featureID) {
 			case CodegenPackage.CONTENT_REFERENCE__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
+			case CodegenPackage.CONTENT_REFERENCE__INTERPOLATE:
+				return isInterpolate() != INTERPOLATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
