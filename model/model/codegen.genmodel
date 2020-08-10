@@ -20,6 +20,7 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//Generator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/enabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/iterator"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Generator/contextMap"/>
       <genOperations ecoreOperation="codegen.ecore#//Generator/validate">
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/diagnostics"/>
         <genParameters ecoreParameter="codegen.ecore#//Generator/validate/context"/>

@@ -132,13 +132,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__ITERATOR = NcorePackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CONTEXT_MAP = NcorePackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 3;
+	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -221,6 +230,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -323,6 +341,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The number of structural features of the '<em>Resource Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +439,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_GENERATOR__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The number of structural features of the '<em>Content Generator</em>' class.
@@ -542,6 +578,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__ITERATOR = RESOURCE_GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTEXT_MAP = RESOURCE_GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -658,6 +703,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__ITERATOR = RESOURCE__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__CONTEXT_MAP = RESOURCE__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -796,6 +850,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__ITERATOR = RESOURCE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__CONTEXT_MAP = RESOURCE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -923,6 +986,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__ITERATOR = GROUP__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__CONTEXT_MAP = GROUP__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1023,6 +1095,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GROUP__ITERATOR = GROUP__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GROUP__CONTEXT_MAP = GROUP__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1121,6 +1202,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__ITERATOR = CONTENT_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -1241,6 +1331,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1339,6 +1438,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER__ITERATOR = CONTENT_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1441,6 +1549,15 @@ public interface CodegenPackage extends EPackage {
 	int INTERPOLATOR__ITERATOR = FILTER__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__CONTEXT_MAP = FILTER__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1539,6 +1656,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MUSTACHE__ITERATOR = FILTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__CONTEXT_MAP = FILTER__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Generators</b></em>' containment reference list.
@@ -1641,6 +1767,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_ARCHIVE__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1739,6 +1874,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_REFERENCE__ITERATOR = GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1841,6 +1985,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_REFERENCE__ITERATOR = GENERATOR_REFERENCE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR_REFERENCE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1941,6 +2094,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_REFERENCE__ITERATOR = GENERATOR_REFERENCE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__CONTEXT_MAP = GENERATOR_REFERENCE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2039,6 +2201,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_COLLECTION__ITERATOR = RESOURCE_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__CONTEXT_MAP = RESOURCE_GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2202,6 +2373,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUNDLE_RESOURCE_COLLECTION__ITERATOR = RESOURCE_COLLECTION__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__CONTEXT_MAP = RESOURCE_COLLECTION__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2376,6 +2556,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__ITERATOR = RESOURCE_COLLECTION__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__CONTEXT_MAP = RESOURCE_COLLECTION__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2548,6 +2737,15 @@ public interface CodegenPackage extends EPackage {
 	int HTTP_CALL__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2702,6 +2900,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT__ITERATOR = CONTENT_GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__CONTEXT_MAP = CONTENT_GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2811,6 +3018,15 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_ADAPTER__ITERATOR = GENERATOR__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__CONTEXT_MAP = GENERATOR__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Factory</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2909,6 +3125,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR_ADAPTER__ITERATOR = GENERATOR_ADAPTER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__CONTEXT_MAP = GENERATOR_ADAPTER__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Factory</b></em>' attribute.
@@ -3011,6 +3236,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_ADAPTER__ITERATOR = GENERATOR_ADAPTER__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__CONTEXT_MAP = GENERATOR_ADAPTER__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Factory</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3088,6 +3322,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_Iterator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.Generator#getContextMap <em>Context Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context Map</em>'.
+	 * @see org.nasdanika.codegen.Generator#getContextMap()
+	 * @see #getGenerator()
+	 * @generated
+	 */
+	EAttribute getGenerator_ContextMap();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.codegen.Generator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
@@ -3769,6 +4014,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR__ITERATOR = eINSTANCE.getGenerator_Iterator();
+
+		/**
+		 * The meta object literal for the '<em><b>Context Map</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR__CONTEXT_MAP = eINSTANCE.getGenerator_ContextMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.

@@ -44,6 +44,7 @@ import org.nasdanika.ncore.impl.EntityImpl;
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getIterator <em>Iterator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextMap <em>Context Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +69,16 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	 * @ordered
 	 */
 	protected static final String ITERATOR_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getContextMap() <em>Context Map</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTEXT_MAP_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +156,26 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	 * @generated
 	 */
 	@Override
+	public String getContextMap() {
+		return (String)eDynamicGet(CodegenPackage.GENERATOR__CONTEXT_MAP, CodegenPackage.Literals.GENERATOR__CONTEXT_MAP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContextMap(String newContextMap) {
+		eDynamicSet(CodegenPackage.GENERATOR__CONTEXT_MAP, CodegenPackage.Literals.GENERATOR__CONTEXT_MAP, newContextMap);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
@@ -193,6 +224,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				return isEnabled();
 			case CodegenPackage.GENERATOR__ITERATOR:
 				return getIterator();
+			case CodegenPackage.GENERATOR__CONTEXT_MAP:
+				return getContextMap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +249,9 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__ITERATOR:
 				setIterator((String)newValue);
 				return;
+			case CodegenPackage.GENERATOR__CONTEXT_MAP:
+				setContextMap((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,6 +273,9 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__ITERATOR:
 				setIterator(ITERATOR_EDEFAULT);
 				return;
+			case CodegenPackage.GENERATOR__CONTEXT_MAP:
+				setContextMap(CONTEXT_MAP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,6 +294,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				return isEnabled() != ENABLED_EDEFAULT;
 			case CodegenPackage.GENERATOR__ITERATOR:
 				return ITERATOR_EDEFAULT == null ? getIterator() != null : !ITERATOR_EDEFAULT.equals(getIterator());
+			case CodegenPackage.GENERATOR__CONTEXT_MAP:
+				return CONTEXT_MAP_EDEFAULT == null ? getContextMap() != null : !CONTEXT_MAP_EDEFAULT.equals(getContextMap());
 		}
 		return super.eIsSet(featureID);
 	}

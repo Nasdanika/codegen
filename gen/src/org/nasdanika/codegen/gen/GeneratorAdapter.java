@@ -1,5 +1,6 @@
 package org.nasdanika.codegen.gen;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -7,10 +8,18 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ContextIterator;
+import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.ncore.AbstractEntry;
+import org.yaml.snakeyaml.Yaml;
 
 public abstract class GeneratorAdapter<T extends Generator> {
 	
@@ -36,15 +45,15 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		}
 		String iterator = target.getIterator();
 		if (Util.isBlank(iterator)) {
-			return Collections.singleton(context);
+			return map(context);
 		}
 		Object value = context.get(iterator);
 		if (value == null) {
 			// Sub-context - prefix.
-			return Collections.singleton(context.map(key -> iterator + key));
+			return map(context.map(key -> iterator + key));
 		}
 		
-		return iterate(context, value);
+		return map(iterate(context, value));
 	}
 	
 	/**
@@ -55,6 +64,12 @@ public abstract class GeneratorAdapter<T extends Generator> {
 	 */
 	@SuppressWarnings("unchecked")
 	private Collection<Context> iterate(Context context, Object value) throws Exception {	
+		if (Boolean.TRUE.equals(value)) {
+			return Collections.singleton(context);			
+		}
+		if (Boolean.FALSE.equals(value)) {
+			return Collections.emptyList();
+		}
 		if (value instanceof AdapterFactory) {
 			AdapterFactory factory = (AdapterFactory) value;
 			if (!factory.isFactoryForType(ContextIterator.Factory.class)) {
@@ -71,7 +86,21 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		
 		if (value instanceof Map) {
 			// Interpolate the map and wrap into context
-			return Collections.singleton(Context.wrap(context.interpolate((Map<String,Object>) value)::get));
+			Context ctx = Context.wrap(context.interpolate((Map<String,Object>) value)::get).compose(new Context() {
+
+				@Override
+				public Object get(String key) {
+					// Not inheriting properties
+					return null;
+				}
+
+				@Override
+				public <S> S get(Class<S> type) {
+					return context.get(type);
+				}
+				
+			});
+			return Collections.singleton(ctx);
 		}
 		if (value instanceof Collection) {
 			Collection<Context> ret = new ArrayList<>();
@@ -83,5 +112,103 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		
 		return Collections.singleton(context.compose(Context.singleton("data", value instanceof String ? context.interpolate((String) value) : value))); 		
 	}
+	
+	private Collection<Context> map(Collection<Context> contexts) throws Exception {	
+		if (contexts.size() == 1) {
+			return map(contexts.iterator().next());
+		}
+		
+		Collection<Context> ret = new ArrayList<>();
+		for (Context c: contexts) {
+			ret.addAll(map(c));
+		}
+		return ret;
+	}
+	
+	/**
+	 * Maps context
+	 * @param context
+	 * @return
+	 * @throws Exception 
+	 */
+	private Collection<Context> map(Context context) throws Exception {
+		if (Util.isBlank(target.getContextMap())) {
+			return Collections.singleton(context);
+		}
+		
+		Yaml yaml = new Yaml();
+		Object spec = yaml.load(target.getContextMap());
+		return map(context, spec);		
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Collection<Context> map(Context context, Object spec) throws Exception {
+		if (spec instanceof Collection) {
+			Collection<Object> sc = (Collection<Object>) spec;
+			if (sc.size() == 1) {
+				return map(context, sc.iterator().next());
+			}
+			
+			Collection<Context> ret = new ArrayList<>();
+			for (Object se: sc) {
+				ret.addAll(map(context, se));
+			}
+			return ret;
+		}
+		
+		if (spec instanceof Map) {
+			Map<String, Object> iMap = context.interpolate((Map<String,Object>) spec);
+			Context ctx = Context.wrap(iMap::get).compose(new Context() {
 
+				@Override
+				public Object get(String key) {
+					// Not inheriting properties
+					return null;
+				}
+
+				@Override
+				public <S> S get(Class<S> type) {
+					return context.get(type);
+				}
+				
+			});  
+			return Collections.singleton(ctx);
+		}
+		
+		// Treating spec as a relative URL
+		URL ref = EmfUtil.resolveReference(target.eResource(), String.valueOf(spec));
+		Yaml yaml = new Yaml();
+		return map(context, yaml.load(ref.openStream()));
+	}
+		
+	/**
+	 * Creates context supplier factory from configuration of contextification.
+	 * 
+	 * @return Context supplier factory or null if configuration is empty.
+	 */
+	protected org.nasdanika.common.SupplierFactory<Context> createContextSupplierFactory() {
+		if (target.getConfiguration().isEmpty()) {
+			return null;
+		}
+		MapCompoundSupplierFactory<String, Object> entriesFactory = new MapCompoundSupplierFactory<String, Object>("Entries");
+		for (EObject ce: target.getConfiguration()) {
+			if (ce instanceof AbstractEntry) {
+				entriesFactory.put(((AbstractEntry) ce).getName(), EObjectAdaptable.adaptToSupplierFactory(ce, Object.class));
+			}
+		}
+		
+		FunctionFactory<Map<String, java.lang.Object>, org.nasdanika.common.Context> contextFactory = new FunctionFactory<Map<String,Object>, org.nasdanika.common.Context>() {
+			
+			@Override
+			public Function<Map<String, java.lang.Object>, org.nasdanika.common.Context> create(org.nasdanika.common.Context context) throws Exception {
+				return Function.fromBiFunction((map, progressMonitor) -> {
+					return org.nasdanika.common.Context.wrap(map::get).compose(context);
+				}, "Contextifier", 1);
+			}
+			
+		};
+		
+		return entriesFactory.then(contextFactory);
+	}
+	
 }

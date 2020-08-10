@@ -360,6 +360,16 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGenerator_ContextMap() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getGenerator__Validate__DiagnosticChain_Map() {
 		return generatorEClass.getEOperations().get(0);
 	}
@@ -986,6 +996,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		generatorEClass = createEClass(GENERATOR);
 		createEAttribute(generatorEClass, GENERATOR__ENABLED);
 		createEAttribute(generatorEClass, GENERATOR__ITERATOR);
+		createEAttribute(generatorEClass, GENERATOR__CONTEXT_MAP);
 		createEOperation(generatorEClass, GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		groupEClass = createEClass(GROUP);
@@ -1148,6 +1159,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerator_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Iterator(), ecorePackage.getEString(), "iterator", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerator_ContextMap(), ecorePackage.getEString(), "contextMap", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getGenerator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1278,7 +1290,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (generatorEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Generator is the base class for model element performing code generation."
+			   "documentation", "Generator is the base class for model element performing code generation.\n\nGenerator final context is constucted in the following order:\n\n* Iterator is processed\n* If context map is not blank then iterator contexts are mapped\n* If configuration elements are present they are injected into the previously constructed context\n"
 		   });
 		addAnnotation
 		  (getGenerator__Validate__DiagnosticChain_Map(),
@@ -1309,6 +1321,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Iterator contains context property name and allows to execute generator zero or more times depending on the property type.\n\n* If iterator is blank then generator is executed once using the current generation context.\n* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:\n    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.\n    * boolean ``false`` - generator is not executed.\n    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.\n    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.\n    * list - generator is executed once for each list element with element value being processed as explained here.\n    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.\n    * ${javadoc/org.eclipse.emf.common.notify.AdapterFactory} - the factory shall be for ${javadoc/org.nasdanika.common.ContextIterator$Factory}. A context iterator is created by the factory and is used to iterate over the element.\n\n"
+		   });
+		addAnnotation
+		  (getGenerator_ContextMap(),
+		   source,
+		   new String[] {
+			   "documentation", "If context map is not blank then it is parsed as [YAML](https://en.wikipedia.org/wiki/YAML) and used to construct a generation context or contexts from the current context.\nIf contextMap value is string then it is used as a relative URL to load a YAML resource with context mapping. The resource is processed in the same way as the context map text.\nIf it is a map then then the map is interpolated by the current context and wrapped into a context.\nIf the value is a list then each of its elements is processed as explained here to produce a mapped context. In this case the generator is executed once for each list element for each iterator entry (nested loop). \n\n\n"
 		   });
 		addAnnotation
 		  (groupEClass,
@@ -1674,6 +1692,12 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	protected void createUrnorgAnnotations() {
 		String source = "urn:org.nasdanika";
+		addAnnotation
+		  (getGenerator_ContextMap(),
+		   source,
+		   new String[] {
+			   "content-type", "text/code"
+		   });
 		addAnnotation
 		  (getText_Text(),
 		   source,

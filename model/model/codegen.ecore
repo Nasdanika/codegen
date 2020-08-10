@@ -6,7 +6,7 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Entity ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Generator is the base class for model element performing code generation."/>
+      <details key="documentation" value="Generator is the base class for model element performing code generation.&#xA;&#xA;Generator final context is constucted in the following order:&#xA;&#xA;* Iterator is processed&#xA;* If context map is not blank then iterator contexts are mapped&#xA;* If configuration elements are present they are injected into the previously constructed context&#xA;"/>
     </eAnnotations>
     <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -36,6 +36,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Iterator contains context property name and allows to execute generator zero or more times depending on the property type.&#xA;&#xA;* If iterator is blank then generator is executed once using the current generation context.&#xA;* If iterator is not blank its value is used to get a property from the current generation context. Depending on the property value the generator is executed zero or more times:&#xA;    * null - in this case iterator value is used as a prefix to create a sub-context to be used by the generator. E.g. if iterator value is ``my-component/`` then ``my-property`` property of the sub-context maps to ``my-component/my-property`` property of the parent context.&#xA;    * boolean ``false`` - generator is not executed.&#xA;    * boolean ``true`` - generator is executed once with the current context, same as for a blank iterator.&#xA;    * single value (scalar) - generator is executed once with the current context and value available via ``data`` context property.&#xA;    * list - generator is executed once for each list element with element value being processed as explained here.&#xA;    * map - the map values are interoplated recursively by the current context. Then the map is wrapped into a context which is used to execute the generator.&#xA;    * ${javadoc/org.eclipse.emf.common.notify.AdapterFactory} - the factory shall be for ${javadoc/org.nasdanika.common.ContextIterator$Factory}. A context iterator is created by the factory and is used to iterate over the element.&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextMap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If context map is not blank then it is parsed as [YAML](https://en.wikipedia.org/wiki/YAML) and used to construct a generation context or contexts from the current context.&#xA;If contextMap value is string then it is used as a relative URL to load a YAML resource with context mapping. The resource is processed in the same way as the context map text.&#xA;If it is a map then then the map is interpolated by the current context and wrapped into a context.&#xA;If the value is a list then each of its elements is processed as explained here to produce a mapped context. In this case the generator is executed once for each list element for each iterator entry (nested loop). &#xA;&#xA;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="urn:org.nasdanika">
+        <details key="content-type" value="text/code"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

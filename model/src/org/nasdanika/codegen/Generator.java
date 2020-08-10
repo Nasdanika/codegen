@@ -16,6 +16,13 @@ import org.nasdanika.ncore.Entity;
  *
  * <!-- begin-model-doc -->
  * Generator is the base class for model element performing code generation.
+ * 
+ * Generator final context is constucted in the following order:
+ * 
+ * * Iterator is processed
+ * * If context map is not blank then iterator contexts are mapped
+ * * If configuration elements are present they are injected into the previously constructed context
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -24,6 +31,7 @@ import org.nasdanika.ncore.Entity;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.Generator#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.Generator#getIterator <em>Iterator</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.Generator#getContextMap <em>Context Map</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getGenerator()
@@ -97,6 +105,37 @@ public interface Generator extends Entity, Configurable {
 	 * @generated
 	 */
 	void setIterator(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If context map is not blank then it is parsed as [YAML](https://en.wikipedia.org/wiki/YAML) and used to construct a generation context or contexts from the current context.
+	 * If contextMap value is string then it is used as a relative URL to load a YAML resource with context mapping. The resource is processed in the same way as the context map text.
+	 * If it is a map then then the map is interpolated by the current context and wrapped into a context.
+	 * If the value is a list then each of its elements is processed as explained here to produce a mapped context. In this case the generator is executed once for each list element for each iterator entry (nested loop). 
+	 * 
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context Map</em>' attribute.
+	 * @see #setContextMap(String)
+	 * @see org.nasdanika.codegen.CodegenPackage#getGenerator_ContextMap()
+	 * @model annotation="urn:org.nasdanika content-type='text/code'"
+	 * @generated
+	 */
+	String getContextMap();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.Generator#getContextMap <em>Context Map</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context Map</em>' attribute.
+	 * @see #getContextMap()
+	 * @generated
+	 */
+	void setContextMap(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

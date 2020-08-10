@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.codegen:ResourceGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" title="Test" description="Test resource container." id="8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98" iterator="">
+<org.nasdanika.codegen:ResourceGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" title="Test" description="Test resource container." id="8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98" iterator="">
   <elements xsi:type="org.nasdanika.codegen:Container" id="76b57977-cd27-4682-86e1-159d1884eba2" name="resources">
-    <elements xsi:type="org.nasdanika.codegen:File" id="ca5f5388-b260-4428-a1d1-3d8a51c389ef" name="application.yml">
-      <content xsi:type="org.nasdanika.codegen:Text" id="130cb014-e036-4778-96c9-e4f356cc9f72" text="data: ${data}&#xD;&#xA;"/>
+    <elements xsi:type="org.nasdanika.codegen:File" id="ca5f5388-b260-4428-a1d1-3d8a51c389ef" contextMap="- &#xD;&#xA;    data: mapped data one interpolated with inherited data - ${data}&#xD;&#xA;    index: one&#xD;&#xA;- &#xD;&#xA;    data: mapped data two interpolated with inherited data - ${data}&#xD;&#xA;    index: two&#xD;&#xA;" name="application-${index}.yml">
+      <configuration xsi:type="org.nasdanika.ncore:Property" value="my config referencing data - ${data}" name="my-config"/>
+      <content xsi:type="org.nasdanika.codegen:Text" id="130cb014-e036-4778-96c9-e4f356cc9f72" text="data: ${data}&#xD;&#xA;my-config: ${my-config}&#xD;&#xA;"/>
     </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

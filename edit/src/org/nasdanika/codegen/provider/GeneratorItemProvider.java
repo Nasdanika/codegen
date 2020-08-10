@@ -51,6 +51,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 
 			addEnabledPropertyDescriptor(object);
 			addIteratorPropertyDescriptor(object);
+			addContextMapPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,27 @@ public class GeneratorItemProvider extends EntityItemProvider {
 				 CodegenPackage.Literals.GENERATOR__ITERATOR,
 				 true,
 				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Context Map feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addContextMapPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Generator_contextMap_feature"),
+				 CodegenPackage.Literals.GENERATOR__CONTEXT_MAP,
+				 true,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -188,6 +210,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 		switch (notification.getFeatureID(Generator.class)) {
 			case CodegenPackage.GENERATOR__ENABLED:
 			case CodegenPackage.GENERATOR__ITERATOR:
+			case CodegenPackage.GENERATOR__CONTEXT_MAP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:

@@ -62,25 +62,33 @@ public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extend
 		
 	};
 	
-
 	@Override
-	public Supplier<InputStream> create(Context context) throws Exception {		
+	public Supplier<InputStream> create(Context context) throws Exception {
+		SupplierFactory<Context> contextSupplierFactory = createContextSupplierFactory();
 		Collection<Context> iContexts = iterate(context);
 		if (iContexts.size() == 1) {
-			return createElement(iContexts.iterator().next());
+			return configure(iContexts.iterator().next(), contextSupplierFactory, this::createElement);
 		}
 		
 		@SuppressWarnings("resource")
 		ListCompoundSupplier<InputStream> ret = new ListCompoundSupplier<>("Content generator iterator " + target.getTitle());
 		for (Context iContext: iContexts) {
-			ret.add(createElement(iContext));
+			ret.add(configure(iContext, contextSupplierFactory, this::createElement));
 		}
 		return ret.then(JOIN_STREAMS);
 	}
+	
+	protected Supplier<InputStream> configure(Context context, SupplierFactory<Context> contextSupplierFactory, SupplierFactory<InputStream> supplierFactory) throws Exception {
+		if (contextSupplierFactory == null) {
+			return supplierFactory.create(context);
+		}
+		
+		return supplierFactory.contextify(contextSupplierFactory).create(context);
+	}
 
 	/**
-	 * Invoked for each iterator element
-	 * @param iContext
+	 * Invoked for each iterator element.
+	 * @param iContext Iterator element context mapped and injected with configuration entries.
 	 * @return
 	 * @throws Exception
 	 */
