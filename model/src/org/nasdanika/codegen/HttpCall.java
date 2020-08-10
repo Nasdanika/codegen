@@ -3,8 +3,8 @@
 package org.nasdanika.codegen;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.HttpMethod;
+import org.nasdanika.ncore.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +26,7 @@ import org.nasdanika.ncore.HttpMethod;
  *   <li>{@link org.nasdanika.codegen.HttpCall#getReadTimeout <em>Read Timeout</em>}</li>
  *   <li>{@link org.nasdanika.codegen.HttpCall#getSuccessCode <em>Success Code</em>}</li>
  *   <li>{@link org.nasdanika.codegen.HttpCall#getBody <em>Body</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.HttpCall#isInterpolate <em>Interpolate</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getHttpCall()
@@ -38,7 +39,7 @@ public interface HttpCall extends ContentGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URL resolved relative to the model.
+	 * URL resolved relative to the model resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
@@ -86,7 +87,7 @@ public interface HttpCall extends ContentGenerator {
 
 	/**
 	 * Returns the value of the '<em><b>Headers</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
+	 * The list contents are of type {@link org.nasdanika.ncore.Property}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Headers</em>' containment reference list.
@@ -94,7 +95,7 @@ public interface HttpCall extends ContentGenerator {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry> getHeaders();
+	EList<Property> getHeaders();
 
 	/**
 	 * Returns the value of the '<em><b>Connect Timeout</b></em>' attribute.
@@ -185,5 +186,31 @@ public interface HttpCall extends ContentGenerator {
 	 * @generated
 	 */
 	EList<ContentGenerator> getBody();
+
+	/**
+	 * Returns the value of the '<em><b>Interpolate</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If ``true`` response body is converted to String using the context charset (defaults to UTF-8), interpolated, and then converted to input stream using the same charset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Interpolate</em>' attribute.
+	 * @see #setInterpolate(boolean)
+	 * @see org.nasdanika.codegen.CodegenPackage#getHttpCall_Interpolate()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isInterpolate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.codegen.HttpCall#isInterpolate <em>Interpolate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interpolate</em>' attribute.
+	 * @see #isInterpolate()
+	 * @generated
+	 */
+	void setInterpolate(boolean value);
 
 } // HttpCall

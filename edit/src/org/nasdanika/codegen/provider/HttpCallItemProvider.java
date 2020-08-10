@@ -17,6 +17,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.HttpCall;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -52,6 +53,7 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 			addConnectTimeoutPropertyDescriptor(object);
 			addReadTimeoutPropertyDescriptor(object);
 			addSuccessCodePropertyDescriptor(object);
+			addInterpolatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -162,6 +164,27 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Interpolate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInterpolatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_HttpCall_interpolate_feature"),
+				 CodegenPackage.Literals.HTTP_CALL__INTERPOLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -253,6 +276,7 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 			case CodegenPackage.HTTP_CALL__CONNECT_TIMEOUT:
 			case CodegenPackage.HTTP_CALL__READ_TIMEOUT:
 			case CodegenPackage.HTTP_CALL__SUCCESS_CODE:
+			case CodegenPackage.HTTP_CALL__INTERPOLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CodegenPackage.HTTP_CALL__HEADERS:
@@ -275,9 +299,7 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		// --- Headers ---		
-		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
-			newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.HTTP_CALL__HEADERS, expr));						
-		}
+		newChildDescriptors.add(createChildParameter(CodegenPackage.Literals.HTTP_CALL__HEADERS, NcoreFactory.eINSTANCE.createProperty()));						
 		
 		// --- Body ---		
 		for (EObject content: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {

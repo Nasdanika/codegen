@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.HttpCall;
-import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.HttpMethod;
+import org.nasdanika.ncore.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +34,7 @@ import org.nasdanika.ncore.HttpMethod;
  *   <li>{@link org.nasdanika.codegen.impl.HttpCallImpl#getReadTimeout <em>Read Timeout</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.HttpCallImpl#getSuccessCode <em>Success Code</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.HttpCallImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.HttpCallImpl#isInterpolate <em>Interpolate</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +89,16 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 	 * @ordered
 	 */
 	protected static final int SUCCESS_CODE_EDEFAULT = 200;
+
+	/**
+	 * The default value of the '{@link #isInterpolate() <em>Interpolate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInterpolate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INTERPOLATE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,8 +166,8 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry> getHeaders() {
-		return (EList<Entry>)eDynamicGet(CodegenPackage.HTTP_CALL__HEADERS, CodegenPackage.Literals.HTTP_CALL__HEADERS, true, true);
+	public EList<Property> getHeaders() {
+		return (EList<Property>)eDynamicGet(CodegenPackage.HTTP_CALL__HEADERS, CodegenPackage.Literals.HTTP_CALL__HEADERS, true, true);
 	}
 
 	/**
@@ -236,6 +247,26 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 	 * @generated
 	 */
 	@Override
+	public boolean isInterpolate() {
+		return (Boolean)eDynamicGet(CodegenPackage.HTTP_CALL__INTERPOLATE, CodegenPackage.Literals.HTTP_CALL__INTERPOLATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInterpolate(boolean newInterpolate) {
+		eDynamicSet(CodegenPackage.HTTP_CALL__INTERPOLATE, CodegenPackage.Literals.HTTP_CALL__INTERPOLATE, newInterpolate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CodegenPackage.HTTP_CALL__HEADERS:
@@ -268,6 +299,8 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 				return getSuccessCode();
 			case CodegenPackage.HTTP_CALL__BODY:
 				return getBody();
+			case CodegenPackage.HTTP_CALL__INTERPOLATE:
+				return isInterpolate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,7 +322,7 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 				return;
 			case CodegenPackage.HTTP_CALL__HEADERS:
 				getHeaders().clear();
-				getHeaders().addAll((Collection<? extends Entry>)newValue);
+				getHeaders().addAll((Collection<? extends Property>)newValue);
 				return;
 			case CodegenPackage.HTTP_CALL__CONNECT_TIMEOUT:
 				setConnectTimeout((Integer)newValue);
@@ -303,6 +336,9 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 			case CodegenPackage.HTTP_CALL__BODY:
 				getBody().clear();
 				getBody().addAll((Collection<? extends ContentGenerator>)newValue);
+				return;
+			case CodegenPackage.HTTP_CALL__INTERPOLATE:
+				setInterpolate((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -337,6 +373,9 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 			case CodegenPackage.HTTP_CALL__BODY:
 				getBody().clear();
 				return;
+			case CodegenPackage.HTTP_CALL__INTERPOLATE:
+				setInterpolate(INTERPOLATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -363,6 +402,8 @@ public class HttpCallImpl extends GeneratorImpl implements HttpCall {
 				return getSuccessCode() != SUCCESS_CODE_EDEFAULT;
 			case CodegenPackage.HTTP_CALL__BODY:
 				return !getBody().isEmpty();
+			case CodegenPackage.HTTP_CALL__INTERPOLATE:
+				return isInterpolate() != INTERPOLATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

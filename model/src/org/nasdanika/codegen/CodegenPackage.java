@@ -2818,13 +2818,22 @@ public interface CodegenPackage extends EPackage {
 	int HTTP_CALL__BODY = CONTENT_GENERATOR_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__INTERPOLATE = CONTENT_GENERATOR_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Http Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HTTP_CALL_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 7;
+	int HTTP_CALL_FEATURE_COUNT = CONTENT_GENERATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4231,6 +4240,17 @@ public interface CodegenPackage extends EPackage {
 	EReference getHttpCall_Body();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.HttpCall#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.codegen.HttpCall#isInterpolate()
+	 * @see #getHttpCall()
+	 * @generated
+	 */
+	EAttribute getHttpCall_Interpolate();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4878,6 +4898,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference HTTP_CALL__BODY = eINSTANCE.getHttpCall_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_CALL__INTERPOLATE = eINSTANCE.getHttpCall_Interpolate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.TextImpl <em>Text</em>}' class.

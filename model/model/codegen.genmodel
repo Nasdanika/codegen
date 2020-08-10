@@ -90,6 +90,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/readTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/successCode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//HttpCall/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//HttpCall/interpolate"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Text">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//Text/text"/>

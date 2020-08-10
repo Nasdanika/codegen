@@ -14,5 +14,10 @@
     <elements xsi:type="org.nasdanika.codegen:Container" id="e1382f87-2e18-41c6-859d-c81f83011eb9" name="meta">
       <elements xsi:type="org.nasdanika.codegen:ResourceGeneratorLink" id="ab398bc2-751b-4b7c-b318-0841c0cea305" ref="reusable-file.codegen"/>
     </elements>
+    <elements xsi:type="org.nasdanika.codegen:File" id="a104cd6c-81c3-4190-90b2-56b0837b0e02" name="nasdanika-home-page.html">
+      <content xsi:type="org.nasdanika.codegen:HttpCall" id="295ae0d6-49a9-4fb9-b7bb-9ce19de5e49b" url="https://nasdanika.org/builds/develop/index.html">
+        <headers value="pum-purum-${data}" name="x-test-header"/>
+      </content>
+    </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

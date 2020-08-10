@@ -7,6 +7,7 @@ import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.HttpCall;
 import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
@@ -112,16 +113,23 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					this.getClass().getClassLoader(),
 					ContentReferenceAdapter::new));
 		
-//		BundleResourceCollection.java
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, HttpCall>(
+					CodegenPackage.Literals.HTTP_CALL, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					HttpCallAdapter::new));
+
 //		Filter.java
-//		FreeMarkerGenerator.java
-//		HttpCall.java
 //		Interpolator.java
 //		Mustache.java
-//		ReconcileAction.java
+
+//		FreeMarkerGenerator.java
+
+//		ZipArchive.java		
+		
 //		ResourceCollection.java
-//		ResourceContainer.java
-//		ZipArchive.java
+//		BundleResourceCollection.java
 //		ZipResourceCollection.java		
 		
 	}
