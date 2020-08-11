@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.Filter;
-import org.nasdanika.codegen.Generator;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,8 +57,8 @@ public abstract class FilterImpl extends GeneratorImpl implements Filter {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator> getGenerators() {
-		return (EList<Generator>)eDynamicGet(CodegenPackage.FILTER__GENERATORS, CodegenPackage.Literals.FILTER__GENERATORS, true, true);
+	public EList<ContentGenerator> getGenerators() {
+		return (EList<ContentGenerator>)eDynamicGet(CodegenPackage.FILTER__GENERATORS, CodegenPackage.Literals.FILTER__GENERATORS, true, true);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public abstract class FilterImpl extends GeneratorImpl implements Filter {
 		switch (featureID) {
 			case CodegenPackage.FILTER__GENERATORS:
 				getGenerators().clear();
-				getGenerators().addAll((Collection<? extends Generator>)newValue);
+				getGenerators().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

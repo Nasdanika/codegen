@@ -19,5 +19,13 @@
         <headers value="pum-purum-${data}" name="x-test-header"/>
       </content>
     </elements>
+    <elements xsi:type="org.nasdanika.codegen:File" id="4c4d6f3b-a35f-4f68-940e-250a3566a08b" name="mustache-test.txt">
+      <content xsi:type="org.nasdanika.codegen:Mustache" id="ad0bfb49-31a9-494f-8c0c-c940a8ef0459" contextMap="items:&#xD;&#xA;    - &#xD;&#xA;        name: Item 1&#xD;&#xA;        price: 2.99&#xD;&#xA;        features:&#xD;&#xA;             - &#xD;&#xA;                 description: New&#xD;&#xA;             - &#xD;&#xA;                 description: Cool">
+        <generators xsi:type="org.nasdanika.codegen:Text" id="32aa9871-fd1f-4451-ae22-e1445cc681c6" text="{{#items}}&#xD;&#xA;Name: {{name}}&#xD;&#xA;Price: {{price}}&#xD;&#xA;  {{#features}}&#xD;&#xA;  Feature: {{description}}&#xD;&#xA;  {{/features}}&#xD;&#xA;{{/items}}"/>
+      </content>
+    </elements>
+    <elements xsi:type="org.nasdanika.codegen:File" id="1bf1a0e0-a004-4cbe-ac8e-748bbd377ff3" name="free-marker-text.txt">
+      <content xsi:type="org.nasdanika.codegen:FreeMarkerGenerator" id="dc57e045-cc94-461c-94cd-1d46dc8ba3ec" base="../templates/" template="test.ftl"/>
+    </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

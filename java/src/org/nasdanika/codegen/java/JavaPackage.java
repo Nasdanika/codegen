@@ -123,6 +123,15 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__ITERATOR = CodegenPackage.CONTAINER__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__CONTEXT_MAP = CodegenPackage.CONTAINER__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,6 +148,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_FOLDER__RECONCILE_ACTION = CodegenPackage.CONTAINER__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__MERGER = CodegenPackage.CONTAINER__MERGER;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -250,6 +268,15 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__ITERATOR = CodegenPackage.CONTAINER__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__CONTEXT_MAP = CodegenPackage.CONTAINER__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +293,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE__RECONCILE_ACTION = CodegenPackage.CONTAINER__RECONCILE_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__MERGER = CodegenPackage.CONTAINER__MERGER;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -368,6 +404,15 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__ITERATOR = CodegenPackage.FILE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CONTEXT_MAP = CodegenPackage.FILE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +431,15 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__RECONCILE_ACTION = CodegenPackage.FILE__RECONCILE_ACTION;
 
 	/**
+	 * The feature id for the '<em><b>Merger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__MERGER = CodegenPackage.FILE__MERGER;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -393,15 +447,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__CONTENT = CodegenPackage.FILE__CONTENT;
-
-	/**
-	 * The feature id for the '<em><b>Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CHARSET = CodegenPackage.FILE__CHARSET;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -502,6 +547,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMBER__ITERATOR = CodegenPackage.CONTENT_GENERATOR__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__CONTEXT_MAP = CodegenPackage.CONTENT_GENERATOR__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -656,6 +710,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__ITERATOR = MEMBER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__CONTEXT_MAP = MEMBER__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -821,6 +884,15 @@ public interface JavaPackage extends EPackage {
 	int FIELD__ITERATOR = MEMBER__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__CONTEXT_MAP = MEMBER__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -982,6 +1054,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__ITERATOR = MEMBER__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__CONTEXT_MAP = MEMBER__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1156,6 +1237,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS__ITERATOR = TYPE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__CONTEXT_MAP = TYPE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1317,6 +1407,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__ITERATOR = TYPE__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__CONTEXT_MAP = TYPE__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1482,6 +1581,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__ITERATOR = TYPE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__CONTEXT_MAP = TYPE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1645,6 +1753,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM__ITERATOR = TYPE__ITERATOR;
 
 	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__CONTEXT_MAP = TYPE__CONTEXT_MAP;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1806,6 +1923,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__ITERATOR = OPERATION__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__CONTEXT_MAP = OPERATION__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1978,6 +2104,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__ITERATOR = OPERATION__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__CONTEXT_MAP = OPERATION__CONTEXT_MAP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

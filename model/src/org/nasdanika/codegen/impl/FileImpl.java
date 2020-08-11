@@ -26,22 +26,11 @@ import org.nasdanika.codegen.File;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getContent <em>Content</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.FileImpl#getCharset <em>Charset</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FileImpl extends ResourceImpl implements File {
-	/**
-	 * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCharset()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CHARSET_EDEFAULT = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,26 +67,6 @@ public class FileImpl extends ResourceImpl implements File {
 	 * @generated
 	 */
 	@Override
-	public String getCharset() {
-		return (String)eDynamicGet(CodegenPackage.FILE__CHARSET, CodegenPackage.Literals.FILE__CHARSET, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCharset(String newCharset) {
-		eDynamicSet(CodegenPackage.FILE__CHARSET, CodegenPackage.Literals.FILE__CHARSET, newCharset);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CodegenPackage.FILE__CONTENT:
@@ -116,8 +85,6 @@ public class FileImpl extends ResourceImpl implements File {
 		switch (featureID) {
 			case CodegenPackage.FILE__CONTENT:
 				return getContent();
-			case CodegenPackage.FILE__CHARSET:
-				return getCharset();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -135,9 +102,6 @@ public class FileImpl extends ResourceImpl implements File {
 				getContent().clear();
 				getContent().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
-			case CodegenPackage.FILE__CHARSET:
-				setCharset((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -153,9 +117,6 @@ public class FileImpl extends ResourceImpl implements File {
 			case CodegenPackage.FILE__CONTENT:
 				getContent().clear();
 				return;
-			case CodegenPackage.FILE__CHARSET:
-				setCharset(CHARSET_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -170,8 +131,6 @@ public class FileImpl extends ResourceImpl implements File {
 		switch (featureID) {
 			case CodegenPackage.FILE__CONTENT:
 				return !getContent().isEmpty();
-			case CodegenPackage.FILE__CHARSET:
-				return CHARSET_EDEFAULT == null ? getCharset() != null : !CHARSET_EDEFAULT.equals(getCharset());
 		}
 		return super.eIsSet(featureID);
 	}

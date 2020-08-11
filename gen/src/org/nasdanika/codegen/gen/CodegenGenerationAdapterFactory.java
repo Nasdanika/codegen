@@ -7,7 +7,10 @@ import org.nasdanika.codegen.ContentGeneratorReference;
 import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.ContentReference;
 import org.nasdanika.codegen.File;
+import org.nasdanika.codegen.FreeMarkerGenerator;
 import org.nasdanika.codegen.HttpCall;
+import org.nasdanika.codegen.Interpolator;
+import org.nasdanika.codegen.Mustache;
 import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
@@ -119,12 +122,27 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					SupplierFactory.class, 
 					this.getClass().getClassLoader(),
 					HttpCallAdapter::new));
-
-//		Filter.java
-//		Interpolator.java
-//		Mustache.java
-
-//		FreeMarkerGenerator.java
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, Interpolator>(
+					CodegenPackage.Literals.INTERPOLATOR, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					InterpolatorAdapter::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, Mustache>(
+					CodegenPackage.Literals.MUSTACHE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					MustacheAdapter::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, FreeMarkerGenerator>(
+					CodegenPackage.Literals.FREE_MARKER_GENERATOR, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					FreeMarkerGeneratorAdapter::new));
 
 //		ZipArchive.java		
 		

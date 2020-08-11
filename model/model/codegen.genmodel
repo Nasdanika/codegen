@@ -40,7 +40,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="codegen.ecore#//File">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codegen.ecore#//File/content"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//File/charset"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//Container"/>
     <genClasses ecoreClass="codegen.ecore#//ResourceGroup"/>

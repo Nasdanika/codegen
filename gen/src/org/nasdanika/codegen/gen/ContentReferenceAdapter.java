@@ -33,7 +33,7 @@ public class ContentReferenceAdapter extends ContentGeneratorAdapter<ContentRefe
 			@Override
 			public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
 				URL content = EmfUtil.resolveReference(target.eResource(), iContext.interpolateToString(target.getRef()));
-				return target.isInterpolate() ? interpolate(iContext, content.openStream()) : content.openStream();
+				return target.isInterpolate() ? filter(iContext, content.openStream(), iContext::interpolateToString) : content.openStream();
 			}
 			
 		};

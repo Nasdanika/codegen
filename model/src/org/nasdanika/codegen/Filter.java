@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Filter extends ContentGenerator {
 	/**
 	 * Returns the value of the '<em><b>Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * The list contents are of type {@link org.nasdanika.codegen.ContentGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -38,6 +38,6 @@ public interface Filter extends ContentGenerator {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator> getGenerators();
+	EList<ContentGenerator> getGenerators();
 
 } // Filter

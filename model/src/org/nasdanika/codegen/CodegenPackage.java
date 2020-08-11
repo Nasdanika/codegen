@@ -750,22 +750,13 @@ public interface CodegenPackage extends EPackage {
 	int FILE__CONTENT = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__CHARSET = RESOURCE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 2;
+	int FILE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3805,17 +3796,6 @@ public interface CodegenPackage extends EPackage {
 	EReference getFile_Content();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Charset</em>'.
-	 * @see org.nasdanika.codegen.File#getCharset()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Charset();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4538,14 +4518,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FILE__CONTENT = eINSTANCE.getFile_Content();
-
-		/**
-		 * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__CHARSET = eINSTANCE.getFile_Charset();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.impl.ContainerImpl <em>Container</em>}' class.

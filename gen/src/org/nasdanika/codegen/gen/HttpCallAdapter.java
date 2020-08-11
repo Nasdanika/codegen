@@ -107,7 +107,7 @@ public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implement
 		
 		int responseCode = httpConnection.getResponseCode();
 		if (responseCode == target.getSuccessCode()) { 
-			return target.isInterpolate() ? interpolate(context, httpConnection.getInputStream()) : httpConnection.getInputStream();
+			return target.isInterpolate() ? filter(context, httpConnection.getInputStream(), context::interpolateToString) : httpConnection.getInputStream();
 		}
 		
 		throw new NasdanikaException("HTTP Call to "+url+" has failed with response: "+responseCode+" "+httpConnection.getResponseMessage());

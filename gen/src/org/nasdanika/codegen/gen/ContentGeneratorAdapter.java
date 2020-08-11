@@ -43,8 +43,8 @@ public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extend
 		baos.close();
 		return new ByteArrayInputStream(baos.toByteArray());
 	}
-		
-	public static InputStream interpolate(Context context, InputStream in) throws IOException {
+	
+	public static InputStream filter(Context context, InputStream in, java.util.function.Function<String,String> filter) throws IOException {
 		StringWriter sw = new StringWriter();
 		Charset charset = context.get(Charset.class, StandardCharsets.UTF_8);
 		try (Reader reader = new InputStreamReader(new BufferedInputStream(in), charset)) {
@@ -56,11 +56,12 @@ public abstract class ContentGeneratorAdapter<T extends ContentGenerator> extend
 		sw.close();
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try (OutputStreamWriter writer = new OutputStreamWriter(baos, charset)) {
-			writer.write(context.interpolateToString(sw.toString()));
+			writer.write(filter.apply(sw.toString()));
 		}
 		baos.close();
 		return new ByteArrayInputStream(baos.toByteArray());
 	}	
+	
 	
 	public static Function<List<InputStream>, InputStream> JOIN_STREAMS = new Function<List<InputStream>, InputStream>() {
 

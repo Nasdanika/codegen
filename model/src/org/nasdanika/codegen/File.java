@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.File#getContent <em>Content</em>}</li>
- *   <li>{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.codegen.CodegenPackage#getFile()
@@ -41,30 +40,5 @@ public interface File extends Resource {
 	 * @generated
 	 */
 	EList<ContentGenerator> getContent();
-
-	/**
-	 * Returns the value of the '<em><b>Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Optional character set for text files.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Charset</em>' attribute.
-	 * @see #setCharset(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getFile_Charset()
-	 * @model
-	 * @generated
-	 */
-	String getCharset();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.File#getCharset <em>Charset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Charset</em>' attribute.
-	 * @see #getCharset()
-	 * @generated
-	 */
-	void setCharset(String value);
 
 } // File
