@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.codegen:ResourceGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.codegen="urn:org.nasdanika.codegen" xmlns:org.nasdanika.codegen.java="urn:org.nasdanika.codegen.java" title="Eclipse Maven Project" id="e09ece57-6ea1-43d8-81f8-02a6e9310c50">
+  <elements xsi:type="org.nasdanika.codegen:Container" id="3d4797b5-eb05-42a2-8e8c-7acce6b810ce" name="src">
+    <elements xsi:type="org.nasdanika.codegen:Container" id="315a85ae-f1fc-4569-8651-bef171cfbac0" name="main">
+      <elements xsi:type="org.nasdanika.codegen.java:SourceFolder" id="67677a33-f72d-4b3e-afc8-edbf9b051b97" name="java">
+        <elements xsi:type="org.nasdanika.codegen.java:Package" id="7456798f-7e4b-4076-96e7-7f58aa62fe14" name="${java/root-package}">
+          <elements xsi:type="org.nasdanika.codegen.java:CompilationUnit" id="ca59258c-cd9d-4ee3-8a11-4f258cfaa9da" iterator="java/beans" name="${name}">
+            <content xsi:type="org.nasdanika.codegen.java:Class" id="b54a974c-29a3-42f1-bc9b-d2a2210470dd" name="${name}" modifiers="public" comment="Bean">
+              <body xsi:type="org.nasdanika.codegen.java:MemberGroup" title="Properties" id="7dda6199-1e3f-47d5-9c07-665719efce8d" iterator="fields">
+                <elements xsi:type="org.nasdanika.codegen.java:Field" id="37c11fdc-ad04-4c66-a2fe-917aff4c4463" name="${name}" modifiers="private" type="${type}"/>
+                <elements xsi:type="org.nasdanika.codegen.java:Method" title="Getter" id="d56833c4-5791-4ccc-a847-fa1819fef168" name="get${name}" modifiers="public" parameters="" returnType="${type}">
+                  <body xsi:type="org.nasdanika.codegen:Text" id="c496d59c-2bcf-492e-8e20-2f98581daf7e" contextMap="" text="return ${name};"/>
+                </elements>
+                <elements xsi:type="org.nasdanika.codegen.java:Method" title="Setter" id="20d91a78-0cf5-4cb3-9b65-b856731a1fa1" name="set${name}" modifiers="public" parameters="${type} value" returnType="">
+                  <body xsi:type="org.nasdanika.codegen:Text" id="adf807ad-9793-4658-bc08-42257d67894c" contextMap="" text="this.${name} = value;"/>
+                </elements>
+              </body>
+              <body xsi:type="org.nasdanika.codegen.java:Constructor" id="cce7046c-fd25-4038-a05d-8e4ea3040d85" name="Constructor" parameters="${import/java.util.Map} data"/>
+            </content>
+          </elements>
+        </elements>
+      </elements>
+    </elements>
+  </elements>
+</org.nasdanika.codegen:ResourceGroup>

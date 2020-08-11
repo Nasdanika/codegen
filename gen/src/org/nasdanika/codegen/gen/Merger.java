@@ -1,5 +1,7 @@
 package org.nasdanika.codegen.gen;
 
+import java.io.InputStream;
+
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.BinaryEntity;
@@ -12,8 +14,6 @@ import org.nasdanika.common.resources.BinaryEntity;
  */
 public interface Merger {
 	
-	<T> T merge(Context context, BinaryEntity entity, T oldContent, T newContent, ProgressMonitor progressMonitor) throws Exception;
-
-//	int getWorkSize();
+	InputStream merge(Context context, BinaryEntity entity, InputStream oldContent, InputStream newContent, ProgressMonitor progressMonitor) throws Exception;
 	
 }

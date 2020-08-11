@@ -16,6 +16,7 @@ import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
+import org.nasdanika.codegen.java.MemberGroup;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.SourceFolder;
 
@@ -73,6 +74,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.ENUM: return createEnum();
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
 			case JavaPackage.METHOD: return createMethod();
+			case JavaPackage.MEMBER_GROUP: return createMemberGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -216,6 +218,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MemberGroup createMemberGroup() {
+		MemberGroupImpl memberGroup = new MemberGroupImpl();
+		return memberGroup;
 	}
 
 	/**

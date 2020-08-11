@@ -304,6 +304,29 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.codegen.java.MemberGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MemberGroupItemProvider memberGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.codegen.java.MemberGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMemberGroupAdapter() {
+		if (memberGroupItemProvider == null) {
+			memberGroupItemProvider = new MemberGroupItemProvider(this);
+		}
+
+		return memberGroupItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,6 +441,7 @@ public class JavaItemProviderAdapterFactory extends JavaAdapterFactory implement
 		if (enumItemProvider != null) enumItemProvider.dispose();
 		if (constructorItemProvider != null) constructorItemProvider.dispose();
 		if (methodItemProvider != null) methodItemProvider.dispose();
+		if (memberGroupItemProvider != null) memberGroupItemProvider.dispose();
 	}
 
 }

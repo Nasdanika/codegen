@@ -1,0 +1,16 @@
+name: Eclipse Maven Project
+description: Demonstrates Java code generation 
+maven:
+    group: org.nasdanika
+    artifact: demo
+java:
+    root-package: org.nasdanika.demo
+    beans:
+        - name: Person
+          fields:
+            - name: FirstName
+              type: java.lang.String    
+            - name: LastName
+              type: java.lang.String    
+            - name: Age
+              type: int    

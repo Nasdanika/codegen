@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.ContentGenerator;
 import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
@@ -26,10 +26,10 @@ import org.nasdanika.ncore.NcorePackage;
  * <ul>
  *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getModifiers <em>Modifiers</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getCommentGenerators <em>Comment Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getComments <em>Comments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getBodyGenerators <em>Body Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getBody <em>Body</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.impl.MemberImpl#getTypeParameters <em>Type Parameters</em>}</li>
  * </ul>
  *
@@ -146,10 +146,10 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	@SuppressWarnings("unchecked")
-	public EList<Generator> getCommentGenerators() {
-		return (EList<Generator>)eDynamicGet(JavaPackage.MEMBER__COMMENT_GENERATORS, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS, true, true);
+	@Override
+	public EList<ContentGenerator> getComments() {
+		return (EList<ContentGenerator>)eDynamicGet(JavaPackage.MEMBER__COMMENTS, JavaPackage.Literals.MEMBER__COMMENTS, true, true);
 	}
 
 	/**
@@ -198,10 +198,10 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	@SuppressWarnings("unchecked")
-	public EList<Generator> getBodyGenerators() {
-		return (EList<Generator>)eDynamicGet(JavaPackage.MEMBER__BODY_GENERATORS, JavaPackage.Literals.MEMBER__BODY_GENERATORS, true, true);
+	@Override
+	public EList<ContentGenerator> getBody() {
+		return (EList<ContentGenerator>)eDynamicGet(JavaPackage.MEMBER__BODY, JavaPackage.Literals.MEMBER__BODY, true, true);
 	}
 
 	/**
@@ -233,10 +233,10 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				return ((InternalEList<?>)getCommentGenerators()).basicRemove(otherEnd, msgs);
-			case JavaPackage.MEMBER__BODY_GENERATORS:
-				return ((InternalEList<?>)getBodyGenerators()).basicRemove(otherEnd, msgs);
+			case JavaPackage.MEMBER__COMMENTS:
+				return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
+			case JavaPackage.MEMBER__BODY:
+				return ((InternalEList<?>)getBody()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -253,14 +253,14 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				return getName();
 			case JavaPackage.MEMBER__MODIFIERS:
 				return getModifiers();
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				return getCommentGenerators();
+			case JavaPackage.MEMBER__COMMENTS:
+				return getComments();
 			case JavaPackage.MEMBER__COMMENT:
 				return getComment();
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				return getAnnotations();
-			case JavaPackage.MEMBER__BODY_GENERATORS:
-				return getBodyGenerators();
+			case JavaPackage.MEMBER__BODY:
+				return getBody();
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				return getTypeParameters();
 		}
@@ -282,9 +282,9 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 			case JavaPackage.MEMBER__MODIFIERS:
 				setModifiers((String)newValue);
 				return;
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				getCommentGenerators().clear();
-				getCommentGenerators().addAll((Collection<? extends Generator>)newValue);
+			case JavaPackage.MEMBER__COMMENTS:
+				getComments().clear();
+				getComments().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
 			case JavaPackage.MEMBER__COMMENT:
 				setComment((String)newValue);
@@ -292,9 +292,9 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				setAnnotations((String)newValue);
 				return;
-			case JavaPackage.MEMBER__BODY_GENERATORS:
-				getBodyGenerators().clear();
-				getBodyGenerators().addAll((Collection<? extends Generator>)newValue);
+			case JavaPackage.MEMBER__BODY:
+				getBody().clear();
+				getBody().addAll((Collection<? extends ContentGenerator>)newValue);
 				return;
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				setTypeParameters((String)newValue);
@@ -317,8 +317,8 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 			case JavaPackage.MEMBER__MODIFIERS:
 				setModifiers(MODIFIERS_EDEFAULT);
 				return;
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				getCommentGenerators().clear();
+			case JavaPackage.MEMBER__COMMENTS:
+				getComments().clear();
 				return;
 			case JavaPackage.MEMBER__COMMENT:
 				setComment(COMMENT_EDEFAULT);
@@ -326,8 +326,8 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				setAnnotations(ANNOTATIONS_EDEFAULT);
 				return;
-			case JavaPackage.MEMBER__BODY_GENERATORS:
-				getBodyGenerators().clear();
+			case JavaPackage.MEMBER__BODY:
+				getBody().clear();
 				return;
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				setTypeParameters(TYPE_PARAMETERS_EDEFAULT);
@@ -348,14 +348,14 @@ public abstract class MemberImpl extends GeneratorImpl implements Member {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case JavaPackage.MEMBER__MODIFIERS:
 				return MODIFIERS_EDEFAULT == null ? getModifiers() != null : !MODIFIERS_EDEFAULT.equals(getModifiers());
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-				return !getCommentGenerators().isEmpty();
+			case JavaPackage.MEMBER__COMMENTS:
+				return !getComments().isEmpty();
 			case JavaPackage.MEMBER__COMMENT:
 				return COMMENT_EDEFAULT == null ? getComment() != null : !COMMENT_EDEFAULT.equals(getComment());
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				return ANNOTATIONS_EDEFAULT == null ? getAnnotations() != null : !ANNOTATIONS_EDEFAULT.equals(getAnnotations());
-			case JavaPackage.MEMBER__BODY_GENERATORS:
-				return !getBodyGenerators().isEmpty();
+			case JavaPackage.MEMBER__BODY:
+				return !getBody().isEmpty();
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				return TYPE_PARAMETERS_EDEFAULT == null ? getTypeParameters() != null : !TYPE_PARAMETERS_EDEFAULT.equals(getTypeParameters());
 		}

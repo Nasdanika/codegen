@@ -1,4 +1,4 @@
-package org.nasdanika.codegen.java;
+package org.nasdanika.codegen.java.gen;
 
 import java.util.Collection;
 import java.util.function.Function;

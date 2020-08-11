@@ -37,7 +37,7 @@ public class Activator implements BundleActivator {
 //				CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_REFERENCE,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_LINK,
-//				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
+				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_ADAPTER,
 				CodegenPackage.Literals.FILE);	
 		

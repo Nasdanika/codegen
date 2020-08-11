@@ -188,8 +188,8 @@ public class MemberItemProvider extends GeneratorItemProvider {
 	@Override
 	protected void addEReferenceItemProviders(Object object, Collection<EReferenceItemProvider> children) {
 		super.addEReferenceItemProviders(object, children);
-		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__COMMENT_GENERATORS)); 		
-		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__BODY_GENERATORS)); 		
+		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__COMMENTS)); 		
+		children.add(new EReferenceItemProvider(this, (EObject) object, JavaPackage.Literals.MEMBER__BODY)); 		
 	}			
 
 	/**
@@ -250,8 +250,8 @@ public class MemberItemProvider extends GeneratorItemProvider {
 			case JavaPackage.MEMBER__TYPE_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JavaPackage.MEMBER__COMMENT_GENERATORS:
-			case JavaPackage.MEMBER__BODY_GENERATORS:
+			case JavaPackage.MEMBER__COMMENTS:
+			case JavaPackage.MEMBER__BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -271,12 +271,12 @@ public class MemberItemProvider extends GeneratorItemProvider {
 		
 		// --- Comments ---		
 		for (EObject expr: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
-			newChildDescriptors.add(createChildParameter(JavaPackage.Literals.MEMBER__COMMENT_GENERATORS, expr));						
+			newChildDescriptors.add(createChildParameter(JavaPackage.Literals.MEMBER__COMMENTS, expr));						
 		}		
 		
 		// --- Body ---		
 		for (EObject expr: org.nasdanika.codegen.util.Activator.CONTENT_GENERATORS_PALETTE.getElements()) {
-			newChildDescriptors.add(createChildParameter(JavaPackage.Literals.MEMBER__BODY_GENERATORS, expr));						
+			newChildDescriptors.add(createChildParameter(JavaPackage.Literals.MEMBER__BODY, expr));						
 		}		
 	}
 
@@ -293,8 +293,8 @@ public class MemberItemProvider extends GeneratorItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == JavaPackage.Literals.MEMBER__COMMENT_GENERATORS ||
-			childFeature == JavaPackage.Literals.MEMBER__BODY_GENERATORS;
+			childFeature == JavaPackage.Literals.MEMBER__COMMENTS ||
+			childFeature == JavaPackage.Literals.MEMBER__BODY;
 
 		if (qualify) {
 			return getString

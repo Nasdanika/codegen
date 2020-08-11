@@ -1662,25 +1662,25 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		  (getResourceCollection_Includes(),
 		   source,
 		   new String[] {
-			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to include into the collection.\nAll resources are included if the includes list is empty.\n\n## Matching rules\n\n* `?` matches one character\n* `*` matches zero or more characters\n* `**` matches zero or more **directories** in a path\n"
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to include into the collection.\nEach pattern on a new line.\nAll resources are included if the includes list is empty.\n\n## Matching rules\n\n* `?` matches one character\n* `*` matches zero or more characters\n* `**` matches zero or more **directories** in a path\n"
 		   });
 		addAnnotation
 		  (getResourceCollection_Excludes(),
 		   source,
 		   new String[] {
-			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. Nothing is excluded if this list is empty."
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. \nEach pattern on a new line.\nNothing is excluded if this list is empty."
 		   });
 		addAnnotation
 		  (getResourceCollection_InterpolationIncludes(),
 		   source,
 		   new String[] {
-			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated."
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. \nEach pattern on a new line.\nE.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. \nUnlike ``includes``, if this list is empty then nothing gets interpolated."
 		   });
 		addAnnotation
 		  (getResourceCollection_InterpolationExcludes(),
 		   source,
 		   new String[] {
-			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation."
+			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation.\nEach pattern on a new line."
 		   });
 		addAnnotation
 		  (getResourceCollection_ReconcileAction(),

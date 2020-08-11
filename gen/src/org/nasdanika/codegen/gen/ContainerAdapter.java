@@ -1,6 +1,7 @@
 package org.nasdanika.codegen.gen;
 
 import java.util.Objects;
+import java.util.concurrent.CancellationException;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.codegen.Container;
@@ -12,7 +13,6 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.FunctionFactory;
-import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -55,7 +55,7 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 
 					@Override
 					public BinaryEntityContainer execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
-						String name = context.interpolateToString(target.getName());
+						String name = finalName(context.interpolateToString(target.getName()));
 						BinaryEntityContainer ret = Objects.requireNonNull(container.getContainer(name, progressMonitor), "Cannot create container " + name + " in " + container);
 						switch (target.getReconcileAction()) {
 						case OVERWRITE:
@@ -67,7 +67,7 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 							return ret;
 						case CANCEL:
 							if (ret.exists(progressMonitor)) {
-								throw new NasdanikaException("Cancelling generation - container '" + name + "' already exists in " + container);
+								throw new CancellationException("Cancelling generation - container '" + name + "' already exists in " + container);
 							}
 							return ret;
 						case KEEP:
@@ -112,5 +112,5 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 		};
 		return containerFactory.then(conditionalFactory).create(iContext);
 	}
-
+	
 }

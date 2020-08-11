@@ -7,8 +7,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.ContentGenerator;
+import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
@@ -19,6 +21,7 @@ import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.MemberGroup;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
@@ -264,6 +267,19 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.MEMBER_GROUP: {
+				MemberGroup memberGroup = (MemberGroup)theEObject;
+				T result = caseMemberGroup(memberGroup);
+				if (result == null) result = caseContentGroup(memberGroup);
+				if (result == null) result = caseGroup(memberGroup);
+				if (result == null) result = caseContentGenerator(memberGroup);
+				if (result == null) result = caseGenerator(memberGroup);
+				if (result == null) result = caseEntity(memberGroup);
+				if (result == null) result = caseConfigurable(memberGroup);
+				if (result == null) result = caseModelElement(memberGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -464,6 +480,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Member Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Member Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMemberGroup(MemberGroup object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -625,6 +656,36 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContentGenerator(ContentGenerator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGroup(Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentGroup(ContentGroup object) {
 		return null;
 	}
 

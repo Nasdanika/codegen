@@ -20,6 +20,7 @@ import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.MemberGroup;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
@@ -123,6 +124,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass methodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass memberGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,7 +280,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMember_CommentGenerators() {
+	public EReference getMember_Comments() {
 		return (EReference)memberEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -302,7 +310,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMember_BodyGenerators() {
+	public EReference getMember_Body() {
 		return (EReference)memberEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -462,6 +470,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getMemberGroup() {
+		return memberGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getJDKLevel() {
 		return jdkLevelEEnum;
 	}
@@ -505,10 +523,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		memberEClass = createEClass(MEMBER);
 		createEAttribute(memberEClass, MEMBER__MODIFIERS);
-		createEReference(memberEClass, MEMBER__COMMENT_GENERATORS);
+		createEReference(memberEClass, MEMBER__COMMENTS);
 		createEAttribute(memberEClass, MEMBER__COMMENT);
 		createEAttribute(memberEClass, MEMBER__ANNOTATIONS);
-		createEReference(memberEClass, MEMBER__BODY_GENERATORS);
+		createEReference(memberEClass, MEMBER__BODY);
 		createEAttribute(memberEClass, MEMBER__TYPE_PARAMETERS);
 
 		typeEClass = createEClass(TYPE);
@@ -533,6 +551,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		methodEClass = createEClass(METHOD);
 		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
+
+		memberGroupEClass = createEClass(MEMBER_GROUP);
 
 		// Create enums
 		jdkLevelEEnum = createEEnum(JDK_LEVEL);
@@ -584,6 +604,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		enumEClass.getESuperTypes().add(this.getType());
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		methodEClass.getESuperTypes().add(this.getOperation());
+		memberGroupEClass.getESuperTypes().add(theCodegenPackage.getContentGroup());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sourceFolderEClass, SourceFolder.class, "SourceFolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -596,10 +617,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMember_CommentGenerators(), theCodegenPackage.getGenerator(), null, "commentGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMember_Comments(), theCodegenPackage.getContentGenerator(), null, "comments", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Annotations(), ecorePackage.getEString(), "annotations", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMember_BodyGenerators(), theCodegenPackage.getGenerator(), null, "bodyGenerators", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMember_Body(), theCodegenPackage.getContentGenerator(), null, "body", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_TypeParameters(), ecorePackage.getEString(), "typeParameters", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -624,6 +645,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethod_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(memberGroupEClass, MemberGroup.class, "MemberGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(jdkLevelEEnum, JDKLevel.class, "JDKLevel");
@@ -691,7 +714,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Modifiers, e.g. public final. Interpolated."
 		   });
 		addAnnotation
-		  (getMember_CommentGenerators(),
+		  (getMember_Comments(),
 		   source,
 		   new String[] {
 			   "documentation", "Comment generators in addition to comment attribute content."
@@ -700,7 +723,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		  (getMember_Comment(),
 		   source,
 		   new String[] {
-			   "documentation", "Comment. Interpolated. "
+			   "documentation", "Comment in markdown. Interpolated and converted to HTML."
 		   });
 		addAnnotation
 		  (getMember_Annotations(),
@@ -709,7 +732,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."
 		   });
 		addAnnotation
-		  (getMember_BodyGenerators(),
+		  (getMember_Body(),
 		   source,
 		   new String[] {
 			   "documentation", "Generators which generate member body. For Field field initializer is considered as body.\r\n"
@@ -749,6 +772,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Exceptions thrown by this operation, interpolated. Can be separated by commas or new line characters."
+		   });
+		addAnnotation
+		  (constructorEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Constructor. Note: Constructor has a required name because it inherits from NamedElement. However, the value of name is not used in generation and can be set any non-blank text."
 		   });
 	}
 

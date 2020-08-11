@@ -4,16 +4,25 @@
     <semanticResources>models/basic.codegen</semanticResources>
     <semanticResources>models/external-content.codegen</semanticResources>
     <semanticResources>models/reusable-file.codegen</semanticResources>
+    <semanticResources>models/eclipse-maven-project.codegen</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_JPHXYNhvEeq0joukoQ2zCg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_LK02INhvEeq0joukoQ2zCg" name="new Codegen Adapter Factory Tree" repPath="#_LKuIcNhvEeq0joukoQ2zCg">
         <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
         <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/basic.codegen#8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98"/>
       </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Yc-ZQNv_EeqiQd4CtOscBA" name="Eclipse Maven Project" repPath="#_Yc5gwNv_EeqiQd4CtOscBA">
+        <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
+        <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/eclipse-maven-project.codegen#e09ece57-6ea1-43d8-81f8-02a6e9310c50"/>
+      </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
   <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_LKuIcNhvEeq0joukoQ2zCg">
     <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/basic.codegen#8a051ffd-0d3e-4c4a-8e8f-fa0f63cb3b98"/>
+    <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
+  </org.nasdanika.sirius.tree:AdapterFactoryTree>
+  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_Yc5gwNv_EeqiQd4CtOscBA">
+    <target xmi:type="org.nasdanika.codegen:ResourceGroup" href="models/eclipse-maven-project.codegen#e09ece57-6ea1-43d8-81f8-02a6e9310c50"/>
     <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.codegen.design/description/codegen.odesign#//@ownedViewpoints[name='CodegenViewPoint']/@ownedRepresentations[name='codegenAdapterFactoryTree']"/>
   </org.nasdanika.sirius.tree:AdapterFactoryTree>
 </xmi:XMI>

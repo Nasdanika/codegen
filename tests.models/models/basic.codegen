@@ -36,5 +36,8 @@
         </elements>
       </content>
     </elements>
+    <elements xsi:type="org.nasdanika.codegen:ZipResourceCollection" title="My resources" id="08afe778-9b97-495c-bbf3-2344671ee743" includes="**/*.txt&#xD;&#xA;">
+      <content xsi:type="org.nasdanika.codegen:HttpCall" id="38936590-e737-4be3-b001-ef996515cfb5" url="https://nasdanika.org/zip-resource-collection-test.zip"/>
+    </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

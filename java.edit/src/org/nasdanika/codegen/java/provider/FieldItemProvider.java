@@ -151,8 +151,8 @@ public class FieldItemProvider extends MemberItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == JavaPackage.Literals.MEMBER__COMMENT_GENERATORS ||
-			childFeature == JavaPackage.Literals.MEMBER__BODY_GENERATORS;
+			childFeature == JavaPackage.Literals.MEMBER__COMMENTS ||
+			childFeature == JavaPackage.Literals.MEMBER__BODY;
 
 		if (qualify) {
 			return getString

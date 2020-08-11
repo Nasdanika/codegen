@@ -30,10 +30,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="java.ecore#//Member">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/modifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/commentGenerators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/comments"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute java.ecore#//Member/comment"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute java.ecore#//Member/annotations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/bodyGenerators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/body"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute java.ecore#//Member/typeParameters"/>
     </genClasses>
     <genClasses image="false" ecoreClass="java.ecore#//Type">
@@ -54,5 +54,6 @@
     <genClasses ecoreClass="java.ecore#//Method">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Method/returnType"/>
     </genClasses>
+    <genClasses ecoreClass="java.ecore#//MemberGroup"/>
   </genPackages>
 </genmodel:GenModel>

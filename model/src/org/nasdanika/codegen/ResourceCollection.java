@@ -85,6 +85,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to include into the collection.
+	 * Each pattern on a new line.
 	 * All resources are included if the includes list is empty.
 	 * 
 	 * ## Matching rules
@@ -117,7 +118,9 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. Nothing is excluded if this list is empty.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. 
+	 * Each pattern on a new line.
+	 * Nothing is excluded if this list is empty.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Excludes</em>' attribute.
 	 * @see #setExcludes(String)
@@ -142,7 +145,10 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated.
+	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. 
+	 * Each pattern on a new line.
+	 * E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. 
+	 * Unlike ``includes``, if this list is empty then nothing gets interpolated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interpolation Includes</em>' attribute.
 	 * @see #setInterpolationIncludes(String)
@@ -168,6 +174,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation.
+	 * Each pattern on a new line.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interpolation Excludes</em>' attribute.
 	 * @see #setInterpolationExcludes(String)

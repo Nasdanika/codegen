@@ -576,13 +576,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__MODIFIERS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__COMMENT_GENERATORS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 2;
+	int MEMBER__COMMENTS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -603,13 +603,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__ANNOTATIONS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__BODY_GENERATORS = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 5;
+	int MEMBER__BODY = CodegenPackage.CONTENT_GENERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -739,13 +739,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE__MODIFIERS = MEMBER__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__COMMENT_GENERATORS = MEMBER__COMMENT_GENERATORS;
+	int TYPE__COMMENTS = MEMBER__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -766,13 +766,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
+	int TYPE__BODY = MEMBER__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -911,13 +911,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__MODIFIERS = MEMBER__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__COMMENT_GENERATORS = MEMBER__COMMENT_GENERATORS;
+	int FIELD__COMMENTS = MEMBER__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -938,13 +938,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
+	int FIELD__BODY = MEMBER__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1083,13 +1083,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__MODIFIERS = MEMBER__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__COMMENT_GENERATORS = MEMBER__COMMENT_GENERATORS;
+	int OPERATION__COMMENTS = MEMBER__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1110,13 +1110,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__BODY_GENERATORS = MEMBER__BODY_GENERATORS;
+	int OPERATION__BODY = MEMBER__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1264,13 +1264,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS__MODIFIERS = TYPE__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__COMMENT_GENERATORS = TYPE__COMMENT_GENERATORS;
+	int CLASS__COMMENTS = TYPE__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1291,13 +1291,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__BODY_GENERATORS = TYPE__BODY_GENERATORS;
+	int CLASS__BODY = TYPE__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1436,13 +1436,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__MODIFIERS = TYPE__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__COMMENT_GENERATORS = TYPE__COMMENT_GENERATORS;
+	int INTERFACE__COMMENTS = TYPE__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1463,13 +1463,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__BODY_GENERATORS = TYPE__BODY_GENERATORS;
+	int INTERFACE__BODY = TYPE__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1608,13 +1608,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__MODIFIERS = TYPE__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__COMMENT_GENERATORS = TYPE__COMMENT_GENERATORS;
+	int ANNOTATION__COMMENTS = TYPE__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1635,13 +1635,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__BODY_GENERATORS = TYPE__BODY_GENERATORS;
+	int ANNOTATION__BODY = TYPE__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1780,13 +1780,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM__MODIFIERS = TYPE__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM__COMMENT_GENERATORS = TYPE__COMMENT_GENERATORS;
+	int ENUM__COMMENTS = TYPE__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1807,13 +1807,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM__BODY_GENERATORS = TYPE__BODY_GENERATORS;
+	int ENUM__BODY = TYPE__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1952,13 +1952,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__MODIFIERS = OPERATION__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR__COMMENT_GENERATORS = OPERATION__COMMENT_GENERATORS;
+	int CONSTRUCTOR__COMMENTS = OPERATION__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1979,13 +1979,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__ANNOTATIONS = OPERATION__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR__BODY_GENERATORS = OPERATION__BODY_GENERATORS;
+	int CONSTRUCTOR__BODY = OPERATION__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -2133,13 +2133,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD__MODIFIERS = OPERATION__MODIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__COMMENT_GENERATORS = OPERATION__COMMENT_GENERATORS;
+	int METHOD__COMMENTS = OPERATION__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -2160,13 +2160,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD__ANNOTATIONS = OPERATION__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Body Generators</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__BODY_GENERATORS = OPERATION__BODY_GENERATORS;
+	int METHOD__BODY = OPERATION__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -2232,6 +2232,115 @@ public interface JavaPackage extends EPackage {
 	int METHOD_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.codegen.java.impl.MemberGroupImpl <em>Member Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.codegen.java.impl.MemberGroupImpl
+	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getMemberGroup()
+	 * @generated
+	 */
+	int MEMBER_GROUP = 13;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__TITLE = CodegenPackage.CONTENT_GROUP__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__DESCRIPTION = CodegenPackage.CONTENT_GROUP__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__ID = CodegenPackage.CONTENT_GROUP__ID;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__CONFIGURATION = CodegenPackage.CONTENT_GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__ENABLED = CodegenPackage.CONTENT_GROUP__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__ITERATOR = CodegenPackage.CONTENT_GROUP__ITERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__CONTEXT_MAP = CodegenPackage.CONTENT_GROUP__CONTEXT_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__ELEMENTS = CodegenPackage.CONTENT_GROUP__ELEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Member Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP_FEATURE_COUNT = CodegenPackage.CONTENT_GROUP_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.CONTENT_GROUP___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Member Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP_OPERATION_COUNT = CodegenPackage.CONTENT_GROUP_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2239,7 +2348,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getJDKLevel()
 	 * @generated
 	 */
-	int JDK_LEVEL = 13;
+	int JDK_LEVEL = 14;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.SourceFolder <em>Source Folder</em>}'.
@@ -2315,15 +2424,15 @@ public interface JavaPackage extends EPackage {
 	EAttribute getMember_Modifiers();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.Member#getCommentGenerators <em>Comment Generators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.Member#getComments <em>Comments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Comment Generators</em>'.
-	 * @see org.nasdanika.codegen.java.Member#getCommentGenerators()
+	 * @return the meta object for the containment reference list '<em>Comments</em>'.
+	 * @see org.nasdanika.codegen.java.Member#getComments()
 	 * @see #getMember()
 	 * @generated
 	 */
-	EReference getMember_CommentGenerators();
+	EReference getMember_Comments();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Member#getComment <em>Comment</em>}'.
@@ -2348,15 +2457,15 @@ public interface JavaPackage extends EPackage {
 	EAttribute getMember_Annotations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.Member#getBodyGenerators <em>Body Generators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.codegen.java.Member#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Body Generators</em>'.
-	 * @see org.nasdanika.codegen.java.Member#getBodyGenerators()
+	 * @return the meta object for the containment reference list '<em>Body</em>'.
+	 * @see org.nasdanika.codegen.java.Member#getBody()
 	 * @see #getMember()
 	 * @generated
 	 */
-	EReference getMember_BodyGenerators();
+	EReference getMember_Body();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.java.Member#getTypeParameters <em>Type Parameters</em>}'.
@@ -2515,6 +2624,16 @@ public interface JavaPackage extends EPackage {
 	EAttribute getMethod_ReturnType();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.codegen.java.MemberGroup <em>Member Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Member Group</em>'.
+	 * @see org.nasdanika.codegen.java.MemberGroup
+	 * @generated
+	 */
+	EClass getMemberGroup();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2612,12 +2731,12 @@ public interface JavaPackage extends EPackage {
 		EAttribute MEMBER__MODIFIERS = eINSTANCE.getMember_Modifiers();
 
 		/**
-		 * The meta object literal for the '<em><b>Comment Generators</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Comments</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEMBER__COMMENT_GENERATORS = eINSTANCE.getMember_CommentGenerators();
+		EReference MEMBER__COMMENTS = eINSTANCE.getMember_Comments();
 
 		/**
 		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
@@ -2636,12 +2755,12 @@ public interface JavaPackage extends EPackage {
 		EAttribute MEMBER__ANNOTATIONS = eINSTANCE.getMember_Annotations();
 
 		/**
-		 * The meta object literal for the '<em><b>Body Generators</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEMBER__BODY_GENERATORS = eINSTANCE.getMember_BodyGenerators();
+		EReference MEMBER__BODY = eINSTANCE.getMember_Body();
 
 		/**
 		 * The meta object literal for the '<em><b>Type Parameters</b></em>' attribute feature.
@@ -2780,6 +2899,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METHOD__RETURN_TYPE = eINSTANCE.getMethod_ReturnType();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.codegen.java.impl.MemberGroupImpl <em>Member Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.codegen.java.impl.MemberGroupImpl
+		 * @see org.nasdanika.codegen.java.impl.JavaPackageImpl#getMemberGroup()
+		 * @generated
+		 */
+		EClass MEMBER_GROUP = eINSTANCE.getMemberGroup();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.codegen.java.JDKLevel <em>JDK Level</em>}' enum.

@@ -8,7 +8,13 @@ public abstract class ResourceAdapter<T extends Resource> extends ResourceGenera
 		super(target);
 	}
 	
-	// reconcileAction
-	// merge
+	/** 
+	 * Allows subclasses to customize container name.
+	 * @param name
+	 * @return
+	 */
+	protected String finalName(String name) {
+		return name;
+	}
 
 }

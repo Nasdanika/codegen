@@ -4,7 +4,6 @@ package org.nasdanika.codegen.java;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.codegen.ContentGenerator;
-import org.nasdanika.codegen.Generator;
 import org.nasdanika.ncore.NamedElement;
 
 /**
@@ -21,10 +20,10 @@ import org.nasdanika.ncore.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.java.Member#getModifiers <em>Modifiers</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.Member#getCommentGenerators <em>Comment Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.Member#getComments <em>Comments</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.nasdanika.codegen.java.Member#getBodyGenerators <em>Body Generators</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.java.Member#getBody <em>Body</em>}</li>
  *   <li>{@link org.nasdanika.codegen.java.Member#getTypeParameters <em>Type Parameters</em>}</li>
  * </ul>
  *
@@ -59,26 +58,26 @@ public interface Member extends ContentGenerator, NamedElement {
 	void setModifiers(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Comment Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * Returns the value of the '<em><b>Comments</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.ContentGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Comment generators in addition to comment attribute content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_CommentGenerators()
+	 * @return the value of the '<em>Comments</em>' containment reference list.
+	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_Comments()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator> getCommentGenerators();
+	EList<ContentGenerator> getComments();
 
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Comment. Interpolated. 
+	 * Comment in markdown. Interpolated and converted to HTML.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comment</em>' attribute.
 	 * @see #setComment(String)
@@ -124,20 +123,20 @@ public interface Member extends ContentGenerator, NamedElement {
 	void setAnnotations(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Body Generators</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.codegen.Generator}.
+	 * Returns the value of the '<em><b>Body</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.codegen.ContentGenerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Generators which generate member body. For Field field initializer is considered as body.
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Body Generators</em>' containment reference list.
-	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_BodyGenerators()
+	 * @return the value of the '<em>Body</em>' containment reference list.
+	 * @see org.nasdanika.codegen.java.JavaPackage#getMember_Body()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Generator> getBodyGenerators();
+	EList<ContentGenerator> getBody();
 
 	/**
 	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute.

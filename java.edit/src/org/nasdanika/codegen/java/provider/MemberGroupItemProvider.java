@@ -8,29 +8,28 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.java.JavaFactory;
-import org.nasdanika.codegen.java.JavaPackage;
-import org.nasdanika.codegen.java.Type;
-import org.nasdanika.common.Util;
+import org.nasdanika.codegen.java.MemberGroup;
+import org.nasdanika.codegen.provider.ContentGroupItemProvider;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.codegen.java.Type} object.
+ * This is the item provider adapter for a {@link org.nasdanika.codegen.java.MemberGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeItemProvider extends MemberItemProvider {
+public class MemberGroupItemProvider extends ContentGroupItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeItemProvider(AdapterFactory adapterFactory) {
+	public MemberGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,30 +44,19 @@ public class TypeItemProvider extends MemberItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSuperTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Super Types feature.
+	 * This returns MemberGroup.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	protected void addSuperTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Type_superTypes_feature"),
-				 JavaPackage.Literals.TYPE__SUPER_TYPES,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MemberGroup"));
 	}
 
 	/**
@@ -89,11 +77,10 @@ public class TypeItemProvider extends MemberItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Type)object).getTitle();
-		if (Util.isBlank(label)) {
-			label = ((Type)object).getName();
-		}
-		return label == null || label.length() == 0 ? getString("_UI_Type_type") : label;
+		String label = ((MemberGroup)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MemberGroup_type") :
+			getString("_UI_MemberGroup_type") + " " + label;
 	}
 
 
@@ -107,12 +94,6 @@ public class TypeItemProvider extends MemberItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Type.class)) {
-			case JavaPackage.TYPE__SUPER_TYPES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -129,42 +110,42 @@ public class TypeItemProvider extends MemberItemProvider {
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createAnnotation()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createClass()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createEnum()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createInterface()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createField()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createConstructor()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createMethod()));
 		
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaPackage.Literals.MEMBER__BODY,
+				(CodegenPackage.Literals.GROUP__ELEMENTS,
 				 JavaFactory.eINSTANCE.createMemberGroup()));
 		
 	}
@@ -182,8 +163,7 @@ public class TypeItemProvider extends MemberItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == JavaPackage.Literals.MEMBER__COMMENTS ||
-			childFeature == JavaPackage.Literals.MEMBER__BODY;
+			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS;
 
 		if (qualify) {
 			return getString
@@ -191,6 +171,17 @@ public class TypeItemProvider extends MemberItemProvider {
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return JavaEditPlugin.INSTANCE;
 	}
 
 }

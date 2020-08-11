@@ -8,8 +8,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.codegen.ContentGenerator;
+import org.nasdanika.codegen.ContentGroup;
 import org.nasdanika.codegen.File;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.codegen.Group;
 import org.nasdanika.codegen.Resource;
 import org.nasdanika.codegen.ResourceContainer;
 import org.nasdanika.codegen.ResourceGenerator;
@@ -20,6 +22,7 @@ import org.nasdanika.codegen.java.Field;
 import org.nasdanika.codegen.java.Interface;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Member;
+import org.nasdanika.codegen.java.MemberGroup;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
@@ -138,6 +141,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMethodAdapter();
 			}
 			@Override
+			public Adapter caseMemberGroup(MemberGroup object) {
+				return createMemberGroupAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -180,6 +187,14 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseContentGenerator(ContentGenerator object) {
 				return createContentGeneratorAdapter();
+			}
+			@Override
+			public Adapter caseGroup(Group object) {
+				return createGroupAdapter();
+			}
+			@Override
+			public Adapter caseContentGroup(ContentGroup object) {
+				return createContentGroupAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -384,6 +399,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.java.MemberGroup <em>Member Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.java.MemberGroup
+	 * @generated
+	 */
+	public Adapter createMemberGroupAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -534,6 +563,34 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContentGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Group
+	 * @generated
+	 */
+	public Adapter createGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.ContentGroup <em>Content Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.ContentGroup
+	 * @generated
+	 */
+	public Adapter createContentGroupAdapter() {
 		return null;
 	}
 

@@ -45,8 +45,8 @@
         <details key="documentation" value="Modifiers, e.g. public final. Interpolated."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="commentGenerators" upperBound="-1"
-        eType="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//Generator"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
+        eType="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//ContentGenerator"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Comment generators in addition to comment attribute content."/>
@@ -54,7 +54,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Comment. Interpolated. "/>
+        <details key="documentation" value="Comment in markdown. Interpolated and converted to HTML."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -62,8 +62,7 @@
         <details key="documentation" value="Annotations are output between the comment and the member declaration starting with modifiers, if any. Interpolated."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bodyGenerators" upperBound="-1"
-        eType="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//Generator"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//ContentGenerator"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generators which generate member body. For Field field initializer is considered as body.&#xD;&#xA;"/>
@@ -107,8 +106,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Operation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Constructor. Note: Constructor has a required name because it inherits from NamedElement. However, the value of name is not used in generation and can be set any non-blank text."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemberGroup" eSuperTypes="../../org.nasdanika.codegen/model/codegen.ecore#//ContentGroup"/>
 </ecore:EPackage>
