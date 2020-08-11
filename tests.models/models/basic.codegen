@@ -27,5 +27,14 @@
     <elements xsi:type="org.nasdanika.codegen:File" id="1bf1a0e0-a004-4cbe-ac8e-748bbd377ff3" name="free-marker-text.txt">
       <content xsi:type="org.nasdanika.codegen:FreeMarkerGenerator" id="dc57e045-cc94-461c-94cd-1d46dc8ba3ec" base="../templates/" template="test.ftl"/>
     </elements>
+    <elements xsi:type="org.nasdanika.codegen:File" id="57d785e8-daf2-4534-8044-28dd5b2df28a" name="my-archive.zip">
+      <content xsi:type="org.nasdanika.codegen:ZipArchive" id="f9d465bc-6471-4808-aec4-819534e108cf">
+        <elements xsi:type="org.nasdanika.codegen:Container" id="f9d531fe-d906-454d-99bf-df244cb094eb" name="META-INF">
+          <elements xsi:type="org.nasdanika.codegen:File" id="cb9a2ac3-7060-4f80-b633-973c8839f9cc" name="MANIFEST.MF">
+            <content xsi:type="org.nasdanika.codegen:Text" id="56006807-a4fb-4933-8a91-812c0e78f8f8" text="bundle-symbolic-name: Test&#xD;&#xA;"/>
+          </elements>
+        </elements>
+      </content>
+    </elements>
   </elements>
 </org.nasdanika.codegen:ResourceGroup>

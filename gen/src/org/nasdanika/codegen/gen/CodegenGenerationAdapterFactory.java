@@ -15,6 +15,7 @@ import org.nasdanika.codegen.ResourceGeneratorLink;
 import org.nasdanika.codegen.ResourceGeneratorReference;
 import org.nasdanika.codegen.ResourceGroup;
 import org.nasdanika.codegen.Text;
+import org.nasdanika.codegen.ZipArchive;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.ComposedAdapterFactory;
@@ -143,8 +144,13 @@ public class CodegenGenerationAdapterFactory extends ComposedAdapterFactory {
 					SupplierFactory.class, 
 					this.getClass().getClassLoader(),
 					FreeMarkerGeneratorAdapter::new));
-
-//		ZipArchive.java		
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ZipArchive>(
+					CodegenPackage.Literals.ZIP_ARCHIVE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ZipArchiveAdapter::new));
 		
 //		ResourceCollection.java
 //		BundleResourceCollection.java
