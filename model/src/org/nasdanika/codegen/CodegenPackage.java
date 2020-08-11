@@ -2230,7 +2230,7 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__PREFIX = RESOURCE_GENERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2239,7 +2239,7 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__INCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2248,7 +2248,7 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__EXCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2257,7 +2257,7 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2266,22 +2266,13 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_GENERATOR_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_GENERATOR_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_GENERATOR_FEATURE_COUNT + 7;
+	int RESOURCE_COLLECTION__RECONCILE_ACTION = RESOURCE_GENERATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Resource Collection</em>' class.
@@ -2290,7 +2281,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 8;
+	int RESOURCE_COLLECTION_FEATURE_COUNT = RESOURCE_GENERATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2402,7 +2393,7 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__PREFIX = RESOURCE_COLLECTION__PREFIX;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2411,7 +2402,7 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__INCLUDES = RESOURCE_COLLECTION__INCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2420,7 +2411,7 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__EXCLUDES = RESOURCE_COLLECTION__EXCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2429,22 +2420,13 @@ public interface CodegenPackage extends EPackage {
 	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_COLLECTION__INTERPOLATION_INCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_COLLECTION__INTERPOLATION_CHARSET;
 
 	/**
 	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
@@ -2583,7 +2565,7 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__PREFIX = RESOURCE_COLLECTION__PREFIX;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2592,7 +2574,7 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__INCLUDES = RESOURCE_COLLECTION__INCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2601,7 +2583,7 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__EXCLUDES = RESOURCE_COLLECTION__EXCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2610,22 +2592,13 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = RESOURCE_COLLECTION__INTERPOLATION_INCLUDES;
 
 	/**
-	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Interpolation Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES;
-
-	/**
-	 * The feature id for the '<em><b>Interpolation Charset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ZIP_RESOURCE_COLLECTION__INTERPOLATION_CHARSET = RESOURCE_COLLECTION__INTERPOLATION_CHARSET;
 
 	/**
 	 * The feature id for the '<em><b>Reconcile Action</b></em>' attribute.
@@ -4025,10 +3998,10 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getResourceCollection_Prefix();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getIncludes <em>Includes</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getIncludes <em>Includes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Includes</em>'.
+	 * @return the meta object for the attribute '<em>Includes</em>'.
 	 * @see org.nasdanika.codegen.ResourceCollection#getIncludes()
 	 * @see #getResourceCollection()
 	 * @generated
@@ -4036,10 +4009,10 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getResourceCollection_Includes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getExcludes <em>Excludes</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getExcludes <em>Excludes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Excludes</em>'.
+	 * @return the meta object for the attribute '<em>Excludes</em>'.
 	 * @see org.nasdanika.codegen.ResourceCollection#getExcludes()
 	 * @see #getResourceCollection()
 	 * @generated
@@ -4047,10 +4020,10 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getResourceCollection_Excludes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes <em>Interpolation Includes</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes <em>Interpolation Includes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Interpolation Includes</em>'.
+	 * @return the meta object for the attribute '<em>Interpolation Includes</em>'.
 	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes()
 	 * @see #getResourceCollection()
 	 * @generated
@@ -4058,26 +4031,15 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getResourceCollection_InterpolationIncludes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Interpolation Excludes</em>'.
+	 * @return the meta object for the attribute '<em>Interpolation Excludes</em>'.
 	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes()
 	 * @see #getResourceCollection()
 	 * @generated
 	 */
 	EAttribute getResourceCollection_InterpolationExcludes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationCharset <em>Interpolation Charset</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Interpolation Charset</em>'.
-	 * @see org.nasdanika.codegen.ResourceCollection#getInterpolationCharset()
-	 * @see #getResourceCollection()
-	 * @generated
-	 */
-	EAttribute getResourceCollection_InterpolationCharset();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.codegen.ResourceCollection#getReconcileAction <em>Reconcile Action</em>}'.
@@ -4722,7 +4684,7 @@ public interface CodegenPackage extends EPackage {
 		EAttribute RESOURCE_COLLECTION__PREFIX = eINSTANCE.getResourceCollection_Prefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Includes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Includes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4730,7 +4692,7 @@ public interface CodegenPackage extends EPackage {
 		EAttribute RESOURCE_COLLECTION__INCLUDES = eINSTANCE.getResourceCollection_Includes();
 
 		/**
-		 * The meta object literal for the '<em><b>Excludes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Excludes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4738,7 +4700,7 @@ public interface CodegenPackage extends EPackage {
 		EAttribute RESOURCE_COLLECTION__EXCLUDES = eINSTANCE.getResourceCollection_Excludes();
 
 		/**
-		 * The meta object literal for the '<em><b>Interpolation Includes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Interpolation Includes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4746,20 +4708,12 @@ public interface CodegenPackage extends EPackage {
 		EAttribute RESOURCE_COLLECTION__INTERPOLATION_INCLUDES = eINSTANCE.getResourceCollection_InterpolationIncludes();
 
 		/**
-		 * The meta object literal for the '<em><b>Interpolation Excludes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Interpolation Excludes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES = eINSTANCE.getResourceCollection_InterpolationExcludes();
-
-		/**
-		 * The meta object literal for the '<em><b>Interpolation Charset</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_COLLECTION__INTERPOLATION_CHARSET = eINSTANCE.getResourceCollection_InterpolationCharset();
 
 		/**
 		 * The meta object literal for the '<em><b>Reconcile Action</b></em>' attribute feature.

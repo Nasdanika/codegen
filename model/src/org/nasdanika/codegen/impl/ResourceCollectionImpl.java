@@ -2,10 +2,6 @@
  */
 package org.nasdanika.codegen.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.nasdanika.codegen.CodegenPackage;
@@ -26,7 +22,6 @@ import org.nasdanika.codegen.ResourceCollection;
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getExcludes <em>Excludes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getInterpolationIncludes <em>Interpolation Includes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getInterpolationExcludes <em>Interpolation Excludes</em>}</li>
- *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getInterpolationCharset <em>Interpolation Charset</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.ResourceCollectionImpl#getReconcileAction <em>Reconcile Action</em>}</li>
  * </ul>
  *
@@ -54,14 +49,44 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	protected static final String PREFIX_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getInterpolationCharset() <em>Interpolation Charset</em>}' attribute.
+	 * The default value of the '{@link #getIncludes() <em>Includes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInterpolationCharset()
+	 * @see #getIncludes()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String INTERPOLATION_CHARSET_EDEFAULT = "";
+	protected static final String INCLUDES_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getExcludes() <em>Excludes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcludes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXCLUDES_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getInterpolationIncludes() <em>Interpolation Includes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterpolationIncludes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INTERPOLATION_INCLUDES_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getInterpolationExcludes() <em>Interpolation Excludes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterpolationExcludes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INTERPOLATION_EXCLUDES_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getReconcileAction() <em>Reconcile Action</em>}' attribute.
@@ -139,8 +164,18 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<String> getIncludes() {
-		return (EList<String>)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INCLUDES, true, true);
+	public String getIncludes() {
+		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INCLUDES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIncludes(String newIncludes) {
+		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INCLUDES, newIncludes);
 	}
 
 	/**
@@ -150,8 +185,18 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<String> getExcludes() {
-		return (EList<String>)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__EXCLUDES, true, true);
+	public String getExcludes() {
+		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__EXCLUDES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExcludes(String newExcludes) {
+		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__EXCLUDES, newExcludes);
 	}
 
 	/**
@@ -161,8 +206,18 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<String> getInterpolationIncludes() {
-		return (EList<String>)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, true, true);
+	public String getInterpolationIncludes() {
+		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInterpolationIncludes(String newInterpolationIncludes) {
+		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES, newInterpolationIncludes);
 	}
 
 	/**
@@ -172,8 +227,8 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<String> getInterpolationExcludes() {
-		return (EList<String>)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, true, true);
+	public String getInterpolationExcludes() {
+		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, true, true);
 	}
 
 	/**
@@ -182,18 +237,8 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 	 * @generated
 	 */
 	@Override
-	public String getInterpolationCharset() {
-		return (String)eDynamicGet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_CHARSET, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setInterpolationCharset(String newInterpolationCharset) {
-		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_CHARSET, newInterpolationCharset);
+	public void setInterpolationExcludes(String newInterpolationExcludes) {
+		eDynamicSet(CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES, newInterpolationExcludes);
 	}
 
 	/**
@@ -236,8 +281,6 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 				return getInterpolationIncludes();
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
 				return getInterpolationExcludes();
-			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
-				return getInterpolationCharset();
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				return getReconcileAction();
 		}
@@ -260,23 +303,16 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 				setPrefix((String)newValue);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INCLUDES:
-				getIncludes().clear();
-				getIncludes().addAll((Collection<? extends String>)newValue);
+				setIncludes((String)newValue);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__EXCLUDES:
-				getExcludes().clear();
-				getExcludes().addAll((Collection<? extends String>)newValue);
+				setExcludes((String)newValue);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES:
-				getInterpolationIncludes().clear();
-				getInterpolationIncludes().addAll((Collection<? extends String>)newValue);
+				setInterpolationIncludes((String)newValue);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
-				getInterpolationExcludes().clear();
-				getInterpolationExcludes().addAll((Collection<? extends String>)newValue);
-				return;
-			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
-				setInterpolationCharset((String)newValue);
+				setInterpolationExcludes((String)newValue);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				setReconcileAction((ReconcileAction)newValue);
@@ -300,19 +336,16 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 				setPrefix(PREFIX_EDEFAULT);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INCLUDES:
-				getIncludes().clear();
+				setIncludes(INCLUDES_EDEFAULT);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__EXCLUDES:
-				getExcludes().clear();
+				setExcludes(EXCLUDES_EDEFAULT);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES:
-				getInterpolationIncludes().clear();
+				setInterpolationIncludes(INTERPOLATION_INCLUDES_EDEFAULT);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
-				getInterpolationExcludes().clear();
-				return;
-			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
-				setInterpolationCharset(INTERPOLATION_CHARSET_EDEFAULT);
+				setInterpolationExcludes(INTERPOLATION_EXCLUDES_EDEFAULT);
 				return;
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				setReconcileAction(RECONCILE_ACTION_EDEFAULT);
@@ -334,15 +367,13 @@ public abstract class ResourceCollectionImpl extends GeneratorImpl implements Re
 			case CodegenPackage.RESOURCE_COLLECTION__PREFIX:
 				return PREFIX_EDEFAULT == null ? getPrefix() != null : !PREFIX_EDEFAULT.equals(getPrefix());
 			case CodegenPackage.RESOURCE_COLLECTION__INCLUDES:
-				return !getIncludes().isEmpty();
+				return INCLUDES_EDEFAULT == null ? getIncludes() != null : !INCLUDES_EDEFAULT.equals(getIncludes());
 			case CodegenPackage.RESOURCE_COLLECTION__EXCLUDES:
-				return !getExcludes().isEmpty();
+				return EXCLUDES_EDEFAULT == null ? getExcludes() != null : !EXCLUDES_EDEFAULT.equals(getExcludes());
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES:
-				return !getInterpolationIncludes().isEmpty();
+				return INTERPOLATION_INCLUDES_EDEFAULT == null ? getInterpolationIncludes() != null : !INTERPOLATION_INCLUDES_EDEFAULT.equals(getInterpolationIncludes());
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
-				return !getInterpolationExcludes().isEmpty();
-			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
-				return INTERPOLATION_CHARSET_EDEFAULT == null ? getInterpolationCharset() != null : !INTERPOLATION_CHARSET_EDEFAULT.equals(getInterpolationCharset());
+				return INTERPOLATION_EXCLUDES_EDEFAULT == null ? getInterpolationExcludes() != null : !INTERPOLATION_EXCLUDES_EDEFAULT.equals(getInterpolationExcludes());
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				return getReconcileAction() != RECONCILE_ACTION_EDEFAULT;
 		}

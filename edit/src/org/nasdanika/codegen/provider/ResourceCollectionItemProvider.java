@@ -48,7 +48,6 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 			addExcludesPropertyDescriptor(object);
 			addInterpolationIncludesPropertyDescriptor(object);
 			addInterpolationExcludesPropertyDescriptor(object);
-			addInterpolationCharsetPropertyDescriptor(object);
 			addReconcileActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -109,7 +108,7 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 				 getString("_UI_ResourceCollection_includes_feature"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INCLUDES,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -130,7 +129,7 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 				 getString("_UI_ResourceCollection_excludes_feature"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__EXCLUDES,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -151,7 +150,7 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 				 getString("_UI_ResourceCollection_interpolationIncludes_feature"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -172,28 +171,7 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 				 getString("_UI_ResourceCollection_interpolationExcludes_feature"),
 				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES,
 				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Interpolation Charset feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addInterpolationCharsetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_ResourceCollection_interpolationCharset_feature"),
-				 CodegenPackage.Literals.RESOURCE_COLLECTION__INTERPOLATION_CHARSET,
 				 true,
-				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -262,7 +240,6 @@ public class ResourceCollectionItemProvider extends GeneratorItemProvider {
 			case CodegenPackage.RESOURCE_COLLECTION__EXCLUDES:
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_INCLUDES:
 			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES:
-			case CodegenPackage.RESOURCE_COLLECTION__INTERPOLATION_CHARSET:
 			case CodegenPackage.RESOURCE_COLLECTION__RECONCILE_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -775,18 +775,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResourceCollection_InterpolationCharset() {
-		return (EAttribute)resourceCollectionEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getResourceCollection_ReconcileAction() {
-		return (EAttribute)resourceCollectionEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)resourceCollectionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1129,7 +1119,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__EXCLUDES);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__INTERPOLATION_INCLUDES);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__INTERPOLATION_EXCLUDES);
-		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__INTERPOLATION_CHARSET);
 		createEAttribute(resourceCollectionEClass, RESOURCE_COLLECTION__RECONCILE_ACTION);
 
 		bundleResourceCollectionEClass = createEClass(BUNDLE_RESOURCE_COLLECTION);
@@ -1321,11 +1310,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(resourceCollectionEClass, ResourceCollection.class, "ResourceCollection", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResourceCollection_Path(), ecorePackage.getEString(), "path", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceCollection_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_Includes(), ecorePackage.getEString(), "includes", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_Excludes(), ecorePackage.getEString(), "excludes", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_InterpolationIncludes(), ecorePackage.getEString(), "interpolationIncludes", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_InterpolationExcludes(), ecorePackage.getEString(), "interpolationExcludes", null, 0, -1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceCollection_InterpolationCharset(), ecorePackage.getEString(), "interpolationCharset", "", 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceCollection_Includes(), ecorePackage.getEString(), "includes", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceCollection_Excludes(), ecorePackage.getEString(), "excludes", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceCollection_InterpolationIncludes(), ecorePackage.getEString(), "interpolationIncludes", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceCollection_InterpolationExcludes(), ecorePackage.getEString(), "interpolationExcludes", null, 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceCollection_ReconcileAction(), this.getReconcileAction(), "reconcileAction", "Overwrite", 0, 1, ResourceCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bundleResourceCollectionEClass, BundleResourceCollection.class, "BundleResourceCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1693,12 +1681,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		   source,
 		   new String[] {
 			   "documentation", "A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation."
-		   });
-		addAnnotation
-		  (getResourceCollection_InterpolationCharset(),
-		   source,
-		   new String[] {
-			   "documentation", "Charset to use when reading/writing resources for interpolation."
 		   });
 		addAnnotation
 		  (getResourceCollection_ReconcileAction(),

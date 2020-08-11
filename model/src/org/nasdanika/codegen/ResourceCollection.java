@@ -2,8 +2,6 @@
  */
 package org.nasdanika.codegen;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource Collection</b></em>'.
@@ -23,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getExcludes <em>Excludes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes <em>Interpolation Includes</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}</li>
- *   <li>{@link org.nasdanika.codegen.ResourceCollection#getInterpolationCharset <em>Interpolation Charset</em>}</li>
  *   <li>{@link org.nasdanika.codegen.ResourceCollection#getReconcileAction <em>Reconcile Action</em>}</li>
  * </ul>
  *
@@ -83,8 +80,7 @@ public interface ResourceCollection extends ResourceGenerator {
 	void setPrefix(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Includes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -98,83 +94,98 @@ public interface ResourceCollection extends ResourceGenerator {
 	 * * `**` matches zero or more **directories** in a path
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Includes</em>' attribute list.
+	 * @return the value of the '<em>Includes</em>' attribute.
+	 * @see #setIncludes(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_Includes()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getIncludes();
+	String getIncludes();
 
 	/**
-	 * Returns the value of the '<em><b>Excludes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getIncludes <em>Includes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Includes</em>' attribute.
+	 * @see #getIncludes()
+	 * @generated
+	 */
+	void setIncludes(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying resources to exclude from the collection. Nothing is excluded if this list is empty.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Excludes</em>' attribute list.
+	 * @return the value of the '<em>Excludes</em>' attribute.
+	 * @see #setExcludes(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_Excludes()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getExcludes();
+	String getExcludes();
 
 	/**
-	 * Returns the value of the '<em><b>Interpolation Includes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getExcludes <em>Excludes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Excludes</em>' attribute.
+	 * @see #getExcludes()
+	 * @generated
+	 */
+	void setExcludes(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Interpolation Includes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which included resources shall be interpolated. E.g. if ``includes`` contains ``*.bin`` and ``*.txt`` and ``interpolationIncludes`` contains ``*.txt`` then only text files will be interpolated. Unlike ``includes``, if this list is empty then nothing gets interpolated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpolation Includes</em>' attribute list.
+	 * @return the value of the '<em>Interpolation Includes</em>' attribute.
+	 * @see #setInterpolationIncludes(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_InterpolationIncludes()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getInterpolationIncludes();
+	String getInterpolationIncludes();
 
 	/**
-	 * Returns the value of the '<em><b>Interpolation Excludes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationIncludes <em>Interpolation Includes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interpolation Includes</em>' attribute.
+	 * @see #getInterpolationIncludes()
+	 * @generated
+	 */
+	void setInterpolationIncludes(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Interpolation Excludes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of [Ant path patterns](https://ant.apache.org/manual/dirtasks.html) specifying which resources shall be excluded from interpolation.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpolation Excludes</em>' attribute list.
+	 * @return the value of the '<em>Interpolation Excludes</em>' attribute.
+	 * @see #setInterpolationExcludes(String)
 	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_InterpolationExcludes()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getInterpolationExcludes();
+	String getInterpolationExcludes();
 
 	/**
-	 * Returns the value of the '<em><b>Interpolation Charset</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationExcludes <em>Interpolation Excludes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Charset to use when reading/writing resources for interpolation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpolation Charset</em>' attribute.
-	 * @see #setInterpolationCharset(String)
-	 * @see org.nasdanika.codegen.CodegenPackage#getResourceCollection_InterpolationCharset()
-	 * @model default=""
+	 * @param value the new value of the '<em>Interpolation Excludes</em>' attribute.
+	 * @see #getInterpolationExcludes()
 	 * @generated
 	 */
-	String getInterpolationCharset();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.codegen.ResourceCollection#getInterpolationCharset <em>Interpolation Charset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interpolation Charset</em>' attribute.
-	 * @see #getInterpolationCharset()
-	 * @generated
-	 */
-	void setInterpolationCharset(String value);
+	void setInterpolationExcludes(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Reconcile Action</b></em>' attribute.

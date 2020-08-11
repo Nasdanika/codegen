@@ -34,10 +34,10 @@ public class Activator implements BundleActivator {
 		RESOURCES_PALETTE.add(
 				CodegenPackage.Literals.RESOURCE_GROUP,
 				CodegenPackage.Literals.CONTAINER,
-				CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION,
+//				CodegenPackage.Literals.BUNDLE_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_REFERENCE,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_LINK,
-				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
+//				CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION,
 				CodegenPackage.Literals.RESOURCE_GENERATOR_ADAPTER,
 				CodegenPackage.Literals.FILE);	
 		

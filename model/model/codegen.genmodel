@@ -68,11 +68,10 @@
     <genClasses image="false" ecoreClass="codegen.ecore#//ResourceCollection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/prefix"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/includes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/excludes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationIncludes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationExcludes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationCharset"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/includes"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/excludes"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationIncludes"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/interpolationExcludes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codegen.ecore#//ResourceCollection/reconcileAction"/>
     </genClasses>
     <genClasses ecoreClass="codegen.ecore#//BundleResourceCollection">
