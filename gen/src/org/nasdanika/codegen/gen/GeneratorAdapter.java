@@ -183,7 +183,7 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		}
 		
 		// Treating spec as a relative URL
-		URL ref = EmfUtil.resolveReference(target.eResource(), String.valueOf(spec));
+		URL ref = EmfUtil.resolveReference(target.eResource(), context.interpolateToString(String.valueOf(spec)));
 		Yaml yaml = new Yaml();
 		return map(context, yaml.load(ref.openStream()));
 	}
