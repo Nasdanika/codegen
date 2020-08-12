@@ -3,7 +3,7 @@
   <elements xsi:type="org.nasdanika.codegen:Container" id="3d4797b5-eb05-42a2-8e8c-7acce6b810ce" name="src">
     <elements xsi:type="org.nasdanika.codegen:Container" id="315a85ae-f1fc-4569-8651-bef171cfbac0" name="main">
       <elements xsi:type="org.nasdanika.codegen.java:SourceFolder" id="67677a33-f72d-4b3e-afc8-edbf9b051b97" name="java">
-        <elements xsi:type="org.nasdanika.codegen.java:Package" id="7456798f-7e4b-4076-96e7-7f58aa62fe14" name="${java/root-package}">
+        <elements xsi:type="org.nasdanika.codegen.java:Package" id="7456798f-7e4b-4076-96e7-7f58aa62fe14" name="${maven/group}.${maven/artifact}">
           <elements xsi:type="org.nasdanika.codegen.java:CompilationUnit" id="ca59258c-cd9d-4ee3-8a11-4f258cfaa9da" iterator="java/beans" name="${name}">
             <content xsi:type="org.nasdanika.codegen.java:Class" id="b54a974c-29a3-42f1-bc9b-d2a2210470dd" name="${name}" modifiers="public" comment="Bean">
               <body xsi:type="org.nasdanika.codegen.java:MemberGroup" title="Properties" id="7dda6199-1e3f-47d5-9c07-665719efce8d" iterator="fields">
@@ -22,4 +22,7 @@
       </elements>
     </elements>
   </elements>
+  <elements xsi:type="org.nasdanika.codegen:File" id="d3e9414d-bc7a-4674-91a0-bc6e89d349a0" name="pom.xml"/>
+  <elements xsi:type="org.nasdanika.codegen:File" id="a020521d-b203-49a8-90cc-e0c14f66626b" name=".project"/>
+  <elements xsi:type="org.nasdanika.codegen:File" id="8222c218-ef00-4781-b2d6-8c2653d3e004" name=".classpath"/>
 </org.nasdanika.codegen:ResourceGroup>

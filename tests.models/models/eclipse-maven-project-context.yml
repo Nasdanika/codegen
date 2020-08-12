@@ -4,7 +4,6 @@ maven:
     group: org.nasdanika
     artifact: demo
 java:
-    root-package: org.nasdanika.demo
     beans:
         - name: Person
           fields:
