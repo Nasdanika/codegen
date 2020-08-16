@@ -10,6 +10,6 @@ java:
             - name: FirstName
               type: java.lang.String    
             - name: LastName
-              type: java.lang.String    
+              type: '${import/java.util.List}'    
             - name: Age
               type: int    
