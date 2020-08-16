@@ -41,7 +41,7 @@ public class FileAdapter extends ResourceAdapter<File> {
 		for (Generator e: content) {
 			cf.add(EObjectAdaptable.adaptToSupplierFactoryNonNull(e, InputStream.class));
 		}
-		return cf.then(ContentGeneratorAdapter.JOIN_STREAMS_FACTORY);			
+		return cf.then(Util.JOIN_STREAMS_FACTORY);			
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class FileAdapter extends ResourceAdapter<File> {
 						case APPEND: {
 							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
 							if (input.getSecond() != null) {
-								file.setState(file.exists(progressMonitor) ? ContentGeneratorAdapter.join(file.getState(progressMonitor), input.getSecond()) : input.getSecond(), progressMonitor);
+								file.setState(file.exists(progressMonitor) ? Util.join(file.getState(progressMonitor), input.getSecond()) : input.getSecond(), progressMonitor);
 							}
 							break;
 						}							

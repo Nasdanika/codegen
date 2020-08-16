@@ -22,6 +22,7 @@ import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.EmfUtil;
 import org.nasdanika.ncore.AbstractEntry;
@@ -75,7 +76,7 @@ public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implement
 			}
 			
 		};
-		return headersSupplierFactory.then(bodySupplierFactory.then(JOIN_STREAMS_FACTORY).asFunctionFactory()).then(httpCallFactory).create(iContext);
+		return headersSupplierFactory.then(bodySupplierFactory.then(Util.JOIN_STREAMS_FACTORY).asFunctionFactory()).then(httpCallFactory).create(iContext);
 	}
 	
 	protected InputStream call(Context context, Map<String, Object> headers, InputStream body, ProgressMonitor progressMonitor) throws Exception {				
@@ -107,7 +108,7 @@ public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implement
 		
 		int responseCode = httpConnection.getResponseCode();
 		if (responseCode == target.getSuccessCode()) { 
-			return target.isInterpolate() ? filter(context, httpConnection.getInputStream(), context::interpolateToString) : httpConnection.getInputStream();
+			return target.isInterpolate() ? Util.filter(context, httpConnection.getInputStream(), context::interpolateToString) : httpConnection.getInputStream();
 		}
 		
 		throw new NasdanikaException("HTTP Call to "+url+" has failed with response: "+responseCode+" "+httpConnection.getResponseMessage());

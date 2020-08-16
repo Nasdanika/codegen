@@ -75,7 +75,7 @@ public abstract class ResourceCollectionAdapter<T extends ResourceCollection> ex
 	 * @return
 	 */
 	protected InputStream interpolate(Context context, String path, InputStream in) throws Exception {
-		return shouldInterpolate(path) ? ContentGeneratorAdapter.filter(context, in, context::interpolateToString) : in;
+		return shouldInterpolate(path) ? Util.filter(context, in, context::interpolateToString) : in;
 	}
 
 }

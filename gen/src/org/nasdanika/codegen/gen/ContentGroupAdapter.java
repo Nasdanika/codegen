@@ -9,6 +9,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
 
 public class ContentGroupAdapter extends ContentGeneratorAdapter<ContentGroup> implements SupplierFactory<InputStream> {
@@ -29,7 +30,7 @@ public class ContentGroupAdapter extends ContentGeneratorAdapter<ContentGroup> i
 			SupplierFactory<InputStream> eAdapter = EObjectAdaptable.adaptToSupplierFactoryNonNull(e, InputStream.class);
 			ret.add(eAdapter.create(iContext));
 		}
-		return ret.then(JOIN_STREAMS);
+		return ret.then(Util.JOIN_STREAMS);
 	}
 
 }

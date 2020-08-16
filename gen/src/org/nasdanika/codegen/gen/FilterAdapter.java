@@ -10,6 +10,7 @@ import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
 
 public abstract class FilterAdapter<T extends Filter> extends ContentGeneratorAdapter<T> {
@@ -45,14 +46,14 @@ public abstract class FilterAdapter<T extends Filter> extends ContentGeneratorAd
 
 					@Override
 					public InputStream execute(InputStream input, ProgressMonitor progressMonitor) throws Exception {
-						return filter(context, input, str -> FilterAdapter.this.filter(context, str));
+						return Util.filter(context, input, str -> FilterAdapter.this.filter(context, str));
 					}
 					
 				};
 			}
 			
 		};
-		return bodySupplierFactory.then(JOIN_STREAMS_FACTORY).then(filterFactory).create(iContext);
+		return bodySupplierFactory.then(Util.JOIN_STREAMS_FACTORY).then(filterFactory).create(iContext);
 	}
 	
 	protected abstract String filter(Context context, String input); 

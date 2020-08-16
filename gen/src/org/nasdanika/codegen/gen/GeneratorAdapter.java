@@ -57,7 +57,7 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		Object value = context.get(iterator);
 		if (value == null) {
 			// Sub-context - prefix.
-			return map(context.map(key -> iterator + key));
+			return map(context.map(Util.hierarchicalMapper(iterator)));
 		}
 		
 		return map(iterate(context, value));
@@ -189,7 +189,7 @@ public abstract class GeneratorAdapter<T extends Generator> {
 	}
 		
 	/**
-	 * Creates context supplier factory from configuration of contextification.
+	 * Creates context supplier factory from configuration for contextification.
 	 * 
 	 * @return Context supplier factory or null if configuration is empty.
 	 */
