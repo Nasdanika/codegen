@@ -36,7 +36,6 @@ public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implement
 	@Override
 	protected Supplier<InputStream> createElement(Context iContext) throws Exception {
 		// Headers - Map		
-		@SuppressWarnings("resource")
 		MapCompoundSupplierFactory<String,Object> headersSupplierFactory = new MapCompoundSupplierFactory<>("Headers");
 		
 		for (AbstractEntry e: target.getHeaders()) {

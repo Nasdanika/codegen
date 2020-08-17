@@ -19,6 +19,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.common.resources.Merger;
 import org.nasdanika.emf.EObjectAdaptable;
 
 public class FileAdapter extends ResourceAdapter<File> {
@@ -43,76 +44,69 @@ public class FileAdapter extends ResourceAdapter<File> {
 		}
 		return cf.then(Util.JOIN_STREAMS_FACTORY);			
 	}
-
-	@Override
-	protected Consumer<BinaryEntityContainer> createElement(Context iContext) throws Exception {
-				
-		ConsumerFactory<BiSupplier<BinaryEntityContainer, InputStream>> fileFactory = new ConsumerFactory<BiSupplier<BinaryEntityContainer, InputStream>>() {
-
-			@Override
-			public Consumer<BiSupplier<BinaryEntityContainer, InputStream>> create(Context context) throws Exception {
-				return new Consumer<BiSupplier<BinaryEntityContainer, InputStream>>() {
-
-					@Override
-					public double size() {
-						return 1;
-					}
-
-					@Override
-					public String name() {
-						return "Create file " + target.getTitle();
-					}
-
-
-					@Override
-					public void execute(BiSupplier<BinaryEntityContainer, InputStream> input, ProgressMonitor progressMonitor) throws Exception {
-						String name = finalName(context.interpolateToString(target.getName()));
-						switch (target.getReconcileAction()) {
-						case CANCEL:
-							if (input.getFirst().find(name, progressMonitor) != null) {
-								throw new CancellationException("Cancelling generation - resource '" + name + "' already exists in " + input.getFirst());
-							}
-						case OVERWRITE: {
-							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
-							if (input.getSecond() != null) {
-								file.setState(input.getSecond(), progressMonitor);
-							}
-							break;
-						}
-						case KEEP: {
-							if (input.getFirst().find(name, progressMonitor) == null) {
-								BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
-								if (input.getSecond() != null) {
-									file.setState(input.getSecond(), progressMonitor);
-								}
-							}
-							break;
-						}
-						case APPEND: {
-							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
-							if (input.getSecond() != null) {
-								file.setState(file.exists(progressMonitor) ? Util.join(file.getState(progressMonitor), input.getSecond()) : input.getSecond(), progressMonitor);
-							}
-							break;
-						}							
-						case MERGE: {
-							BinaryEntity file = Objects.requireNonNull(input.getFirst().get(name, progressMonitor), "Cannot create file " + name + " in " + input.getFirst());
-							if (input.getSecond() != null) {
-								if (file.exists(progressMonitor)) {
-									file.setState(merge(iContext, file, file.getState(progressMonitor), input.getSecond(), progressMonitor), progressMonitor);
-								} else {
-									file.setState(input.getSecond(), progressMonitor);
-								}
-							}
-							break;
-						}							
-						}
-					}
-					
-				};
-			}
-		};
 		
+	private ConsumerFactory<BiSupplier<BinaryEntityContainer, InputStream>> fileFactory = context -> new Consumer<BiSupplier<BinaryEntityContainer, InputStream>>() {
+
+		private String finalName = finalName(context.interpolateToString(target.getName()));
+		
+		@Override
+		public double size() {
+			return 1;
+		}
+
+		@Override
+		public String name() {
+			return "Create file " + finalName;
+		}	
+
+		@Override
+		public void execute(BiSupplier<BinaryEntityContainer, InputStream> input, ProgressMonitor progressMonitor) throws Exception {
+			switch (target.getReconcileAction()) {
+			case CANCEL:
+				if (input.getFirst().find(finalName, progressMonitor) != null) {
+					throw new CancellationException("Cancelling generation - resource '" + finalName + "' already exists in " + input.getFirst());
+				}
+			case OVERWRITE: {
+				BinaryEntity file = Objects.requireNonNull(input.getFirst().get(finalName, progressMonitor), "Cannot create file " + finalName + " in " + input.getFirst());
+				if (input.getSecond() != null) {
+					file.setState(input.getSecond(), progressMonitor);
+				}
+				break;
+			}
+			case KEEP: {
+				if (input.getFirst().find(finalName, progressMonitor) == null) {
+					BinaryEntity file = Objects.requireNonNull(input.getFirst().get(finalName, progressMonitor), "Cannot create file " + finalName + " in " + input.getFirst());
+					if (input.getSecond() != null) {
+						file.setState(input.getSecond(), progressMonitor);
+					}
+				}
+				break;
+			}
+			case APPEND: {
+				BinaryEntity file = Objects.requireNonNull(input.getFirst().get(finalName, progressMonitor), "Cannot create file " + finalName + " in " + input.getFirst());
+				if (input.getSecond() != null) {
+					file.setState(file.exists(progressMonitor) ? Util.join(file.getState(progressMonitor), input.getSecond()) : input.getSecond(), progressMonitor);
+				}
+				break;
+			}							
+			case MERGE: {
+				BinaryEntity file = Objects.requireNonNull(input.getFirst().get(finalName, progressMonitor), "Cannot create file " + finalName + " in " + input.getFirst());
+				if (input.getSecond() != null) {
+					if (file.exists(progressMonitor)) {
+						file.setState(merge(context, file, file.getState(progressMonitor), input.getSecond(), progressMonitor), progressMonitor);
+					} else {
+						file.setState(input.getSecond(), progressMonitor);
+					}
+				}
+				break;
+			}							
+			}
+		}
+		
+	};
+	
+	@Override
+	protected Consumer<BinaryEntityContainer> createElement(Context iContext) throws Exception {		
 		FunctionFactory<BinaryEntityContainer, BiSupplier<BinaryEntityContainer, InputStream>> contentFunctionFactory = createContentFactory().asFunctionFactory();
 		return contentFunctionFactory.then(fileFactory).create(iContext);
 	}

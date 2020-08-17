@@ -21,9 +21,7 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.text.edits.TextEdit;
-import org.nasdanika.codegen.gen.ContentGeneratorAdapter;
 import org.nasdanika.codegen.gen.FileAdapter;
-import org.nasdanika.codegen.gen.Merger;
 import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.gen.PackageAdapter.PackageInfo;
@@ -35,8 +33,10 @@ import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.common.resources.Merger;
 
 public class CompilationUnitAdapter extends FileAdapter {
 
@@ -70,15 +70,15 @@ public class CompilationUnitAdapter extends FileAdapter {
 			    
 				JMerger jMerger = new JMerger(controlModel);												
 				
-				JCompilationUnit scu = jMerger.createCompilationUnitForContents(ContentGeneratorAdapter.toString(context, newContent));
+				JCompilationUnit scu = jMerger.createCompilationUnitForContents(Util.toString(context, newContent));
 				jMerger.setSourceCompilationUnit(scu);
 				
-				JCompilationUnit tcu = jMerger.createCompilationUnitForContents(ContentGeneratorAdapter.toString(context, oldContent));
+				JCompilationUnit tcu = jMerger.createCompilationUnitForContents(Util.toString(context, oldContent));
 				jMerger.setTargetCompilationUnit(tcu);
 				
 				jMerger.merge();
 				
-				return ContentGeneratorAdapter.toStream(context, jMerger.getTargetCompilationUnitContents());
+				return Util.toStream(context, jMerger.getTargetCompilationUnitContents());
 			}
 			
 		};
@@ -150,7 +150,7 @@ public class CompilationUnitAdapter extends FileAdapter {
 						}
 						contentBuilder.append(System.lineSeparator());
 						
-						return ContentGeneratorAdapter.toStream(context, contentBuilder.toString());
+						return Util.toStream(context, contentBuilder.toString());
 					}
 					
 				};
@@ -178,7 +178,7 @@ public class CompilationUnitAdapter extends FileAdapter {
 
 					@Override
 					public InputStream execute(InputStream content, ProgressMonitor progressMonitor) throws Exception {
-						return ContentGeneratorAdapter.toStream(context, formatCompilationUnit(ContentGeneratorAdapter.toString(context, content)));
+						return Util.toStream(context, formatCompilationUnit(Util.toString(context, content)));
 					}
 				};
 			}
@@ -199,7 +199,7 @@ public class CompilationUnitAdapter extends FileAdapter {
 
 			@Override
 			public InputStream execute(List<InputStream> inputs, ProgressMonitor progressMonitor) throws Exception {
-				return ContentGeneratorAdapter.join(inputs.get(1), inputs.get(0));
+				return Util.join(inputs.get(1), inputs.get(0));
 			}
 			
 		};

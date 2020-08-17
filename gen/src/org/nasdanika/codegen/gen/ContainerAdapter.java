@@ -22,7 +22,47 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 	public ContainerAdapter(Container target) {
 		super(target);
 	}
+	
+	private FunctionFactory<BinaryEntityContainer, BinaryEntityContainer> containerFactory = context -> new Function<BinaryEntityContainer, BinaryEntityContainer>() {
 
+		@Override
+		public double size() {
+			return 1;
+		}
+
+		@Override
+		public String name() {
+			return "Create container " + target.getTitle();
+		}
+
+		@Override
+		public BinaryEntityContainer execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
+			String name = finalName(context.interpolateToString(target.getName()));
+			BinaryEntityContainer ret = Objects.requireNonNull(container.getContainer(name, progressMonitor), "Cannot create container " + name + " in " + container);
+			switch (target.getReconcileAction()) {
+			case OVERWRITE:
+				if (ret.exists(progressMonitor)) {
+					ret.delete(progressMonitor);
+				}
+			case MERGE:
+			case APPEND:
+				return ret;
+			case CANCEL:
+				if (ret.exists(progressMonitor)) {
+					throw new CancellationException("Cancelling generation - container '" + name + "' already exists in " + container);
+				}
+				return ret;
+			case KEEP:
+				if (ret.exists(progressMonitor)) {
+					return null; // Indicates that elements factory shall not do anything.
+				}
+				return ret;
+			}
+			return ret;
+		}
+		
+	};
+	
 	@Override
 	protected Consumer<BinaryEntityContainer> createElement(Context iContext) throws Exception {
 		EList<ResourceGenerator> elements = target.getElements();
@@ -37,51 +77,6 @@ public class ContainerAdapter extends ResourceAdapter<Container> {
 			}
 			elementsFactory = cc;
 		}
-		FunctionFactory<BinaryEntityContainer, BinaryEntityContainer> containerFactory = new FunctionFactory<BinaryEntityContainer, BinaryEntityContainer>() {
-
-			@Override
-			public Function<BinaryEntityContainer, BinaryEntityContainer> create(Context context) throws Exception {
-				return new Function<BinaryEntityContainer, BinaryEntityContainer>() {
-
-					@Override
-					public double size() {
-						return 1;
-					}
-
-					@Override
-					public String name() {
-						return "Create container " + target.getTitle();
-					}
-
-					@Override
-					public BinaryEntityContainer execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
-						String name = finalName(context.interpolateToString(target.getName()));
-						BinaryEntityContainer ret = Objects.requireNonNull(container.getContainer(name, progressMonitor), "Cannot create container " + name + " in " + container);
-						switch (target.getReconcileAction()) {
-						case OVERWRITE:
-							if (ret.exists(progressMonitor)) {
-								ret.delete(progressMonitor);
-							}
-						case MERGE:
-						case APPEND:
-							return ret;
-						case CANCEL:
-							if (ret.exists(progressMonitor)) {
-								throw new CancellationException("Cancelling generation - container '" + name + "' already exists in " + container);
-							}
-							return ret;
-						case KEEP:
-							if (ret.exists(progressMonitor)) {
-								return null; // Indicates that elements factory shall not do anything.
-							}
-							return ret;
-						}
-						return ret;
-					}
-					
-				};
-			}
-		};
 		
 		ConsumerFactory<BinaryEntityContainer> conditionalFactory = new ConsumerFactory<BinaryEntityContainer>() {
 

@@ -50,7 +50,7 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 
 				@Override
 				public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
-					return ContentGeneratorAdapter.toStream(context, context.interpolateToString(MarkdownHelper.INSTANCE.markdownToHtml(target.getComment())));
+					return Util.toStream(context, context.interpolateToString(MarkdownHelper.INSTANCE.markdownToHtml(target.getComment())));
 				}
 				
 			};
@@ -60,7 +60,7 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 		for (ContentGenerator e: comments) {
 			commentFactory.add(EObjectAdaptable.adaptToSupplierFactoryNonNull(e, InputStream.class));
 		}
-		return commentFactory.then(ContentGeneratorAdapter.JOIN_STREAMS_FACTORY);			
+		return commentFactory.then(Util.JOIN_STREAMS_FACTORY);			
 	}
 		
 	/**
@@ -77,7 +77,7 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 		for (ContentGenerator e: body) {
 			bodyFactory.add(EObjectAdaptable.adaptToSupplierFactoryNonNull(e, InputStream.class));
 		}
-		return bodyFactory.then(JOIN_STREAMS_FACTORY);			
+		return bodyFactory.then(Util.JOIN_STREAMS_FACTORY);			
 	}
 	
 	
@@ -97,7 +97,7 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 
 			@Override
 			public InputStream execute(BiSupplier<InputStream, InputStream> commentAndBody, ProgressMonitor progressMonitor) throws Exception {
-				String comment = ContentGeneratorAdapter.toString(context, commentAndBody.getFirst());				
+				String comment = Util.toString(context, commentAndBody.getFirst());				
 				StringBuilder commentBuilder = new StringBuilder(System.lineSeparator())
 						.append(System.lineSeparator())
 						.append("/**")
@@ -114,12 +114,12 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 				commentBuilder.append(" * @generated").append(System.lineSeparator());
 				commentBuilder.append(" */").append(System.lineSeparator());
 				
-				return ContentGeneratorAdapter.toStream(
+				return Util.toStream(
 						context, 
 						generate(
 								context, 
 								commentBuilder.toString(), 
-								ContentGeneratorAdapter.toString(context, commentAndBody.getSecond()), 
+								Util.toString(context, commentAndBody.getSecond()), 
 								progressMonitor));
 			}
 			
