@@ -81,51 +81,50 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 		return bodyFactory.then(Util.JOIN_STREAMS_FACTORY);			
 	}
 	
-	
-	@Override
-	protected Supplier<InputStream> createElement(Context iContext) throws Exception {
-		FunctionFactory<BiSupplier<InputStream, InputStream>,InputStream> memberFactory = context -> new Function<BiSupplier<InputStream, InputStream>,InputStream>() {
+	private FunctionFactory<BiSupplier<InputStream, InputStream>,InputStream> memberFactory = context -> new Function<BiSupplier<InputStream, InputStream>,InputStream>() {
 
-			@Override
-			public double size() {
-				return 1;
-			}
+		@Override
+		public double size() {
+			return 1;
+		}
 
-			@Override
-			public String name() {
-				return target.getTitle();
-			}
+		@Override
+		public String name() {
+			return target.getTitle();
+		}
 
-			@Override
-			public InputStream execute(BiSupplier<InputStream, InputStream> commentAndBody, ProgressMonitor progressMonitor) throws Exception {
-				String comment = Util.toString(context, commentAndBody.getFirst());				
-				StringBuilder commentBuilder = new StringBuilder(System.lineSeparator())
-						.append(System.lineSeparator())
-						.append("/**")
-						.append(System.lineSeparator());
-				
-				if (comment != null) {
-					try (BufferedReader br = new BufferedReader(new StringReader(comment))) {
-						String line;
-						while ((line = br.readLine()) != null) {
-							commentBuilder.append(" * ").append(line).append(System.lineSeparator());						
-						}
+		@Override
+		public InputStream execute(BiSupplier<InputStream, InputStream> commentAndBody, ProgressMonitor progressMonitor) throws Exception {
+			String comment = Util.toString(context, commentAndBody.getFirst());				
+			StringBuilder commentBuilder = new StringBuilder(System.lineSeparator())
+					.append(System.lineSeparator())
+					.append("/**")
+					.append(System.lineSeparator());
+			
+			if (comment != null) {
+				try (BufferedReader br = new BufferedReader(new StringReader(comment))) {
+					String line;
+					while ((line = br.readLine()) != null) {
+						commentBuilder.append(" * ").append(line).append(System.lineSeparator());						
 					}
 				}
-				commentBuilder.append(" * @generated").append(System.lineSeparator());
-				commentBuilder.append(" */").append(System.lineSeparator());
-				
-				return Util.toStream(
-						context, 
-						generate(
-								context, 
-								commentBuilder.toString(), 
-								Util.toString(context, commentAndBody.getSecond()), 
-								progressMonitor));
 			}
+			commentBuilder.append(" * @generated").append(System.lineSeparator());
+			commentBuilder.append(" */").append(System.lineSeparator());
 			
-		};
+			return Util.toStream(
+					context, 
+					generate(
+							context, 
+							commentBuilder.toString(), 
+							Util.toString(context, commentAndBody.getSecond()), 
+							progressMonitor));
+		}
 		
+	};
+			
+	@Override
+	protected Supplier<InputStream> createElement(Context iContext) throws Exception {		
 		ImportManager importManager = iContext.get(ImportManager.class);				
 		return createCommentFactory().then(createBodyFactory().asFunctionFactory()).then(memberFactory).create(Context.singleton("import", importManager).compose(iContext));
 	}

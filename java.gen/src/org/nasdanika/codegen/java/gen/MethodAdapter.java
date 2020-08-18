@@ -47,7 +47,5 @@ public class MethodAdapter extends OperationAdapter<org.nasdanika.codegen.java.M
 		}
 		return ret.toString();
 	}
-	
-	
-
+		
 }
