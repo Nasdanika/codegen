@@ -5,25 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory;
-import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
-import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
-import org.eclipse.emf.codegen.ecore.genmodel.generator.GenModelGeneratorAdapterFactory;
-import org.eclipse.emf.codegen.merge.java.JControlModel;
-import org.eclipse.emf.codegen.merge.java.JMerger;
-import org.eclipse.emf.codegen.merge.java.facade.FacadeHelper;
-import org.eclipse.emf.codegen.merge.java.facade.JCompilationUnit;
-import org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper;
-import org.eclipse.emf.codegen.util.CodeGenUtil;
-import org.eclipse.jdt.core.ToolFactory;
-import org.eclipse.jdt.core.formatter.CodeFormatter;
-import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.Document;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.text.edits.TextEdit;
 import org.nasdanika.codegen.gen.FileAdapter;
 import org.nasdanika.codegen.java.CompilationUnit;
-import org.nasdanika.codegen.java.JDKLevel;
 import org.nasdanika.codegen.java.gen.PackageAdapter.PackageInfo;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
@@ -34,9 +17,11 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
-import org.nasdanika.common.resources.BinaryEntity;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Merger;
+import org.nasdanika.exec.java.ImportManager;
+import org.nasdanika.exec.java.JavaMerger;
+import org.nasdanika.exec.java.SimpleImportManager;
 
 public class CompilationUnitAdapter extends FileAdapter {
 
@@ -46,62 +31,7 @@ public class CompilationUnitAdapter extends FileAdapter {
 	
 	@Override
 	protected Merger getNativeMerger(Context context) {
-		return new Merger() {
-			
-			@Override
-			public InputStream merge(Context context, BinaryEntity entity, InputStream oldContent, InputStream newContent, ProgressMonitor progressMonitor) throws Exception {
-			    JControlModel controlModel = new JControlModel();
-				
-			    // Obtaining merge rules URI.
-				// create model
-				GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
-		
-				// create adapter factory
-				GeneratorAdapterFactory adapterFactory = GenModelGeneratorAdapterFactory.DESCRIPTOR.createAdapterFactory();
-				adapterFactory.setGenerator(new org.eclipse.emf.codegen.ecore.generator.Generator());
-				adapterFactory.initialize(genModel);
-		
-				// get merge rules URI
-				String mergeRulesURI = adapterFactory.getGenerator().getOptions().mergeRulesURI;
-			    
-			    FacadeHelper facadeHelper = CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName());
-			    facadeHelper.setCompilerCompliance(context.get(JDKLevel.class).getLiteral());
-				controlModel.initialize(facadeHelper, mergeRulesURI);
-			    
-				JMerger jMerger = new JMerger(controlModel);												
-				
-				JCompilationUnit scu = jMerger.createCompilationUnitForContents(Util.toString(context, newContent));
-				jMerger.setSourceCompilationUnit(scu);
-				
-				JCompilationUnit tcu = jMerger.createCompilationUnitForContents(Util.toString(context, oldContent));
-				jMerger.setTargetCompilationUnit(tcu);
-				
-				jMerger.merge();
-				
-				return Util.toStream(context, jMerger.getTargetCompilationUnitContents());
-			}
-			
-		};
-	}
-	
-	private String formatCompilationUnit(String content) throws BadLocationException {
-		if (((CompilationUnit) target).isFormat()) {
-			CodeFormatter formatter = ToolFactory.createCodeFormatter(null); // possibly TODO - options from the configuration.
-			if (formatter != null) {
-				TextEdit formatted = formatter.format(
-						CodeFormatter.K_COMPILATION_UNIT, 
-						content, 
-						0,
-						content.length(),
-						0, 
-						System.lineSeparator());
-				
-				IDocument document = new Document(content);
-				formatted.apply(document);
-				return document.get();
-			}
-		}
-		return content;
+		return JavaMerger.INSTANCE;
 	}
 	
 	private static final String JAVA_EXTENSION = ".java";
@@ -113,47 +43,40 @@ public class CompilationUnitAdapter extends FileAdapter {
 	
 	@Override
 	protected SupplierFactory<InputStream> createContentFactory() {
-		SupplierFactory<InputStream> headerFactory = new SupplierFactory<InputStream>() {
+		SupplierFactory<InputStream> headerFactory = context -> new Supplier<InputStream>() {
 
 			@Override
-			public Supplier<InputStream> create(Context context) throws Exception {
-				return new Supplier<InputStream>() {
+			public double size() {
+				return 1;
+			}
 
-					@Override
-					public double size() {
-						return 1;
-					}
+			@Override
+			public String name() {
+				return "Package and imports declarations";
+			}
 
-					@Override
-					public String name() {
-						return "Package and imports declarations";
-					}
-
-					@Override
-					public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
-						StringBuilder contentBuilder = new StringBuilder();
-						contentBuilder
-							.append("package ")
-							.append(context.get(PackageInfo.class).getName())
-							.append(";")
-							.append(System.lineSeparator())
-							.append(System.lineSeparator());
-						
-						String lastFirstPackageSegment = null;
-						for (String ie: context.get(ImportManager.class).getImports()) {
-							int dotIdx = ie.indexOf('.');
-							String fps = ie.substring(0, dotIdx);
-							if (lastFirstPackageSegment != null && !lastFirstPackageSegment.equals(fps)) {
-								contentBuilder.append(System.lineSeparator());
-							}
-							contentBuilder.append("import ").append(ie).append(";").append(System.lineSeparator());
-						}
+			@Override
+			public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
+				StringBuilder contentBuilder = new StringBuilder();
+				contentBuilder
+					.append("package ")
+					.append(context.get(PackageInfo.class).getName())
+					.append(";")
+					.append(System.lineSeparator())
+					.append(System.lineSeparator());
+				
+				String lastFirstPackageSegment = null;
+				for (String ie: context.get(ImportManager.class).getImports()) {
+					int dotIdx = ie.indexOf('.');
+					String fps = ie.substring(0, dotIdx);
+					if (lastFirstPackageSegment != null && !lastFirstPackageSegment.equals(fps)) {
 						contentBuilder.append(System.lineSeparator());
-						
-						return Util.toStream(context, contentBuilder.toString());
 					}
-					
-				};
+					contentBuilder.append("import ").append(ie).append(";").append(System.lineSeparator());
+				}
+				contentBuilder.append(System.lineSeparator());
+				
+				return Util.toStream(context, contentBuilder.toString());
 			}
 			
 		};
@@ -177,8 +100,12 @@ public class CompilationUnitAdapter extends FileAdapter {
 					}
 
 					@Override
-					public InputStream execute(InputStream content, ProgressMonitor progressMonitor) throws Exception {
-						return Util.toStream(context, formatCompilationUnit(Util.toString(context, content)));
+					public InputStream execute(InputStream content, ProgressMonitor progressMonitor) throws Exception {						
+						String text = Util.toString(context, content);
+						if (((CompilationUnit) target).isFormat()) {
+							text = org.nasdanika.exec.java.CompilationUnit.format(text);
+						}
+						return Util.toStream(context, text);
 					}
 				};
 			}

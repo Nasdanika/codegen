@@ -9,10 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.nasdanika.codegen.java.gen
 Require-Bundle: org.nasdanika.codegen.java,
- org.eclipse.jdt.core,
- org.eclipse.emf.codegen,
- org.eclipse.emf.codegen.ecore,
- org.eclipse.jface.text,
- org.nasdanika.codegen.gen
+ org.nasdanika.codegen.gen,
+ org.nasdanika.exec;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.codegen.java.gen

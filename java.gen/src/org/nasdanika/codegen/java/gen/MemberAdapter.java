@@ -19,6 +19,7 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.exec.java.ImportManager;
 
 public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAdapter<T> {
 

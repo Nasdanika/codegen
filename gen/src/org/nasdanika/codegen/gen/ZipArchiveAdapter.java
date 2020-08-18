@@ -38,51 +38,44 @@ public class ZipArchiveAdapter extends ContentGeneratorAdapter<ZipArchive> {
 			ret.add(eAdapter);
 		}
 		return ret;
-	}	
+	}
+	
+	private FunctionFactory<BinaryEntityContainer,InputStream> streamFactory = context -> new Function<BinaryEntityContainer, InputStream>() {
+
+		@Override
+		public double size() {
+			return 1;
+		}
+
+		@Override
+		public String name() {
+			return target.getTitle() + " - archiving";
+		}
+
+		@Override
+		public InputStream execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			try (ZipOutputStream zos = new ZipOutputStream(baos)) {
+				container.store(zos, null, progressMonitor);
+			}
+			baos.close();
+			return new ByteArrayInputStream(baos.toByteArray());
+		}
+		
+	};
 
 	@Override
-	protected Supplier<InputStream> createElement(Context iContext) throws Exception {		
+	protected Supplier<InputStream> createElement(Context context) throws Exception {		
 		SupplierFactory<BinaryEntityContainer> containerFactory = new SupplierFactory<BinaryEntityContainer>() {
 
 			@Override
-			public Supplier<BinaryEntityContainer> create(Context arg) throws Exception {
+			public Supplier<BinaryEntityContainer> create(Context context) throws Exception {
 				return Supplier.from(new EphemeralBinaryEntityContainer(), "Constructor");
 			}
 			
 		};
-				
-		FunctionFactory<BinaryEntityContainer,InputStream> streamFactory = new FunctionFactory<BinaryEntityContainer, InputStream>() {
-
-			@Override
-			public Function<BinaryEntityContainer, InputStream> create(Context context) throws Exception {
-				return new Function<BinaryEntityContainer, InputStream>() {
-
-					@Override
-					public double size() {
-						return 1;
-					}
-
-					@Override
-					public String name() {
-						return target.getTitle() + " - archiving";
-					}
-
-					@Override
-					public InputStream execute(BinaryEntityContainer container, ProgressMonitor progressMonitor) throws Exception {
-						ByteArrayOutputStream baos = new ByteArrayOutputStream();
-						try (ZipOutputStream zos = new ZipOutputStream(baos)) {
-							container.store(zos, null, progressMonitor);
-						}
-						baos.close();
-						return new ByteArrayInputStream(baos.toByteArray());
-					}
-					
-				};
-			}
-			
-		};
 		
-		return containerFactory.then(createElementsConsumerFactory().asFunctionFactory()).then(streamFactory).create(iContext);
+		return containerFactory.then(createElementsConsumerFactory().asFunctionFactory()).then(streamFactory).create(context);
 	}
 
 }

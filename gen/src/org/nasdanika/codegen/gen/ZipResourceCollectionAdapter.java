@@ -27,6 +27,26 @@ public class ZipResourceCollectionAdapter extends ResourceCollectionAdapter<ZipR
 	public ZipResourceCollectionAdapter(ZipResourceCollection target) {
 		super(target);
 	}
+	
+	private ConsumerFactory<BiSupplier<BinaryEntityContainer, List<InputStream>>> extractFactory = context -> new Consumer<BiSupplier<BinaryEntityContainer,List<InputStream>>>() {
+
+		@Override
+		public double size() {
+			return 1;
+		}
+
+		@Override
+		public String name() {
+			return target.getTitle() + " - extracting";
+		}
+
+		@Override
+		public void execute(BiSupplier<BinaryEntityContainer, List<InputStream>> inputs, ProgressMonitor progressMonitor) throws Exception {
+			for (InputStream in: inputs.getSecond()) {
+				extract(context, in, inputs.getFirst(), progressMonitor);
+			}
+		}
+	};
 
 	@Override
 	protected Consumer<BinaryEntityContainer> createElement(Context iContext) throws Exception {
@@ -34,32 +54,6 @@ public class ZipResourceCollectionAdapter extends ResourceCollectionAdapter<ZipR
 		for (Generator e: target.getContent()) {
 			contentFactory.add(EObjectAdaptable.adaptToSupplierFactoryNonNull(e, InputStream.class));
 		}
-		ConsumerFactory<BiSupplier<BinaryEntityContainer, List<InputStream>>> extractFactory = new ConsumerFactory<BiSupplier<BinaryEntityContainer,List<InputStream>>>() {
-
-			@Override
-			public Consumer<BiSupplier<BinaryEntityContainer, List<InputStream>>> create(Context context) throws Exception {
-				return new Consumer<BiSupplier<BinaryEntityContainer,List<InputStream>>>() {
-
-					@Override
-					public double size() {
-						return 1;
-					}
-
-					@Override
-					public String name() {
-						return target.getTitle() + " - extracting";
-					}
-
-					@Override
-					public void execute(BiSupplier<BinaryEntityContainer, List<InputStream>> inputs, ProgressMonitor progressMonitor) throws Exception {
-						for (InputStream in: inputs.getSecond()) {
-							extract(context, in, inputs.getFirst(), progressMonitor);
-						}
-					}
-				};
-			}
-			
-		};
 		
 		FunctionFactory<BinaryEntityContainer, BiSupplier<BinaryEntityContainer, List<InputStream>>> contentFunctionFactory = contentFactory.asFunctionFactory();
 		return contentFunctionFactory.then(extractFactory).create(iContext);

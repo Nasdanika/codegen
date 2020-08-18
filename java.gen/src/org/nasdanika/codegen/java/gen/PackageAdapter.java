@@ -27,13 +27,6 @@ public class PackageAdapter extends ContainerAdapter {
 		super(target);
 	}
 	
-	public static final String PACKAGE_NAME_KEY = "package-name";
-	
-	/**
-	 * This key value contains a list of types defined in this package.
-	 */
-	public static final String PACKAGE_TYPES_KEY = "package-types";
-	
 	@Override
 	protected Consumer<BinaryEntityContainer> createElement(Context iContext) throws Exception {
 		PackageInfo parentInfo = iContext.get(PackageInfo.class);
@@ -64,6 +57,5 @@ public class PackageAdapter extends ContainerAdapter {
 	protected String finalName(String name) {
 		return name.replace('.',  '/');
 	}
-	
 
 }
