@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.codegen</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>2020.12.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- tycho requires maven >= 3.0 -->
