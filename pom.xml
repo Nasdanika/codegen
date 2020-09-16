@@ -21,12 +21,12 @@
 	<repositories>
 		<repository>
 			<id>foundation</id>
-			<url>https://www.nasdanika.org/builds/${env.RELEASE}/repositories/composite</url>
+			<url>https://nasdanika.org/builds/${env.RELEASE}/repositories/composite</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>core</id>
-			<url>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/repository</url>
+			<url>https://nasdanika.org/builds/${env.RELEASE}/products/core/repository</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
@@ -92,19 +92,19 @@
 						<link>https://picocli.info/apidocs/</link>
 
 						<!-- Core -->
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.cli/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.common/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.edit/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.presentation/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree.edit/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.eclipse/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore.edit/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ui/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.help/apidocs</link>
-						<link>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.texttospeech/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.cli/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.common/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.edit/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.emf.presentation/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.sirius.tree.edit/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.eclipse/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ncore.edit/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.ui/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.help/apidocs</link>
+						<link>https://nasdanika.org/builds/${env.RELEASE}/products/core/bundles/org.nasdanika.texttospeech/apidocs</link>
 					</links>
 				</configuration>				
 			</plugin>

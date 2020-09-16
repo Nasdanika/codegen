@@ -295,7 +295,7 @@ version(s), and exceptions or additional permissions here}.&quot;
    </license>
 
    <url>
-      <update label="Nasdanika Codegen" url="https://www.nasdanika.org/products/codegen/repository"/>
+      <update label="Nasdanika Codegen" url="https://www.nasdanika.org/master/products/codegen/repository"/>
    </url>
 
    <plugin
