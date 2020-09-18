@@ -49,7 +49,9 @@ import org.nasdanika.codegen.ZipResourceCollection;
 
 import org.nasdanika.codegen.util.CodegenValidator;
 
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.party.PartyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -323,7 +325,9 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		EngineeringPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
+		PartyPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCodegenPackage.createPackageContents();
@@ -1184,6 +1188,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+		EngineeringPackage theEngineeringPackage = (EngineeringPackage)EPackage.Registry.INSTANCE.getEPackage(EngineeringPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter generatorReferenceEClass_T = addETypeParameter(generatorReferenceEClass, "T");
@@ -1195,6 +1200,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Add supertypes to classes
 		generatorEClass.getESuperTypes().add(theNcorePackage.getEntity());
 		generatorEClass.getESuperTypes().add(theNcorePackage.getConfigurable());
+		generatorEClass.getESuperTypes().add(theEngineeringPackage.getAbstractComponent());
 		groupEClass.getESuperTypes().add(this.getGenerator());
 		resourceGeneratorEClass.getESuperTypes().add(this.getGenerator());
 		contentGeneratorEClass.getESuperTypes().add(this.getGenerator());

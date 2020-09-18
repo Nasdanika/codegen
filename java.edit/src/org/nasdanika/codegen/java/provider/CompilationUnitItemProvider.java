@@ -19,6 +19,7 @@ import org.nasdanika.codegen.java.CompilationUnit;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.provider.FileItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -176,7 +177,8 @@ public class CompilationUnitItemProvider extends FileItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.FILE__CONTENT;
+			childFeature == CodegenPackage.Literals.FILE__CONTENT ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

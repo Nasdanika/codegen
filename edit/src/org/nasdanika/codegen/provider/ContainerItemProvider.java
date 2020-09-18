@@ -16,6 +16,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Container;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -175,7 +176,8 @@ public class ContainerItemProvider extends ResourceItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
+			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Group;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -169,7 +170,8 @@ public class GroupItemProvider extends GeneratorItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS;
+			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

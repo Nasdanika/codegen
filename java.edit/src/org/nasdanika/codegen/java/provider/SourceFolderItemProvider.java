@@ -16,6 +16,7 @@ import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.provider.ContainerItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -151,7 +152,8 @@ public class SourceFolderItemProvider extends ContainerItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS;
+			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

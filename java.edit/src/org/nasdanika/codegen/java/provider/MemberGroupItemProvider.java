@@ -14,6 +14,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.java.JavaFactory;
 import org.nasdanika.codegen.java.MemberGroup;
 import org.nasdanika.codegen.provider.ContentGroupItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -163,7 +164,8 @@ public class MemberGroupItemProvider extends ContentGroupItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS;
+			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

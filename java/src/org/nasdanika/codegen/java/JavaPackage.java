@@ -105,6 +105,24 @@ public interface JavaPackage extends EPackage {
 	int SOURCE_FOLDER__CONFIGURATION = CodegenPackage.CONTAINER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__OWNERS = CodegenPackage.CONTAINER__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FOLDER__ISSUES = CodegenPackage.CONTAINER__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +268,24 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__CONFIGURATION = CodegenPackage.CONTAINER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__OWNERS = CodegenPackage.CONTAINER__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ISSUES = CodegenPackage.CONTAINER__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +420,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__CONFIGURATION = CodegenPackage.FILE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__OWNERS = CodegenPackage.FILE__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__ISSUES = CodegenPackage.FILE__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -529,6 +583,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMBER__CONFIGURATION = CodegenPackage.CONTENT_GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__OWNERS = CodegenPackage.CONTENT_GENERATOR__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ISSUES = CodegenPackage.CONTENT_GENERATOR__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -692,6 +764,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__CONFIGURATION = MEMBER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__OWNERS = MEMBER__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ISSUES = MEMBER__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -866,6 +956,24 @@ public interface JavaPackage extends EPackage {
 	int FIELD__CONFIGURATION = MEMBER__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__OWNERS = MEMBER__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ISSUES = MEMBER__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1036,6 +1144,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__CONFIGURATION = MEMBER__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__OWNERS = MEMBER__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ISSUES = MEMBER__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1219,6 +1345,24 @@ public interface JavaPackage extends EPackage {
 	int CLASS__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNERS = TYPE__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ISSUES = TYPE__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1389,6 +1533,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__CONFIGURATION = TYPE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__OWNERS = TYPE__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__ISSUES = TYPE__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1563,6 +1725,24 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__OWNERS = TYPE__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ISSUES = TYPE__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1735,6 +1915,24 @@ public interface JavaPackage extends EPackage {
 	int ENUM__CONFIGURATION = TYPE__CONFIGURATION;
 
 	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__OWNERS = TYPE__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ISSUES = TYPE__ISSUES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1905,6 +2103,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__CONFIGURATION = OPERATION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__OWNERS = OPERATION__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__ISSUES = OPERATION__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2086,6 +2302,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__CONFIGURATION = OPERATION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__OWNERS = OPERATION__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__ISSUES = OPERATION__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2276,6 +2510,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMBER_GROUP__CONFIGURATION = CodegenPackage.CONTENT_GROUP__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Owners</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__OWNERS = CodegenPackage.CONTENT_GROUP__OWNERS;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_GROUP__ISSUES = CodegenPackage.CONTENT_GROUP__ISSUES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.

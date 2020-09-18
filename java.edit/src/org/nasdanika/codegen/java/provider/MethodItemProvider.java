@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.java.JavaPackage;
 import org.nasdanika.codegen.java.Method;
 import org.nasdanika.common.Util;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -152,7 +153,8 @@ public class MethodItemProvider extends OperationItemProvider {
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == JavaPackage.Literals.MEMBER__COMMENTS ||
-			childFeature == JavaPackage.Literals.MEMBER__BODY;
+			childFeature == JavaPackage.Literals.MEMBER__BODY ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

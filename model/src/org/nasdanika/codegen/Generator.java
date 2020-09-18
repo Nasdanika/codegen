@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 
+import org.nasdanika.engineering.AbstractComponent;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 
@@ -38,7 +39,7 @@ import org.nasdanika.ncore.Entity;
  * @model abstract="true"
  * @generated
  */
-public interface Generator extends Entity, Configurable {
+public interface Generator extends Entity, Configurable, AbstractComponent {
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

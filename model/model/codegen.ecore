@@ -4,7 +4,7 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Code generation model is a hierarchy of resource generators and resource content generators.&#xA;&#xA;&#xA;&#xA;"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Entity ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable">
+  <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Entity ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable ../../org.nasdanika.engineering/model/engineering.ecore#//AbstractComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generator is the base class for model element performing code generation.&#xA;&#xA;Generator final context is constucted in the following order:&#xA;&#xA;* Iterator is processed&#xA;* If context map is not blank then iterator contexts are mapped&#xA;* If configuration elements are present they are injected into the previously constructed context&#xA;"/>
     </eAnnotations>

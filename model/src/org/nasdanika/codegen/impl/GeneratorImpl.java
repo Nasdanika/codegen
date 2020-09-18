@@ -28,6 +28,10 @@ import org.nasdanika.codegen.Generator;
 
 import org.nasdanika.codegen.util.CodegenValidator;
 
+import org.nasdanika.engineering.AbstractComponent;
+import org.nasdanika.engineering.Engineer;
+import org.nasdanika.engineering.EngineeringPackage;
+import org.nasdanika.engineering.Issue;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 
@@ -42,6 +46,8 @@ import org.nasdanika.ncore.impl.EntityImpl;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getOwners <em>Owners</em>}</li>
+ *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getIssues <em>Issues</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getIterator <em>Iterator</em>}</li>
  *   <li>{@link org.nasdanika.codegen.impl.GeneratorImpl#getContextMap <em>Context Map</em>}</li>
@@ -108,6 +114,28 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	@Override
 	public EList<EObject> getConfiguration() {
 		return (EList<EObject>)eDynamicGet(CodegenPackage.GENERATOR__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Engineer> getOwners() {
+		return (EList<Engineer>)eDynamicGet(CodegenPackage.GENERATOR__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Issue> getIssues() {
+		return (EList<Issue>)eDynamicGet(CodegenPackage.GENERATOR__ISSUES, EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES, true, true);
 	}
 
 	/**
@@ -206,6 +234,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
+			case CodegenPackage.GENERATOR__ISSUES:
+				return ((InternalEList<?>)getIssues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -220,6 +250,10 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return getConfiguration();
+			case CodegenPackage.GENERATOR__OWNERS:
+				return getOwners();
+			case CodegenPackage.GENERATOR__ISSUES:
+				return getIssues();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled();
 			case CodegenPackage.GENERATOR__ITERATOR:
@@ -242,6 +276,14 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				getConfiguration().clear();
 				getConfiguration().addAll((Collection<? extends EObject>)newValue);
+				return;
+			case CodegenPackage.GENERATOR__OWNERS:
+				getOwners().clear();
+				getOwners().addAll((Collection<? extends Engineer>)newValue);
+				return;
+			case CodegenPackage.GENERATOR__ISSUES:
+				getIssues().clear();
+				getIssues().addAll((Collection<? extends Issue>)newValue);
 				return;
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled((Boolean)newValue);
@@ -267,6 +309,12 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				getConfiguration().clear();
 				return;
+			case CodegenPackage.GENERATOR__OWNERS:
+				getOwners().clear();
+				return;
+			case CodegenPackage.GENERATOR__ISSUES:
+				getIssues().clear();
+				return;
 			case CodegenPackage.GENERATOR__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -290,6 +338,10 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 		switch (featureID) {
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 				return !getConfiguration().isEmpty();
+			case CodegenPackage.GENERATOR__OWNERS:
+				return !getOwners().isEmpty();
+			case CodegenPackage.GENERATOR__ISSUES:
+				return !getIssues().isEmpty();
 			case CodegenPackage.GENERATOR__ENABLED:
 				return isEnabled() != ENABLED_EDEFAULT;
 			case CodegenPackage.GENERATOR__ITERATOR:
@@ -313,6 +365,13 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractComponent.class) {
+			switch (derivedFeatureID) {
+				case CodegenPackage.GENERATOR__OWNERS: return EngineeringPackage.ABSTRACT_COMPONENT__OWNERS;
+				case CodegenPackage.GENERATOR__ISSUES: return EngineeringPackage.ABSTRACT_COMPONENT__ISSUES;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -326,6 +385,13 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 		if (baseClass == Configurable.class) {
 			switch (baseFeatureID) {
 				case NcorePackage.CONFIGURABLE__CONFIGURATION: return CodegenPackage.GENERATOR__CONFIGURATION;
+				default: return -1;
+			}
+		}
+		if (baseClass == AbstractComponent.class) {
+			switch (baseFeatureID) {
+				case EngineeringPackage.ABSTRACT_COMPONENT__OWNERS: return CodegenPackage.GENERATOR__OWNERS;
+				case EngineeringPackage.ABSTRACT_COMPONENT__ISSUES: return CodegenPackage.GENERATOR__ISSUES;
 				default: return -1;
 			}
 		}

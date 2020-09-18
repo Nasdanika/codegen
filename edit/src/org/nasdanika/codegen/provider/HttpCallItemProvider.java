@@ -17,6 +17,7 @@ import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.HttpCall;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.NcorePackage;
 
@@ -322,6 +323,7 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.HTTP_CALL__BODY ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
 			childFeature == CodegenPackage.Literals.HTTP_CALL__HEADERS;
 
 		if (qualify) {

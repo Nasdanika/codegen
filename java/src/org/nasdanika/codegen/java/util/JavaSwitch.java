@@ -26,6 +26,7 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
+import org.nasdanika.engineering.AbstractComponent;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
@@ -99,6 +100,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(sourceFolder);
 				if (result == null) result = caseEntity(sourceFolder);
 				if (result == null) result = caseConfigurable(sourceFolder);
+				if (result == null) result = caseAbstractComponent(sourceFolder);
 				if (result == null) result = caseModelElement(sourceFolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -114,6 +116,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(package_);
 				if (result == null) result = caseEntity(package_);
 				if (result == null) result = caseConfigurable(package_);
+				if (result == null) result = caseAbstractComponent(package_);
 				if (result == null) result = caseModelElement(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -128,6 +131,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(compilationUnit);
 				if (result == null) result = caseEntity(compilationUnit);
 				if (result == null) result = caseConfigurable(compilationUnit);
+				if (result == null) result = caseAbstractComponent(compilationUnit);
 				if (result == null) result = caseModelElement(compilationUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -140,6 +144,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(member);
 				if (result == null) result = caseEntity(member);
 				if (result == null) result = caseConfigurable(member);
+				if (result == null) result = caseAbstractComponent(member);
 				if (result == null) result = caseModelElement(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,6 +158,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(type);
 				if (result == null) result = caseEntity(type);
 				if (result == null) result = caseConfigurable(type);
+				if (result == null) result = caseAbstractComponent(type);
 				if (result == null) result = caseModelElement(type);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -166,6 +172,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(field);
 				if (result == null) result = caseEntity(field);
 				if (result == null) result = caseConfigurable(field);
+				if (result == null) result = caseAbstractComponent(field);
 				if (result == null) result = caseModelElement(field);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -179,6 +186,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(operation);
 				if (result == null) result = caseEntity(operation);
 				if (result == null) result = caseConfigurable(operation);
+				if (result == null) result = caseAbstractComponent(operation);
 				if (result == null) result = caseModelElement(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -193,6 +201,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(class_);
 				if (result == null) result = caseEntity(class_);
 				if (result == null) result = caseConfigurable(class_);
+				if (result == null) result = caseAbstractComponent(class_);
 				if (result == null) result = caseModelElement(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -207,6 +216,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(interface_);
 				if (result == null) result = caseEntity(interface_);
 				if (result == null) result = caseConfigurable(interface_);
+				if (result == null) result = caseAbstractComponent(interface_);
 				if (result == null) result = caseModelElement(interface_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -221,6 +231,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(annotation);
 				if (result == null) result = caseEntity(annotation);
 				if (result == null) result = caseConfigurable(annotation);
+				if (result == null) result = caseAbstractComponent(annotation);
 				if (result == null) result = caseModelElement(annotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -235,6 +246,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(enum_);
 				if (result == null) result = caseEntity(enum_);
 				if (result == null) result = caseConfigurable(enum_);
+				if (result == null) result = caseAbstractComponent(enum_);
 				if (result == null) result = caseModelElement(enum_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -249,6 +261,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(constructor);
 				if (result == null) result = caseEntity(constructor);
 				if (result == null) result = caseConfigurable(constructor);
+				if (result == null) result = caseAbstractComponent(constructor);
 				if (result == null) result = caseModelElement(constructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -263,6 +276,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(method);
 				if (result == null) result = caseEntity(method);
 				if (result == null) result = caseConfigurable(method);
+				if (result == null) result = caseAbstractComponent(method);
 				if (result == null) result = caseModelElement(method);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -276,6 +290,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGenerator(memberGroup);
 				if (result == null) result = caseEntity(memberGroup);
 				if (result == null) result = caseConfigurable(memberGroup);
+				if (result == null) result = caseAbstractComponent(memberGroup);
 				if (result == null) result = caseModelElement(memberGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -536,6 +551,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConfigurable(Configurable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractComponent(AbstractComponent object) {
 		return null;
 	}
 

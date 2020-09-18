@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.ContentGroup;
 
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -127,7 +128,8 @@ public class ContentGroupItemProvider extends GroupItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS;
+			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

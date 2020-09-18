@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.codegen.Mustache;
 
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -120,7 +121,8 @@ public class MustacheItemProvider extends FilterItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == CodegenPackage.Literals.FILTER__GENERATORS;
+			childFeature == CodegenPackage.Literals.FILTER__GENERATORS ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
 
 		if (qualify) {
 			return getString

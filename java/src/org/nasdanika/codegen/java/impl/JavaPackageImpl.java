@@ -25,7 +25,9 @@ import org.nasdanika.codegen.java.Method;
 import org.nasdanika.codegen.java.Operation;
 import org.nasdanika.codegen.java.SourceFolder;
 import org.nasdanika.codegen.java.Type;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.party.PartyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -189,6 +191,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Initialize simple dependencies
 		CodegenPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
+		EngineeringPackage.eINSTANCE.eClass();
+		PartyPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJavaPackage.createPackageContents();

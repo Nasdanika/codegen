@@ -6,7 +6,9 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.nasdanika.engineering.provider.EngineeringEditPlugin;
 import org.nasdanika.ncore.provider.NcoreEditPlugin;
+import org.nasdanika.party.provider.PartyEditPlugin;
 
 /**
  * This is the central singleton for the Codegen edit plugin.
@@ -40,7 +42,9 @@ public final class CodegenEditPlugin extends EMFPlugin {
 	public CodegenEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     EngineeringEditPlugin.INSTANCE,
 		     NcoreEditPlugin.INSTANCE,
+		     PartyEditPlugin.INSTANCE,
 		   });
 	}
 

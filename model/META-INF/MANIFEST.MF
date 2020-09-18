@@ -12,7 +12,7 @@ Export-Package: org.nasdanika.codegen,
  org.nasdanika.codegen.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.nasdanika.ncore;bundle-version="0.1.0";visibility:=reexport
+ org.nasdanika.engineering;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.codegen
 Bundle-Activator: org.nasdanika.codegen.util.Activator
