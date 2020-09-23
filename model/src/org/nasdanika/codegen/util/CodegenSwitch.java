@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.*;
 import org.nasdanika.engineering.AbstractComponent;
+import org.nasdanika.engineering.ComponentCategoryElement;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
@@ -76,6 +77,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(generator);
 				if (result == null) result = caseAbstractComponent(generator);
 				if (result == null) result = caseModelElement(generator);
+				if (result == null) result = caseComponentCategoryElement(generator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +89,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(group);
 				if (result == null) result = caseAbstractComponent(group);
 				if (result == null) result = caseModelElement(group);
+				if (result == null) result = caseComponentCategoryElement(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,6 +101,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceGenerator);
 				if (result == null) result = caseAbstractComponent(resourceGenerator);
 				if (result == null) result = caseModelElement(resourceGenerator);
+				if (result == null) result = caseComponentCategoryElement(resourceGenerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,6 +113,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentGenerator);
 				if (result == null) result = caseAbstractComponent(contentGenerator);
 				if (result == null) result = caseModelElement(contentGenerator);
+				if (result == null) result = caseComponentCategoryElement(contentGenerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,6 +133,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resource);
 				if (result == null) result = caseAbstractComponent(resource);
 				if (result == null) result = caseModelElement(resource);
+				if (result == null) result = caseComponentCategoryElement(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,6 +148,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(file);
 				if (result == null) result = caseAbstractComponent(file);
 				if (result == null) result = caseModelElement(file);
+				if (result == null) result = caseComponentCategoryElement(file);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +164,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(container);
 				if (result == null) result = caseAbstractComponent(container);
 				if (result == null) result = caseModelElement(container);
+				if (result == null) result = caseComponentCategoryElement(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,6 +178,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceGroup);
 				if (result == null) result = caseAbstractComponent(resourceGroup);
 				if (result == null) result = caseModelElement(resourceGroup);
+				if (result == null) result = caseComponentCategoryElement(resourceGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,6 +192,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentGroup);
 				if (result == null) result = caseAbstractComponent(contentGroup);
 				if (result == null) result = caseModelElement(contentGroup);
+				if (result == null) result = caseComponentCategoryElement(contentGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,6 +205,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(freeMarkerGenerator);
 				if (result == null) result = caseAbstractComponent(freeMarkerGenerator);
 				if (result == null) result = caseModelElement(freeMarkerGenerator);
+				if (result == null) result = caseComponentCategoryElement(freeMarkerGenerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,6 +218,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentReference);
 				if (result == null) result = caseAbstractComponent(contentReference);
 				if (result == null) result = caseModelElement(contentReference);
+				if (result == null) result = caseComponentCategoryElement(contentReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,6 +231,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(filter);
 				if (result == null) result = caseAbstractComponent(filter);
 				if (result == null) result = caseModelElement(filter);
+				if (result == null) result = caseComponentCategoryElement(filter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,6 +245,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(interpolator);
 				if (result == null) result = caseAbstractComponent(interpolator);
 				if (result == null) result = caseModelElement(interpolator);
+				if (result == null) result = caseComponentCategoryElement(interpolator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,6 +259,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(mustache);
 				if (result == null) result = caseAbstractComponent(mustache);
 				if (result == null) result = caseModelElement(mustache);
+				if (result == null) result = caseComponentCategoryElement(mustache);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,6 +273,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(zipArchive);
 				if (result == null) result = caseAbstractComponent(zipArchive);
 				if (result == null) result = caseModelElement(zipArchive);
+				if (result == null) result = caseComponentCategoryElement(zipArchive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +285,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(generatorReference);
 				if (result == null) result = caseAbstractComponent(generatorReference);
 				if (result == null) result = caseModelElement(generatorReference);
+				if (result == null) result = caseComponentCategoryElement(generatorReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -282,6 +299,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceGeneratorReference);
 				if (result == null) result = caseAbstractComponent(resourceGeneratorReference);
 				if (result == null) result = caseModelElement(resourceGeneratorReference);
+				if (result == null) result = caseComponentCategoryElement(resourceGeneratorReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -295,6 +313,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentGeneratorReference);
 				if (result == null) result = caseAbstractComponent(contentGeneratorReference);
 				if (result == null) result = caseModelElement(contentGeneratorReference);
+				if (result == null) result = caseComponentCategoryElement(contentGeneratorReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -307,6 +326,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceCollection);
 				if (result == null) result = caseAbstractComponent(resourceCollection);
 				if (result == null) result = caseModelElement(resourceCollection);
+				if (result == null) result = caseComponentCategoryElement(resourceCollection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,6 +340,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(bundleResourceCollection);
 				if (result == null) result = caseAbstractComponent(bundleResourceCollection);
 				if (result == null) result = caseModelElement(bundleResourceCollection);
+				if (result == null) result = caseComponentCategoryElement(bundleResourceCollection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -333,6 +354,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(zipResourceCollection);
 				if (result == null) result = caseAbstractComponent(zipResourceCollection);
 				if (result == null) result = caseModelElement(zipResourceCollection);
+				if (result == null) result = caseComponentCategoryElement(zipResourceCollection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -345,6 +367,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(httpCall);
 				if (result == null) result = caseAbstractComponent(httpCall);
 				if (result == null) result = caseModelElement(httpCall);
+				if (result == null) result = caseComponentCategoryElement(httpCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -357,6 +380,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(text);
 				if (result == null) result = caseAbstractComponent(text);
 				if (result == null) result = caseModelElement(text);
+				if (result == null) result = caseComponentCategoryElement(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -368,6 +392,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(generatorAdapter);
 				if (result == null) result = caseAbstractComponent(generatorAdapter);
 				if (result == null) result = caseModelElement(generatorAdapter);
+				if (result == null) result = caseComponentCategoryElement(generatorAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -381,6 +406,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceGeneratorAdapter);
 				if (result == null) result = caseAbstractComponent(resourceGeneratorAdapter);
 				if (result == null) result = caseModelElement(resourceGeneratorAdapter);
+				if (result == null) result = caseComponentCategoryElement(resourceGeneratorAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -394,6 +420,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentGeneratorAdapter);
 				if (result == null) result = caseAbstractComponent(contentGeneratorAdapter);
 				if (result == null) result = caseModelElement(contentGeneratorAdapter);
+				if (result == null) result = caseComponentCategoryElement(contentGeneratorAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -405,6 +432,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(generatorLink);
 				if (result == null) result = caseAbstractComponent(generatorLink);
 				if (result == null) result = caseModelElement(generatorLink);
+				if (result == null) result = caseComponentCategoryElement(generatorLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -418,6 +446,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(resourceGeneratorLink);
 				if (result == null) result = caseAbstractComponent(resourceGeneratorLink);
 				if (result == null) result = caseModelElement(resourceGeneratorLink);
+				if (result == null) result = caseComponentCategoryElement(resourceGeneratorLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -431,6 +460,7 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseConfigurable(contentGeneratorLink);
 				if (result == null) result = caseAbstractComponent(contentGeneratorLink);
 				if (result == null) result = caseModelElement(contentGeneratorLink);
+				if (result == null) result = caseComponentCategoryElement(contentGeneratorLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -915,6 +945,21 @@ public class CodegenSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseConfigurable(Configurable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component Category Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component Category Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseComponentCategoryElement(ComponentCategoryElement object) {
 		return null;
 	}
 

@@ -29,7 +29,8 @@ import org.nasdanika.codegen.Generator;
 import org.nasdanika.codegen.util.CodegenValidator;
 
 import org.nasdanika.engineering.AbstractComponent;
-import org.nasdanika.engineering.Engineer;
+import org.nasdanika.engineering.AbstractEngineer;
+import org.nasdanika.engineering.ComponentCategoryElement;
 import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.engineering.Issue;
 import org.nasdanika.ncore.Configurable;
@@ -123,8 +124,8 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Engineer> getOwners() {
-		return (EList<Engineer>)eDynamicGet(CodegenPackage.GENERATOR__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
+	public EList<AbstractEngineer> getOwners() {
+		return (EList<AbstractEngineer>)eDynamicGet(CodegenPackage.GENERATOR__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
 	}
 
 	/**
@@ -279,7 +280,7 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				return;
 			case CodegenPackage.GENERATOR__OWNERS:
 				getOwners().clear();
-				getOwners().addAll((Collection<? extends Engineer>)newValue);
+				getOwners().addAll((Collection<? extends AbstractEngineer>)newValue);
 				return;
 			case CodegenPackage.GENERATOR__ISSUES:
 				getIssues().clear();
@@ -365,6 +366,11 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 				default: return -1;
 			}
 		}
+		if (baseClass == ComponentCategoryElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractComponent.class) {
 			switch (derivedFeatureID) {
 				case CodegenPackage.GENERATOR__OWNERS: return EngineeringPackage.ABSTRACT_COMPONENT__OWNERS;
@@ -385,6 +391,11 @@ public abstract class GeneratorImpl extends EntityImpl implements Generator {
 		if (baseClass == Configurable.class) {
 			switch (baseFeatureID) {
 				case NcorePackage.CONFIGURABLE__CONFIGURATION: return CodegenPackage.GENERATOR__CONFIGURATION;
+				default: return -1;
+			}
+		}
+		if (baseClass == ComponentCategoryElement.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
