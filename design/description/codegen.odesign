@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="codegen" version="12.0.0.2017041100">
   <ownedViewpoints name="CodegenViewPoint" label="Codegen" modelFileExtension="codegen">
+    <ownedJavaExtensions qualifiedClassName="org.nasdanika.codegen.design.Services"/>
     <ownedRepresentations xsi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" documentation="Representation which uses Adapter Factory Tree Content Provider to represent model element content as a tree." name="codegenAdapterFactoryTree" label="Codegen Adapter Factory Tree" initialisation="true" editorId="org.nasdanika.codegen.presentation.CodegenAdapterFactoryTreeEditor.ID">
       <metamodel href="urn:org.nasdanika.ncore#/"/>
       <metamodel href="urn:org.nasdanika.codegen#/"/>
       <metamodel href="urn:org.nasdanika.codegen.java#/"/>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.nasdanika.codegen.design.Services"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="codegen_rules_properties">
     <metamodels href="urn:org.nasdanika.codegen#/"/>
     <metamodels href="urn:org.nasdanika.codegen.java#/"/>
     <categories name="Default">
-      <pages name="codegen_default_rules_defaultpage" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="codegen_default_rules_description_page" labelExpression="Description" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasDescription()" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="codegen_default_rules_markdown_page" labelExpression="Markdown" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasMarkdown()" groups="//@extensions.0/@categories.0/@groups.3"/>
-      <pages name="codegen_default_rules_html_page" labelExpression="HTML" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasHtml()" groups="//@extensions.0/@categories.0/@groups.2"/>
-      <pages name="codegen_default_rules_code_page" labelExpression="Code" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasCode()" groups="//@extensions.0/@categories.0/@groups.4"/>
-      <pages name="codegen_default_rules_image_page" labelExpression="Image" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasImage()" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="codegen_default_rules_defaultpage" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource()" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="codegen_default_rules_description_page" labelExpression="Description" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource() and self.hasDescription()" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="codegen_default_rules_markdown_page" labelExpression="Markdown" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource() and self.hasMarkdown()" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="codegen_default_rules_html_page" labelExpression="HTML" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource() and self.hasHtml()" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="codegen_default_rules_code_page" labelExpression="Code" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource() and self.hasCode()" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="codegen_default_rules_image_page" labelExpression="Image" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="aql:self.isCodegenResource() and self.hasImage()" groups="//@extensions.0/@categories.0/@groups.5"/>
       <groups name="codegen_default_rules_defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
         <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
           <ifs name="codegen_rules_mono_string_select_if" predicateExpression="aql:self.isSelect(input.emfEditServices(self),eStructuralFeature) and input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
