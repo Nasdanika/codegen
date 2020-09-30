@@ -19,7 +19,7 @@ public class Activator implements BundleActivator {
 	public static final Palette RESOURCES_PALETTE = Palette.Registry.INSTANCE.create(
 			"org.nasdanika.codegen:resources",
 			"Resources",
-			"Resources - files, folders, packages, compilation units.");
+			"Resources - files, folders, packages, compilation units.", true);
 
 	/**
 	 * Generators of file content. 
@@ -27,7 +27,7 @@ public class Activator implements BundleActivator {
 	public static final Palette CONTENT_GENERATORS_PALETTE = Palette.Registry.INSTANCE.create(
 			"org.nasdanika.codegen:content-generators",
 			"Content",
-			"Generators of file content");
+			"Generators of file content", true);
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
