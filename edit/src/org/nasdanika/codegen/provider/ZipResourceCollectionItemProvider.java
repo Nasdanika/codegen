@@ -174,7 +174,8 @@ public class ZipResourceCollectionItemProvider extends ResourceCollectionItemPro
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.ZIP_RESOURCE_COLLECTION__CONTENT ||
-			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES;
 
 		if (qualify) {
 			return getString

@@ -324,6 +324,7 @@ public class HttpCallItemProvider extends GeneratorItemProvider {
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.HTTP_CALL__BODY ||
 			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES ||
 			childFeature == CodegenPackage.Literals.HTTP_CALL__HEADERS;
 
 		if (qualify) {

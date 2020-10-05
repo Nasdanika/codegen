@@ -132,13 +132,22 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR__ISSUES = NcorePackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RELEASES = NcorePackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ENABLED = NcorePackage.ENTITY_FEATURE_COUNT + 3;
+	int GENERATOR__ENABLED = NcorePackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Iterator</b></em>' attribute.
@@ -147,7 +156,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ITERATOR = NcorePackage.ENTITY_FEATURE_COUNT + 4;
+	int GENERATOR__ITERATOR = NcorePackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Context Map</b></em>' attribute.
@@ -156,7 +165,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CONTEXT_MAP = NcorePackage.ENTITY_FEATURE_COUNT + 5;
+	int GENERATOR__CONTEXT_MAP = NcorePackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -165,7 +174,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 6;
+	int GENERATOR_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -248,6 +257,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__ISSUES = GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__RELEASES = GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -377,6 +395,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR__ISSUES = GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR__RELEASES = GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -493,6 +520,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_GENERATOR__ISSUES = GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR__RELEASES = GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -650,6 +686,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE__ISSUES = RESOURCE_GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__RELEASES = RESOURCE_GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -793,6 +838,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE__ISSUES = RESOURCE__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__RELEASES = RESOURCE__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -949,6 +1003,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTAINER__ISSUES = RESOURCE__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__RELEASES = RESOURCE__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1103,6 +1166,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GROUP__ISSUES = GROUP__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GROUP__RELEASES = GROUP__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1230,6 +1302,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GROUP__ISSUES = GROUP__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GROUP__RELEASES = GROUP__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1355,6 +1436,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int FREE_MARKER_GENERATOR__ISSUES = CONTENT_GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FREE_MARKER_GENERATOR__RELEASES = CONTENT_GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1502,6 +1592,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_REFERENCE__ISSUES = CONTENT_GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__RELEASES = CONTENT_GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1638,6 +1737,15 @@ public interface CodegenPackage extends EPackage {
 	int FILTER__ISSUES = CONTENT_GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__RELEASES = CONTENT_GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1763,6 +1871,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPOLATOR__ISSUES = FILTER__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPOLATOR__RELEASES = FILTER__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1892,6 +2009,15 @@ public interface CodegenPackage extends EPackage {
 	int MUSTACHE__ISSUES = FILTER__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MUSTACHE__RELEASES = FILTER__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2017,6 +2143,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZIP_ARCHIVE__ISSUES = CONTENT_GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_ARCHIVE__RELEASES = CONTENT_GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2146,6 +2281,15 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_REFERENCE__ISSUES = GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_REFERENCE__RELEASES = GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2271,6 +2415,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR_REFERENCE__ISSUES = GENERATOR_REFERENCE__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_REFERENCE__RELEASES = GENERATOR_REFERENCE__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2400,6 +2553,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_REFERENCE__ISSUES = GENERATOR_REFERENCE__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_REFERENCE__RELEASES = GENERATOR_REFERENCE__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2525,6 +2687,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_COLLECTION__ISSUES = RESOURCE_GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_COLLECTION__RELEASES = RESOURCE_GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2706,6 +2877,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUNDLE_RESOURCE_COLLECTION__ISSUES = RESOURCE_COLLECTION__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_RESOURCE_COLLECTION__RELEASES = RESOURCE_COLLECTION__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2898,6 +3078,15 @@ public interface CodegenPackage extends EPackage {
 	int ZIP_RESOURCE_COLLECTION__ISSUES = RESOURCE_COLLECTION__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZIP_RESOURCE_COLLECTION__RELEASES = RESOURCE_COLLECTION__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3086,6 +3275,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int HTTP_CALL__ISSUES = CONTENT_GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_CALL__RELEASES = CONTENT_GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -3278,6 +3476,15 @@ public interface CodegenPackage extends EPackage {
 	int TEXT__ISSUES = CONTENT_GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__RELEASES = CONTENT_GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3414,6 +3621,15 @@ public interface CodegenPackage extends EPackage {
 	int GENERATOR_ADAPTER__ISSUES = GENERATOR__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ADAPTER__RELEASES = GENERATOR__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3539,6 +3755,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_GENERATOR_ADAPTER__ISSUES = GENERATOR_ADAPTER__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_ADAPTER__RELEASES = GENERATOR_ADAPTER__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -3668,6 +3893,15 @@ public interface CodegenPackage extends EPackage {
 	int CONTENT_GENERATOR_ADAPTER__ISSUES = GENERATOR_ADAPTER__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_ADAPTER__RELEASES = GENERATOR_ADAPTER__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3793,6 +4027,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LINK__ISSUES = GENERATOR__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LINK__RELEASES = GENERATOR__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -3922,6 +4165,15 @@ public interface CodegenPackage extends EPackage {
 	int RESOURCE_GENERATOR_LINK__ISSUES = GENERATOR_LINK__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_GENERATOR_LINK__RELEASES = GENERATOR_LINK__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4047,6 +4299,15 @@ public interface CodegenPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_GENERATOR_LINK__ISSUES = GENERATOR_LINK__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_GENERATOR_LINK__RELEASES = GENERATOR_LINK__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.

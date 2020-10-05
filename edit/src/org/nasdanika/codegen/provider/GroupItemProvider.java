@@ -171,7 +171,8 @@ public class GroupItemProvider extends GeneratorItemProvider {
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.GROUP__ELEMENTS ||
-			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES;
 
 		if (qualify) {
 			return getString

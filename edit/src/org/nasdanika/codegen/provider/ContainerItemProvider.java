@@ -177,7 +177,8 @@ public class ContainerItemProvider extends ResourceItemProvider {
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
 			childFeature == CodegenPackage.Literals.RESOURCE_CONTAINER__ELEMENTS ||
-			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES;
 
 		if (qualify) {
 			return getString

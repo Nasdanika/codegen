@@ -240,6 +240,7 @@ public class GeneratorItemProvider extends EntityItemProvider {
 				return;
 			case CodegenPackage.GENERATOR__CONFIGURATION:
 			case CodegenPackage.GENERATOR__ISSUES:
+			case CodegenPackage.GENERATOR__RELEASES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -276,7 +277,8 @@ public class GeneratorItemProvider extends EntityItemProvider {
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES;
 
 		if (qualify) {
 			return getString

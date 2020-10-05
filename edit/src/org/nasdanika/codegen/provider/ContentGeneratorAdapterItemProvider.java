@@ -124,7 +124,8 @@ public class ContentGeneratorAdapterItemProvider extends GeneratorAdapterItemPro
 
 		boolean qualify =
 			childFeature == NcorePackage.Literals.CONFIGURABLE__CONFIGURATION ||
-			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES;
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES ||
+			childFeature == EngineeringPackage.Literals.ABSTRACT_COMPONENT__RELEASES;
 
 		if (qualify) {
 			return getString
