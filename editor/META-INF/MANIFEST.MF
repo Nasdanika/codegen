@@ -18,7 +18,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Export-Package: org.nasdanika.codegen.presentation
 Bundle-Name: %pluginName
-Bundle-Version: 2021.1.0.qualifier
+Bundle-Version: 2021.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: org.nasdanika.codegen.presentation.CodegenEditorPlugin$Implementation
