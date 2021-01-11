@@ -2,7 +2,7 @@
 <feature
       id="org.nasdanika.codegen.tests.feature"
       label="Nasdanika Codegen Tests and model documentation generation"
-      version="2020.12.0.qualifier">
+      version="2021.3.0.qualifier">
 
    <description>
       Tests and demos of Nasdanika HTML functionality.
