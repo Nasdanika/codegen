@@ -24,7 +24,7 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.ncore.AbstractEntry;
 
 public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implements SupplierFactory<InputStream> {
@@ -79,7 +79,7 @@ public class HttpCallAdapter extends ContentGeneratorAdapter<HttpCall> implement
 	}
 	
 	protected InputStream call(Context context, Map<String, Object> headers, InputStream body, ProgressMonitor progressMonitor) throws Exception {				
-		URL url = EmfUtil.resolveReference(target.eResource(), context.interpolateToString(target.getUrl()));
+		URL url = EmfUtilEx.resolveReference(target.eResource(), context.interpolateToString(target.getUrl()));
 		URLConnection connection = url.openConnection();
 		if (!(connection instanceof HttpURLConnection)) {
 			throw new IllegalArgumentException("Not an HTTP(s) url: "+url);

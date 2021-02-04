@@ -9,7 +9,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 
 public class ContentReferenceAdapter extends ContentGeneratorAdapter<ContentReference> implements SupplierFactory<InputStream> {
 
@@ -33,7 +33,7 @@ public class ContentReferenceAdapter extends ContentGeneratorAdapter<ContentRefe
 
 			@Override
 			public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
-				URL content = EmfUtil.resolveReference(target.eResource(), iContext.interpolateToString(target.getRef()));
+				URL content = EmfUtilEx.resolveReference(target.eResource(), iContext.interpolateToString(target.getRef()));
 				return target.isInterpolate() ? Util.filter(iContext, content.openStream(), iContext::interpolateToString) : content.openStream();
 			}
 			

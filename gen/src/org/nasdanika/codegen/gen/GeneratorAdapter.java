@@ -24,7 +24,7 @@ import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.ncore.AbstractEntry;
 import org.yaml.snakeyaml.Yaml;
 
@@ -183,7 +183,7 @@ public abstract class GeneratorAdapter<T extends Generator> {
 		}
 		
 		// Treating spec as a relative URL
-		URL ref = EmfUtil.resolveReference(target.eResource(), context.interpolateToString(String.valueOf(spec)));
+		URL ref = EmfUtilEx.resolveReference(target.eResource(), context.interpolateToString(String.valueOf(spec)));
 		Yaml yaml = new Yaml();
 		return map(context, yaml.load(ref.openStream()));
 	}

@@ -7,7 +7,7 @@ Bundle-Vendor: Nasdanika
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.fusesource.jansi;bundle-version="1.18.0",
- org.nasdanika.emf;bundle-version="1.0.0",
+ org.nasdanika.emf.ext;bundle-version="1.0.0",
  org.nasdanika.codegen;bundle-version="0.2.0",
  org.nasdanika.codegen.java;bundle-version="0.1.0"
 Export-Package: org.nasdanika.codegen.cli

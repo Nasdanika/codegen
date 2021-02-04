@@ -1,6 +1,6 @@
 package org.nasdanika.codegen.cli;
 
-import org.nasdanika.cli.BundleVersionProvider;
+import org.nasdanika.cli.ext.BundleVersionProvider;
 
 public class CodegenBundleVersionProvider extends BundleVersionProvider {
 	
