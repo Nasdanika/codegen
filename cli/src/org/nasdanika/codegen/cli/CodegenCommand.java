@@ -6,6 +6,7 @@ import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
@@ -107,5 +108,16 @@ public class CodegenCommand extends ModelCommand<Generator> {
 
 		EObjectAdaptable.adaptToConsumerFactoryNonNull(generator, BinaryEntityContainer.class).create(generationContext).execute(output, monitor);
 	}
+	
+	/**
+	 * Creates a {@link ResourceSet} with all known packages registered and with {@link XMIResourceFactoryImpl}
+	 * @return
+	 */
+	@Override
+	protected ResourceSet createEmptyResourceSet() {		
+		ResourceSet resourceSet = super.createEmptyResourceSet();
+		org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(resourceSet);
+		return resourceSet;
+	}		
 
 }
