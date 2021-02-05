@@ -2,11 +2,14 @@ package org.nasdanika.codegen.cli;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.nasdanika.cli.ContextBuilder;
+import org.nasdanika.cli.ext.ConfigurableContextBuildersMixIn;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
@@ -21,6 +24,7 @@ import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.ModelCommand;
 
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
 
 @Command(
@@ -67,6 +71,16 @@ public class CodegenCommand extends ModelCommand<Generator> {
 				};
 			}
 		};
+	}
+	
+	@Mixin
+	private ConfigurableContextBuildersMixIn configurableContextBuildersMixIn;	
+	
+	@Override
+	protected Collection<ContextBuilder> getContextBuilders() {
+		Collection<ContextBuilder> ret = super.getContextBuilders();
+		ret.add(configurableContextBuildersMixIn);
+		return ret;
 	}
 	
 	protected String getName() {
