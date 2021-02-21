@@ -51,7 +51,7 @@ public abstract class MemberAdapter<T extends Member> extends ContentGeneratorAd
 
 				@Override
 				public InputStream execute(ProgressMonitor progressMonitor) throws Exception {
-					return Util.toStream(context, context.interpolateToString(MarkdownHelper.INSTANCE.markdownToHtml(target.getComment())));
+					return Util.toStream(context, context.interpolateToString(context.get(MarkdownHelper.class).markdownToHtml(target.getComment())));
 				}
 				
 			};
